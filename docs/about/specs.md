@@ -25,6 +25,20 @@ The job scheduler is SGE 8.1.9 ([Son of Grid Engine]) which provides [queues]({{
 ### Compute Nodes
 
 The majority of the compute nodes have Intel processors, while a few have AMD processes.  Each compute node has a local `/scratch` drive (see above for size), which is either a hard disk drive (HDD), a solid state drive (SSD), or even a Non-Volatile Memory Express (NVMe) drive. Each node has a tiny `/tmp` drive ({{ site.data.specs.local_tmp_size_min }}-{{ site.data.specs.local_tmp_size_max }} GiB).
+
+Node      |  # Cores |      CPU  |       RAM | Local `/scratch/` | Notes                        | Priority
+----------|---------:|----------:|----------:|-----------------:|------------------------------|-----------
+c4-n1     |       64 |   2.1 GHz |   512 GiB |           1.8 TiB | SSD /scratch                | (communal)
+c4-n2     |       64 |   2.1 GHz |   512 GiB |           1.8 TiB | SSD /scratch                | (communal)
+c4-n3     |       64 |   2.1 GHz |   512 GiB |           1.8 TiB | SSD /scratch                | (communal)
+c4-n4     |       64 |   2.1 GHz |   512 GiB |           1.8 TiB | SSD /scratch                | (communal)
+c4-n5     |       64 |   2.1 GHz |   512 GiB |           2.6 TiB | SSD /scratch                | (communal)
+c4-n6     |       64 |   2.2 GHz |   768 GiB |          11.0 TiB | NVMe /scratch               | Witte Lab
+c4-n7     |       64 |   2.2 GHz |   768 GiB |          11.0 TiB | NVMe /scratch               | Witte Lab
+c4-n8     |       64 |   2.2 GHz |   768 GiB |          11.0 TiB | NVMe /scratch               | Witte Lab
+c4-n9     |       64 |   2.2 GHz |   768 GiB |          11.0 TiB | NVMe /scratch               | Witte Lab
+c4-n10    |       64 |   2.1 GHz |   512 GiB |           1.8 TiB |                             | (communal)
+
 <!--
 For additional details on the compute nodes, see the <a href="#details">Details</a> section below.
 -->
