@@ -33,10 +33,10 @@ c4-n2     |       64 |   2.1 GHz |   512 GiB |           1.8 TiB | SSD /scratch 
 c4-n3     |       64 |   2.1 GHz |   512 GiB |           1.8 TiB | SSD /scratch                | (communal)
 c4-n4     |       64 |   2.1 GHz |   512 GiB |           1.8 TiB | SSD /scratch                | (communal)
 c4-n5     |       64 |   2.1 GHz |   512 GiB |           2.6 TiB | SSD /scratch                | (communal)
-c4-n6     |       64 |   2.2 GHz |   768 GiB |          11.0 TiB | NVMe /scratch               | Witte Lab
-c4-n7     |       64 |   2.2 GHz |   768 GiB |          11.0 TiB | NVMe /scratch               | Witte Lab
-c4-n8     |       64 |   2.2 GHz |   768 GiB |          11.0 TiB | NVMe /scratch               | Witte Lab
-c4-n9     |       64 |   2.2 GHz |   768 GiB |          11.0 TiB | NVMe /scratch               | Witte Lab
+c4-n6     |      112 |   2.2 GHz |   768 GiB |          11.0 TiB | NVMe /scratch               | Witte Lab
+c4-n7     |      112 |   2.2 GHz |   768 GiB |          11.0 TiB | NVMe /scratch               | Witte Lab
+c4-n8     |      112 |   2.2 GHz |   768 GiB |          11.0 TiB | NVMe /scratch               | Witte Lab
+c4-n9     |      112 |   2.2 GHz |   768 GiB |          11.0 TiB | NVMe /scratch               | Witte Lab
 c4-n10    |       64 |   2.1 GHz |   512 GiB |           1.8 TiB |                             | (communal)
 
 <!--
