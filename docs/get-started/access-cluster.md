@@ -3,14 +3,12 @@
 </div>
 
 <div class="alert alert-warning" role="alert" style="margin-top: 3ex">
-Starting <span style="text-decoration: line-through">September 15, 2020</span> (postponed), <strong>access to {{ site.cluster.name }} from outside of the UCSF network requires two-factor authentication (2FA).</strong>
-If you are on the UCSF VPN, you have already authenticated and no further 2FA is required.
-In all other cases, you will be prompted to authenticate through a Wynton-specific 2FA method when SSH:ing directly to the cluster.  See <a href="{{ '/get-started/duo-signup.html' | relative_url }}">Two-Factor Authentication for SSH</a> for instructions.
+Access to C4 is only available from the UCSF network. If you are outside the UCSF network you must first connect via th UCSF VPN.
 </div>
 
 # Login
 
-To access the {{ site.cluster.name }} cluster you need an account - any UCSF affiliate can get an [account]({{ '/about/join.html' | relative_url }}).  Anyone with a {{ site.cluster.name }} account, can access the cluster via _Secure Shell (SSH)_.
+To access the C4 cluster you need an account - any UCSF Cancer Center member can get an account upon request.  Anyone with a C4 account, can access the cluster via _Secure Shell (SSH)_.
 
 
 ## Prerequisites
@@ -19,7 +17,7 @@ The instructions below requires:
 
 * An SSH client available on your local computer
 
-* A {{ site.cluster.name }} account with valid authentication credentials
+* A C4 account with valid authentication credentials
 
 Users on Linux and macOS have an SSH client built-in, which is available from the terminal as `ssh`.  Users on Microsoft Windows 10 or newer also have a built-in SSH client, which is available from the command line as `ssh`.
 
@@ -29,12 +27,13 @@ Another alternative, which some might find easier, is to connect to the cluster 
 
 ## Instructions
 
-To log into the cluster, assuming your user name on {{ site.cluster.name }} is `alice` (case sensitive), do the following:
+To log into the cluster, assuming your user name on C4 is `alice` (case sensitive), do the following:
 
 1. Open a terminal (called 'Terminal' on macOS and most Linux distributions, and 'Command Prompt' on Windows 10),
 
-2. at the terminal prompt, type `ssh alice@{{ site.login.hostname }}` and press <kbd>ENTER</kbd>, and
-3. when prompted, enter your {{ site.cluster.name }} password.
+2. C4 has two login servers, c4-log1.ucsf.edu & c4-log2.ucsf.edu. Using one of these:
+3. at the terminal prompt, type `ssh alice@c4log1` and press <kbd>ENTER</kbd>, and
+4. when prompted, enter your C4 password.
 
 
 ### Example
@@ -42,13 +41,13 @@ To log into the cluster, assuming your user name on {{ site.cluster.name }} is `
 When logging in from your local computer, you should see something like:
 
 ```sh
-{local}$ ssh alice@{{ site.login.hostname }}
-alice1@{{ site.login.hostname }}:s password: XXXXXXXXXXXXXXXXXXX
-[alice@{{ site.login.name }} ~]$ 
+{local}$ ssh alice@c4-log1
+alice1@c4-log1:s password: XXXXXXXXXXXXXXXXXXX
+[alice@c4-log1 ~]$ 
 ```
 
 
-If you get `Permission denied, please try again.` when you enter your password, make sure you use the correct {{ site.cluster.name }} username (case sensitive) and the correct password.
+If you get `Permission denied, please try again.` when you enter your password, make sure you use the correct C4 username (case sensitive) and the correct password.
 
 <div class="alert alert-info" role="alert">
 It is possible to set up password-less authentication via a public-private SSH key pair.  For details, see the how-to page <a href="{{ 'howto/log-in-without-pwd.html' | relative_url }}">Log in without Password</a>.
@@ -62,11 +61,11 @@ The login node is dedicated solely to very basic tasks such as copying and movin
 
 # Logout
 
-Like for all Unix-based system, to log out from {{ site.cluster.name }}, type `exit` or `logout` (standard Unix commands) and press <kbd>ENTER</kbd>.  For example,
+Like for all Unix-based system, to log out from C4, type `exit` or `logout` (standard Unix commands) and press <kbd>ENTER</kbd>.  For example,
 
 ```sh
-[alice@{{ site.login.name }} ~]$ exit
-Connection to {{ site.login.hostname }} closed.
+[alice@c4-log1 ~]$ exit
+Connection to c4-log1 closed.
 {local}$ 
 ```
 
@@ -76,5 +75,3 @@ An alternative is to press <kbd>Ctrl-D</kbd> (sends "End-Of-File" [EOF]) at the 
 Any shell session that has been idle for more than 24 hours will timeout and exit automatically.
 </div>
 
-
-[development node]: {{ '/get-started/development-prototyping.html' | relative_url }}
