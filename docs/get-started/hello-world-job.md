@@ -17,7 +17,7 @@ The most common way of running compute tasks on the C4 cluster, consists of:
 
 4. looking at the results, e.g. output data files and text logs.
 
-The C4 cluster uses [SLURM] as its scheduler.  SLURM provides command `sbatch` to submit a script ("job") and command `squeue --user=your_c4-username` to check the status of your jobs. SLURM also provides a way to run a job interactively called `srun`.
+The C4 cluster uses [SLURM] as its scheduler.  [SLURM] provides command  [sbatch] to submit a script ("job") and command `squeue --user=your_c4-username` to check the status of your jobs. SLURM also provides a way to run a job interactively called `srun`.
 
 
 <div class="alert alert-info" role="alert" style="margin-top: 3ex">
@@ -64,7 +64,7 @@ When submitting a job, the scheduler assigned the job an identifier ("job id"). 
 
 Eventually, when the job script finished, `squeue` will no longer list it (if you have no other jobs on the queue, `squeue` will not output anything).
 
-So where is the output of the job?  Since we used no sbatch options, the output ends up in the cwd as slurm-11915.out:
+So where is the output of the job?  Since we used no [sbatch] options, the output ends up in the cwd as slurm-11915.out:
 ```sh
 [alice@c4-dev1 tests]$ cat slurm-11915.out
 Hello world, I am running on node c4-n1
