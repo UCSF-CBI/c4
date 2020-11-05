@@ -1,3 +1,5 @@
+<!-- Propose we eliminate this page. HGP 2020-11-05 -->
+
 <div class="alert alert-info" role="alert">
 <strong>Contributions to the {{ site.cluster.name }} environment are non-expiring, e.g. contribute once and keep it for life!</strong>
 </div>

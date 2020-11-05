@@ -1,3 +1,6 @@
+<!-- Propose we eliminate this page. HGP 2020-11-05 -->
+
+
 <div class="alert alert-info" role="alert" style="margin-top: 3ex; margin-bottom: 3ex;">
 {% assign progress = site.data.storage_requests.storage_request | times: 100 | divided_by: site.data.storage_requests.storage_per_brick %}
 {% assign remain = site.data.storage_requests.storage_per_brick | minus: site.data.storage_requests.storage_request %}

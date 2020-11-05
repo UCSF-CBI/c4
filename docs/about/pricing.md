@@ -1,3 +1,5 @@
+<!--> 2020-11-04 HGP Suggest we lose this page. -->
+
 <div class="alert alert-danger" role="alert">
 2018-10-06: This is a mockup page with mockup information.
 </div>

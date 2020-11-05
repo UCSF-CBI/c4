@@ -2,37 +2,32 @@
 
 ## Grant Applications
 
-Below are a few examples on how to give details on the {{ site.cluster.name }} environment in a grant application.  _The node and CPU cores counts are updated on a regular basis._
+Below are a few examples on how to give details on the C4 environment in a grant application.  _The node and CPU cores counts are updated on a regular basis._
 
 ### Example 1
 
-> {{ site.cluster.name }} is a distributed high-performance computing cluster with nodes
-> in many different data centers on the UCSF campus.  All {{ site.cluster.name }} sites are
-> connected by multiple 40 Gbps network connections.  {{ site.cluster.name }} currently
-> contains {{ site.data.specs.nodes }} nodes with over
-> {{ site.data.specs.physical_cores }} CPU cores.
-> RAM in the nodes ranges from {{ site.data.specs.ram_min }} to
-> {{ site.data.specs.ram_max }} GiB with an average RAM-to-core ratio of over 10 GiB.
-> There are also {{ site.data.specs.gpu_nodes}} nodes containing a total of
-> {{ site.data.specs.gpus }} GPUs.
-> Storage is provided by a parallel filesystem providing 400 TB of mirrored
-> home space and 500 TB of global scratch space.
+> C4 is a distributed high-performance computing cluster with nodes
+> in Helen Diller Family Comprehensive Cancer Center data center on the UCSF campus.
+> C4 currently contains 10 nodes with over 384 CPU cores.
+> RAM in the nodes ranges from 512 to 768 GiB with 
+> an average RAM-to-core ratio of over 15 GiB.
+> Storage is provided by a combination of NFS and parallel filesystems 
+> providing home space and 200 TB of global scratch space. $HOME directories
+> are backed up to tape nightly.
 >
-> {{ site.cluster.nickname }} is shared by many research groups at UCSF.  Load balancing on the
-> cluster is achieved through SGE (originally Sun Grid Engine). The
-> computing power of the cluster guaranteed to any given research group is
-> directly proportional to the funds that the group contributed to the
-> cluster. The balance of the computing power not used by the contributors
-> is available to other registered groups (including other contributors) on
-> a first-come, first-served basis.
+> C4 is shared by Cancer Center members at UCSF.  Load balancing on the
+> cluster is achieved through SLURM. All users are welcome to use the common
+> partition for running jobs. Resources from the common partition are assigned
+> on a first come first served basis. A number of Labs own "Condo" compute nodes
+> which are assigned to dedicated partitions for those labs. In addition to global
+> scratch many labs also own their own NFS storage nodes for their own use.
 
 
 ### Example 2
 
-> {{ site.cluster.name }} is a computational research cluster shared by investigators at
-> UCSF.  The cluster is run as a co-op, with access for all and priority
-> given to those who have contributed funds or hardware.  Support is
-> also provided by UCSF Research IT.  The cluster currently consists of
-> {{ site.data.specs.nodes }} nodes with {{ site.data.specs.physical_cores }} cores.
-> Each node has at least {{ site.data.specs.ram_min }} GiB of RAM and
-> total home storage is {{ site.data.specs.home_size_total }} TiB.
+> C4 is a computational research cluster shared by Cancer Center members at
+> UCSF.  The cluster is run as a combination co-op and Condo farm. Any user
+> is free to use the common partition made up of communal compute nodes.
+> Labs may also purchase private Condo nodes strictly for their own use.  
+> The cluster currently consists of 10 nodes with 384 cores.
+> Each node has at least 512 GiB of RAM and total home storage is 200 TiB.
