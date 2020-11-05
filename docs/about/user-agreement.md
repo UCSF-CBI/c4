@@ -1,15 +1,18 @@
-# {{ site.cluster.name }} User Agreement and Disclaimer
+<!-- Needs review -->
 
-By using {{ site.cluster.name }}, you agree to abide by the statement of its [Purpose, Principles and Governance]({{ '/about/governance.html' | relative_url }}).
+# C4 User Agreement and Disclaimer
 
-Users who wish to access protected data such as Protected Health Information (PHI) are required to log into node(s) that implement enhanced security such as additional access restrictions and/or relevant HIPAA compliance measures.
+By using C4, you agree to abide by the statement of its [Purpose, Principles and Governance]({{ '/about/governance.html' | relative_url }}).
 
-Because IT security requirements, operating systems, and hardware are continually evolving, difficult situations may arise in the future. For example, it is possible that future requirements imposed by UCOP or UCSF concerning PHI data would in turn negatively impact on the ability of the cluster to serve its founding purpose, as defined in the [Governance document]({{ '/about/governance.html' | relative_url }}). In such a case, the Steering Committee may roll back configurational changes or otherwise re-configure the cluster, so that the founding needs are still satisfied, even if that occurs at the expense of some applications. Therefore, while every effort will continue to be made to maximize the number of applications, it is impossible to guarantee that once supported applications will always remain supported. If a rollback is required the {{ site.organization.name }} OPS team and Shared Compute governance will make it a priority to stand up a separate cluster supporting the required functionality.
+C4 is not currently set up for high level data security. Using the classification standard set out in UCSF policy 650, only P1 & P2 data are allowed on C4. Please note that any HIPAA, PHI, or de-identified versions of HIPAA of PHI are P3 or greater and therefore not allowed on C4.
+Please see the policy for details: (https://it.ucsf.edu/standard-guideline/ucsf-policy-650-16-addendum-f-ucsf-data-classification-standard)
 
-Use of the {{ site.cluster.name }} cluster is subject to UCSF's policy on [Authorized and Acceptable Use of Electronic Information Resources](https://policies.ucsf.edu/policy/650-18).
+The security configuration for C4 can change without notice based on policies and standards put forth by UCSF IT. 
+
+Use of the C4 cluster is subject to UCSF's policy on [Authorized and Acceptable Use of Electronic Information Resources](https://policies.ucsf.edu/policy/650-18).
 
 
-The {{ site.organization.name }} OPS team is tasked with implementing the policies established by the Faculty Steering Committee and with ensuring that the cluster runs effectively and efficiently. Users agree not to attempt to circumvent policies nor avoid restrictions imposed by the {{ site.organization.name }} OPS team.  
+The C4 OPS team is tasked with implementing the policies established by UCSF IT Security and with ensuring that the cluster runs effectively and efficiently. Users agree not to attempt to circumvent policies nor avoid restrictions imposed by the C4 OPS team.  
 
 Under no circumstances are users to share their account and password with others.
 
