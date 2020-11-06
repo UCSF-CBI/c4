@@ -17,7 +17,7 @@ The most common way of running compute tasks on the C4 cluster, consists of:
 
 4. looking at the results, e.g. output data files and text logs.
 
-The C4 cluster uses [SLURM] as its scheduler.  [SLURM] provides command  [sbatch] to submit a script ("job") and command `squeue --user=your_c4-username` to check the status of your jobs. SLURM also provides a way to run a job interactively called `srun`.
+The C4 cluster uses [Slurm] as its scheduler.  [Slurm] provides command  [sbatch] to submit a script ("job") and command `squeue --user=your_c4-username` to check the status of your jobs. Slurm also provides a way to run a job interactively called `srun`.
 
 
 <div class="alert alert-info" role="alert" style="margin-top: 3ex">
@@ -75,7 +75,7 @@ Wed Nov  4 14:10:47 PST 2020
 There is of course nothing preventing us from submitting the same script multiple times.  If done, each submission will result in the script be launched on a compute node and a unique log file `slumrm-<job_id>` will be outputted.  Please try that and see what `squeue` outputs.   Now, you may want to pass different arguments to your script each time, e.g. each job should process a different input data file.  For information on how to do this, see the [Submit Jobs] page.
 
 
-[SLURM]: https://slurm.schedmd.com/documentation.html
+[Slurm]: https://slurm.schedmd.com/documentation.html
 [compute nodes]: {{ '/about/specs.html' | relative_url }}
 [Submit Jobs]: {{ '/scheduler/submit-jobs.html' | relative_url }}
 
