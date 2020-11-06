@@ -57,9 +57,9 @@ Submitted batch job 11915
 
 When submitting a job, the scheduler assigned the job an identifier ("job id").  In the above example, the job id is '11915'.  Immediately after the job has been submitted and launched on c4-n1;
 ```sh
-[alice@c4-dev1 tests]$ squeue -u hputnam
+[alice@c4-dev1 tests]$ squeue -u "$USER"
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON) 
-             11915    common hello_wo  hputnam  R       0:03      1 c4-n1 
+             11915    common hello_wo    alice  R       0:03      1 c4-n1 
 ```
 
 Eventually, when the job script finished, `squeue` will no longer list it (if you have no other jobs on the queue, `squeue` will not output anything).
