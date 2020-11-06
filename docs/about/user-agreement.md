@@ -5,7 +5,7 @@
 By using C4, you agree to abide by the statement of its [Purpose, Principles and Governance]({{ '/about/governance.html' | relative_url }}).
 
 C4 is not currently set up for high level data security. Using the classification standard set out in UCSF policy 650, only P1 & P2 data are allowed on C4. Please note that any HIPAA, PHI, or de-identified versions of HIPAA of PHI are P3 or greater and therefore not allowed on C4.
-Please see the policy for details: (https://it.ucsf.edu/standard-guideline/ucsf-policy-650-16-addendum-f-ucsf-data-classification-standard)
+Please see the policy for details: <https://it.ucsf.edu/standard-guideline/ucsf-policy-650-16-addendum-f-ucsf-data-classification-standard>
 
 The security configuration for C4 can change without notice based on policies and standards put forth by UCSF IT. 
 
