@@ -48,19 +48,41 @@ _Starting September 1, 2020_
 
 ### Storage
 
-* [x] Mount some _existing_ TIPCC storage 
-   - [x] `/home`   - TIPCC home folders
-   - [x] `/backup` - Weekly rsync backup of TIPCC home folders
+* [x] Mount _existing_ TIPCC storage 
+   - [x] TIPCC `/home`   - TIPCC home folders (C4 home folders are under `/c4/home`)
+   - [x] TIPCC `/backup` - Weekly rsync backup of TIPCC home folders
+   - [x] TIPCC `/data`   - TIPCC legacy data folders
+   - [x] TIPCC `/work`   - TIPCC global "scratch"
+
+* [ ] Mount _existing_ TIPCC lab storage
+   - [ ] `/bastianlab/data1`
+   - [ ] `/bivonalab/data1`
+   - [ ] `/blellochlab/data1`
+   - [ ] `/cbc`
+   - [x] `/cbc2/data1`
+   - [x] `/cbc2/data2`
+   - [x] `/cbc2/data3`
+   - [x] `/cbc2/teachy`
+   - [ ] `/costellolab/data1`
+   - [ ] `/costellolab/data2`
+   - [x] `/diazlab/data1`
+   - [ ] `/diazlab/data2`
+   - [ ] `/diazlab/data3`
+   - [ ] `/francislab/data1`
+   - [ ] `/okadalab/data1`
+   - [ ] `/okadalab/data2`
+   - [ ] `/krummellab/data1`
+   - [ ] `/kriegsteinlab/data1`
+   - [ ] `/kriegsteinlab/data2`
+   - [x] `/sblab`
+   - [ ] `/wittelab/data1`
+   - [ ] `/wittelab/data2`
+   - [ ] `/zivlab/data1`
+   - [ ] `/zivlab/data2`
+   - [ ] `/zivlab/data3`
 
 * [ ] Mount _new_ lab storage (not available on TIPCC)
    - [x] `/wittelab/data[3-6]`
-
-* [ ] Mount some _existing_ TIPCC lab storage
-   - [x] `/blellochlab/data1`
-   - [ ] `/cbc`
-   - [x] `/cbc2/data[1-3]`
-   - [x] `/diazlab/data[2-3]`
-   - [x] `/francislab/data1`
 
 
 ### Backup

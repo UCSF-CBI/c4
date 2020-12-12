@@ -40,24 +40,24 @@ _Hint_: To create this file, make sure that the folder exists first.  If doesn't
 
 Although not critical for the job scheduler, it is always convenient to set the file permission on this script file to be executable, e.g.
 ```sh
-[alice@c4-dev1 ~]$ cd tests/
-[alice@c4-dev1 tests]$ chmod ugo+x hello_world
+[alice@{{ site.devel.name }} ~]$ cd tests/
+[alice@{{ site.devel.name }} tests]$ chmod ugo+x hello_world
 ```
 This, in combination with the so called "she-bang" (`#! ...`) on the first line, allows you call the script just any other software, e.g.
 ```sh
-[alice@c4-dev1 tests]$ ./hello_world
-Hello world, I am running on node c4-dev1.
+[alice@{{ site.devel.name }} tests]$ ./hello_world
+Hello world, I am running on node {{ site.devel.name }}.
 Mon Aug 28 16:31:29 PDT 2017
 ```
 Note how it takes ten seconds between the `Hello world` message and the time stamp.  We have now confirm that the shell script does what we expect it to do, and we are ready to submit it to the job queue of the scheduler.  To do this, do:
 ```sh
-[alice@c4-dev1 tests]$ sbatch hello_world
+[alice@{{ site.devel.name }} tests]$ sbatch hello_world
 Submitted batch job 11915
 ```
 
 When submitting a job, the scheduler assigned the job an identifier ("job id").  In the above example, the job id is '11915'.  Immediately after the job has been submitted and launched on c4-n1;
 ```sh
-[alice@c4-dev1 tests]$ squeue -u "$USER"
+[alice@{{ site.devel.name }} tests]$ squeue -u "$USER"
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON) 
              11915    common hello_wo    alice  R       0:03      1 c4-n1 
 ```
@@ -66,10 +66,10 @@ Eventually, when the job script finished, `squeue` will no longer list it (if yo
 
 So where is the output of the job?  Since we used no [sbatch] options, the output ends up in the cwd as slurm-11915.out:
 ```sh
-[alice@c4-dev1 tests]$ cat slurm-11915.out
+[alice@{{ site.devel.name }} tests]$ cat slurm-11915.out
 Hello world, I am running on node c4-n1
 Wed Nov  4 14:10:47 PST 2020
-[alice@c4-dev1 tests]$ 
+[alice@{{ site.devel.name }} tests]$ 
 ```
 
 There is of course nothing preventing us from submitting the same script multiple times.  If done, each submission will result in the script be launched on a compute node and a unique log file `slumrm-<job_id>` will be outputted.  Please try that and see what `squeue` outputs.   Now, you may want to pass different arguments to your script each time, e.g. each job should process a different input data file.  For information on how to do this, see the [Submit Jobs] page.
