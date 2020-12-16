@@ -87,3 +87,4 @@ Note that this storage is shared among all group members and does _not_ count to
 -->
 
 We are currently not enforcing hard quotas for /c4/home or /c4/scratch. We may do so in the future if space becomes an issue. Please do your part my removing unneeded files as you can. Remember the /c4 storage is not meant for long term storage of data. It is fine to store programming work , scripts, etc. long term.
+
