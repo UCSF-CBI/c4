@@ -6,7 +6,7 @@
 
 # {{ site.cluster.name }} Compute and Storage Pricing
 
-The {{ site.cluster.name }} cluster combines both communal and lab-owned comopute & storage resources. Any user is free to use the /c4/home and /c4/scratch storage at no cost. /c4/home is backed up to tape and restores are avaialbe upon requtest. We have a common partition made up of communal compute nodes that any user is free to run jobs on. Many of our Labs have also purchased their own storage and compute nodes. The storage nodes are mounted on the cluster but their use is resrtricted to the Lab who purchased them. Similarly, some of our Labs have purchased compute nodes. These nodes make up private partitions. The use of those partitions are restricted to the purchasing labs.
+The {{ site.cluster.name }} cluster combines both communal and lab-owned compute & storage resources. Any user is free to use the /c4/home and /c4/scratch storage at no cost. /c4/home is backed up to tape and restores are available upon request. We have a common partition made up of communal compute nodes that any user is free to run jobs on. Many of our Labs have also purchased their own storage and compute nodes. The storage nodes are mounted on the cluster but their use is restricted to the Lab who purchased them. Similarly, some of our Labs have purchased compute nodes. These nodes make up private partitions. The use of those partitions are restricted to the purchasing labs.
 
 <!--| Description                                          | Free | Compute contributor | Storage contributor
 |------------------------------------------------------|:----:|:-------------------:|:-------------------:
