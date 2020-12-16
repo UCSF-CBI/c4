@@ -55,31 +55,31 @@ _Starting September 1, 2020_
    - [x] TIPCC `/work`   - TIPCC global "scratch"
 
 * [ ] Mount _existing_ TIPCC lab storage
-   - [ ] `/bastianlab/data1`
-   - [ ] `/bivonalab/data1`
-   - [ ] `/blellochlab/data1`
-   - [ ] `/cbc`
+   - [x] `/bastianlab/data1`
+   - [x] `/bivonalab/data1`
+   - [x] `/blellochlab/data1`
+   - [x] `/cbc`
    - [x] `/cbc2/data1`
    - [x] `/cbc2/data2`
    - [x] `/cbc2/data3`
    - [x] `/cbc2/teachy`
-   - [ ] `/costellolab/data1`
-   - [ ] `/costellolab/data2`
+   - [x] `/costellolab/data1`
+   - [x] `/costellolab/data2`
    - [x] `/diazlab/data1`
-   - [ ] `/diazlab/data2`
-   - [ ] `/diazlab/data3`
-   - [ ] `/francislab/data1`
-   - [ ] `/okadalab/data1`
-   - [ ] `/okadalab/data2`
-   - [ ] `/krummellab/data1`
-   - [ ] `/kriegsteinlab/data1`
-   - [ ] `/kriegsteinlab/data2`
+   - [x] `/diazlab/data2`
+   - [x] `/diazlab/data3`
+   - [x] `/francislab/data1`
+   - [x] `/okadalab/data1`
+   - [x] `/okadalab/data2`
+   - [x] `/krummellab/data1`
+   - [x] `/kriegsteinlab/data1`
+   - [x] `/kriegsteinlab/data2`
    - [x] `/sblab`
-   - [ ] `/wittelab/data1`
-   - [ ] `/wittelab/data2`
-   - [ ] `/zivlab/data1`
-   - [ ] `/zivlab/data2`
-   - [ ] `/zivlab/data3`
+   - [x] `/wittelab/data1`
+   - [x] `/wittelab/data2`
+   - [x] `/zivlab/data1`
+   - [x] `/zivlab/data2`
+   - [x] `/zivlab/data3`
 
 * [ ] Mount _new_ lab storage (not available on TIPCC)
    - [x] `/wittelab/data[3-6]`
@@ -137,11 +137,11 @@ _Starting September 1, 2020_
 
 * [ ] Password aging
 
-* [ ] Set up LDAP for account management
+* [x] Set up LDAP for account management
 
-### Storage
+<!---### Storage
 
-* [ ] Mount more _existing_ lab storage on TIPCC also on C4
+* [ ] Mount more _existing_ lab storage on TIPCC also on C4 -->
 
 ### Miscellaneous
 
@@ -169,7 +169,7 @@ _Starting September 1, 2020_
 
 ### Miscellaneous
 
-* [ ] [Globus] endpoint on C4 for fast file transfers to and from participating organization
+* [x] [Globus] endpoint on C4 for fast file transfers to and from participating organization
 
 
 
@@ -202,9 +202,9 @@ _Starting September 1, 2020_
 
 * Login: 2 login nodes (June 2020)
 
-* Development: Added two development nodes (2020-08-13)
+* Development: Added threedevelopment nodes (2020-08-13)
 
-* Compute nodes: 5 communal/common compute nodes (5*32=160 physical cores).
+* Compute nodes: 6 communal/common compute nodes (6*32=192 physical cores).
 
 * Software: Replicate the core software that is installed on [Wynton HPC] on development and compute nodes (2020-08-19)
 
