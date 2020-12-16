@@ -12,17 +12,17 @@ Any shell session that has been idle for more than 24 hours will timeout and exi
 
 ## List of Development Nodes
 
- * c4-dev1
- * c4-dev2
- * c4-dev3 (future)
+ * {{ site.dev1.name }}
+ * {{ site.dev2.name }}
+ * {{ site.dev3.name }}
 
 ## Instructions
 
-To access one of the _development node_, say, c4-dev1,
+To access one of the _development node_, say, {{ site.devel.hostname }},
 
 1. make sure you are [logged in to the cluster], and
 
-2. type `ssh c4-dev1` and press <kbd>ENTER</kbd>.
+2. type `ssh {{ site.devel.hostname }}` and press <kbd>ENTER</kbd>.
 
 
 ### Example
@@ -30,9 +30,9 @@ To access one of the _development node_, say, c4-dev1,
 From one of the login nodes, do:
 
 ```sh
-[alice@c4-log1 ~]$ ssh c4-dev1
-alice1@c4-dev1:s password: XXXXXXXXXXXXXXXXXXX
-[alice@c4-dev1 ~]$ 
+[alice@{{ site.login.name }} ~]$ ssh {{ site.devel.name }}
+alice@{{ site.devel.name }}:s password: XXXXXXXXXXXXXXXXXXX
+[alice@{{ site.devel.name }} ~]$ 
 ```
 
 <div class="alert alert-info" role="alert" style="margin-top: 3ex">

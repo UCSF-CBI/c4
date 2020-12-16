@@ -219,3 +219,6 @@ HDFCCC
 Olshen
 rsync
 Witte
+cwd
+sbatch
+slurm

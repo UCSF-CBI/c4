@@ -31,8 +31,8 @@ To log into the cluster, assuming your user name on C4 is `alice` (case sensitiv
 
 1. Open a terminal (called 'Terminal' on macOS and most Linux distributions, and 'Command Prompt' on Windows 10),
 
-2. C4 has two login servers, c4-log1.ucsf.edu & c4-log2.ucsf.edu. Using one of these:
-3. at the terminal prompt, type `ssh alice@c4log1` and press <kbd>ENTER</kbd>, and
+2. C4 has two login servers, {{ site.login1.hostname }} and {{ site.login1.hostname }}. Using one of these:
+3. at the terminal prompt, type `ssh alice@{{ site.login.hostname }}` and press <kbd>ENTER</kbd>, and
 4. when prompted, enter your C4 password.
 
 
@@ -41,9 +41,9 @@ To log into the cluster, assuming your user name on C4 is `alice` (case sensitiv
 When logging in from your local computer, you should see something like:
 
 ```sh
-{local}$ ssh alice@c4-log1
-alice1@c4-log1:s password: XXXXXXXXXXXXXXXXXXX
-[alice@c4-log1 ~]$ 
+{local}$ ssh alice@{{ site.login.hostname }}
+alice1@{{ site.login.name }}:s password: XXXXXXXXXXXXXXXXXXX
+[alice@{{ site.login.name }} ~]$
 ```
 
 
@@ -64,8 +64,8 @@ The login node is dedicated solely to very basic tasks such as copying and movin
 Like for all Unix-based system, to log out from C4, type `exit` or `logout` (standard Unix commands) and press <kbd>ENTER</kbd>.  For example,
 
 ```sh
-[alice@c4-log1 ~]$ exit
-Connection to c4-log1 closed.
+[alice@{{ site.login.name }} ~]$ exit
+Connection to {{ site.login.hostname }} closed.
 {local}$ 
 ```
 

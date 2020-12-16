@@ -1,14 +1,20 @@
 {
 	"ignorePatterns": [
-		{
-			"pattern": "^https://www.cgl.ucsf.edu/admin/"
-		}
+	    {
+		"pattern": "^https://www.cgl.ucsf.edu/admin/"
+            },
+            {
+		"pattern": "^https://listsrv.ucsf.edu/cgi-bin/wa[?]A0=wynton-help"
+            },
+            {
+		"pattern": "^https://github.com/UCSF-CBI/c4-help"
+	    }
 	],
     
 	"replacementPatterns": [
 		{
-			"pattern": "^.attachments",
-			"replacement": "file://some/conventional/folder/.attachments"
+		    "pattern": "^.attachments",
+		    "replacement": "file://some/conventional/folder/.attachments"
 		}
 	],
     

@@ -16,7 +16,7 @@ Below are a few examples on how to give details on the C4 environment in a grant
 > are backed up to tape nightly.
 >
 > C4 is shared by Cancer Center members at UCSF.  Load balancing on the
-> cluster is achieved through SLURM. All users are welcome to use the common
+> cluster is achieved through Slurm. All users are welcome to use the common
 > partition for running jobs. Resources from the common partition are assigned
 > on a first come first served basis. A number of Labs own "Condo" compute nodes
 > which are assigned to dedicated partitions for those labs. In addition to global
