@@ -18,7 +18,7 @@
 ## Software environment
 
 All nodes on the cluster runs [CentOS] 7 which is updated on a regular basis.
-The job scheduler is SLURM 20.02 ([Son of Grid Engine]) which provides [queues]({{ '/scheduler/queues.html' | relative_url }}) for both communal and lab-priority tasks.
+The job scheduler is SLURM 20.02 ([Simple Linux Utility for Resource Management ]) which provides [partitions]({{ '/scheduler/queues.html' | relative_url }}) for both communal and lab-priority tasks.
 
 ## Hardware
 
@@ -59,9 +59,9 @@ The [cluster can be accessed]({{ '/get-started/access-cluster.html' | relative_u
 For transferring large data files, it is recommended to use one of the dedicate data transfer nodes:
 
 1. `{{ site.transfer1.hostname }}`
-2. `{{ site.transfer2.hostname }}`
+<!--2. `{{ site.transfer2.hostname }}`-->
 
-which both has a 10 Gbps connection - providing a file transfer speed of up to (theoretical) 1.25 GB/s = 4.5 TB/h.  As for the login nodes, the transfer nodes can be accessed via SSH.
+which has a 10 Gbps connection - providing a file transfer speed of up to (theoretical) 1.25 GB/s = 4.5 TB/h.  Please note, as is true for all ethernet, 80% of line speed is doing pretty good. As for the login nodes, the transfer nodes can be accessed via SSH.
 
 _Comment_: You can also transfer data via the login nodes, but since those only have 1 Gbps connections, you will see much lower transfer rates.
 
@@ -75,9 +75,9 @@ Node                        | Physical Cores |      RAM | Local `/scratch` |    
 {{ site.dev1.hostname }}    |              8 |   16 GiB |         0.11 TiB | Intel Xeon E5430 2.66GHz      |                    |
 {{ site.dev2.hostname }}    |             32 |  512 GiB |         1.1  TiB | Intel Xeon E5-2640 v3 2.60GHz |                    |
 {{ site.dev3.hostname }}    |             12 |   64 GiB |         3.6  TiB | Intel Xeon E5-2640 v3 2.60GHz(?) |                    |
-{{ site.gpudev1.hostname }} |             12 |   48 GiB |         0.37 TiB | Intel Xeon X5650 2.67GHz      | GeForce GTX 980 Ti |
+<!--{{ site.gpudev1.hostname }} |             12 |   48 GiB |         0.37 TiB | Intel Xeon X5650 2.67GHz      | GeForce GTX 980 Ti | -->
 
-_Comment:_ Please use the GPU development node only if you need to build or prototype GPU software.
+<!--_Comment:_ Please use the GPU development node only if you need to build or prototype GPU software.-->
 <!-- The development nodes have Intel Xeon CPU E5430 @ 2.66 GHz processors. and local solid state drives (SSDs). -->
 
 
@@ -97,12 +97,12 @@ There are no per-user quotas in these scratch spaces.  **Files not added or modi
 
 Each user may use up to 1 TiB disk space in the home directory.  It is _not_ possible to expand user's home directory.  Many Labs have purchased their own storage servers which were then mounted on the cluster. If you'd like more information please contact Adam Olshen or Harry Putnam.
 
-<div class="alert alert-info" role="alert" style="margin-top: 3ex; margin-bottom: 3ex;">
+<!--<div class="alert alert-info" role="alert" style="margin-top: 3ex; margin-bottom: 3ex;">
 While waiting to receive purchased storage, users may use the global scratch space, which is "unlimited" in size with the important limitation that files older than two weeks will be deleted automatically.
-</div>
+</div>-->
 
 <div class="alert alert-warning" role="alert" style="margin-top: 3ex; margin-bottom: 3ex;">
-Importantly, note that <strong>the {{ site.cluster.name }} storage is not backed up</strong>.  Users and labs are responsible to back up their own data outside of {{ site.cluster.name }}.
+Importantly, note that, aside from /c4/home, <strong>the {{ site.cluster.name }} storage is not backed up</strong>.  Users and labs are responsible to back up their own data outside of {{ site.cluster.name }}.
 </div>
 
 
