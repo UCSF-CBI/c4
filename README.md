@@ -5,7 +5,7 @@
 <a target="_blank" rel="noopener noreferrer" href="https://github.com/UCSF-HPC/wynton/actions?query=workflow%3AMarkdown%20URLs"><img src="https://github.com/UCSF-HPC/wynton/workflows/Markdown%20URLs/badge.svg" alt="Markdown URLs" style="max-width:100%;"></a>
 
 
-# The Wynton HPC User Website
+# The C4 HPC User Website
 
 This repository contains the [Wynton HPC user website](https://wynton.ucsf.edu/hpc/).  Updates to the 'master' branch will be published and go live within one minute.
 
