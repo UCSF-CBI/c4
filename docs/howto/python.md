@@ -1,5 +1,5 @@
 <div class="alert alert-warning" role="alert">
-2019-11-13: Python 3 is now available.  If possible, we recommend to be explicit about which version to use by specifying either <code>python2</code> and <code>python3</code> in your scripts.
+If possible, we recommend to be explicit about which version to use by specifying either <code>python2</code> and <code>python3</code> in your scripts.
 </div>
 
 # Work with Python
