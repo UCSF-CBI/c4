@@ -8,7 +8,7 @@ First, you will need to install the X2Go Client on your local computer.  For ins
 
  1. Use the menus to create a **New Session ...**
  2. Pick a **Session name**, e.g. `{{ site.cluster.name }}`
- 3. Set the **Host** to a [development node]. Currently one of: `dev1`, `dev2`, `dev3`, or `gpudev1`
+ 3. Set the **Host** to a [development node]. Currently one of: `c4-dev1`, `c4-dev2`, `c4-dev3`
  4. Set the **Login** to _your_ {{ site.cluster.name }} username, e.g. `alice`
  5. Check **Use Proxy server for SSH connection**
  6. Then in the **Proxy server** section:
@@ -19,8 +19,7 @@ First, you will need to install the X2Go Client on your local computer.  For ins
 
 Then to get a desktop on the development node, select the session, type in your password, and click **Ok**. After a little while, you will get a window that looks like an empty Linux desktop. Resize the window if you wish, and start up terminals, web browsers, etc. as you would on your regular desktop.
 
-### 3D Graphics with X2Go (in alpha testing)
-
+<!--
 The X2Go client provides basic support for 3D applications with a software implementation of an ancient version of OpenGL.  On the GPU development nodes (*i.e.*, `gpudev1`), [VirtualGL](https://virtualgl.org/) is installed so you can use hardware accelerated 3D graphics.  All you need to do is:
 
  1. Opt-in by sending email to [{{ site.cluster.email_admin }}](mailto:{{ site.cluster.email_admin }}?subject=vglusers) with the subject `vglusers`
@@ -36,7 +35,7 @@ For example:
 ```
 
 You have to opt-in because there is a slight security risk.  See <https://virtualgl-users.narkive.com/KHab71sF/security-issues-for-virtualgl> case (2) for details.  Case (1) does not apply because all of the development nodes are headless.
-
+-->
 
 ## X11 Forwarding over SSH
 
