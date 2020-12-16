@@ -18,7 +18,7 @@
 ## Software environment
 
 All nodes on the cluster runs [CentOS] 7 which is updated on a regular basis.
-The job scheduler is SGE 8.1.9 ([Son of Grid Engine]) which provides [queues]({{ '/scheduler/queues.html' | relative_url }}) for both communal and lab-priority tasks.
+The job scheduler is SLURM 20.02 ([Son of Grid Engine]) which provides [queues]({{ '/scheduler/queues.html' | relative_url }}) for both communal and lab-priority tasks.
 
 ## Hardware
 
@@ -94,9 +94,8 @@ There are no per-user quotas in these scratch spaces.  **Files not added or modi
 ## User and Lab Storage
 
  * `/c4/home`: {{ site.data.specs.home_size_total }} TiB storage space
- * `/c4/group`: {{ site.data.specs.group_size_total }} TB (= {{ site.data.specs.group_size_total | divided_by: 1000.0 }} PB) storage space
 
-Each user may use up to 500 GiB disk space in the home directory.  It is _not_ possible to expand user's home directory.  Research groups can add additional storage space under `/c4/group` by either mounting their existing storage or [purchase new]({{ '/about/pricing-storage.html' | relative_url }}).
+Each user may use up to 1 TiB disk space in the home directory.  It is _not_ possible to expand user's home directory.  Many Labs have purchased their own storage servers which were then mounted on the cluster. If you'd like more information please contach Adam Olshen or Harry Putnam.
 
 <div class="alert alert-info" role="alert" style="margin-top: 3ex; margin-bottom: 3ex;">
 While waiting to receive purchased storage, users may use the global scratch space, which is "unlimited" in size with the important limitation that files older than two weeks will be deleted automatically.
@@ -139,7 +138,7 @@ d3.text("{{ '/assets/data/host_table.tsv' | relative_url }}", "text/csv", functi
   host_table = host_table.replace(/^[#][^\r\n]*[\r\n]+/mg, '');
   host_table = d3.tsv.parse(host_table);
 
-  d3.text("https://raw.githubusercontent.com/UCSF-HPC/c4-slash2/master/status/qstat_nodes_in_state_au.tsv", "text/csv", function(host_status) {
+  d3.text("https://raw.githubusercontent.com/UCSF-HPC/wynton-slash2/master/status/qstat_nodes_in_state_au.tsv", "text/csv", function(host_status) {
     
     // drop header comments
     host_status = host_status.replace(/^[#][^\r\n]*[\r\n]+/mg, '');
@@ -239,7 +238,7 @@ d3.text("{{ '/assets/data/host_table.tsv' | relative_url }}", "text/csv", functi
 });
 </script>
 
-Source: [host_table.tsv] produced on <span id="hosttable-timestamp"></span> using [c4query] and [qstat_nodes_in_state_au.tsv](https://github.com/UCSF-HPC/c4-slash2/blob/master/status/qstat_nodes_in_state_au.tsv).
+Source: [host_table.tsv] produced on <span id="hosttable-timestamp"></span> using [wyntonquery] and [qstat_nodes_in_state_au.tsv](https://github.com/UCSF-HPC/wynton-slash2/blob/master/status/qstat_nodes_in_state_au.tsv).
 
 -->
 
@@ -258,5 +257,5 @@ ttr:last-child { border-top: 2px solid #000; }
 [CentOS]: https://www.centos.org/
 [Son of Grid Engine]: https://arc.liv.ac.uk/trac/SGE
 [Pacific Research Platform]: https://ucsdnews.ucsd.edu/pressrelease/nsf_gives_green_light_to_pacific_research_platform
-[c4query]: https://github.com/UCSF-HPC/c4query
+[c4query]: https://github.com/UCSF-HPC/wyntonquery
 [host_table.tsv]: {{ '/assets/data/host_table.tsv' | relative_url }}
