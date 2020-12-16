@@ -86,17 +86,17 @@ _Comment:_ Please use the GPU development node only if you need to build or prot
 The {{ site.cluster.name }} cluster provides two types of scratch storage:
 
  * Local `/scratch/` - <span id="hosttable-summary-local-scratch2">{{ site.data.specs.local_scratch_size_min }}-{{ site.data.specs.local_scratch_size_max }} TiB/node</span> storage unique to each compute node (can only be accessed from the specific compute node).
- * Global `/wynton/scratch/` - {{ site.data.specs.global_scratch_size_total }} TiB storage ([BeeGFS](https://www.beegfs.io/content/)) accessible from everywhere.
+ * Global `/c4/scratch/` - {{ site.data.specs.global_scratch_size_total }} TiB storage ([BeeGFS](https://www.beegfs.io/content/)) accessible from everywhere.
 
 There are no per-user quotas in these scratch spaces.  **Files not added or modified during the last two weeks will be automatically deleted** on a nightly basis.  Note, files with old timestamps that were "added" to the scratch place during this period will _not_ be deleted, which covers the use case where files with old timestamps are extracted from tar.gz file.  (Details: `tmpwatch --ctime --dirmtime --all --force` is used for the cleanup.)
 
 
 ## User and Lab Storage
 
- * `/wynton/home`: {{ site.data.specs.home_size_total }} TiB storage space
- * `/wynton/group`: {{ site.data.specs.group_size_total }} TB (= {{ site.data.specs.group_size_total | divided_by: 1000.0 }} PB) storage space
+ * `/c4/home`: {{ site.data.specs.home_size_total }} TiB storage space
+ * `/c4/group`: {{ site.data.specs.group_size_total }} TB (= {{ site.data.specs.group_size_total | divided_by: 1000.0 }} PB) storage space
 
-Each user may use up to 500 GiB disk space in the home directory.  It is _not_ possible to expand user's home directory.  Research groups can add additional storage space under `/wynton/group` by either mounting their existing storage or [purchase new]({{ '/about/pricing-storage.html' | relative_url }}).
+Each user may use up to 500 GiB disk space in the home directory.  It is _not_ possible to expand user's home directory.  Research groups can add additional storage space under `/c4/group` by either mounting their existing storage or [purchase new]({{ '/about/pricing-storage.html' | relative_url }}).
 
 <div class="alert alert-info" role="alert" style="margin-top: 3ex; margin-bottom: 3ex;">
 While waiting to receive purchased storage, users may use the global scratch space, which is "unlimited" in size with the important limitation that files older than two weeks will be deleted automatically.
@@ -109,9 +109,7 @@ Importantly, note that <strong>the {{ site.cluster.name }} storage is not backed
 
 ## Network
 
-The majority of the compute nodes are connected to the local network with 1 Gbps and 10 Gbps network cards while a few got 40 Gbps cards.
-
-The cluster itself connects to NSF's [Pacific Research Platform] at a speed of 100 Gbps - providing a file transfer speed of up to (theoretical) 12.5 GB/s = 45 TB/h.
+The  compute nodes are connected to the local network with 1 Gbps and 10 Gbps network cards.
 
 
 <!--
@@ -141,7 +139,7 @@ d3.text("{{ '/assets/data/host_table.tsv' | relative_url }}", "text/csv", functi
   host_table = host_table.replace(/^[#][^\r\n]*[\r\n]+/mg, '');
   host_table = d3.tsv.parse(host_table);
 
-  d3.text("https://raw.githubusercontent.com/UCSF-HPC/wynton-slash2/master/status/qstat_nodes_in_state_au.tsv", "text/csv", function(host_status) {
+  d3.text("https://raw.githubusercontent.com/UCSF-HPC/c4-slash2/master/status/qstat_nodes_in_state_au.tsv", "text/csv", function(host_status) {
     
     // drop header comments
     host_status = host_status.replace(/^[#][^\r\n]*[\r\n]+/mg, '');
@@ -241,7 +239,7 @@ d3.text("{{ '/assets/data/host_table.tsv' | relative_url }}", "text/csv", functi
 });
 </script>
 
-Source: [host_table.tsv] produced on <span id="hosttable-timestamp"></span> using [wyntonquery] and [qstat_nodes_in_state_au.tsv](https://github.com/UCSF-HPC/wynton-slash2/blob/master/status/qstat_nodes_in_state_au.tsv).
+Source: [host_table.tsv] produced on <span id="hosttable-timestamp"></span> using [c4query] and [qstat_nodes_in_state_au.tsv](https://github.com/UCSF-HPC/c4-slash2/blob/master/status/qstat_nodes_in_state_au.tsv).
 
 -->
 
@@ -260,5 +258,5 @@ ttr:last-child { border-top: 2px solid #000; }
 [CentOS]: https://www.centos.org/
 [Son of Grid Engine]: https://arc.liv.ac.uk/trac/SGE
 [Pacific Research Platform]: https://ucsdnews.ucsd.edu/pressrelease/nsf_gives_green_light_to_pacific_research_platform
-[wyntonquery]: https://github.com/UCSF-HPC/wyntonquery
+[c4query]: https://github.com/UCSF-HPC/c4query
 [host_table.tsv]: {{ '/assets/data/host_table.tsv' | relative_url }}
