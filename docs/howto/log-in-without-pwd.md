@@ -72,7 +72,7 @@ Next, we will set up the cluster to recognize your public SSH key.  Assuming you
 
 ```sh
 {local}$ ssh-copy-id -i ~/.ssh/laptop_to_c4.pub alice@c4-log1.ucsf.edu
-/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/alice/.ssh/laptop_to_c4.pub"
+/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/c4/home/alice/.ssh/laptop_to_c4.pub"
 /usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
 /usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
 alice@c4-log1.ucsf.edu:s password: 
