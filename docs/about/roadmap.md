@@ -202,7 +202,7 @@ _Starting September 1, 2020_
 
 * Login: 2 login nodes (June 2020)
 
-* Development: Added threedevelopment nodes (2020-08-13)
+* Development: Added three development nodes (2020-08-13)
 
 * Compute nodes: 6 communal/common compute nodes (6*32=192 physical cores).
 
