@@ -1,25 +1,33 @@
-<div class="alert alert-warning" role="alert" style="margin-top: 3ex">
+<!--<div class="alert alert-warning" role="alert" style="margin-top: 3ex">
 <strong>Do not request email notifications for array jobs!</strong>  If done, there will be email messages sent for <em>every single task</em> in the job array.
-</div>
+</div> -->
 
 ## Job Email Notifications
 
-Instead of polling `qstat` to check whether submitted jobs are queued, running, or finished, one can tell the job scheduler to send email notifications as jobs are started or completed.  This is done by specifying `qsub` option `-m <when>` and option `-M <recipients>`, where `<when>` specifies under what circumstances an email message should be sent to `<recipients>`.
+Instead of polling `squeue` to check whether submitted jobs are queued, running, or finished, one can tell the job scheduler to send email notifications as jobs change state.  This is done by specifying `sbatch` option `--mail-type <type>` and option `---mail <recipients>`, where `<type>` specifies under what circumstances an email message should be sent to `<recipients>`. Type is one of NONE, BEGIN, END, FAIL, REQUEUE, ALL.
 
 To send an email when the job (b)egins, (e)nds, or (a)borts, submit the job as:
 
 ```sh
-$ qsub -m bea -M alice.bobson@ucsf.edu myscript.sh
+$ sbatch --mailuser=alice.bobson@ucsf.edu --mail-type=BEGIN,END.FAIL myscript.sh
 ```
 
 To send an email only when the job completed, successfully or not, skip (b)egin notifications by using only:
 
 ```sh
-$ qsub -m ea -M alice.bobson@ucsf.edu myscript.sh
+$ sbatch --mailuser=alice.bobson@ucsf.edu --mail-type=END myscript.sh
 ```
 
+Alternatively, one may include the mail (and other) sbatch options directy in the job script as #SBATCH options. For example, we can include the following in Alice's script just after the shebang:
 
-### Email notifications for array jobs
+```
+#SBATCH --mail-type=END,FAIL                       # Mail events (NONE, BEGIN, END, FAIL, ALL)
+#SBATCH --mail-user=alice.bobson@ucsf.edu          # user to receive notification emails
+.
+.
+.
+```
+<!--### Email notifications for array jobs
 
 **Do not request email notifications for array jobs!**  If done, there will be email messages sent for _every single task_ of the job array.  Instead, to get an email notification when a job array completes, submit a "dummy" job that depend on the job array such that it will only launch when the job array completes.  The sole purpose of this dummy job is to trigger an email notification.  For instance, if the job array has job ID 9156754, then submit a job:
 
@@ -46,64 +54,26 @@ The advantage of specifying the recipient in `~/.sge_request`, instead of in the
 <div class="alert alert-danger" role="alert" style="margin-top: 3ex">
 <strong>Please do not specify <code>-m bea</code> in <code>~/.sge_request</code></strong> to make it the default for <em>all</em> of your jobs. If done, you might end up producing thousands of email messages when you submit array jobs.
 </div>
-
+-->
 
 ### Example messages
 
-The email message sent when a job starts (`-m b`), will look like:
+The subject of an email message sent when a job starts (`--mailtype includes BEGIN`), will look like:
 
 ```lang-none
-From: root <root@wynton.ucsf.edu>
-To: alice.bobson@ucsf.edu
-Subject: Job 8968283 (myscript.sh) Started
-
-Job 8968283 (myscript.sh) Started
- User       = alice
- Queue      = long.q
- Host       = qb3-ad4
- Start Time = 11/14/2019 00:07:00
+Slurm Job_id=1006 Name=serial_job_test Began, Queued time 00:00:01
 ```
 
-and the one sent when a job ends successfully (`-m e`), will look like:
+and the one sent when a job ends successfully (`--mailtype includes END`), will look like:
 
 ```lang-none
-From: root <root@wynton.ucsf.edu>
-To: alice.bobson@ucsf.edu
-Subject: Job 8968283 (myscript.sh) Complete
-
-Job 8968283 (myscript.sh) Complete
- User             = alice
- Queue            = long.q@qb3-ad4
- Host             = qb3-ad4
- Start Time       = 11/14/2019 00:07:00
- End Time         = 11/14/2019 00:07:01
- User Time        = 00:00:00
- System Time      = 00:00:00
- Wallclock Time   = 00:00:01
- CPU              = 00:00:00
- Max vmem         = 5.410M
- Exit Status      = 0
+Slurm Job_id=1006 Name=serial_job_test Ended, Run time 00:01:12, COMPLETED, ExitCode 0
 ```
 
-The message sent when a job is aborted (`-m a`),  for instance via `qdel`, will look like:
+The message sent when a job abends (`--mailtype includes FAIL`) will look like:
 
 ```lang-none
-From: root <root@wynton.ucsf.edu>
-To: alice.bobson@ucsf.edu
-Subject: Job 8974017 (myscript.sh) Aborted
-
-Job 8974017 (myscript.sh) Aborted
- Exit Status      = 137
- Signal           = KILL
- User             = alice
- Queue            = long.q@msg-id7
- Host             = msg-id7
- Start Time       = 11/14/2019 08:07:02
- End Time         = 11/14/2019 08:07:07
- CPU              = 00:00:00
- Max vmem         = 1.965M
-failed assumedly after job because:
-job 8974017.1 died through signal KILL (9)
+Slurm Job_id=1007 Name=memorywaster.bash Failed, Run time 00:01:01, OUT_OF_MEMORY
 ```
 
 
