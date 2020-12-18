@@ -4,26 +4,25 @@
 
 When submitting a job, the job id is outputted to standard output (stdout) as part of a long message, e.g.
 ```sh
-$ qsub -cwd hello_world
-Your job 151711 ("hello_world") has been submitted
+$ sbatch hello_world 
+Submitted batch job 46
 ```
-Although it possible to parse this output string to infer the job id, by adding option `-terse` only the job id itself is outputted removing any needs for parsing, e.g.
+With SLURM, we do not have the --terse option as we did with qsub so we have to get creative with grep and regular expressions.
 ```sh
-$ qsub -terse -cwd hello_world
-151712
+$ sbatch hello_world |grep -o '[[:digit:]]*'
+49
 ```
 Using Bash syntax, you can capture the job id when submitting the job as:
 ```sh
-$ job_id=$(qsub -terse -cwd hello_world)
-$ echo $job_id
-151720
+$ jobid=$(sbatch hello_world |grep -o '[[:digit:]]*')
+$ echo $jobid
+50
 ```
-This allows you to pass it in downstream calls, e.g. `qstat -j $job_id` and `qdel $job_id`.
+This allows you to pass it in downstream calls, e.g. `$ sacct -j $jobid`.
 
 
 ## Additional resources
 
-For more help on the SGE scheduler, please see:
+For more help on the SLURM scheduler, please see:
 
-* [Grid Engine HOWTOs](http://arc.liv.ac.uk/SGE/howto/howto.html) - by the Son of Grid Engine Project
-* [UCSF QB3 wiki](https://salilab.org/qb3cluster) - the UCSF QB3 cluster uses SGE as well, and a similar setup in general
+* [SLURM Quick Start User Guide](https://slurm.schedmd.com/quickstart.html) - by SCHEDMD
