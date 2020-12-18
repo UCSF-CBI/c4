@@ -20,7 +20,7 @@ $ sbatch --mailuser=alice.bobson@ucsf.edu --mail-type=END myscript.sh
 
 Alternatively, one may include the mail (and other) sbatch options directly in the job script as #SBATCH options. For example, we can include the following in Alice's script just after the shebang:
 
-```
+```sh
 #SBATCH --mail-type=END,FAIL                       # Mail events (NONE, BEGIN, END, FAIL, ALL)
 #SBATCH --mail-user=alice.bobson@ucsf.edu          # user to receive notification emails
 .
