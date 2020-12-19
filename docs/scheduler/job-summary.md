@@ -27,7 +27,7 @@ echo $node COMPLETED `date`
 
 ```
 
-As a first guess, we can assume that this script takes at most1 hour to run, but let's assume we don't have a good sense on how much memory it will consume, so we set the --time #SBATCH option on the script by putting `#SBATCH --time=01:00:00 ` after the shebang in the script header. Also as a first guess, we will ask for two cpus and 4 gb of RAM. Once we have all the #SBATCH options in place, the script looks like this:
+As a first guess, we can assume that this script takes at most1 hour to run, but let's assume we don't have a good sense on how much memory it will consume, so we set the --time #SBATCH option on the script by putting `#SBATCH --time=01:00:00` after the shebang in the script header. Also as a first guess, we will ask for two cpus and 4 gb of RAM. Once we have all the #SBATCH options in place, the script looks like this:
 
 ```sh
 #!/usr/bin/bash
