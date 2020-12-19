@@ -74,7 +74,7 @@ $ sacct -j 1033 -l
  
 ```
 
-There is a LOT of information here. We can narrow down the scope of this query with the --format option to see the relevent bits:
+There is a LOT of information here. We can narrow down the scope of this query with the --format option to see the relevant bits:
 ```sh
 $ sacct -j 1033 --format="JobID,State,Elapsed,MaxRSS"
        JobID      State    Elapsed     MaxRSS 
