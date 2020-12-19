@@ -1,6 +1,7 @@
 ## Dictionary of white-listed words
 abends
 abend
+bam
 barcode
 BeeGFS
 Biocontainers
@@ -18,11 +19,13 @@ dev
 dt
 duosecurity
 edu
+eg
 envvars
 EOF
 ethernet
 FASTQ
 favicon
+gb
 Gbps
 GeForce
 GiB
@@ -47,6 +50,7 @@ listsrv
 Lmod
 Lua
 macOS
+mem
 MiB
 msg
 NetApp
@@ -72,6 +76,7 @@ REQUEUE
 Roadmap
 rollout
 runscript
+sacct
 Sali
 Sandler
 SCHEDMD

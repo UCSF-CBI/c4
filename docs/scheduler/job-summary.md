@@ -74,7 +74,7 @@ $ sacct -j 1033 -l
  
 ```
 
-There is a LOT of information here. We can narrow down the scope of this query with the --format option to see the relavent bits:
+There is a LOT of information here. We can narrow down the scope of this query with the --format option to see the relevent bits:
 ```sh
 $ sacct -j 1033 --format="JobID,State,Elapsed,MaxRSS"
        JobID      State    Elapsed     MaxRSS 
@@ -102,7 +102,7 @@ You can also look in the job log:
 slurmstepd: error: *** JOB 1034 ON c4-n1 CANCELLED AT 2020-12-18T15:51:53 DUE TO TIME LIMIT 
 ```
 
-You would see a similar error for other reosurces. For memory:
+You would see a similar error for other resources. For memory:
 
 ```sh 
 slurmstepd: error: Detected 1 oom-kill event(s) in step 1007.batch cgroup. Some of your processes may have been killed by the cgroup out-of-memory handler.
