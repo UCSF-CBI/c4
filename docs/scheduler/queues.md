@@ -1,45 +1,12 @@
-# Available Queues
+# Available Partitions
 
-The cluster provides different queues ("running areas") that each is optimized for a different purpose.
+The cluster provides different partitions (queues) for running jobs. We have a common partition that anyone is free to use as well as lab owned "condo" partitions that are restricted to a particular Lab's use. Any Lab is free to purchase compute hardware and we will be glad to create a "condo" partition for it. 
 
-* **short.q**:
-  - Maximum runtime: 30 minutes
-  - Process priority: 10 (medium)
-  - Availability: all compute nodes
-  - Quota: 100 (queued or active) jobs per user (all users)
-  - Purpose: Low-latency needs, e.g. pipeline prototyping and quick turn-around analysis
+* **common**:
+  - Maximum runtime: 20160 minutes
+  - Availability: all common nodes
+  - Quota: 384 active jobs per user, 2020 queued jobs per user.
 
-* **long.q**:
-  - Maximum runtime: 2 weeks (336 hours)
-  - Process priority: 19 (lowest)
-  - Availability: all compute nodes
-  - Quota: Unlimited (all users)
-  - Purpose: General needs
-
-* **member.q**:
-  - Maximum runtime: 2 weeks (336 hours)
-  - Process priority: 0 (highest)
-  - Availability: all compute nodes except GPU and institutionally purchased nodes
-  - Compute power: {{ site.data.specs.pu_total }} processing units
-  - Number of slots: {{ site.data.specs.member_q_total }}
-  - Quota: Proportional to [your lab's contributed share]({{ '/about/shares.html' | relative_url }}) on the cluster.  When a lab has exhausted all its available member.q slots, additional jobs scheduled by lab members will spill over to the long.q queue
-  - Purpose: Research groups who need more computational resources than the above communal queues can contribute resources to the {{ site.cluster.name }} cluster and gain priority access corresponding to the contribution
-
-* **gpu.q**:
-  - Maximum runtime on communal GPU nodes: 2 weeks (336 hours)
-  - Maximum runtime on contributed GPU nodes: 2 weeks (336 hours) if you are the contributor, otherwise 2 hours
-  - Process priority: 0 (highest)
-  - Availability: {{ site.data.specs.gpus }} GPUs on {{ site.data.specs.gpu_nodes }} GPU nodes ({{ site.data.specs.communal_gpus }}/{{ site.data.specs.communal_gpu_nodes }} GPUs/nodes are communal and {{ site.data.specs.gpus | minus: site.data.specs.communal_gpus }}/{{ site.data.specs.gpu_nodes | minus: site.data.specs.communal_gpu_nodes }} GPUs/nodes are contributed)
-  - Number of GPU slots: {{ site.data.specs.gpus }}
-  - Quota: Unlimited (all users).
-  - Purpose: For software that utilize Graphics Processing Units (GPUs)
-
-* **ondemand.q**:
-  - Maximum runtime: 2 weeks (336 hours)
-  - Process priority: 0 (highest)
-  - Availability: Institutionally purchased nodes only
-  - Quota: Available upon application and approval by the [steering committee]
-  - Purpose: Intended for scheduled, high-priority computing needs and / or temporary paid priority access
 
 
 _Comment_: Here "runtime" means "walltime", i.e. the runtime of a job is how long it runs according to the clock on the wall, not the amount of CPU time.
@@ -47,13 +14,22 @@ _Comment_: Here "runtime" means "walltime", i.e. the runtime of a job is how lon
 
 ## Usage
 
-Except for [the gpu.q queue]({{ '/scheduler/gpu.html' | relative_url }}), there is often _no need_ to explicitly specify what queue your job should be submitted to.  Instead, it is sufficient to [specify the resources] that your jobs need, e.g. the maximum processing time (e.g. `-l h_rt=00:10:00` for ten minutes), the maximum memory usage (e.g. `-l mem_free=1G` for 1 GiB of RAM), and the number of cores (e.g. `-pe smp 2` for two cores).  When the scheduler knows about your job's resource need, it will allocate your job to a compute node that better fits your needs and your job is likely to finish sooner.
+If you do not specify a partition then your job will run on the common partition which is the default partition for our cluster. Jobs for condo partitions should specify the partition with the `#SBATCH --partition=` option. It is nice but not required for users that have access to condo partitions to try and use those first in order to free up the common partition for others. We understand that sometimes workload will dictate using both.
 
-Only in rare cases there should be a need to specify through what queue your job should run.  To do this, you can use the `-q <name>` option of `qsub`, e.g. `qsub -q long.q my_script`.
+In order to see the partitions use the sinfo command
+```sh
+$ sinfo
+PARTITION AVAIL  TIMELIMIT  NODES  STATE NODELIST 
+common*      up 14-00:00:0      1    mix c4-n1 
+common*      up 14-00:00:0      5   idle c4-n[2-5,10] 
+Witte        up 14-00:00:0      4   idle c4-n[6-9] 
+```
+
+In the above example, the asterisk indicates that common is the default partition. mix means that the node is running jobs, idle means the nodes are not running jobs. Other possible states are down, drain, and drng. The drain and drng state indicate that the node has been taken offline by the sysadmin. Draining means the nodes is still running jobs but won't accept new work.
 
 
 
-[steering committee]: http://wynton.ucsf.edu/
+<!--[steering committee]: http://wynton.ucsf.edu/-->
 [specify the resources]: {{ '/scheduler/submit-jobs.html' | relative_url }}
 
 <!--

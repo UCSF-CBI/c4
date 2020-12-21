@@ -1,49 +1,65 @@
 # Submit Jobs
 
-Here is what a typical job submission of shell script `script.sh` would look like from the command line:
+There are two basic modes for doing work on SLURM, batch and interactive. Batch jobs are submitted to the scheduler and run at a later time. Interactive jobs happen in real time. One can also allocate resources ahead of time for an interactive job. The relevant SLURM commands are sbatch for batch jobs, srun for interactive jobs, and salloc for allocating resources and then running srun tasks within the allocation. 
+
+
+## Submit a script to run in batch mode
+
+One can just run a native bash script with sbatch and supply the relevant parameters at the CLI with various -- options (eg --time=00:10:00)
+It is probably easier to supply those options within the script itself using the #SBATCH syntax. 
+
+Let's use a "hello world" script to illustrate.
+*hi_there.bash*:
 
 ```sh
-qsub -cwd -pe smp 4 -l mem_free=2G -l scratch=50G -l h_rt=00:20:00 script.sh
+#!/bin/bash
+#SBATCH -n 1
+#SBATCH -N 1
+#SBATCH -t 00:10:00
+#SBATCH -p common
+#SBATCH --mem=100
+#SBATCH -o myoutput_%j.out #SBATCH -e myerrors_%j.err
+
+perl -e 'print "Hi there. \n"'
+echo "This was run on $SLURM_JOB_NODELIST"
 ```
+Going through the #SBATCH options"
 
-This job submission will submit `script.sh` to the job scheduler which will eventually launch the job on one the compute nodes that can meet the resource needs of the job.  Exactly, what these options are is explained below sections, but in summary, the above will result in:
+`#SBATCH -n 1` - run on 1 core.
+`#SBATCH -N 1` - run on 1 compute node.
+`#SBATCH -t 00:10:00` - job can run a maximum of 10 minutes.
+`#SBATCH -p common` - run on the common partition.
+`#SBATCH -o myoutput_%j.out #SBATCH -e myerrors_%j.err` - specify output and error files (defaults to cwd). %j inserts jobid into the file name.
 
-* `-cwd`: the working directory will be set to the same directory as from where the submission was done
-* `-pe smp 4`: the job will be allotted four slots ("cores") on a single machine
-* `-l mem_free=2G`: the job will be allotted 2 GiB of RAM per slot, i.e. 8 GiB in total
-* `-l scratch=50G`: the job will be launched on a compute node with at least 50 GiB of local `/scratch` available
-* `-l h_rt=00:20:00`: the scheduler knows that the job to run no longer than 20 minutes allowing it to be scheduled much sooner than if no run-time was specified
-* `script.sh`: the shell script to be run
-
-
-
-## Submit a script to run in the current working directory
-
-To submit a shell script to the scheduler such that it will run in the current working directory (`-cwd`), use:
+Since we have specified all of our options with the #SBATCH syntax, we can now submit this job very simply:
 ```sh
-qsub -cwd script.sh
+$ sbatch hi_there.bash 
+Submitted batch job 1507
 ```
-The scheduler will assign your job a unique (numeric) job ID.
-
 
 ## Specifying (maximum) memory usage
 
-Unless specified, the maximum amount of memory used at any time is 1 GiB per slot (`-l mem_free=1G`).  A job that need to use more memory, need to request that when submitted.  For example, a job that needs (at most) 10 GiB of memory should be submitted as:
+In the above job we used the `#SBATCH --mem=100` option. This set maximum memory usage to 100mb (mb is the default unit). We can specify in Gigabytes using gb, example `--mem=2gb`. 
+Please note that if your job *exceeds* the --mem= limit, it will be terminated with an OOM error. So, why should we do it? Because jobs that specify smaller memory limits will have more opportunities to actually run. If we don't specify the limits, SLURM will assume the job needs up to the node limit of memory and it will sit in the queue until a node with max memory becomes available. By right sizing your jobs they will run faster.
+
+_TIPS_: To find out how much memory a job used, `sacct -j jobid --format="JobID,Elapsed,MaxRSS,State"` you can use this to right size the job next time you want to run a similar one.
+        Example:
 ```sh
-qsub -cwd -l mem_free=10G script.sh
+$ sacct -j 1484 --format="JobID,Elapsed,MaxRSS,State"
+       JobID    Elapsed     MaxRSS      State 
+------------ ---------- ---------- ---------- 
+1484           00:00:00             COMPLETED 
+1484.batch     00:00:00      1196K  COMPLETED 
 ```
-The scheduler will launch this jobs on the first available compute node with that amount of memory available.
 
-_TIPS_: Add `qstat -j $JOB_ID` to the end of your script to find out how much memory and CPU time your job needed.  See [Job Summary] page for more details.
-
-<div class="alert alert-warning" role="alert">
-A job that consumes more memory than requested may be terminated by the administrators and in the future possibly automatically by the scheduler.  Because of this, you may request a bit more memory in order to give your job some leeway.
-</div>
-
-<div class="alert alert-warning" role="alert">
-Note that <code>-l mem_free=size</code> specifies <em>memory per slot</em>, not per job.
-</div>
-
+A job that was killed for running out of memory would look like this:
+```sh
+$ sacct -j 1012 --format="JobID,Elapsed,MaxRSS,State"
+       JobID    Elapsed     MaxRSS      State 
+------------ ---------- ---------- ---------- 
+1012           00:00:01            OUT_OF_ME+ 
+1012.batch     00:00:01      1380K OUT_OF_ME+ 
+```
 
 
 ## Specifying (maximum) run time
@@ -52,41 +68,20 @@ Note that <code>-l mem_free=size</code> specifies <em>memory per slot</em>, not 
 Specifying the run time will shorten the queuing time - significantly so for short running jobs.
 </div>
 
-By specifying the how long each job will take, the better the scheduler can manage resources and allocate jobs to different nodes.  This will also decrease the average waiting time the job will sit in the queue before being launched on a compute node.  You can specify the maximum run time (= wall time, not CPU time) for a job using option `-l h_rt=HH:MM:SS` where `HH:MM:SS` specifies the number of hours (`HH`), the number of minutes (`MM`), and the number of seconds (`SS`) - all parts must be specified.  For instance, the following job is expected to run for at most 3 minutes (180 seconds):
-```sh
-qsub -cwd -l mem_free=2G -l h_rt=00:03:00 script.sh
-```
-
-<div class="alert alert-warning" role="alert">
-If not specified, the default run time is 10 minutes.  A job that runs longer than the requested run time will be terminated by the scheduler.  Because of this, you may add a little bit of extra time to give your job some leeway.
-</div>
+By specifying the how long each job will take, the better the scheduler can manage resources and allocate jobs to different nodes.  This will also decrease the average waiting time the job will sit in the queue before being launched on a compute node.  You can specify the maximum run time (= wall time, not CPU time) for a job using option `-t =HH:MM:SS` where `HH:MM:SS` specifies the number of hours (`HH`), the number of minutes (`MM`), and the number of seconds (`SS`) - all parts must be specified.  In our about example we used `#SBATCH=00:10:00`. 
 
 
 
 ## Using local scratch storage
 
-Each compute node has {{ site.data.specs.local_scratch_size_min }}-{{ site.data.specs.local_scratch_size_max }} TiB of [local scratch storage]({{ '/about/specs.html#scratch-storage' | relative_url }}) which is fast and ideal for temporary, intermediate data files that are only needed for the length of a job.  This scratch storage is unique to each machine and shared among all users and jobs running on the same machine.  To minimize the risk of launching a job on a node that have little scratch space left, specify the `-l scratch=size` resource.  For instance, if your job requires 200 GiB of local `/scratch` space, submit the job using:
-```sh
-qsub -cwd -l scratch=200G script.sh
-```
-
-Your job is only guaranteed the amount of available scratch space that you request _when it is launched_.  For more information and best practices, see [Using Local /scratch on Compute Nodes]({{ '/using-local-scratch.html' | relative_url }}).
+Each compute node has {{ site.data.specs.local_scratch_size_min }}-{{ site.data.specs.local_scratch_size_max }} TiB of [local scratch storage]({{ '/about/specs.html#scratch-storage' | relative_url }}) which is fast and ideal for temporary, intermediate data files that are only needed for the length of a job.  This scratch storage is unique to each machine and shared among all users and jobs running on the same machine. 
 
 <div class="alert alert-warning" role="alert">
-Please specify <code>-l scratch=size</code> when using local <code>/scratch</code> and please <a href="using-local-scratch.html">cleanup afterward</a>.  This maximizes the chance for compute nodes having enough available space, reduces the queuing times, and minimizes the risk for running out of local scratch.
-</div>
-
-<div class="alert alert-warning" role="alert">
-Note that <code>-l scratch=size</code> specifies <em>space per job</em>, not per slot.
+Please please <a href="using-local-scratch.html">cleanup local scratch afterward</a>.  This maximizes the chance for compute nodes having enough available space, reduces the queuing times, and minimizes the risk for running out of local scratch.
 </div>
 
 
-If your job would benefit from extra-fast [local scratch storage]({{ '/about/specs.html#scratch-storage' | relative_url }}), then you can request a node with either a SSD or NVMe scratch drive via the following flag:
-```sh
-qsub -l ssd_scratch=1
-```
-
-## Parallel processing (on a single machine)
+<!--## Parallel processing (on a single machine)
 
 The scheduler will allocate a single core for your job.  To allow the job to use multiple slots, request the number of slots needed when you submit the job.  For instance, to request four slots (`NSLOTS=4`) _each with 2 GiB of RAM_, for a _total_ of 8 GiB RAM, use:
 ```sh
@@ -105,19 +100,9 @@ _Comment_: PE stands for 'Parallel environment'.  SMP stands for ['Symmetric mul
 <div class="alert alert-danger" role="alert">
 <strong>Do not use more cores than requested!</strong> - a common reason for compute nodes being clogged up and jobs running slowly.  A typically mistake is to hard-code the number of cores in the script and then request a different number when submitting the job - using <code>NSLOTS</code> avoids this problem.  Another problem is software that by default use all of the machine's cores - make sure to control for this, e.g. use dedicated command-line option or environment variable for that software.
 </div>
+-->
 
-
-## Minimum network speed (1 Gbps, 10 Gbps, 40 Gbps)
-
-The majority of the compute nodes have 1 Gbps and 10 Gbps network cards while a few got 40 Gbps cards.  A job that requires 10-40 Gbps network speed can request this by specifying the `eth_speed=10` (sic!) resource, e.g.
-```sh
-qsub -cwd -l eth_speed=10 script.sh
-```
-A job requesting `eth_speed=40` will end up on a 40 Gbps node, and a job requesting `eth_speed=1` (default) will end up on any node.
-
-
-
-## Passing arguments to script
+<!--## Passing arguments to script
 
 You can pass arguments to a job script similarly to how one passes argument to a script executed on the command line, e.g.
 ```sh
@@ -142,8 +127,8 @@ qsub -pe mpi-8 40 hybrid_mpi.sh
 and make sure that the script (here `hybrid_mpi.sh`) exports `OMP_NUM_THREADS=8` (the eight slots per node) and then launches the MPI application using `mpirun -np $NHOSTS /path/to/the_app` where `NHOSTS` is automatically set by SGE (here `NHOSTS=5`):
 
 ```sh
-#! /usr/bin/env bash
-#$ -cwd   ## SGE directive to run in the current working directory
+# !/usr/bin/env bash
+# $ -cwd   ## SGE directive to run in the current working directory
 
 module load mpi
 export OMP_NUM_THREADS=8
@@ -171,6 +156,6 @@ _Comment_: MPI stands for ['Message Passing Interface'](https://en.wikipedia.org
 
 For further options and advanced usage, see [Advanced Usage]({{ '/advanced-usage.html' | relative_url }}) of the scheduler.
 
-[SGE environment variable]: {{ '/scheduler/sge-envvars.html' | relative_url }}
+[SLURM environment variable]: {{ '/scheduler/sge-envvars.html' | relative_url }}
 [Job Summary]: {{ '/scheduler/job-summary.html' | relative_url }}
 [development nodes]: {{ '/get-started/development-prototyping.html' | relative_url }}

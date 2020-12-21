@@ -16,6 +16,7 @@ CMD
 Ctrl
 CUDA
 dev
+drng
 dt
 duosecurity
 edu
@@ -42,6 +43,7 @@ http
 https
 ImageMagick
 io
+jobid
 Kerberos
 kerbtest
 keypair
@@ -50,6 +52,7 @@ listsrv
 Lmod
 Lua
 macOS
+mb
 mem
 MiB
 msg
@@ -59,6 +62,7 @@ NSF's
 NVidia
 NVMe
 ondemand
+OOM
 passwd
 PharmChem
 PIs
@@ -76,20 +80,24 @@ REQUEUE
 Roadmap
 rollout
 runscript
+salloc
 sacct
 Sali
 Sandler
 SCHEDMD
 scalable
 scancel
+scontrol
 se
 sexualized
 sge
 SGE
 signup
+sinfo
 SMP
 squeue
 squashfs
+srun
 SSD
 SSDs
 SSL
