@@ -4,7 +4,7 @@
 
 ## Job Email Notifications
 
-Instead of polling `squeue` to check whether submitted jobs are queued, running, or finished, one can tell the job scheduler to send email notifications as jobs change state.  This is done by specifying `sbatch` option `--mail-type <type>` and option `---mail <recipients>`, where `<type>` specifies under what circumstances an email message should be sent to `<recipients>`. Type is one of NONE, BEGIN, END, FAIL, REQUEUE, ALL.
+Instead of polling `squeue` to check whether submitted jobs are queued, running, or finished, one can tell the job scheduler to send email notifications as jobs change state.  This is done by specifying `sbatch` option `--mail-type=<type>` and option `---mail=<recipients>`, where `<type>` specifies under what circumstances an email message should be sent to `<recipients>`. Type is one of NONE, BEGIN, END, FAIL, REQUEUE, ALL.
 
 To send an email when the job (b)egins, (e)nds, or (a)borts, submit the job as:
 
@@ -58,19 +58,19 @@ The advantage of specifying the recipient in `~/.sge_request`, instead of in the
 
 ### Example messages
 
-The subject of an email message sent when a job starts (`--mailtype includes BEGIN`), will look like:
+The subject of an email message sent when a job starts (`--mailtype` includes `BEGIN`), will look like:
 
 ```lang-none
 Slurm Job_id=1006 Name=serial_job_test Began, Queued time 00:00:01
 ```
 
-and the one sent when a job ends successfully (`--mailtype includes END`), will look like:
+and the one sent when a job ends successfully (`--mailtype` includes `END`), will look like:
 
 ```lang-none
 Slurm Job_id=1006 Name=serial_job_test Ended, Run time 00:01:12, COMPLETED, ExitCode 0
 ```
 
-The message sent when a job abends (`--mailtype includes FAIL`) will look like:
+The message sent when a job abends (`--mailtype` includes `FAIL`) will look like:
 
 ```lang-none
 Slurm Job_id=1007 Name=memorywaster.bash Failed, Run time 00:01:01, OUT_OF_MEMORY

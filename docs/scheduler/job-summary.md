@@ -86,7 +86,7 @@ $ sacct -j 1033 --format="JobID,State,Elapsed,MaxRSS"
 
 ```
 
-With this information, we can narrow down that the total processing time was 32 minutes 48 seconds (`Elapsed=00:32:48`) and that the maximum amount of resident set size  memory used was ~865 MiB (`MaxRSS=882060K`).  With the help of `Elapsed` and `MaxRSS` from previous runs, we can re-submit this job script with more relevant resource specifications in our `#SBATCH` options within the script (eg `--mem-1gb`). Remember it pays to keep the mem request as small as possible. Jobs with large memory requests will sit in queue longer.
+With this information, we can narrow down that the total processing time was 32 minutes 48 seconds (`Elapsed=00:32:48`) and that the maximum amount of resident set size  memory used was ~865 MiB (`MaxRSS=882060K`).  With the help of `Elapsed` and `MaxRSS` from previous runs, we can re-submit this job script with more relevant resource specifications in our `#SBATCH` options within the script (eg `--mem=1gb`). Remember it pays to keep the mem request as small as possible. Jobs with large memory requests will sit in queue longer.
 
 
 ## Post-mortem job details

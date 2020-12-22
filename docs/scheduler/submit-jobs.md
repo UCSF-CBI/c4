@@ -68,7 +68,7 @@ $ sacct -j 1012 --format="JobID,Elapsed,MaxRSS,State"
 Specifying the run time will shorten the queuing time - significantly so for short running jobs.
 </div>
 
-By specifying the how long each job will take, the better the scheduler can manage resources and allocate jobs to different nodes.  This will also decrease the average waiting time the job will sit in the queue before being launched on a compute node.  You can specify the maximum run time (= wall time, not CPU time) for a job using option `-t =HH:MM:SS` where `HH:MM:SS` specifies the number of hours (`HH`), the number of minutes (`MM`), and the number of seconds (`SS`) - all parts must be specified.  In our about example we used `#SBATCH=00:10:00`. 
+By specifying the how long each job will take, the better the scheduler can manage resources and allocate jobs to different nodes.  This will also decrease the average waiting time the job will sit in the queue before being launched on a compute node.  You can specify the maximum run time (= wall time, not CPU time) for a job using option `-t HH:MM:SS` where `HH:MM:SS` specifies the number of hours (`HH`), the number of minutes (`MM`), and the number of seconds (`SS`) - all parts must be specified.  In our above example, we used `#SBATCH -t 00:10:00`. 
 
 
 
