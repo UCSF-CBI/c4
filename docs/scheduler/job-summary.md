@@ -27,7 +27,7 @@ echo $node COMPLETED `date`
 
 ```
 
-As a first guess, we can assume that this script takes at most1 hour to run, but let's assume we don't have a good sense on how much memory it will consume, so we set the --time #SBATCH option on the script by putting `#SBATCH --time=01:00:00` after the shebang in the script header. Also as a first guess, we will ask for two cpus and 4 gb of RAM. Once we have all the #SBATCH options in place, the script looks like this:
+As a first guess, we can assume that this script takes at most1 hour to run, but let's assume we don't have a good sense on how much memory it will consume, so we set the `--time` #SBATCH option on the script by putting `#SBATCH --time=01:00:00` after the shebang in the script header. Also as a first guess, we will ask for two CPUs and 4 GiB of RAM. Once we have all the `#SBATCH` options in place, the script looks like this:
 
 ```sh
 #!/usr/bin/bash
@@ -74,7 +74,7 @@ $ sacct -j 1033 -l
  
 ```
 
-There is a LOT of information here. We can narrow down the scope of this query with the --format option to see the relevant bits:
+There is a lot of information here. We can narrow down the scope of this query with the `--format` option to see the relevant bits:
 ```sh
 $ sacct -j 1033 --format="JobID,State,Elapsed,MaxRSS"
        JobID      State    Elapsed     MaxRSS 
@@ -86,7 +86,7 @@ $ sacct -j 1033 --format="JobID,State,Elapsed,MaxRSS"
 
 ```
 
-With this information, we can narrow down that the total processing time was 32 minutes 48 seconds (`Elapsed=00:32:48`) and that the maximum amount of resident set size  memory used was ~865 MB (`MaxRSS=882060K`).  With the help of `Elapsed` and `MaxRSS` from previous runs, we can re-submit this job script with more relevant resource specifications in our #SBATCH options within the script (eg --mem-1gb). Remember it pays to keep the mem request as small as possible. Jobs with large memory requests will sit in queue longer.
+With this information, we can narrow down that the total processing time was 32 minutes 48 seconds (`Elapsed=00:32:48`) and that the maximum amount of resident set size  memory used was ~865 MiB (`MaxRSS=882060K`).  With the help of `Elapsed` and `MaxRSS` from previous runs, we can re-submit this job script with more relevant resource specifications in our `#SBATCH` options within the script (eg `--mem-1gb`). Remember it pays to keep the mem request as small as possible. Jobs with large memory requests will sit in queue longer.
 
 
 ## Post-mortem job details
@@ -95,7 +95,9 @@ Sometimes your job "just dies". There is often a simply explanation to this but 
 
 One common reason for jobs terminating early is that it ran out of the requested runtime (`--time=<runtime>`).  When that happens in Slurm you get an indication from the end of job email similar to:
 
-`Slurm Job_id=1034 Name=bam_test Failed, Run time 00:01:13, TIMEOUT, ExitCode 0`
+```
+Slurm Job_id=1034 Name=bam_test Failed, Run time 00:01:13, TIMEOUT, ExitCode 0
+```
 
 You can also look in the job log:
 ```sh
