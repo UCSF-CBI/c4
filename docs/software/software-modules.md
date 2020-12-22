@@ -17,7 +17,7 @@ In addition to the [core software] tools that are available by default, addition
   Usage: <code>module load CBI</code>
   </td>
  </tr>
- <tr>
+ <!--<tr>
   <td>
   <strong>Sali</strong><br>
   
@@ -29,7 +29,7 @@ In addition to the [core software] tools that are available by default, addition
   
   Usage: <code>module load Sali</code>
   </td>
- </tr>
+ </tr> -->
 </table>
 <br>
 
@@ -108,8 +108,39 @@ fi
 
 <br>
 <div class="alert alert-info" role="alert">
-The names of software repositories are always capitilized (e.g. <code>CBI</code> and <code>Sali</code>) whereas the names of the software themselves are typically in all lower case (e.g. <code>r</code> and <code>bwa</code>).  This makes it easier to distiguish between repositories and software.
+The names of software repositories are always capitilized (e.g. <code>CBI</code> ) whereas the names of the software themselves are typically in all lower case (e.g. <code>r</code> and <code>bwa</code>).  This makes it easier to distiguish between repositories and software.
 </div>
+
+## Using in a batch job
+
+First we need the job script. mod_r.bash:
+```sh
+#!/usr/bin/bash
+#SBATCH --job-name=modules_test
+#SBATCH --mail-type=BEGIN,END,FAIL
+#SBATCH --mail-user=alice.testuser@ucsf.edu
+#SBATCH --ntasks=1
+#SBATCH --mem=100mb 
+#SBATCH --time=00:05:00 
+#SBATCH --output=modules_test_%j.log 
+pwd; hostname; date
+module load CBI r
+Rscript -e "sum(1:10)"
+exit;
+```
+Then submit with sbatch:
+```sh
+$ sbatch mod_r.bash 
+Submitted batch job 1661
+```
+Check our results:
+```sh
+$ cat modules_test_1661.log
+/c4/home/alice
+c4-n2
+Tue Dec 22 13:52:46 PST 2020
+[1] 55
+```
 
 
 ## See also

@@ -12,25 +12,25 @@
 To list all Software Collections installed on the _development nodes_, use:
 
 ```sh
-[alice@{{ site.devel.name }} ~]$ scl --list
-devtoolset-4
-devtoolset-6
+[alice@{{ site.devel.name }} ~]$$ scl --list
 devtoolset-7
 devtoolset-8
+devtoolset-9
 llvm-toolset-7
-python33       # DEPRECATED per 2019-11-13
-rh-python34    # DEPRECATED per 2019-11-13
-rh-python36    # DEPRECATED per 2019-11-13
+rh-python36
 rh-ruby25
+rh-ruby26
+
 
 [alice@{{ site.devel.name }} ~]$ 
 ```
 
 _Importantly_, only a subset of the above SCLs are available also on the _compute nodes_. Specifically, these are:
 ```sh
-python33       # DEPRECATED per 2019-11-13
-rh-python34    # DEPRECATED per 2019-11-13
-rh-python36    # DEPRECATED per 2019-11-13
+$ scl --list
+rh-perl526
+rh-python36
+rh-ruby26
 ```
 
 

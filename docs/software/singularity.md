@@ -171,13 +171,47 @@ When it comes to the scheduler, there is nothing special about Singularity per s
 [alice@{{ site.devel.name }} lxc]$ 
 ```
 
-and here is how to do the same via the job scheduler:
+To run this as a batch job. we need to create a job script.
+sbatch sing_r_base.bash:
 ```sh
-[alice@{{ site.devel.name }} ~]$ echo 'singularity exec rocker_r-base.img Rscript -e "sum(1:10)"' | qsub -cwd -j yes -N r-base
-Your job 5570948 ("r-base") has been submitted
-[alice@{{ site.devel.name }} ~]$ cat r-base.o5570948
+$ sbatch sing_r_base.bash 
+Submitted batch job 1657
+[hputnam@c4-dev3 ~]$ cat sing_r_base.bash 
+#!/usr/bin/bash
+#SBATCH --job-name=singularity_test 
+#SBATCH --mail-type=BEGIN,END,FAIL
+#SBATCH --mail-user=alice.testuser@ucsf.edu 
+#SBATCH --ntasks=1
+#SBATCH --mem=100mb 
+#SBATCH --time=00:05:00
+#SBATCH --output=singularity_test_%j.log
+pwd; hostname; date
+
+/c4/home/alice/lxc/rocker_r-base.img Rscript -e "sum(1:10)"
+exit;
+```
+And now submit with sbatch:
+```sh
+[alice@{{ site.devel.name }} ~]$ sbatch sing_r_base.bash 
+Submitted batch job 1657
+```
+
+Check results:
+```sh
+cat singularity_test_1657.log
+/c4/home/alice
+c4-n2
+Tue Dec 22 13:18:39 PST 2020
 [1] 55
 ```
+Or submit interactively:
+
+```sh
+srun /c4/home/alice/lxc/rocker_r-base.img Rscript -e "sum(1:10)"
+[1] 55
+```
+
+
 
 
 
