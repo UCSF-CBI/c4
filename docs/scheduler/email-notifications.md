@@ -9,7 +9,7 @@ Instead of polling `squeue` to check whether submitted jobs are queued, running,
 To send an email when the job (b)egins, (e)nds, or (a)borts, submit the job as:
 
 ```sh
-$ sbatch --mailuser=alice.bobson@ucsf.edu --mail-type=BEGIN,END.FAIL myscript.sh
+$ sbatch --mailuser=alice.bobson@ucsf.edu --mail-type=BEGIN,END,FAIL myscript.sh
 ```
 
 To send an email only when the job completed, successfully or not, skip (b)egin notifications by using only:
