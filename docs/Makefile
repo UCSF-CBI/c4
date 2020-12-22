@@ -165,7 +165,7 @@ check-usernames:
 	files=$$(find . -type f -name "*.md" -not -path "./_site/*")
 	for file in $$files; do
 	   $(TPUT) && printf "[    ] checking %s" "$$file"
-	   if ! grep -H -n -E "\b(hb|hb-test|henrik|hputnam)\b" "$$file" &>> "$$stdout" ; then
+	   if ! grep -H -n -E "\b(hb|hb-test|henrik|hputnam|ahechmer|tnejo)\b" "$$file" &>> "$$stdout" ; then
 	     ok_count=$$((ok_count+1))
 	     $(TPUT) && printf "\r"
 	     printf "[$(OK)] checking %s\\n" "$$file"
