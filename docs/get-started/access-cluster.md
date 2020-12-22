@@ -3,7 +3,7 @@
 </div>
 
 <div class="alert alert-warning" role="alert" style="margin-top: 3ex">
-Access to {{ site.cluster.name }} is only available from the UCSF network. If you are outside the UCSF network you must first connect via th UCSF VPN.
+Access to {{ site.cluster.name }} is only available from the UCSF network. If you are outside the UCSF network you must first connect via the UCSF VPN.
 </div>
 
 # Login
