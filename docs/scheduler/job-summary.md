@@ -12,13 +12,13 @@ If you don't know how much resources your job consumes, you can run the job with
 echo $node STARTED `date +%s`
 
 # copy alignment file to node scratch space
-cp /c4/home/hputnam/data/CM-0828.aligned.deduplicated.sorted.bam /scratch/$SLURM_JOB_USER/$SLURM_JOB_ID/
+cp /c4/home/alice/data/CM-0828.aligned.deduplicated.sorted.bam /scratch/$SLURM_JOB_USER/$SLURM_JOB_ID/
 
 # sort by read name (not coordinate) writing temp files to node scratch but final output to home directory
-samtools sort -n -T /scratch/$SLURM_JOB_USER/$SLURM_JOB_ID/ -o /c4/home/hputnam/temp/dummy.bam -@ 1 /scratch/$SLURM_JOB_USER/$SLURM_JOB_ID/CM-0828.aligned.deduplicated.sorted.bam
+samtools sort -n -T /scratch/$SLURM_JOB_USER/$SLURM_JOB_ID/ -o /c4/home/alice/temp/dummy.bam -@ 1 /scratch/$SLURM_JOB_USER/$SLURM_JOB_ID/CM-0828.aligned.deduplicated.sorted.bam
 
 # clean-up
-mysum=`md5sum /c4/home/hputnam/temp/dummy.bam`
+mysum=`md5sum /c4/home/alice/temp/dummy.bam`
 echo "md5sum of output file is $mysum"
 rm /scratch/$SLURM_JOB_USER/$SLURM_JOB_ID/CM-0828.aligned.deduplicated.sorted.bam
 
@@ -42,13 +42,13 @@ As a first guess, we can assume that this script takes at most1 hour to run, but
 echo $node STARTED `date +%s`
 
 # copy alignment file to node scratch space
-cp /c4/home/hputnam/data/CM-0828.aligned.deduplicated.sorted.bam /scratch/$SLURM_JOB_USER/$SLURM_JOB_ID/
+cp /c4/home/alice/data/CM-0828.aligned.deduplicated.sorted.bam /scratch/$SLURM_JOB_USER/$SLURM_JOB_ID/
 
 # sort by read name (not coordinate) writing temp files to node scratch but final output to home directory
-samtools sort -n -T /scratch/$SLURM_JOB_USER/$SLURM_JOB_ID/ -o /c4/home/hputnam/temp/dummy.bam -@ 1 /scratch/$SLURM_JOB_USER/$SLURM_JOB_ID/CM-0828.aligned.deduplicated.sorted.bam
+samtools sort -n -T /scratch/$SLURM_JOB_USER/$SLURM_JOB_ID/ -o /c4/home/alice/temp/dummy.bam -@ 1 /scratch/$SLURM_JOB_USER/$SLURM_JOB_ID/CM-0828.aligned.deduplicated.sorted.bam
 
 # clean-up
-mysum=`md5sum /c4/home/hputnam/temp/dummy.bam`
+mysum=`md5sum /c4/home/alice/temp/dummy.bam`
 echo "md5sum of output file is $mysum"
 rm /scratch/$SLURM_JOB_USER/$SLURM_JOB_ID/CM-0828.aligned.deduplicated.sorted.bam
 
