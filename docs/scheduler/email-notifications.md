@@ -6,16 +6,16 @@
 
 Instead of polling `squeue` to check whether submitted jobs are queued, running, or finished, one can tell the job scheduler to send email notifications as jobs change state.  This is done by specifying `sbatch` option `--mail-type=<type>` and option `---mail=<recipients>`, where `<type>` specifies under what circumstances an email message should be sent to `<recipients>`. Type is one of NONE, BEGIN, END, FAIL, REQUEUE, ALL.
 
-To send an email when the job (b)egins, (e)nds, or (a)borts, submit the job as:
+To send an email when the job begins, ends, or fails, submit the job as:
 
 ```sh
 $ sbatch --mailuser=alice.bobson@ucsf.edu --mail-type=BEGIN,END,FAIL myscript.sh
 ```
 
-To send an email only when the job completed, successfully or not, skip (b)egin notifications by using only:
+To send an email only when the job completed, successfully or not, skip begin notifications by using only:
 
 ```sh
-$ sbatch --mailuser=alice.bobson@ucsf.edu --mail-type=END myscript.sh
+$ sbatch --mailuser=alice.bobson@ucsf.edu --mail-type=END,FAIL myscript.sh
 ```
 
 Alternatively, one may include the mail (and other) sbatch options directly in the job script as `#SBATCH` options. For example, we can include the following in Alice's script just after the shebang:

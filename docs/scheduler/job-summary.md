@@ -4,7 +4,7 @@
 
 The more accurately you can specify the required resources (memory, running time, local scratch needs, ...) of your jobs, the better the job scheduler can serve your needs and often your jobs will be processed sooner.  For instance, if you have a good sense of the amount of memory and run time your job needs, then you can specify these via [Slurm #SBATCH options]({{ '/scheduler/submit-jobs.html' | relative_url }}) `--mem` and `--time`.  If you don't specify them, your job will use the default settings.
 
-If you don't know how much resources your job consumes, you can run the job without a memory request and then review how much memory was used with sacct. Below is a sample job that sorts a bunch of bam files.
+If you don't know how much resources your job consumes, you can run the job without a memory request and then review how much memory was used with `sacct`. Below is a sample job that sorts a bunch of bam files.
 
 ```sh
 #!/usr/bin/bash
@@ -27,7 +27,7 @@ echo $node COMPLETED `date`
 
 ```
 
-As a first guess, we can assume that this script takes at most1 hour to run, but let's assume we don't have a good sense on how much memory it will consume, so we set the `--time` #SBATCH option on the script by putting `#SBATCH --time=01:00:00` after the shebang in the script header. Also as a first guess, we will ask for two CPUs and 4 GiB of RAM. Once we have all the `#SBATCH` options in place, the script looks like this:
+As a first guess, we can assume that this script takes at most 1 hour to run, but let's assume we don't have a good sense on how much memory it will consume, so we set the `--time` #SBATCH option on the script by putting `#SBATCH --time=01:00:00` after the shebang in the script header. Also as a first guess, we will ask for two CPUs and 4 GiB of RAM. Once we have all the `#SBATCH` options in place, the script looks like this:
 
 ```sh
 #!/usr/bin/bash
@@ -61,7 +61,7 @@ $ sbatch bam-sort-load-test.sh
 Submitted batch job 1033
 ```
 
-When the job completes, we can find the resources used with the sacct command. To see all possible information we can use the -l flag:
+When the job completes, we can find the resources used with the `sacct` command. To see all possible information we can use the `-l` flag:
 
 ```sh
 $ sacct -j 1033 -l
