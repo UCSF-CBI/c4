@@ -176,7 +176,7 @@ sbatch sing_r_base.bash:
 ```sh
 $ sbatch sing_r_base.bash 
 Submitted batch job 1657
-[hputnam@c4-dev3 ~]$ cat sing_r_base.bash 
+[alice@c4-dev3 ~]$ cat sing_r_base.bash 
 #!/usr/bin/bash
 #SBATCH --job-name=singularity_test 
 #SBATCH --mail-type=BEGIN,END,FAIL

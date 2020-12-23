@@ -29,9 +29,9 @@ For example,
 ```sh
 $ squeue
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON) 
-                 6    common SHEH_201 ahechmer  R 1-01:40:59      1 c4-n10 
-                27    common snakejob ahechmer  R 1-01:40:25      1 c4-n10 
-              1032    common gex_coun    tnejo  R    1:27:48      1 c4-n1 
+                 6    common SHEH_201    alice  R 1-01:40:59      1 c4-n10 
+                27    common snakejob    alice  R 1-01:40:25      1 c4-n10 
+              1032    common gex_coun    bob    R    1:27:48      1 c4-n1 
 
 ```
 
