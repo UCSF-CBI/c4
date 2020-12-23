@@ -18,7 +18,7 @@ $ jobid=$(sbatch hello_world |grep -o '[[:digit:]]*')
 $ echo $jobid
 50
 ```
-This allows you to pass it in downstream calls, e.g. `$ sacct -j $jobid`.
+This allows you to pass it in downstream calls, e.g. `sacct -j $jobid`.
 
 
 ## Additional resources

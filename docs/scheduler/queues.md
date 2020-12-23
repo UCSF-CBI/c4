@@ -1,11 +1,11 @@
 # Available Partitions
 
-The cluster provides different partitions (queues) for running jobs. We have a common partition that anyone is free to use as well as lab owned "condo" partitions that are restricted to a particular Lab's use. Any Lab is free to purchase compute hardware and we will be glad to create a "condo" partition for it. 
+The cluster provides different partitions (queues) for running jobs. We have a common partition that anyone is free to use as well as lab owned "condo" partitions that are restricted to a particular lab's use. Any lab is free to purchase compute hardware and we will be glad to create a "condo" partition for it. 
 
 * **common**:
-  - Maximum runtime: 20160 minutes
+  - Maximum runtime: 14 days (= 336 hours = 20,160 minutes)
   - Availability: all common nodes
-  - Quota: 384 active jobs per user, 2020 queued jobs per user.
+  - Quota: 384 active jobs per user, 2,020 queued jobs per user.
 
 
 
@@ -14,7 +14,7 @@ _Comment_: Here "runtime" means "walltime", i.e. the runtime of a job is how lon
 
 ## Usage
 
-If you do not specify a partition then your job will run on the common partition which is the default partition for our cluster. Jobs for condo partitions should specify the partition with the `#SBATCH --partition=` option. It is nice but not required for users that have access to condo partitions to try and use those first in order to free up the common partition for others. We understand that sometimes workload will dictate using both.
+If you do not specify a partition then your job will run on the common partition which is the default partition for our cluster. Jobs for condo partitions should specify the partition with the `#SBATCH --partition` option. It is nice but not required for users that have access to condo partitions to try and use those first in order to free up the common partition for others. We understand that sometimes workload will dictate using both.
 
 In order to see the partitions use the sinfo command
 ```sh
