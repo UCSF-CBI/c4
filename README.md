@@ -1,13 +1,14 @@
-<a target="_blank" rel="noopener noreferrer" href="https://github.com/UCSF-HPC/wynton/actions?query=workflow%3A%22Spell+check%22"><img src="https://github.com/UCSF-HPC/wynton/workflows/Spell%20check/badge.svg" alt="Spell check" style="max-width:100%;"></a> 
-<a target="_blank" rel="noopener noreferrer" href="https://github.com/UCSF-HPC/wynton/actions?query=workflow%3A%22YAML+check%22"><img src="https://github.com/UCSF-HPC/wynton/workflows/YAML%20check/badge.svg" alt="YAML check" style="max-width:100%;"></a> 
-<a target="_blank" rel="noopener noreferrer" href="https://github.com/UCSF-HPC/wynton/actions?query=workflow%3AShellCheck"><img src="https://github.com/UCSF-HPC/wynton/workflows/ShellCheck/badge.svg" alt="ShellCheck" style="max-width:100%;"></a>
-<a target="_blank" rel="noopener noreferrer" href="https://github.com/UCSF-HPC/wynton/actions?query=workflow%3AMarkdownLint"><img src="https://github.com/UCSF-HPC/wynton/workflows/MarkdownLint/badge.svg" alt="MarkdownLint" style="max-width:100%;"></a>
-<a target="_blank" rel="noopener noreferrer" href="https://github.com/UCSF-HPC/wynton/actions?query=workflow%3AMarkdown%20URLs"><img src="https://github.com/UCSF-HPC/wynton/workflows/Markdown%20URLs/badge.svg" alt="Markdown URLs" style="max-width:100%;"></a>
+<a target="_blank" rel="noopener noreferrer" href="https://github.com/UCSF-CBI/c4/actions?query=workflow%3A%22Spell+check%22"><img src="https://github.com/UCSF-CBI/c4/workflows/Spell%20check/badge.svg" alt="Spell check" style="max-width:100%;"></a> 
+<a target="_blank" rel="noopener noreferrer" href="https://github.com/UCSF-CBI/c4/actions?query=workflow%3A%22YAML+check%22"><img src="https://github.com/UCSF-CBI/c4/workflows/YAML%20check/badge.svg" alt="YAML check" style="max-width:100%;"></a> 
+<a target="_blank" rel="noopener noreferrer" href="https://github.com/UCSF-CBI/c4/actions?query=workflow%3AShellCheck"><img src="https://github.com/UCSF-CBI/c4/workflows/ShellCheck/badge.svg" alt="ShellCheck" style="max-width:100%;"></a>
+<a target="_blank" rel="noopener noreferrer" href="https://github.com/UCSF-CBI/c4/actions?query=workflow%3AMarkdownLint"><img src="https://github.com/UCSF-CBI/c4/workflows/MarkdownLint/badge.svg" alt="MarkdownLint" style="max-width:100%;"></a>
+<a target="_blank" rel="noopener noreferrer" href="https://github.com/UCSF-CBI/c4/actions?query=workflow%3AMarkdown%20URLs"><img src="https://github.com/UCSF-CBI/c4/workflows/Markdown%20URLs/badge.svg" alt="Markdown URLs" style="max-width:100%;"></a>
+<a target="_blank" rel="noopener noreferrer" href="https://github.com/UCSF-CBI/c4/actions?query=workflow%3AUsernames"><img src="https://github.com/UCSF-CBI/c4/workflows/Usernames/badge.svg" alt="Usernames" style="max-width:100%;"></a>
 
 
-# The C4 HPC User Website
+# The C4 User Website
 
-This repository contains the [Wynton HPC user website](https://wynton.ucsf.edu/hpc/).  Updates to the 'master' branch will be published and go live within one minute.
+This repository contains the [C4 user website](https://ucsf-cbi.github.io/c4/).  Updates to the 'master' branch will be published and go live within one minute.
 
 
 ## Prototype the website locally
@@ -16,10 +17,10 @@ To get a local copy of this repos, do:
 
 ```sh
 $ cd /path/to/my/repositories
-$ git clone https://github.com/UCSF-HPC/wynton.git
-$ cd wynton
+$ git clone https://github.com/UCSF-CBI/c4.git
+$ cd c4
 $ pwd
-/path/to/my/repositories/wynton
+/path/to/my/repositories/c4
 ```
 
 To launch a localhost instance of the website, do:
@@ -30,13 +31,13 @@ $ ## export PATH="$HOME/.gem/ruby/2.5.0/bin:$PATH"
 
 $ cd docs
 $ bundle exec jekyll serve --port 4001
-Configuration file: /home/alice/wynton/docs/_config.yml
-            Source: /home/alice/wynton/docs
-       Destination: /home/alice/wynton/docs/_site
+Configuration file: /home/alice/c4/docs/_config.yml
+            Source: /home/alice/c4/docs
+       Destination: /home/alice/c4/docs/_site
  Incremental build: disabled. Enable with --incremental
       Generating... 
                     done in 0.94 seconds.
- Auto-regeneration: enabled for '/home/alice/wynton/docs'
+ Auto-regeneration: enabled for '/home/alice/c4/docs'
     Server address: http://127.0.0.1:4001
   Server running... press ctrl-c to stop.
 ```
@@ -78,7 +79,7 @@ RESULT: 50 OK, 0 ERROR
 
 If there are errors, the explanation for them can be found on <https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md>.  The online [markdownlint demo](https://dlaa.me/markdownlint/) can be useful to better understand certain errors.
 
-Several of the rules are disabled in the [docs/.markdownlint.json](https://github.com/UCSF-HPC/wynton/blob/master/docs/.markdownlint.json) configuration file.
+Several of the rules are disabled in the [docs/.markdownlint.json](https://github.com/UCSF-CBI/c4/blob/master/docs/.markdownlint.json) configuration file.
 
 To run these tests locally, install [markdownlint-cli](https://github.com/igorshubovych/markdownlint-cli).
 
@@ -104,17 +105,11 @@ To run these tests locally, install [markdown-link-check](https://github.com/tco
 
 This website is built upon [Jekyll](https://jekyllrb.com/), where content is mostly written in [Markdown](https://en.wikipedia.org/wiki/Markdown) and rendered by Jekyll into HTML.  The user interface and its style is handled mainly by JavaScript and CSS.
 
-* <https://github.com/UCSF-HPC/wynton/>:
+* <https://github.com/UCSF-CBI/c4/>:
   - The source Git repository for the website
   
-* <https://ucsf-hpc.github.io/wynton/>:
-  - The legacy website rendered by GitHub Pages (near instant)
-  - Only kept up until everyone has moved to the official site
-
-* <https://wynton.ucsf.edu/hpc/>:
-  - The official, public website
-  - This is updated ones per minute via a local cronjob using a simple `git pull`
-  - This web server runs its own local instance of Jekyll
+* <https://ucsf-hpc.github.io/c4/>:
+  - The official, public website **to be released; just a mockup right now**
 
 
 ## Installing Jekyll
@@ -152,6 +147,6 @@ That's it.  You can now launch the website locally as above.
 
 ## Licenses
 
-* The _content_ of the Wynton HPC is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a> (CC BY-SA 4.0).
+* The _content_ of the C4 is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a> (CC BY-SA 4.0).
 
 * In addition to _content_, there are JavaScript frameworks and CSS files controlling the rendering of the webpage.  See the corresponding folders for their licenses.
