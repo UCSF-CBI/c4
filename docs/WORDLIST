@@ -83,6 +83,7 @@ runscript
 salloc
 sacct
 Sali
+SATA
 Sandler
 SCHEDMD
 scalable
