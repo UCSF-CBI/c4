@@ -26,18 +26,18 @@ The job scheduler is Slurm 20.02 ([Simple Linux Utility for Resource Management 
 
 The majority of the compute nodes have Intel processors, while a few have AMD processes.  Each compute node has a local `/scratch` drive (see above for size), which is either a hard disk drive (HDD), a solid state drive (SSD), or even a Non-Volatile Memory Express (NVMe) drive. Each node has a tiny `/tmp` drive ({{ site.data.specs.local_tmp_size_min }}-{{ site.data.specs.local_tmp_size_max }} GiB).
 
-Node      |  # Cores |      CPU  |       RAM | Local `/scratch/` | Notes                        | Priority
-----------|---------:|----------:|----------:|-----------------:|------------------------------|-----------
-c4-n1     |       64 |   2.1 GHz |   512 GiB |           1.8 TiB | SSD /scratch                | (communal)
-c4-n2     |       64 |   2.1 GHz |   512 GiB |           1.8 TiB | SSD /scratch                | (communal)
-c4-n3     |       64 |   2.1 GHz |   512 GiB |           1.8 TiB | SSD /scratch                | (communal)
-c4-n4     |       64 |   2.1 GHz |   512 GiB |           1.8 TiB | SSD /scratch                | (communal)
-c4-n5     |       64 |   2.1 GHz |   512 GiB |           2.6 TiB | SSD /scratch                | (communal)
-c4-n6     |      112 |   2.2 GHz |   768 GiB |          11.0 TiB | NVMe /scratch               | Witte Lab
-c4-n7     |      112 |   2.2 GHz |   768 GiB |          11.0 TiB | NVMe /scratch               | Witte Lab
-c4-n8     |      112 |   2.2 GHz |   768 GiB |          11.0 TiB | NVMe /scratch               | Witte Lab
-c4-n9     |      112 |   2.2 GHz |   768 GiB |          11.0 TiB | NVMe /scratch               | Witte Lab
-c4-n10    |       64 |   2.1 GHz |   512 GiB |           1.8 TiB |                             | (communal)
+Node      |  # Cores |      CPU  |       RAM | Local `/scratch/` | Notes                         | Priority
+----------|---------:|----------:|----------:|-----------------:|--------------------------------:|-----------
+c4-n1     |       64 |   2.1 GHz |   512 GiB |           1.8 TiB | SSD /scratch  10Gb/s ethernet                      | (communal)
+c4-n2     |       64 |   2.1 GHz |   512 GiB |           1.8 TiB | SSD /scratch  10Gb/s ethernet                      | (communal)
+c4-n3     |       64 |   2.1 GHz |   512 GiB |           1.8 TiB | SSD /scratch  10Gb/s ethernet                      | (communal)
+c4-n4     |       64 |   2.1 GHz |   512 GiB |           1.8 TiB | SSD /scratch  10Gb/s ethernet                      | (communal)
+c4-n5     |       64 |   2.1 GHz |   512 GiB |           2.6 TiB | SSD /scratch  10Gb/s ethernet                      | (communal)
+c4-n6     |      112 |   2.2 GHz |   768 GiB |          11.0 TiB | NVMe /scratch 10Gb/s ethernet                      | Witte Lab
+c4-n7     |      112 |   2.2 GHz |   768 GiB |          11.0 TiB | NVMe /scratch 10Gb/s ethernet                      | Witte Lab
+c4-n8     |      112 |   2.2 GHz |   768 GiB |          11.0 TiB | NVMe /scratch 10Gb/s ethernet                      | Witte Lab
+c4-n9     |      112 |   2.2 GHz |   768 GiB |          11.0 TiB | NVMe /scratch 10Gb/s ethernet                      | Witte Lab
+c4-n10    |       64 |   2.1 GHz |   512 GiB |           1.8 TiB | SATA /scratch 10Gb/s ethernet                      | (communal)
 
 <!--
 For additional details on the compute nodes, see the <a href="#details">Details</a> section below.
