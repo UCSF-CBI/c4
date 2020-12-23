@@ -4,7 +4,7 @@
 		"pattern": "^https://www.cgl.ucsf.edu/admin/"
             },
             {
-		"pattern": "^https://listsrv.ucsf.edu/cgi-bin/wa[?]A0=wynton-help"
+		"pattern": "^https://listsrv.ucsf.edu/cgi-bin/wa[?]A0="
             },
             {
 		"pattern": "^https://github.com/UCSF-CBI/c4-help"
