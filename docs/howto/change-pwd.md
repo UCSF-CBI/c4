@@ -5,7 +5,7 @@
 ## Change password
 
 
-You can change your password from the C4 command line using the standard passwd command.  
+You can change your password from the {{ site.cluster.name }} command line using the standard passwd command.  
 
 
 

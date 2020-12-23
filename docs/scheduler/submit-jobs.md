@@ -1,6 +1,6 @@
 # Submit Jobs
 
-There are two basic modes for doing work on SLURM, batch and interactive. Batch jobs are submitted to the scheduler and run at a later time. Interactive jobs happen in real time. One can also allocate resources ahead of time for an interactive job. The relevant SLURM commands are sbatch for batch jobs, srun for interactive jobs, and salloc for allocating resources and then running srun tasks within the allocation. 
+There are two basic modes for doing work on Slurm, batch and interactive. Batch jobs are submitted to the scheduler and run at a later time. Interactive jobs happen in real time. One can also allocate resources ahead of time for an interactive job. The relevant Slurm commands are sbatch for batch jobs, srun for interactive jobs, and salloc for allocating resources and then running srun tasks within the allocation. 
 
 
 ## Submit a script to run in batch mode
@@ -40,7 +40,7 @@ Submitted batch job 1507
 ## Specifying (maximum) memory usage
 
 In the above job we used the `#SBATCH --mem=100` option. This set maximum memory usage to 100mb (mb is the default unit). We can specify in Gigabytes using gb, example `--mem=2gb`. 
-Please note that if your job *exceeds* the --mem= limit, it will be terminated with an OOM error. So, why should we do it? Because jobs that specify smaller memory limits will have more opportunities to actually run. If we don't specify the limits, SLURM will assume the job needs up to the node limit of memory and it will sit in the queue until a node with max memory becomes available. By right sizing your jobs they will run faster.
+Please note that if your job *exceeds* the --mem= limit, it will be terminated with an OOM error. So, why should we do it? Because jobs that specify smaller memory limits will have more opportunities to actually run. If we don't specify the limits, Slurm will assume the job needs up to the node limit of memory and it will sit in the queue until a node with max memory becomes available. By right sizing your jobs they will run faster.
 
 _TIPS_: To find out how much memory a job used, `sacct -j jobid --format="JobID,Elapsed,MaxRSS,State"` you can use this to right size the job next time you want to run a similar one.
         Example:
@@ -156,6 +156,6 @@ _Comment_: MPI stands for ['Message Passing Interface'](https://en.wikipedia.org
 
 For further options and advanced usage, see [Advanced Usage]({{ '/advanced-usage.html' | relative_url }}) of the scheduler.
 
-[SLURM environment variable]: {{ '/scheduler/sge-envvars.html' | relative_url }}
+[Slurm environment variable]: {{ '/scheduler/sge-envvars.html' | relative_url }}
 [Job Summary]: {{ '/scheduler/job-summary.html' | relative_url }}
 [development nodes]: {{ '/get-started/development-prototyping.html' | relative_url }}

@@ -2,7 +2,7 @@
 
 ## Figure out how much memory and other resources were used by a job
 
-The more accurately you can specify the required resources (memory, running time, local scratch needs, ...) of your jobs, the better the job scheduler can serve your needs and often your jobs will be processed sooner.  For instance, if you have a good sense of the amount of memory and run time your job needs, then you can specify these via [SLURM #SBATCH options]({{ '/scheduler/submit-jobs.html' | relative_url }}) `--mem` and `--time`.  If you don't specify them, your job will use the default settings.
+The more accurately you can specify the required resources (memory, running time, local scratch needs, ...) of your jobs, the better the job scheduler can serve your needs and often your jobs will be processed sooner.  For instance, if you have a good sense of the amount of memory and run time your job needs, then you can specify these via [Slurm #SBATCH options]({{ '/scheduler/submit-jobs.html' | relative_url }}) `--mem` and `--time`.  If you don't specify them, your job will use the default settings.
 
 If you don't know how much resources your job consumes, you can run the job without a memory request and then review how much memory was used with sacct. Below is a sample job that sorts a bunch of bam files.
 
@@ -93,7 +93,7 @@ With this information, we can narrow down that the total processing time was 32 
 
 Sometimes your job "just dies". There is often a simply explanation to this but finding out why can be complicated at first, especially if there are no clues in the job log files.
 
-One common reason for jobs terminating early is that it ran out of the requested runtime (`--time=<runtime>`).  When that happens in SLURM you get an indication from the end of job email similar to:
+One common reason for jobs terminating early is that it ran out of the requested runtime (`--time=<runtime>`).  When that happens in Slurm you get an indication from the end of job email similar to:
 
 `Slurm Job_id=1034 Name=bam_test Failed, Run time 00:01:13, TIMEOUT, ExitCode 0`
 

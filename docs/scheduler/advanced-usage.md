@@ -7,7 +7,7 @@ When submitting a job, the job id is outputted to standard output (stdout) as pa
 $ sbatch hello_world 
 Submitted batch job 46
 ```
-With SLURM, we do not have the --terse option as we did with qsub so we have to get creative with grep and regular expressions.
+With Slurm, we do not have the --terse option as we did with qsub so we have to get creative with grep and regular expressions.
 ```sh
 $ sbatch hello_world |grep -o '[[:digit:]]*'
 49
@@ -23,6 +23,6 @@ This allows you to pass it in downstream calls, e.g. `$ sacct -j $jobid`.
 
 ## Additional resources
 
-For more help on the SLURM scheduler, please see:
+For more help on the Slurm scheduler, please see:
 
-* [SLURM Quick Start User Guide](https://slurm.schedmd.com/quickstart.html) - by SCHEDMD
+* [Slurm Quick Start User Guide](https://slurm.schedmd.com/quickstart.html) - by SCHEDMD

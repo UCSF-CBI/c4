@@ -1,13 +1,13 @@
 # 'Hello World' Job
 
-The C4 cluster farm consists of a number of [compute nodes] that are ready to serve users' compute tasks (aka jobs).  Since all compute nodes are configured the same way, for instance, they have the exact same set software installed, it does not matter on which compute node your analysis runs.
+The {{ site.cluster.name }} cluster farm consists of a number of [compute nodes] that are ready to serve users' compute tasks (aka jobs).  Since all compute nodes are configured the same way, for instance, they have the exact same set software installed, it does not matter on which compute node your analysis runs.
 
-At any time, there will be many users using the cluster where some users run a single analysis whereas other run many multi-day jobs in parallel.  In order for users not to step on each others toes and for users to get a fair share of the compute resources, the cluster uses a so called _job scheduler_ to orchestrate the compute requests.  This works by users submitting their compute jobs to a _partition_.  Then the scheduler will locate one or more compute nodes with enough free resources to process the submitted job and launch the job on those compute nodes.  C4 has a common partition (called common) that anyone may use. C4 also has a number of 'Condo' compute nodes which are owned by individual Labs and set aside for that Lab's use.
+At any time, there will be many users using the cluster where some users run a single analysis whereas other run many multi-day jobs in parallel.  In order for users not to step on each others toes and for users to get a fair share of the compute resources, the cluster uses a so called _job scheduler_ to orchestrate the compute requests.  This works by users submitting their compute jobs to a _partition_.  Then the scheduler will locate one or more compute nodes with enough free resources to process the submitted job and launch the job on those compute nodes.  {{ site.cluster.name }} has a common partition (called common) that anyone may use. {{ site.cluster.name }} also has a number of 'Condo' compute nodes which are owned by individual Labs and set aside for that Lab's use.
 
 
 ## Instructions
 
-The most common way of running compute tasks on the C4 cluster, consists of:
+The most common way of running compute tasks on the {{ site.cluster.name }} cluster, consists of:
 
 1. creating a script,
 
@@ -17,7 +17,7 @@ The most common way of running compute tasks on the C4 cluster, consists of:
 
 4. looking at the results, e.g. output data files and text logs.
 
-The C4 cluster uses [Slurm] as its scheduler.  [Slurm] provides command  [sbatch] to submit a script ("job") and command `squeue --user=your_c4-username` to check the status of your jobs. Slurm also provides a way to run a job interactively called `srun`.
+The {{ site.cluster.name }} cluster uses [Slurm] as its scheduler.  [Slurm] provides command  [sbatch] to submit a script ("job") and command `squeue --user=your_c4-username` to check the status of your jobs. Slurm also provides a way to run a job interactively called `srun`.
 
 
 <div class="alert alert-info" role="alert" style="margin-top: 3ex">

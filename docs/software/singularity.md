@@ -82,7 +82,7 @@ Storing signatures
 INFO:    Creating SIF file...
 INFO:    Build complete: rocker_r-base.img
 [alice@{{ site.devel.name }} lxc]$ ls -l rocker_r-base.img
--rwxr-xr-x. 1 hb-test lsd 307957760 Sep  1 15:02 rocker_r-base.img
+-rwxr-xr-x. 1 alice boblab 307957760 Sep  1 15:02 rocker_r-base.img
 ```
 
 The above may take a minute or two to complete.
