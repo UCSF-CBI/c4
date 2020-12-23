@@ -95,7 +95,7 @@ Sometimes your job "just dies". There is often a simply explanation to this but 
 
 One common reason for jobs terminating early is that it ran out of the requested runtime (`--time=<runtime>`).  When that happens in Slurm you get an indication from the end of job email similar to:
 
-```
+```sh
 Slurm Job_id=1034 Name=bam_test Failed, Run time 00:01:13, TIMEOUT, ExitCode 0
 ```
 
