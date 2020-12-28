@@ -33,7 +33,7 @@ As a first guess, we can assume that this script takes at most 1 hour to run, bu
 #!/usr/bin/bash
 #SBATCH --job-name=bam_test                # Job name
 #SBATCH --mail-type=END,FAIL               # Mail events (NONE, BEGIN, END, FAIL, ALL)
-#SBATCH --mail-user=harry.putnam@ucsf.edu  # Where to send mail 
+#SBATCH --mail-user=alice.testuser@ucsf.edu  # Where to send mail 
 #SBATCH --ntasks=2                         # Run on a two CPUs
 #SBATCH --mem=4gb                          # Job memory request
 #SBATCH --time=01:00:00                    # Time limit hrs:min:sec

@@ -31,7 +31,7 @@ $ cat myenv.bash
 #SBATCH --account=cbi
 #SBATCH --partition=common
 #SBATCH --mail-type=END,FAIL          # Mail events (NONE, BEGIN, END, FAIL, ALL)
-#SBATCH --mail-user=harry.putnam@ucsf.edu          # user to receive notification emails
+#SBATCH --mail-user=alice.testuser@ucsf.edu          # user to receive notification emails
 #SBATCH --ntasks=1                    # Run on a single CPU
 #SBATCH --mem=80gb                     # Job memory request
 #SBATCH --time=1:00:00               # Time limit hrs:min:sec
