@@ -148,7 +148,7 @@ fprintf('Number of slots available: %d\n', nslots);
 ```python
 import os
 nslots = os.getenv('SLURM_NPROCS', '1')  # env var is always a 'str'
-nslots = int(nslots)               # coerce to an 'int'
+nslots = int(nslots)                     # coerce to 'int'
 print('Number of slots available: ' + nslots)
 ```
 
@@ -156,7 +156,7 @@ print('Number of slots available: ' + nslots)
 
 ```r
 nslots <- Sys.getenv("SLURM_NPROCS", "1")  # env var is always a 'character'
-nslots <- as.integer(nslots)         # coerce to an 'integer'
+nslots <- as.integer(nslots)               # coerce to 'integer'
 message("Number of slots available: ", nslots)
 ```
 
