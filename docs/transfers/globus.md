@@ -8,7 +8,7 @@
 
 If you want to transfer files from or to your {{ site.cluster.nickname }} account, you need to set up the 'UCSF {{ site.cluster.nickname }}' endpoint.  Below is an outline on how to do this.
 
-1. [online] Go to ['UCSF {{ site.cluster.nickname }}' endpoint] and click 'Activate'.  This will ask you to enter your {{ site.cluster.nickname }} credential, i.e. your {{ site.cluster.nickname }} username and password.  Optionally, limit the lifetime of this endpoint by clicking 'Advanced' and select the number of hours you want it to be valid, e.g. `2` hours.
+1. [online] Go to [Globus.org](https://www.globus.org) and log in with myAccess credentials. Then find the Endpoints menu on the left and click it. Then find ['UCSF {{ site.cluster.nickname }}' endpoint] and click 'Activate'.  This will ask you to enter your {{ site.cluster.nickname }} credential, i.e. your {{ site.cluster.nickname }} username and password.  Optionally, limit the lifetime of this endpoint by clicking 'Advanced' and select the number of hours you want it to be valid, e.g. `2` hours.
 
 2. [online] Go to [Endpoints](https://app.globus.org/endpoints), go to the recently activated 'UCSF {{ site.cluster.nickname }}' endpoint, and click on 'Open in File Manager'.  This will display the files and folders on your {{ site.cluster.nickname }} account.  If you don't see anything, make sure to enter `~/` as the 'Path'.
 
@@ -49,7 +49,7 @@ To transfer files via the Globus network:
 ## Endpoints of interest
 
 * [Your personal GCP endpoint](https://app.globus.org/endpoints?scope=administered-by-me)
-* ['UCSF {{ site.cluster.nickname }}' endpoint] (UUID `9c60dd5e-0c92-11ea-9952-0a8c187e8c12`)
+* ['UCSF {{ site.cluster.nickname }}' endpoint] (UUID `a436389c-0e5a-11eb-81b1-0e2f230cc907`)
 
 
 [Globus]: https://www.globus.org/

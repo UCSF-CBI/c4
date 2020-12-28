@@ -9,7 +9,7 @@ TBD.
 
 # {{ site.cluster.name }} - Research Computing at Scale
 
-{{ site.cluster.name }} is a large, shared high-performance compute (HPC) cluster underlying supporting the Helen Diller Family Comprehensive Cancer Center (HDFCCC). Funded by the HDFCCC and administered by the Computational Biology and Informatics (CBI) Shared Resource, it is available to all UCSF Cancer Center members and members of their labs. Its purpose is to fulfill various biomedical and health science computing needs.  Researchers can participate using the common resources of this system or buy compute nodes or storage to add to the system and for which special priority is given.
+{{ site.cluster.name }} is a shared high-performance compute (HPC) cluster underlying supporting the Helen Diller Family Comprehensive Cancer Center (HDFCCC). Funded by the HDFCCC and administered by the Computational Biology and Informatics (CBI) Shared Resource, it is available to all UCSF Cancer Center members and members of their labs. Its purpose is to fulfill various biomedical and health science computing needs.  Researchers can participate using the common resources of this system or buy compute nodes or storage to add to the system and for which special priority is given.
 
 **The {{ site.cluster.name }} environment is available for _free_ to all HDFCCC researchers**.  To join, please follow the [instructions for requesting an account]({{ '/about/join.html' | relative_url }}).  For more details on where we are heading, please see the [{{ site.cluster.name }} Roadmap]({{ '/about/roadmap.html' | relative_url }}).
 
