@@ -9,7 +9,7 @@ If you don't know how much resources your job consumes, you can run the job with
 ```sh
 #!/usr/bin/bash
 
-echo $node STARTED `date +%s`
+echo $node STARTED $(date +%s)
 
 # copy alignment file to node scratch space
 cp /c4/home/alice/data/CM-0828.aligned.deduplicated.sorted.bam /scratch/$SLURM_JOB_USER/$SLURM_JOB_ID/
@@ -22,8 +22,8 @@ mysum=`md5sum /c4/home/alice/temp/dummy.bam`
 echo "md5sum of output file is $mysum"
 rm /scratch/$SLURM_JOB_USER/$SLURM_JOB_ID/CM-0828.aligned.deduplicated.sorted.bam
 
-echo $node COMPLETED `date +%s`
-echo $node COMPLETED `date`
+echo $node COMPLETED $(date +%s)
+echo $node COMPLETED $(date)
 
 ```
 
@@ -33,7 +33,7 @@ As a first guess, we can assume that this script takes at most 1 hour to run, bu
 #!/usr/bin/bash
 #SBATCH --job-name=bam_test                # Job name
 #SBATCH --mail-type=END,FAIL               # Mail events (NONE, BEGIN, END, FAIL, ALL)
-#SBATCH --mail-user=alice.testuser@ucsf.edu  # Where to send mail 
+#SBATCH --mail-user=alice.bobson@ucsf.edu  # Where to send mail 
 #SBATCH --ntasks=2                         # Run on a two CPUs
 #SBATCH --mem=4gb                          # Job memory request
 #SBATCH --time=01:00:00                    # Time limit hrs:min:sec
@@ -52,8 +52,8 @@ mysum=`md5sum /c4/home/alice/temp/dummy.bam`
 echo "md5sum of output file is $mysum"
 rm /scratch/$SLURM_JOB_USER/$SLURM_JOB_ID/CM-0828.aligned.deduplicated.sorted.bam
 
-echo $node COMPLETED `date +%s`
-echo $node COMPLETED `date`
+echo $node COMPLETED $(date +%s)
+echo $node COMPLETED $(date)
 ```
 
 ```sh
