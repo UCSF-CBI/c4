@@ -45,7 +45,7 @@ echo $node STARTED `date +%s`
 cp $HOME/data/CM-0828.aligned.deduplicated.sorted.bam $TMPDIR
 
 # sort by read name (not coordinate) writing temp files to node scratch but final output to home directory
-samtools sort -n -T $TMPDIR -o /c4/home/alice/temp/dummy.bam -@ 1 $TMPDIR/CM-0828.aligned.deduplicated.sorted.bam
+samtools sort -n -T $TMPDIR -o $HOMEDIR/temp/dummy.bam -@ 1 $TMPDIR/CM-0828.aligned.deduplicated.sorted.bam
 
 # clean-up
 mysum=$(md5sum $HOME/temp/dummy.bam)
