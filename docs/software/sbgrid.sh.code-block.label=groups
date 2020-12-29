@@ -1,2 +1,0 @@
-[alice@{{ site.devel.name }} ~]$ groups
-lsd sbgrid
