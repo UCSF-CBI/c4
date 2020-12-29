@@ -5,7 +5,7 @@ For questions and feature requests, please use one of the following channels:
 1. **Mailing list [tipcc@listsrv.ucsf.edu](https://listsrv.ucsf.edu/cgi-bin/wa?A0=tipcc)** [sic!] - A communal forum where you can ask for help and discuss problems and solutions (you need to subscribe before you can post messages)
 
    - Subscribe / unsubscribe: (a) go to [list homepage](https://listsrv.ucsf.edu/cgi-bin/wa?A0=tipcc), (b) click 'Subscribe or Unsubscribe', (c) enter your full name and preferred email address, and (d) click link in confirmation email that arrives within minutes.
-   - Web archives: N/A <!-- [list homepage](https://listsrv.ucsf.edu/cgi-bin/wa?A0=wynton-help) (only visible to subscribed list members). -->
+   - Web archives: N/A <!-- [list homepage](https://listsrv.ucsf.edu/cgi-bin/wa?A0=tipcc) (only visible to subscribed list members). -->
 
 2. **Github Issue Tracker [c4-help](https://github.com/UCSF-CBI/c4-help/issues)** - A communal forum for {{ site.cluster.name }} users to post questions and issues. This tracker is visible to all C4 users and the Sysadmin team. This is the very best way to get help.
 
@@ -30,10 +30,3 @@ To better assist with your issue:
   * If you have problems with jobs (e.g. not running or given errors), make sure to include the job IDs of the job you need help on.
   * Include your username on the cluster.
   * What machine are you trying to use, e.g. login or development node?
-
-<!--
-4. the [{{ site.cluster.name }} issue tracker]
--->
-
-
-<!-- [{{ site.cluster.name }} issue tracker]: https://github.com/UCSF-HPC/wynton/wiki/Todo -->
