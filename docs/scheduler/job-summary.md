@@ -1,6 +1,6 @@
 # Job Summary
 
-## Figure out how much memory and other resources were used by a job
+## Figure out how much memory and other resources were used by a completed job
 
 The more accurately you can specify the required resources (memory, running time, local scratch needs, ...) of your jobs, the better the job scheduler can serve your needs and often your jobs will be processed sooner.  For instance, if you have a good sense of the amount of memory and run time your job needs, then you can specify these via [Slurm #SBATCH options]({{ '/scheduler/submit-jobs.html' | relative_url }}) `--mem` and `--time`.  If you don't specify them, your job will use the default settings.
 
@@ -12,15 +12,15 @@ If you don't know how much resources your job consumes, you can run the job with
 echo $node STARTED $(date +%s)
 
 # copy alignment file to node scratch space
-cp /c4/home/alice/data/CM-0828.aligned.deduplicated.sorted.bam /scratch/$SLURM_JOB_USER/$SLURM_JOB_ID/
+cp $HOME/CM-0828.aligned.deduplicated.sorted.bam $TMPDIR/
 
 # sort by read name (not coordinate) writing temp files to node scratch but final output to home directory
-samtools sort -n -T /scratch/$SLURM_JOB_USER/$SLURM_JOB_ID/ -o /c4/home/alice/temp/dummy.bam -@ 1 /scratch/$SLURM_JOB_USER/$SLURM_JOB_ID/CM-0828.aligned.deduplicated.sorted.bam
+samtools sort -n -T $TMPDIR -o $HOME/temp/dummy.bam -@ 1 $TMPDIR/CM-0828.aligned.deduplicated.sorted.bam
 
 # clean-up
-mysum=`md5sum /c4/home/alice/temp/dummy.bam`
+mysum=$(md5sum $HOME/temp/dummy.bam)
 echo "md5sum of output file is $mysum"
-rm /scratch/$SLURM_JOB_USER/$SLURM_JOB_ID/CM-0828.aligned.deduplicated.sorted.bam
+rm $TMPDIR/CM-0828.aligned.deduplicated.sorted.bam
 
 echo $node COMPLETED $(date +%s)
 echo $node COMPLETED $(date)
@@ -42,15 +42,15 @@ As a first guess, we can assume that this script takes at most 1 hour to run, bu
 echo $node STARTED `date +%s`
 
 # copy alignment file to node scratch space
-cp /c4/home/alice/data/CM-0828.aligned.deduplicated.sorted.bam /scratch/$SLURM_JOB_USER/$SLURM_JOB_ID/
+cp $HOME/data/CM-0828.aligned.deduplicated.sorted.bam $TMPDIR
 
 # sort by read name (not coordinate) writing temp files to node scratch but final output to home directory
-samtools sort -n -T /scratch/$SLURM_JOB_USER/$SLURM_JOB_ID/ -o /c4/home/alice/temp/dummy.bam -@ 1 /scratch/$SLURM_JOB_USER/$SLURM_JOB_ID/CM-0828.aligned.deduplicated.sorted.bam
+samtools sort -n -T $TMPDIR -o /c4/home/alice/temp/dummy.bam -@ 1 $TMPDIR/CM-0828.aligned.deduplicated.sorted.bam
 
 # clean-up
-mysum=`md5sum /c4/home/alice/temp/dummy.bam`
+mysum=$(md5sum $HOME/temp/dummy.bam)
 echo "md5sum of output file is $mysum"
-rm /scratch/$SLURM_JOB_USER/$SLURM_JOB_ID/CM-0828.aligned.deduplicated.sorted.bam
+rm $TMPDIR/CM-0828.aligned.deduplicated.sorted.bam
 
 echo $node COMPLETED $(date +%s)
 echo $node COMPLETED $(date)
@@ -89,6 +89,15 @@ $ sacct -j 1033 --format="JobID,State,Elapsed,MaxRSS"
 With this information, we can narrow down that the total processing time was 32 minutes 48 seconds (`Elapsed=00:32:48`) and that the maximum amount of resident set size  memory used was ~865 MiB (`MaxRSS=882060K`).  With the help of `Elapsed` and `MaxRSS` from previous runs, we can re-submit this job script with more relevant resource specifications in our `#SBATCH` options within the script (eg `--mem=1gb`). Remember it pays to keep the mem request as small as possible. Jobs with large memory requests will sit in queue longer.
 
 
+## Put a line in your script to display maximum resources used by that job
+
+We can use the sstat command to get information about running jobs. That being the case, it is possible to have a line at the end of your script that will output the maximum memory used by the job to the standard out file (job log). Taking the above script as an example, we can add this to the very last line:
+```sh
+## End-of-job summary, if running as a job
+[[ -n "$SLURM_JOB_ID" ]] && sstat -j "$SLURM_JOB_ID" --format "MaxRSS"
+```
+
+To get a list of al possible output items, type `sstat -e` from the command line (or man sstat).
 ## Post-mortem job details
 
 Sometimes your job "just dies". There is often a simply explanation to this but finding out why can be complicated at first, especially if there are no clues in the job log files.
