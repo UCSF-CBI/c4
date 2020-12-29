@@ -81,7 +81,7 @@ Please please <a href="using-local-scratch.html">cleanup local scratch afterward
 </div>
 
 
-<!--## Parallel processing (on a single machine)
+## Parallel processing (on a single machine)
 
 The scheduler will allocate a single core for your job.  To allow the job to use multiple slots, request the number of slots needed when you submit the job.  For instance, to request four slots (`NSLOTS=4`) _each with 2 GiB of RAM_, for a _total_ of 8 GiB RAM, use:
 ```sh
@@ -100,9 +100,9 @@ _Comment_: PE stands for 'Parallel environment'.  SMP stands for ['Symmetric mul
 <div class="alert alert-danger" role="alert">
 <strong>Do not use more cores than requested!</strong> - a common reason for compute nodes being clogged up and jobs running slowly.  A typically mistake is to hard-code the number of cores in the script and then request a different number when submitting the job - using <code>NSLOTS</code> avoids this problem.  Another problem is software that by default use all of the machine's cores - make sure to control for this, e.g. use dedicated command-line option or environment variable for that software.
 </div>
--->
 
-<!--## Passing arguments to script
+
+## Passing arguments to script
 
 You can pass arguments to a job script similarly to how one passes argument to a script executed on the command line, e.g.
 ```sh
@@ -128,7 +128,6 @@ and make sure that the script (here `hybrid_mpi.sh`) exports `OMP_NUM_THREADS=8`
 
 ```sh
 # !/usr/bin/env bash
-# $ -cwd   ## SGE directive to run in the current working directory
 
 module load mpi
 export OMP_NUM_THREADS=8
@@ -143,13 +142,12 @@ _Comment_: MPI stands for ['Message Passing Interface'](https://en.wikipedia.org
 
 
 
-<!--
 ## Defaults
 
 * Memory usage (per slot): If not specified, the default is `-l mem_free=1G`.
 
 * Working directory: If not specified (e.g. `-cwd`), the default working directory is `$HOME`.
--->
+
 
 
 ## See also
