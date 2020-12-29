@@ -162,6 +162,7 @@ check-usernames:
 	error_count=0
 	config=.markdown-link-check.json
 
+	echo "*** $@:"
 	files=$$(find . -type f -name "*.md" -not -path "./_site/*")
 	for file in $$files; do
 	   $(TPUT) && printf "[    ] checking %s" "$$file"
@@ -191,6 +192,7 @@ check-leftovers:
 	error_count=0
 	config=.markdown-link-check.json
 
+	echo "*** $@:"
 	files=$$(find . -type f -name "*.md" -not -path "./_site/*")
 	for file in $$files; do
 	   $(TPUT) && printf "[    ] checking %s" "$$file"
