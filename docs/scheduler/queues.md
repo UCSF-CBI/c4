@@ -29,7 +29,6 @@ In the above example, the asterisk indicates that common is the default partitio
 
 
 
-<!--[steering committee]: http://wynton.ucsf.edu/-->
 [specify the resources]: {{ '/scheduler/submit-jobs.html' | relative_url }}
 
 <!--
