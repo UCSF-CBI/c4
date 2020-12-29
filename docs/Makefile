@@ -100,7 +100,7 @@ markdownlint:
 	   exit 1
 	fi
 
-	files=$$(find . -type f -name "*.md" -not -path "./_site/*")
+	files=$$(find . -type f -name "*.md" -not \( -path "./_site/*" -o -path "./drafts/*" \) )
 	for file in $$files; do
 	   $(TPUT) && printf "[    ] checking %s" "$$file"
 	   if markdownlint --config "$$config" "$$file" 2>> "$$stdout" ; then
@@ -134,7 +134,7 @@ markdown-link-check:
 	   exit 1
 	fi
 
-	files=$$(find . -type f -name "*.md" -not -path "./_site/*")
+	files=$$(find . -type f -name "*.md" -not \( -path "./_site/*" -o -path "./drafts/*" \) )
 	for file in $$files; do
 	   $(TPUT) && printf "[    ] checking %s" "$$file"
 	   if markdown-link-check --quiet --config "$$config" "$$file" &>> "$$stdout" ; then
@@ -163,7 +163,7 @@ check-usernames:
 	config=.markdown-link-check.json
 
 	echo "*** $@:"
-	files=$$(find . -type f -name "*.md" -not -path "./_site/*")
+	files=$$(find . -type f -name "*.md" -not \( -path "./_site/*" -o -path "./drafts/*" \) )
 	for file in $$files; do
 	   $(TPUT) && printf "[    ] checking %s" "$$file"
 	   if ! grep -H -n -E "\b(ahechmer|harry|hb|hb-test|henrik|hputnam|putnam|tnejo)\b" "$$file" &>> "$$stdout" ; then
@@ -193,10 +193,11 @@ check-leftovers:
 	config=.markdown-link-check.json
 
 	echo "*** $@:"
-	files=$$(find . -type f -name "*.md" -not -path "./_site/*")
+	files=$$(find . -type f -name "*.md" -not \( -path "./_site/*" -o -path "./drafts/*" \) )
 	for file in $$files; do
 	   $(TPUT) && printf "[    ] checking %s" "$$file"
-	   if ! grep -H -n -E '(#[$$]|/wynton/)' "$$file" &>> "$$stdout" ; then
+	   ## TODO: Add checks for SGE, -cwd, ...
+	   if ! grep -H -n -E '(#[ ]*[$$]|/wynton/)' "$$file" &>> "$$stdout" ; then
 	     ok_count=$$((ok_count+1))
 	     $(TPUT) && printf "\r"
 	     printf "[$(OK)] checking %s\\n" "$$file"
