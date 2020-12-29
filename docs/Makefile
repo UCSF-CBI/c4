@@ -184,6 +184,35 @@ check-usernames:
 	  exit 1
 	fi
 
-check: spell markdownlint markdown-link-check check-usernames
+check-leftovers:
+	@stdout=$(TMPDIR)/stdout
+
+	ok_count=0
+	error_count=0
+	config=.markdown-link-check.json
+
+	files=$$(find . -type f -name "*.md" -not -path "./_site/*")
+	for file in $$files; do
+	   $(TPUT) && printf "[    ] checking %s" "$$file"
+	   if ! grep -H -n -E '#[$$]' "$$file" &>> "$$stdout" ; then
+	     ok_count=$$((ok_count+1))
+	     $(TPUT) && printf "\r"
+	     printf "[$(OK)] checking %s\\n" "$$file"
+	   else
+	     error_count=$$((error_count+1))
+	     $(TPUT) && printf "\r"
+	     printf "[$(FAIL)] checking %s\\n" "$$file"
+	   fi
+	done
+
+	echo "RESULT: $$ok_count OK, $$error_count ERROR"
+	if (( error_count > 0 )); then
+	  grep -B 1 -E "(^ERROR:|^\[(✖|x)\]|Status: [0-9]+$$)" "$$stdout"
+	  echo "$$stdout"
+	  cat "$$stdout"
+	  exit 1
+	fi
+
+check: spell markdownlint markdown-link-check check-usernames check-leftovers
 
 FORCE:
