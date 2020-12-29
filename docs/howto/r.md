@@ -66,7 +66,8 @@ Before continuing, it is useful to understand where R packages looks for locally
 
 2. (optional) A site-wide R package library (not used on {{ site.cluster.name }})
 
-3. The system-wide R package library part of the R installed, e.g. `/wynton/home/cbi/shared/software/CBI/R-4.0.2/lib64/R/library`
+3. The system-wide R package library part of the R installed, e.g. `/software/c4/cbi/software/R-4.0.3/lib64/R/library`
+
 
 
 For instance, when we try to load an R package:
@@ -96,7 +97,7 @@ Now, in order to install, for instance, the [zoo] package available on CRAN, cal
 ```r
 > install.packages("zoo")
 Warning in install.packages("zoo") :
-  'lib = "/wynton/home/cbi/shared/software/CBI/R-4.0.2/lib64/R/library"' is not writable
+  'lib = "/software/c4/cbi/software/R-4.0.3/lib64/R/library"' is not writable
 Would you like to use a personal library instead? (yes/No/cancel)
 ```
 
@@ -124,11 +125,11 @@ downloaded 829 KB
 ** package 'zoo' successfully unpacked and MD5 sums checked
 ** using staged installation
 ** libs
-gcc -std=gnu99 -I"/wynton/home/cbi/shared/software/CBI/R-4.0.2/lib64/R/include" -DNDEBUG -I../inst/include  -I/usr/local/include   -fpic  -g -O2  -c coredata.c -o coredata.o
-gcc -std=gnu99 -I"/wynton/home/cbi/shared/software/CBI/R-4.0.2/lib64/R/include" -DNDEBUG -I../inst/include  -I/usr/local/include   -fpic  -g -O2  -c init.c -o init.o
-gcc -std=gnu99 -I"/wynton/home/cbi/shared/software/CBI/R-4.0.2/lib64/R/include" -DNDEBUG -I../inst/include  -I/usr/local/include   -fpic  -g -O2  -c lag.c -o lag.o
-gcc -std=gnu99 -shared -L/wynton/home/cbi/shared/software/CBI/R-4.0.2/lib64/R/lib -L/usr/local/lib64 -o zoo.so coredata.o init.o lag.o -L/wynton/home/cbi/shared/software/CBI/R-4.0.2/lib64/R/lib -lR
-installing to /wynton/home/bobson/alice/R/x86_64-pc-linux-gnu-library/4.0-CBI/00LOCK-zoo/00new/zoo/libs
+gcc -std=gnu99 -I"/software/c4/cbi/software/R-4.0.3/lib64/R/include" -DNDEBUG -I../inst/include  -I/usr/local/include   -fpic  -g -O2  -c coredata.c -o coredata.o
+gcc -std=gnu99 -I"/software/c4/cbi/software/R-4.0.3/lib64/R/include" -DNDEBUG -I../inst/include  -I/usr/local/include   -fpic  -g -O2  -c init.c -o init.o
+gcc -std=gnu99 -I"/software/c4/cbi/software/R-4.0.3/lib64/R/include" -DNDEBUG -I../inst/include  -I/usr/local/include   -fpic  -g -O2  -c lag.c -o lag.o
+gcc -std=gnu99 -shared -L/software/c4/cbi/software/R-4.0.3/lib64/R/lib -L/usr/local/lib64 -o zoo.so coredata.o init.o lag.o -L/software/c4/cbi/software/R-4.0.3/lib64/R/lib -lR
+installing to /c4/home/alice/R/x86_64-pc-linux-gnu-library/4.0-CBI/00LOCK-zoo/00new/zoo/libs
 ** R
 ** demo
 ** inst
@@ -188,7 +189,7 @@ When you start out fresh, the package [BiocManager] is not installed meaning tha
 
 ```r
 > install.packages("BiocManager")
-Installing package into '/wynton/home/bobson/alice/R/x86_64-pc-linux-gnu-library/4.0-CBI'
+Installing package into '/c4/home/alice/R/x86_64-pc-linux-gnu-library/4.0-CBI'
 (as 'lib' is unspecified)
 trying URL 'https://cloud.r-project.org/src/contrib/BiocManager_1.30.10.tar.gz'
 Content type 'application/x-gzip' length 40205 bytes (39 KB)
@@ -248,11 +249,11 @@ downloaded 1.5 MB
 * installing *source* package 'limma' ...
 ** using staged installation
 ** libs
-gcc -std=gnu99 -I"/wynton/home/cbi/shared/software/CBI/R-4.0.2/lib64/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c init.c -o init.o
-gcc -std=gnu99 -I"/wynton/home/cbi/shared/software/CBI/R-4.0.2/lib64/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c normexp.c -o normexp.o
-gcc -std=gnu99 -I"/wynton/home/cbi/shared/software/CBI/R-4.0.2/lib64/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c weighted_lowess.c -o weighted_lowess.o
-gcc -std=gnu99 -shared -L/wynton/home/cbi/shared/software/CBI/R-4.0.2/lib64/R/lib -L/usr/local/lib64 -o limma.so init.o normexp.o weighted_lowess.o -L/wynton/home/cbi/shared/software/CBI/R-4.0.2/lib64/R/lib -lR
-installing to /wynton/home/bobson/alice/R/x86_64-pc-linux-gnu-library/4.0-CBI/00LOCK-limma/00new/limma/libs
+gcc -std=gnu99 -I"/software/c4/cbi/software/R-4.0.3/lib64/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c init.c -o init.o
+gcc -std=gnu99 -I"/software/c4/cbi/software/R-4.0.3/lib64/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c normexp.c -o normexp.o
+gcc -std=gnu99 -I"/software/c4/cbi/software/R-4.0.3/lib64/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c weighted_lowess.c -o weighted_lowess.o
+gcc -std=gnu99 -shared -L/software/c4/cbi/software/R-4.0.3/lib64/R/lib -L/usr/local/lib64 -o limma.so init.o normexp.o weighted_lowess.o -L/software/c4/cbi/software/R-4.0.3/lib64/R/lib -lR
+installing to /c4/home/alice/R/x86_64-pc-linux-gnu-library/4.0-CBI/00LOCK-limma/00new/limma/libs
 ** R
 ** inst
 ** byte-compile and prepare package for lazy loading
@@ -347,7 +348,7 @@ Continuing, to install Rmpi, we launch R and call the following:
 
 ```r
 > install.packages("Rmpi", configure.args="--with-Rmpi-include=$MPI_INCLUDE --with-Rmpi-libpath=$MPI_LIB --with-Rmpi-type=OPENMPI")
-Installing package into '/wynton/home/cbi/alice/R/x86_64-pc-linux-gnu-library/4.0-CBI'
+Installing package into '/c4/home/alice/R/x86_64-pc-linux-gnu-library/4.0-CBI'
 (as 'lib' is unspecified)
 trying URL 'https://cloud.r-project.org/src/contrib/Rmpi_0.6-9.tar.gz'
 Content type 'application/x-gzip' length 106745 bytes (104 KB)
@@ -360,11 +361,11 @@ downloaded 104 KB
 configure: creating ./config.status
 config.status: creating src/Makevars
 ** libs
-gcc -std=gnu99 -I"/wynton/home/cbi/shared/software/CBI/R-4.0.2/lib64/R/include" -DNDEBUG -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -I/usr/include/openmpi-x86_64  -DMPI2 -DOPENMPI  -I/usr/local/include   -fpic  -g -O2  -c Rmpi.c -o Rmpi.o
-gcc -std=gnu99 -I"/wynton/home/cbi/shared/software/CBI/R-4.0.2/lib64/R/include" -DNDEBUG -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -I/usr/include/openmpi-x86_64  -DMPI2 -DOPENMPI  -I/usr/local/include   -fpic  -g -O2  -c conversion.c -o conversion.o
-gcc -std=gnu99 -I"/wynton/home/cbi/shared/software/CBI/R-4.0.2/lib64/R/include" -DNDEBUG -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -I/usr/include/openmpi-x86_64  -DMPI2 -DOPENMPI  -I/usr/local/include   -fpic  -g -O2  -c internal.c -o internal.o
-gcc -std=gnu99 -shared -L/wynton/home/cbi/shared/software/CBI/R-4.0.2/lib64/R/lib -L/usr/local/lib64 -o Rmpi.so Rmpi.o conversion.o internal.o -L/usr/lib64/openmpi/lib -lmpi -L/wynton/home/cbi/shared/software/CBI/R-4.0.2/lib64/R/lib -lR
-installing to /wynton/home/bobson/alice/R/x86_64-pc-linux-gnu-library/4.0-CBI/00LOCK-Rmpi/00new/Rmpi/libs
+gcc -std=gnu99 -I"/software/c4/cbi/software/R-4.0.3/lib64/R/include" -DNDEBUG -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -I/usr/include/openmpi-x86_64  -DMPI2 -DOPENMPI  -I/usr/local/include   -fpic  -g -O2  -c Rmpi.c -o Rmpi.o
+gcc -std=gnu99 -I"/software/c4/cbi/software/R-4.0.3/lib64/R/include" -DNDEBUG -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -I/usr/include/openmpi-x86_64  -DMPI2 -DOPENMPI  -I/usr/local/include   -fpic  -g -O2  -c conversion.c -o conversion.o
+gcc -std=gnu99 -I"/software/c4/cbi/software/R-4.0.3/lib64/R/include" -DNDEBUG -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -I/usr/include/openmpi-x86_64  -DMPI2 -DOPENMPI  -I/usr/local/include   -fpic  -g -O2  -c internal.c -o internal.o
+gcc -std=gnu99 -shared -L/software/c4/cbi/software/R-4.0.3/lib64/R/lib -L/usr/local/lib64 -o Rmpi.so Rmpi.o conversion.o internal.o -L/usr/lib64/openmpi/lib -lmpi -L/software/c4/cbi/software/R-4.0.3/lib64/R/lib -lR
+installing to /c4/home/alice/R/x86_64-pc-linux-gnu-library/4.0-CBI/00LOCK-Rmpi/00new/Rmpi/libs
 ** R
 ** demo
 ** inst
