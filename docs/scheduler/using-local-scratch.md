@@ -27,8 +27,6 @@ Here is a script called `ex-scratch.sh` that illustrates how to copy input files
 
 ```sh
 #!/bin/env bash
-#$ -cwd             ## use current working directory
-#$ -l scratch=200G  ## needs 200 GB of /scratch space
 
 ## 0. In case TMPDIR is not set, e.g. on development nodes, set
 ##    it to local /scratch, if it exists, otherwise to /tmp

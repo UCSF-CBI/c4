@@ -49,7 +49,6 @@ In order to run MATLAB in jobs, the MATLAB environment module needs to be loaded
 
 ```sh
 #! /usr/bin/env bash
-#$ -cwd   ## SGE directive to run in the current working directory
 
 module load matlab
 matlab -batch my_script
