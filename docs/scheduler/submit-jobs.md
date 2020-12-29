@@ -156,6 +156,6 @@ _Comment_: MPI stands for ['Message Passing Interface'](https://en.wikipedia.org
 
 For further options and advanced usage, see [Advanced Usage]({{ '/advanced-usage.html' | relative_url }}) of the scheduler.
 
-[Slurm environment variable]: {{ '/scheduler/sge-envvars.html' | relative_url }}
+[Slurm environment variable]: {{ '/scheduler/envvars.html' | relative_url }}
 [Job Summary]: {{ '/scheduler/job-summary.html' | relative_url }}
 [development nodes]: {{ '/get-started/development-prototyping.html' | relative_url }}
