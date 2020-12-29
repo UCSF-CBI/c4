@@ -196,7 +196,7 @@ check-leftovers:
 	files=$$(find . -type f -name "*.md" -not \( -path "./_site/*" -o -path "./drafts/*" \) )
 	for file in $$files; do
 	   $(TPUT) && printf "[    ] checking %s" "$$file"
-	   ## TODO: Add checks for SGE, -cwd, ...
+	   ## TODO: Add checks for SGE, -cwd, NSLOTS, ...
 	   if ! grep -H -n -E '(#[ ]*[$$]|/wynton/)' "$$file" &>> "$$stdout" ; then
 	     ok_count=$$((ok_count+1))
 	     $(TPUT) && printf "\r"
