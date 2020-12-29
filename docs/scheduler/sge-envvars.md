@@ -40,7 +40,7 @@ mydate=$(date)
 echo "Date is $mydate" > $HOME/myenv.out
 echo "Host is $HOSTNAME" >> $HOME/myenv.out
 echo "TMPDIR is $TMPDIR" >> $HOME/myenv.out
-full_env=`env|sort`
+full_env=$(env|sort)
 echo "Full Enviroment $full_env" >> $HOME/myenv.out
 exit;
 
