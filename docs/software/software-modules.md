@@ -111,9 +111,10 @@ fi
 The names of software repositories are always capitilized (e.g. <code>CBI</code> ) whereas the names of the software themselves are typically in all lower case (e.g. <code>r</code> and <code>bwa</code>).  This makes it easier to distiguish between repositories and software.
 </div>
 
+
 ## Using in a batch job
 
-First we need the job script. mod_r.bash:
+First we need the job script `mod_r.bash`:
 ```sh
 #!/usr/bin/bash
 #SBATCH --job-name=modules_test
@@ -128,7 +129,9 @@ module load CBI r
 Rscript -e "sum(1:10)"
 exit;
 ```
-Then submit with sbatch:
+
+Then submit with `sbatch`:
+
 ```sh
 $ sbatch mod_r.bash 
 Submitted batch job 1661

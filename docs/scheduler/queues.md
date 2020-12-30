@@ -16,7 +16,8 @@ _Comment_: Here "runtime" means "walltime", i.e. the runtime of a job is how lon
 
 If you do not specify a partition then your job will run on the common partition which is the default partition for our cluster. Jobs for condo partitions should specify the partition with the `#SBATCH --partition` option. It is nice but not required for users that have access to condo partitions to try and use those first in order to free up the common partition for others. We understand that sometimes workload will dictate using both.
 
-In order to see the partitions use the sinfo command
+In order to see the partitions use the `sinfo` command;
+
 ```sh
 $ sinfo
 PARTITION AVAIL  TIMELIMIT  NODES  STATE NODELIST 

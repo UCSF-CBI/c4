@@ -1,11 +1,11 @@
 # Submit Jobs
 
-There are two basic modes for doing work on Slurm, batch and interactive. Batch jobs are submitted to the scheduler and run at a later time. Interactive jobs happen in real time. One can also allocate resources ahead of time for an interactive job. The relevant Slurm commands are sbatch for batch jobs, srun for interactive jobs, and salloc for allocating resources and then running srun tasks within the allocation. 
+There are two basic modes for doing work on Slurm, batch and interactive. Batch jobs are submitted to the scheduler and run at a later time. Interactive jobs happen in real time. One can also allocate resources ahead of time for an interactive job. The relevant Slurm commands are `sbatch` for batch jobs, `srun` for interactive jobs, and `salloc` for allocating resources and then running `srun` tasks within the allocation. 
 
 
 ## Submit a script to run in batch mode
 
-One can just run a native bash script with sbatch and supply the relevant parameters at the CLI with various command-line options, e.g. `--time=00:10:00`.
+One can just run a native bash script with `sbatch` and supply the relevant parameters at the CLI with various command-line options, e.g. `--time=00:10:00`.
 It is probably easier to supply those options within the script itself using Slurm declarations as specially formatted shell comments prefixed as `#SBATCH`. 
 
 Let's use a "hello world" script to illustrate.

@@ -171,8 +171,7 @@ When it comes to the scheduler, there is nothing special about Singularity per s
 [alice@{{ site.devel.name }} lxc]$ 
 ```
 
-To run this as a batch job. we need to create a job script.
-sbatch sing_r_base.bash:
+To run this as a batch job, we need to create a job script.
 ```sh
 $ sbatch sing_r_base.bash 
 Submitted batch job 1657

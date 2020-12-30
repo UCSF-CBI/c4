@@ -17,7 +17,7 @@ The most common way of running compute tasks on the {{ site.cluster.name }} clus
 
 4. looking at the results, e.g. output data files and text logs.
 
-The {{ site.cluster.name }} cluster uses [Slurm] as its scheduler.  [Slurm] provides command  [sbatch] to submit a script ("job") and command `squeue --user=your_c4-username` to check the status of your jobs. Slurm also provides a way to run a job interactively called `srun`.
+The {{ site.cluster.name }} cluster uses [Slurm] as its scheduler.  [Slurm] provides command `sbatch` to submit a script ("job") and command `squeue --user=$USER` to check the status of your jobs. Slurm also provides a way to run a job interactively called `srun`.
 
 
 <div class="alert alert-info" role="alert" style="margin-top: 3ex">
@@ -57,14 +57,14 @@ Submitted batch job 11915
 
 When submitting a job, the scheduler assigned the job an identifier ("job id").  In the above example, the job id is '11915'.  Immediately after the job has been submitted and launched on c4-n1;
 ```sh
-[alice@{{ site.devel.name }} tests]$ squeue -u "$USER"
+[alice@{{ site.devel.name }} tests]$ squeue -u $USER
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON) 
              11915    common hello_wo    alice  R       0:03      1 c4-n1 
 ```
 
 Eventually, when the job script finished, `squeue` will no longer list it (if you have no other jobs on the queue, `squeue` will not output anything).
 
-So where is the output of the job?  Since we used no [sbatch] options, the output ends up in the cwd as slurm-11915.out:
+So where is the output of the job?  Since we used no `sbatch` options, the output ends up in the cwd as slurm-11915.out:
 ```sh
 [alice@{{ site.devel.name }} tests]$ cat slurm-11915.out
 Hello world, I am running on node c4-n1
