@@ -71,15 +71,15 @@ Next, we will set up the cluster to recognize your public SSH key.  Assuming you
 **Alternative 1**: If you have the `ssh-copy-id` tool installed on your local computer, then use:
 
 ```sh
-{local}$ ssh-copy-id -i ~/.ssh/laptop_to_c4.pub alice@c4-log1.ucsf.edu
+{local}$ ssh-copy-id -i ~/.ssh/laptop_to_c4.pub alice@{{ site.login.name }}
 /usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/c4/home/alice/.ssh/laptop_to_c4.pub"
 /usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
 /usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
-alice@c4-log1.ucsf.edu:s password: 
+alice@{{ site.login.name }}:s password: 
 
 Number of key(s) added: 1
 
-Now try logging into the machine, with:   "ssh 'alice@c4-log1.ucsf.edu'"
+Now try logging into the machine, with:   "ssh 'alice@{{ site.login.name }}'"
 and check to make sure that only the key(s) you wanted were added.
 
 {local}$
@@ -91,26 +91,26 @@ Done.
 
 **Alternative 2**: If you don't have `ssh-copy-id`, you will have to copy the _public_ key file over to the cluster, log in, append it to the target file, and validate file permissions.  Assuming you already have a `~/.ssh` folder on the cluster, first copy the public key file to `~/.ssh` on the cluster:
 ```sh
-{local}$ scp ~/.ssh/laptop_to_c4.pub alice@c4-log1.ucsf.edu:.ssh/
+{local}$ scp ~/.ssh/laptop_to_c4.pub alice@{{ site.login.name }}:.ssh/
 laptop_to_c4.pub           100%  390     0.4KB/s   00:00
 ```
 
 Then, log into the cluster (still using a password) and _append_ the public key to `~/.ssh/authorized_keys`:
 ```sh
-{local}$ ssh -o PreferredAuthentications=password alice@c4-log1.ucsf.edu
+{local}$ ssh -o PreferredAuthentications=password alice@{{ site.login.name }}
 alice1@169.230.134.135\'s password: XXXXXXXXXXXXXXXXXXX
-[alice@c4-log1.ucsf.edu ~]$ cd .ssh
-[alice@c4-log1.ucsf.edu .ssh]$ cat laptop_to_c4.pub >> authorized_keys
+[alice@{{ site.login.name }} ~]$ cd .ssh
+[alice@{{ site.login.name }} .ssh]$ cat laptop_to_c4.pub >> authorized_keys
 ```
 Finally, make sure that `~/.ssh/authorized_keys` is only accessible to you (otherwise that file will be completely ignored);
 ```sh
-[alice@c4-log1.ucsf.edu .ssh]$ chmod u=rw,go= ~/.ssh/authorized_keys
-[alice@c4-log1.ucsf.edu .ssh]$ stat --format=%A ~/.ssh/authorized_keys
+[alice@{{ site.login.name }} .ssh]$ chmod u=rw,go= ~/.ssh/authorized_keys
+[alice@{{ site.login.name }}.ssh]$ stat --format=%A ~/.ssh/authorized_keys
 -rw-------
 ```
 Lastly, log out from the cluster:
 ```sh
-[alice@c4-log1.ucsf.edu .ssh]$ exit
+[alice@{{ site.login.name }} .ssh]$ exit
 {local}$ 
 ```
 
@@ -121,8 +121,8 @@ Done.
 
 You should now be able to log into the cluster from your local computer without having to enter the cluster password.  Try the following:
 ```sh
-{local}$ ssh -o PreferredAuthentications=publickey -o IdentitiesOnly=yes -i ~/.ssh/laptop_to_c4 alice@c4-log1.ucsf.edu
-[alice@c4-log1.ucsf.edu ~]$ 
+{local}$ ssh -o PreferredAuthentications=publickey -o IdentitiesOnly=yes -i ~/.ssh/laptop_to_c4 alice@{{ site.login.name }}
+[alice@{{ site.login.name }} ~]$ 
 ```
 You will be asked to enter your _passphrase_, if you chose one above.
 
@@ -134,14 +134,14 @@ then make sure you use the correct user name and that the file permissions on `~
 
 The reason why we use `-o PreferredAuthentications=publickey -o IdentitiesOnly=yes` in the above test, is so that we can make sure no alternative login mechanisms than our SSH keypair are in play.  After having validated the above, these options can be dropped and you can now use:
 ```sh
-{local}$ ssh -i ~/.ssh/laptop_to_c4 alice@c4-log1.ucsf.edu
-[alice@c4-log1.ucsf.edu ~]$ 
+{local}$ ssh -i ~/.ssh/laptop_to_c4 alice@{{ site.login.name }}
+[alice@{{ site.login.name }} ~]$ 
 ```
 
 
 ## Step 4: Avoid having to specify SSH option `-i` (on local machine)
 
-It is rather tedious having to specify what private key file to use (`-i ~/.ssh/laptop_to_c4`) each time you use SSH.  As a last step, we will set the default options for `alice@c4-log1.ucsf.edu`.  On your local machine, add the following entry to `~/.ssh/config` (if you don't have the file, create it):
+It is rather tedious having to specify what private key file to use (`-i ~/.ssh/laptop_to_c4`) each time you use SSH.  As a last step, we will set the default options for `alice@{{ site.login.name }}`.  On your local machine, add the following entry to `~/.ssh/config` (if you don't have the file, create it):
 ```lang-none
 Host c4-log1.ucsf.edu
   User alice
@@ -151,7 +151,7 @@ Host c4-log1.ucsf.edu
 With all of the above, you should now be able to log in to the cluster using:
 ```sh
 {local}$ ssh c4-log1.ucsf.edu
-[alice@c4-log1.ucsf.edu ~]$ 
+[alice@{{ site.login.name }} ~]$ 
 ```
 
 [UCSF VPN]: https://it.ucsf.edu/services/vpn

@@ -36,20 +36,20 @@ $ cat myenv.bash
 #SBATCH --time=1:00:00                               # Time limit hrs:min:sec
 #SBATCH --output=$HOME/myenv_log_%A_%a.log           # Standard output and error log
 mydate=$(date)
-echo "Date is $mydate" > $HOME/myenv.out
-echo "Host is $HOSTNAME" >> $HOME/myenv.out
-echo "TMPDIR is $TMPDIR" >> $HOME/myenv.out
+echo "Date is $mydate" 
+echo "Host is $HOSTNAME" 
+echo "TMPDIR is $TMPDIR" 
 full_env=$(env|sort)
-echo "Full Enviroment $full_env" >> $HOME/myenv.out
+echo "Full Enviroment $full_env"
 exit;
 
 $ sbatch myenv.bash 
 Submitted batch job 1484
 ```
 
-When finished, check the content of the job output file:
+When finished, check the content of the standard output and error file:
 ```sh
-$ cat myenv.out
+$ cat myenv_log_1484_4294967294.log
 Date is Mon Dec 21 10:52:43 PST 2020
 Host is c4-n10
 TMPDIR is /scratch/alice/1484
