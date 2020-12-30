@@ -129,7 +129,7 @@ Here are some examples how to get the value of environment variable `SLURM_NPROC
 ### Bash
 
 ```sh
-nslots=${SLURM_NPROCS`:-1}
+nslots=${SLURM_NPROCS:-1}
 echo "Number of slots available: ${nslots}"
 ```
 
