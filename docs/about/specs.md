@@ -69,7 +69,7 @@ Node                        | Physical Cores |      RAM | Local `/scratch` |    
 ----------------------------|---------------:|---------:|-----------------:|:---------------------------------|:-------------------|
 {{ site.dev1.hostname }}    |              8 |   16 GiB |         0.11 TiB | Intel Xeon E5430 2.66GHz         |                    |
 {{ site.dev2.hostname }}    |             32 |  512 GiB |         1.1  TiB | Intel Xeon E5-2640 v3 2.60GHz    |                    |
-{{ site.dev3.hostname }}    |             12 |   64 GiB |         3.6  TiB | AMD Opteron(tm) Processor 2431 2.4GHz |                    |
+{{ site.dev3.hostname }}    |             12 |   64 GiB |         3.6  TiB | AMD Opteron 2431 2.4GHz |                    |
 
 <!--
 {{ site.gpudev1.hostname }} |             12 |   48 GiB |         0.37 TiB | Intel Xeon X5650 2.67GHz         | GeForce GTX 980 Ti |
