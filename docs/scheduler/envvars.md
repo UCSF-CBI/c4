@@ -3,7 +3,7 @@
 The scheduler sets variables in the environment of the job script.  Here is an excerpt of the most useful ones:
 
 * `SLURM_JOB_NAME` (string) - the name of the job
-* `SLURM_JOB_ID` (integer) - a unique job identifier
+* `SLURM_JOB_ID` (integer) - a unique job identifier (Note, do _not_ use the _deprecated_ `SLURM_JOBID`)
 * `SLURM_NTASKS` (integer) - the number of hosts for a parallel job (if not available, assume 1)
 * `SLURM_MEM_PER_NODE` (integer) - the number of megabytes (MiB) allocated to the job on the current node
 * `TMPDIR` (string) - the absolute path to a job-specific temporary directory (local on the compute node and owned by `$USER`) that is automatically removed when the job finishes
