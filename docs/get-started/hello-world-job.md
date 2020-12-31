@@ -56,27 +56,27 @@ Mon Aug 28 16:31:29 PDT 2017
 
 Note how it takes ten seconds between the `Hello world` message and the time stamp.  We have now confirm that the shell script does what we expect it to do, and we are ready to submit it to the job queue of the scheduler.  To do this, do:
 ```sh
-[alice@{{ site.devel.name }} tests]$ sbatch hello_world
-Submitted batch job 11915
+[alice@{{ site.devel.name }} tests]$ sbatch --mem=10M hello_world
+Submitted batch job 3084
 ```
 
-When submitting a job, the scheduler assigned the job a unique identifier ("job id").  In the above example, the job id is '11915'.
+When submitting a job, the scheduler assigned the job a unique identifier ("job id").  In the above example, the job id is '3038'.  We can see this and other jobs of ours on the job queue by using `squeue`;
 
-If we call `squeue`, we can see the job:
 ```sh
-[alice@{{ site.devel.name }} tests]$ squeue -u $USER
-             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON) 
-             11915    common hello_wo    alice  R       0:03      1 c4-n1 
+[alice@{{ site.devel.name }} tests]$ squeue -l -u $USER
+Thu Dec 31 10:34:04 2020
+             JOBID PARTITION     NAME     USER    STATE       TIME TIME_LIMI  NODES NODELIST(REASON) 
+              3084    common hello_wo   alice  PENDING       0:00 14-00:00:00      1 (Priority)
 ```
 
 In this case, the scheduler has already launched the job script.  We can see that the job is running (status `R`) on compute node c4-n1.  Eventually, when the job script has finished, `squeue` will no longer list it (if you have no other jobs on the queue, `squeue` will not output anything).
 
-So where is the output of the job?  Since we used no `sbatch` options, all output is redirected to file `slurm-11915.out` in the current working directory;
+So where is the output of the job?  By default, all output is redirected to a file in the current working directory with a name reflecting the job id;
 
 ```sh
-[alice@{{ site.devel.name }} tests]$ cat slurm-11915.out
-Hello world, I am running on node c4-n1
-Wed Nov  4 14:10:47 PST 2020
+[alice@{{ site.devel.name }} tests]$ cat slurm-3084.out
+Hello world, I am running on node c4-n10
+Thu Dec 31 10:34:00 PST 2020
 [alice@{{ site.devel.name }} tests]$ 
 ```
 
