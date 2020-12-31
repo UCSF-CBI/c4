@@ -186,7 +186,7 @@ Submitted batch job 1657
 #SBATCH --output=singularity_test_%j.log
 pwd; hostname; date
 
-/c4/home/alice/lxc/rocker_r-base.img Rscript -e "sum(1:10)"
+$HOME/lxc/rocker_r-base.img Rscript -e "sum(1:10)"
 exit;
 ```
 And now submit with sbatch:
@@ -206,7 +206,7 @@ Tue Dec 22 13:18:39 PST 2020
 Or submit interactively:
 
 ```sh
-srun /c4/home/alice/lxc/rocker_r-base.img Rscript -e "sum(1:10)"
+srun $HOME/lxc/rocker_r-base.img Rscript -e "sum(1:10)"
 [1] 55
 ```
 
