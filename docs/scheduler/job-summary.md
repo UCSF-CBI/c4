@@ -97,7 +97,7 @@ We can use the sstat command to get information about running jobs. That being t
 [[ -n "$SLURM_JOB_ID" ]] && sstat -j "$SLURM_JOB_ID" --format "MaxRSS"
 ```
 
-To get a list of all possible output items, type `sstat -e` from the command line (or `man sstat`).
+To get a list of all possible output items, see `sstat --helpformat` and subsection 'Job Status Fields' in `man sstat`.
 
 
 ## Post-mortem job details
