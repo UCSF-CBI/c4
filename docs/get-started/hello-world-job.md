@@ -66,7 +66,7 @@ When submitting a job, the scheduler assigned the job a unique identifier ("job 
 [alice@{{ site.devel.name }} tests]$ squeue -l -u $USER
 Thu Dec 31 10:34:04 2020
              JOBID PARTITION     NAME     USER    STATE       TIME TIME_LIMI  NODES NODELIST(REASON) 
-              3084    common hello_wo   alice  PENDING       0:00 14-00:00:00      1 (Priority)
+              3084    common hello_wo    alice  PENDING       0:00 14-00:00:00    1 (Priority)
 ```
 
 In this case, the scheduler has already launched the job script.  We can see that the job is running (status `R`) on compute node c4-n1.  Eventually, when the job script has finished, `squeue` will no longer list it (if you have no other jobs on the queue, `squeue` will not output anything).
