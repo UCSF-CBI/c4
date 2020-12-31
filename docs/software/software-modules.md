@@ -1,12 +1,24 @@
 # Software Modules
 
-In addition to the [core software] tools that are available by default, additional software is available via different [Software Repositories].  Note that some of these software tools are installed and maintained by other users or research groups of the cluster who have kindly agreed on sharing their efforts with other cluster users. Currently known and publicly shared repositories are:
+In addition to the [core software] tools that are available by default, additional software is available via different [Software Repositories].  Note that some of these software tools are installed and maintained by other users or research groups of the cluster who have kindly agreed on sharing their efforts with other cluster users. Currently shared repositories are:
 
 <table>
 <tr>
   <th>Repository</th>
   <th>Description</th>
  </tr>
+
+ <tr>
+  <td>
+  <strong>built-in</strong><br>
+  </td>
+  <td>
+  <strong>Built-in environment modules</strong><br>
+  <em>This software repository is always enabled</em><br>
+  List of software: See <a href="{{ '/software/software-repositories.html' | relative_url }}">Software Repositories</a>
+  </td>
+ </tr>
+
  <tr>
   <td>
   <strong>CBI</strong><br>
@@ -14,22 +26,23 @@ In addition to the [core software] tools that are available by default, addition
   <td>
   <strong>The Computational Biology and Informatics (CBI) Software Repository</strong><br>
   Repository of software shared by the Computational Biology and Informatics (<a href="http://cbi.ucsf.edu">http://cbi.ucsf.edu</a>) at the UCSF Helen Diller Family Comprehensive Cancer Center.<br>
-  Usage: <code>module load CBI</code>
+  How to enable: <code>module load CBI</code><br>
+  List of software: See <a href="{{ '/software/software-repositories.html' | relative_url }}">Software Repositories</a>
   </td>
  </tr>
- <!--<tr>
+
+ <tr>
   <td>
-  <strong>Sali</strong><br>
+  <strong>WitteLab</strong><br>
   
   </td>
   <td>
-  <strong>Sali Lab Software Repository</strong><br>
-  Repository of software shared by the UCSF Sali Lab (<a href="https://salilab.org/">https://salilab.org/</a>).<br>
-  <em>Comment: Contrary to the UCSF QB3 cluster, where these modules were available by default, this repository has to be loaded explicitly in order to have access to its modules on {{ site.cluster.name }}.</em><br>
-  
-  Usage: <code>module load Sali</code>
+  <strong>Witte Lab Software Repository</strong><br>
+  Repository of software shared by the UCSF Witte Lab (<a href="http://wittelab.ucsf.edu/">http://wittelab.ucsf.edu/</a>) at the UCSF Helen Diller Family Comprehensive Cancer Center.<br>
+  How to enable: <code>module load WitteLab</code><br>
+  List of software: See <a href="{{ '/software/software-repositories.html' | relative_url }}">Software Repositories</a>
   </td>
- </tr> -->
+ </tr>
 </table>
 <br>
 
@@ -95,12 +108,11 @@ _Comment_: If another version of R is already loaded, that will automatically be
 
 ## Using within a login shell
 
-Since `module` is only available on the development and compute nodes,
-its use in a login script (.profile, .bash_profile, .bashrc) needs
-to be guarded:
+Since `module` is only available on the development and compute nodes, its use in a login script (e.g. `.profile`, `.bashrc`, `.bash_profile`) needs to be guarded;
+
 ```sh
-if [[ -n "$MODULEPATH" ]]
-then
+if [[ -n "$MODULEPATH" ]]; then
+    module load <repos>
     module load <software>
 fi
 ```
@@ -112,38 +124,39 @@ The names of software repositories are always capitilized (e.g. <code>CBI</code>
 </div>
 
 
-## Using in a batch job
 
-First we need the job script `mod_r.bash`:
+## Using modules in scripts
+
+Using modules in scripts is straightforward, i.e. we need to load them in the script just as we need to load them at the command line.
+
+However, in order to submit it to the job scheduler, we need to tell Slurm that the job should initiate the job like your shell.  This is done via Slurm option `--export=NONE`.  Here is an example job script `sum-using-r.sh` that illustrates this:
+
 ```sh
-#!/usr/bin/bash
-#SBATCH --job-name=modules_test
-#SBATCH --mail-type=BEGIN,END,FAIL
-#SBATCH --mail-user=alice.testuser@ucsf.edu
-#SBATCH --ntasks=1
-#SBATCH --mem=100mb 
-#SBATCH --time=00:05:00 
-#SBATCH --output=modules_test_%j.log 
-pwd; hostname; date
+#!/usr/bin/env bash
+#SBATCH --export=NONE      # required when using 'module'
+#SBATCH --mem=100mb        # request 100 MiB of memory
+#SBATCH --time=00:01:00    # run for at most 1 minute
+
+# Load modules
 module load CBI r
+
+date
 Rscript -e "sum(1:10)"
-exit;
 ```
 
-Then submit with `sbatch`:
+To submit this to the scheduler, all we need to do is:
 
 ```sh
-$ sbatch mod_r.bash 
+$ sbatch sum-using-r.sh
 Submitted batch job 1661
 ```
 Check our results:
 ```sh
-$ cat modules_test_1661.log
-/c4/home/alice
-c4-n2
+$ cat slurm-1661.log
 Tue Dec 22 13:52:46 PST 2020
 [1] 55
 ```
+
 
 
 ## See also
