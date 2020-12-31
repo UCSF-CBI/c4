@@ -134,7 +134,7 @@ However, in order to submit it to the job scheduler, we need to tell Slurm that 
 ```sh
 #!/usr/bin/env bash
 #SBATCH --export=NONE      # required when using 'module'
-#SBATCH --mem=100mb        # request 100 MiB of memory
+#SBATCH --mem=100M         # request 100 MiB of memory
 #SBATCH --time=00:01:00    # run for at most 1 minute
 
 # Load modules

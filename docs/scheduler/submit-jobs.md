@@ -13,25 +13,26 @@ Let's use a "hello world" script to illustrate.
 
 ```sh
 #!/bin/bash
-#SBATCH -n 1
-#SBATCH -N 1
-#SBATCH -t 00:10:00
-#SBATCH -p common
-#SBATCH --mem=100
-#SBATCH -o myoutput_%j.out #SBATCH -e myerrors_%j.err
+#SBATCH --ntasks=1
+#SBATCH --nodes=1
+#SBATCH --mem=100M
+#SBATCH --time=00:10:00
+#SBATCH --output=%x-%j.out
 
-perl -e 'print "Hi there. \n"'
+perl -e 'print "Hi there.\n"'
 echo "This was run on $SLURM_JOB_NODELIST"
 ```
-Going through the `#SBATCH` options:
+Going through the Slurm declarations:
 
-* `#SBATCH -n 1` - run on 1 core.
-* `#SBATCH -N 1` - run on 1 compute node.
-* `#SBATCH -t 00:10:00` - job can run a maximum of 10 minutes.
-* `#SBATCH -p common` - run on the common partition.
-* `#SBATCH -o myoutput_%j.out #SBATCH -e myerrors_%j.err` - specify output and error files (defaults to the current working directory). The flag `%j` inserts job id into the file name.
+* `--ntasks=1` - run on 1 core
+* `--nodes=1` - run on 1 compute node
+* `--mem=100M` - allow job to use 100 MiB of memory (`M`=MiB, `G`=GiB, `T`=TiB)
+* `--time=00:10:00` - allow job to run for 10 minutes
+* `--partition=common` - run on the common partition
+* `--output=%x-%j.out` - specify output and error files (defaults to the current working directory). The `%x` and `%j` flags are replaced by the job name and job id, respectively
 
-Since we have specified all of our options with the `#SBATCH` syntax, we can now submit this job very simply:
+Since we have declared all of our Slurm options using the `#SBATCH` syntax in the job script, we do not have to specify them as command-line options.  Instead, we can now submit this job very simply:
+
 ```sh
 $ sbatch hi_there.bash 
 Submitted batch job 1507
@@ -39,11 +40,11 @@ Submitted batch job 1507
 
 ## Specifying (maximum) memory usage
 
-In the above job we used the `#SBATCH --mem=100` option. This set maximum memory usage to 100 MiB (`mb` is the default unit). We can specify in GiB using unit `gb`, e.g. `--mem=2gb`. 
+In the above job we used the `--mem=100M` option. This set maximum memory usage to 100 MiB (`M` is the default unit). We can specify in GiB using unit `G`, e.g. `--mem=2G`. 
 Please note that if your job *exceeds* the requested memory limit, it will be terminated with an Out-of-Memory (OOM) error. So, why should we do it? Because jobs that specify smaller memory limits will have more opportunities to actually run. If we don't specify the limits, Slurm will assume the job needs up to the node limit of memory and it will sit in the queue until a node with max memory becomes available. By right sizing your jobs they will run faster.
 
-_TIPS_: To find out how much memory a job used, `sacct -j jobid --format="JobID,Elapsed,MaxRSS,State"` you can use this to right size the job next time you want to run a similar one.
-        Example:
+_TIPS_: To find out how much memory a job used, `sacct -j jobid --format="JobID,Elapsed,MaxRSS,State"` you can use this to right size the job next time you want to run a similar one.  Example:
+
 ```sh
 $ sacct -j 1484 --format="JobID,Elapsed,MaxRSS,State"
        JobID    Elapsed     MaxRSS      State 
@@ -68,7 +69,7 @@ $ sacct -j 1012 --format="JobID,Elapsed,MaxRSS,State"
 Specifying the run time will shorten the queuing time - significantly so for short running jobs.
 </div>
 
-By specifying the how long each job will take, the better the scheduler can manage resources and allocate jobs to different nodes.  This will also decrease the average waiting time the job will sit in the queue before being launched on a compute node.  You can specify the maximum run time (= wall time, not CPU time) for a job using option `-t HH:MM:SS` where `HH:MM:SS` specifies the number of hours (`HH`), the number of minutes (`MM`), and the number of seconds (`SS`) - all parts must be specified.  In our above example, we used `#SBATCH -t 00:10:00`. 
+By specifying the how long each job will take, the better the scheduler can manage resources and allocate jobs to different nodes.  This will also decrease the average waiting time the job will sit in the queue before being launched on a compute node.  You can specify the maximum run time (= wall time, not CPU time) for a job using option `--time=HH:MM:SS` where `HH:MM:SS` specifies the number of hours (`HH`), the number of minutes (`MM`), and the number of seconds (`SS`) - all parts must be specified.  In our above example, we used `--time=00:10:00`. 
 
 
 

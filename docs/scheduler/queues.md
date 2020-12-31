@@ -14,7 +14,7 @@ _Comment_: Here "runtime" means "walltime", i.e. the runtime of a job is how lon
 
 ## Usage
 
-If you do not specify a partition then your job will run on the common partition which is the default partition for our cluster. Jobs for condo partitions should specify the partition with the `#SBATCH --partition` option. It is nice but not required for users that have access to condo partitions to try and use those first in order to free up the common partition for others. We understand that sometimes workload will dictate using both.
+If you do not specify a partition then your job will run on the common partition which is the default partition for our cluster. Jobs for condo partitions should specify the partition with the `--partition` option. It is nice but not required for users that have access to condo partitions to try and use those first in order to free up the common partition for others. We understand that sometimes workload will dictate using both.
 
 In order to see the partitions use the `sinfo` command;
 
@@ -23,7 +23,7 @@ $ sinfo
 PARTITION AVAIL  TIMELIMIT  NODES  STATE NODELIST 
 common*      up 14-00:00:0      1    mix c4-n1 
 common*      up 14-00:00:0      5   idle c4-n[2-5,10] 
-Witte        up 14-00:00:0      4   idle c4-n[6-9] 
+wittelab     up 14-00:00:0      4   idle c4-n[6-9] 
 ```
 
 In the above example, the asterisk indicates that common is the default partition. mix means that the node is running jobs, idle means the nodes are not running jobs. Other possible states are down, drain, and drng. The drain and drng state indicate that the node has been taken offline by the sysadmin. Draining means the nodes is still running jobs but won't accept new work.

@@ -181,9 +181,9 @@ Submitted batch job 1657
 #SBATCH --mail-type=BEGIN,END,FAIL
 #SBATCH --mail-user={{ site.user.email }}
 #SBATCH --ntasks=1
-#SBATCH --mem=100mb 
+#SBATCH --mem=100M 
 #SBATCH --time=00:05:00
-#SBATCH --output=singularity_test_%j.log
+#SBATCH --output=%x_%j.out
 pwd; hostname; date
 
 $HOME/lxc/rocker_r-base.img Rscript -e "sum(1:10)"

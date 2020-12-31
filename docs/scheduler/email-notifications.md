@@ -75,5 +75,3 @@ The message sent when a job abends (`--mailtype` includes `FAIL`) will look like
 ```lang-none
 Slurm Job_id=1007 Name=memorywaster.bash Failed, Run time 00:01:01, OUT_OF_MEMORY
 ```
-
-

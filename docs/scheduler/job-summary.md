@@ -2,32 +2,32 @@
 
 ## Figure out how much memory and other resources were used by a completed job
 
-The more accurately you can specify the required resources (memory, running time, local scratch needs, ...) of your jobs, the better the job scheduler can serve your needs and often your jobs will be processed sooner.  For instance, if you have a good sense of the amount of memory and run time your job needs, then you can specify these via [Slurm #SBATCH options]({{ '/scheduler/submit-jobs.html' | relative_url }}) `--mem` and `--time`.  If you don't specify them, your job will use the default settings.
+The more accurately you can specify the required resources (memory, running time, local scratch needs, ...) of your jobs, the better the job scheduler can serve your needs and often your jobs will be processed sooner.  For instance, if you have a good sense of the amount of memory and run time your job needs, then you can specify these via [Slurm options]({{ '/scheduler/submit-jobs.html' | relative_url }}) `--mem` and `--time`.  If you don't specify them, your job will use the default settings.
 
 If you don't know how much resources your job consumes, you can run the job without a memory request and then review how much memory was used with `sacct`. Below is a sample job that sorts a bunch of bam files.
 
 ```sh
 #!/usr/bin/bash
 
-echo $node STARTED $(date +%s)
+echo "$node STARTED $(date +%s)"
 
 # copy alignment file to node scratch space
-cp $HOME/CM-0828.aligned.deduplicated.sorted.bam $TMPDIR/
+cp $HOME/CM-0828.aligned.deduplicated.sorted.bam $TMPDIR
 
 # sort by read name (not coordinate) writing temp files to node scratch but final output to home directory
 samtools sort -n -T $TMPDIR -o $HOME/temp/dummy.bam -@ 1 $TMPDIR/CM-0828.aligned.deduplicated.sorted.bam
 
 # clean-up
-mysum=$(md5sum $HOME/temp/dummy.bam)
-echo "md5sum of output file is $mysum"
+md5=$(md5sum $HOME/temp/dummy.bam)
+echo "md5sum of output file is $md5"
 rm $TMPDIR/CM-0828.aligned.deduplicated.sorted.bam
 
-echo $node COMPLETED $(date +%s)
-echo $node COMPLETED $(date)
+echo "$node COMPLETED $(date +%s)"
+echo "$node COMPLETED $(date)"
 
 ```
 
-As a first guess, we can assume that this script takes at most 1 hour to run, but let's assume we don't have a good sense on how much memory it will consume, so we set the `--time` #SBATCH option on the script by putting `#SBATCH --time=01:00:00` after the shebang in the script header. Also as a first guess, we will ask for two CPUs and 4 GiB of RAM. Once we have all the `#SBATCH` options in place, the script looks like this:
+As a first guess, we can assume that this script takes at most 1 hour to run, but let's assume we don't have a good sense on how much memory it will consume, so we set the `--time` Slurm option on the script by add a `#SBATCH --time=01:00:00` header comment the shebang line.  Also as a first guess, we will ask for two CPUs and 4 GiB of RAM. Once we have all the Slurm options in place, the script looks like this:
 
 ```sh
 #!/usr/bin/bash
@@ -35,11 +35,11 @@ As a first guess, we can assume that this script takes at most 1 hour to run, bu
 #SBATCH --mail-type=END,FAIL                 # Mail events (NONE, BEGIN, END, FAIL, ALL)
 #SBATCH --mail-user={{  site.user.email  }}  # Where to send mail 
 #SBATCH --ntasks=2                           # Run on a two CPUs
-#SBATCH --mem=4gb                            # Job memory request
-#SBATCH --time=01:00:00                      # Time limit hrs:min:sec
-#SBATCH --output=bam_test_%j.log             # Standard output and error log
+#SBATCH --mem=4G                             # Job memory request
+#SBATCH --time=01:00:00                      # Time limit HH:MM:SS
+#SBATCH --output=%x_%j.out                   # Standard output and error log file
 
-echo $node STARTED $(date +%s)
+echo "$node STARTED $(date +%s)"
 
 # copy alignment file to node scratch space
 cp $HOME/data/CM-0828.aligned.deduplicated.sorted.bam $TMPDIR
@@ -48,12 +48,12 @@ cp $HOME/data/CM-0828.aligned.deduplicated.sorted.bam $TMPDIR
 samtools sort -n -T $TMPDIR -o $HOMEDIR/temp/dummy.bam -@ 1 $TMPDIR/CM-0828.aligned.deduplicated.sorted.bam
 
 # clean-up
-mysum=$(md5sum $HOME/temp/dummy.bam)
-echo "md5sum of output file is $mysum"
+md5=$(md5sum $HOME/temp/dummy.bam)
+echo "md5sum of output file is $md5"
 rm $TMPDIR/CM-0828.aligned.deduplicated.sorted.bam
 
-echo $node COMPLETED $(date +%s)
-echo $node COMPLETED $(date)
+echo "$node COMPLETED $(date +%s)"
+echo "$node COMPLETED $(date)"
 ```
 
 ```sh
@@ -64,7 +64,7 @@ Submitted batch job 1033
 When the job completes, we can find the resources used with the `sacct` command. To see all possible information we can use the `-l` flag:
 
 ```sh
-$ sacct -j 1033 -l
+$ sacct -l -j 1033
        JobID     JobIDRaw    JobName  Partition  MaxVMSize  MaxVMSizeNode  MaxVMSizeTask  AveVMSize     MaxRSS MaxRSSNode MaxRSSTask     AveRSS MaxPages MaxPagesNode   MaxPagesTask   AvePages     MinCPU MinCPUNode MinCPUTask     AveCPU   NTasks  AllocCPUS    Elapsed      State ExitCode AveCPUFreq ReqCPUFreqMin ReqCPUFreqMax ReqCPUFreqGov     ReqMem ConsumedEnergy  MaxDiskRead MaxDiskReadNode MaxDiskReadTask    AveDiskRead MaxDiskWrite MaxDiskWriteNode MaxDiskWriteTask   AveDiskWrite    AllocGRES      ReqGRES    ReqTRES  AllocTRES TRESUsageInAve TRESUsageInMax TRESUsageInMaxNode TRESUsageInMaxTask TRESUsageInMin TRESUsageInMinNode TRESUsageInMinTask TRESUsageInTot TRESUsageOutMax TRESUsageOutMaxNode TRESUsageOutMaxTask TRESUsageOutAve TRESUsageOutTot 
 ------------ ------------ ---------- ---------- ---------- -------------- -------------- ---------- ---------- ---------- ---------- ---------- -------- ------------ -------------- ---------- ---------- ---------- ---------- ---------- -------- ---------- ---------- ---------- -------- ---------- ------------- ------------- ------------- ---------- -------------- ------------ --------------- --------------- -------------- ------------ ---------------- ---------------- -------------- ------------ ------------ ---------- ---------- -------------- -------------- ------------------ ------------------ -------------- ------------------ ------------------ -------------- --------------- ------------------- ------------------- --------------- --------------- 
 1033_1       1034           rgc_gwas      Witte                                                                                                                                                                                                               2   00:00:01  COMPLETED      0:0                  Unknown       Unknown       Unknown       80Gn                                                                                                                                                                    billing=1+ billing=2+                                                                                                                                                                                                                                 
@@ -86,7 +86,7 @@ $ sacct -j 1033 --format="JobID,State,Elapsed,MaxRSS"
 
 ```
 
-With this information, we can narrow down that the total processing time was 32 minutes 48 seconds (`Elapsed=00:32:48`) and that the maximum amount of resident set size  memory used was ~865 MiB (`MaxRSS=882060K`).  With the help of `Elapsed` and `MaxRSS` from previous runs, we can re-submit this job script with more relevant resource specifications in our `#SBATCH` options within the script (eg `--mem=1gb`). Remember it pays to keep the mem request as small as possible. Jobs with large memory requests will sit in queue longer.
+With this information, we can narrow down that the total processing time was 32 minutes 48 seconds (`Elapsed=00:32:48`) and that the maximum amount of resident set size  memory used was ~865 MiB (`MaxRSS=882060K`).  With the help of `Elapsed` and `MaxRSS` from previous runs, we can re-submit this job script with more relevant resource specifications in our Slurm options within the script (eg `--mem=1gb`). Remember it pays to keep the mem request as small as possible. Jobs with large memory requests will sit in queue longer.
 
 
 ## Put a line in your script to display maximum resources used by that job
@@ -98,6 +98,7 @@ We can use the sstat command to get information about running jobs. That being t
 ```
 
 To get a list of all possible output items, type `sstat -e` from the command line (or `man sstat`).
+
 
 ## Post-mortem job details
 
