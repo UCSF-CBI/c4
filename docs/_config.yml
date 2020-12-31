@@ -65,6 +65,10 @@ transfer2:
   hostname: "non-yet-available-c4-dt2.ucsf.edu"
   ip: "NA.NA.NA.NA"
 
+globus:
+  name: "UCSF#C4-HPC"
+  uuid: a436389c-0e5a-11eb-81b1-0e2f230cc907
+
 assets:
   status_root_path: ""
 
