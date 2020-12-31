@@ -39,7 +39,7 @@ As a first guess, we can assume that this script takes at most 1 hour to run, bu
 #SBATCH --time=01:00:00                      # Time limit hrs:min:sec
 #SBATCH --output=bam_test_%j.log             # Standard output and error log
 
-echo $node STARTED `date +%s`
+echo $node STARTED $(date +%s)
 
 # copy alignment file to node scratch space
 cp $HOME/data/CM-0828.aligned.deduplicated.sorted.bam $TMPDIR
