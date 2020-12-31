@@ -20,7 +20,7 @@
 
 | Feature     | Login Nodes | Transfer Nodes          | Development Nodes | Compute Nodes |
 | ---- | ---------- | ----------------------- | ------------ | ---- |
-| SSH access from outside of cluster | ✓ (2FA if outside of UCSF) | ✓ (2FA if outside of UCSF) | no                                                          | no |
+| SSH access from outside of cluster | Within UCSF only, incl. UCSF VPN | Within UCSF only, incl. UCSF VPN | no | no |
 | SSH access from inside of cluster | ✓ | ✓ | ✓ | no |
 | Outbound access | Within UCSF only: SSH and SFTP | HTTP/HTTPS, FTP/FTPS, SSH, SFTP, GIT+SSH | Via proxy: HTTP/HTTPS, GIT+SSH(\*) | no |
 | Network speed | 1 Gbps | 10 Gbps | 1 Gbps | 1,10 Gbps |
