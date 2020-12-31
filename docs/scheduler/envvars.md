@@ -160,3 +160,13 @@ message("Number of slots available: ", nslots)
 ```
 
 
+### Ruby
+
+```r
+nslots = ENV["SLURM_NPROCS"] || "1"  # env var is always a 'String'
+nslots = nslots.to_i                 # coerce to 'Integer'
+puts "Number of slots available: #{nslots}"
+```
+
+
+
