@@ -69,7 +69,7 @@ Thu Dec 31 10:34:04 2020
               3084    common hello_wo    alice  PENDING       0:00 14-00:00:00    1 (Priority)
 ```
 
-In this case, the scheduler has already launched the job script.  We can see that the job is running (status `R`) on compute node c4-n1.  Eventually, when the job script has finished, `squeue` will no longer list it (if you have no other jobs on the queue, `squeue` will not output anything).
+We can see that the job is "pending", which means that the scheduler is still looking for a compute node where this job can be sent.  When the job launches, the status will be reported as "running".  When the job finishes, `squeue` will no longer list it.
 
 So where is the output of the job?  By default, all output is redirected to a file in the current working directory with a name reflecting the job id;
 
