@@ -6,28 +6,7 @@ WARNING: Do _not_ update this file; it is automatically generated from software-
 
 # Software Repositories
 
-In addition to the [core software] tools that are available by default, additional software is available via _environment modules_.  For example, although MATLAB is installed on the system, it is not available by default. Instead, we need to "load" its module first, e.g.
-
-```sh
-[alice@{{ site.devel.name }} ~]$ module load matlab
-[alice@{{ site.devel.name }} ~]$ module list
-
-Currently Loaded Modules:
-  1) matlab/2020a
-```
-Then we can launch MATLAB using:
-```sh
-[alice@{{ site.devel.name }} ~]$ matlab -nosplash -nodesktop
-```
-
-To see what other "built-in" modules are available, use:
-
-```sh
-[alice@{{ site.devel.name }} ~]$ module avail
-```
-
-
-In additional a set of built-in environment modules, there are also modules for software tools that are installed and maintained by other users or research groups.  To access these, we first need to load the corresponding "Software Repository" module.  For example, to get access to the repository and the software shared by the UCSF Computation Biology and Informatics core (CBI), make sure to load ("enable") the repository first, e.g.
+In addition to the [core software] tools that are available by default, other software tools are available via _environment modules_.  Particularly, there are software tools that are installed and maintained by other users or research groups.  To access these, we first need to load the corresponding "Software Repository" module.  For example, to get access to the repository and the software shared by the UCSF Computation Biology and Informatics core (CBI), make sure to load ("enable") the repository first, e.g.
 
 ```sh
 module load CBI
@@ -118,7 +97,7 @@ A cat(1) clone with syntax highlighting and Git integration.<br>
     Example: <code>bat README.md</code>, <code>bat scripts/*.sh</code>, and <code>bat src/*.c</code>.<br>
     URL: <a href="https://github.com/sharkdp/bat">https://github.com/sharkdp/bat</a><br>
     Warning: Only the most recent version of this software will be kept.<br>
-  Versions: <em>0.15.4</em><br>
+  Versions: 0.15.4, <em>0.17.1</em><br>
   </dd>
 
   <dt>bats-core</dt>
@@ -743,7 +722,7 @@ Here you can find the latest implementation of PrediXcan: PrediXcan.py. This use
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(8)</a></li>
 </ul>
 
-_The above information was automatically generated on 2020-12-28 19:27:17 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2020-12-30 16:59:07 from querying `module avail` and `module spider`._
 
 
 <style>
