@@ -31,13 +31,13 @@ As a first guess, we can assume that this script takes at most 1 hour to run, bu
 
 ```sh
 #!/usr/bin/bash
-#SBATCH --job-name=bam_test                # Job name
-#SBATCH --mail-type=END,FAIL               # Mail events (NONE, BEGIN, END, FAIL, ALL)
-#SBATCH --mail-user=alice.bobson@ucsf.edu  # Where to send mail 
-#SBATCH --ntasks=2                         # Run on a two CPUs
-#SBATCH --mem=4gb                          # Job memory request
-#SBATCH --time=01:00:00                    # Time limit hrs:min:sec
-#SBATCH --output=bam_test_%j.log           # Standard output and error log
+#SBATCH --job-name=bam_test                  # Job name
+#SBATCH --mail-type=END,FAIL                 # Mail events (NONE, BEGIN, END, FAIL, ALL)
+#SBATCH --mail-user={{  site.user.email  }}  # Where to send mail 
+#SBATCH --ntasks=2                           # Run on a two CPUs
+#SBATCH --mem=4gb                            # Job memory request
+#SBATCH --time=01:00:00                      # Time limit hrs:min:sec
+#SBATCH --output=bam_test_%j.log             # Standard output and error log
 
 echo $node STARTED `date +%s`
 

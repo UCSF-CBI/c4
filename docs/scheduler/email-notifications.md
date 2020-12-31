@@ -9,20 +9,20 @@ Instead of polling `squeue` to check whether submitted jobs are queued, running,
 To send an email when the job begins, ends, or fails, submit the job as:
 
 ```sh
-$ sbatch --mailuser=alice.bobson@ucsf.edu --mail-type=BEGIN,END,FAIL myscript.sh
+$ sbatch --mailuser={{ site.user.email }} --mail-type=BEGIN,END,FAIL myscript.sh
 ```
 
 To send an email only when the job completed, successfully or not, skip begin notifications by using only:
 
 ```sh
-$ sbatch --mailuser=alice.bobson@ucsf.edu --mail-type=END,FAIL myscript.sh
+$ sbatch --mailuser={{ site.user.email }} --mail-type=END,FAIL myscript.sh
 ```
 
 Alternatively, one may include the mail (and other) `sbatch` options directly in the job script as `#SBATCH` options. For example, we can include the following in Alice's script just after the shebang:
 
 ```sh
-#SBATCH --mail-type=END,FAIL                       # Mail events (NONE, BEGIN, END, FAIL, ALL)
-#SBATCH --mail-user=alice.bobson@ucsf.edu          # user to receive notification emails
+#SBATCH --mail-type=END,FAIL                 # Mail events (NONE, BEGIN, END, FAIL, ALL)
+#SBATCH --mail-user={{  site.user.email  }}  # Where to send mail 
 .
 .
 .
@@ -46,7 +46,7 @@ To avoid having to specify the email address in each `qsub` call, or as an SGE d
 
 ```sh
 ## Default recipient of job notifications
--M alice.bobson@ucsf.edu
+-M {{  site.user.email  }}
 ```
 
 The advantage of specifying the recipient in `~/.sge_request`, instead of in the job script, is that the job script does not carry your personal email address.  If the job script has your email address, then it will be you that get email notifications if someone else copy your script as-is and runs it on the cluster (or on other SGE clusters).

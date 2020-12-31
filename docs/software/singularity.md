@@ -179,7 +179,7 @@ Submitted batch job 1657
 #!/usr/bin/bash
 #SBATCH --job-name=singularity_test 
 #SBATCH --mail-type=BEGIN,END,FAIL
-#SBATCH --mail-user=alice.testuser@ucsf.edu 
+#SBATCH --mail-user={{ site.user.email }}
 #SBATCH --ntasks=1
 #SBATCH --mem=100mb 
 #SBATCH --time=00:05:00

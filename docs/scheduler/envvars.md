@@ -29,12 +29,12 @@ $ cat myenv.bash
 #!/bin/bash 
 #SBATCH --account=cbi
 #SBATCH --partition=common
-#SBATCH --mail-type=END,FAIL                         # Mail events (NONE, BEGIN, END, FAIL, ALL)
-#SBATCH --mail-user=alice.bobson@ucsf.edu            # user to receive notification emails
-#SBATCH --ntasks=1                                   # Run on a single CPU
-#SBATCH --mem=80gb                                   # Job memory request
-#SBATCH --time=1:00:00                               # Time limit hrs:min:sec
-#SBATCH --output=$HOME/myenv_log_%A_%a.log           # Standard output and error log
+#SBATCH --mail-type=END,FAIL                 # Mail events (NONE, BEGIN, END, FAIL, ALL)
+#SBATCH --mail-user={{  site.user.email  }}  # User to receive notification emails
+#SBATCH --ntasks=1                           # Run on a single CPU
+#SBATCH --mem=80gb                           # Job memory request
+#SBATCH --time=1:00:00                       # Time limit hrs:min:sec
+#SBATCH --output=$HOME/myenv_log_%A_%a.log   # Standard output and error log
 mydate=$(date)
 echo "Date is $mydate" 
 echo "Host is $HOSTNAME" 

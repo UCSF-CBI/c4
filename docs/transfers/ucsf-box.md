@@ -31,12 +31,12 @@ alice1@{{ site.transfer.name }}:s password: XXXXXXXXXXXXXXXXXXX
 Then, verify that your UCSF Box setup is correct by logging into the root of your UCSF Box folder using your **UCSF Box-specific password** (not your {{ site.cluster.name }} password):
 
 ```sh
-[alice@{{ site.transfer.name }} ~]$ lftp --user alice.aliceson@ucsf.edu ftps://ftp.box.com
+[alice@{{ site.transfer.name }} ~]$ lftp --user {{ site.user.email }} ftps://ftp.box.com
 Password: XXXXXXXX  <== UCSF Box password here!
-lftp alice.aliceson@ucsf.edu@ftp.box.com:~> ls
+lftp {{ site.user.email }}@ftp.box.com:~> ls
 drwx------  1 owner group     0 Jun 12  2014 Grant_R01.pdf
-drwx------  1 owner group     0 Sep 30  2016 Secure-alice.aliceson@ucsf.edu
-lftp alice.aliceson@ucsf.edu@ftp.box.com:~> exit
+drwx------  1 owner group     0 Sep 30  2016 Secure-{{ site.user.email }}
+lftp {{ site.user.email }}@ftp.box.com:~> exit
 [alice@{{ site.transfer.name }} ~]$ 
 ```
 
@@ -51,7 +51,7 @@ When starting `lftp` as above, you need to manually enter your password, which c
 ```sh
 [alice@{{ site.transfer.name }} ~]$ cat ~/.netrc
 machine ftp.box.com
-        login alice.aliceson@ucsf.edu
+        login {{ site.user.email }}
         password AliceSecretPwd2017
 ```
 
@@ -68,11 +68,11 @@ machine ftp.box.com
 
 To verify that the automatic authentication works, try to log in again. You should no longer be prompted for your password - instead `lftp` gets it automatically from `~/.netrc`.  For example:
 ```sh
-[alice@{{ site.transfer.name }} ~]$ lftp --user alice.aliceson@ucsf.edu ftps://ftp.box.com
-lftp alice.aliceson@ucsf.edu@ftp.box.com:~> ls
+[alice@{{ site.transfer.name }} ~]$ lftp --user {{ site.user.email }} ftps://ftp.box.com
+lftp {{ site.user.email }}@ftp.box.com:~> ls
 drwx------  1 owner group     0 Jun 12  2014 Grant_R01.pdf
-drwx------  1 owner group     0 Sep 30  2016 Secure-alice.aliceson@ucsf.edu
-lftp alice.aliceson@ucsf.edu@ftp.box.com:~> exit
+drwx------  1 owner group     0 Sep 30  2016 Secure-{{ site.user.email }}
+lftp {{ site.user.email }}@ftp.box.com:~> exit
 $ 
 ```
 
