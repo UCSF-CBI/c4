@@ -63,7 +63,7 @@ Submitted batch job 3084
 When submitting a job, the scheduler assigned the job a unique identifier ("job id").  In the above example, the job id is '3038'.  We can see this and other jobs of ours on the job queue by using `squeue`;
 
 ```sh
-[alice@{{ site.devel.name }} tests]$ squeue -l -u $USER
+[alice@{{ site.devel.name }} tests]$ squeue --long -u $USER
 Thu Dec 31 10:34:04 2020
              JOBID PARTITION     NAME     USER    STATE       TIME TIME_LIMI  NODES NODELIST(REASON) 
               3084    common hello_wo    alice  PENDING       0:00 14-00:00:00    1 (Priority)
