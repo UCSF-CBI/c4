@@ -13,7 +13,6 @@ Here is a `hi-there.sh` script that illustrates this:
 ```sh
 #!/bin/bash
 #SBATCH --ntasks=1
-#SBATCH --nodes=1
 #SBATCH --mem=100M
 #SBATCH --time=00:10:00
 #SBATCH --output=%x-%j.out
@@ -24,7 +23,6 @@ echo "This script was allotted ${SLURM_NTASKS:-1} cores"
 Going through the Slurm declarations:
 
 * `--ntasks=1` - run on 1 core
-* `--nodes=1` - run on 1 compute node
 * `--mem=100M` - allow job to use 100 MiB of memory (`M`=MiB, `G`=GiB, `T`=TiB)
 * `--time=00:10:00` - allow job to run for 10 minutes
 * `--output=%x-%j.out` - specify output and error files (defaults to the current working directory). The `%x` and `%j` flags are replaced by the job name and job id, respectively
