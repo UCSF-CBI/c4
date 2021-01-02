@@ -21,13 +21,11 @@ _Starting September 1, 2020_
 
 * [x] Job email notification, e.g. `sbatch --export=NONE --mail-type=ALL --mail-user=<email-address> script.sh`
 
-* [x] Torque/PBS wrappers (emulating Torque/PBS on Slurm)
-
 ### Software
 
 * [x] Shared CBI software + modules, i.e. `/software/c4/CBI/`
 
-* [ ] Shared software + modules of other labs: `/software/c4/{group}/`
+* [x] Shared software + modules of other labs: `/software/c4/{group}/`
 
 ### Documentation and support
 
@@ -35,7 +33,7 @@ _Starting September 1, 2020_
 
 * [ ] Set up a C4 website with the most basic documentation
 
-* [ ] Tabular overview of the different host types available
+* [x] Tabular overview of the different host types available
 
 ### Compute power
 
@@ -52,36 +50,12 @@ _Starting September 1, 2020_
    - [x] TIPCC `/home`   - TIPCC home folders (C4 home folders are under `/c4/home`)
    - [x] TIPCC `/backup` - Weekly rsync backup of TIPCC home folders
    - [x] TIPCC `/data`   - TIPCC legacy data folders
-   - [x] TIPCC `/work`   - TIPCC global "scratch"
+   - [x] TIPCC `/work`   - TIPCC leacy global "scratch" (use `/c4/scratch` instead)
 
-* [ ] Mount _existing_ TIPCC lab storage
-   - [x] `/bastianlab/data1`
-   - [x] `/bivonalab/data1`
-   - [x] `/blellochlab/data1`
-   - [x] `/cbc`
-   - [x] `/cbc2/data1`
-   - [x] `/cbc2/data2`
-   - [x] `/cbc2/data3`
-   - [x] `/cbc2/teachy`
-   - [x] `/costellolab/data1`
-   - [x] `/costellolab/data2`
-   - [x] `/diazlab/data1`
-   - [x] `/diazlab/data2`
-   - [x] `/diazlab/data3`
-   - [x] `/francislab/data1`
-   - [x] `/okadalab/data1`
-   - [x] `/okadalab/data2`
-   - [x] `/krummellab/data1`
-   - [x] `/kriegsteinlab/data1`
-   - [x] `/kriegsteinlab/data2`
-   - [x] `/sblab`
-   - [x] `/wittelab/data1`
-   - [x] `/wittelab/data2`
-   - [x] `/zivlab/data1`
-   - [x] `/zivlab/data2`
-   - [x] `/zivlab/data3`
-
-* [ ] Mount _new_ lab storage (not available on TIPCC)
+* [x] Mount _existing_ TIPCC lab storage
+   - `/bastianlab/data1`, `/bivonalab/data1`, `/blellochlab/data1`, `/cbc`, `/cbc2/{data1,data2,data3,teachy}`, `/costellolab/{data1,data2}`, `/diazlab/{data1,data2,data3}`, `/francislab/data1`, `/okadalab/{data1,data2}`, `/krummellab/data1`, `/kriegsteinlab/{data1,data2}`, `/sblab`, `/wittelab/{data1,data2}`, `/zivlab/{data1,data2,data3}`
+   
+* [x] Mount _new_ lab storage (not available on TIPCC)
    - [x] `/wittelab/data[3-6]`
 
 
@@ -117,7 +91,7 @@ _Starting September 1, 2020_
 
 * [ ] Add more lab-specific partitions
 
-* [ ] All jobs are running through cgroup
+* [x] All jobs are running through cgroup
 
 ### Documentation and support
 
@@ -138,10 +112,6 @@ _Starting September 1, 2020_
 * [ ] Password aging
 
 * [x] Set up LDAP for account management
-
-<!---### Storage
-
-* [ ] Mount more _existing_ lab storage on TIPCC also on C4 -->
 
 ### Miscellaneous
 
@@ -204,17 +174,21 @@ _Starting September 1, 2020_
 
 * Development: Added three development nodes (2020-08-13)
 
-* Compute nodes: 6 communal/common compute nodes (6*32=192 physical cores).
+* Compute nodes: 6 communal/common compute nodes (6*32=192 physical cores)
 
 * Software: Replicate the core software that is installed on [Wynton HPC] on development and compute nodes (2020-08-19)
 
 * Software: Added the CBI software stack (2020-08-20)
 
-* Deployment of new machines: Automated deployment.
+* Deployment of new machines: Automated deployment
 
-* Backup: Users' home accounts backed up on a nightly basis.
+* Backup: Users' home folders backed up on a nightly basis
 
-* Network: 10 Gbps.
+* Network: 10 Gbps
+
+* File transfers: Globus is supported (2020-11-02)
+
+* Account management: All accounts and authentication is done via LDAP (2020-12-16)
 
 
 See also [News].
