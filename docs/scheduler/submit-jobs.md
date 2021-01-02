@@ -1,6 +1,6 @@
 # Submit Jobs
 
-There are two basic modes for doing work on Slurm, batch and interactive. Batch jobs are submitted to the scheduler and run at a later time. Interactive jobs happen in real time. One can also allocate resources ahead of time for an interactive job. The relevant Slurm commands are `sbatch` for batch jobs, `srun` for interactive jobs, and `salloc` for allocating resources and then running `srun` tasks within the allocation. 
+There are two basic modes for doing work on Slurm, batch and interactive.  Batch jobs are submitted to the scheduler and run at a later time.  [Interactive jobs] happen in real time.  The relevant Slurm commands are `sbatch` for batch jobs, `srun` for interactive jobs, and `salloc` for allocating resources and then running `srun` tasks within the allocation. 
 
 
 ## Submit a script to run in batch mode
@@ -135,11 +135,6 @@ Submitted batch job 3302
 ```
 
 
-## Interactive jobs
-
-It is currently _not_ possible to request _interactive_ jobs (aka `qlogin`).  Instead, there are dedicated [development nodes] that can be used for short-term interactive development needs such building software and prototyping scripts before submitting them to the scheduler.
-
-
 
 ## MPI: Parallel processing via Hybrid MPI (multi-threaded multi-node MPI jobs)
 
@@ -179,5 +174,6 @@ _Comment_: MPI stands for ['Message Passing Interface'](https://en.wikipedia.org
 For further options and advanced usage, see [Advanced Usage]({{ '/advanced-usage.html' | relative_url }}) of the scheduler.
 
 [Slurm environment variable]: {{ '/scheduler/envvars.html' | relative_url }}
+[Interactive jobs]: {{ '/scheduler/interactive-jobs.html' | relative_url }}
 [Job Summary]: {{ '/scheduler/job-summary.html' | relative_url }}
 [development nodes]: {{ '/get-started/development-prototyping.html' | relative_url }}
