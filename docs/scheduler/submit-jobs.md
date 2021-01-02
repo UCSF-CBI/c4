@@ -135,6 +135,7 @@ Submitted batch job 3302
 ```
 
 
+<!--
 
 ## MPI: Parallel processing via Hybrid MPI (multi-threaded multi-node MPI jobs)
 
@@ -158,20 +159,8 @@ Note that mpi-8 jobs must request a multiple of exactly eight (8) slots.  If <co
 </div>
 
 _Comment_: MPI stands for ['Message Passing Interface'](https://en.wikipedia.org/wiki/Message_Passing_Interface).
+-->
 
-
-
-## Defaults
-
-* Memory usage (per slot): If not specified, the default is `-l mem_free=1G`.
-
-* Working directory: If not specified (e.g. `-cwd`), the default working directory is `$HOME`.
-
-
-
-## See also
-
-For further options and advanced usage, see [Advanced Usage]({{ '/advanced-usage.html' | relative_url }}) of the scheduler.
 
 [Slurm environment variable]: {{ '/scheduler/envvars.html' | relative_url }}
 [Interactive jobs]: {{ '/scheduler/interactive-jobs.html' | relative_url }}
