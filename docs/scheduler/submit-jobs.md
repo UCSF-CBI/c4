@@ -106,11 +106,33 @@ _Comment_: PE stands for 'Parallel environment'.  SMP stands for ['Symmetric mul
 
 ## Passing arguments to script
 
-You can pass arguments to a job script similarly to how one passes argument to a script executed on the command line, e.g.
+You can pass arguments to a job script similarly to how one passes argument to a script executed on the command line.  For example, the follow Bash script `rscript.sh`:
+
 ```sh
-qsub -cwd -l mem_free=1G script.sh --first=2 --second=true --third='"some value"' --debug
+#!/usr/bin/env bash
+#SBATCH --export=NONE
+#SBATCH --mem=10mb 
+
+module load CBI r
+Rscript "$@"
 ```
-Arguments are then passed as if you called the script as `script.sh --first=2 --second=true --third="some value" --debug`.  Note how you have to have an extra layer of single quotes around `"some value"`, otherwise `script.sh` will see `--third=some value` as two independent arguments (`--third=some` and `value`).
+
+can be called as:
+
+```sh
+[alice@{{ site.devel.name }} ~]$ ./script.sh --vanilla -e "x <- 1:10; sum(x)"
+[1] 55
+```
+
+Then you can submit this job to scheduler the same way using:
+
+```sh
+[alice@{{ site.devel.name }} ~]$ sbatch script.sh --vanilla -e "x <- 1:10; sum(x)"
+Submitted batch job 3302
+
+[alice@{{ site.devel.name }} ~]$ cat slurm-3302.out
+[1] 55
+```
 
 
 ## Interactive jobs
