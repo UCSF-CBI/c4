@@ -50,7 +50,7 @@ _Starting September 1, 2020_
    - [x] TIPCC `/home`   - TIPCC home folders (C4 home folders are under `/c4/home`)
    - [x] TIPCC `/backup` - Weekly rsync backup of TIPCC home folders
    - [x] TIPCC `/data`   - TIPCC legacy data folders
-   - [x] TIPCC `/work`   - TIPCC leacy global "scratch" (use `/c4/scratch` instead)
+   - [x] TIPCC `/work`   - TIPCC legacy global "scratch" (use `/c4/scratch` instead)
 
 * [x] Mount _existing_ TIPCC lab storage
    - `/bastianlab/data1`, `/bivonalab/data1`, `/blellochlab/data1`, `/cbc`, `/cbc2/{data1,data2,data3,teachy}`, `/costellolab/{data1,data2}`, `/diazlab/{data1,data2,data3}`, `/francislab/data1`, `/okadalab/{data1,data2}`, `/krummellab/data1`, `/kriegsteinlab/{data1,data2}`, `/sblab`, `/wittelab/{data1,data2}`, `/zivlab/{data1,data2,data3}`
