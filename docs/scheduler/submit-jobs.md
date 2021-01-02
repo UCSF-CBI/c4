@@ -8,8 +8,7 @@ There are two basic modes for doing work on Slurm, batch and interactive.  Batch
 One can just run a native bash script with `sbatch` and supply the relevant parameters at the CLI with various command-line options, e.g. `--time=00:10:00`.
 It is probably easier to supply those options within the script itself using Slurm declarations as specially formatted shell comments prefixed as `#SBATCH`. 
 
-Let's use a "hello world" script to illustrate.
-*hi_there.bash*:
+Here is a `hi-there.sh` script that illustrates this:
 
 ```sh
 #!/bin/bash
@@ -19,22 +18,21 @@ Let's use a "hello world" script to illustrate.
 #SBATCH --time=00:10:00
 #SBATCH --output=%x-%j.out
 
-perl -e 'print "Hi there.\n"'
-echo "This was run on $SLURM_JOB_NODELIST"
+echo "This script was allotted ${SLURM_NTASKS:-1} cores"
 ```
+
 Going through the Slurm declarations:
 
 * `--ntasks=1` - run on 1 core
 * `--nodes=1` - run on 1 compute node
 * `--mem=100M` - allow job to use 100 MiB of memory (`M`=MiB, `G`=GiB, `T`=TiB)
 * `--time=00:10:00` - allow job to run for 10 minutes
-* `--partition=common` - run on the common partition
 * `--output=%x-%j.out` - specify output and error files (defaults to the current working directory). The `%x` and `%j` flags are replaced by the job name and job id, respectively
 
 Since we have declared all of our Slurm options using the `#SBATCH` syntax in the job script, we do not have to specify them as command-line options.  Instead, we can now submit this job very simply:
 
 ```sh
-$ sbatch hi_there.bash 
+$ sbatch hi-there.sh
 Submitted batch job 1507
 ```
 
@@ -85,22 +83,23 @@ Please please <a href="using-local-scratch.html">cleanup local scratch afterward
 
 ## Parallel processing (on a single machine)
 
-The scheduler will allocate a single core for your job.  To allow the job to use multiple slots, request the number of slots needed when you submit the job.  For instance, to request four slots (`NSLOTS=4`) _each with 2 GiB of RAM_, for a _total_ of 8 GiB RAM, use:
+The scheduler will allocate a single core for your job.  To allow the job to use multiple slots, request the number of slots needed when you submit the job.  For instance, to request four slots (`SLURM_NPROCS=4`), use:
 ```sh
-qsub -pe smp 4 -l mem_free=2G script.sh
+sbatch --ntasks=4 script.sh
 ```
 The scheduler will make sure your job is launched on a node with at least four slots available.
 
-Note, when writing your script, use [SGE environment variable] `NSLOTS`, which is set to the number of cores that your job was allocated.  This way you don't have to update your script if you request a different number of cores.  For instance, if your script runs the BWA alignment, have it specify the number of parallel threads as:
+Note, when writing your script, use [Slurm environment variable] `SLURM_NPROCS`, which is set to the number of cores that your job was allocated.  This way you don't have to update your script if you request a different number of cores.  For instance, if your script runs the BWA alignment, have it specify the number of parallel threads as:
+
 ```sh
-bwa aln -t $NSLOTS ...
+bwa aln -t "${SLURM_NPROCS:-1}" ...
 ```
 
-_Comment_: PE stands for 'Parallel environment'.  SMP stands for ['Symmetric multiprocessing'](https://en.wikipedia.org/wiki/Symmetric_multiprocessing) and indicates that the job will run on a single machine using one or more cores.
+By using `${SLURM_NPROCS:-1}`, instead of just `${SLURM_NPROCS}`, this script will fall back to use a single thread if `SLURM_NPROCS` is not set, e.g. when option `--ntasks` is not specified or when running the script on your local computer.
 
 
 <div class="alert alert-danger" role="alert">
-<strong>Do not use more cores than requested!</strong> - a common reason for compute nodes being clogged up and jobs running slowly.  A typically mistake is to hard-code the number of cores in the script and then request a different number when submitting the job - using <code>NSLOTS</code> avoids this problem.  Another problem is software that by default use all of the machine's cores - make sure to control for this, e.g. use dedicated command-line option or environment variable for that software.
+<strong>Do not use more cores than requested!</strong> - a common reason for compute nodes being clogged up and jobs running slowly.  A typically mistake is to hard-code the number of cores in the script and then request a different number when submitting the job - using <code>SLURM_NPROCS</code> avoids this problem.  Another problem is software that by default use all of the machine's cores - make sure to control for this, e.g. use dedicated command-line option or environment variable for that software.
 </div>
 
 
