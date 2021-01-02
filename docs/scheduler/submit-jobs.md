@@ -72,7 +72,7 @@ Specifying the run time will shorten the queuing time - significantly so for sho
 By specifying the how long each job will take, the better the scheduler can manage resources and allocate jobs to different nodes.  This will also decrease the average waiting time the job will sit in the queue before being launched on a compute node.  You can specify the maximum run time (= wall time, not CPU time) for a job using option `--time=HH:MM:SS` where `HH:MM:SS` specifies the number of hours (`HH`), the number of minutes (`MM`), and the number of seconds (`SS`) - all parts must be specified.  In our above example, we used `--time=00:10:00`.  If your submit a multi-day job, you can also specify the number of days using the format `--time=days-HH:MM:SS`, e.g. `--time=2-06:00:00` for 2 days and 6 hours.
 
 
-
+<!--
 ## Using local scratch storage
 
 Each compute node has {{ site.data.specs.local_scratch_size_min }}-{{ site.data.specs.local_scratch_size_max }} TiB of [local scratch storage]({{ '/about/specs.html#scratch-storage' | relative_url }}) which is fast and ideal for temporary, intermediate data files that are only needed for the length of a job.  This scratch storage is unique to each machine and shared among all users and jobs running on the same machine. 
@@ -80,6 +80,7 @@ Each compute node has {{ site.data.specs.local_scratch_size_min }}-{{ site.data.
 <div class="alert alert-warning" role="alert">
 Please please <a href="using-local-scratch.html">cleanup local scratch afterward</a>.  This maximizes the chance for compute nodes having enough available space, reduces the queuing times, and minimizes the risk for running out of local scratch.
 </div>
+-->
 
 
 ## Parallel processing (on a single machine)
