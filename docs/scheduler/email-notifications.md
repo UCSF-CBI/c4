@@ -1,6 +1,8 @@
-<!--<div class="alert alert-warning" role="alert" style="margin-top: 3ex">
+<!--
+<div class="alert alert-warning" role="alert" style="margin-top: 3ex">
 <strong>Do not request email notifications for array jobs!</strong>  If done, there will be email messages sent for <em>every single task</em> in the job array.
-</div> -->
+</div>
+-->
 
 ## Job Email Notifications
 
@@ -9,13 +11,13 @@ Instead of polling `squeue` to check whether submitted jobs are queued, running,
 To send an email when the job begins, ends, or fails, submit the job as:
 
 ```sh
-$ sbatch --mailuser={{ site.user.email }} --mail-type=BEGIN,END,FAIL myscript.sh
+$ sbatch --mail-user={{ site.user.email }} --mail-type=BEGIN,END,FAIL myscript.sh
 ```
 
 To send an email only when the job completed, successfully or not, skip begin notifications by using only:
 
 ```sh
-$ sbatch --mailuser={{ site.user.email }} --mail-type=END,FAIL myscript.sh
+$ sbatch --mail-user={{ site.user.email }} --mail-type=END,FAIL myscript.sh
 ```
 
 Alternatively, one may include the mail (and other) `sbatch` options directly in the job script as `#SBATCH` options. For example, we can include the following in Alice's script just after the shebang:
@@ -27,7 +29,9 @@ Alternatively, one may include the mail (and other) `sbatch` options directly in
 .
 .
 ```
-<!--### Email notifications for array jobs
+
+<!--
+### Email notifications for array jobs
 
 **Do not request email notifications for array jobs!**  If done, there will be email messages sent for _every single task_ of the job array.  Instead, to get an email notification when a job array completes, submit a "dummy" job that depend on the job array such that it will only launch when the job array completes.  The sole purpose of this dummy job is to trigger an email notification.  For instance, if the job array has job ID 9156754, then submit a job:
 
