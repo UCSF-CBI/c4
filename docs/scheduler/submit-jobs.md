@@ -132,33 +132,6 @@ Submitted batch job 3302
 ```
 
 
-<!--
-
-## MPI: Parallel processing via Hybrid MPI (multi-threaded multi-node MPI jobs)
-
-{{ site.cluster.name }} provides a special MPI parallel environment (PE) called `mpi-8` that allocates exactly eight (8) slots per node across one or more compute nodes.  For instance, to request a Hybrid MPI job with in total forty slots (`NSLOTS=40`), submit it as:
-
-```sh
-qsub -pe mpi-8 40 hybrid_mpi.sh
-```
-and make sure that the script (here `hybrid_mpi.sh`) exports `OMP_NUM_THREADS=8` (the eight slots per node) and then launches the MPI application using `mpirun -np $NHOSTS /path/to/the_app` where `NHOSTS` is automatically set by SGE (here `NHOSTS=5`):
-
-```sh
-# !/usr/bin/env bash
-
-module load mpi
-export OMP_NUM_THREADS=8
-mpirun -np $NHOSTS /path/to/the_app
-```
-
-<div class="alert alert-warning" role="alert">
-Note that mpi-8 jobs must request a multiple of exactly eight (8) slots.  If <code>NSLOTS</code> is not a multiple of eight, then the job will be stuck in the queue forever and never run.
-</div>
-
-_Comment_: MPI stands for ['Message Passing Interface'](https://en.wikipedia.org/wiki/Message_Passing_Interface).
--->
-
-
 [Slurm environment variable]: {{ '/scheduler/envvars.html' | relative_url }}
 [Interactive jobs]: {{ '/scheduler/interactive-jobs.html' | relative_url }}
 [Job Summary]: {{ '/scheduler/job-summary.html' | relative_url }}

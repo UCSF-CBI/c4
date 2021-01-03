@@ -83,7 +83,7 @@ echo "Number of slots available: ${nslots}"
 <!-- ### MATLAB
 
 ```matlab
-nslots = getenv('NSLOTS');              % env var is always a 'char'
+nslots = getenv('SLURM_NPROCS');        % env var is always a 'char'
 if (isempty(nslots)) nslots = '1'; end  % default value
 nslots = str2num(nslots);               % coerce to 'double'
 fprintf('Number of slots available: %d\n', nslots);

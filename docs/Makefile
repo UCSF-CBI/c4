@@ -197,7 +197,7 @@ check-leftovers:
 	for file in $$files; do
 	   $(TPUT) && printf "[    ] checking %s" "$$file"
 	   ## TODO: Add checks for SGE, -cwd, NSLOTS, ...
-	   if ! grep -H -n -E '(#[ ]*[$$]|/wynton/)' "$$file" &>> "$$stdout" ; then
+	   if ! grep -H -n -E '(#[ ]*[$$]|/wynton/|NSLOTS)' "$$file" &>> "$$stdout" ; then
 	     ok_count=$$((ok_count+1))
 	     $(TPUT) && printf "\r"
 	     printf "[$(OK)] checking %s\\n" "$$file"

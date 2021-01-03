@@ -44,7 +44,7 @@ cp ~/sample.fq .
 cp ~/reference.fa .
 
 ## 3. Process input files
-/path/to/my_pipeline --cores="$NSLOTS" reference.fa sample.fq > output.bam
+/path/to/my_pipeline --cores=${SLURM_NPROCS:-1} reference.fa sample.fq > output.bam
 
 ## 4. Move output files back to global disk
 mv output.bam ~
