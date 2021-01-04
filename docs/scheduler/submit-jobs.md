@@ -81,23 +81,23 @@ Please please <a href="using-local-scratch.html">cleanup local scratch afterward
 
 ## Parallel processing (on a single machine)
 
-The scheduler will allocate a single core for your job.  To allow the job to use multiple slots, request the number of slots needed when you submit the job.  For instance, to request four slots (`SLURM_NPROCS=4`), use:
+The scheduler will allocate a single core for your job.  To allow the job to use multiple slots, request the number of slots needed when you submit the job.  For instance, to request four slots (`SLURM_NTASKS=4`), use:
 ```sh
 sbatch --ntasks=4 script.sh
 ```
 The scheduler will make sure your job is launched on a node with at least four slots available.
 
-Note, when writing your script, use [Slurm environment variable] `SLURM_NPROCS`, which is set to the number of cores that your job was allocated.  This way you don't have to update your script if you request a different number of cores.  For instance, if your script runs the BWA alignment, have it specify the number of parallel threads as:
+Note, when writing your script, use [Slurm environment variable] `SLURM_NTASKS`, which is set to the number of cores that your job was allocated.  This way you don't have to update your script if you request a different number of cores.  For instance, if your script runs the BWA alignment, have it specify the number of parallel threads as:
 
 ```sh
-bwa aln -t "${SLURM_NPROCS:-1}" ...
+bwa aln -t "${SLURM_NTASKS:-1}" ...
 ```
 
-By using `${SLURM_NPROCS:-1}`, instead of just `${SLURM_NPROCS}`, this script will fall back to use a single thread if `SLURM_NPROCS` is not set, e.g. when option `--ntasks` is not specified or when running the script on your local computer.
+By using `${SLURM_NTASKS:-1}`, instead of just `${SLURM_NTASKS}`, this script will fall back to use a single thread if `SLURM_NTASKS` is not set, e.g. when option `--ntasks` is not specified or when running the script on your local computer.
 
 
 <div class="alert alert-danger" role="alert">
-<strong>Do not use more cores than requested!</strong> - a common reason for compute nodes being clogged up and jobs running slowly.  A typically mistake is to hard-code the number of cores in the script and then request a different number when submitting the job - using <code>SLURM_NPROCS</code> avoids this problem.  Another problem is software that by default use all of the machine's cores - make sure to control for this, e.g. use dedicated command-line option or environment variable for that software.
+<strong>Do not use more cores than requested!</strong> - a common reason for compute nodes being clogged up and jobs running slowly.  A typically mistake is to hard-code the number of cores in the script and then request a different number when submitting the job - using <code>SLURM_NTASKS</code> avoids this problem.  Another problem is software that by default use all of the machine's cores - make sure to control for this, e.g. use dedicated command-line option or environment variable for that software.
 </div>
 
 

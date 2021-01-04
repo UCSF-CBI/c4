@@ -4,7 +4,7 @@ The scheduler sets variables in the environment of the job script.  Here is an e
 
 * `SLURM_JOB_NAME` (string) - the name of the job
 * `SLURM_JOB_ID` (integer) - a unique job identifier (Note, do _not_ use the _deprecated_ `SLURM_JOBID`)
-* `SLURM_NTASKS` (integer) - the number of hosts for a parallel job (if not available, assume 1)
+* `SLURM_NTASKS` (integer) - the number of hosts for a parallel job; if not available, use as if 1 (Note, do _not_ use the _deprecated_ `SLURM_NPROCS`)
 * `SLURM_MEM_PER_NODE` (integer) - the number of megabytes (MiB) allocated to the job on the current node
 * `TMPDIR` (string) - the absolute path to a job-specific temporary directory (local on the compute node and owned by `$USER`) that is automatically removed when the job finishes
 
@@ -71,19 +71,19 @@ TMPDIR=/scratch/alice/3076
 
 ## Environment variables in different languages
 
-Here are some examples how to get the value of environment variable `SLURM_NPROCS` in some of the most popular programming languages.  The value is assigned to a local variable `nslots`, and if not set, `1` is used as the default value.  All examples coerce the value to a numeric value and then outputs a message with the value.
+Here are some examples how to get the value of environment variable `SLURM_NTASKS` in some of the most popular programming languages.  The value is assigned to a local variable `nslots`, and if not set, `1` is used as the default value.  All examples coerce the value to a numeric value and then outputs a message with the value.
 
 ### Bash
 
 ```sh
-nslots=${SLURM_NPROCS:-1}
+nslots=${SLURM_NTASKS:-1}
 echo "Number of slots available: ${nslots}"
 ```
 
 <!-- ### MATLAB
 
 ```matlab
-nslots = getenv('SLURM_NPROCS');        % env var is always a 'char'
+nslots = getenv('SLURM_NTASKS');        % env var is always a 'char'
 if (isempty(nslots)) nslots = '1'; end  % default value
 nslots = str2num(nslots);               % coerce to 'double'
 fprintf('Number of slots available: %d\n', nslots);
@@ -93,7 +93,7 @@ fprintf('Number of slots available: %d\n', nslots);
 
 ```python
 import os
-nslots = os.getenv('SLURM_NPROCS', '1')  # env var is always a 'str'
+nslots = os.getenv('SLURM_NTASKS', '1')  # env var is always a 'str'
 nslots = int(nslots)                     # coerce to 'int'
 print('Number of slots available: ' + nslots)
 ```
@@ -101,7 +101,7 @@ print('Number of slots available: ' + nslots)
 ### R
 
 ```r
-nslots <- Sys.getenv("SLURM_NPROCS", "1")  # env var is always a 'character'
+nslots <- Sys.getenv("SLURM_NTASKS", "1")  # env var is always a 'character'
 nslots <- as.integer(nslots)               # coerce to 'integer'
 message("Number of slots available: ", nslots)
 ```
@@ -110,7 +110,7 @@ message("Number of slots available: ", nslots)
 ### Ruby
 
 ```r
-nslots = ENV["SLURM_NPROCS"] || "1"  # env var is always a 'String'
+nslots = ENV["SLURM_NTASKS"] || "1"  # env var is always a 'String'
 nslots = nslots.to_i                 # coerce to 'Integer'
 puts "Number of slots available: #{nslots}"
 ```
