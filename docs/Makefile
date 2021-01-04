@@ -196,11 +196,12 @@ check-leftovers:
 	files=$$(find . -type f -name "*.md" -not \( -path "./_site/*" -o -path "./drafts/*" \) )
 	for file in $$files; do
 	   $(TPUT) && printf "[    ] checking %s" "$$file"
-	   pattern="#[ ]*[$$]|/wynton/|NSLOTS|-cwd|SLURM_NPROCS"
-	   if [[ "$$file" =~ scheduler/envvars.md$$ ]]; then
-	     pattern=$$(echo "$pattern" | sed 's/|SLURM_NPROCS//')
+	   pattern="#[ ]*[$$]|/wynton/|NSLOTS|-cwd|SGE|SLURM_NPROCS"
+	   if [[ "$$file" =~ envvars.md$$ ]]; then
+	     pattern=$$(echo "$$pattern" | sed 's/|SLURM_NPROCS//')
+	   elif [[ "$$file" =~ (email-notifications|software-repositories).md$$ ]]; then
+	     pattern=$$(echo "$$pattern" | sed 's/|SGE//')
 	   fi
-	   ## TODO: Add checks for SGE, ...
 	   if ! grep -H -n -E "($$pattern)" "$$file" &>> "$$stdout" ; then
 	     ok_count=$$((ok_count+1))
 	     $(TPUT) && printf "\r"
