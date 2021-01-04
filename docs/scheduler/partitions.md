@@ -35,11 +35,3 @@ In the above example, the asterisk indicates that 'common' is the default partit
 
 
 [specify the resources]: {{ '/scheduler/submit-jobs.html' | relative_url }}
-
-<!--
-NOTES:
-
-To list available queues, do:
-
-    qstat -f | grep -F "@" | sed -E 's/@.*//g' | sort -u
--->
