@@ -1,3 +1,8 @@
+<div class="alert alert-warning" role="alert" style="margin-top: 3ex">
+<strong><span>⚠️</span> 2020-01-04: This page is work in progress.  Overall it is correct, but details will be soon be updated.  Please make sure to revisit later.</strong>
+</div>
+
+
 # Submit Jobs
 
 There are two basic modes for doing work on Slurm, batch and interactive.  Batch jobs are submitted to the scheduler and run at a later time.  [Interactive jobs] happen in real time.  The relevant Slurm commands are `sbatch` for batch jobs, `srun` for interactive jobs, and `salloc` for allocating resources and then running `srun` tasks within the allocation. 

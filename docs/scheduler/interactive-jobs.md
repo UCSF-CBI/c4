@@ -1,3 +1,7 @@
+<div class="alert alert-warning" role="alert" style="margin-top: 3ex">
+<strong><span>⚠️</span> 2020-01-04: This page is work in progress.  Overall it is correct, but details will be soon be updated.  Please make sure to revisit later.</strong>
+</div>
+
 ## Interactive Jobs
 
 Although [development nodes are configured very similar to compute nodes]({{ '/about/specs.html' | relative_url }}), sometimes it is useful to prototype scripts interactively on a compute node.  This can be done by requesting a _interactive job_ from the scheduler using the `srun` command.

@@ -3,7 +3,7 @@
 To kill a specific job, use:
 
 ```sh
-scancel <jobid>
+scancel <job_id>
 ```
 
 
