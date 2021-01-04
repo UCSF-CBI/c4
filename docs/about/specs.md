@@ -1,3 +1,7 @@
+<div class="alert alert-warning" role="alert" style="margin-top: 3ex">
+<strong><span>⚠️</span> 2020-01-04: This page is work in progress.  Overall it is correct, but details will be soon be updated.  Please make sure to revisit later.</strong>
+</div>
+
 # Cluster Specifications
 
 ## Overview
@@ -100,7 +104,8 @@ c4-n10    |       64 |   2.1 GHz |   512 GiB |           1.8 TiB | SATA /scratch
 For additional details on the compute nodes, see the <a href="#details">Details</a> section below.
 -->
 
-The compute nodes can only be utilized by [submitting jobs via the scheduler]({{ '/scheduler/submit-jobs.html' | relative_url }}) - it is _not_ possible to explicitly log in to compute nodes.
+The compute nodes can only be utilized by [submitting jobs via the scheduler]({{ '/scheduler/submit-jobs.html' | relative_url }}).
+<!-- it is _not_ possible to explicitly log in to compute nodes. -->
 
 
 ## File System
