@@ -26,7 +26,7 @@ common*      up 14-00:00:0      5   idle c4-n[2-5,10]
 wittelab     up 14-00:00:0      4   idle c4-n[6-9] 
 ```
 
-In the above example, the asterisk indicates that common is the default partition. mix means that the node is running jobs, idle means the nodes are not running jobs. Other possible states are down, drain, and drng. The drain and drng state indicate that the node has been taken offline by the sysadmin. Draining means the nodes is still running jobs but won't accept new work.
+In the above example, the asterisk indicates that 'common' is the default partition. The 'mix' state means that the node is running jobs, 'idle' means the nodes are not running jobs. Other possible states are 'down', 'drain', and 'drng'. The 'drain' and 'drng' states indicate that the node has been taken offline by the sysadmin. Draining means the nodes is still running jobs but won't accept new work.
 
 
 
