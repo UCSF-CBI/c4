@@ -86,4 +86,3 @@ There is of course nothing preventing us from submitting the same script multipl
 [Slurm]: https://slurm.schedmd.com/documentation.html
 [compute nodes]: {{ '/about/specs.html' | relative_url }}
 [Submit Jobs]: {{ '/scheduler/submit-jobs.html' | relative_url }}
-
