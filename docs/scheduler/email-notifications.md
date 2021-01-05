@@ -12,11 +12,11 @@
 
 Instead of polling `squeue` to check whether submitted jobs are queued, running, or finished, one can tell the job scheduler to send email notifications as jobs change state.  This is done by specifying `sbatch` option `--mail-type=<type>`, where `<type>` specifies under what circumstances an email message should be sent.  The commonly used types of state changes are:
 
-* BEGIN: when the job starts 
-* END: when the job ends
-* FAIL: when the job fails
+* `BEGIN`: when the job starts 
+* `END`: when the job ends
+* `FAIL`: when the job fails
 
-For further details and additional state-change types, see `man sbatch`.  The notifications are sent to the email addresses specified by option `---mail-user=<recipients>`.  Here is an example that sends an email when the job begins, ends, or fails:
+For further details and additional state-change types, see `man sbatch`.  The notifications are sent to the email addresses specified by option `---mail-user=<recipient>`.  Here is an example that sends an email when the job begins, ends, or fails:
 
 ```sh
 $ sbatch --mail-user={{ site.user.email }} --mail-type=BEGIN,END,FAIL --wrap='echo "Current timestamp: $(date)"'
