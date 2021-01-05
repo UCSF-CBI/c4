@@ -30,6 +30,7 @@ $ wget https://github.com/UCSF-CBI/UCSF-logo/raw/master/images/ucsf_logo_K_OTL_9
     <tspan x="0">C4</tspan>
 </text>
 ```
+
   * align 'C4' text relative to the 'UCSF' logo
   * adjust image vertically by offsetting +150px in 'Resize canvas'
 
