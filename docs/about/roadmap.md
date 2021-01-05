@@ -31,16 +31,14 @@ _Starting September 1, 2020_
 ### Documentation and support
 
 * [x] c4-help issue tracker <https://github.com/UCSF-CBI/c4-help>
-* [ ] Set up a C4 website with the most basic documentation
 
 ### Compute power
 
 * [x] New lab compute nodes:
   - [x] c4-n[6-9]: 4 new lab nodes for the Witte Lab (4*56 = 224 physical cores)
 
-* [x] Addition common nodes:
+* [x] Additional common nodes:
   - [x] c4-n10 - revived from TIPCC (node n2)
-  - [ ] c4-n11 - revived from TIPCC (node n10)
 
 ### Storage
 
@@ -90,6 +88,7 @@ _Starting December 1, 2020_
 
 ### Documentation and support
 
+* [ ] Set up a C4 website with the most basic documentation
 * [ ] c4-announce mailing list
 * [ ] Slurm well documented + Torque-to-Slurm translation table
 * [ ] Common TIPCC-to-C4 migration issues and conflicts documented
@@ -107,6 +106,14 @@ _Starting December 1, 2020_
 ### Miscellaneous
 
 * [ ] Expand existing Bash configuration to Csh
+
+### Compute power
+
+* [ ] Additional common nodes:
+  - [ ] c4-n11 - revived from TIPCC (node n10)
+
+* [ ] Additional lab nodes:
+  - [ ] c4-n?? - CBI TIPCC nodes (nodes n0 and n17)
 
 
 ## Going Live
