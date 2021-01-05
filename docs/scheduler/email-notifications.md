@@ -36,7 +36,7 @@ If `--mail-user` is not specified, then the email notifications will be sent to 
 
 ```sh
 [alice@{{ site.login.name }} ~]$ cat ~/.forward
-# Recipients of email notifications from Slurm, crontab, etc.
+# Recipient of email notifications from Slurm, crontab, etc.
 {{ site.user.email }}
 ```
 
