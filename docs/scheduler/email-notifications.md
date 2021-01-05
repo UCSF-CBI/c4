@@ -40,7 +40,7 @@ If `--mail-user` is not specified, then the email notifications will be sent to 
 {{ site.user.email }}
 ```
 
-any Slurm notifications produced by jobs that `alice` runs, will forwarded to `{{ site.user.email }}`.
+any Slurm notifications produced by jobs that `alice` runs, will be forwarded to `{{ site.user.email }}`.
 
 
 ### Example messages
