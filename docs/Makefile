@@ -199,7 +199,7 @@ check-leftovers:
 	   pattern="#[ ]*[$$]|/wynton/|NSLOTS|-cwd|SGE|SLURM_NPROCS"
 	   if [[ "$$file" =~ envvars.md$$ ]]; then
 	     pattern=$$(echo "$$pattern" | sed 's/|SLURM_NPROCS//')
-	   elif [[ "$$file" =~ (email-notifications|software-repositories).md$$ ]]; then
+	   elif [[ "$$file" =~ (software-repositories).md$$ ]]; then
 	     pattern=$$(echo "$$pattern" | sed 's/|SGE//')
 	   fi
 	   if ! grep -H -n -E "($$pattern)" "$$file" &>> "$$stdout" ; then
