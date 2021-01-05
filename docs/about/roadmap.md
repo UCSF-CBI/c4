@@ -6,7 +6,7 @@
 
 ## Alpha-Testing Phase
 
-_Starting September 1, 2020_  
+**Period**: 2020-09-01 - 2020-12-01 (some minor tasks were completed during Dec 2020)
 
 **Who**: In this phase we're inviting self-sufficient, advanced HPC users to try out the C4 cluster and to give constructive feedback.
 
@@ -54,11 +54,14 @@ _Starting September 1, 2020_
 * [x] Mount _new_ lab storage (not available on TIPCC)
    - [x] `/wittelab/data[3-6]`
 
-
 ### Backup
 
 * [x] Users' home folders are backed up
 * [x] Software stacks under `/software` are backed up
+
+### File transfers
+
+* [x] [Globus] endpoint on C4 for fast file transfers to and from participating organization
 
 ### Miscellaneous
 
@@ -69,7 +72,7 @@ _Starting September 1, 2020_
 
 ## Beta-Testing Phase
 
-_Starting December 1, 2020_  
+**Period**: 2020-12-01 - 2021-01-11
 
 **Who**: Invite additional advanced users from other labs.  We are interesting in labs who are willing to migrate the existing TIPCC compute nodes over to C4, e.g. labs will a single compute node
 
@@ -83,29 +86,15 @@ _Starting December 1, 2020_
 ### Scheduler
 
 * [x] All jobs are running through cgroup
-* [ ] Add more lab-specific partitions
 * [ ] Finalize basic configuration allowing users to submit as much as they want without starving out other users
 
 ### Documentation and support
 
-* [ ] Set up a C4 website with the most basic documentation
-* [ ] c4-announce mailing list
-* [ ] Slurm well documented + Torque-to-Slurm translation table
-* [ ] Common TIPCC-to-C4 migration issues and conflicts documented
-
-### Software
-
-* [ ] Some more EPEL package requests (probably not much)
-* [ ] MATLAB using UCSF site-wide licenses
+* [x] Set up a C4 website with the most basic documentation including Slurm
 
 ### Accounts
 
 * [x] Set up LDAP for account management
-* [ ] Password aging
-
-### Miscellaneous
-
-* [ ] Expand existing Bash configuration to Csh
 
 ### Compute power
 
@@ -118,7 +107,7 @@ _Starting December 1, 2020_
 
 ## Going Live
 
-_Starting January 11, 2020_  
+**Period**: Starting 2021-01-11
 
 **Prerequisites**: We know everything works fine. No going back
 
@@ -131,14 +120,24 @@ _Starting January 11, 2020_
 
 * [ ] Users that migrate are added to LDAP.  Changes in LDAP will manually be mirrored on TIPCC
 * [ ] Only allow active accounts with up-to-date contact information (and keeping it up-to-date)
+* [ ] Password aging
 
 ### Software
 
+* [ ] Some more EPEL package requests (probably not much)
 * [ ] Very old, legacy scientific software on TIPCC will be re-installed on C4 if requested
+* [ ] MATLAB using UCSF site-wide licenses
+
+### Documentation and support
+
+* [ ] Torque-to-Slurm translation table
+* [ ] Common TIPCC-to-C4 migration issues and conflicts documented
+* [ ] c4-announce mailing list
 
 ### Miscellaneous
 
-* [x] [Globus] endpoint on C4 for fast file transfers to and from participating organization
+* [ ] Expand existing Bash configuration to Csh
+
 
 
 
@@ -153,8 +152,6 @@ _Starting January 11, 2020_
 ### Software
 
 * [ ] We will attempt to accommodate legacy-software needs as far as possible
-
-
 
 ## TIPCC deprecation
 
