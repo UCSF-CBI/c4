@@ -113,7 +113,7 @@ You can pass arguments to a job script similarly to how one passes argument to a
 ```sh
 #!/usr/bin/env bash
 #SBATCH --export=NONE
-#SBATCH --mem=10mb 
+#SBATCH --mem=10M 
 
 module load CBI r
 Rscript "$@"
