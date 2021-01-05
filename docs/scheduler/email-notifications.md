@@ -10,59 +10,38 @@
 
 ## Job Email Notifications
 
-Instead of polling `squeue` to check whether submitted jobs are queued, running, or finished, one can tell the job scheduler to send email notifications as jobs change state.  This is done by specifying `sbatch` option `--mail-type=<type>` and option `---mail-user=<recipients>`, where `<type>` specifies under what circumstances an email message should be sent to `<recipients>`. Type is one of NONE, BEGIN, END, FAIL, REQUEUE, ALL.
+Instead of polling `squeue` to check whether submitted jobs are queued, running, or finished, one can tell the job scheduler to send email notifications as jobs change state.  This is done by specifying `sbatch` option `--mail-type=<type>`, where `<type>` specifies under what circumstances an email message should be sent.  The commonly used types of state changes are:
 
-To send an email when the job begins, ends, or fails, submit the job as:
+* BEGIN: when the job starts 
+* END: when the job ends
+* FAIL: when the job fails
 
-```sh
-$ sbatch --mail-user={{ site.user.email }} --mail-type=BEGIN,END,FAIL myscript.sh
-```
-
-To send an email only when the job completed, successfully or not, skip begin notifications by using only:
+For further details and additional state-change types, see `man sbatch`.  The notifications are sent to the email addresses specified by option `---mail-user=<recipients>`.  Here is an example that sends an email when the job begins, ends, or fails:
 
 ```sh
-$ sbatch --mail-user={{ site.user.email }} --mail-type=END,FAIL myscript.sh
+$ sbatch --mail-user={{ site.user.email }} --mail-type=BEGIN,END,FAIL --wrap='echo "Current timestamp: $(date)"'
 ```
 
-Alternatively, one may include the mail (and other) `sbatch` options directly in the job script as `#SBATCH` options. For example, we can include the following in Alice's script just after the shebang:
-
-```sh
-#SBATCH --mail-type=END,FAIL                 # Mail events (NONE, BEGIN, END, FAIL, ALL)
-#SBATCH --mail-user={{  site.user.email  }}  # Where to send mail 
-.
-.
-.
-```
-
-<!--
-### Email notifications for array jobs
-
-**Do not request email notifications for array jobs!**  If done, there will be email messages sent for _every single task_ of the job array.  Instead, to get an email notification when a job array completes, submit a "dummy" job that depend on the job array such that it will only launch when the job array completes.  The sole purpose of this dummy job is to trigger an email notification.  For instance, if the job array has job ID 9156754, then submit a job:
-
-```sh
-$ job_id=9156754
-$ echo 'date' | qsub -N "Array_job_${job_id}_done" -m b  -l h_rt=00:00:05 -hold_jid "${job_id}"
-```
-
-This will send an email with 'Array_job_9156754_done' in the subject line as soon as the dummy job launches.
+See below for example of what these email notifications may look like.  To send an email only when the job completed, successfully or not, use `--mail-type=END,FAIL` instead.
 
 
-
-### Configure a default recipient
-
-To avoid having to specify the email address in each `qsub` call, or as an SGE directive in the job script, one can set the default in the `~/.sge_request` (create if missing) by adding:
-
-```sh
-## Default recipient of job notifications
--M {{  site.user.email  }}
-```
-
-The advantage of specifying the recipient in `~/.sge_request`, instead of in the job script, is that the job script does not carry your personal email address.  If the job script has your email address, then it will be you that get email notifications if someone else copy your script as-is and runs it on the cluster (or on other SGE clusters).
-
-<div class="alert alert-danger" role="alert" style="margin-top: 3ex">
-<strong>Please do not specify <code>-m bea</code> in <code>~/.sge_request</code></strong> to make it the default for <em>all</em> of your jobs. If done, you might end up producing thousands of email messages when you submit array jobs.
+<div class="alert alert-warning" role="alert" style="margin-top: 3ex">
+<span>⚠️</span> We advice against specifying <code>#SBATCH --mail-user=...</code> in job scripts.  If you do, there is a risk that you will receive email notifications when someone copies your job script and forgets to update the script.  By specifying the recipient via <code>sbatch --mail-user=...</code> you avoid this problem.  Alternatively, a more convenient approach is to not specify it at all and instead rely on the default email address that you can configure at your choice.
 </div>
--->
+
+
+### Configure the default recipient
+
+If `--mail-user` is not specified, then the email notifications will be sent to your local {{ site.cluster.name }} mailbox (which can only be accessed using the `mail` command).  It is possible to configure all messages sent to this local mailbox to be forwarded to an email address of your choice as given by the `~/.forward` file.  For example, with:
+
+```sh
+[alice@{{ site.login.name }} ~]$ cat ~/.forward
+# Recipients of email notifications from Slurm, crontab, etc.
+{{ site.user.email }}
+```
+
+any Slurm notifications produced by jobs that `alice` runs, will forwarded to `{{ site.user.email }}`.
+
 
 ### Example messages
 
