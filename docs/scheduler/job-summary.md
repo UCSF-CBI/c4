@@ -51,6 +51,7 @@ From this we learn that:
 See `man sstat` for details on these and what other fields are available.
 
 _Comments_:
+
 * The reason for the 'AveCPU' time being zero is currently unknown to us /2020-01-05
 * It is currently unclear to us whether the `K` suffix on 'MaxRSS' is KiB (1024 bytes) or kB (1000 bytes). /2020-01-05
 
