@@ -19,25 +19,19 @@ _Starting September 1, 2020_
 
 ### Scheduler
 
-* [x] Rudimentary Slurm configuration with one shared partition ("queue") and one lab-owned partition.
-
-* [x] Interactive jobs, e.g. `srun --pty bash`
-
-* [x] Job email notification, e.g. `sbatch --export=NONE --mail-type=ALL --mail-user=<email-address> script.sh`
+* [x] Rudimentary Slurm configuration with one shared partition ("common") and one lab-owned partition
+* [x] Interactive jobs
+* [x] Job email notification
 
 ### Software
 
 * [x] Shared CBI software + modules, i.e. `/software/c4/CBI/`
-
 * [x] Shared software + modules of other labs: `/software/c4/{group}/`
 
 ### Documentation and support
 
 * [x] c4-help issue tracker <https://github.com/UCSF-CBI/c4-help>
-
 * [ ] Set up a C4 website with the most basic documentation
-
-* [x] Tabular overview of the different host types available
 
 ### Compute power
 
@@ -66,19 +60,18 @@ _Starting September 1, 2020_
 ### Backup
 
 * [x] Users' home folders are backed up
-
 * [x] Software stacks under `/software` are backed up
 
 ### Miscellaneous
 
 * [x] X11 Forwarding on development nodes
-
 * [x] Shells and interactive jobs idle for more than 24 hours are automatically logged out
-
 * [x] All development and compute nodes have the same configuration of local `/tmp` (8 GiB) and local `/scratch` (whatever is available)
 
 
 ## Beta-Testing Phase
+
+_Starting December 1, 2020_  
 
 **Who**: Invite additional advanced users from other labs.  We are interesting in labs who are willing to migrate the existing TIPCC compute nodes over to C4, e.g. labs will a single compute node
 
@@ -91,31 +84,25 @@ _Starting September 1, 2020_
 
 ### Scheduler
 
-* [ ] Finalize basic configuration allowing users to submit as much as they want without starving out other users
-
-* [ ] Add more lab-specific partitions
-
 * [x] All jobs are running through cgroup
+* [ ] Add more lab-specific partitions
+* [ ] Finalize basic configuration allowing users to submit as much as they want without starving out other users
 
 ### Documentation and support
 
 * [ ] c4-announce mailing list
-
 * [ ] Slurm well documented + Torque-to-Slurm translation table
-
 * [ ] Common TIPCC-to-C4 migration issues and conflicts documented
 
 ### Software
 
 * [ ] Some more EPEL package requests (probably not much)
-
 * [ ] MATLAB using UCSF site-wide licenses
 
 ### Accounts
 
-* [ ] Password aging
-
 * [x] Set up LDAP for account management
+* [ ] Password aging
 
 ### Miscellaneous
 
@@ -123,6 +110,8 @@ _Starting September 1, 2020_
 
 
 ## Going Live
+
+_Starting January 11, 2020_  
 
 **Prerequisites**: We know everything works fine. No going back
 
@@ -134,7 +123,6 @@ _Starting September 1, 2020_
 ### Accounts
 
 * [ ] Users that migrate are added to LDAP.  Changes in LDAP will manually be mirrored on TIPCC
-
 * [ ] Only allow active accounts with up-to-date contact information (and keeping it up-to-date)
 
 ### Software
@@ -164,7 +152,6 @@ _Starting September 1, 2020_
 ## TIPCC deprecation
 
 * [ ] TIPCC is kept on life support only!
-
 * [ ] TIPCC might crash at any time!
 
 
@@ -173,25 +160,15 @@ _Starting September 1, 2020_
 ## Accomplished milestones
 
 * Storage: Global scratch storage on BeeGFS parallel file system (2020-07-01)
-
 * Login: 2 login nodes (June 2020)
-
 * Development: Added three development nodes (2020-08-13)
-
 * Compute nodes: 6 communal/common compute nodes (6*32=192 physical cores)
-
 * Software: Replicate the core software that is installed on [Wynton HPC] on development and compute nodes (2020-08-19)
-
 * Software: Added the CBI software stack (2020-08-20)
-
 * Deployment of new machines: Automated deployment
-
 * Backup: Users' home folders backed up on a nightly basis
-
 * Network: 10 Gbps
-
 * File transfers: Globus is supported (2020-11-02)
-
 * Account management: All accounts and authentication is done via LDAP (2020-12-16)
 
 
