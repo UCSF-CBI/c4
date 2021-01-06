@@ -15,9 +15,10 @@ To load the R module available in the [CBI software stack], do:
 
 which provides access to a modern version of R:
 
+<!-- code-block label="simple" -->
 ```r
-[alice@{{ site.devel.name }} ~]$ R
-R version 4.0.2 (2020-06-22) -- "Taking Off Again"
+alice@{{ site.devel.name }} ~]$ R
+R version 4.0.3 (2020-10-10) -- "Bunny-Wunnies Freak Out"
 Copyright (C) 2020 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
@@ -112,6 +113,7 @@ to install packages into? (yes/No/cancel)
 
 R wants to make sure you are aware what is done, so it will, conservatively, also ask if you accept the default location.  Answer 'yes' for this folder to be created.  After this, the current and all future package installation in R will be installed into this folder without further questions asked.  In this example, we will get:
 
+<!-- code-block label="install-zoo" -->
 ```r
 Would you like to create a personal library
 '~/R/x86_64-pc-linux-gnu-library/4.0-CBI'
@@ -187,6 +189,7 @@ If you already have BiocManager installed, you can skip this section.
 
 When you start out fresh, the package [BiocManager] is not installed meaning that calling `BiocManager::install()` will fail.  We need to start by installing it from CRAN (sic!);
 
+<!-- code-block label="install-BiocManager" -->
 ```r
 > install.packages("BiocManager")
 Installing package into '/c4/home/alice/R/x86_64-pc-linux-gnu-library/4.0-CBI'
@@ -223,6 +226,7 @@ _Comment_: If this is the very first R package you installed, see above CRAN ins
 
 With BiocManager installed, we can now install any Bioconductor package.  For instance, to install [limma], and all of its dependencies, call:
 
+<!-- code-block label="install-limma" -->
 ```r
 > BiocManager::install("limma")
 Bioconductor version 3.11 (BiocManager 1.30.10), R 4.0.2 (2020-06-22)
@@ -346,6 +350,7 @@ Note that you will have to load the `mpi` module also whenever you run R code th
 
 Continuing, to install Rmpi, we launch R and call the following:
 
+<!-- code-block label="install-Rmpi" -->
 ```r
 > install.packages("Rmpi", configure.args="--with-Rmpi-include=$MPI_INCLUDE --with-Rmpi-libpath=$MPI_LIB --with-Rmpi-type=OPENMPI")
 Installing package into '/c4/home/alice/R/x86_64-pc-linux-gnu-library/4.0-CBI'
