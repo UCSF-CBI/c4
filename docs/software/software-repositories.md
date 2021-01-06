@@ -69,7 +69,7 @@ Please note that this software stacks is maintained and contributed by a researc
 ASCIIGenome is a genome browser based on command line interface and designed for running from console terminals. Since ASCIIGenome does not require a graphical interface it is particularly useful for quickly visualizing genomic data on remote servers while offering flexibility similar to popular GUI viewers like IGV.<br>
     Example: <code>ASCIIGenome --help</code>.<br>
     URL: <a href="https://github.com/dariober/ASCIIGenome">https://github.com/dariober/ASCIIGenome</a><br>
-  Versions: <em>1.15.0</em><br>
+  Versions: 1.15.0, <em>1.16.0</em><br>
   </dd>
 
   <dt>bamutil</dt>
@@ -115,7 +115,7 @@ Bats is a TAP-compliant testing framework for Bash. It provides a simple way to 
 BCFtools is a set of utilities that manipulate variant calls in the Variant Call Format (VCF) and its binary counterpart BCF. All commands work transparently with both VCFs and BCFs, both uncompressed and BGZF-compressed.<br>
     Example: <code>bcftools --version</code><br>
     URL: <a href="http://www.htslib.org/">http://www.htslib.org/</a><br>
-  Versions: <em>1.10.2</em><br>
+  Versions: 1.10.2, <em>1.11</em><br>
   </dd>
 
   <dt>bcl2fastq</dt>
@@ -151,7 +151,7 @@ Collectively, the bedtools utilities are a swiss-army knife of tools for a wide-
 BLAST finds regions of similarity between biological sequences. The program compares nucleotide or protein sequences to sequence databases and calculates the statistical significance.<br>
     Example: <code>blastx -version</code><br>
     URL: <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">https://blast.ncbi.nlm.nih.gov/Blast.cgi</a><br>
-  Versions: <em>2.10.1</em><br>
+  Versions: 2.10.1, <em>2.11.0</em><br>
   </dd>
 
   <dt>blat</dt>
@@ -168,9 +168,9 @@ BLAT - client and server combined into a single program, first building the inde
     <strong>Bowtie: A Fast and Sensitive Gapped Read Aligner</strong><br>
 Bowtie is an ultrafast, memory-efficient short read aligner.<br>
     Example: <code>bowtie --version</code> and <code>ls $BOWTIE_HOME/{genomes,indexes}</code><br>
-    Note: This is Bowtie v1 - not v2_.<br>
+    Note: This is Bowtie v1 - <em>not v2</em>.<br>
     URL: <a href="http://bowtie-bio.sourceforge.net/index.shtml">http://bowtie-bio.sourceforge.net/index.shtml</a><br>
-  Versions: <em>1.2.3</em><br>
+  Versions: 1.2.3, <em>1.3.0</em><br>
   </dd>
 
   <dt>bowtie2</dt>
@@ -179,7 +179,7 @@ Bowtie is an ultrafast, memory-efficient short read aligner.<br>
 Bowtie 2 is an ultrafast and memory-efficient tool for aligning sequencing reads to long reference sequences.<br>
     Example: <code>bowtie2 --version</code><br>
     URL: <a href="http://bowtie-bio.sourceforge.net/bowtie2/index.shtml">http://bowtie-bio.sourceforge.net/bowtie2/index.shtml</a><br>
-  Versions: <em>2.4.1</em><br>
+  Versions: 2.4.1, <em>2.4.2</em><br>
   </dd>
 
   <dt>bwa</dt>
@@ -205,9 +205,10 @@ Byobu is an elegant enhancement of the otherwise functional, plain, practical GN
   <dd>
     <strong>Cell Ranger: 10x Genomics Pipeline for Single-Cell Data Analysis</strong><br>
 Cell Ranger is a set of analysis pipelines that process Chromium Single Cell 3' RNA-seq output to align reads, generate gene-cell matrices and perform clustering and gene expression analysis.<br>
-    Example: <code>cellranger</code><br>
+    Example: <code>cellranger</code>.<br>
     URL: <a href="https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/what-is-cell-ranger">https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/what-is-cell-ranger</a><br>
-  Versions: <em>4.0.0</em><br>
+    Warning: To prevent a single Cell Ranger process from hijacking all CPU and RAM by default, this module sets environment variable MROFLAGS='--localcores=1 --localmem=8 --limit-loadavg' making those the default.<br>
+  Versions: 4.0.0, <em>5.0.1</em><br>
   </dd>
 
   <dt>cmake</dt>
@@ -216,7 +217,7 @@ Cell Ranger is a set of analysis pipelines that process Chromium Single Cell 3' 
 CMake is cross-platform free and open-source software for managing the build process of software using a compiler-independent method. It supports directory hierarchies and applications that depend on multiple libraries.<br>
     Example: <code>cmake --version</code>.<br>
     URL: <a href="https://cmake.org/">https://cmake.org/</a><br>
-  Versions: <em>3.18.2</em><br>
+  Versions: 3.18.2, <em>3.19.2</em><br>
   </dd>
 
   <dt>control-freec</dt>
@@ -225,7 +226,7 @@ CMake is cross-platform free and open-source software for managing the build pro
 Prediction of copy numbers and allelic content using deep-sequencing data.<br>
     Example: <code>freec</code>.<br>
     URL: <a href="http://boevalab.com/FREEC/">http://boevalab.com/FREEC/</a>, <a href="https://github.com/BoevaLab/FREEC/">https://github.com/BoevaLab/FREEC/</a><br>
-  Versions: <em>11.5</em><br>
+  Versions: 11.5, <em>11.6</em><br>
   </dd>
 
   <dt>cufflinks</dt>
@@ -244,7 +245,7 @@ At its core is an interpreter for Emacs Lisp, a dialect of the Lisp programming 
     Example: <code>emacs --version</code> and <code>emacs -nw</code>.<br>
     URL: <a href="https://www.gnu.org/software/emacs/">https://www.gnu.org/software/emacs/</a><br>
     Warning: Only the most recent version of this software will be kept.<br>
-  Versions: <em>26.3</em><br>
+  Versions: 26.3, <em>27.1</em><br>
   </dd>
 
   <dt>fastqc</dt>
@@ -273,7 +274,7 @@ fzf is a general-purpose command-line fuzzy finder. It's an interactive Unix fil
 Developed in the Data Sciences Platform at the Broad Institute, the toolkit offers a wide variety of tools with a primary focus on variant discovery and genotyping. Its powerful processing engine and high-performance computing features make it capable of taking on projects of any size.<br>
     Example: <code>gatk --help</code> and <code>gatk --list</code>.<br>
     URL: <a href="https://software.broadinstitute.org/gatk/">https://software.broadinstitute.org/gatk/</a>, <a href="https://github.com/broadinstitute/gatk/">https://github.com/broadinstitute/gatk/</a><br>
-  Versions: 4.1.7.0, <em>4.1.8.1</em><br>
+  Versions: 4.1.7.0, 4.1.8.1, <em>4.1.9.0</em><br>
   </dd>
 
   <dt>gcta</dt>
@@ -347,7 +348,7 @@ HISAT2 is a fast and sensitive alignment program for mapping next-generation seq
     Example: <code>htop</code>.<br>
     URL: <a href="https://htop.dev">https://htop.dev</a>, <a href="https://github.com/htop-dev/htop">https://github.com/htop-dev/htop</a><br>
     Warning: Only the most recent version of this software will be kept.<br>
-  Versions: 2.2.0, <em>3.0.1</em><br>
+  Versions: 2.2.0, 3.0.1, <em>3.0.4</em><br>
   </dd>
 
   <dt>htslib</dt>
@@ -356,7 +357,7 @@ HISAT2 is a fast and sensitive alignment program for mapping next-generation seq
 HTSlib is an implementation of a unified C library for accessing common file formats, such as SAM, CRAM and VCF, used for high-throughput sequencing data, and is the core library used by samtools and bcftools. HTSlib also provides the bgzip, htsfile, and tabix utilities.<br>
     Example: <code>bgzip --version</code>, <code>htsfile --version</code>, and <code>tabix --version</code>.<br>
     URL: <a href="http://www.htslib.org/">http://www.htslib.org/</a><br>
-  Versions: <em>1.10.2</em><br>
+  Versions: 1.10.2, <em>1.11</em><br>
   </dd>
 
   <dt>igv</dt>
@@ -366,7 +367,7 @@ The Integrative Genomics Viewer (IGV) is a high-performance visualization tool f
     Example: <code>igv</code>.<br>
     Note: IGV (&gt;= 2.5.0) requires Java 11. Coincidentally, <code>igvtools</code> is integrated with IGV (&gt;= 2.5.0).<br>
     URL: <a href="https://software.broadinstitute.org/software/igv/">https://software.broadinstitute.org/software/igv/</a><br>
-  Versions: <em>2.8.6</em><br>
+  Versions: 2.8.6, <em>2.8.13</em><br>
   </dd>
 
   <dt>igvtools</dt>
@@ -402,7 +403,7 @@ kallisto is a program for quantifying abundances of transcripts from RNA-Seq dat
 The libevent API provides a mechanism to execute a callback function when a specific event occurs on a file descriptor or after a timeout has been reached. Furthermore, libevent also support callbacks due to signals or regular timeouts.<br>
     Example: <code>event_rpcgen.py</code>.<br>
     URL: <a href="http://libevent.org/">http://libevent.org/</a>, <a href="https://github.com/libevent/libevent">https://github.com/libevent/libevent</a><br>
-  Versions: <em>2.1.8</em><br>
+  Versions: 2.1.8, <em>2.1.12</em><br>
   </dd>
 
   <dt>pandoc</dt>
@@ -412,7 +413,7 @@ Pandoc is a Haskell library and software tool for converting from one markup for
     Example: <code>pandoc --version</code>.<br>
     URL: <a href="https://pandoc.org/">https://pandoc.org/</a>, <a href="https://github.com/jgm/pandoc">https://github.com/jgm/pandoc</a><br>
     Warning: Only the most recent version of this software will be kept.<br>
-  Versions: <em>2.10.1</em><br>
+  Versions: 2.10.1, <em>2.11.3.2</em><br>
   </dd>
 
   <dt>picard</dt>
@@ -421,7 +422,7 @@ Pandoc is a Haskell library and software tool for converting from one markup for
 Picard is a set of command line tools for manipulating high-throughput sequencing (HTS) data and formats such as SAM/BAM/CRAM and VCF.<br>
     Example: <code>picard -h</code>, which is an alias for <code>java -jar $PICARD_HOME/picard.jar -h</code><br>
     URL: <a href="http://broadinstitute.github.io/picard/">http://broadinstitute.github.io/picard/</a>, <a href="https://github.com/broadinstitute/picard">https://github.com/broadinstitute/picard</a><br>
-  Versions: <em>2.23.1</em><br>
+  Versions: 2.23.1, <em>2.24.0</em><br>
   </dd>
 
   <dt>pindel</dt>
@@ -439,7 +440,7 @@ Pindel can detect breakpoints of large deletions, medium sized insertions, inver
 PLINK is a free, open-source whole genome association analysis toolset, designed to perform a range of basic, large-scale analyses in a computationally efficient manner. The focus of PLINK is purely on analysis of genotype/phenotype data, so there is no support for steps prior to this (e.g. study design and planning, generating genotype or CNV calls from raw data).<br>
     Example: <code>plink --help</code>.<br>
     URL: <a href="https://www.cog-genomics.org/plink/">https://www.cog-genomics.org/plink/</a><br>
-  Versions: <em>1.90b6.18</em><br>
+  Versions: 1.90b6.18, <em>1.90b6.21</em><br>
   </dd>
 
   <dt>plink2</dt>
@@ -485,7 +486,7 @@ Rclone is a command line program to sync files and directories to and from a lar
     Example: <code>rclone --version</code>, <code>rclone --help</code>, <code>rclone config</code>, and <code>info rclone</code>.<br>
     URL: <a href="https://rclone.org/">https://rclone.org/</a>, <a href="https://github.com/rclone/rclone">https://github.com/rclone/rclone</a><br>
     Warning: Only the most recent version of this software will be kept.<br>
-  Versions: 1.52.3, <em>1.53.1</em><br>
+  Versions: 1.52.3, 1.53.1, <em>1.53.3</em><br>
   </dd>
 
   <dt>ripgrep</dt>
@@ -504,7 +505,7 @@ ripgrep is a line-oriented search tool that recursively searches your current di
 Highly-accurate &amp; wicked fast transcript-level quantification from RNA-seq reads using selective alignment.<br>
     Example: <code>salmon --version</code>.<br>
     URL: <a href="https://combine-lab.github.io/salmon/">https://combine-lab.github.io/salmon/</a>, <a href="https://github.com/COMBINE-lab/salmon">https://github.com/COMBINE-lab/salmon</a><br>
-  Versions: <em>1.3.0</em><br>
+  Versions: 1.3.0, <em>1.4.0</em><br>
   </dd>
 
   <dt>samtools</dt>
@@ -513,16 +514,16 @@ Highly-accurate &amp; wicked fast transcript-level quantification from RNA-seq r
 SAMtools is a suite of programs for interacting with high-throughput sequencing data.<br>
     Example: <code>samtools --version</code>.<br>
     URL: <a href="http://www.htslib.org/">http://www.htslib.org/</a><br>
-  Versions: <em>1.10</em><br>
+  Versions: 1.10, <em>1.11</em><br>
   </dd>
 
   <dt>scl-devtoolset</dt>
   <dd>
     <strong>SCL Developer Toolset: GNU Compiler Collection, GNU Debugger, etc.</strong><br>
-Enables the CentOS Software Collection (SCL) <code>devtoolset-8</code> in the current environment.  This is an alternative to calling <code>source scl_source enable devtoolset-8</code>, which is an approach that is not officially supported by RedHat/CentOS.<br>
+Enables the CentOS Software Collection (SCL) <code>devtoolset-9</code> in the current environment.  This is an alternative to calling <code>source scl_source enable devtoolset-9</code>, which is an approach that is not officially supported by RedHat/CentOS.<br>
     Example: <code>gcc --version</code>.<br>
-    URL: <a href="https://www.softwarecollections.org/en/scls/rhscl/devtoolset-8/">https://www.softwarecollections.org/en/scls/rhscl/devtoolset-8/</a><br>
-  Versions: 7, <em>8</em><br>
+    URL: <a href="https://www.softwarecollections.org/en/scls/rhscl/devtoolset-9/">https://www.softwarecollections.org/en/scls/rhscl/devtoolset-9/</a><br>
+  Versions: 7, 8, <em>9</em><br>
   </dd>
 
   <dt>shellcheck</dt>
@@ -541,7 +542,7 @@ ShellCheck finds bugs in your shell scripts.<br>
 SnpEff is a variant annotation and effect prediction tool. It annotates and predicts the effects of variants on genes (such as amino acid changes).<br>
     Example: <code>snpEff -help</code>, <code>SnpSift -help</code>,  and <code>ClinEff -help</code>, which are aliases for <code>java -jar $SNPEFF_HOME/snpEff/snpEff.jar -help</code>, <code>java -jar $SNPEFF_HOME/snpEff/SnpSift.jar -help</code>, and <code>java -jar $SNPEFF_HOME/clinEff/ClinEff.jar -help</code>.<br>
     URL: <a href="http://snpeff.sourceforge.net/">http://snpeff.sourceforge.net/</a><br>
-  Versions: <em>4.3t</em><br>
+  Versions: 4.3t, <em>5.0c</em><br>
   </dd>
 
   <dt>sratoolkit</dt>
@@ -549,8 +550,8 @@ SnpEff is a variant annotation and effect prediction tool. It annotates and pred
     <strong>SRA Toolkit: Tools and Libraries for Using Data in the INSDC Sequence Read Archives</strong><br>
 The SRA Toolkit and SDK from NCBI is a collection of tools and libraries for using data in the INSDC Sequence Read Archives.<br>
     Example: <code>fastq-dump --help</code>.<br>
-    URL: <a href="https://ncbi.github.io/sra-tools/">https://ncbi.github.io/sra-tools/</a><br>
-  Versions: <em>2.10.8</em><br>
+    URL: <a href="https://ncbi.github.io/sra-tools/">https://ncbi.github.io/sra-tools/</a>, <a href="https://github.com/ncbi/sra-tools">https://github.com/ncbi/sra-tools</a><br>
+  Versions: 2.10.8, <em>2.10.9</em><br>
   </dd>
 
   <dt>star</dt>
@@ -559,7 +560,7 @@ The SRA Toolkit and SDK from NCBI is a collection of tools and libraries for usi
 STAR (Spliced Transcripts Alignment to a Reference) is a fast NGS read aligner for RNA-seq data.<br>
     Example: <code>STAR --help</code>.<br>
     URL: <a href="https://github.com/alexdobin/STAR">https://github.com/alexdobin/STAR</a><br>
-  Versions: 2.7.5a, <em>2.7.5c</em><br>
+  Versions: 2.7.5a, 2.7.5c, <em>2.7.7a</em><br>
   </dd>
 
   <dt>texlive</dt>
@@ -623,7 +624,7 @@ Validator for the Variant Call Format (VCF) implemented using C++11. It includes
     <strong>VCFtools: Tools Written in Perl and C++ for Working with VCF Files</strong><br>
 VCFtools is a program package designed for working with VCF files, such as those generated by the 1000 Genomes Project. The aim of VCFtools is to provide easily accessible methods for working with complex genetic variation data in the form of VCF files.<br>
     Example: <code>vcftools --version</code>.<br>
-    URL: <a href="https://vcftools.github.io/">https://vcftools.github.io/</a><br>
+    URL: <a href="https://vcftools.github.io/">https://vcftools.github.io/</a>, <a href="https://github.com/vcftools/vcftools">https://github.com/vcftools/vcftools</a><br>
   Versions: <em>0.1.16</em><br>
   </dd>
 
@@ -722,7 +723,7 @@ Here you can find the latest implementation of PrediXcan: PrediXcan.py. This use
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(8)</a></li>
 </ul>
 
-_The above information was automatically generated on 2020-12-30 16:59:07 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2021-01-05 18:26:33 from querying `module avail` and `module spider`._
 
 
 <style>
