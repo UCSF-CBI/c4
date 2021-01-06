@@ -30,7 +30,7 @@ Below are 3 software repositories, each providing a set of software tools.
 
 <ul class="nav nav-pills">
   <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(1)</a></li>
-  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(60)</a></li>
+  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(59)</a></li>
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(8)</a></li>
 </ul>
 
@@ -397,15 +397,6 @@ kallisto is a program for quantifying abundances of transcripts from RNA-Seq dat
   Versions: <em>0.46.2</em><br>
   </dd>
 
-  <dt>libevent</dt>
-  <dd>
-    <strong>libevent: An Event Notification Library</strong><br>
-The libevent API provides a mechanism to execute a callback function when a specific event occurs on a file descriptor or after a timeout has been reached. Furthermore, libevent also support callbacks due to signals or regular timeouts.<br>
-    Example: <code>event_rpcgen.py</code>.<br>
-    URL: <a href="http://libevent.org/">http://libevent.org/</a>, <a href="https://github.com/libevent/libevent">https://github.com/libevent/libevent</a><br>
-  Versions: 2.1.8, <em>2.1.12</em><br>
-  </dd>
-
   <dt>pandoc</dt>
   <dd>
     <strong>Pandoc: A Universal Document Converter</strong><br>
@@ -709,11 +700,11 @@ Here you can find the latest implementation of PrediXcan: PrediXcan.py. This use
 
 <ul class="nav nav-pills">
   <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(1)</a></li>
-  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(60)</a></li>
+  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(59)</a></li>
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(8)</a></li>
 </ul>
 
-_The above information was automatically generated on 2021-01-06 08:06:13 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2021-01-06 08:12:54 from querying `module avail` and `module spider`._
 
 
 <style>
