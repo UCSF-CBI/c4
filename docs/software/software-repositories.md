@@ -30,7 +30,7 @@ Below are 3 software repositories, each providing a set of software tools.
 
 <ul class="nav nav-pills">
   <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(1)</a></li>
-  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(61)</a></li>
+  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(60)</a></li>
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(8)</a></li>
 </ul>
 
@@ -452,16 +452,6 @@ PLINK is a free, open-source whole genome association analysis toolset, designed
   Versions: <em>2.00a3LM</em><br>
   </dd>
 
-  <dt>qtop</dt>
-  <dd>
-    <strong>qtop: Monitor the State of Queueing Systems, Along with Related Information Relevant on HPC &amp; Grid Clusters</strong><br>
-<code>qtop</code> (pronounced queue-top) is a tool written in order to monitor the state of Queueing Systems, along with related information relevant on HPC &amp; grid clusters. At present it supports PBS, SGE &amp; OAR families. Please help to increase that list in the Python version of the tool, qtop.py!<br>
-    Example: <code>qtop</code> and <code>qtop -FGW</code>.<br>
-    URL: <a href="https://github.com/qtop/qtop">https://github.com/qtop/qtop</a><br>
-    Warning: Only the most recent version of this software will be kept.<br>
-  Versions: <em>0.9.20161222</em><br>
-  </dd>
-
   <dt>r</dt>
   <dd>
     <strong>R: The R Programming Language</strong><br>
@@ -719,11 +709,11 @@ Here you can find the latest implementation of PrediXcan: PrediXcan.py. This use
 
 <ul class="nav nav-pills">
   <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(1)</a></li>
-  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(61)</a></li>
+  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(60)</a></li>
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(8)</a></li>
 </ul>
 
-_The above information was automatically generated on 2021-01-05 19:06:19 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2021-01-06 08:06:13 from querying `module avail` and `module spider`._
 
 
 <style>
