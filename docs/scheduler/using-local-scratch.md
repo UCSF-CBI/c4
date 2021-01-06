@@ -54,10 +54,12 @@ cp ~/reference.fa .
 mv output.bam ~
 ```
 
-<!--Assume that the total amount of local scratch you need for your input files and your output files and whatever intermediate files `my_pipeline` needs is 100 GiB, and assume that the process requires up to 8 GiB of RAM (=4 GiB per core) to complete.  Moreover, let's say you wish to run in parallel using two cores.  Then you should submit this job script as:
+<!--
+Assume that the total amount of local scratch you need for your input files and your output files and whatever intermediate files `my_pipeline` needs is 100 GiB, and assume that the process requires up to 8 GiB of RAM (=4 GiB per core) to complete.  Moreover, let's say you wish to run in parallel using two cores.  Then you should submit this job script as:
 ```sh
 $ qsub -l scratch=100G -l mem_free=4G -pe smp 2 ex-scratch.sh
 ```
 
 
-To understand the purpose of `qstat -j` at the end, see the [Job Summary]({{ '/scheduler/job-summary.html' | relative_url }}) page. -->
+To understand the purpose of `qstat -j` at the end, see the [Job Summary]({{ '/scheduler/job-summary.html' | relative_url }}) page.
+-->

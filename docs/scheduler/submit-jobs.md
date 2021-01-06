@@ -44,10 +44,10 @@ Submitted batch job 1507
 In the above job we used the `--mem=100M` option. This set maximum memory usage to 100 MiB (`M` is the default unit). We can specify in GiB using unit `G`, e.g. `--mem=2G`. 
 Please note that if your job *exceeds* the requested memory limit, it will be terminated with an Out-of-Memory (OOM) error. So, why should we do it? Because jobs that specify smaller memory limits will have more opportunities to actually run. If we don't specify the limits, Slurm will assume the job needs up to the node limit of memory and it will sit in the queue until a node with max memory becomes available. By right sizing your jobs they will run faster.
 
-_TIPS_: To find out how much memory a job used, `sacct -j jobid --format="JobID,Elapsed,MaxRSS,State"` you can use this to right size the job next time you want to run a similar one.  Example:
+_TIPS_: To find out how much memory a job used, `sacct --format="JobID,Elapsed,MaxRSS,State" -j <job_id>` you can use this to right size the job next time you want to run a similar one.  Example:
 
 ```sh
-$ sacct -j 1484 --format="JobID,Elapsed,MaxRSS,State"
+$ sacct --format="JobID,Elapsed,MaxRSS,State" -j 1484
        JobID    Elapsed     MaxRSS      State 
 ------------ ---------- ---------- ---------- 
 1484           00:00:00             COMPLETED 
@@ -56,7 +56,7 @@ $ sacct -j 1484 --format="JobID,Elapsed,MaxRSS,State"
 
 A job that was killed for running out of memory would look like this:
 ```sh
-$ sacct -j 1012 --format="JobID,Elapsed,MaxRSS,State"
+$ sacct --format="JobID,Elapsed,MaxRSS,State" -j 1012
        JobID    Elapsed     MaxRSS      State 
 ------------ ---------- ---------- ---------- 
 1012           00:00:01            OUT_OF_ME+ 
