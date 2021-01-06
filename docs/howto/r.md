@@ -15,9 +15,10 @@ To load the R module available in the [CBI software stack], do:
 
 which provides access to a modern version of R:
 
+<!-- code-block label="simple" -->
 ```r
-[alice@{{ site.devel.name }} ~]$ R
-R version 4.0.2 (2020-06-22) -- "Taking Off Again"
+alice@{{ site.devel.name }} ~]$ R
+R version 4.0.3 (2020-10-10) -- "Bunny-Wunnies Freak Out"
 Copyright (C) 2020 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
@@ -112,6 +113,7 @@ to install packages into? (yes/No/cancel)
 
 R wants to make sure you are aware what is done, so it will, conservatively, also ask if you accept the default location.  Answer 'yes' for this folder to be created.  After this, the current and all future package installation in R will be installed into this folder without further questions asked.  In this example, we will get:
 
+<!-- code-block label="install-zoo" -->
 ```r
 Would you like to create a personal library
 '~/R/x86_64-pc-linux-gnu-library/4.0-CBI'
@@ -187,6 +189,7 @@ If you already have BiocManager installed, you can skip this section.
 
 When you start out fresh, the package [BiocManager] is not installed meaning that calling `BiocManager::install()` will fail.  We need to start by installing it from CRAN (sic!);
 
+<!-- code-block label="install-BiocManager" -->
 ```r
 > install.packages("BiocManager")
 Installing package into '/c4/home/alice/R/x86_64-pc-linux-gnu-library/4.0-CBI'
@@ -223,37 +226,24 @@ _Comment_: If this is the very first R package you installed, see above CRAN ins
 
 With BiocManager installed, we can now install any Bioconductor package.  For instance, to install [limma], and all of its dependencies, call:
 
+<!-- code-block label="install-limma" -->
 ```r
 > BiocManager::install("limma")
-Bioconductor version 3.11 (BiocManager 1.30.10), R 4.0.2 (2020-06-22)
-Installing package(s) 'BiocVersion', 'limma'
-trying URL 'https://bioconductor.org/packages/3.11/bioc/src/contrib/BiocVersion_3.11.1.tar.gz'
-Content type 'application/x-gzip' length 980 bytes
-==================================================
-downloaded 980 bytes
-
-trying URL 'https://bioconductor.org/packages/3.11/bioc/src/contrib/limma_3.44.3.tar.gz'
-Content type 'application/x-gzip' length 1523576 bytes (1.5 MB)
+Bioconductor version 3.12 (BiocManager 1.30.10), R 4.0.3 (2020-10-10)
+Installing package(s) 'limma'
+trying URL 'https://bioconductor.org/packages/3.12/bioc/src/contrib/limma_3.46.0.tar.gz'
+Content type 'application/x-gzip' length 1527170 bytes (1.5 MB)
 ==================================================
 downloaded 1.5 MB
 
-* installing *source* package 'BiocVersion' ...
-** using staged installation
-** help
-*** installing help indices
-** building package indices
-** testing if installed package can be loaded from temporary location
-** testing if installed package can be loaded from final location
-** testing if installed package keeps a record of temporary installation path
-* DONE (BiocVersion)
-* installing *source* package 'limma' ...
+* installing *source* package ‘limma’ ...
 ** using staged installation
 ** libs
 gcc -std=gnu99 -I"/software/c4/cbi/software/R-4.0.3/lib64/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c init.c -o init.o
 gcc -std=gnu99 -I"/software/c4/cbi/software/R-4.0.3/lib64/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c normexp.c -o normexp.o
 gcc -std=gnu99 -I"/software/c4/cbi/software/R-4.0.3/lib64/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c weighted_lowess.c -o weighted_lowess.o
 gcc -std=gnu99 -shared -L/software/c4/cbi/software/R-4.0.3/lib64/R/lib -L/usr/local/lib64 -o limma.so init.o normexp.o weighted_lowess.o -L/software/c4/cbi/software/R-4.0.3/lib64/R/lib -lR
-installing to /c4/home/alice/R/x86_64-pc-linux-gnu-library/4.0-CBI/00LOCK-limma/00new/limma/libs
+installing to /home/henrik/R/x86_64-pc-linux-gnu-library/4.0-CBI/00LOCK-limma/00new/limma/libs
 ** R
 ** inst
 ** byte-compile and prepare package for lazy loading
@@ -268,9 +258,9 @@ installing to /c4/home/alice/R/x86_64-pc-linux-gnu-library/4.0-CBI/00LOCK-limma/
 * DONE (limma)
 
 The downloaded source packages are in
-        '/tmp/Rtmpsz02Og/downloaded_packages'
-Installation path not writeable, unable to update packages: MASS, mgcv, nlme,
-  survival
+        ‘/scratch/henrik/Rtmpz9uHdz/downloaded_packages’
+Installation path not writeable, unable to update packages: codetools, foreign,
+  KernSmooth, Matrix, nlme
 >
 ```
 
@@ -346,6 +336,7 @@ Note that you will have to load the `mpi` module also whenever you run R code th
 
 Continuing, to install Rmpi, we launch R and call the following:
 
+<!-- code-block label="install-Rmpi" -->
 ```r
 > install.packages("Rmpi", configure.args="--with-Rmpi-include=$MPI_INCLUDE --with-Rmpi-libpath=$MPI_LIB --with-Rmpi-type=OPENMPI")
 Installing package into '/c4/home/alice/R/x86_64-pc-linux-gnu-library/4.0-CBI'
