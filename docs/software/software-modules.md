@@ -64,7 +64,7 @@ module load CBI r
 After this, the `R` and the `Rscript` commands are available on the search path (`PATH`), e.g.
 ```sh
 $ Rscript --version
-R scripting front-end version 3.5.3 (2019-03-11)
+R scripting front-end version 4.0.3 (2020-10-10)
 ```
 
 <div class="alert alert-warning" role="alert">
@@ -134,7 +134,7 @@ However, in order to submit it to the job scheduler, we need to tell Slurm that 
 ```sh
 #!/usr/bin/env bash
 #SBATCH --export=NONE      # required when using 'module'
-#SBATCH --mem=100mb        # request 100 MiB of memory
+#SBATCH --mem=100M         # request 100 MiB of memory
 #SBATCH --time=00:01:00    # run for at most 1 minute
 
 # Load modules

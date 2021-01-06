@@ -11,6 +11,10 @@ division:
   name: "HDFCCC"
   url: "https://cancer.ucsf.edu/"
 
+user:
+  name: "alice"
+  email: "alice.aliceson@ucsf.edu"
+  
 cluster:
   name: "C4"
   nickname: "C4"

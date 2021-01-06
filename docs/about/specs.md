@@ -1,3 +1,7 @@
+<div class="alert alert-warning" role="alert" style="margin-top: 3ex">
+<strong><span>⚠️</span> 2020-01-04: This page is work in progress.  Overall it is correct, but details will be soon be updated.  Please make sure to revisit later.</strong>
+</div>
+
 # Cluster Specifications
 
 ## Overview
@@ -22,7 +26,7 @@
 | ---- | ---------- | ----------------------- | ------------ | ---- |
 | SSH access from outside of cluster | Within UCSF only, incl. UCSF VPN | Within UCSF only, incl. UCSF VPN | no | no |
 | SSH access from inside of cluster | ✓ | ✓ | ✓ | no |
-| Outbound access | Within UCSF only: SSH and SFTP | HTTP/HTTPS, FTP/FTPS, SSH, SFTP, GIT+SSH | Via proxy: HTTP/HTTPS, GIT+SSH(\*) | no |
+| Outbound access | No restrictions | HTTP/HTTPS, FTP/FTPS, SSH, SFTP, GIT+SSH, Globus | Via proxy: HTTP/HTTPS, GIT+SSH | no |
 | Network speed | 1 Gbps | 10 Gbps | 1 Gbps | 1,10 Gbps |
 | Core software | Minimal | Minimal | Same as compute nodes + compilers and source-code packages | CentOS and EPEL  packages                   |
 | modules (software stacks) | no | no | ✓ | ✓ |
@@ -30,11 +34,11 @@
 | Job submission | ✓ | no | ✓ | ✓ |
 | Purpose | Submit and query jobs. SSH to development nodes. File management. | Fast in- & outbound file transfers. File management. | Compile and install software. Prototype and test job scripts. Submit and query jobs. Version control (clone, pull, push). File management. | Running short and long-running job scripts. |                                                     
 
-(\*) GIT+SSH access on development nodes is restricted to git.bioconductor.org, bitbucket.org, gitea.com, github.com / gist.github.com, gitlab.com, and git.ucsf.edu.
+<!--(\*) GIT+SSH access on development nodes is restricted to git.bioconductor.org, bitbucket.org, gitea.com, github.com / gist.github.com, gitlab.com, and git.ucsf.edu. -->
 
 
 All nodes on the cluster runs [CentOS] 7 which is updated on a regular basis.
-The job scheduler is Slurm 20.02 ([Simple Linux Utility for Resource Management]) which provides [partitions]({{ '/scheduler/queues.html' | relative_url }}) for both communal and lab-priority tasks.
+The job scheduler is Slurm 20.02 ([Simple Linux Utility for Resource Management]) which provides [partitions]({{ '/scheduler/partitions.html' | relative_url }}) for both communal and lab-priority tasks.
 
 
 ## Details
@@ -100,7 +104,8 @@ c4-n10    |       64 |   2.1 GHz |   512 GiB |           1.8 TiB | SATA /scratch
 For additional details on the compute nodes, see the <a href="#details">Details</a> section below.
 -->
 
-The compute nodes can only be utilized by [submitting jobs via the scheduler]({{ '/scheduler/submit-jobs.html' | relative_url }}) - it is _not_ possible to explicitly log in to compute nodes.
+The compute nodes can only be utilized by [submitting jobs via the scheduler]({{ '/scheduler/submit-jobs.html' | relative_url }}).
+<!-- it is _not_ possible to explicitly log in to compute nodes. -->
 
 
 ## File System

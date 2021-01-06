@@ -166,7 +166,7 @@ check-usernames:
 	files=$$(find . -type f -name "*.md" -not \( -path "./_site/*" -o -path "./drafts/*" \) )
 	for file in $$files; do
 	   $(TPUT) && printf "[    ] checking %s" "$$file"
-	   if ! grep -H -n -E "([[]alice@c4-|\b(ahechmer|harry|hb|hb-test|henrik|hputnam|putnam|tnejo)\b)" "$$file" &>> "$$stdout" ; then
+	   if ! grep -H -n -E "(alice@[a-z]+[.]|\b(ahechmer|harry|hb|hb-test|henrik|hputnam|putnam|tnejo)\b)" "$$file" &>> "$$stdout" ; then
 	     ok_count=$$((ok_count+1))
 	     $(TPUT) && printf "\r"
 	     printf "[$(OK)] checking %s\\n" "$$file"
@@ -196,8 +196,13 @@ check-leftovers:
 	files=$$(find . -type f -name "*.md" -not \( -path "./_site/*" -o -path "./drafts/*" \) )
 	for file in $$files; do
 	   $(TPUT) && printf "[    ] checking %s" "$$file"
-	   ## TODO: Add checks for SGE, -cwd, NSLOTS, ...
-	   if ! grep -H -n -E '(#[ ]*[$$]|/wynton/)' "$$file" &>> "$$stdout" ; then
+	   pattern="#[ ]*[$$]|/wynton/|NSLOTS|-cwd|SGE|SLURM_NPROCS"
+	   if [[ "$$file" =~ envvars.md$$ ]]; then
+	     pattern=$$(echo "$$pattern" | sed 's/|SLURM_NPROCS//')
+	   elif [[ "$$file" =~ (software-repositories).md$$ ]]; then
+	     pattern=$$(echo "$$pattern" | sed 's/|SGE//')
+	   fi
+	   if ! grep -H -n -E "($$pattern)" "$$file" &>> "$$stdout" ; then
 	     ok_count=$$((ok_count+1))
 	     $(TPUT) && printf "\r"
 	     printf "[$(OK)] checking %s\\n" "$$file"
