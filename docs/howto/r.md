@@ -309,7 +309,7 @@ ERROR: configuration failed for package 'hdf5r'
  [alice@{{ site.devel.name }} ~]$ module load CBI hdf5 r
  [alice@{{ site.devel.name }} ~]$ module list
  Currently Loaded Modules:
-  1) CBI   2) hdf5/1.12.0   3) r/4.0.2
+  1) CBI   2) hdf5/1.12.0   3) r/4.0.3
  ```
  Note that you also need to load the `hdf5` module every time you use the hdf5r package in R.
 
@@ -329,7 +329,7 @@ The [Rmpi] package does not install out-of-the-box like other R packages.  It re
 [alice@{{ site.devel.name }} ~]$ module load CBI r
 [alice@{{ site.devel.name }} ~]$ module list
 Currently Loaded Modules:
-  1) mpi/openmpi-x86_64   2) CBI   3) r/4.0.2
+  1) mpi/openmpi-x86_64   2) CBI   3) r/4.0.3
 ```
 
 Note that you will have to load the `mpi` module also whenever you run R code that requires the Rmpi package.
