@@ -1,10 +1,13 @@
-(my_project) [alice@dev3 my_project]$ python3 -m pip list
+(my_project) [alice@{{ site.devel.name }} my_project]$ python3 -m pip list
 Package    Version
 ---------- --------
-HTSeq      0.12.4
-numpy      1.19.1
-pip        20.2.2
+HTSeq      0.13.5
+mpi4py     1.3.1
+numpy      1.19.5
+pip        20.3.1
 pysam      0.16.0.1
-setuptools 49.6.0
-wheel      0.35.1
-(my_project) [alice@dev3 my_project]$ 
+setuptools 51.0.0
+wheel      0.36.1
+WARNING: You are using pip version 20.3.1; however, version 20.3.3 is available.
+You should consider upgrading via the '~/my_project/bin/python3 -m pip install --upgrade pip' command.
+(my_project) [alice@{{ site.devel.name }} my_project]$ 

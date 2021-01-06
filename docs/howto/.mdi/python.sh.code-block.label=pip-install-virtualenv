@@ -1,23 +1,25 @@
-[alice@dev3 ~]$ python3 -m pip install --user virtualenv
+[alice@{{ site.devel.name }} ~]$ python3 -m pip install --user virtualenv
 Collecting virtualenv
-  Using cached https://files.pythonhosted.org/packages/12/51/36c685ff2c1b2f7b4b5db29f3153159102ae0e0adaff3a26fd1448232e06/virtualenv-20.0.31-py2.py3-none-any.whl
-Collecting importlib-resources>=1.0; python_version < "3.7" (from virtualenv)
-  Using cached https://files.pythonhosted.org/packages/ba/03/0f9595c0c2ef12590877f3c47e5f579759ce5caf817f8256d5dcbd8a1177/importlib_resources-3.0.0-py2.py3-none-any.whl
+  Downloading https://files.pythonhosted.org/packages/1a/c6/bb564f5eec616d241e85d741f00a07f5f50ea12989022ad49bc66876993c/virtualenv-20.2.2-py2.py3-none-any.whl (5.7MB)
 Collecting appdirs<2,>=1.4.3 (from virtualenv)
-  Using cached https://files.pythonhosted.org/packages/3b/00/2344469e2084fb287c2e0b57b72910309874c3245463acd6cf5e3db69324/appdirs-1.4.4-py2.py3-none-any.whl
-Collecting distlib<1,>=0.3.1 (from virtualenv)
-  Using cached https://files.pythonhosted.org/packages/f5/0a/490fa011d699bb5a5f3a0cf57de82237f52a6db9d40f33c53b2736c9a1f9/distlib-0.3.1-py2.py3-none-any.whl
-Collecting importlib-metadata<2,>=0.12; python_version < "3.8" (from virtualenv)
-  Using cached https://files.pythonhosted.org/packages/8e/58/cdea07eb51fc2b906db0968a94700866fc46249bdc75cac23f9d13168929/importlib_metadata-1.7.0-py2.py3-none-any.whl
+  Downloading https://files.pythonhosted.org/packages/3b/00/2344469e2084fb287c2e0b57b72910309874c3245463acd6cf5e3db69324/appdirs-1.4.4-py2.py3-none-any.whl
+Collecting importlib-metadata>=0.12; python_version < "3.8" (from virtualenv)
+  Downloading https://files.pythonhosted.org/packages/7a/85/ac225e35048e050a6351b6f1251cdb2b6060092f2c6840aff1d6319941b1/importlib_metadata-3.3.0-py3-none-any.whl
 Collecting filelock<4,>=3.0.0 (from virtualenv)
-  Using cached https://files.pythonhosted.org/packages/93/83/71a2ee6158bb9f39a90c0dea1637f81d5eef866e188e1971a1b1ab01a35a/filelock-3.0.12-py3-none-any.whl
+  Downloading https://files.pythonhosted.org/packages/93/83/71a2ee6158bb9f39a90c0dea1637f81d5eef866e188e1971a1b1ab01a35a/filelock-3.0.12-py3-none-any.whl
 Collecting six<2,>=1.9.0 (from virtualenv)
-  Using cached https://files.pythonhosted.org/packages/ee/ff/48bde5c0f013094d729fe4b0316ba2a24774b3ff1c52d924a8a4cb04078a/six-1.15.0-py2.py3-none-any.whl
-Collecting zipp>=0.4; python_version < "3.8" (from importlib-resources>=1.0; python_version < "3.7"->virtualenv)
-  Using cached https://files.pythonhosted.org/packages/b2/34/bfcb43cc0ba81f527bc4f40ef41ba2ff4080e047acb0586b56b3d017ace4/zipp-3.1.0-py3-none-any.whl
-Installing collected packages: zipp, importlib-resources, appdirs, distlib, importlib-metadata, filelock, six, virtualenv
-Successfully installed appdirs-1.4.4 distlib-0.3.1 filelock-3.0.12 importlib-metadata-1.7.0 importlib-resources-3.0.0 six-1.15.0 virtualenv-20.0.31 zipp-3.1.0
-[alice@dev3 ~]$ which virtualenv
+  Downloading https://files.pythonhosted.org/packages/ee/ff/48bde5c0f013094d729fe4b0316ba2a24774b3ff1c52d924a8a4cb04078a/six-1.15.0-py2.py3-none-any.whl
+Collecting importlib-resources>=1.0; python_version < "3.7" (from virtualenv)
+  Downloading https://files.pythonhosted.org/packages/e1/44/a4d7387e5207e66e567c04f87b652a9a174335043838ee7f85ef05f28945/importlib_resources-4.1.1-py3-none-any.whl
+Collecting distlib<1,>=0.3.1 (from virtualenv)
+  Downloading https://files.pythonhosted.org/packages/f5/0a/490fa011d699bb5a5f3a0cf57de82237f52a6db9d40f33c53b2736c9a1f9/distlib-0.3.1-py2.py3-none-any.whl (335kB)
+Collecting typing-extensions>=3.6.4; python_version < "3.8" (from importlib-metadata>=0.12; python_version < "3.8"->virtualenv)
+  Downloading https://files.pythonhosted.org/packages/60/7a/e881b5abb54db0e6e671ab088d079c57ce54e8a01a3ca443f561ccadb37e/typing_extensions-3.7.4.3-py3-none-any.whl
+Collecting zipp>=0.5 (from importlib-metadata>=0.12; python_version < "3.8"->virtualenv)
+  Downloading https://files.pythonhosted.org/packages/41/ad/6a4f1a124b325618a7fb758b885b68ff7b058eec47d9220a12ab38d90b1f/zipp-3.4.0-py3-none-any.whl
+Installing collected packages: appdirs, typing-extensions, zipp, importlib-metadata, filelock, six, importlib-resources, distlib, virtualenv
+Successfully installed appdirs-1.4.4 distlib-0.3.1 filelock-3.0.12 importlib-metadata-3.3.0 importlib-resources-4.1.1 six-1.15.0 typing-extensions-3.7.4.3 virtualenv-20.2.2 zipp-3.4.0
+[alice@{{ site.devel.name }} ~]$ which virtualenv
 ~/.local/bin/virtualenv
-[alice@dev3 ~]$ virtualenv --version
-virtualenv 20.0.31 from ~/.local/lib/python3.6/site-packages/virtualenv/__init__.py
+[alice@{{ site.devel.name }} ~]$ virtualenv --version
+virtualenv 20.2.2 from ~/.local/lib/python3.6/site-packages/virtualenv/__init__.py

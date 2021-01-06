@@ -1,2 +1,2 @@
-[alice@dev3 ~]$ which python3
+[alice@{{ site.devel.name }} ~]$ which python3
 /usr/bin/python3
