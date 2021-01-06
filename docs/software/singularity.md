@@ -187,7 +187,7 @@ When it comes to the scheduler, there is nothing special about Singularity per s
 To run this as a batch job, we need to create a job script.
 
 ```sh
-$ sbatch sing_r_base.bash 
+[alice@{{ site.devel.name }} ~]$ sbatch sing_r_base.bash 
 Submitted batch job 1657
 [alice@{{ site.devel.name }} ~]$ cat sing_r_base.bash 
 #!/usr/bin/bash
@@ -214,7 +214,7 @@ Submitted batch job 1657
 Check results:
 
 ```sh
-cat singularity_test_1657.log
+[alice@{{ site.devel.name }} ~]$ cat singularity_test_1657.log
 /c4/home/alice
 c4-n2
 Tue Dec 22 13:18:39 PST 2020
@@ -224,7 +224,7 @@ Tue Dec 22 13:18:39 PST 2020
 Or submit interactively:
 
 ```sh
-srun $HOME/lxc/rocker_r-base.img Rscript -e "sum(1:10)"
+[alice@{{ site.devel.name }} ~]$ srun $HOME/lxc/rocker_r-base.img Rscript -e "sum(1:10)"
 [1] 55
 ```
 
