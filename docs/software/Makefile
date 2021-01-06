@@ -13,6 +13,7 @@ $(PAGE).md: $(PAGE).md.rsp
 
 deploy: $(PAGE).md
 	git commit $< -m "SOFTWARE: Rebuilt set of available modules" &> /dev/null; true
+	git pull
 	git push &> /dev/null; true
 
 
