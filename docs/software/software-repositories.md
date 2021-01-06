@@ -343,12 +343,12 @@ HISAT2 is a fast and sensitive alignment program for mapping next-generation seq
 
   <dt>htop</dt>
   <dd>
-    <strong>htop - An Interactive Process Viewer for Unix</strong><br>
+    <strong>htop: An Interactive Process Viewer for Unix</strong><br>
 <code>htop</code> is an interactive process viewer for Unix systems. It is a text-mode application (for console or X terminals) and requires ncurses.<br>
     Example: <code>htop</code>.<br>
     URL: <a href="https://htop.dev">https://htop.dev</a>, <a href="https://github.com/htop-dev/htop">https://github.com/htop-dev/htop</a><br>
     Warning: Only the most recent version of this software will be kept.<br>
-  Versions: 2.2.0, <em>3.0.4</em><br>
+  Versions: <em>3.0.4</em><br>
   </dd>
 
   <dt>htslib</dt>
@@ -704,7 +704,7 @@ Here you can find the latest implementation of PrediXcan: PrediXcan.py. This use
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(8)</a></li>
 </ul>
 
-_The above information was automatically generated on 2021-01-06 08:12:54 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2021-01-06 08:16:33 from querying `module avail` and `module spider`._
 
 
 <style>
