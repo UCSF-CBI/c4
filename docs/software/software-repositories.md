@@ -30,7 +30,7 @@ Below are 3 software repositories, each providing a set of software tools.
 
 <ul class="nav nav-pills">
   <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(1)</a></li>
-  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(59)</a></li>
+  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(58)</a></li>
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(8)</a></li>
 </ul>
 
@@ -544,15 +544,6 @@ STAR (Spliced Transcripts Alignment to a Reference) is a fast NGS read aligner f
   Versions: 2.7.5a, 2.7.5c, <em>2.7.7a</em><br>
   </dd>
 
-  <dt>texlive</dt>
-  <dd>
-    <strong>texlive: A Comprehensive TeX Typesetting System</strong><br>
-TeX Live is a cross-platform, free software distribution for the TeX typesetting system that includes major TeX-related programs, macro packages, and fonts.<br>
-    Example: <code>latex</code>, <code>pdflatex</code>, <code>tdmgr</code>.<br>
-    URL: <a href="http://www.tug.org/texlive/">http://www.tug.org/texlive/</a><br>
-  Versions: <em>2020</em><br>
-  </dd>
-
   <dt>tmux</dt>
   <dd>
     <strong>tmux: A Terminal Multiplexer</strong><br>
@@ -700,11 +691,11 @@ Here you can find the latest implementation of PrediXcan: PrediXcan.py. This use
 
 <ul class="nav nav-pills">
   <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(1)</a></li>
-  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(59)</a></li>
+  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(58)</a></li>
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(8)</a></li>
 </ul>
 
-_The above information was automatically generated on 2021-01-06 08:16:33 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2021-01-06 08:18:12 from querying `module avail` and `module spider`._
 
 
 <style>
