@@ -187,48 +187,44 @@ When it comes to the scheduler, there is nothing special about Singularity per s
 To run this as a batch job, we need to create a job script.
 
 ```sh
-[alice@{{ site.devel.name }} ~]$ sbatch sing_r_base.bash 
-Submitted batch job 1657
-[alice@{{ site.devel.name }} ~]$ cat sing_r_base.bash 
+[alice@{{ site.devel.name }} lxc]$ cat demo-singularity.sh
 #!/usr/bin/bash
-#SBATCH --job-name=singularity_test 
-#SBATCH --mail-type=BEGIN,END,FAIL
-#SBATCH --mail-user={{ site.user.email }}
+#SBATCH --job-name=demo-singularity
 #SBATCH --ntasks=1
-#SBATCH --mem=100M 
+#SBATCH --mem=100M
 #SBATCH --time=00:05:00
 #SBATCH --output=%x_%j.out
-pwd; hostname; date
 
-$HOME/lxc/rocker_r-base.img Rscript -e "sum(1:10)"
-exit;
+./rocker_r-base.img Rscript -e "sum(1:10)"
+
+## End-of-job summary, if running as a job
+[[ -n "$SLURM_JOB_ID" ]] && sstat --format="JobID,AveCPU,MaxRSS,MaxPages,MaxDiskRead,MaxDiskWrite" -j "$SLURM_JOB_ID"
 ```
 
 And now submit with `sbatch`:
 
 ```sh
-[alice@{{ site.devel.name }} ~]$ sbatch sing_r_base.bash 
+[alice@{{ site.devel.name }} lxc]$ sbatch demo-singularity.sh
 Submitted batch job 1657
 ```
 
 Check results:
 
 ```sh
-[alice@{{ site.devel.name }} ~]$ cat singularity_test_1657.log
-/c4/home/alice
-c4-n2
-Tue Dec 22 13:18:39 PST 2020
+[alice@{{ site.devel.name }} lxc]$ cat demo-singularity_5987.out
 [1] 55
+       JobID     AveCPU     MaxRSS MaxPages  MaxDiskRead MaxDiskWrite 
+------------ ---------- ---------- -------- ------------ ------------ 
+5987.batch    00:00.000      3708K        0      6151153         7102
 ```
 
 Or submit interactively:
 
 ```sh
-[alice@{{ site.devel.name }} ~]$ srun $HOME/lxc/rocker_r-base.img Rscript -e "sum(1:10)"
+[alice@{{ site.devel.name }} lxc]$ srun rocker_r-base.img Rscript -e "Sys.getenv('HOSTNAME')" -e "sum(1:10)"
+[1] "c4-dev1"
 [1] 55
 ```
-
-
 
 
 
