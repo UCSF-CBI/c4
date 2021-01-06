@@ -92,12 +92,12 @@ The Bash Debugger Project is a source-code debugger for bash that follows the gd
 
   <dt>bat</dt>
   <dd>
-    <strong>bat - A cat(1) Clone with Syntax Highlighting and Git Integration</strong><br>
+    <strong>bat: A cat(1) Clone with Syntax Highlighting and Git Integration</strong><br>
 A cat(1) clone with syntax highlighting and Git integration.<br>
     Example: <code>bat README.md</code>, <code>bat scripts/*.sh</code>, and <code>bat src/*.c</code>.<br>
     URL: <a href="https://github.com/sharkdp/bat">https://github.com/sharkdp/bat</a><br>
     Warning: Only the most recent version of this software will be kept.<br>
-  Versions: 0.15.4, <em>0.17.1</em><br>
+  Versions: <em>0.17.1</em><br>
   </dd>
 
   <dt>bats-core</dt>
@@ -265,7 +265,7 @@ fzf is a general-purpose command-line fuzzy finder. It's an interactive Unix fil
     Note: To install tab completions and key bindinds to your shell, call <code>$FZF_HOME/install</code>. To uninstall, use <code>$FZF_HOME/uninstall</code>.<br>
     URL: <a href="https://github.com/junegunn/fzf">https://github.com/junegunn/fzf</a>, <a href="https://github.com/junegunn/fzf/wiki">https://github.com/junegunn/fzf/wiki</a><br>
     Warning: Only the most recent version of this software will be kept.<br>
-  Versions: 0.21.1, <em>0.22.0</em><br>
+  Versions: <em>0.22.0</em><br>
   </dd>
 
   <dt>gatk</dt>
@@ -348,7 +348,7 @@ HISAT2 is a fast and sensitive alignment program for mapping next-generation seq
     Example: <code>htop</code>.<br>
     URL: <a href="https://htop.dev">https://htop.dev</a>, <a href="https://github.com/htop-dev/htop">https://github.com/htop-dev/htop</a><br>
     Warning: Only the most recent version of this software will be kept.<br>
-  Versions: 2.2.0, 3.0.1, <em>3.0.4</em><br>
+  Versions: 2.2.0, <em>3.0.4</em><br>
   </dd>
 
   <dt>htslib</dt>
@@ -486,7 +486,7 @@ Rclone is a command line program to sync files and directories to and from a lar
     Example: <code>rclone --version</code>, <code>rclone --help</code>, <code>rclone config</code>, and <code>info rclone</code>.<br>
     URL: <a href="https://rclone.org/">https://rclone.org/</a>, <a href="https://github.com/rclone/rclone">https://github.com/rclone/rclone</a><br>
     Warning: Only the most recent version of this software will be kept.<br>
-  Versions: 1.52.3, 1.53.1, <em>1.53.3</em><br>
+  Versions: <em>1.53.3</em><br>
   </dd>
 
   <dt>ripgrep</dt>
@@ -723,7 +723,7 @@ Here you can find the latest implementation of PrediXcan: PrediXcan.py. This use
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(8)</a></li>
 </ul>
 
-_The above information was automatically generated on 2021-01-05 18:33:18 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2021-01-05 19:06:19 from querying `module avail` and `module spider`._
 
 
 <style>
