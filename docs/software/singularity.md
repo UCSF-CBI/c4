@@ -218,14 +218,6 @@ Check results:
 5987.batch    00:00.000      3708K        0      6151153         7102
 ```
 
-Or submit interactively:
-
-```sh
-[alice@{{ site.devel.name }} lxc]$ srun rocker_r-base.img Rscript -e "Sys.getenv('HOSTNAME')" -e "sum(1:10)"
-[1] "c4-dev1"
-[1] 55
-```
-
 
 
 ## FAQ
