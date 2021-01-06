@@ -83,11 +83,13 @@ The above may take a minute or two to complete.
 ### Running a container
 
 After this, we can run R within this container using:
+
+<!-- code-block label="run" -->
 ```sh
 [alice@{{ site.devel.name }} lxc]$ singularity run rocker_r-base.img
 
-R version 3.6.1 (2019-07-05) -- "Action of the Toes"
-Copyright (C) 2019 The R Foundation for Statistical Computing
+R version 4.0.3 (2020-10-10) -- "Bunny-Wunnies Freak Out"
+Copyright (C) 2020 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -108,10 +110,12 @@ Type 'q()' to quit R.
 [1] 55
 > q()
 Save workspace image? [y/n/c]: n
-[alice@{{ site.devel.name }} lxc]$ 
+[alice@{{ site.devel.name }} lxc]$
 ```
 
 Exactly what is "run" is defined by the so called "runscript" of the Singularity container, or the ["CMD"](https://hub.docker.com/r/rocker/r-base/~/dockerfile/) if imported from a Docker container.  An alternative way to launch R within this container is by explicitly executing R, e.g.
+
+<!-- code-block label="exec" -->
 ```sh
 [alice@{{ site.devel.name }} lxc]$ singularity exec rocker_r-base.img R --quiet
 > sum(1:10)
@@ -121,13 +125,28 @@ Exactly what is "run" is defined by the so called "runscript" of the Singularity
 ```
 
 Note that, the Singularity image is marked as an _executable_, which means you can run it as any other executable, e.g.
+
+<!-- code-block label="command" -->
 ```sh
 [alice@{{ site.devel.name }} lxc]$ ./rocker_r-base.img
 
-R version 3.6.1 (2019-07-05) -- "Action of the Toes"
-Copyright (C) 2019 The R Foundation for Statistical Computing
+R version 4.0.3 (2020-10-10) -- "Bunny-Wunnies Freak Out"
+Copyright (C) 2020 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
-...
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
 
 > sum(1:10)
 [1] 55
@@ -136,6 +155,8 @@ Platform: x86_64-pc-linux-gnu (64-bit)
 ```
 
 To launch a shell within this container, and to also convince yourselves that the container runs Ubuntu (and not CentOS as on the {{ site.cluster.name }} host system), do:
+
+<!-- code-block label="shell" -->
 ```sh
 [alice@{{ site.devel.name }} lxc]$ singularity shell rocker_r-base.img
 Singularity rocker_r-base.img:~/lxc> head -3 /etc/os-release
@@ -143,7 +164,7 @@ PRETTY_NAME="Debian GNU/Linux buster/sid"
 NAME="Debian GNU/Linux"
 ID=debian
 Singularity r-base.img:~/lxc> Rscript --version
-R scripting front-end version 3.6.1 (2019-07-05)
+R scripting front-end version 4.0.3 (2020-10-10)
 Singularity r-base.img:~/lxc> exit
 
 [alice@{{ site.devel.name }} lxc]$ head -3 /etc/os-release
@@ -164,6 +185,7 @@ When it comes to the scheduler, there is nothing special about Singularity per s
 ```
 
 To run this as a batch job, we need to create a job script.
+
 ```sh
 $ sbatch sing_r_base.bash 
 Submitted batch job 1657
@@ -181,13 +203,16 @@ pwd; hostname; date
 $HOME/lxc/rocker_r-base.img Rscript -e "sum(1:10)"
 exit;
 ```
-And now submit with sbatch:
+
+And now submit with `sbatch`:
+
 ```sh
 [alice@{{ site.devel.name }} ~]$ sbatch sing_r_base.bash 
 Submitted batch job 1657
 ```
 
 Check results:
+
 ```sh
 cat singularity_test_1657.log
 /c4/home/alice
@@ -195,6 +220,7 @@ c4-n2
 Tue Dec 22 13:18:39 PST 2020
 [1] 55
 ```
+
 Or submit interactively:
 
 ```sh
