@@ -10,7 +10,7 @@ There are two basic modes for doing work on Slurm, batch and interactive.  Batch
 
 ## Submit a script to run in batch mode
 
-One can just run a native bash script with `sbatch` and supply the relevant parameters at the CLI with various command-line options, e.g. `--time=00:10:00`.
+One can just run a native bash script with `sbatch` and supply the relevant parameters at the CLI with various command-line options, e.g. `--time=01:30:00`.
 It is probably easier to supply those options within the script itself using Slurm declarations as specially formatted shell comments prefixed as `#SBATCH`. 
 
 Here is a `hi-there.sh` script that illustrates this:
@@ -19,7 +19,7 @@ Here is a `hi-there.sh` script that illustrates this:
 #!/bin/bash
 #SBATCH --ntasks=1
 #SBATCH --mem=100M
-#SBATCH --time=00:10:00
+#SBATCH --time=00:02:00
 #SBATCH --output=%x-%j.out
 
 echo "This script was allotted ${SLURM_NTASKS:-1} cores"
@@ -29,7 +29,7 @@ Going through the Slurm declarations:
 
 * `--ntasks=1` - run on 1 core
 * `--mem=100M` - allow job to use 100 MiB of memory (`M`=MiB, `G`=GiB, `T`=TiB)
-* `--time=00:10:00` - allow job to run for 10 minutes
+* `--time=00:02:00` - allow job to run for 2 minutes
 * `--output=%x-%j.out` - specify output and error files (defaults to the current working directory). The `%x` and `%j` flags are replaced by the job name and job id, respectively
 
 Since we have declared all of our Slurm options using the `#SBATCH` syntax in the job script, we do not have to specify them as command-line options.  Instead, we can now submit this job very simply:
@@ -70,7 +70,12 @@ $ sacct --format="JobID,Elapsed,MaxRSS,State" -j 1012
 Specifying the run time will shorten the queuing time - significantly so for short running jobs.
 </div>
 
-By specifying the how long each job will take, the better the scheduler can manage resources and allocate jobs to different nodes.  This will also decrease the average waiting time the job will sit in the queue before being launched on a compute node.  You can specify the maximum run time (= wall time, not CPU time) for a job using option `--time=HH:MM:SS` where `HH:MM:SS` specifies the number of hours (`HH`), the number of minutes (`MM`), and the number of seconds (`SS`) - all parts must be specified.  In our above example, we used `--time=00:10:00`.  If your submit a multi-day job, you can also specify the number of days using the format `--time=days-HH:MM:SS`, e.g. `--time=2-06:00:00` for 2 days and 6 hours.
+By specifying the how long each job will take, the better the scheduler can manage resources and allocate jobs to different nodes.  This will also decrease the average waiting time the job will sit in the queue before being launched on a compute node.  You can specify the maximum run time (= wall time, not CPU time) for a job using option `--time=HH:MM:SS` where `HH:MM:SS` specifies the number of hours (`HH`), the number of minutes (`MM`), and the number of seconds (`SS`) - all parts must be specified.  In our above example, we used `--time=00:02:00`.  If your submit a multi-day job, you can also specify the number of days using the format `--time=days-HH:MM:SS`, e.g. `--time=2-06:00:00` for 2 days and 6 hours.
+
+
+<div class="alert alert-warning" role="alert">
+If not specified, the default run time is 10 minutes.  A job that runs longer than the requested run time will be terminated by the scheduler.  Because of this, you may add a little bit of extra time to give your job some leeway.
+</div>
 
 
 <!--
