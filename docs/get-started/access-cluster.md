@@ -79,3 +79,5 @@ An alternative is to press <kbd>Ctrl-D</kbd> (sends "End-Of-File" [EOF]) at the 
 Any shell session that has been idle for more than 24 hours will timeout and exit automatically.
 </div>
 
+
+[development node]:  {{ '/get-started/development-prototyping.html' | relative_url }}
