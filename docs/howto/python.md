@@ -54,7 +54,7 @@ To see all Python packages that you have installed globally, use `python3 -m pip
 ### 2. Installing to a virtual environment (aka "virtualenv")
 
 <div class="alert alert-info" role="alert">
-Virtual environment are not used just for cluster environments - many Python users and developers choose to use virtual environment on their local computers whenever they work in Python.
+Virtual environment are not used just on computer clusters - many Python users and developers choose to use virtual environment on their local computers whenever they work in Python.
 </div>
 
 An alternative to install globally to your home directory, is to install to a local folder using a, so called, Python _virtual environment_.  A virtual environment is a self-contained folder that contains the Python executable and any Python packages you install.  When you _activate_ a virtual environment, environment variables like `PATH` is updated such that you will use the Python executable and the packages in the virtual environment and not the globally installed ones.
@@ -99,7 +99,7 @@ virtualenv 20.2.2 from ~/.local/lib/python3.6/site-packages/virtualenv/__init__.
 
 #### 2.2 Create a virtual environment (once per project)
 
-Start by creating a folder specific to the project you are currently working on.  Each project folder will have its own unique set of installed packages.  For a project that requires Python 2, do the following (once):
+Start by creating a folder specific to the project you are currently working on.  Each project folder will have its own unique set of installed packages.  For a project that requires Python 3, do the following (once):
 
 <!-- code-block label="virtualenv-init" -->
 ```sh

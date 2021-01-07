@@ -17,7 +17,7 @@ _Comment_: Here "runtime" means "walltime", i.e. the runtime of a job is how lon
 
 ## Usage
 
-There is no need to specify the partition when submitting a job.  The scheduler is configured to prioritize any lab-specific partitions you have access.  If you do not have access to a lab-specific partition, or they are already full, then the 'common' partition is considered.  You can see which partitions you have access to by looking at environment variable `SBATCH_PARTITION`  For example, user `alice` sees:
+There is no need to specify the partition when submitting a job.  The scheduler is configured to prioritize any lab-specific partitions you have access to.  If you do not have access to a lab-specific partition, or they are already full, then the 'common' partition is considered.  You can see which partitions you have access to by looking at environment variable `SBATCH_PARTITION`  For example, user `alice` sees:
 
 ```sh
 [alice@{{ site.login.name }} ~]$ echo "$SBATCH_PARTITION"
