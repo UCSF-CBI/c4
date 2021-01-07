@@ -29,16 +29,15 @@ Another alternative, which some might find easier, is to connect to the cluster 
 
 To log into the cluster, assuming your user name on {{ site.cluster.name }} is `alice` (case sensitive), do the following:
 
-1. Open a terminal (called 'Terminal' on macOS and most Linux distributions, and 'Command Prompt' on Windows 10),
+1. Make sure you are on the UCSF network or the UCSF VPN
 
-2. {{ site.cluster.name }} has two login servers, {{ site.login1.hostname }} and {{ site.login1.hostname }}. Using one of these:
-3. at the terminal prompt, type `ssh alice@{{ site.login.hostname }}` and press <kbd>ENTER</kbd>, and
-4. when prompted, enter your {{ site.cluster.name }} password.
+2. Open a terminal (called 'Terminal' on macOS and most Linux distributions, and 'Command Prompt' on Windows 10)
 
+3. At the terminal prompt, type `ssh alice@{{ site.login.hostname }}` and press <kbd>ENTER</kbd>
 
-### Example
+4. When prompted, enter your {{ site.cluster.name }} password and press <kbd>ENTER</kbd>
 
-When logging in from your local computer, you should see something like:
+When logging in from your local computer while on the UCSF VPN, you should see something like:
 
 ```sh
 {local}$ ssh alice@{{ site.login.hostname }}
@@ -46,8 +45,10 @@ alice1@{{ site.login.name }}:s password: XXXXXXXXXXXXXXXXXXX
 [alice@{{ site.login.name }} ~]$
 ```
 
-
 If you get `Permission denied, please try again.` when you enter your password, make sure you use the correct {{ site.cluster.name }} username (case sensitive) and the correct password.
+
+The {{ site.cluster.name }} cluster has two login servers, (i) {{ site.login1.hostname }} and (ii) {{ site.login1.hostname }}.  You may use either to log in.
+
 
 <div class="alert alert-info" role="alert">
 It is possible to set up password-less authentication via a public-private SSH key pair.  For details, see the how-to page <a href="{{ 'howto/log-in-without-pwd.html' | relative_url }}">Log in without Password</a>.
