@@ -89,16 +89,16 @@ The majority of the compute nodes have Intel processors, while a few have AMD pr
 
 Node      |  # Cores |      CPU  |       RAM | Local `/scratch/` | Notes                                              | Priority
 ----------|---------:|----------:|----------:|------------------:|:---------------------------------------------------|:-----------
-c4-n1     |       64 |   2.1 GHz |   512 GiB |           1.8 TiB | SSD /scratch  10 Gbps ethernet                      | (communal)
-c4-n2     |       64 |   2.1 GHz |   512 GiB |           1.8 TiB | SSD /scratch  10 Gbps ethernet                      | (communal)
-c4-n3     |       64 |   2.1 GHz |   512 GiB |           1.8 TiB | SSD /scratch  10 Gbps ethernet                      | (communal)
-c4-n4     |       64 |   2.1 GHz |   512 GiB |           1.8 TiB | SSD /scratch  10 Gbps ethernet                      | (communal)
-c4-n5     |       64 |   2.1 GHz |   512 GiB |           2.6 TiB | SSD /scratch  10 Gbps ethernet                      | (communal)
+c4-n1     |       64 |   2.1 GHz |   512 GiB |           1.8 TiB | SSD /scratch  10 Gbps ethernet                      | communal
+c4-n2     |       64 |   2.1 GHz |   512 GiB |           1.8 TiB | SSD /scratch  10 Gbps ethernet                      | communal
+c4-n3     |       64 |   2.1 GHz |   512 GiB |           1.8 TiB | SSD /scratch  10 Gbps ethernet                      | communal
+c4-n4     |       64 |   2.1 GHz |   512 GiB |           1.8 TiB | SSD /scratch  10 Gbps ethernet                      | communal
+c4-n5     |       64 |   2.1 GHz |   512 GiB |           2.6 TiB | SSD /scratch  10 Gbps ethernet                      | communal
 c4-n6     |      112 |   2.2 GHz |   768 GiB |          11.0 TiB | NVMe /scratch 10 Gbps ethernet                      | Witte Lab
 c4-n7     |      112 |   2.2 GHz |   768 GiB |          11.0 TiB | NVMe /scratch 10 Gbps ethernet                      | Witte Lab
 c4-n8     |      112 |   2.2 GHz |   768 GiB |          11.0 TiB | NVMe /scratch 10 Gbps ethernet                      | Witte Lab
 c4-n9     |      112 |   2.2 GHz |   768 GiB |          11.0 TiB | NVMe /scratch 10 Gbps ethernet                      | Witte Lab
-c4-n10    |       64 |   2.1 GHz |   512 GiB |           1.8 TiB | SATA /scratch 10 Gbps ethernet                      | (communal)
+c4-n10    |       64 |   2.1 GHz |   512 GiB |           1.8 TiB | SATA /scratch 10 Gbps ethernet                      | communal
 
 <!--
 For additional details on the compute nodes, see the <a href="#details">Details</a> section below.

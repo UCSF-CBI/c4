@@ -37,7 +37,7 @@
 * [x] New lab compute nodes:
   - [x] c4-n[6-9]: 4 new lab nodes for the Witte Lab (4*56 = 224 physical cores)
 
-* [x] Additional common nodes:
+* [x] Additional communal nodes:
   - [x] c4-n10 - revived from TIPCC (node n2)
 
 ### Storage
@@ -98,7 +98,7 @@
 
 ### Compute power
 
-* [ ] Additional common nodes:
+* [ ] Additional communal nodes:
   - [ ] c4-n11 - revived from TIPCC (node n10)
 
 * [ ] Additional lab nodes:
@@ -166,7 +166,7 @@
 * Storage: Global scratch storage on BeeGFS parallel file system (2020-07-01)
 * Login: 2 login nodes (June 2020)
 * Development: Added three development nodes (2020-08-13)
-* Compute nodes: 6 communal/common compute nodes (6*32=192 physical cores)
+* Compute nodes: 6 communal compute nodes (6*32=192 physical cores)
 * Software: Replicate the core software that is installed on [Wynton HPC] on development and compute nodes (2020-08-19)
 * Software: Added the CBI software stack (2020-08-20)
 * Deployment of new machines: Automated deployment
