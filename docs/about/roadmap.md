@@ -56,7 +56,7 @@
 
 ### Backup
 
-* [x] Users' home folders are backed up
+* [x] Users' home folders (under `/c4/home`) are backed up
 * [x] Software stacks under `/software` are backed up
 
 ### File transfers
@@ -72,7 +72,7 @@
 
 ## Beta-Testing Phase
 
-**Period**: 2020-12-01 - 2021-01-11
+**Period**: 2020-12-01 - 2021-01-10
 
 **Who**: Invite additional advanced users from other labs.  We are interesting in labs who are willing to migrate the existing TIPCC compute nodes over to C4, e.g. labs will a single compute node
 
