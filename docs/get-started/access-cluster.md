@@ -37,6 +37,11 @@ To log into the cluster, assuming your user name on {{ site.cluster.name }} is `
 
 4. When prompted, enter your {{ site.cluster.name }} password and press <kbd>ENTER</kbd>
 
+The {{ site.cluster.name }} cluster has two login servers, (i) {{ site.login1.hostname }} and (ii) {{ site.login2.hostname }}.  Feel free to use either.
+
+
+### Example
+
 When logging in from your local computer while on the UCSF VPN, you should see something like:
 
 ```sh
@@ -46,8 +51,6 @@ alice1@{{ site.login.name }}:s password: XXXXXXXXXXXXXXXXXXX
 ```
 
 If you get `Permission denied, please try again.` when you enter your password, make sure you use the correct {{ site.cluster.name }} username (case sensitive) and the correct password.
-
-The {{ site.cluster.name }} cluster has two login servers, (i) {{ site.login1.hostname }} and (ii) {{ site.login1.hostname }}.  You may use either to log in.
 
 
 <div class="alert alert-info" role="alert">
