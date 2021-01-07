@@ -1,7 +1,3 @@
-<div class="alert alert-warning" role="alert" style="margin-top: 3ex">
-<strong><span>⚠️</span> 2020-01-04: This page is work in progress.  Overall it is correct, but details will be soon be updated.  Please make sure to revisit later.</strong>
-</div>
-
 # Available Partitions
 
 The cluster provides different partitions ("queues") for running jobs. We have a 'common' partition that anyone is free to use as well as lab owned "condo" partitions that are restricted to a particular lab's use. Any lab is free to purchase compute hardware and we will be glad to create a "condo" partition for it. 

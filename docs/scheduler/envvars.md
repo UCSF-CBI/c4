@@ -1,7 +1,3 @@
-<div class="alert alert-warning" role="alert" style="margin-top: 3ex">
-<strong><span>⚠️</span> 2020-01-04: This page is work in progress.  Overall it is correct, but details will be soon be updated.  Please make sure to revisit later.</strong>
-</div>
-
 # Useful Job Environment Variables
 
 The scheduler sets variables in the environment of the job script.  Here is an excerpt of the most useful ones:
