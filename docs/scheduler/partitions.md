@@ -24,7 +24,7 @@ There is no need to specify the partition when submitting a job.  The scheduler 
 boblab,common
 ```
 
-which means their next job will be sent to the 'boblab' partitions and if that is full, then the job is sent to the 'common' partition.  If that is also full, the will job be pending and either 'boblab' or 'common' will be used as they become available.
+which means their next job will be sent to the 'boblab' partitions and if that is full, then the job is sent to the 'common' partition.  If that is also full, the job will be pending and either 'boblab' or 'common' will be used as they become available.
 
 Although rarely needed, if you would like to send a job to a specific partition, the Slurm option `--partition` can be used, e.g. `sbatch --partition=boblab ...`.
 
