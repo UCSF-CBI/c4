@@ -9,14 +9,20 @@
 <dl id="hosttable-summary" class="dl-horizontal">
   <dt>Compute nodes</dt><dd id="hosttable-summary-nodes">{{ site.data.specs.nodes }}</dd>
   <dt>Physical cores</dt><dd id="hosttable-summary-cores">{{ site.data.specs.physical_cores }}</dd>
+<!--  
   <dt>GPUs</dt><dd>{{ site.data.specs.gpus }} GPUs on {{ site.data.specs.gpu_nodes }} GPU nodes ({{ site.data.specs.communal_gpus }}/{{ site.data.specs.communal_gpu_nodes }} GPUs/nodes are communal and {{ site.data.specs.gpus | minus: site.data.specs.communal_gpus }}/{{ site.data.specs.gpu_nodes | minus: site.data.specs.communal_gpu_nodes }} GPUs/nodes are prioritized for GPU contributors)</dd>
+-->
   <dt>RAM</dt><dd id="hosttable-summary-ram">{{ site.data.specs.ram_min }}-{{ site.data.specs.ram_max }} GiB/node</dd>
   <dt>Local scratch</dt><dd id="hosttable-summary-local-scratch">{{ site.data.specs.local_scratch_size_min }}-{{ site.data.specs.local_scratch_size_max }} TiB/node</dd>
   <dt>Global scratch</dt><dd id="hosttable-summary-global-scratch">{{ site.data.specs.global_scratch_size_total }} TiB</dd>
-  <dt>User home storage</dt><dd>500 GiB/user ({{ site.data.specs.home_size_total }} TiB in total)</dd>
+  <dt>User home storage</dt><dd>1 TiB/user ({{ site.data.specs.home_size_total }} TiB in total)</dd>
+<!--  
   <dt>Group storage</dt><dd>{{ site.data.specs.group_size_total | divided_by: 1000.0 }} PB</dd>
+-->  
+<!--  
   <dt>Number of accounts</dt><dd>{{ site.data.users.nbr_of_accounts }}</dd>
   <dt>Number of projects</dt><dd>{{ site.data.users.nbr_of_projects }}</dd>
+-->
 </dl>
 
 
@@ -124,14 +130,14 @@ There are no per-user quotas in these scratch spaces.  **Files not added or modi
 
  * `/c4/home`: {{ site.data.specs.home_size_total }} TiB storage space
 
-Each user may use up to 1 TiB disk space in the home directory.  It is _not_ possible to expand user's home directory.  Many Labs have purchased their own storage servers which were then mounted on the cluster. If you'd like more information please contact Adam Olshen or Harry Putnam.
+Each user may use up to 1 TiB disk space in the home directory.  It is _not_ possible to expand user's home directory.  Many labs have purchased their own storage servers which were then mounted on the cluster. If you'd like more information please contact Adam Olshen or Harry Putnam.
 
 <!--<div class="alert alert-info" role="alert" style="margin-top: 3ex; margin-bottom: 3ex;">
 While waiting to receive purchased storage, users may use the global scratch space, which is "unlimited" in size with the important limitation that files older than two weeks will be deleted automatically.
 </div>-->
 
 <div class="alert alert-warning" role="alert" style="margin-top: 3ex; margin-bottom: 3ex;">
-Importantly, note that, aside from /c4/home, <strong>the {{ site.cluster.name }} storage is not backed up</strong>.  Users and labs are responsible to back up their own data outside of {{ site.cluster.name }}.
+<span>⚠️</span> Importantly, note that, aside from /c4/home, <strong>the {{ site.cluster.name }} storage is not backed up</strong>.  Users and labs are responsible to back up their own data outside of {{ site.cluster.name }}.
 </div>
 
 

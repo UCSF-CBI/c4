@@ -60,7 +60,7 @@ If you specify a passphrase, your local operating system will ask for the passph
 </div>
 
 <div class="alert alert-danger" role="alert">
-The public key you can safely share with the world, but <strong>treat your <em>private key</em> as a password; anyone who has access to it will have access to your account if it does not have a passphrase!</strong>
+<span>🛑</span> The public key you can safely share with the world, but <strong>treat your <em>private key</em> as a password; anyone who has access to it will have access to your account if it does not have a passphrase!</strong>
 </div>
 
 

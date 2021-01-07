@@ -1,7 +1,7 @@
 # Accessing UCSF Box
 
 <div class="alert alert-danger" role="alert" style="margin-top: 3ex">
-Although there is no hard quota in place on UCSF Box, the <strong>storage is limited</strong> and not really meant to store large data sets. There are reports that the UCSF Box maintainers have started to reach out to users who misuse it to store huge amounts of data. Please use it responsibly. /2020-01-27
+Although there is no hard quota in place on UCSF Box, the <strong>storage is limited</strong> and not really meant to store large data sets. There are reports that the UCSF Box maintainers have started to reach out to users who misuse it to store huge amounts of data. Please use it responsibly.
 </div>
 
 <div class="alert alert-warning" role="alert" style="margin-top: 3ex">
@@ -41,7 +41,7 @@ lftp {{ site.user.email }}@ftp.box.com:~> exit
 ```
 
 <div class="alert alert-danger" role="alert" style="margin-top: 3ex">
-<strong>Never specify your password via a command-line argument!  If you do, it will be visible to all other users via commands such as <code>ps</code> and <code>htop</code>.</strong>
+<span>🛑</span> <strong>Never specify your password via a command-line argument!  If you do, it will be visible to all other users via commands such as <code>ps</code> and <code>htop</code>.</strong>
 </div>
 
 
@@ -55,8 +55,8 @@ machine ftp.box.com
         password AliceSecretPwd2017
 ```
 
-<div class="alert alert-warning" role="alert" style="margin-top: 3ex">
-<strong>The <code>~/.netrc</code> file must be kept private, otherwise its content could be readable to other users.</strong>
+<div class="alert alert-danger" role="alert" style="margin-top: 3ex">
+<span>🛑</span> <strong>The <code>~/.netrc</code> file must be kept private, otherwise its content could be readable to other users.</strong>
 </div>
 
 **Since the password is fully visible in plain text, make sure to keep this file private at all times**, otherwise users on the system can see all your credentials, i.e.
