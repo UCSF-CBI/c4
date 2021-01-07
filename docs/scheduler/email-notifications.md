@@ -32,7 +32,7 @@ See below for example of what these email notifications may look like.  To send 
 
 ### Configure the default recipient
 
-If `--mail-user` is not specified, then the email notifications will be sent to your local {{ site.cluster.name }} mailbox (which can only be accessed using the `mail` command).  It is possible to configure all messages sent to this local mailbox to be forwarded to an email address of your choice as given by the `~/.forward` file.  For example, with:
+If `--mail-user` is not specified, then the email notifications will not reach you(\*).  However, it is possible to configure all messages to be forwarded to an email address of your choice as given by the `~/.forward` file.  For example, with:
 
 ```sh
 [alice@{{ site.login.name }} ~]$ cat ~/.forward
@@ -41,6 +41,9 @@ If `--mail-user` is not specified, then the email notifications will be sent to 
 ```
 
 any Slurm notifications produced by jobs that `alice` runs, will be forwarded to `{{ site.user.email }}`.
+
+
+(\*) Technically, it will be sent to an local mailbox on an internal {{ site.cluster.name }} server that users don't access to.
 
 
 ### Example messages
