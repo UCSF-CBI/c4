@@ -80,7 +80,9 @@ Thu Dec 31 10:34:00 PST 2020
 [alice@{{ site.devel.name }} tests]$ 
 ```
 
-There is of course nothing preventing us from submitting the same script multiple times.  If done, each submission will result in the script be launched on a compute node and a unique log file `slumrm-<job_id>.out` will be outputted.  Please try that and see what `squeue` outputs.   Now, you may want to pass different arguments to your script each time, e.g. each job should process a different input data file.  For information on how to do this, see the [Submit Jobs] page.
+There is of course nothing preventing us from submitting the same script multiple times.  If done, each submission will result in the script be launched on a compute node and a unique log file `slumrm-<job_id>.out` will be outputted.  Please try that and see what `squeue` outputs.
+
+Now, you may want to pass different arguments to your script each time, e.g. each job should process a different input data file.  For information on how to do this, and other things, see the [Submit Jobs] page.
 
 
 [Slurm]: https://slurm.schedmd.com/documentation.html
