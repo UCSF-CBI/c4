@@ -45,13 +45,13 @@ Submitted batch job 1507
 Specifying appropriate memory requirements will shorten the queuing time - significantly so for smaller jobs.
 </div>
 
-In the above job we used the `--mem=100M` option. This set maximum memory usage to 100 MiB (`M` is the default unit). We can specify in GiB using unit `G`, e.g. `--mem=16G`.  By right sizing your jobs, the job scheduler will be able to scheduler your jobs better and launch them sooner.  If not specified, the default memory is 2 GiB (<code>--mem=2G</code>).
+In the above job we used the `--mem=100M` option. This set maximum memory usage to 100 MiB (`M` is the default unit). We can specify in GiB using unit `G`, e.g. `--mem=16G`.  By rightsizing your jobs, the job scheduler will be able to scheduler your jobs better and launch them sooner.  If not specified, the default memory is 2 GiB (<code>--mem=2G</code>).
 
 <div class="alert alert-warning" role="alert">
 <span>⚠️</span> Note that a job that <strong>exceeds</strong> the requested memory limit will be terminated by the scheduler resulting in an out-of-memory (OOM) error.
 </div>
 
-_TIPS_: To find out how much memory a job used, `sacct --format="JobID,Elapsed,MaxRSS,State" -j <job_id>` you can use this to right size the job next time you want to run a similar one.  Example:
+_TIPS_: To find out how much memory a job used, `sacct --format="JobID,Elapsed,MaxRSS,State" -j <job_id>` you can use this to rightsize the job next time you want to run a similar one.  Example:
 
 ```sh
 $ sacct --format="JobID,Elapsed,MaxRSS,State" -j 1484
