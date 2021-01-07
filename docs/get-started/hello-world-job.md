@@ -54,7 +54,7 @@ Hello world, I am running on node {{ site.devel.name }}.
 Thu Dec 31 10:24:41 2020
 ```
 
-Note how it takes ten seconds between the `Hello world` message and the time stamp.  We have now confirm that the shell script does what we expect it to do, and we are ready to submit it to the job queue of the scheduler.  To do this, do:
+Note how it takes ten seconds between the `Hello world` message and the time stamp.  We have now confirmed that the shell script does what we expect it to do, and we are ready to submit it to the job queue of the scheduler.  To do this, do:
 ```sh
 [alice@{{ site.devel.name }} tests]$ sbatch hello_world
 Submitted batch job 3084
