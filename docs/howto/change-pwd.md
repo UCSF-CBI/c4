@@ -4,13 +4,6 @@
 
 ## Change password
 
-
-You can change your password from the {{ site.cluster.name }} command line using the standard passwd command.  
-
-
-
-### From the {{ site.cluster.nickname }} command line
-
 If you can log in to {{ site.cluster.name }}, then you can change your credentials by calling `passwd` from one of the _login_ nodes, e.g.
 
 ```sh
@@ -26,7 +19,7 @@ passwd: all authentication tokens updated successfully.
 
 ## Verify credentials
 
-To test your {{ site.cluster.nickname }} credentials, try to [login to {{ site.cluster.name }} via SSH]({{ '/get-started/access-cluster.html' | relative_url }}).  
+To test your {{ site.cluster.nickname }} credentials, try to [log in to {{ site.cluster.name }} via SSH]({{ '/get-started/access-cluster.html' | relative_url }}).  
 
 
 ## Reset password
