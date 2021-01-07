@@ -21,7 +21,6 @@ rh-ruby26
 
 _Importantly_, only a subset of the above SCLs are available also on the _compute nodes_. Specifically, these are:
 ```sh
-[alice@{{ site.devel.name }} ~]$ scl --list
 rh-perl526
 rh-python36
 rh-ruby25
