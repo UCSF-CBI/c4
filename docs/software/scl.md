@@ -13,6 +13,7 @@ devtoolset-7
 devtoolset-8
 devtoolset-9
 llvm-toolset-7
+rh-perl526
 rh-python36
 rh-ruby25
 rh-ruby26
@@ -23,6 +24,7 @@ _Importantly_, only a subset of the above SCLs are available also on the _comput
 $ scl --list
 rh-perl526
 rh-python36
+rh-ruby25
 rh-ruby26
 ```
 
