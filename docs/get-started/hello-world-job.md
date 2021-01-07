@@ -2,7 +2,7 @@
 
 The {{ site.cluster.name }} cluster farm consists of a number of [compute nodes] that are ready to serve users' compute tasks (aka jobs).  Since all compute nodes are configured the same way, for instance, they have the exact same set software installed, it does not matter on which compute node your analysis runs.
 
-At any time, there will be many users using the cluster where some users run a single analysis whereas other run many multi-day jobs in parallel.  In order for users not to step on each others toes and for users to get a fair share of the compute resources, the cluster uses a so called _job scheduler_ to orchestrate the compute requests.  This works by users submitting their compute jobs to the sechduler.  Then the scheduler will locate one or more compute nodes with enough free resources to process the submitted job and launch the job on those compute nodes.
+At any time, there will be many users using the cluster where some users run a single analysis whereas other run many multi-day jobs in parallel.  In order for users not to step on each others toes and for users to get a fair share of the compute resources, the cluster uses a so called _job scheduler_ to orchestrate the compute requests.  This works by users submitting their compute jobs to the scheduler.  Then the scheduler will locate one or more compute nodes with enough free resources to process the submitted job and launch the job on those compute nodes.
 
 
 ## Instructions
@@ -11,13 +11,13 @@ The most common way of running compute tasks on the {{ site.cluster.name }} clus
 
 1. creating a script,
 
-2. submitting the script to the sechduler,
+2. submitting the script to the scheduler,
 
 3. waiting for the script to start and finish, and
 
 4. looking at the results, e.g. output data files and text logs.
 
-The {{ site.cluster.name }} cluster uses [Slurm] as its scheduler.  [Slurm] provides command `sbatch` to submit your job scripts and command `squeue --user=$USER` to check the status of your jobs.  Slurm also provides a way to run a job interactively called `srun`.
+The {{ site.cluster.name }} cluster uses [Slurm] as its scheduler.  [Slurm] provides command `sbatch` to submit your job scripts and command `squeue` to check the status of your jobs.  Slurm also provides a way to run a job interactively called `srun`.
 
 
 <div class="alert alert-info" role="alert" style="margin-top: 3ex">
@@ -51,16 +51,16 @@ This, in combination with the so called "she-bang" (`#! ...`) on the first line,
 ```sh
 [alice@{{ site.devel.name }} tests]$ ./hello_world
 Hello world, I am running on node {{ site.devel.name }}.
-Mon Aug 28 16:31:29 PDT 2017
+Thu Dec 31 10:24:41 2020
 ```
 
 Note how it takes ten seconds between the `Hello world` message and the time stamp.  We have now confirm that the shell script does what we expect it to do, and we are ready to submit it to the job queue of the scheduler.  To do this, do:
 ```sh
-[alice@{{ site.devel.name }} tests]$ sbatch --mem=10M hello_world
+[alice@{{ site.devel.name }} tests]$ sbatch hello_world
 Submitted batch job 3084
 ```
 
-When submitting a job, the scheduler assigned the job a unique identifier ("job id").  In the above example, the job id is '3038'.  We can see this and other jobs of ours on the job queue by using `squeue`;
+When submitting a job, the scheduler assigned the job a unique identifier ("job id").  In the above example, the job id is '3084'.  We can see this and other jobs of ours on the job queue by using `squeue`;
 
 ```sh
 [alice@{{ site.devel.name }} tests]$ squeue --long -u $USER
