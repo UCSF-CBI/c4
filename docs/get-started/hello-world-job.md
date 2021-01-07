@@ -2,7 +2,7 @@
 
 The {{ site.cluster.name }} cluster farm consists of a number of [compute nodes] that are ready to serve users' compute tasks (aka jobs).  Since all compute nodes are configured the same way, for instance, they have the exact same set software installed, it does not matter on which compute node your analysis runs.
 
-At any time, there will be many users using the cluster where some users run a single analysis whereas other run many multi-day jobs in parallel.  In order for users not to step on each others toes and for users to get a fair share of the compute resources, the cluster uses a so called _job scheduler_ to orchestrate the compute requests.  This works by users submitting their compute jobs to a _partition_.  Then the scheduler will locate one or more compute nodes with enough free resources to process the submitted job and launch the job on those compute nodes.  {{ site.cluster.name }} has a common partition (called 'common') that anyone may use. {{ site.cluster.name }} also has a number of "condo" compute nodes which are purchased and owned by individual labs and set aside exclusively for each lab's compute needs.
+At any time, there will be many users using the cluster where some users run a single analysis whereas other run many multi-day jobs in parallel.  In order for users not to step on each others toes and for users to get a fair share of the compute resources, the cluster uses a so called _job scheduler_ to orchestrate the compute requests.  This works by users submitting their compute jobs to the sechduler.  Then the scheduler will locate one or more compute nodes with enough free resources to process the submitted job and launch the job on those compute nodes.
 
 
 ## Instructions
@@ -11,7 +11,7 @@ The most common way of running compute tasks on the {{ site.cluster.name }} clus
 
 1. creating a script,
 
-2. submitting the script to a partition,
+2. submitting the script to the sechduler,
 
 3. waiting for the script to start and finish, and
 
