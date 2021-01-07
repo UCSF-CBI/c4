@@ -41,8 +41,15 @@ Submitted batch job 1507
 
 ## Specifying (maximum) memory usage
 
-In the above job we used the `--mem=100M` option. This set maximum memory usage to 100 MiB (`M` is the default unit). We can specify in GiB using unit `G`, e.g. `--mem=2G`. 
-Please note that if your job *exceeds* the requested memory limit, it will be terminated with an Out-of-Memory (OOM) error. So, why should we do it? Because jobs that specify smaller memory limits will have more opportunities to actually run. If we don't specify the limits, Slurm will assume the job needs up to the node limit of memory and it will sit in the queue until a node with max memory becomes available. By right sizing your jobs they will run faster.
+<div class="alert alert-info" role="alert">
+Specifying appropriate memory requirements will shorten the queuing time - significantly so for smaller jobs.
+</div>
+
+In the above job we used the `--mem=100M` option. This set maximum memory usage to 100 MiB (`M` is the default unit). We can specify in GiB using unit `G`, e.g. `--mem=16G`.  By right sizing your jobs, the job scheduler will be able to scheduler your jobs better and launch them sooner.  If not specified, the default memory is 2 GiB (<code>--mem=2G</code>).
+
+<div class="alert alert-warning" role="alert">
+<span>⚠️</span> Note that a job that <strong>exceeds</strong> the requested memory limit will be terminated by the scheduler resulting in an out-of-memory (OOM) error.
+</div>
 
 _TIPS_: To find out how much memory a job used, `sacct --format="JobID,Elapsed,MaxRSS,State" -j <job_id>` you can use this to right size the job next time you want to run a similar one.  Example:
 
@@ -70,11 +77,11 @@ $ sacct --format="JobID,Elapsed,MaxRSS,State" -j 1012
 Specifying the run time will shorten the queuing time - significantly so for short running jobs.
 </div>
 
-By specifying the how long each job will take, the better the scheduler can manage resources and allocate jobs to different nodes.  This will also decrease the average waiting time the job will sit in the queue before being launched on a compute node.  You can specify the maximum run time (= wall time, not CPU time) for a job using option `--time=HH:MM:SS` where `HH:MM:SS` specifies the number of hours (`HH`), the number of minutes (`MM`), and the number of seconds (`SS`) - all parts must be specified.  In our above example, we used `--time=00:02:00`.  If your submit a multi-day job, you can also specify the number of days using the format `--time=days-HH:MM:SS`, e.g. `--time=2-06:00:00` for 2 days and 6 hours.
-
+By specifying how long each job will take, the better the scheduler can manage resources and allocate jobs to different nodes.  This will also decrease the average waiting time the job will sit in the queue before being launched on a compute node.  You can specify the maximum run time (= wall time, not CPU time) for a job using option `--time=HH:MM:SS` where `HH:MM:SS` specifies the number of hours (`HH`), the number of minutes (`MM`), and the number of seconds (`SS`) - all parts must be specified.  In our above example, we used `--time=00:02:00`.  If your submit a multi-day job, you can also specify the number of days using the format `--time=days-HH:MM:SS`, e.g. `--time=2-06:00:00` for 2 days and 6 hours.
+If not specified, the default run time is 10 minutes (<code>--time=00:10:00</code>).
 
 <div class="alert alert-warning" role="alert">
-If not specified, the default run time is 10 minutes.  A job that runs longer than the requested run time will be terminated by the scheduler.  Because of this, you may add a little bit of extra time to give your job some leeway.
+<span>⚠️</span> Note that a job that runs longer than the requested run time will be terminated by the scheduler.  Because of this, you may add a little bit of extra time to give your job some leeway.
 </div>
 
 

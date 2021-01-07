@@ -14,11 +14,9 @@ A good start is to look at `squeue -u $USER`, which lists all the jobs currently
 
 Another useful tool is `squeue --start -u $USER`.  It gives an _estimate_ when the scheduler predicts each jobs to start.  These estimates should be taken with a grain of salt - it's extremely hard to predict when jobs in a heterogeneous, multi-tenant research environment will finish and how long queued jobs will take.
 
-A known mistake is to forget to specify how much memory a job needs, i.e. forgetting to declare `--mem=<amount>`.  When not specified, the default is to request the maximum amount of memory on the _next_ available compute node.  When all compute nodes are busy, the job will have to wait until its on top of the queue and there is a free compute node.
-
 
 ## Errors
 
-**Q**. _How do I avoid the `/var/spool/slurm/d/job01180/slurm_script: line 17: module: command not found` error?
+**Q**. _How do I avoid the `/var/spool/slurm/d/job01180/slurm_script: line 17: module: command not found` error?_
 
 **A**. This is because you submit a job script that tries to load an environment module without using the Slurm option `--export=NONE`.
