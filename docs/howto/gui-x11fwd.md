@@ -47,7 +47,7 @@ alice1@{{ site.login.hostname }}:s password: XXXXXXXXXXXXXXXXXXX
 [alice@{{ site.login.name }} ~]$ 
 ```
 
-Now, since we should run anything on the login nodes, the next step is to head over to one of the development nodes.  When doing so, we have remember to keep using X11 forward, that is, we need to use `-X` also here;
+Now, since we should not run anything on the login nodes, the next step is to head over to one of the development nodes.  When doing so, we have remember to keep using X11 forward, that is, we need to use `-X` also here;
 
 ```sh
 [alice@{{ site.login.name }} ~]$ ssh -X {{ site.devel.hostname }}
