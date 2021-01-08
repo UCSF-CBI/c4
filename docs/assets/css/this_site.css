@@ -41,9 +41,12 @@ body {
   text-decoration: underline;
 }
 
+.navbar-default .navbar-nav .open .dropdown-menu {
+  background-color: #178ccb;
+}
+
 .navbar-default .navbar-nav .open .dropdown-menu > li > a {
   color: #fff;
-  background-color: #178ccb;
 }
 
 .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
