@@ -1,10 +1,10 @@
 ## for host in c4-n{1..9}; do
 ##   echo "$host: $(ssh "$host" nproc --all 2> /dev/null)";
 ## done
-nodes: 10
-physical_cores: 832
-communal_nodes: 6
-communal_physical_cores: 384
+nodes: 13
+physical_cores: 974
+communal_nodes: 8
+communal_physical_cores: 524
 lab_nodes: 4
 lab_physical_cores: 448
 gpu_nodes: 0
@@ -14,12 +14,12 @@ communal_gpus: 0
 
 ## clush -b -w 'c4-n[1-10]' "free -h 2> /dev/null | grep Mem | cut -c 1-20"
 ## RAM [GiB]:
-ram_min: 512
+ram_min:  32
 ram_max: 768
 
 ## clush -b -w 'c4-n[1-10]' "df -P -h /scratch 2> /dev/null | tail -n -1 | sed -E 's/[^ ]+[ ]+([0-9.]+[A-Z]).*/\1/'"
 ## Local /scratch [TiB]:
-local_scratch_size_min: 1.8
+local_scratch_size_min: 1.7
 local_scratch_size_max: 11
 
 ## Disk /swap [GiB]:
