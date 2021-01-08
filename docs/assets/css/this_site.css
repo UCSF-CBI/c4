@@ -41,6 +41,17 @@ body {
   text-decoration: underline;
 }
 
+.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+  color: #fff;
+  background-color: #178ccb;
+}
+
+.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover {
+  color: #fff;
+  background-color: #5dafdb;
+  text-decoration: underline;
+}
+
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover {
   color: #fff;
   background-color: #5dafdb;
@@ -57,6 +68,14 @@ body {
   color: #fff;
   background-color: #5dafdb;
   text-decoration: underline;
+}
+
+.navbar-default .navbar-toggle:hover {
+  background-color: #5dafdb;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #fff;
 }
 
 .navbar-default .navbar-form {
