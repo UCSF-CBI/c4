@@ -8,7 +8,7 @@ Access to {{ site.cluster.name }} is only available from the UCSF network. If yo
 
 # Login
 
-To access the {{ site.cluster.name }} cluster you need an account - any UCSF Cancer Center member can get an account upon request.  Anyone with a {{ site.cluster.name }} account, can access the cluster via _Secure Shell (SSH)_.
+To access the {{ site.cluster.name }} cluster you need an account - any UCSF Cancer Center member can [get an account upon request]({{ '/about/join.html' | relative_url }}).  Anyone with a {{ site.cluster.name }} account, can access the cluster via _Secure Shell (SSH)_.
 
 
 ## Prerequisites
@@ -80,4 +80,4 @@ Any shell session that has been idle for more than 24 hours will timeout and exi
 </div>
 
 
-[development node]:  {{ '/get-started/development-prototyping.html' | relative_url }}
+[development node]: {{ '/get-started/development-prototyping.html' | relative_url }}

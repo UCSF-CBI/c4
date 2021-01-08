@@ -1,6 +1,14 @@
 # Join the Cluster
 
-We will only be provisioning C4 accounts upon request, we will not migrate all TIPCC accounts in order to clean up old accounts that are no longer relevant.  If you have not requested a C4 account, please email the sysadmin.  Please include your TIPCC username and your GitHub username in the request email.  See the [Roadmap] for more details.
+Any UCSF Cancer Center members and members of their labs can join the {{ site.cluster.name }} cluster.  To get an account, please send an email to the [sysadmin] using your UCSF email address with the following information of yours:
 
-[contact us]: {{ '/about/contact.html' | relative_url }}
+1. First and last name
+2. Preferred username (lower case) - if you already have a TIPCC account, please use that
+3. Name of your HDFCCC lab or supervisor
+4. GitHub username (used for our issue tracker - to join, go to <https://github.com/join>)
+
+To existing TIPCC users: We will only provision C4 accounts upon request. We do this in order to identify and clean out TIPCC accounts on longer in use.
+
+
+[sysadmin]: {{ '/about/contact.html' | relative_url }}
 [Roadmap]: {{ '/about/roadmap.html' | relative_url }}
