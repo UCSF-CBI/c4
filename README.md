@@ -109,7 +109,7 @@ This website is built upon [Jekyll](https://jekyllrb.com/), where content is mos
   - The source Git repository for the website
   
 * <https://ucsf-hpc.github.io/c4/>:
-  - The official, public website **to be released; just a mockup right now**
+  - The official, public website
 
 
 ## Installing Jekyll
