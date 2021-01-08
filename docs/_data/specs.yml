@@ -17,6 +17,11 @@ communal_gpus: 0
 ram_min: 512
 ram_max: 768
 
+## clush -b -w 'c4-n[1-10]' "df -P -h /scratch 2> /dev/null | tail -n -1 | sed -E 's/[^ ]+[ ]+([0-9.]+[A-Z]).*/\1/'"
+## Local /scratch [TiB]:
+local_scratch_size_min: 1.8
+local_scratch_size_max: 11
+
 ## Disk /swap [GiB]:
 swap_min: 4
 swap_max: 4
@@ -24,11 +29,6 @@ swap_max: 4
 ## Local /tmp [GiB]:
 local_tmp_size_min: 8
 local_tmp_size_max: 8
-
-## clush -b -w 'c4-n[1-10]' "df -P -h /scratch 2> /dev/null | tail -n -1 | sed -E 's/[^ ]+[ ]+([0-9.]+[A-Z]).*/\1/'"
-## Local /scratch [TiB]:
-local_scratch_size_min: 1.8
-local_scratch_size_max: 11
 
 ## Global /c4/scratch [TiB]:
 global_scratch_size_total: 240
