@@ -52,16 +52,20 @@ To get access to the software available in one or more of these repositories, lo
 ## Example
 
 The [R] software is available in software repository CBI.  To use that R installation, first make sure to enable ("load") the repository and then the software as in:
+
 ```sh
 module load CBI   ## Enables the software repository
 module load r     ## Enables R
 ```
+
 or, shorter (order is important):
+
 ```sh
 module load CBI r
 ```
 
 After this, the `R` and the `Rscript` commands are available on the search path (`PATH`), e.g.
+
 ```sh
 $ Rscript --version
 R scripting front-end version 4.0.3 (2020-10-10)
@@ -72,6 +76,7 @@ R scripting front-end version 4.0.3 (2020-10-10)
 </div>
 
 To disable ("unload") R, that is, remove it from the search path, do:
+
 ```sh
 module unload r
 ```
@@ -82,27 +87,36 @@ If you unload a <em>repository</em>, any of its software modules that are loaded
 </div>
 
 To see what software modules you have currently loaded, use:
+
 ```sh
 module list
 ```
+
 To disable all loaded software modules and repositories, use:
+
 ```sh
 module purge
 ```
 
 To see what software modules are currently available (in the software repositories you have loaded), use:
+
 ```sh
 module avail
 ```
+
 or alternative,
+
 ```sh
 module spider
 ```
 
 If the software repository provides more than one version of each software, specific versions can be loaded using the `module load <software>/<version>` format.  For instance, the CBI repository provides a large number of historical R versions.  To load R 3.2.0, use:
+
 ```sh
+module load CBI
 module load r/3.2.0
 ```
+
 _Comment_: If another version of R is already loaded, that will automatically be unloaded before loading the new version.
 
 
@@ -150,7 +164,9 @@ To submit this to the scheduler, all we need to do is:
 $ sbatch sum-using-r.sh
 Submitted batch job 1661
 ```
+
 Check our results:
+
 ```sh
 $ cat slurm-1661.log
 Tue Dec 22 13:52:46 PST 2020
