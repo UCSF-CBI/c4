@@ -220,13 +220,13 @@ module load CBI
 Then use `module avail` to list what modules and versions are available (or see below).  Next, to actually get access to one or more of the shared software modules, use `module load <name>` or `module load <name>/<version>`.  Here are a few examples:
 ```sh
 module load bowtie2
-module load bowtie2/2.2.6
+module load bowtie2/2.4.2
 module load r
 ```
 
 It is possible to (i) enable a software repository and (ii) load a set of software tools in one call, e.g.
 ```sh
-module load CBI r bwa bowtie2/2.2.6
+module load CBI r bwa bowtie2/2.4.2
 ```
 
 
