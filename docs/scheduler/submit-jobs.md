@@ -126,7 +126,13 @@ module load CBI r
 Rscript "$@"
 ```
 
-can be called as:
+can, after making sure its file permissions are set to "executable":
+
+```sh
+[alice@{{ site.devel.name }} ~]$ chmod ugo+x script.sh
+```
+
+be called as:
 
 ```sh
 [alice@{{ site.devel.name }} ~]$ ./script.sh --vanilla -e "x <- 1:10; sum(x)"
@@ -142,6 +148,8 @@ Submitted batch job 3302
 [alice@{{ site.devel.name }} ~]$ cat slurm-3302.out
 [1] 55
 ```
+
+_Comment_: Slurm does _not_ require "executable" to be set but it's a good habit to set it on job scripts that we also want to be able to run as a standalone script.
 
 
 [Slurm environment variable]: {{ '/scheduler/envvars.html' | relative_url }}
