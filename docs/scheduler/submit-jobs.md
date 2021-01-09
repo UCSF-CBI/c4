@@ -115,7 +115,7 @@ By using `${SLURM_NTASKS:-1}`, instead of just `${SLURM_NTASKS}`, this script wi
 
 ## Passing arguments to script
 
-You can pass arguments to a job script similarly to how one passes argument to a script executed on the command line.  For example, the follow Bash script `rscript.sh`:
+You can pass arguments to a job script similarly to how one passes argument to a script executed on the command line.  For example, the follow Bash script `script.sh`:
 
 ```sh
 #!/usr/bin/env bash
