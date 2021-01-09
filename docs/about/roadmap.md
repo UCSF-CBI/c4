@@ -6,7 +6,7 @@
 
 ## Alpha-Testing Phase
 
-**Period**: 2020-09-01 - 2020-12-01 (some minor tasks were completed during Dec 2020)
+**Period**: 2020-09-01 - 2020-11-31 (some minor tasks were completed during Dec 2020)
 
 **Who**: In this phase we're inviting self-sufficient, advanced HPC users to try out the C4 cluster and to give constructive feedback.
 
@@ -95,14 +95,15 @@
 ### Accounts
 
 * [x] Set up LDAP for account management
+* [ ] Pre-created `~/.forward` files for all existing C4 accounts
 
 ### Compute power
 
-* [ ] Additional communal nodes:
-  - [ ] c4-n11 - revived from TIPCC (node n10)
+* [x] Additional communal nodes:
+  - [x] c4-n11 - revived from TIPCC (node n5)
 
-* [ ] Additional lab nodes:
-  - [ ] c4-n?? - CBI TIPCC nodes (nodes n0 and n17)
+* [x] Additional lab nodes:
+  - [x] c4-n[12-13] - CBI Core nodes from TIPCC (nodes n0 and n17)
 
 
 ## Going Live
@@ -147,7 +148,7 @@
 
 ### Accounts
 
-* [ ] All TIPCC users should start migration to C4
+* [ ] All TIPCC users should start migrating to C4
 
 ### Software
 
