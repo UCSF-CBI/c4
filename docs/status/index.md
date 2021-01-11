@@ -1,10 +1,5 @@
 <!-- markdownlint-disable-file MD024 -->
 
-<div class="alert alert-danger" role="alert" style="margin-top: 3ex">
-<strong>This is just a mockup site - nothing to see here!</strong>
-</div>
-
-
 # UCSF {{ site.cluster.name }} Status
 
 <!-- To display the 'broadcast' icon in the navbar, edit assets/css/broadcast.css -->
