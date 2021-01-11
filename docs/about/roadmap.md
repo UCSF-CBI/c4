@@ -4,106 +4,16 @@
 
 # Roadmap & Accomplishments
 
-## Alpha-Testing Phase
+## Beta Testing
 
-**Period**: 2020-09-01 - 2020-11-31 (some minor tasks were completed during Dec 2020)
+**Period**: 2020-12-01--2021-01-11
 
-**Who**: In this phase we're inviting self-sufficient, advanced HPC users to try out the C4 cluster and to give constructive feedback.
+**Goal**: At the end of this phase, we will have a solid HPC environment that will allow the majority of users to run scientific jobs on C4 that they previously ran on TIPCC.  We are confident that we can go forward with inviting all TIPCC users.
 
-**What**: We will implement essential features that we missed previously.  We will address feature requests that are straightforward to implement.  More complex feature requests will be saved for later.
+**Expectation**: Avoid running multi-day jobs on the scheduler because compute nodes may need to be taken offline and rebooted as soon as possible, even if it requires terminating running jobs.  Login, data-transfer, and development nodes will be rebooted after asking all users to logged out.
 
-**Outcome**: At the end of this phase, we will have a rudimentary HPC environment that will allow advanced users to run scientific jobs.
-
-**What to expect**: All (login, development, and compute) nodes may be rebooted at any time in order to be updated.  We will however try our best to avoid sudden reboots without notifications.
-
-
-### Scheduler
-
-* [x] Rudimentary Slurm configuration with one shared partition ("common") and one lab-owned partition
-* [x] Interactive jobs
-* [x] Job email notification
-
-### Software
-
-* [x] Shared CBI software + modules, i.e. `/software/c4/CBI/`
-* [x] Shared software + modules of other labs: `/software/c4/{group}/`
-
-### Documentation and support
-
-* [x] c4-help issue tracker <https://github.com/UCSF-CBI/c4-help>
-
-### Compute power
-
-* [x] New lab compute nodes:
-  - [x] c4-n[6-9]: 4 new lab nodes for the Witte Lab (4*56 = 224 physical cores)
-
-* [x] Additional communal nodes:
-  - [x] c4-n10 - revived from TIPCC (node n2)
-
-### Storage
-
-* [x] Mount _existing_ TIPCC storage 
-   - [x] TIPCC `/home`   - TIPCC home folders (C4 home folders are under `/c4/home`)
-   - [x] TIPCC `/backup` - Weekly rsync backup of TIPCC home folders
-   - [x] TIPCC `/data`   - TIPCC legacy data folders
-   - [x] TIPCC `/work`   - TIPCC legacy global "scratch" (use `/c4/scratch` instead)
-
-* [x] Mount _existing_ TIPCC lab storage
-   - `/bastianlab/data1`, `/bivonalab/data1`, `/blellochlab/data1`, `/cbc`, `/cbc2/{data1,data2,data3,teachy}`, `/costellolab/{data1,data2}`, `/diazlab/{data1,data2,data3}`, `/francislab/data1`, `/okadalab/{data1,data2}`, `/krummellab/data1`, `/kriegsteinlab/{data1,data2}`, `/sblab`, `/wittelab/{data1,data2}`, `/zivlab/{data1,data2,data3}`
-   
-* [x] Mount _new_ lab storage (not available on TIPCC)
-   - [x] `/wittelab/data[3-6]`
-
-### Backup
-
-* [x] Users' home folders (under `/c4/home`) are backed up
-* [x] Software stacks under `/software` are backed up
-
-### File transfers
-
-* [x] [Globus] endpoint on C4 for fast file transfers to and from participating organization
-
-### Miscellaneous
-
-* [x] X11 Forwarding on development nodes
-* [x] Shells and interactive jobs idle for more than 24 hours are automatically logged out
-* [x] All development and compute nodes have the same configuration of local `/tmp` (8 GiB) and local `/scratch` (whatever is available)
-
-
-## Beta-Testing Phase
-
-**Period**: 2020-12-01 - 2021-01-10
-
-**Who**: Invite additional advanced users from other labs.  We are interesting in labs who are willing to migrate the existing TIPCC compute nodes over to C4, e.g. labs will a single compute node
-
-**What**: Feature requests that were too complex for the alpha-testing phase will addressed.
-
-**Outcome**: At the end of this phase, we will have a solid HPC environment that will allow the majority of users to run scientific jobs on C4 that they previously ran on TIPCC.  We are confident that we can go forward with inviting all TIPCC users.
-
-**What to expect**: Avoid running multi-day jobs on the scheduler because compute nodes may need to be taken offline and rebooted as soon as possible, even if it requires terminating running jobs.  Login, data-transfer, and development nodes will be rebooted after asking all users to logged out.
-
-
-### Scheduler
-
-* [x] All jobs are running through cgroup
 * [ ] Finalize basic configuration allowing users to submit as much as they want without starving out other users
-
-### Documentation and support
-
-* [x] Set up a C4 website with the most basic documentation including Slurm
-
-### Accounts
-
-* [x] Set up LDAP for account management
 * [ ] Pre-created `~/.forward` files for all existing C4 accounts
-
-### Compute power
-
-* [x] Additional communal nodes:
-  - [x] c4-n11 - revived from TIPCC (node n5)
-
-* [x] Additional lab nodes:
-  - [x] c4-n[12-13] - CBI Core nodes from TIPCC (nodes n0 and n17)
 
 
 ## Going Live
@@ -114,70 +24,86 @@
 
 **Who**: All TIPCC user are welcome to start using C4
 
-**What to expect**: The cluster can be considered fairly stable. However, there might be needs for further updates requiring reboots and early-termination of jobs.  Avoid running jobs longer than 3-4 days.
+**Expectation**: The cluster can be considered fairly stable. However, there might be needs for further updates requiring reboots and early-termination of jobs.  **Avoid running jobs longer than 3-4 days**.
+
+* [ ] Accounts: Password aging
+* [ ] Software: Some more EPEL package requests (probably not much)
+* [ ] Software: Very old, legacy scientific software on TIPCC will be re-installed on C4 if requested
+* [ ] Software: MATLAB using UCSF site-wide licenses
+* [ ] Documentation: Torque-to-Slurm translation table
+* [ ] Documentation: Common TIPCC-to-C4 migration issues and conflicts documented
+* [ ] Support: c4-announce mailing list
+* [ ] Shell: Expand existing Bash configuration to Csh
 
 
-### Accounts
-
-* [ ] Users that migrate are added to LDAP.  Changes in LDAP will manually be mirrored on TIPCC
-* [ ] Only allow active accounts with up-to-date contact information (and keeping it up-to-date)
-* [ ] Password aging
-
-### Software
-
-* [ ] Some more EPEL package requests (probably not much)
-* [ ] Very old, legacy scientific software on TIPCC will be re-installed on C4 if requested
-* [ ] MATLAB using UCSF site-wide licenses
-
-### Documentation and support
-
-* [ ] Torque-to-Slurm translation table
-* [ ] Common TIPCC-to-C4 migration issues and conflicts documented
-* [ ] c4-announce mailing list
-
-### Miscellaneous
-
-* [ ] Expand existing Bash configuration to Csh
-
-
-
-
-## Migration
-
-**Who**: All remaining TIPCC users who are not yet on C4
-
-### Accounts
-
-* [ ] All TIPCC users should start migrating to C4
-
-### Software
-
-* [ ] We will attempt to accommodate legacy-software needs as far as possible
 
 ## TIPCC deprecation
 
-* [ ] TIPCC is kept on life support only!
-* [ ] TIPCC might crash at any time!
+**Period**: To be decided (sometimes during spring 2021)
+
+**Goal** Bring down any dependencies on TIPCC to a minimum to the point where we can shutdown TIPCC forever.
+
+**Expectation** TIPCC is kept on life support only! TIPCC might crash at any time!
+
+* [ ] All TIPCC users should migrate to C4
+* [ ] We will attempt to accommodate legacy-software needs as far as possible
+
 
 
 
 
 ## Accomplished milestones
 
+### Initial setup (until 2020-08-31)
+
 * Storage: Global scratch storage on BeeGFS parallel file system (2020-07-01)
-* Login: 2 login nodes (June 2020)
 * Development: Added three development nodes (2020-08-13)
-* Compute nodes: 6 communal compute nodes (6*32=192 physical cores)
 * Software: Replicate the core software that is installed on [Wynton HPC] on development and compute nodes (2020-08-19)
 * Software: Added the CBI software stack (2020-08-20)
-* Deployment of new machines: Automated deployment
-* Backup: Users' home folders backed up on a nightly basis
-* Network: 10 Gbps
-* File transfers: Globus is supported (2020-11-02)
-* Account management: All accounts and authentication is done via LDAP (2020-12-16)
+* Miscellaneous: Hosts can now send email notifications (2020-08-21)
+* Login: Two login nodes with DNS records (2020-08-26)
+* Deployment: Automated deployment of new hosts using Ansible (2020-08-31)
+* Compute nodes: Five working communal compute nodes (192 physical cores each) (2020-08-31)
 
+
+### Alpha testing (2020-09-01--2020-11-31)
+
+**Goal**: We will implement essential features that we missed previously.  We will address feature requests that are straightforward to implement.  More complex feature requests will be saved for later. At the end of this phase, we will have a rudimentary HPC environment that will allow advanced users to run scientific jobs.
+
+**Expectation**: All (login, development, and compute) nodes may be rebooted at any time in order to be updated.  We will however try our best to avoid sudden reboots without notifications.  
+
+* C4 help user issue tracker (2020-09-01)
+* Lab compute nodes: 3 new lab-specific compute nodes (2020-09-10)
+* Software: Standard for installing and sharing software across labs under `/software` (2020-09-10)
+* GUI: X11 forwarding enabled (2020-09-14)
+* Software: Core CentOS software is automatically updated on a regular basis (2020-09-15)
+* Compute nodes: Added a sixth communal compute nodes (192 physical cores) (2020-09-17)
+* Backup: Users' `/c4/home` folders and `/software` backed up on a nightly basis (2020-09-22)
+* Shells: Shells idle for more 24 hours are automatically logged out (2020-09-24)
+* Network: 10 Gbps
+* Scheduler: All jobs run with cgroups-limited memory and core allocations (2020-10-01)
+* Storage: Legacy TIPCC storage `/data` and `/work` mounted on C4 (2020-10-27)
+* Scheduler: Job-specific `TMPDIR` on `/scratch` automatically deleted afterward (2020-10-30)
+* Scratch storage: Old files on local `/tmp`, local `/scratch`, and global `/c4/scratch` are automatically cleaned out (2020-11-02)
+* File transfers: Globus is supported (2020-11-02)
+* Lab storage: All lab storage on TIPCC is now also mounted on C4 (2020-11-03)
+
+
+### Beta testing (2020-12-01--2021-01-11)
+
+**Goal**: At the end of this phase, we will have a solid HPC environment that will allow the majority of users to run scientific jobs on C4 that they previously ran on TIPCC.  We are confident that we can go forward with inviting all TIPCC users.
+
+**Expectation**: Avoid running multi-day jobs on the scheduler because compute nodes may need to be taken offline and rebooted as soon as possible, even if it requires terminating running jobs.  Login, data-transfer, and development nodes will be rebooted after asking all users to logged out.
+
+* Account management: All accounts and authentication is done via LDAP (2020-12-16)
+* Scheduler: Default Slurm partitions configured (2021-01-07)
+* Scheduler: Default email address for job notifications (2021-01-11)
+* Compute nodes: Added one communal compute node (12 physical cores each) from TIPCC (2021-01-08)
+* Lab compute nodes: Added two lab compute nodes (64 physical cores each) from TIPCC (2021-01-08)
+* Documentation: A fully validated website for the C4 environment (2020-01-08)
 
 See also [News].
+
 
 
 [TIPCC]: https://ucsf-ti.github.io/tipcc-web/
