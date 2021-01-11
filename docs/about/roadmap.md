@@ -9,7 +9,6 @@
 **Expectation**: Avoid running multi-day jobs on the scheduler because compute nodes may need to be taken offline and rebooted as soon as possible, even if it requires terminating running jobs.  Login, data-transfer, and development nodes will be rebooted after asking all users to logged out.
 
 * [ ] Finalize basic configuration allowing users to submit as much as they want without starving out other users
-* [ ] Pre-created `~/.forward` files for all existing C4 accounts
 
 
 ## Going Live
@@ -22,6 +21,7 @@
 
 **Expectation**: The cluster can be considered fairly stable. However, there might be needs for further updates requiring reboots and early-termination of jobs.  **Avoid running jobs longer than 3-4 days**.
 
+* [ ] Scheduler: Slurm option for requesting local `/scratch` space
 * [ ] Accounts: Password aging
 * [ ] Software: Some more EPEL package requests (probably not much)
 * [ ] Software: Very old, legacy scientific software on TIPCC will be re-installed on C4 if requested
