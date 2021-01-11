@@ -1,13 +1,3 @@
-<div class="alert alert-warning" role="alert" style="margin-top: 3ex">
-<strong><span>⚠️</span> 2020-01-07: This page is work in progress.  Overall it is correct, but details will be soon be updated.  Please make sure to revisit later.</strong>
-</div>
-
-<!--
-<div class="alert alert-warning" role="alert" style="margin-top: 3ex">
-<strong>Do not request email notifications for array jobs!</strong>  If done, there will be email messages sent for <em>every single task</em> in the job array.
-</div>
--->
-
 ## Job Email Notifications
 
 Instead of polling `squeue` to check whether submitted jobs are queued, running, or finished, one can tell the job scheduler to send email notifications as jobs change state.  This is done by specifying `sbatch` option `--mail-type=<type>`, where `<type>` specifies under what circumstances an email message should be sent.  The commonly used types of state changes are:
@@ -16,34 +6,29 @@ Instead of polling `squeue` to check whether submitted jobs are queued, running,
 * `END`: when the job ends
 * `FAIL`: when the job fails
 
-For further details and additional state-change types, see `man sbatch`.  The notifications are sent to the email addresses specified by option `---mail-user=<recipient>`.  Here is an example that sends an email when the job begins, ends, or fails:
+For further details and additional state-change types, see `man sbatch`.  The notifications are sent to the email addresses as given in your personal `~/.forward` file.  Here is an example that sends an email when the job begins, ends, or fails:
 
 ```sh
-$ sbatch --mail-user={{ site.user.email }} --mail-type=BEGIN,END,FAIL --wrap='echo "Current timestamp: $(date)"'
+$ sbatch --mail-type=BEGIN,END,FAIL --wrap='echo "Current timestamp: $(date)"'
 ```
 
 See below for example of what these email notifications may look like.  To send an email only when the job completed, successfully or not, use `--mail-type=END,FAIL` instead.
 
 
-<div class="alert alert-warning" role="alert" style="margin-top: 3ex">
-<span>⚠️</span> We advice against specifying <code>#SBATCH --mail-user=...</code> in job scripts.  If you do, there is a risk that you will receive email notifications when someone copies your job script and forgets to update the script.  By specifying the recipient via <code>sbatch --mail-user=...</code> you avoid this problem.  Alternatively, a more convenient approach is to not specify it at all and instead rely on the default email address that you can configure at your choice.
-</div>
-
-
-### Configure the default recipient
-
-If `--mail-user` is not specified, then the email notifications will not reach you(\*).  However, it is possible to configure all messages to be forwarded to an email address of your choice as given by the `~/.forward` file.  For example, with:
+The email notifications will be sent to the email address that is listed in your personal `~/.forward` file.  For example, Slurm notifications for user `alice` are sent to:
 
 ```sh
 [alice@{{ site.login.name }} ~]$ cat ~/.forward
-# Recipient of email notifications from Slurm, crontab, etc.
+# Email address per LDAP record added on 2021-01-09
 {{ site.user.email }}
 ```
 
-any Slurm notifications produced by jobs that `alice` runs, will be forwarded to `{{ site.user.email }}`.
+It is possible to override this by Slurm option `---mail-user=<recipient>`.
 
 
-(\*) Technically, it will be sent to an local mailbox on an internal {{ site.cluster.name }} server that users don't access to.
+<div class="alert alert-warning" role="alert" style="margin-top: 3ex">
+<span>⚠️</span> We advice against specifying <code>#SBATCH --mail-user=...</code> in job scripts.  If you do, there is a risk that you will receive email notifications when someone copies your job script and forgets to update the script.  By specifying the recipient via <code>sbatch --mail-user=...</code> you avoid this problem.  Alternatively, a more convenient approach is to not specify it at all and instead rely on the default email address that you can configure at your choice.
+</div>
 
 
 ### Example messages
