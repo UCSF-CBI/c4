@@ -1,16 +1,5 @@
 # Roadmap & Accomplishments
 
-## Beta Testing
-
-**Period**: 2020-12-01--2021-01-11
-
-**Goal**: At the end of this phase, we will have a solid HPC environment that will allow the majority of users to run scientific jobs on C4 that they previously ran on TIPCC.  We are confident that we can go forward with inviting all TIPCC users.
-
-**Expectation**: Avoid running multi-day jobs on the scheduler because compute nodes may need to be taken offline and rebooted as soon as possible, even if it requires terminating running jobs.  Login, data-transfer, and development nodes will be rebooted after asking all users to logged out.
-
-* [ ] Finalize basic configuration allowing users to submit as much as they want without starving out other users
-
-
 ## Going Live
 
 **Period**: Starting 2021-01-11
@@ -97,6 +86,7 @@
 * Compute nodes: Added one communal compute node (12 physical cores each) from TIPCC (2021-01-08)
 * Lab compute nodes: Added two lab compute nodes (64 physical cores each) from TIPCC (2021-01-08)
 * Documentation: A fully validated website for the C4 environment (2020-01-08)
+* Scheduler: Prevent starvation by limiting the number of concurrent cores a single users can run concurrently (2020-01-11)
 
 See also [News].
 
