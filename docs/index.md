@@ -1,9 +1,7 @@
 <div class="alert alert-info" role="alert">
 <strong>NEWS</strong>:<br/>
 
-2020-12-16: All user management is now using centralized LDAP.<br>
-
-2020-11-02: Globus now up & running on data transfer node (c4-dt1).<br>
+2021-01-11: The C4 cluster is now live!<br>
 
 <a href="{{ '/about/news.html' | relative_url }}">More ...</a>
 </div>
