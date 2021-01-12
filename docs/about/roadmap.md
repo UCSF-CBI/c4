@@ -10,7 +10,7 @@
 
 **Expectation**: The cluster can be considered fairly stable. However, there might be needs for further updates requiring reboots and early-termination of jobs.  **Avoid running jobs longer than 3-4 days**.
 
-* [ ] Scheduler: Slurm option for requesting local `/scratch` space
+* [x] Scheduler: Slurm option for requesting local `/scratch` space
 * [ ] Scheduler: Refine job and queuing rules on common and lab-specific compute nodes
 * [ ] Accounts: Password aging
 * [ ] Software: Some more EPEL package requests (probably not much)

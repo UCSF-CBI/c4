@@ -16,3 +16,38 @@ Another useful tool is `squeue --start -u $USER`.  It gives an _estimate_ when t
 **Q**. _How do I avoid the `/var/spool/slurm/d/job01180/slurm_script: line 17: module: command not found` error?_
 
 **A**. This is because you submit a job script that tries to load an environment module without using the Slurm option `--export=NONE`.
+
+
+**Q**. _I cannot SSH into the development nodes - I get 'IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!' and 'Host key verification failed.'.  What is going on?_
+
+**A**. This most likely happens because we have re-built the problematic development node resulting in its internal security keys having changed since you last access that machine.  If the problem error looks like:
+
+```lang-none
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!
+It is also possible that a host key has just been changed.
+The fingerprint for the ECDSA key sent by the remote host is
+SHA256:FaARLbkE3sHP2a33Zgqa/sNXTqqWzZAeu6T43wST4ok.
+Please contact your system administrator.
+Add correct host key in /c4/home/alice/.ssh/known_hosts to get rid of this message.
+Offending ECDSA key in /c4/home/alice/.ssh/known_hosts:18
+ECDSA host key for c4-dev1 has changed and you have requested strict checking.
+Host key verification failed.
+```
+
+then the solution is to remove that offending key from your personal `~/.ssh/known_hosts` file.  If we look at:
+
+```lang-none
+Offending ECDSA key in /c4/home/alice/.ssh/known_hosts:18
+```
+
+we see that the problematic key is in this case on line 18.  To remove that line, use:
+
+```sh
+$ sed -i '18d' .ssh/known_hosts
+```
+
+Then retry.

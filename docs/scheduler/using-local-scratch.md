@@ -1,7 +1,3 @@
-<div class="alert alert-warning" role="alert" style="margin-top: 3ex">
-<strong><span>⚠️</span> 2020-01-11: This page is work in progress.  Overall it is correct, but we will very soon add a Slurm option for requesting local scratch space. Stay tuned!</strong>
-</div>
-
 # Using Local /scratch (TMPDIR) on Compute Nodes
 
 All nodes (compute and development) have their own locally storage mounted as `/scratch`.  The `/scratch` storage is fast - faster than system-wide storage such as home folders but also `/c4/scratch` - which make it ideal for holding intermediate data files.  This will also lower the load on the system-wide storage and the local network.  Using local `/scratch` is a win-win for everyone.
@@ -22,15 +18,17 @@ Here is how to use `/scratch`:
 
 * The **job-specific TMPDIR folder (e.g. `/scratch/alice/1012`) will be deleted automatically when the job terminates**.
 
-<!--* **Specify how much local scratch (TMPDIR) storage your job will need**.  Local storage is limited to [{{ site.data.specs.local_scratch_size_min }}-{{ site.data.specs.local_scratch_size_max }} TiB/node]({{ '/about/specs.html' | relative_url }}).  If your job will use up to 200 GiB of disk space, you can specify this resource as `-l scratch=200G` (in units of GiB) when submitting the job.  A node with 800 GiB of scratch space can support up to four `-l scratch=200G` jobs running at the same time.
--->
+* **Specify how much local scratch (TMPDIR) storage your job will need**.  Local storage is limited to [{{ site.data.specs.local_scratch_size_min }}-{{ site.data.specs.local_scratch_size_max }} TiB/node]({{ '/about/specs.html' | relative_url }}).  If your job will use up to 200 GiB of disk space, you can specify this resource as `--gres=scratch:200G` (in units of GiB) when submitting the job.  A node with 800 GiB of scratch space can support up to four `--gres=scratch:200G` jobs running at the same time.
+
 
 ### Example
 
-Here is a script called `ex-scratch.sh` that illustrates how to copy input files over from the `$HOME` folder to the local scratch folder (TMPDIR) of whatever node the job ends up running on.  After processing of the input files is complete, the output files are moved from the local scratch (TMPDIR) to HOME.
+Here is a script called `ex-scratch.sh` that requests 300 GiB of local `/scratch` space and 4 cores.  The script also shows how to copy input files over from the home (= `~/`) folder to the local scratch folder (TMPDIR) of whatever node the job ends up running on.  After processing of the input files is complete, the output files are moved from the local scratch (TMPDIR) to HOME.
 
 ```sh
 #!/bin/env bash
+#SBATCH --gres=scratch:300G
+#SBATCH --ntasks=4
 
 ## 0. In case TMPDIR is not set, e.g. on development nodes, set
 ##    it to local /scratch, if it exists, otherwise to /tmp

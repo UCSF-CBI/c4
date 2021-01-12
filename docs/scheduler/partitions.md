@@ -22,7 +22,9 @@ boblab,common
 
 which means their next job will be sent to the 'boblab' partitions and if that is full, then the job is sent to the 'common' partition.  If that is also full, the job will be pending and either 'boblab' or 'common' will be used as they become available.
 
-Although rarely needed, if you would like to send a job to a specific partition, the Slurm option `--partition` can be used, e.g. `sbatch --partition=boblab ...`.
+Although rarely needed, if you would like to send a job to a specific partition, the Slurm option `--partition` can be used, e.g. `sbatch --partition=boblab script.sh` or `sbatch --partition=boblab,common script.sh`.
+
+Although rarely needed, if you need to submit your jobs to a specific compute node, which you do via Slurm option `--nodelist`, then you need to also specify `--partition` for that specific node, otherwise `sbatch` will give an error on `Batch job submission failed: Unspecified error`.
 
 
 ## Details on partitions
