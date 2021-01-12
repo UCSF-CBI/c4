@@ -22,7 +22,7 @@ Another useful tool is `squeue --start -u $USER`.  It gives an _estimate_ when t
 
 **A**. This most likely happens because we have re-built the problematic development node resulting in its internal security keys having changed since you last access that machine.  If the problem error looks like:
 
-```
+```lang-none
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 @    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
@@ -40,7 +40,7 @@ Host key verification failed.
 
 then the solution is to remove that offending key from your personal `~/.ssh/known_hosts` file.  If we look at:
 
-```
+```lang-none
 Offending ECDSA key in /c4/home/alice/.ssh/known_hosts:18
 ```
 
