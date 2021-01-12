@@ -18,7 +18,7 @@ user:
 cluster:
   name: "C4"
   nickname: "C4"
-  version: '"beta"'
+  version: ""
   email_admin: harry.putnam@ucsf.edu
   email_support: harry.putnam@ucsf.edu
 
