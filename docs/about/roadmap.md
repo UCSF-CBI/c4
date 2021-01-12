@@ -4,9 +4,9 @@
 
 **Period**: Starting 2021-01-11
 
-**Prerequisites**: We know everything works fine. No going back
+**Prerequisites**: We know everything works fine - no going back
 
-**Who**: All TIPCC user are welcome to start using C4
+**Who**: All TIPCC users are welcome to start using C4
 
 **Expectation**: The cluster can be considered fairly stable. However, there might be needs for further updates requiring reboots and early-termination of jobs.  **Avoid running jobs longer than 3-4 days**.
 
