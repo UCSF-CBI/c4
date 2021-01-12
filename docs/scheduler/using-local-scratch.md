@@ -1,5 +1,5 @@
 <div class="alert alert-warning" role="alert" style="margin-top: 3ex">
-<strong><span>⚠️</span> 2020-01-07: This page is work in progress.  Overall it is correct, but details will be soon be updated.  Please make sure to revisit later.</strong>
+<strong><span>⚠️</span> 2020-01-11: This page is work in progress.  Overall it is correct, but we will very soon add a Slurm option for requesting local scratch space. Stay tuned!</strong>
 </div>
 
 # Using Local /scratch (TMPDIR) on Compute Nodes
