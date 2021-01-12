@@ -695,7 +695,7 @@ Here you can find the latest implementation of PrediXcan: PrediXcan.py. This use
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(8)</a></li>
 </ul>
 
-_The above information was automatically generated on 2021-01-06 08:18:12 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2021-01-11 18:51:01 from querying `module avail` and `module spider`._
 
 
 <style>
