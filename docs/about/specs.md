@@ -100,12 +100,12 @@ c4-n6     |      112 |   2.2 GHz |   768 GiB |          11.0 TiB | NVMe /scratch
 c4-n7     |      112 |   2.2 GHz |   768 GiB |          11.0 TiB | NVMe /scratch 10 Gbps ethernet                      | Witte Lab
 c4-n8     |      112 |   2.2 GHz |   768 GiB |          11.0 TiB | NVMe /scratch 10 Gbps ethernet                      | Witte Lab
 c4-n9     |      112 |   2.2 GHz |   768 GiB |          11.0 TiB | NVMe /scratch 10 Gbps ethernet                      | Witte Lab
-c4-n10    |       64 |   2.1 GHz |   512 GiB |           1.8 TiB | SATA /scratch 10 Gbps ethernet                      | communal
-c4-n11    |       12 |   2.4 GHz |    32 GiB |           1.7 TiB | SATA /scratch  1 Gbps ethernet                      | communal
-c4-n12    |       64 |   2.6 GHz |   512 GiB |           5.1 TiB | SATA /scratch 10 Gbps ethernet                      | CBI Core
-c4-n13    |       64 |   2.6 GHz |   512 GiB |           5.1 TiB | SATA /scratch 10 Gbps ethernet                      | CBI Core 
-c4-n14    |       24 |   3.5 GHz |   128 GiB |           0.8 TiB | SATA /scratch 10 Gbps ethernet                      | Witte Lab
-c4-n15    |       64 |   2.6 GHz |   256 GiB |           1.7 TiB | SATA /scratch 10 Gbps ethernet                      | Witte Lab
+c4-n10    |       64 |   2.1 GHz |   512 GiB |           2.3 TiB | SATA /scratch 10 Gbps ethernet                      | communal
+c4-n11    |       12 |   2.4 GHz |    32 GiB |           1.8 TiB | SATA /scratch  1 Gbps ethernet                      | communal
+c4-n12    |       64 |   2.6 GHz |   512 GiB |           3.6 TiB | SATA /scratch 10 Gbps ethernet                      | CBI Core
+c4-n13    |       64 |   2.6 GHz |   512 GiB |           3.6 TiB | SATA /scratch 10 Gbps ethernet                      | CBI Core 
+c4-n14    |       24 |   3.5 GHz |   128 GiB |           0.9 TiB | SATA /scratch 10 Gbps ethernet                      | Witte Lab
+c4-n15    |       64 |   2.6 GHz |   256 GiB |           1.8 TiB | SATA /scratch 10 Gbps ethernet                      | Witte Lab
 
 <!--
 For additional details on the compute nodes, see the <a href="#details">Details</a> section below.

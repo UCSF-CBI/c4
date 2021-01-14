@@ -12,20 +12,21 @@ gpus: 0
 communal_gpu_nodes: 0
 communal_gpus: 0
 
-## clush -b -w 'c4-n[1-13]' "free -h 2> /dev/null | grep Mem | cut -c 1-20"
+## clush -b -w 'c4-n[1-15]' "free -h 2> /dev/null | grep Mem | cut -c 1-20"
 ## RAM [GiB]:
 ram_min:  32
 ram_max: 768
 
-## clush -b -w 'c4-n[1-13]' "df -P -h /scratch 2> /dev/null | tail -n -1 | sed -E 's/[^ ]+[ ]+([0-9.]+[A-Z]).*/\1/'"
+## clush -b -w 'c4-n[1-15]' "df --portability --human-readable /scratch | tail -1 | awk '{ print \$2 }'"
 ## Local /scratch [TiB]:
-local_scratch_size_min: 1.7
+local_scratch_size_min: 0.89
 local_scratch_size_max: 11
 
 ## Disk /swap [GiB]:
 swap_min: 4
 swap_max: 4
 
+## clush -b -w 'c4-n[1-15]' "df --portability --human-readable /tmp | tail -1 | awk '{ print \$2 }'"
 ## Local /tmp [GiB]:
 local_tmp_size_min: 8
 local_tmp_size_max: 8
