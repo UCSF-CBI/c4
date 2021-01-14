@@ -37,11 +37,11 @@ In order to see all available partitions on the cluster, use:
 <!-- code-block label="sinfo" -->
 ```sh
 PARTITION AVAIL  TIMELIMIT  NODES  STATE NODELIST 
-common*      up 14-00:00:0      3    mix c4-n[1,3,10] 
-common*      up 14-00:00:0      1  alloc c4-n2 
-common*      up 14-00:00:0      3   idle c4-n[4-5,11] 
-wittelab     up 14-00:00:0      4   idle c4-n[6-9] 
-cbc          up 14-00:00:0      2    mix c4-n[12-13]
+common*      up 14-00:00:0      2    mix c4-n[1-2] 
+common*      up 14-00:00:0      1  alloc c4-n10 
+common*      up 14-00:00:0      4   idle c4-n[3-5,11] 
+wittelab     up 14-00:00:0      6   idle c4-n[6-9,14-15] 
+cbc          up 14-00:00:0      2   idle c4-n[12-13] 
 ```
 
 In the above example, the asterisk indicates that 'common' is the default partition. The 'mix' state means that some of the nodes in the partition that run jobs, 'idle' means those nodes are not running jobs. The 'drain' and 'drng' states indicate that the node has been taken offline by the sysadmin. Draining means the nodes is still running jobs but won't accept new work.
