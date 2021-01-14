@@ -27,8 +27,9 @@ Here is a script called `ex-scratch.sh` that requests 300 GiB of local `/scratch
 
 ```sh
 #!/bin/env bash
-#SBATCH --gres=scratch:300G
+#SBATCH --nodes=1
 #SBATCH --ntasks=4
+#SBATCH --gres=scratch:300G
 
 ## 0. In case TMPDIR is not set, e.g. on development nodes, set
 ##    it to local /scratch, if it exists, otherwise to /tmp

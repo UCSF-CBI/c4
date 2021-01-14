@@ -5,7 +5,7 @@ Although [development nodes are configured very similar to compute nodes]({{ '/a
 For example, to request an interactive, three-hour, 32 GiB, two-core slot on one of the compute nodes, use:
 
 ```sh
-[alice@{{ site.login.name }} ~]$ srun --export=NONE --ntasks=2 --mem=32G --time=03:00:00 --pty $SHELL
+[alice@{{ site.login.name }} ~]$ srun --export=NONE --nodes=1 --ntasks=2 --mem=32G --time=03:00:00 --pty $SHELL
 srun: job 4303 queued and waiting for resources
 srun: job 4303 has been allocated resources
 [alice@c4-n2:job=4303 ~]$ echo "Number of slots: ${SLURM_NTASKS:-1}"

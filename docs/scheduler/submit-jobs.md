@@ -12,6 +12,7 @@ Here is a `hi-there.sh` script that illustrates this:
 
 ```sh
 #!/bin/bash
+#SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --mem=100M
 #SBATCH --time=00:02:00
@@ -22,6 +23,7 @@ echo "This script was allotted ${SLURM_NTASKS:-1} cores"
 
 Going through the Slurm declarations:
 
+* `--nodes=1` - run on 1 node (optional when `--ntasks=1`)
 * `--ntasks=1` - run on 1 core
 * `--mem=100M` - allow job to use 100 MiB of memory (`M`=MiB, `G`=GiB, `T`=TiB)
 * `--time=00:02:00` - allow job to run for 2 minutes
@@ -93,9 +95,9 @@ Please please <a href="using-local-scratch.html">cleanup local scratch afterward
 
 ## Parallel processing (on a single machine)
 
-The scheduler will allocate a single core for your job.  To allow the job to use multiple slots, request the number of slots needed when you submit the job.  For instance, to request four slots (`SLURM_NTASKS=4`), use:
+The scheduler will allocate a single core for your job.  To allow the job to use multiple slots, request the number of slots needed when you submit the job.  For instance, to request four slots (`SLURM_NTASKS=4`) on a single machine, use:
 ```sh
-sbatch --ntasks=4 script.sh
+sbatch --nodes=1 --ntasks=4 script.sh
 ```
 The scheduler will make sure your job is launched on a node with at least four slots available.
 

@@ -190,6 +190,7 @@ To run this as a batch job, we need to create a job script.
 [alice@{{ site.devel.name }} lxc]$ cat demo-singularity.sh
 #!/usr/bin/bash
 #SBATCH --job-name=demo-singularity
+#SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --mem=100M
 #SBATCH --time=00:05:00
