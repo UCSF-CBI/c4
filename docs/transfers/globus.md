@@ -45,7 +45,9 @@ To transfer files via the Globus network:
 3. Select the files and folders to be transferred and click 'Start'.
 
 
+## Sharing with outside collaborators
 
+It is possible to share a directory in the form of a 'Guest Collection' and share it with outside collaborators who also use Globus. For security reasons, this is not enabled globally. Please send a request to your friendly neighborhood sysadmin if you have a need for this: [{{ site.cluster.email_admin }}](mailto:{{ site.cluster.email_admin }}) 
 
 
 ## Endpoints of interest
