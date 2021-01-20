@@ -296,6 +296,7 @@ If you have an R scripts, and it involves setting up a number of parallel worker
 
 CentOS 7 comes with a rather old version of gcc, specifically gcc v4.8.5 (2015-06-23).  This does not support C++14 standard.  Because of this, you will find that some R packages that rely on modern C++ standards such as C++14 and C++17 will fail to compile.  Sometimes the you will get an informative error but in some cases it can be a rather obscure error message.  The **xgboost** package will give an informative error message;
 
+<!-- code-block label="install-xgboost" -->
 ```r
 > install.packages("xgboost")
 Installing package into '/wynton/home/boblab/alice/R/x86_64-pc-linux-gnu-library/4.0-CBI'
