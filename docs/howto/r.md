@@ -77,7 +77,7 @@ For instance, when we try to load an R package:
 ```
 
 R will search the above folders in order for R package 'nlme'.
-When you start out fresh, the only R packages available to you are the ones installed in folder (3) - the system-wide library.  The 'nlme' package comes with the R installation, so with a fresh setup, it will be loaded from the third location.
+When you start you fresh, the only R packages available to you are the ones installed in folder (3) - the system-wide library.  The 'nlme' package comes with the R installation, so with a fresh setup, it will be loaded from the third location.
 As we will see below, when you install your own packages, they will all be installed into folder (1) - your personal library.  The first time your run R, the personal library folder does not exists, so R will ask you whether or not you want to create that folder.  If asked, you should always accept (answer 'Yes').  If you had already created this folder, R will install into this folder without asking.
 
 Finally, R undergoes a _main_ update once a year (in April).  For example, R 4.0.0 was release in April 2020.  The next main release will be R 4.1.0 in April 2021.  Whenever the `y` component in R `x.y.z` version is increased, you will start out with an empty personal package folder specific for R `x.y` (regardless of `z`).  This means that you will have to re-install all R packages you had installed during the year before the new main release came out.  Yes, this can be tedious and can take quite some time but it will improve stability and yet allow the R developers to keep improving R.  Of course, you can still keep using an older version of R and all the packages you have installed for that version - they will not be removed.
@@ -292,22 +292,20 @@ If you have an R scripts, and it involves setting up a number of parallel worker
 
 ### Packages that require extra care
 
-#### The xgboost package ("C++14 standard requested but CXX14 is not defined") 
-
 CentOS 7 comes with a rather old version of gcc, specifically gcc v4.8.5 (2015-06-23).  This does not support C++14 standard.  Because of this, you will find that some R packages that rely on modern C++ standards such as C++14 and C++17 will fail to compile.  Sometimes the you will get an informative error but in some cases it can be a rather obscure error message.  The **xgboost** package will give an informative error message;
 
-<!-- code-block label="install-xgboost" -->
+<!-- code-block label="install-xgboost-fail" -->
 ```r
 > install.packages("xgboost")
-Installing package into '/wynton/home/boblab/alice/R/x86_64-pc-linux-gnu-library/4.0-CBI'
-(as 'lib' is unspecified)
-trying URL 'https://cloud.r-project.org/src/contrib/xgboost_1.2.0.1.tar.gz'
-Content type 'application/x-gzip' length 971402 bytes (948 KB)
+Installing package into ‘/c4/home/alice/R/x86_64-pc-linux-gnu-library/4.0-CBI’
+(as ‘lib’ is unspecified)
+trying URL 'https://cloud.r-project.org/src/contrib/xgboost_1.3.2.1.tar.gz'
+Content type 'application/x-gzip' length 966797 bytes (944 KB)
 ==================================================
-downloaded 948 KB
+downloaded 944 KB
 
-* installing *source* package 'xgboost' ...
-** package 'xgboost' successfully unpacked and MD5 sums checked
+* installing *source* package ‘xgboost’ ...
+** package ‘xgboost’ successfully unpacked and MD5 sums checked
 ** using staged installation
 checking for gcc... gcc
 checking whether the C compiler works... yes
@@ -324,27 +322,27 @@ checking endian...
 configure: creating ./config.status
 config.status: creating src/Makevars
 ** libs
-Error: C++14 standard requested but CXX14 is not defined
-* removing '/wynton/home/boblab/alice/R/x86_64-pc-linux-gnu-library/4.0-CBI/xgboost'
+Makevars:17: -DXGBOOST_STRICT_R_MODE=1
+Makevars:17: -DDMLC_LOG_BEFORE_THROW=0
+Makevars:17: -DDMLC_ENABLE_STD_THREAD=1
+Makevars:17: -DDMLC_DISABLE_STDIN=1
+Makevars:17: -DDMLC_LOG_CUSTOMIZE=1
+Makevars:17: -DXGBOOST_CUSTOMIZE_LOGGER=1
+Makevars:17: -DRABIT_CUSTOMIZE_MSG_
+g++ -std=gnu++14 -I"/software/c4/cbi/software/R-4.0.3/lib64/R/include" -DNDEBUG -I./include -I./dmlc-core/include -I./rabit/include -I. -DXGBOOST_STRICT_R_MODE=1 -DDMLC_LOG_BEFORE_THROW=0 -DDMLC_ENABLE_STD_THREAD=1 -DDMLC_DISABLE_STDIN=1 -DDMLC_LOG_CUSTOMIZE=1 -DXGBOOST_CUSTOMIZE_LOGGER=1 -DRABIT_CUSTOMIZE_MSG_  -I/usr/local/include  -fopenmp -DDMLC_CMAKE_LITTLE_ENDIAN=1 -pthread -fpic  -g -O2 -c xgboost_R.cc -o xgboost_R.o
+g++: error: unrecognized command line option ‘-std=gnu++14’
+make: *** [xgboost_R.o] Error 1
+ERROR: compilation failed for package ‘xgboost’
+* removing ‘/c4/home/alice/R/x86_64-pc-linux-gnu-library/4.0-CBI/xgboost’
+* restoring previous ‘/c4/home/alice/R/x86_64-pc-linux-gnu-library/4.0-CBI/xgboost’
 
 The downloaded source packages are in
-        '/tmp/RtmpgLK2YP/downloaded_packages'
+        ‘/scratch/alice/RtmptCoZVr/downloaded_packages’
 Warning message:
 In install.packages("xgboost") :
-  installation of package 'xgboost' had non-zero exit status
-> 
-```
-
-To fix this, we need to:
-
-1. Use a more recent version of gcc
-
-2. Configure R to recognize C++14
-
-First, to use a more recent version of gcc available in one of the SCL `devtoolset`:s, either through [traditional SCL approaches] or by loading the `scl-devtoolset` module from the [CBI software stack];
-
+  installation of package ‘xgboost’ had non-zero exit status
 ```sh
-[alice@{{ site.devel.name }} ~]$ module load CBI scl-devtoolset
+[alice@{{ site.devel.name }} ~]$ module load CBI scl-devtoolset/8
 [alice@{{ site.devel.name }} ~]$ gcc --version | head -1
 gcc (GCC) 8.3.1 20190311 (Red Hat 8.3.1-3)
 ```
@@ -379,7 +377,6 @@ SHLIB_CXX14LD = g++ -std=gnu++14
 SHLIB_CXX14LDFLAGS = -shared
 ```
 
-
 After this, you will from now on be able to compile R packages that require C++14 **as long as you loaded/enabled an SCL that provides a modern gcc compile**.  For example,
 
 ```sh
@@ -402,7 +399,6 @@ Currently Loaded Modules:
 will now work.
 
 Note, it is only when you install this R package that you need `scl-devtoolset`.  There is no need for it when loading the 'xgboost' package later on.
-
 
 
 
@@ -438,14 +434,14 @@ After this, the hdf5r package will install out of the box, i.e. by calling:
 The [Rmpi] package does not install out-of-the-box like other R packages.  It requires special care to install.  To install Rmpi on the cluster, we start by loading the `mpi` module;
 
 ```sh
-[alice@{{ site.devel.name }} ~]$ module load mpi/openmpi-x86_64
+[alice@{{ site.devel.name }} ~]$ module load mpi
 [alice@{{ site.devel.name }} ~]$ module load CBI r
 [alice@{{ site.devel.name }} ~]$ module list
 Currently Loaded Modules:
   1) mpi/openmpi-x86_64   2) CBI   3) r/4.0.3
 ```
 
-Make sure to specify the exact version of the `mpi` module as well so that your code will keep working also when a newer version becomes the new default.  Note that you will have to load the same `mpi` module, and version(!), also whenever you run R code that requires the Rmpi package.
+Note that you will have to load the `mpi` module also whenever you run R code that requires the Rmpi package.
 
 Continuing, to install Rmpi, we launch R and call the following:
 
@@ -491,17 +487,13 @@ The downloaded source packages are in
 That's it!
 
 
+
 [CRAN]: https://cran.r-project.org/
 [Bioconductor]: http://bioconductor.org/
 [BiocManager]: https://cran.r-project.org/package=BiocManager
 [future]: https://cran.r-project.org/package=future
 [hdf5r]: https://cran.r-project.org/package=hdf5r
-[RcppArmadillo]: https://cran.r-project.org/package=RcppArmadillo
 [Rmpi]: https://cran.r-project.org/package=Rmpi
 [zoo]: https://cran.r-project.org/package=zoo
-[usethis]: https://cran.r-project.org/package=usethis
-[gert]: https://cran.r-project.org/package=gert
-[devtools]: https://cran.r-project.org/package=devtools
 [limma]: http://bioconductor.org/packages/limma/
 [CBI software stack]: {{ '/software/software-repositories.html' | relative_url }}
-[traditional SCL approaches]: {{ '/software/scl.html' | relative_url }}
