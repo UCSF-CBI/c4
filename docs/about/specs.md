@@ -106,6 +106,7 @@ c4-n12    |       64 |   2.6 GHz |   512 GiB |           3.6 TiB | SATA /scratch
 c4-n13    |       64 |   2.6 GHz |   512 GiB |           3.6 TiB | SATA /scratch 10 Gbps ethernet                      | CBI Core 
 c4-n14    |       24 |   3.5 GHz |   128 GiB |           0.9 TiB | SATA /scratch 10 Gbps ethernet                      | Witte Lab
 c4-n15    |       64 |   2.6 GHz |   256 GiB |           1.8 TiB | SATA /scratch 10 Gbps ethernet                      | Witte Lab
+c4-n16    |       64 |   3.7 GHz |   512 GiB |           3.1 TiB | Sata /scratch 10 Gbps ethernet                      | Blelloch Lab
 
 <!--
 For additional details on the compute nodes, see the <a href="#details">Details</a> section below.

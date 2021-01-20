@@ -1,23 +1,23 @@
 ## for host in c4-n{1..9}; do
 ##   echo "$host: $(ssh "$host" nproc --all 2> /dev/null)";
 ## done
-nodes: 15
-physical_cores: 1048
+nodes: 16
+physical_cores: 1112
 communal_nodes: 8
 communal_physical_cores: 524
-lab_nodes: 6
-lab_physical_cores: 524
+lab_nodes: 7
+lab_physical_cores: 588
 gpu_nodes: 0
 gpus: 0
 communal_gpu_nodes: 0
 communal_gpus: 0
 
-## clush -b -w 'c4-n[1-15]' "free -h 2> /dev/null | grep Mem | cut -c 1-20"
+## clush -b -w 'c4-n[1-16]' "free -h 2> /dev/null | grep Mem | cut -c 1-20"
 ## RAM [GiB]:
 ram_min:  32
 ram_max: 768
 
-## clush -b -w 'c4-n[1-15]' "df --portability --human-readable /scratch | tail -1 | awk '{ print \$2 }'"
+## clush -b -w 'c4-n[1-16]' "df --portability --human-readable /scratch | tail -1 | awk '{ print \$2 }'"
 ## Local /scratch [TiB]:
 local_scratch_size_min: 0.89
 local_scratch_size_max: 11
