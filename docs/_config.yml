@@ -18,7 +18,6 @@ user:
   
 cluster:
   name: "C4"
-  name_lowercase: "c4"
   nickname: "C4"
   version: ""
   email_admin: harry.putnam@ucsf.edu
