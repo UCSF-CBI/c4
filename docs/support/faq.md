@@ -32,8 +32,8 @@ It is also possible that a host key has just been changed.
 The fingerprint for the ECDSA key sent by the remote host is
 SHA256:FaARLbkE3sHP2a33Zgqa/sNXTqqWzZAeu6T43wST4ok.
 Please contact your system administrator.
-Add correct host key in /c4/home/alice/.ssh/known_hosts to get rid of this message.
-Offending ECDSA key in /c4/home/alice/.ssh/known_hosts:18
+Add correct host key in {{ site.user.home }}/.ssh/known_hosts to get rid of this message.
+Offending ECDSA key in {{ site.user.home }}/.ssh/known_hosts:18
 ECDSA host key for c4-dev1 has changed and you have requested strict checking.
 Host key verification failed.
 ```
@@ -41,7 +41,7 @@ Host key verification failed.
 then the solution is to remove that offending key from your personal `~/.ssh/known_hosts` file.  If we look at:
 
 ```lang-none
-Offending ECDSA key in /c4/home/alice/.ssh/known_hosts:18
+Offending ECDSA key in {{ site.user.home }}/.ssh/known_hosts:18
 ```
 
 we see that the problematic key is in this case on line 18.  To remove that line, use:

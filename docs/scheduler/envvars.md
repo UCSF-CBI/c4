@@ -33,7 +33,7 @@ When finished, check the content of the output file:
 ```sh
 $ grep -E "(HOSTNAME|PWD|TMPDIR|SLURM_)" slurm-3076.out
 HOSTNAME=c4-n10
-PWD=/c4/home/alice
+PWD={{ site.user.home }}
 SLURM_CLUSTER_NAME=c4
 SLURM_CONF=/etc/slurm/slurm.conf
 SLURM_CPUS_ON_NODE=1
@@ -58,7 +58,7 @@ SLURM_NODEID=0
 SLURM_NODELIST=c4-n10
 SLURM_PRIO_PROCESS=0
 SLURM_PROCID=0
-SLURM_SUBMIT_DIR=/c4/home/alice
+SLURM_SUBMIT_DIR={{ site.user.home }}
 SLURM_SUBMIT_HOST=c4-log1
 SLURM_TASK_PID=17170
 SLURM_TASKS_PER_NODE=1
