@@ -1,15 +1,9 @@
-None.
+### January 16-20, 2021
 
-<!--
+#### <span style="color: orange;">No internet access on c4-dev2</span>
 
-### August 19, 2020
+**Resolved**: Internet access on development node `c4-dev2` has been restored. The problem was due to a loose cable.
+<br><span class="timestamp">January 20, 09:00 PDT</span>
 
-#### <span style="color: orange;">Cluster inaccessible (due to BeeGFS issues)</span>
-
-**Resolved**: Our BeeGFS file system was non-responsive between 17:22 and 18:52 today because one of its meta servers hung while the other attempted to synchronize to it.
-<br><span class="timestamp">August 19, 19:00 PDT</span>
-
-**Notice**: The cluster is currently inaccessible for unknown reasons. The problem was first reported around 17:30 today.
-<br><span class="timestamp">August 19, 18:15 PDT</span>
-
--->
+**Notice**: Internet access on development node `c4-dev2` is broken since at least 2021-01-16.  The problem is being investigated.  We expect it to take several days to resolve.  In the meanwhile, use one of the other development nodes if you need internet access.
+<br><span class="timestamp">January 19, 09:00 PDT</span>

@@ -11,7 +11,9 @@
 **Expectation**: The cluster can be considered fairly stable. However, there might be needs for further updates requiring reboots and early-termination of jobs.  **Avoid running jobs longer than 3-4 days**.
 
 * [x] Scheduler: Slurm option for requesting local `/scratch` space
+* [ ] Scheduler: Slurm option for requesting GPUs
 * [ ] Scheduler: Refine job and queuing rules on common and lab-specific compute nodes
+* [ ] Compute nodes: Migrate several TIPCC lab nodes to C4
 * [ ] Accounts: Password aging
 * [ ] Software: Some more EPEL package requests (probably not much)
 * [ ] Software: Very old, legacy scientific software on TIPCC will be re-installed on C4 if requested
