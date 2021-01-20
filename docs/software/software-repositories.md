@@ -30,7 +30,7 @@ Below are 3 software repositories, each providing a set of software tools.
 
 <ul class="nav nav-pills">
   <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(1)</a></li>
-  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(58)</a></li>
+  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(59)</a></li>
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(8)</a></li>
 </ul>
 
@@ -209,6 +209,16 @@ Cell Ranger is a set of analysis pipelines that process Chromium Single Cell 3' 
     URL: <a href="https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/what-is-cell-ranger">https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/what-is-cell-ranger</a><br>
     Warning: To prevent a single Cell Ranger process from hijacking all CPU and RAM by default, this module sets environment variable MROFLAGS='--localcores=1 --localmem=8 --limit-loadavg' making those the default.<br>
   Versions: 4.0.0, <em>5.0.1</em><br>
+  </dd>
+
+  <dt>cluster-utils</dt>
+  <dd>
+    <strong>cluster-utils: Collection of Utilities / Helper Scripts to Make Life Easier on HPC Clusters</strong><br>
+Collection of utilities / helper scripts to make life easier on HPC clusters.<br>
+    Example: <code>ctop</code>.<br>
+    URL: <a href="https://github.com/molgenis/cluster-utils/">https://github.com/molgenis/cluster-utils/</a><br>
+    Warning: Only the most recent version of this software will be kept.<br>
+  Versions: <em>20.07.2</em><br>
   </dd>
 
   <dt>cmake</dt>
@@ -691,11 +701,11 @@ Here you can find the latest implementation of PrediXcan: PrediXcan.py. This use
 
 <ul class="nav nav-pills">
   <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(1)</a></li>
-  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(58)</a></li>
+  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(59)</a></li>
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(8)</a></li>
 </ul>
 
-_The above information was automatically generated on 2021-01-11 18:51:01 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2021-01-20 15:56:22 from querying `module avail` and `module spider`._
 
 
 <style>
