@@ -381,7 +381,7 @@ After this, you will from now on be able to compile R packages that require C++1
 
 ```sh
 [alice@{{ site.devel.name }} ~]$ module load CBI r
-[alice@{{ site.devel.name }} ~]$ module load CBI scl-devtoolset
+[alice@{{ site.devel.name }} ~]$ module load CBI scl-devtoolset/8
 [alice@{{ site.devel.name }} ~]$ module list
 
 Currently Loaded Modules:
