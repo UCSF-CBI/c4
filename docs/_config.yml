@@ -14,9 +14,11 @@ division:
 user:
   name: "alice"
   email: "alice.aliceson@ucsf.edu"
+  home: "/c4/home/alice"
   
 cluster:
   name: "C4"
+  name_lowercase: "c4"
   nickname: "C4"
   version: ""
   email_admin: harry.putnam@ucsf.edu

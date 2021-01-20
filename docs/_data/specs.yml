@@ -26,7 +26,7 @@ local_scratch_size_max: 11
 swap_min: 4
 swap_max: 4
 
-## clush -b -w 'c4-n[1-15]' "df --portability --human-readable /tmp | tail -1 | awk '{ print \$2 }'"
+## clush -b -w 'c4-n[1-16]' "df --portability --human-readable /tmp | tail -1 | awk '{ print \$2 }'"
 ## Local /tmp [GiB]:
 local_tmp_size_min: 8
 local_tmp_size_max: 8
