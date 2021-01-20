@@ -98,7 +98,7 @@ laptop_to_c4.pub           100%  390     0.4KB/s   00:00
 Then, log into the cluster (still using a password) and _append_ the public key to `~/.ssh/authorized_keys`:
 ```sh
 {local}$ ssh -o PreferredAuthentications=password alice@{{ site.login.name }}
-alice1@169.230.134.135\'s password: XXXXXXXXXXXXXXXXXXX
+alice1@{{ site.login.ip }}\'s password: XXXXXXXXXXXXXXXXXXX
 [alice@{{ site.login.name }} ~]$ cd .ssh
 [alice@{{ site.login.name }} .ssh]$ cat laptop_to_c4.pub >> authorized_keys
 ```
@@ -143,14 +143,14 @@ The reason why we use `-o PreferredAuthentications=publickey -o IdentitiesOnly=y
 
 It is rather tedious having to specify what private key file to use (`-i ~/.ssh/laptop_to_c4`) each time you use SSH.  As a last step, we will set the default options for `alice@{{ site.login.name }}`.  On your local machine, add the following entry to `~/.ssh/config` (if you don't have the file, create it):
 ```lang-none
-Host c4-log1.ucsf.edu
+Host {{ site.login.hostname }}
   User alice
   IdentityFile ~/.ssh/laptop_to_c4
 ```
 
 With all of the above, you should now be able to log in to the cluster using:
 ```sh
-{local}$ ssh c4-log1.ucsf.edu
+{local}$ ssh {{ site.login.hostname }}
 [alice@{{ site.login.name }} ~]$ 
 ```
 
