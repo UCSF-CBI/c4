@@ -75,7 +75,7 @@ Next, we will set up the cluster to recognize your public SSH key.  Assuming you
 /usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "{{ site.user.home }}/.ssh/laptop_to_{{ site.cluster.nickname | downcase }}.pub"
 /usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
 /usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
-alice@{{ site.login.name }}:s password: 
+alice@{{ site.login.hostname }}:s password: 
 
 Number of key(s) added: 1
 
