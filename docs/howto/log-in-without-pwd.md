@@ -105,7 +105,7 @@ alice1@{{ site.login.ip }}\'s password: XXXXXXXXXXXXXXXXXXX
 Finally, make sure that `~/.ssh/authorized_keys` is only accessible to you (otherwise that file will be completely ignored);
 ```sh
 [alice@{{ site.login.name }} .ssh]$ chmod u=rw,go= ~/.ssh/authorized_keys
-[alice@{{ site.login.name }}.ssh]$ stat --format=%A ~/.ssh/authorized_keys
+[alice@{{ site.login.name }} .ssh]$ stat --format=%A ~/.ssh/authorized_keys
 -rw-------
 ```
 Lastly, log out from the cluster:
