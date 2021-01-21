@@ -292,6 +292,8 @@ If you have an R scripts, and it involves setting up a number of parallel worker
 
 ### Packages that require extra care
 
+#### The xgboost package ("C++14 standard requested but CXX14 is not defined")
+
 CentOS 7 comes with a rather old version of gcc, specifically gcc v4.8.5 (2015-06-23).  This does not support C++14 standard.  Because of this, you will find that some R packages that rely on modern C++ standards such as C++14 and C++17 will fail to compile.  Sometimes the you will get an informative error but in some cases it can be a rather obscure error message.  The **xgboost** package will give an informative error message;
 
 <!-- code-block label="install-xgboost-fail" -->
@@ -341,6 +343,17 @@ The downloaded source packages are in
 Warning message:
 In install.packages("xgboost") :
   installation of package ‘xgboost’ had non-zero exit status
+>
+```
+
+To fix this, we need to:
+
+1. Use a more recent version of gcc
+
+2. Configure R to recognize C++14
+
+First, to use a more recent version of gcc available in one of the SCL `devtoolset`:s, either through [traditional SCL approaches] or by loading the `scl-devtoolset` module from the [CBI software stack];
+
 ```sh
 [alice@{{ site.devel.name }} ~]$ module load CBI scl-devtoolset/8
 [alice@{{ site.devel.name }} ~]$ gcc --version | head -1
