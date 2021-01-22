@@ -13,6 +13,7 @@
 * [x] Scheduler: Slurm option for requesting local `/scratch` space
 * [ ] Scheduler: Slurm option for requesting GPUs
 * [ ] Scheduler: Refine job and queuing rules on common and lab-specific compute nodes
+  * [x] Weighted node prioritization based on performance: Jobs are sent to faster compute nodes before the slower ones are considered
 * [ ] Compute nodes: Migrate several TIPCC lab nodes to C4
 * [ ] Accounts: Password aging
 * [ ] Software: Some more EPEL package requests (probably not much)
