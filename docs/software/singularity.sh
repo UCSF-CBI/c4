@@ -23,6 +23,12 @@ fi
 
 1>&2 echo "WARNING: .mdi/singularity.sh.code-block.label=run needs to be updated manually"
 
+1>&2 echo "WARNING: .mdi/singularity.sh.code-block.label=shell needs to be updated manually"
+
+1>&2 echo "WARNING: .mdi/singularity.sh.code-block.label=shell-nobind needs to be updated manually"
+
+1>&2 echo "WARNING: .mdi/singularity.sh.code-block.label=shell-bind needs to be updated manually"
+
 mdi_code_block --label="rscript-sum" --workdir=lxc <<EOF
 singularity exec rocker_r-base.img Rscript -e "sum(1:10)"
 
