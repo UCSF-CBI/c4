@@ -170,7 +170,7 @@ ID="centos"
 
 ### Access other cluster folders than your home folder
 
-When running a container, only a few of the folders available "outside" are available "inside" the container.  By default, you have access to the current working directory (= `$PWD`) and your home folder (= `$HOME`).   In contrast, without further specifications, you will not have access to standard folders such as local `/scratch` and global `/c4/scratch`.  Similarly, lab folders such as `/boblab` are not available from inside the container.
+When running a container, only a few of the folders available "outside" are available "inside" the container.  By default, you have access to the current working directory (= `$PWD`) and your home folder (= `$HOME`).   In contrast, without further specifications, you will not have access to standard folders such as local `/scratch` and global `/c4/scratch`.  Similarly, lab folders such as `{{ site.user.labfolder }}` are not available from inside the container.
 
 <!-- code-block label="shell-nobind" -->
 ```sh
@@ -179,8 +179,8 @@ Singularity> ls /scratch
 ls: cannot access '/scratch': No such file or directory
 Singularity> ls /c4/scratch
 ls: cannot access '/c4/scratch': No such file or directory
-Singularity> ls /boblab
-ls: cannot access '/boblab': No such file or directory
+Singularity> ls {{ site.user.labfolder }}
+ls: cannot access '{{ site.user.labfolder }}': No such file or directory
 Singularity> echo $TMPDIR
 /scratch/alice
 Singularity> ls "$TMPDIR"
@@ -196,7 +196,7 @@ Singularity> ls /scratch
 alice
 Singularity> ls /c4/scratch
 alice
-Singularity> ls /boblab
+Singularity> ls {{ site.user.labfolder }}
 data1  data2
 ```
 

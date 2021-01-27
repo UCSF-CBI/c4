@@ -15,6 +15,7 @@ user:
   name: "alice"
   email: "alice.aliceson@ucsf.edu"
   home: "/c4/home/alice"
+  labfolder: "/boblab"
   
 cluster:
   name: "C4"

@@ -3,5 +3,5 @@ Singularity> ls /scratch
 alice
 Singularity> ls /c4/scratch
 alice
-Singularity> ls /boblab
+Singularity> ls {{ site.user.labfolder }}
 data1  data2
