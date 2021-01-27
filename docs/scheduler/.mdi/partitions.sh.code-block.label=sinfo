@@ -1,6 +1,7 @@
 PARTITION   AVAIL  TIMELIMIT  NODES  STATE NODELIST 
-common*        up 14-00:00:0      2    mix c4-n[1-2] 
-common*        up 14-00:00:0      5   idle c4-n[3-5,10-11] 
-wittelab       up 14-00:00:0      6   idle c4-n[6-9,14-15] 
+blellochlab    up 14-00:00:0      1   idle c4-n16 
 cbc            up 14-00:00:0      2   idle c4-n[12-13] 
-blellochlab    up 14-00:00:0      1   idle c4-n16
+common*        up 14-00:00:0      2    mix c4-n[1,4] 
+common*        up 14-00:00:0      5   idle c4-n[2-3,5,10-11] 
+francislab     up 14-00:00:0      1   idle c4-n17 
+wittelab       up 14-00:00:0      6   idle c4-n[6-9,14-15]
