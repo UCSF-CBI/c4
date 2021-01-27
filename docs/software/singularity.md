@@ -182,9 +182,9 @@ ls: cannot access '/c4/scratch': No such file or directory
 Singularity> ls /boblab
 ls: cannot access '/boblab': No such file or directory
 Singularity> echo $TMPDIR
-/scratch/henrik
+/scratch/alice
 Singularity> ls "$TMPDIR"
-ls: cannot access '/scratch/henrik': No such file or directory
+ls: cannot access '/scratch/alice': No such file or directory
 ```
 
 To make also these folders available within the container, we can use `singularity` option `--bind`.  In its simplest form, we can just list the folders we want to make available, e.g.
