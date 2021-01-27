@@ -2,7 +2,7 @@
 
 The cluster provides different partitions ("queues") for running jobs. We have a 'common' partition that anyone is free to use as well as lab owned "condo" partitions that are restricted to a particular lab's use. Any lab is free to purchase compute hardware and we will be glad to create a "condo" partition for it. 
 
-All partitions are configured identically with the exception of MaxCPUSperUser:
+All partitions are configured identically with the exception of Maximum CPUs per user:
 
   - Maximum runtime: 14 days (= 336 hours = 20,160 minutes)
   - Availability: all common nodes
