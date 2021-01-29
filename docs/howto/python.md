@@ -1,8 +1,8 @@
+# Work with Python
+
 <div class="alert alert-warning" role="alert">
 If possible, we recommend to be explicit about which version to use by specifying either <code>python2</code> and <code>python3</code> in your scripts.
 </div>
-
-# Work with Python
 
 Python 2 and Python 3 are both available via `python2` and `python3`.  The command `python` is an alias for `python2`.  We recommend to be explicit about which version you want to use, also when using the default Python 2, i.e. use `python2` when you know your script requires Python 2 and `python3` when you know it requires Python 3.
 
