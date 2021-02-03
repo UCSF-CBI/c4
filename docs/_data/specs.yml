@@ -5,7 +5,7 @@ nodes: 19
 physical_cores: 1216
 communal_nodes: 7
 communal_physical_cores: 524
-lab_nodes: 10
+lab_nodes: 12
 lab_physical_cores: 756
 gpu_nodes: 0
 gpus: 0
