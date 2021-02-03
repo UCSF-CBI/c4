@@ -108,6 +108,8 @@ c4-n14    |       24 |   3.5 GHz |   128 GiB |           0.9 TiB | SATA /scratch
 c4-n15    |       64 |   2.6 GHz |   256 GiB |           1.8 TiB | SATA /scratch 10 Gbps ethernet                      | Witte Lab
 c4-n16    |       64 |   3.7 GHz |   512 GiB |           3.1 TiB | SATA /scratch 10 Gbps ethernet                      | Blelloch Lab
 c4-n17    |       64 |   3.7 GHz |   512 GiB |           3.0 TiB | SAS  /scratch 10 Gbps ethernet                      | Francis Lab
+c4-n18    |       40 |   3.4 GHz |   128 GiB |           5.5 TiB | SAS  /scratch 10 Gbps ethernet                      | Kober Lab
+c4-n19    |       64 |   3.7 GHz |   768 GiB |           5.0 TiB | SAS  /scratch 10 Gbps ethernet                      | Ziv Lab
 
 <!--
 For additional details on the compute nodes, see the <a href="#details">Details</a> section below.
