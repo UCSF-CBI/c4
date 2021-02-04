@@ -56,22 +56,57 @@ For example:
 You have to opt-in because there is a slight security risk.  See <https://virtualgl-users.narkive.com/KHab71sF/security-issues-for-virtualgl> case (2) for details.  Case (1) does not apply because all of the development nodes are headless.
 -->
 
+
+
 ## X11 Forwarding over SSH
 
-You can also use X11 forwarding over the SSH connection used to connect to {{ site.cluster.name }}.  Note that, to do this, you will need to be running an X server on your local machine.  To setup the X11 forwarding, just add option `-X` to your SSH call, e.g.
+You can also use X11 forwarding over the SSH connection used to connect to {{ site.cluster.name }}.
+
+### Verify that you have a working X11 server (once)
+
+Note that, to do this, you will need to be running an X server on your local machine.  You can check this by verifying that environment variable `DISPLAY` is set on your local computer, e.g.
+
+```sh
+{local}$ echo "DISPLAY='$DISPLAY'"
+DISPLAY=':0'
+```
+
+If `DISPLAY` is empty, that is, you get:
+
+```sh
+{local}$ echo "DISPLAY='$DISPLAY'"
+DISPLAY=''
+```
+
+then you don't have an local X server setup and the below will _not_ work.
+
+
+
+### Log into the cluster with X11 forwarding
+
+To setup the X11 forwarding when connecting to the cluster, just add option `-X` to your SSH call, e.g.
 
 ```sh
 {local}$ ssh -X alice@{{ site.login.hostname }}
 alice1@{{ site.login.hostname }}:s password: XXXXXXXXXXXXXXXXXXX
-[alice@{{ site.login.name }} ~]$ 
+[alice@{{ site.login.name }} ~]$ echo "DISPLAY='$DISPLAY'"
+DISPLAY='localhost:20.0'
+[alice@{{ site.login.name }} ~]$
 ```
+
+By checking that `DISPLAY` is set, we know that X11 forwarding is in place.  If `DISPLAY` is empty, then make sure you have specified `-X`.
+
+
+### Log into a development node with X11 forwarding
 
 Now, since we should not run anything on the login nodes, the next step is to head over to one of the development nodes.  When doing so, we have remember to keep using X11 forward, that is, we need to use `-X` also here;
 
 ```sh
 [alice@{{ site.login.name }} ~]$ ssh -X {{ site.devel.hostname }}
 alice1@{{ site.devel.name }}:s password: XXXXXXXXXXXXXXXXXXX
-[alice@{{ site.devel.name }} ~]$ 
+[alice@{{ site.login.name }} ~]$ echo "DISPLAY='$DISPLAY'"
+DISPLAY='localhost:14.0'
+[alice@{{ site.devel.name }} ~]$
 ```
 
 Now, we have an X11 forward setup that runs all the way back to our local computer.  This will allow us to open, for instance, an XTerm window that runs on {{ site.devel.hostname }} but can be interacted with on the local computer;
@@ -81,6 +116,7 @@ Now, we have an X11 forward setup that runs all the way back to our local comput
 [ ... an XTerm window is opened up ... ]
 ```
 
+If you get an error here, make sure that `DISPLAY` is set and non-empty.
 
 
 
