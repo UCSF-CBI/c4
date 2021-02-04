@@ -11,13 +11,15 @@ For questions and feature requests, please use one of the following channels:
 
 <!--  - Join: (a) go to [signup page](https://join.slack.com/t/ucsf-wynton/signup), and (b) enter your UCSF(\*) email address. (\*) If you don't have an email address that ends with ucsf.edu, or it for other reasons does not work, [let us know]({{ '/about/contact.html' | relative_url }}) and we will send you an invite to your preferred email address. -->
 
+3. Our **Slack Channel [UCSF C4](https://ucsf-c4.slack.com/archives/C01M3CSSZT3)** - Another communal forum for us to help each other out.
+
 These are communal forums - feel free to ask questions, answer questions, and participate in discussions.
 
 ---
 
 If you have requests that you rather prefer to address directly to the system administrators, please don't hesitate dropping us an email.
 
-3. **{{ site.cluster.name }} System Administrators and Managers email list**
+4. **{{ site.cluster.name }} System Administrators and Managers email list**
 
     - [{{ site.cluster.email_admin }}](mailto:{{ site.cluster.email_admin }}) - reaches all systems administrators and managers.
 
