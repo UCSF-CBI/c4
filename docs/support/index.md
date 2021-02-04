@@ -9,19 +9,16 @@ For questions and feature requests, please use one of the following channels:
    - Subscribe / unsubscribe: (a) go to [list homepage](https://listsrv.ucsf.edu/cgi-bin/wa?A0=tipcc), (b) click 'Subscribe or Unsubscribe', (c) enter your full name and preferred email address, and (d) click link in confirmation email that arrives within minutes.
    - Web archives: N/A <!-- [list homepage](https://listsrv.ucsf.edu/cgi-bin/wa?A0=tipcc) (only visible to subscribed list members). -->
 
-<!--  - Join: (a) go to [signup page](https://join.slack.com/t/ucsf-wynton/signup), and (b) enter your UCSF(\*) email address. (\*) If you don't have an email address that ends with ucsf.edu, or it for other reasons does not work, [let us know]({{ '/about/contact.html' | relative_url }}) and we will send you an invite to your preferred email address. -->
-
-3. Our **Slack Channel [UCSF C4](https://ucsf-c4.slack.com/archives/C01M3CSSZT3)** - Another communal forum for us to help each other out.
+3. **Slack Workspace [ucsf-c4](https://ucsf-c4.slack.com/)** - a communal forum for {{ site.cluster.name }} users to interact in real time.  We encourage everyone to engage, e.g. ask questions, answer questions, share tips and tricks, and participate in discussions.  To join: (i) go to the [signup page](https://join.slack.com/t/ucsf-c4/signup), and (ii) enter your UCSF email address. (\*) If you don't have one of the recognized email domains, or it for other reasons does not work, reach out to us by email and we will send you an invite to your preferred email address.
 
 These are communal forums - feel free to ask questions, answer questions, and participate in discussions.
 
----
 
 If you have requests that you rather prefer to address directly to the system administrators, please don't hesitate dropping us an email.
 
 4. **{{ site.cluster.name }} System Administrators and Managers email list**
 
-    - [{{ site.cluster.email_admin }}](mailto:{{ site.cluster.email_admin }}) - reaches all systems administrators and managers.
+    - [**{{ site.cluster.email_admin }}**](mailto:{{ site.cluster.email_admin }}) - reaches all systems administrators and managers.
 
 ---
 
