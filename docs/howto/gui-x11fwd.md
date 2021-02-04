@@ -9,6 +9,8 @@ The {{ site.cluster.name }} environment supports running a graphical user interf
 
 ## X2Go
 
+### Setup of the X2Go Client (once)
+
 First, you will need to install the X2Go Client on your local computer.  For instructions on how to do this, see [Installing X2Go Client](https://wiki.x2go.org/doku.php/doc:installation:x2goclient). When you first run x2goclient:
 
  1. Use the menus to create a **New Session ...**
@@ -22,9 +24,21 @@ First, you will need to install the X2Go Client on your local computer.  For ins
     - Set **Host** to a {{ site.cluster.name }} [login node]. Currently one of: `{{ site.login1.hostname }}` or `{{ site.login2.hostname }}`
  7. In the **Session type** section, choose `MATE`
 
-Then to get a desktop on the development node, select the session, type in your password, and click **Ok**. After a little while, you will get a window that looks like an empty Linux desktop. Resize the window if you wish, and start up terminals, web browsers, etc. as you would on your regular desktop.
+
+### Logging in
+
+After completing the above setup, you can get to a desktop on the development node by selecting the session, typing in your password, and clicking **Ok**. After a little while, you will get a window that looks like an empty Linux desktop. Resize the window if you wish, and start up terminals, web browsers, etc. as you would on your regular desktop.
+
+
+<div class="alert alert-warning" role="alert">
+If you get a dialog saying '<strong>Error: Connection failed. bash: x2golistsessions: command not found</strong>', then you have missed configuring a 'Proxy server' in Steps 5-6.
+</div>
+
 
 <!--
+
+### 3D Graphics with X2Go (in alpha testing)
+
 The X2Go client provides basic support for 3D applications with a software implementation of an ancient version of OpenGL.  On the GPU development nodes (*i.e.*, `gpudev1`), [VirtualGL](https://virtualgl.org/) is installed so you can use hardware accelerated 3D graphics.  All you need to do is:
 
  1. Opt-in by sending email to [{{ site.cluster.email_admin }}](mailto:{{ site.cluster.email_admin }}?subject=vglusers) with the subject `vglusers`
@@ -68,5 +82,8 @@ Now, we have an X11 forward setup that runs all the way back to our local comput
 ```
 
 
+
+
 [development node]: {{ '/about/specs.html' | relative_url }}#development-nodes
 [login node]: {{ '/about/specs.html' | relative_url }}#login-nodes
+[SSH key pair]: {{ '/howto/log-in-without-pwd.html' | relative_url }}
