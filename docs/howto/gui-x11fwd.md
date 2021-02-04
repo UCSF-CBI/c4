@@ -78,7 +78,7 @@ If `DISPLAY` is empty, that is, you get:
 DISPLAY=''
 ```
 
-then you don't have an local X server setup and the below will _not_ work.
+then you don't have a local X server set up and the below will _not_ work.
 
 
 
