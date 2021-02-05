@@ -30,8 +30,8 @@ Below are 3 software repositories, each providing a set of software tools.
 
 <ul class="nav nav-pills">
   <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(1)</a></li>
-  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(59)</a></li>
-  <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(8)</a></li>
+  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(60)</a></li>
+  <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(7)</a></li>
 </ul>
 
 <div class="tab-content" style="margin-top: 1ex;">
@@ -490,6 +490,16 @@ ripgrep is a line-oriented search tool that recursively searches your current di
   Versions: <em>12.1.1</em><br>
   </dd>
 
+  <dt>rstudio</dt>
+  <dd>
+    <strong>rstudio: RStudio Desktop</strong><br>
+The RStudio Desktop.<br>
+    Example: <code>rstudio</code>.<br>
+    URL: <a href="https://rstudio.com/products/rstudio/#rstudio-desktop">https://rstudio.com/products/rstudio/#rstudio-desktop</a><br>
+    Warning: This software works only on the development nodes and requires that X11 Forwarding or NX is enabled.<br>
+  Versions: <em>1.4.1103</em><br>
+  </dd>
+
   <dt>salmon</dt>
   <dd>
     <strong>salmon: Salmon Provides Fast and Bias-Aware Quantification of Transcript Expression</strong><br>
@@ -651,15 +661,6 @@ CharGer gathers evidence from databases and annotations, provided by local tools
   Versions: <em>0.5.4</em><br>
   </dd>
 
-  <dt>conda</dt>
-  <dd>
-    <strong>conda: manage virtual environments in python</strong><br>
-With conda, you can create, export, list, remove, and update environments that have different versions of Python and/or packages installed in them. Switching or moving between environments is called activating the environment. You can also share an environment file.<br>
-    Example: <code>conda --help</code>.<br>
-    URL: <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html">https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html</a><br>
-  Versions: <em>3.8.0</em><br>
-  </dd>
-
   <dt>flashpca</dt>
   <dd>
     <strong>FlashPCA2: performs fast PCA of SNP data</strong><br>
@@ -701,11 +702,11 @@ Here you can find the latest implementation of PrediXcan: PrediXcan.py. This use
 
 <ul class="nav nav-pills">
   <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(1)</a></li>
-  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(59)</a></li>
-  <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(8)</a></li>
+  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(60)</a></li>
+  <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(7)</a></li>
 </ul>
 
-_The above information was automatically generated on 2021-01-29 09:07:01 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2021-02-05 10:19:15 from querying `module avail` and `module spider`._
 
 
 <style>
