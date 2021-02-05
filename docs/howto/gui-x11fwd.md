@@ -85,7 +85,7 @@ then you don't have a local X server set up and the below will _not_ work.
 
 ### Log into the cluster with X11 forwarding
 
-To setup the X11 forwarding when connecting to the cluster, just add option `-X` to your SSH call.  For performance reasons, we will also add option `-C` to enable SSH compression.  By using compression, the responsiveness and latency in GUIs will be much smaller - our benchmarks show a 5-7 times improvement.  To login with X11 forwarding and compression enabled, do:
+To setup the X11 forwarding when connecting to the cluster, just add option `-X` to your SSH call.  For performance reasons, we will also add option `-C` to enable SSH compression.  By using compression, the responsiveness and latency in GUIs will be much smaller - our benchmarks show a 5-7 times improvement when connected via the UCSF VPN (~60 Mbps download and ~5 Mbps upload).  To login with X11 forwarding and compression enabled, do:
 
 ```sh
 {local}$ ssh -X -C alice@{{ site.login.hostname }}
