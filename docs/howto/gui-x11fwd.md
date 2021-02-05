@@ -5,9 +5,10 @@ context:
 
 # Graphical User Interfaces (GUI)
 
-The {{ site.cluster.name }} environment supports running a graphical user interface (GUI) on {{ site.cluster.name }} while viewing and interacting with it on your local computer.  More specifically, and in more technical terms, {{ site.cluster.name }} supports X2Go and X11 Forwarding.
+The {{ site.cluster.name }} environment supports running a graphical user interface (GUI) on {{ site.cluster.name }} while viewing and interacting with it on your local computer.  More specifically, and in more technical terms, {{ site.cluster.name }} supports NX and X11 Forwarding protocols.
 
-## X2Go
+
+## X2Go (NX protocol)
 
 ### Setup of the X2Go Client (once)
 
@@ -84,10 +85,10 @@ then you don't have a local X server set up and the below will _not_ work.
 
 ### Log into the cluster with X11 forwarding
 
-To setup the X11 forwarding when connecting to the cluster, just add option `-X` to your SSH call, e.g.
+To setup the X11 forwarding when connecting to the cluster, just add option `-X` to your SSH call.  For performance reasons, we will also add option `-C` to enable SSH compression.  By using compression, the responsiveness and latency in GUIs will be much smaller - our benchmarks show a 5-7 times improvement.  To login with X11 forwarding and compression enabled, do:
 
 ```sh
-{local}$ ssh -X alice@{{ site.login.hostname }}
+{local}$ ssh -X -C alice@{{ site.login.hostname }}
 alice1@{{ site.login.hostname }}:s password: XXXXXXXXXXXXXXXXXXX
 [alice@{{ site.login.name }} ~]$ echo "DISPLAY='$DISPLAY'"
 DISPLAY='localhost:20.0'
@@ -108,6 +109,8 @@ alice1@{{ site.devel.name }}:s password: XXXXXXXXXXXXXXXXXXX
 DISPLAY='localhost:14.0'
 [alice@{{ site.devel.name }} ~]$
 ```
+
+_Comment:_ There is no need to use SSH compression in this second step.  If used, it will actually have a negative effect on the X11 latency.
 
 Now, we have an X11 forward setup that runs all the way back to our local computer.  This will allow us to open, for instance, an XTerm window that runs on {{ site.devel.hostname }} but can be interacted with on the local computer;
 
