@@ -122,6 +122,15 @@ Now, we have an X11 forward setup that runs all the way back to our local comput
 If you get an error here, make sure that `DISPLAY` is set and non-empty.
 
 
+_Tips:_ You can login into a development node via a login node in a single call, e.g.
+
+```sh
+{local}$ ssh -X -C alice@{{ site.login.hostname }} ssh -X {{ site.devel.hostname }}
+[alice@{{ site.devel.name }} ~]$
+```
+
+
+
 
 [development node]: {{ '/about/specs.html' | relative_url }}#development-nodes
 [login node]: {{ '/about/specs.html' | relative_url }}#login-nodes
