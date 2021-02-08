@@ -411,7 +411,7 @@ kallisto is a program for quantifying abundances of transcripts from RNA-Seq dat
   <dd>
     <strong>mc: Midnight Commander</strong><br>
 GNU Midnight Commander is a visual file manager. It's a feature rich full-screen text mode application that allows you to copy, move and delete files and whole directory trees, search for files and run commands in the subshell. Internal viewer and editor are included.<br>
-    Example: <code>mc</code>.<br>
+    Example: <code>mc</code> and <code>mc --version</code>.<br>
     URL: <a href="http://www.midnight-commander.org/">http://www.midnight-commander.org/</a>, <a href="https://github.com/MidnightCommander/mc">https://github.com/MidnightCommander/mc</a><br>
     Warning: Only the most recent version of this software will be kept.<br>
   Versions: <em>4.8.26</em><br>
@@ -724,7 +724,7 @@ Python is powerful... and fast; plays well with others; runs everywhere; is frie
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(8)</a></li>
 </ul>
 
-_The above information was automatically generated on 2021-02-08 11:50:57 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2021-02-08 12:02:28 from querying `module avail` and `module spider`._
 
 
 <style>
