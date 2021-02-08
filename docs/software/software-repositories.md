@@ -30,8 +30,8 @@ Below are 3 software repositories, each providing a set of software tools.
 
 <ul class="nav nav-pills">
   <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(1)</a></li>
-  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(60)</a></li>
-  <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(7)</a></li>
+  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(61)</a></li>
+  <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(8)</a></li>
 </ul>
 
 <div class="tab-content" style="margin-top: 1ex;">
@@ -407,6 +407,16 @@ kallisto is a program for quantifying abundances of transcripts from RNA-Seq dat
   Versions: <em>0.46.2</em><br>
   </dd>
 
+  <dt>mc</dt>
+  <dd>
+    <strong>mc: Midnight Commander</strong><br>
+GNU Midnight Commander is a visual file manager. It's a feature rich full-screen text mode application that allows you to copy, move and delete files and whole directory trees, search for files and run commands in the subshell. Internal viewer and editor are included.<br>
+    Example: <code>mc</code>.<br>
+    URL: <a href="http://www.midnight-commander.org/">http://www.midnight-commander.org/</a>, <a href="https://github.com/MidnightCommander/mc">https://github.com/MidnightCommander/mc</a><br>
+    Warning: Only the most recent version of this software will be kept.<br>
+  Versions: <em>4.8.26</em><br>
+  </dd>
+
   <dt>pandoc</dt>
   <dd>
     <strong>Pandoc: A Universal Document Converter</strong><br>
@@ -493,10 +503,10 @@ ripgrep is a line-oriented search tool that recursively searches your current di
   <dt>rstudio</dt>
   <dd>
     <strong>rstudio: RStudio Desktop</strong><br>
-The RStudio Desktop.<br>
+The RStudio Desktop is an integrated development environment (IDE) for R, a programming language for statistical computing and graphics.<br>
     Example: <code>rstudio</code>.<br>
     URL: <a href="https://rstudio.com/products/rstudio/#rstudio-desktop">https://rstudio.com/products/rstudio/#rstudio-desktop</a><br>
-    Warning: This software works only on the development nodes and requires that X11 Forwarding or NX is enabled.<br>
+    Warning: This software works only on the development nodes and requires that X11 Forwarding or NX is enabled. For best performance, use SSH compression when using X11 Forwarding, i.e. <code>ssh -X -C ...</code>.<br>
   Versions: <em>1.4.1103</em><br>
   </dd>
 
@@ -694,6 +704,14 @@ Here you can find the latest implementation of PrediXcan: PrediXcan.py. This use
   Versions: <em>0.6.5</em><br>
   </dd>
 
+  <dt>python3</dt>
+  <dd>
+    <strong>python3: programming language</strong><br>
+Python is powerful... and fast; plays well with others; runs everywhere; is friendly &amp; easy to learn; is Open.Example: python3 --help<br>
+    URL: <a href="https://www.python.org/about/">https://www.python.org/about/</a><br>
+  Versions: <em>3.9.1</em><br>
+  </dd>
+
 </dl>
 </div> 
 
@@ -702,11 +720,11 @@ Here you can find the latest implementation of PrediXcan: PrediXcan.py. This use
 
 <ul class="nav nav-pills">
   <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(1)</a></li>
-  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(60)</a></li>
-  <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(7)</a></li>
+  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(61)</a></li>
+  <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(8)</a></li>
 </ul>
 
-_The above information was automatically generated on 2021-02-05 10:19:15 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2021-02-08 11:50:57 from querying `module avail` and `module spider`._
 
 
 <style>
