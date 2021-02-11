@@ -45,7 +45,7 @@ Enable repository: <em>this software repository is always enabled</em><br>
 <dl>
   <dt>mpi</dt>
   <dd>
-  Versions: <em>openmpi-x86_64</em><br>
+  Versions: openmpi-x86_64, <em>openmpi3-x86_64</em><br>
   </dd>
 
 </dl>
@@ -142,7 +142,7 @@ BEDOPS is an open-source command-line toolkit that performs highly efficient and
 Collectively, the bedtools utilities are a swiss-army knife of tools for a wide-range of genomics analysis tasks. The most widely-used tools enable genome arithmetic: that is, set theory on the genome. For example, bedtools allows one to intersect, merge, count, complement, and shuffle genomic intervals from multiple files in widely-used genomic file formats such as BAM, BED, GFF/GTF, VCF.<br>
     Example: <code>bedtools --version</code> and <code>ls $BEDTOOLS2_HOME/genomes/</code>.<br>
     URL: <a href="https://github.com/arq5x/bedtools2/">https://github.com/arq5x/bedtools2/</a><br>
-  Versions: <em>2.29.2</em><br>
+  Versions: 2.29.2, <em>2.30.0</em><br>
   </dd>
 
   <dt>blast</dt>
@@ -275,7 +275,7 @@ fzf is a general-purpose command-line fuzzy finder. It's an interactive Unix fil
     Note: To install tab completions and key bindinds to your shell, call <code>$FZF_HOME/install</code>. To uninstall, use <code>$FZF_HOME/uninstall</code>.<br>
     URL: <a href="https://github.com/junegunn/fzf">https://github.com/junegunn/fzf</a>, <a href="https://github.com/junegunn/fzf/wiki">https://github.com/junegunn/fzf/wiki</a><br>
     Warning: Only the most recent version of this software will be kept.<br>
-  Versions: <em>0.22.0</em><br>
+  Versions: 0.22.0, <em>0.25.1</em><br>
   </dd>
 
   <dt>gatk</dt>
@@ -358,7 +358,7 @@ HISAT2 is a fast and sensitive alignment program for mapping next-generation seq
     Example: <code>htop</code>.<br>
     URL: <a href="https://htop.dev">https://htop.dev</a>, <a href="https://github.com/htop-dev/htop">https://github.com/htop-dev/htop</a><br>
     Warning: Only the most recent version of this software will be kept.<br>
-  Versions: <em>3.0.4</em><br>
+  Versions: 3.0.4, <em>3.0.5</em><br>
   </dd>
 
   <dt>htslib</dt>
@@ -377,7 +377,7 @@ The Integrative Genomics Viewer (IGV) is a high-performance visualization tool f
     Example: <code>igv</code>.<br>
     Note: IGV (&gt;= 2.5.0) requires Java 11. Coincidentally, <code>igvtools</code> is integrated with IGV (&gt;= 2.5.0).<br>
     URL: <a href="https://software.broadinstitute.org/software/igv/">https://software.broadinstitute.org/software/igv/</a><br>
-  Versions: 2.8.6, <em>2.8.13</em><br>
+  Versions: 2.8.6, 2.8.13, <em>2.9.1</em><br>
   </dd>
 
   <dt>igvtools</dt>
@@ -424,7 +424,7 @@ Pandoc is a Haskell library and software tool for converting from one markup for
     Example: <code>pandoc --version</code>.<br>
     URL: <a href="https://pandoc.org/">https://pandoc.org/</a>, <a href="https://github.com/jgm/pandoc">https://github.com/jgm/pandoc</a><br>
     Warning: Only the most recent version of this software will be kept.<br>
-  Versions: 2.10.1, <em>2.11.3.2</em><br>
+  Versions: 2.10.1, 2.11.3.2, <em>2.11.4</em><br>
   </dd>
 
   <dt>picard</dt>
@@ -433,7 +433,7 @@ Pandoc is a Haskell library and software tool for converting from one markup for
 Picard is a set of command line tools for manipulating high-throughput sequencing (HTS) data and formats such as SAM/BAM/CRAM and VCF.<br>
     Example: <code>picard -h</code>, which is an alias for <code>java -jar $PICARD_HOME/picard.jar -h</code><br>
     URL: <a href="http://broadinstitute.github.io/picard/">http://broadinstitute.github.io/picard/</a>, <a href="https://github.com/broadinstitute/picard">https://github.com/broadinstitute/picard</a><br>
-  Versions: 2.23.1, <em>2.24.0</em><br>
+  Versions: 2.23.1, 2.24.0, <em>2.25.0</em><br>
   </dd>
 
   <dt>pindel</dt>
@@ -487,7 +487,7 @@ Rclone is a command line program to sync files and directories to and from a lar
     Example: <code>rclone --version</code>, <code>rclone --help</code>, <code>rclone config</code>, and <code>info rclone</code>.<br>
     URL: <a href="https://rclone.org/">https://rclone.org/</a>, <a href="https://github.com/rclone/rclone">https://github.com/rclone/rclone</a><br>
     Warning: Only the most recent version of this software will be kept.<br>
-  Versions: <em>1.53.3</em><br>
+  Versions: 1.53.3, <em>1.54.0</em><br>
   </dd>
 
   <dt>ripgrep</dt>
@@ -724,7 +724,7 @@ Python is powerful... and fast; plays well with others; runs everywhere; is frie
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(8)</a></li>
 </ul>
 
-_The above information was automatically generated on 2021-02-08 12:02:28 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2021-02-11 10:53:47 from querying `module avail` and `module spider`._
 
 
 <style>
