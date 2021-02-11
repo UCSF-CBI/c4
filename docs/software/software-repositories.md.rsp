@@ -172,7 +172,7 @@ if (length(m$description) > 0L) {
 
 
 %>
-  <dt><%= m$package %><% if (!is.null(m$parent)) cat(sprintf(" (part of %s)", m$parent)) %></dt>
+  <dt><a href="#"><%= m$package %></a><% if (!is.null(m$parent)) cat(sprintf(" (part of %s)", m$parent)) %></dt>
   <dd>
   <% if (!is.null(help)) { %>
     <strong><%= as_html(help) %></strong><br>
