@@ -1,6 +1,4 @@
-## for host in c4-n{1..9}; do
-##   echo "$host: $(ssh "$host" nproc --all 2> /dev/null)";
-## done
+## clush -L -w 'c4-n[1-22]' "nproc --all 2> /dev/null"
 nodes: 22
 physical_cores: 1516
 communal_nodes: 7
@@ -11,9 +9,6 @@ gpu_nodes: 0
 gpus: 0
 communal_gpu_nodes: 0
 communal_gpus: 0
-
-## clush -L -w 'c4-n[1-22]' "grep -c process /proc/cpuinfo"
-## Number of cores per node
 
 ## clush -b -w 'c4-n[1-22]' "free -h 2> /dev/null | grep Mem | cut -c 1-20"
 ## RAM [GiB]:
