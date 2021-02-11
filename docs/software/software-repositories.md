@@ -724,7 +724,7 @@ Python is powerful... and fast; plays well with others; runs everywhere; is frie
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(8)</a></li>
 </ul>
 
-_The above information was automatically generated on 2021-02-11 11:20:50 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2021-02-11 12:09:01 from querying `module avail` and `module spider`._
 
 
 <style>
@@ -743,31 +743,4 @@ dt:after {
 }
 </style>
 
-
-<script>
-var hash = window.location.hash.substr(1);
-if (hash) {
-  var idx = hash.indexOf("--");
-  var repo = hash;
-  var module = "";
-  if (idx >= 0) {
-    repo = hash.substring(0, idx);
-    module = hash.substring(idx+2);
-  }
-  
-//  var anchor = '#' + repo;
-//  var li = $(anchor);
-//  li.removeClass('active');
-//  anchor = '#queues-' + repo;
-//  var a = $(anchor);
-//  if (a) {
-//     a[0].click();
-//     alert("clicked: " + anchor);
-//  }
-}
-</script>
-
-
 [core software]: {{ '/software/core-software.html' | relative_url }}
-
- 
