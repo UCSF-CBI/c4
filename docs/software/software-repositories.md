@@ -743,4 +743,31 @@ dt:after {
 }
 </style>
 
+
+<script>
+var hash = window.location.hash.substr(1);
+if (hash) {
+  var idx = hash.indexOf("--");
+  var repo = hash;
+  var module = "";
+  if (idx >= 0) {
+    repo = hash.substring(0, idx);
+    module = hash.substring(idx+2);
+  }
+  
+//  var anchor = '#' + repo;
+//  var li = $(anchor);
+//  li.removeClass('active');
+//  anchor = '#queues-' + repo;
+//  var a = $(anchor);
+//  if (a) {
+//     a[0].click();
+//     alert("clicked: " + anchor);
+//  }
+}
+</script>
+
+
 [core software]: {{ '/software/core-software.html' | relative_url }}
+
+ 
