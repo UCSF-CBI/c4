@@ -114,7 +114,7 @@ c4-n20    |       48 |   2.4 GHz |   384 GiB |           7.0 TiB | SATA /scratch
 c4-n21    |       64 |   2.6 GHz |   512 GiB |          11.0 TiB | SAS  /scratch 10 Gbps ethernet                      | Witte Lab
 c4-n22    |      128 |   3.7 GHz |   512 GiB |           2.5 TiB | SSD  /scratch 10 Gbps ethernet                      | Kim Lab 
 c4-n23    |       64 |   2.3 GHz |   512 GiB |           2.5 TiB | SSD  /scratch 10 Gbps ethernet                      | Shannon Lab 
-c4-n24    |       64 |   3.7 GHz |   512 GiB |           2.5 TiB | SSD  /scratch 10 Gbps ethernet                      | Shannond Lab 
+c4-n24    |       64 |   3.7 GHz |   512 GiB |           2.5 TiB | SSD  /scratch 10 Gbps ethernet                      | Shannon Lab 
 c4-n25    |       64 |   3.7 GHz |   512 GiB |           2.5 TiB | SSD  /scratch 10 Gbps ethernet                      | Bastian Lab 
 
 <!--
