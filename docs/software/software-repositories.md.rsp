@@ -60,6 +60,10 @@ module_avail <- local({
     x <- x[o,]
     keep <- !grepl("^[.]", x$package)
     x <- x[keep,]
+
+    ## Keep also repository name
+    attr(x, "repository_name") <- info$name
+
     message("done")
 
     .cache[[key]] <<- x
@@ -172,7 +176,7 @@ if (length(m$description) > 0L) {
 
 
 %>
-  <dt><%= m$package %><% if (!is.null(m$parent)) cat(sprintf(" (part of %s)", m$parent)) %></dt>
+  <dt id="<%= attr(x, "repository_name")%>--<%= m$package %>"><%= m$package %><% if (!is.null(m$parent)) cat(sprintf(" (part of %s)", m$parent)) %></dt>
   <dd>
   <% if (!is.null(help)) { %>
     <strong><%= as_html(help) %></strong><br>

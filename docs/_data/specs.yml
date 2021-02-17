@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## for host in c4-n{1..9}; do
 ##   echo "$host: $(ssh "$host" nproc --all 2> /dev/null)";
 ## done
@@ -7,17 +8,26 @@ communal_nodes: 7
 communal_physical_cores: 524
 lab_nodes: 18
 lab_physical_cores: 1124
+=======
+## clush -L -w 'c4-n[1-22]' "nproc --all 2> /dev/null"
+nodes: 22
+physical_cores: 1516
+communal_nodes: 7
+communal_physical_cores: 380
+lab_nodes: 15
+lab_physical_cores: 1136
+>>>>>>> befea0362763fb5b39adf679d1ba3d1c95217d1b
 gpu_nodes: 0
 gpus: 0
 communal_gpu_nodes: 0
 communal_gpus: 0
 
-## clush -b -w 'c4-n[1-16]' "free -h 2> /dev/null | grep Mem | cut -c 1-20"
+## clush -b -w 'c4-n[1-22]' "free -h 2> /dev/null | grep Mem | cut -c 1-20"
 ## RAM [GiB]:
 ram_min:  32
 ram_max: 768
 
-## clush -b -w 'c4-n[1-16]' "df --portability --human-readable /scratch | tail -1 | awk '{ print \$2 }'"
+## clush -b -w 'c4-n[1-22]' "df --portability --human-readable /scratch | tail -1 | awk '{ print \$2 }'"
 ## Local /scratch [TiB]:
 local_scratch_size_min: 0.89
 local_scratch_size_max: 11
@@ -26,7 +36,7 @@ local_scratch_size_max: 11
 swap_min: 4
 swap_max: 4
 
-## clush -b -w 'c4-n[1-16]' "df --portability --human-readable /tmp | tail -1 | awk '{ print \$2 }'"
+## clush -b -w 'c4-n[1-22]' "df --portability --human-readable /tmp | tail -1 | awk '{ print \$2 }'"
 ## Local /tmp [GiB]:
 local_tmp_size_min: 8
 local_tmp_size_max: 8
