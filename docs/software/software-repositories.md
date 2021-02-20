@@ -30,7 +30,7 @@ Below are 3 software repositories, each providing a set of software tools.
 
 <ul class="nav nav-pills">
   <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(1)</a></li>
-  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(62)</a></li>
+  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(63)</a></li>
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(8)</a></li>
 </ul>
 
@@ -613,6 +613,16 @@ Tree is a recursive directory listing command that produces a depth indented lis
   Versions: <em>1.8.0</em><br>
   </dd>
 
+  <dt id="CBI--up">up</dt>
+  <dd>
+    <strong>up: The Ultimate Plumber</strong><br>
+A tool for writing Linux pipes in a terminal-based UI interactively, with instant live preview of command results. Interactively and incrementally explore textual data in Linux using text-processing utils such as grep, sort, cut, paste, awk, wc, perl, etc.  When done, press Ctrl-C to view final pipe commands, or Ctrl-X to save it to file.<br>
+    Example: <code>up --help</code>, <code>ls | up</code> (exit with Ctrl-C).<br>
+    URL: <a href="https://github.com/akavel/up">https://github.com/akavel/up</a><br>
+    Warning: Only the most recent version of this software will be kept.<br>
+  Versions: <em>0.4</em><br>
+  </dd>
+
   <dt id="CBI--varscan">varscan</dt>
   <dd>
     <strong>VarScan: Variant Detection in Massively Parallel Sequencing Data</strong><br>
@@ -730,11 +740,11 @@ Python is powerful... and fast; plays well with others; runs everywhere; is frie
 
 <ul class="nav nav-pills">
   <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(1)</a></li>
-  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(62)</a></li>
+  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(63)</a></li>
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(8)</a></li>
 </ul>
 
-_The above information was automatically generated on 2021-02-20 08:41:59 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2021-02-20 09:04:22 from querying `module avail` and `module spider`._
 
 
 <style>
