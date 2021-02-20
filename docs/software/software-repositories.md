@@ -514,7 +514,7 @@ ripgrep is a line-oriented search tool that recursively searches your current di
   <dd>
     <strong>rstudio: RStudio Desktop</strong><br>
 The RStudio Desktop is an integrated development environment (IDE) for R, a programming language for statistical computing and graphics.<br>
-    Example: <code>rstudio</code>.<br>
+    Example: <code>rstudio</code>. If you get blank window, retry with <code>QMLSCENE_DEVICE=softwarecontext rstudio</code>.<br>
     URL: <a href="https://rstudio.com/products/rstudio/#rstudio-desktop">https://rstudio.com/products/rstudio/#rstudio-desktop</a><br>
     Warning: This software works only on the development nodes and requires that X11 Forwarding or NX is enabled. For best performance, use SSH compression when using X11 Forwarding, i.e. <code>ssh -X -C ...</code>.<br>
   Versions: <em>1.4.1103</em><br>
@@ -744,7 +744,7 @@ Python is powerful... and fast; plays well with others; runs everywhere; is frie
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(8)</a></li>
 </ul>
 
-_The above information was automatically generated on 2021-02-20 09:04:22 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2021-02-20 09:20:57 from querying `module avail` and `module spider`._
 
 
 <style>
