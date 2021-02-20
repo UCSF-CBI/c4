@@ -30,7 +30,7 @@ Below are 3 software repositories, each providing a set of software tools.
 
 <ul class="nav nav-pills">
   <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(1)</a></li>
-  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(61)</a></li>
+  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(62)</a></li>
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(8)</a></li>
 </ul>
 
@@ -322,6 +322,16 @@ A collection of Git extensions to provide high-level repository operations for V
     URL: <a href="https://github.com/petervanderdoes/gitflow-avh">https://github.com/petervanderdoes/gitflow-avh</a>, <a href="https://github.com/nvie/gitflow">https://github.com/nvie/gitflow</a><br>
     Warning: Only the most recent version of this software will be kept.<br>
   Versions: <em>1.12.3</em><br>
+  </dd>
+
+  <dt id="CBI--glow">glow</dt>
+  <dd>
+    <strong>glow: Render Markdown on the CLI, with Pizzazz!</strong><br>
+Glow is a terminal based markdown reader designed from the ground up to bring out the beauty—and power—of the CLI.  Use it to discover markdown files, read documentation directly on the command line and stash markdown files to your own private collection so you can read them anywhere. Glow will find local markdown files in subdirectories or a local Git repository.<br>
+    Example: <code>glow README.md</code>, <code>glow --pager README.md</code>.<br>
+    URL: <a href="https://github.com/charmbracelet/glow">https://github.com/charmbracelet/glow</a><br>
+    Warning: Only the most recent version of this software will be kept.<br>
+  Versions: <em>1.3.0</em><br>
   </dd>
 
   <dt id="CBI--gsl">gsl</dt>
@@ -720,11 +730,11 @@ Python is powerful... and fast; plays well with others; runs everywhere; is frie
 
 <ul class="nav nav-pills">
   <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(1)</a></li>
-  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(61)</a></li>
+  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(62)</a></li>
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(8)</a></li>
 </ul>
 
-_The above information was automatically generated on 2021-02-17 12:23:22 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2021-02-20 08:41:59 from querying `module avail` and `module spider`._
 
 
 <style>
