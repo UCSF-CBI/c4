@@ -116,7 +116,7 @@ c4-n22    |      128 |   3.7 GHz |   512 GiB |           2.5 TiB | SSD  /scratch
 c4-n23    |       64 |   2.3 GHz |   512 GiB |           2.5 TiB | SSD  /scratch 10 Gbps ethernet                      | Shannon Lab 
 c4-n24    |       64 |   3.7 GHz |   512 GiB |           2.5 TiB | SSD  /scratch 10 Gbps ethernet                      | Shannon Lab 
 c4-n25    |       64 |   3.7 GHz |   512 GiB |           2.5 TiB | SSD  /scratch 10 Gbps ethernet                      | Bastian Lab 
-c4-n26    |       48 |   2.8 GHz |   256 GiB |           5.3 TiB | SATA /scratch 10 Gbps ehternet                      | SB Lab
+c4-n26    |       48 |   2.8 GHz |   256 GiB |           5.3 TiB | SATA /scratch 10 Gbps ethernet                      | SB Lab
 
 <!--
 For additional details on the compute nodes, see the <a href="#details">Details</a> section below.
