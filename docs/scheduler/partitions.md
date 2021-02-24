@@ -48,6 +48,7 @@ kimlab         up 14-00:00:0      1  drain c4-n22
 koberlab       up 14-00:00:0      1   idle c4-n18 
 krummellab     up 14-00:00:0      1   idle c4-n20 
 shannonlab     up 14-00:00:0      2   idle c4-n[23-24]
+sblab          up 14-00:00:0      1   idle c4-n26 
 wittelab       up 14-00:00:0      1  drain c4-n21 
 wittelab       up 14-00:00:0      3    mix c4-n[7-9] 
 wittelab       up 14-00:00:0      1  alloc c4-n6 
