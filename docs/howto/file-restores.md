@@ -5,14 +5,14 @@ context:
 
 # HOME Directory Backups
 
-We take two types of backups of the /c4/home directory. Nightly backups to tape and weekly rsync backups to the `/c4/backup` folder.
+We take two types of backups of the /c4/home directory. Nightly backups to tape and weekly rsync backups to the `/c4/backup/home` folder.
 
 
 ## Self service restores using the weekly backup
 
 The rsync backup runs weekly on Sundays beginning at 11PM every Saturday.
 
-Simply change directories to `/c4/home/$USER` and locate the file you need. You may then copy it to $HOME.
+Simply change directories to `/c4/backup/home/$USER` and locate the file you need. You may then copy it to $HOME.
 
 
 ## Tape backup restores (upon request)
