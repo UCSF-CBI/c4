@@ -41,18 +41,15 @@ PARTITION   AVAIL  TIMELIMIT  NODES  STATE NODELIST
 blellochlab    up 14-00:00:0      1   idle c4-n16 
 bastianlab     up 14-00:00:0      1   idle c4-n25
 cbc            up 14-00:00:0      2   idle c4-n[12-13] 
-common*        up 14-00:00:0      1    mix c4-n2 
-common*        up 14-00:00:0      6   idle c4-n[1,3-5,10-11] 
+common*        up 14-00:00:0      6   idle c4-n[1-5,10-11] 
 francislab     up 14-00:00:0      1    mix c4-n17 
-kimlab         up 14-00:00:0      1  drain c4-n22 
+kimlab         up 14-00:00:0      1   idle c4-n22 
 koberlab       up 14-00:00:0      1   idle c4-n18 
+kriegsteinlab  up 14-00:00:0      1   idle c4-n27
 krummellab     up 14-00:00:0      1   idle c4-n20 
 shannonlab     up 14-00:00:0      2   idle c4-n[23-24]
 sblab          up 14-00:00:0      1   idle c4-n26 
-wittelab       up 14-00:00:0      1  drain c4-n21 
-wittelab       up 14-00:00:0      3    mix c4-n[7-9] 
-wittelab       up 14-00:00:0      1  alloc c4-n6 
-wittelab       up 14-00:00:0      2   idle c4-n[14-15] 
+wittelab       up 14-00:00:0      2   idle c4-n[6-9,14-15] 
 zivlab         up 14-00:00:0      1   idle c4-n19 
 ```
 
