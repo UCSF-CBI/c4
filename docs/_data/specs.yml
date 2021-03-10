@@ -2,11 +2,11 @@
 ##   echo "$host: $(ssh "$host" nproc --all 2> /dev/null)";
 ## done
 nodes: 27
-physical_cores: 1796
+physical_cores: 1892
 communal_nodes: 7
 communal_physical_cores: 524
 lab_nodes: 19
-lab_physical_cores: 11236
+lab_physical_cores: 1368
 gpu_nodes: 0
 gpus: 0
 communal_gpu_nodes: 0

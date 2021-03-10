@@ -47,6 +47,7 @@ kimlab         up 14-00:00:0      1   idle c4-n22
 koberlab       up 14-00:00:0      1   idle c4-n18 
 kriegsteinlab  up 14-00:00:0      1   idle c4-n27
 krummellab     up 14-00:00:0      1   idle c4-n20 
+molinarolab    up 14-00:00:0      2   idle c4-n[28-29] 
 shannonlab     up 14-00:00:0      2   idle c4-n[23-24]
 sblab          up 14-00:00:0      1   idle c4-n26 
 wittelab       up 14-00:00:0      2   idle c4-n[6-9,14-15] 
