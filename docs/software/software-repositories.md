@@ -30,7 +30,7 @@ Below are 3 software repositories, each providing a set of software tools.
 
 <ul class="nav nav-pills">
   <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(1)</a></li>
-  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(63)</a></li>
+  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(65)</a></li>
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(8)</a></li>
 </ul>
 
@@ -473,6 +473,15 @@ PLINK is a free, open-source whole genome association analysis toolset, designed
   Versions: <em>2.00a3LM</em><br>
   </dd>
 
+  <dt id="CBI--proj">proj</dt>
+  <dd>
+    <strong>PROJ: PROJ Coordinate Transformation Software Library</strong><br>
+PROJ is a generic coordinate transformation software that transforms geospatial coordinates from one coordinate reference system (CRS) to another. This includes cartographic projections as well as geodetic transformations. PROJ includes command line applications for easy conversion of coordinates from text files or directly from user input. In addition to the command line utilities PROJ also exposes an application programming interface, or API in short. The API lets developers use the functionality of PROJ in their own software without having to implement similar functionality themselves.<br>
+    Example: <code>geod</code>, <code>proj</code> and <code>man proj</code>.<br>
+    URL: <a href="https://trac.osgeo.org/geos/">https://trac.osgeo.org/geos/</a><br>
+  Versions: <em>4.9.3</em><br>
+  </dd>
+
   <dt id="CBI--r">r</dt>
   <dd>
     <strong>R: The R Programming Language</strong><br>
@@ -564,6 +573,15 @@ SnpEff is a variant annotation and effect prediction tool. It annotates and pred
     Example: <code>snpEff -help</code>, <code>SnpSift -help</code>,  and <code>ClinEff -help</code>, which are aliases for <code>java -jar $SNPEFF_HOME/snpEff/snpEff.jar -help</code>, <code>java -jar $SNPEFF_HOME/snpEff/SnpSift.jar -help</code>, and <code>java -jar $SNPEFF_HOME/clinEff/ClinEff.jar -help</code>.<br>
     URL: <a href="http://snpeff.sourceforge.net/">http://snpeff.sourceforge.net/</a><br>
   Versions: 4.3t, <em>5.0c</em><br>
+  </dd>
+
+  <dt id="CBI--sqlite">sqlite</dt>
+  <dd>
+    <strong>sqlite: SQLite Database Engine &amp; Library</strong><br>
+SQLite is a relational database management system (RDBMS) contained in a C library. In contrast to many other database management systems, SQLite is not a client–server database engine. Rather, it is embedded into the end program.<br>
+    Example: <code>sqlite3 --version</code>.<br>
+    URL: <a href="https://sqlite.org/">https://sqlite.org/</a><br>
+  Versions: <em>3.32.3</em><br>
   </dd>
 
   <dt id="CBI--sratoolkit">sratoolkit</dt>
@@ -740,11 +758,11 @@ Python is powerful... and fast; plays well with others; runs everywhere; is frie
 
 <ul class="nav nav-pills">
   <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(1)</a></li>
-  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(63)</a></li>
+  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(65)</a></li>
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(8)</a></li>
 </ul>
 
-_The above information was automatically generated on 2021-03-09 16:29:08 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2021-03-09 20:55:18 from querying `module avail` and `module spider`._
 
 
 <style>
