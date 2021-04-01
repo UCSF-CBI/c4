@@ -31,7 +31,7 @@ Below are 3 software repositories, each providing a set of software tools.
 <ul class="nav nav-pills">
   <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(1)</a></li>
   <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(65)</a></li>
-  <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(8)</a></li>
+  <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(9)</a></li>
 </ul>
 
 <div class="tab-content" style="margin-top: 1ex;">
@@ -488,7 +488,7 @@ PROJ is a generic coordinate transformation software that transforms geospatial 
 The R programming language.<br>
     Example: <code>R --version</code> and <code>Rscript --version</code>.<br>
     URL: <a href="https://www.r-project.org/">https://www.r-project.org/</a><br>
-  Versions: 2.15.0, 3.0.0, 3.1.0, 3.2.0, 3.5.0, 3.6.0, 3.6.3, 4.0.0, 4.0.2, 4.0.3, <em>4.0.4</em><br>
+  Versions: 2.15.0, 3.0.0, 3.1.0, 3.2.0, 3.5.0, 3.6.0, 3.6.3, 4.0.0, 4.0.2, 4.0.3, 4.0.4, <em>4.0.5</em><br>
   </dd>
 
   <dt id="CBI--r-siteconfig">r-siteconfig</dt>
@@ -717,6 +717,13 @@ FlashPCA performs fast principal component analysis (PCA) of single nucleotide p
   Versions: <em>2.0.0</em><br>
   </dd>
 
+  <dt id="WitteLab--gcta">gcta</dt>
+  <dd>
+    <strong>gcta: GCTA (Genome-wide Complex Trait Analysis) was initially designed to estimate the proportion of phenotypic variance explained by all genome-wide SNPs for complex traits (i.e., the GREML method). It has been subsequently extended for many other analyses to better understand the genetic architecture of complex traits. GCTA currently supports the following analyses.</strong><br>
+Additional information can be found in the tutorial: <a href="https://cnsgenomics.com/software/gcta/#Tutorial">https://cnsgenomics.com/software/gcta/#Tutorial</a><br>
+  Versions: <em>1.93.2</em><br>
+  </dd>
+
   <dt id="WitteLab--gfetch">gfetch</dt>
   <dd>
     <strong>gfetch: Download multi-person genetic data for the UK Biobank</strong><br>
@@ -759,10 +766,10 @@ Python is powerful... and fast; plays well with others; runs everywhere; is frie
 <ul class="nav nav-pills">
   <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(1)</a></li>
   <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(65)</a></li>
-  <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(8)</a></li>
+  <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(9)</a></li>
 </ul>
 
-_The above information was automatically generated on 2021-03-09 20:55:18 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2021-04-01 08:08:07 from querying `module avail` and `module spider`._
 
 
 <style>
