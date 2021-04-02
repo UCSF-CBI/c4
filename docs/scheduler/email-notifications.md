@@ -23,7 +23,7 @@ The email notifications will be sent to the email address that is listed in your
 {{ site.user.email }}
 ```
 
-It is possible to override this by Slurm option `--mail-user=<recipient>`.
+It is possible to override this by Slurm option `--mail-user="first.last@ucsf.edu"`.
 
 
 <div class="alert alert-warning" role="alert" style="margin-top: 3ex">
