@@ -67,9 +67,9 @@ transfer1:
   hostname: "c4-dt1.ucsf.edu"
   ip: "169.230.134.197"
 transfer2:
-  name: "not-yet-available-c4-dt2"
-  hostname: "non-yet-available-c4-dt2.ucsf.edu"
-  ip: "NA.NA.NA.NA"
+  name: "c4-dt2"
+  hostname: c4-dt2.ucsf.edu"
+  ip: "169.230.134.240"
 
 globus:
   name: "UCSF#C4-HPC"
