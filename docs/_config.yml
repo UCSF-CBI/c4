@@ -68,7 +68,7 @@ transfer1:
   ip: "169.230.134.197"
 transfer2:
   name: "c4-dt2"
-  hostname: c4-dt2.ucsf.edu"
+  hostname: "c4-dt2.ucsf.edu"
   ip: "169.230.134.240"
 
 globus:
