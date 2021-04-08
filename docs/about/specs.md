@@ -73,8 +73,8 @@ The cluster has development nodes for the purpose of validating scripts, prototy
 
 Node                        | Physical Cores |      RAM | Local `/scratch` |                              CPU |                GPU |
 ----------------------------|---------------:|---------:|-----------------:|:---------------------------------|:-------------------|
-{{ site.dev1.hostname }}    |             12 |   64 GiB |         1.8  TiB | AMD Opteron 2431 2.4GHz        |                    |
-{{ site.dev2.hostname }}    |             32 |  512 GiB |         1.1  TiB | Intel Xeon E5-2640 v3 2.60GHz    |                    |
+{{ site.dev1.hostname }}    |             48 |  384 GiB |         3.6  TiB | Intel Xeon E5-2640 v3 2.60GHz         |                    |
+{{ site.dev2.hostname }}    |             48 |  512 GiB |         1.1  TiB | Intel Xeon E5-2640 v3 2.60GHz    |                    |
 {{ site.dev3.hostname }}    |             12 |   64 GiB |         3.6  TiB | AMD Opteron 2431 2.4GHz |                    |
 
 <!--
@@ -120,6 +120,7 @@ c4-n26    |       48 |   2.8 GHz |   256 GiB |           5.3 TiB | SATA /scratch
 c4-n27    |       64 |   2.1 GHz |   512 GiB |           3.1 TiB | SAS  /scratch 10 Gbps ethernet                      | Kriegstein Lab 
 c4-n28    |       48 |   2.8 GHz |   384 GiB |           5.3 TiB | SATA /scratch 10 Gbps ethernet                      | Molinaro Lab
 c4-n29    |       48 |   2.8 GHz |   384 GiB |           5.3 TiB | SATA /scratch 10 Gbps ethernet                      | Molinaro Lab
+c4-n30    |       12 |   2.3 GHz |    64 GiB |           1.7 TiB | SATA /scratch  1 Gbps ethernet                      | communal
 
 <!--
 For additional details on the compute nodes, see the <a href="#details">Details</a> section below.
