@@ -38,10 +38,12 @@ In order to see all available partitions on the cluster, use the sinfo command:
 <!-- code-block label="sinfo" -->
 ```sh
 PARTITION   AVAIL  TIMELIMIT  NODES  STATE NODELIST 
+0cdf           up 14-00:00:0      3   idle c4-n[32-34]
 blellochlab    up 14-00:00:0      1   idle c4-n16 
 bastianlab     up 14-00:00:0      1   idle c4-n25
 cbc            up 14-00:00:0      2   idle c4-n[12-13] 
 common*        up 14-00:00:0      6   idle c4-n[1-5,10-11] 
+diazlab        up 14-00:00:0      1   idle c4-n31
 francislab     up 14-00:00:0      1    mix c4-n17 
 kimlab         up 14-00:00:0      1   idle c4-n22 
 koberlab       up 14-00:00:0      1   idle c4-n18 
