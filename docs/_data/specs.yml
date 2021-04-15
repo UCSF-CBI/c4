@@ -1,12 +1,12 @@
 ## for host in c4-n{1..9}; do
 ##   echo "$host: $(ssh "$host" nproc --all 2> /dev/null)";
 ## done
-nodes: 30
-physical_cores: 1928
+nodes: 34
+physical_cores: 2184
 communal_nodes: 8
 communal_physical_cores: 392
-lab_nodes: 22
-lab_physical_cores: 1536
+lab_nodes: 26
+lab_physical_cores: 1792
 gpu_nodes: 0
 gpus: 0
 communal_gpu_nodes: 0
