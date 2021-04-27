@@ -29,9 +29,9 @@ Below are 3 software repositories, each providing a set of software tools.
 
 
 <ul class="nav nav-pills">
-  <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(1)</a></li>
+  <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(2)</a></li>
   <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(65)</a></li>
-  <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(9)</a></li>
+  <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(10)</a></li>
 </ul>
 
 <div class="tab-content" style="margin-top: 1ex;">
@@ -45,7 +45,17 @@ Enable repository: <em>this software repository is always enabled</em><br>
 <dl>
   <dt id="built-in--mpi">mpi</dt>
   <dd>
+NA<br>
   Versions: <em>openmpi-x86_64</em><br>
+  </dd>
+
+  <dt id="built-in--openjdk">openjdk</dt>
+  <dd>
+    <strong>openjdk: Open Java Development Kit</strong><br>
+OpenJDK is a free and open-source implementation of the Java Platform, Standard Edition. It is the result of an effort Sun Microsystems began in 2006.<br>
+    Example: <code>java -version</code> and <code>javac -version</code>.<br>
+    URL: <a href="https://openjdk.java.net/">https://openjdk.java.net/</a><br>
+  Versions: 1.6.0_41-b41, 1.8.0_292-b10-1, <em>11.0.11.0.9-1</em><br>
   </dd>
 
 </dl>
@@ -488,7 +498,7 @@ PROJ is a generic coordinate transformation software that transforms geospatial 
 The R programming language.<br>
     Example: <code>R --version</code> and <code>Rscript --version</code>.<br>
     URL: <a href="https://www.r-project.org/">https://www.r-project.org/</a><br>
-  Versions: 2.15.0, 3.0.0, 3.1.0, 3.2.0, 3.5.0, 3.5.3, 3.6.0, 3.6.3, 4.0.0, 4.0.2, 4.0.3, 4.0.4, <em>4.0.5</em><br>
+  Versions: 2.15.0, 3.0.0, 3.1.0, 3.2.0, 3.5.0, 3.5.3, 3.6.0, 3.6.3, 4.0.0, 4.0.2, 4.0.3, 4.0.4, 4.1.0-alpha-gcc7, <em>4.0.5</em><br>
   </dd>
 
   <dt id="CBI--r-siteconfig">r-siteconfig</dt>
@@ -590,7 +600,8 @@ SQLite is a relational database management system (RDBMS) contained in a C libra
 The SRA Toolkit and SDK from NCBI is a collection of tools and libraries for using data in the INSDC Sequence Read Archives.<br>
     Example: <code>fastq-dump --help</code>.<br>
     URL: <a href="https://ncbi.github.io/sra-tools/">https://ncbi.github.io/sra-tools/</a>, <a href="https://github.com/ncbi/sra-tools">https://github.com/ncbi/sra-tools</a><br>
-  Versions: 2.10.8, <em>2.10.9</em><br>
+    Warning: To work around a bug where <code>fasterq-dump</code> crashes the local machine, it has been tweaked such that it uses <code>$TMPDIR</code> rather than <code>$PWD</code> as the default temporary folder.<br>
+  Versions: 2.10.8, 2.10.9, <em>2.11.0</em><br>
   </dd>
 
   <dt id="CBI--star">star</dt>
@@ -732,6 +743,14 @@ gfetch client has been developed to allow Approved researchers to download eleme
   Versions: <em>1.0.0</em><br>
   </dd>
 
+  <dt id="WitteLab--hess">hess</dt>
+  <dd>
+    <strong>HESS: is a Python package that provides utilities for estimating and analyzing local SNP-heritability and genetic covariance from GWAS summary association data.</strong><br>
+NA<br>
+    URL: <a href="https://github.com/huwenboshi/hess">https://github.com/huwenboshi/hess</a><br>
+  Versions: <em>0.5.4</em><br>
+  </dd>
+
   <dt id="WitteLab--ldsc">ldsc</dt>
   <dd>
     <strong>ldsc: a command line tool for estimating heritability and genetic correlation from GWAS summary statistics. ldsc also computes LD Scores.</strong><br>
@@ -744,7 +763,7 @@ Additional information can be found at the wiki: <a href="https://github.com/bul
   <dd>
     <strong>metaxcan: a set of tools to perform twas</strong><br>
 Here you can find the latest implementation of PrediXcan: PrediXcan.py. This uses individual-level genotype and phenotype, along a mechanism's prediction model (e.g. models predicting expression or splicing quantification), to compute associations between omic features and a complex trait.<br>
-    Example: conda activate metaxcan; python ${METAXCAN_DIR}/SPrediXcan.py --help; conda deactivate<br>
+    Example: source $ENV; python ${METAXCAN_DIR}/SPrediXcan.py --help; deactivate<br>
     URL: <a href="https://github.com/hakyimlab/MetaXcan/tree/master/software">https://github.com/hakyimlab/MetaXcan/tree/master/software</a><br>
   Versions: <em>0.6.5</em><br>
   </dd>
@@ -764,12 +783,12 @@ Python is powerful... and fast; plays well with others; runs everywhere; is frie
 </div> 
 
 <ul class="nav nav-pills">
-  <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(1)</a></li>
+  <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(2)</a></li>
   <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(65)</a></li>
-  <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(9)</a></li>
+  <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(10)</a></li>
 </ul>
 
-_The above information was automatically generated on 2021-04-05 13:41:53 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2021-04-27 12:48:39 from querying `module avail` and `module spider`._
 
 
 <style>
