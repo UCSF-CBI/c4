@@ -2,7 +2,7 @@
 
 For questions and feature requests, please use one of the following channels:
 
-1. **Github Issue Tracker [c4-help](https://github.com/UCSF-CBI/c4-help/issues)** - A communal forum for {{ site.cluster.name }} users to post questions, issues, and feature requests. This tracker is visible to all C4 users and the Sysadmin team. This is the very best way to get help.  Please send us your GitHub user name.  To get a GitHub account, go to <https://github.com/join>.
+1. **Github Issue Tracker [c4-help](https://github.com/UCSF-CBI/c4-help/issues)** - A communal forum for {{ site.cluster.name }} users to post questions, issues, and feature requests.  This is the very best way to get help.  To get access, you need an GitHub invite - please send us your GitHub user name.  To get a GitHub account, go to <https://github.com/join>.
 
 2. **Mailing list [tipcc@listsrv.ucsf.edu](https://listsrv.ucsf.edu/cgi-bin/wa?A0=tipcc)** [sic!] - A communal forum where you can ask for help and discuss problems and solutions (you need to subscribe before you can post messages)
 
