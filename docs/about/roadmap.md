@@ -36,7 +36,7 @@
 
 * [ ] All TIPCC users should migrate to C4
 * [ ] We will attempt to accommodate legacy-software needs as far as possible
-
+* [ ] Job scheduler end-of-life support no longer than 2022-01-16 (Moab license expiration date)
 
 
 
