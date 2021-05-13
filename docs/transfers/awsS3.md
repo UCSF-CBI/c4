@@ -24,7 +24,7 @@ Default region name [None]: AWS-REGION-GOES-HERE
 Default output format [None]: 
 ```
 
-4. You have now completed the AWS setup. If you need to access buckets from different AWS accounts, you would re-do the above steps with the appropriate Access Key ID, Secert Access Key, and AWS region.
+4. You have now completed the AWS setup. If you need to access buckets from different AWS accounts, you would re-do the above steps with the appropriate Access Key ID, Secret Access Key, and AWS region.
 
 ## Accessing the S3 bucket from your {{ site.cluster.nickname }} account.
 
@@ -70,7 +70,7 @@ Example:
 download: s3://test-bucket/eratosthenes.r to ./eratosthenes.r
 ```
 
-2. aws s3 sync - This can be quite useful for when you want to download the entire contets of an S3 bucket to your {{ site.cluster.nickname }} storage. Remember to assess the size and calculate costs before proceeding.
+2. aws s3 sync - This can be quite useful for when you want to download the entire contents of an S3 bucket to your {{ site.cluster.nickname }} storage. Remember to assess the size and calculate costs before proceeding.
 
 Example:
 
