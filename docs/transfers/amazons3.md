@@ -2,7 +2,7 @@
 
 # Amazon Web Services S3
 
-[S3] is a for-profit service for moving, syncing, and sharing data. Users should be aware that there are AWS charges any time data is downloaded or uploaded to an AWS S3 bucket. This document is accurate as of publishing. Please be aware that Amazon AWS is ever evolving. Please check the online documentation for current syntax.
+S3 is a for-profit service for moving, syncing, and sharing data. Users should be aware that there are AWS charges any time data is downloaded or uploaded to an AWS S3 bucket. This document is accurate as of publishing. Please be aware that Amazon AWS is ever evolving. Please check the online documentation for current syntax.
 
 ## Setup of AWS Command Line Interface
 
