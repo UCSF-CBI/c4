@@ -50,7 +50,7 @@ The above shows that the S3 bucket called test-bucket contains one file called e
 
 To transfer files between AWS S3 and {{ site.cluster.nickname }}:
 
-1. aws s3 cp - This is very similar to Linux cp. You can use this to copy files from your C4 account to S3 or from S3 to your C4 storage. Be very careful with wildcards here, remember everything has a cost. When using `aws s3 cp` we reference the S3 bucket as s3://name-of-bucket. 
+### aws s3 cp - This is very similar to Linux cp. You can use this to copy files from your C4 account to S3 or from S3 to your C4 storage. Be very careful with wildcards here, remember everything has a cost. When using `aws s3 cp` we reference the S3 bucket as s3://name-of-bucket. 
 
 Example:
 
@@ -70,7 +70,7 @@ Example:
 download: s3://test-bucket/eratosthenes.r to ./eratosthenes.r
 ```
 
-2. aws s3 sync - This can be quite useful for when you want to download the entire contents of an S3 bucket to your {{ site.cluster.nickname }} storage. Remember to assess the size and calculate costs before proceeding.
+### aws s3 sync - This can be quite useful for when you want to download the entire contents of an S3 bucket to your {{ site.cluster.nickname }} storage. Remember to assess the size and calculate costs before proceeding.
 
 Example:
 
