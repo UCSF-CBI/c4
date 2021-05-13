@@ -6,7 +6,7 @@
 
 ## Setup of AWS Command Line Interface
 
-### Set up AWS credentials in your $HOME directory on either of the data transfer servers.
+### Set up AWS credentials in your $HOME directory on either of the data transfer servers
 
 If you want to transfer files from or to your {{ site.cluster.nickname }} account, you need to set up your S3 credentials.  Below is an outline on how to do this.
 
@@ -26,7 +26,7 @@ Default output format [None]:
 
 4. You have now completed the AWS setup. If you need to access buckets from different AWS accounts, you would re-do the above steps with the appropriate Access Key ID, Secret Access Key, and AWS region.
 
-## Accessing the S3 bucket from your {{ site.cluster.nickname }} account.
+## Accessing the S3 bucket from your {{ site.cluster.nickname }} account
 
 ### List all buckets the credentials allow you to access
 
