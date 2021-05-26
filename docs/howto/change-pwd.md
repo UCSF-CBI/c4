@@ -17,8 +17,8 @@ C4 passwords are subject to the following complexity rules:
 - At least three of the following four categories:
   - Lowercase letter
   - Uppercase letter
-  - Number
-  - Special character.
+  - Digit
+  - Special character from among !@#$%^&*_-+=`|\(){}:;"'<>,.?/
 
 *Note - These complexity rules do not apply to existing passwords as of 25-May-2021, next time you change passwords they do apply.*
 
