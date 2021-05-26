@@ -9,18 +9,3 @@ Use the `--partition=freecycle` flag with sbatch.
 ```sh
 [alice@{{ site.devel.name }} ~]$ sbatch --partition=freecycle my-slurm-script.sh
 ```
-
-## Make sure to set the --mail-user flag
-
-Since there is a chance your job could be cancelled, it is important to set the --mail-user flag so that you will know if a job has been cancelled. This can either be set within the script:
-
-```sh
-#SBATCH --mail-user=alice.bobson@ucsf.edu 
-```
-
-or it can be set at job submission time:
-
-```sh
-[alice@{{ site.devel.name }} ~]$ sbatch --partition=freecycle --mail-user=alice.bobson@ucsf.edu my-slurm-script.sh
-```
-
