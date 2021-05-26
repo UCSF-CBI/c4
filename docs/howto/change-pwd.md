@@ -19,7 +19,7 @@ C4 passwords are subject to the following complexity rules:
   - Lowercase letter
   - Uppercase letter
   - Digit
-  - Special character from among the folowing: 
+  - Special character from among the following: 
   
   ```sh
   !@#$%^&*_-+=\`|\(){}:;"'<>,.?/
