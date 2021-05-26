@@ -7,6 +7,22 @@ context:
 
 # {{ site.cluster.name }} Credentials
 
+The C4 cluster uses ldap to manage Linux accounts and passwords. The maximum age for a password is 365 days. When your password is within 30 days of expiring, you will start to receive system generated emails warning you to change the password.
+
+## Complexity rules
+
+C4 passwords are subject to the following complexity rules:
+
+- At least 8 total characters.
+- At least three of the following four categories:
+  - Lowercase letter
+  - Uppercase letter
+  - Number
+  - Special character.
+
+*Note - These complexity rules do not apply to existing passwords as of 25-May-2021, next time you change passwords they do apply.*
+
+There is a password history kept so you have to make your password different each time you change it.
 ## Change password
 
 If you can log in to {{ site.cluster.name }}, then you can change your credentials by calling `passwd` from one of the _login_ nodes, e.g.
