@@ -28,7 +28,9 @@ C4 passwords are subject to the following complexity rules:
 *Note - These complexity rules do not apply to existing passwords as of May 25, 2021; next time you change passwords they do apply.*
 
 There is a password history kept so you have to make your password different each time you change it.
+
 ## Change password
+
 
 If you can log in to {{ site.cluster.name }}, then you can change your credentials by calling `passwd` from one of the _login_ nodes, e.g.
 
