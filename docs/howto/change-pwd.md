@@ -20,7 +20,7 @@ C4 passwords are subject to the following complexity rules:
   - Number
   - Special character.
 
-*Note - These complexity rules do not apply to existing passwords as of 25-May-2021, next time you change passwords they do apply.*
+*Note - These complexity rules do not apply to existing passwords as of May 25, 2021; next time you change passwords they do apply.*
 
 There is a password history kept so you have to make your password different each time you change it.
 ## Change password
