@@ -30,7 +30,7 @@ Below are 3 software repositories, each providing a set of software tools.
 
 <ul class="nav nav-pills">
   <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(2)</a></li>
-  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(66)</a></li>
+  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(68)</a></li>
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(11)</a></li>
 </ul>
 
@@ -258,6 +258,15 @@ Cufflinks assembles transcripts, estimates their abundances, and tests for diffe
   Versions: <em>2.2.1</em><br>
   </dd>
 
+  <dt id="CBI--cutadapt">cutadapt</dt>
+  <dd>
+    <strong>Cutadapt: Remove Adapter Sequences from Sequencing Reads</strong><br>
+.<br>
+    Example: <code>cutadapt --version</code> and <code>cutadapt --help</code>.<br>
+    URL: <a href="https://github.com/marcelm/cutadapt">https://github.com/marcelm/cutadapt</a><br>
+  Versions: <em>3.4</em><br>
+  </dd>
+
   <dt id="CBI--emacs">emacs</dt>
   <dd>
     <strong>GNU Emacs: An Extensible, Customizable, Free/Libre Text Editor</strong><br>
@@ -439,7 +448,7 @@ GNU Midnight Commander is a visual file manager. It's a feature rich full-screen
 
   <dt id="CBI--mutect">mutect</dt>
   <dd>
-    <strong>muTect:</strong><br>
+    <strong>muTect: Identification of Somatic Point Mutations in Next Generation Sequencing Data of Cancer Genomes</strong><br>
 MuTect is a method developed at the Broad Institute for the reliable and accurate identification of somatic point mutations in next generation sequencing data of cancer genomes.<br>
     Example: <code>mutect</code>, which is short for <code>java -Xmx2g -jar &quot;$MUTECT_JAR&quot;</code>.<br>
     URL: <a href="https://github.com/broadinstitute/mutect">https://github.com/broadinstitute/mutect</a>, <a href="https://software.broadinstitute.org/cancer/cga/mutect">https://software.broadinstitute.org/cancer/cga/mutect</a><br>
@@ -651,6 +660,15 @@ Tree is a recursive directory listing command that produces a depth indented lis
   Versions: <em>1.8.0</em><br>
   </dd>
 
+  <dt id="CBI--trimgalore">trimgalore</dt>
+  <dd>
+    <strong>TrimGalore: Taking Appropriate QC Measures for RRBS-Type or Other -Seq Applications with Trim Galore!</strong><br>
+A wrapper around Cutadapt and FastQC to consistently apply adapter and quality trimming to FastQ files, with extra functionality for RRBS data.<br>
+    Example: <code>trim_galore --version</code>, <code>trim_galore --help</code>, and <code>more &quot;$TRIMGALORE_HOME/Docs/Trim_Galore_User_Guide.md&quot;</code>.<br>
+    URL: <a href="https://github.com/FelixKrueger/TrimGalore">https://github.com/FelixKrueger/TrimGalore</a><br>
+  Versions: 0.4.4, <em>0.6.6</em><br>
+  </dd>
+
   <dt id="CBI--up">up</dt>
   <dd>
     <strong>up: The Ultimate Plumber</strong><br>
@@ -802,11 +820,11 @@ performs fast gene-based and single-variants tests specifically designed for cas
 
 <ul class="nav nav-pills">
   <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(2)</a></li>
-  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(66)</a></li>
+  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(68)</a></li>
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(11)</a></li>
 </ul>
 
-_The above information was automatically generated on 2021-06-01 12:32:31 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2021-06-01 13:35:02 from querying `module avail` and `module spider`._
 
 
 <style>
