@@ -30,8 +30,8 @@ Below are 3 software repositories, each providing a set of software tools.
 
 <ul class="nav nav-pills">
   <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(2)</a></li>
-  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(65)</a></li>
-  <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(10)</a></li>
+  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(66)</a></li>
+  <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(11)</a></li>
 </ul>
 
 <div class="tab-content" style="margin-top: 1ex;">
@@ -198,7 +198,7 @@ Bowtie 2 is an ultrafast and memory-efficient tool for aligning sequencing reads
 Burrows-Wheeler Aligner (BWA) is a software package for mapping low-divergent sequences against a large reference genome, such as the human genome.<br>
     Example: <code>bwa</code>.<br>
     URL: <a href="http://bio-bwa.sourceforge.net/">http://bio-bwa.sourceforge.net/</a><br>
-  Versions: <em>0.7.17</em><br>
+  Versions: 0.5.10, <em>0.7.17</em><br>
   </dd>
 
   <dt id="CBI--byobu">byobu</dt>
@@ -294,7 +294,7 @@ fzf is a general-purpose command-line fuzzy finder. It's an interactive Unix fil
 Developed in the Data Sciences Platform at the Broad Institute, the toolkit offers a wide variety of tools with a primary focus on variant discovery and genotyping. Its powerful processing engine and high-performance computing features make it capable of taking on projects of any size.<br>
     Example: <code>gatk --help</code> and <code>gatk --list</code>.<br>
     URL: <a href="https://software.broadinstitute.org/gatk/">https://software.broadinstitute.org/gatk/</a>, <a href="https://github.com/broadinstitute/gatk/">https://github.com/broadinstitute/gatk/</a><br>
-  Versions: 4.1.7.0, 4.1.8.1, <em>4.1.9.0</em><br>
+  Versions: 4.1.7.0, 4.1.8.1, 4.1.9.0, <em>4.2.0.0</em><br>
   </dd>
 
   <dt id="CBI--gcta">gcta</dt>
@@ -437,6 +437,15 @@ GNU Midnight Commander is a visual file manager. It's a feature rich full-screen
   Versions: <em>4.8.26</em><br>
   </dd>
 
+  <dt id="CBI--mutect">mutect</dt>
+  <dd>
+    <strong>muTect:</strong><br>
+MuTect is a method developed at the Broad Institute for the reliable and accurate identification of somatic point mutations in next generation sequencing data of cancer genomes.<br>
+    Example: <code>mutect</code>, which is short for <code>java -Xmx2g -jar &quot;$MUTECT_JAR&quot;</code>.<br>
+    URL: <a href="https://github.com/broadinstitute/mutect">https://github.com/broadinstitute/mutect</a>, <a href="https://software.broadinstitute.org/cancer/cga/mutect">https://software.broadinstitute.org/cancer/cga/mutect</a><br>
+  Versions: <em>1.1.5</em><br>
+  </dd>
+
   <dt id="CBI--pandoc">pandoc</dt>
   <dd>
     <strong>Pandoc: A Universal Document Converter</strong><br>
@@ -453,7 +462,7 @@ Pandoc is a Haskell library and software tool for converting from one markup for
 Picard is a set of command line tools for manipulating high-throughput sequencing (HTS) data and formats such as SAM/BAM/CRAM and VCF.<br>
     Example: <code>picard -h</code>, which is an alias for <code>java -jar $PICARD_HOME/picard.jar -h</code><br>
     URL: <a href="http://broadinstitute.github.io/picard/">http://broadinstitute.github.io/picard/</a>, <a href="https://github.com/broadinstitute/picard">https://github.com/broadinstitute/picard</a><br>
-  Versions: 2.23.1, 2.24.0, <em>2.25.0</em><br>
+  Versions: 1.64, 2.23.1, 2.24.0, <em>2.25.0</em><br>
   </dd>
 
   <dt id="CBI--pindel">pindel</dt>
@@ -498,7 +507,7 @@ PROJ is a generic coordinate transformation software that transforms geospatial 
 The R programming language.<br>
     Example: <code>R --version</code> and <code>Rscript --version</code>.<br>
     URL: <a href="https://www.r-project.org/">https://www.r-project.org/</a><br>
-  Versions: 2.15.0, 3.0.0, 3.1.0, 3.2.0, 3.5.0, 3.5.3, 3.6.0, 3.6.3, 4.0.0, 4.0.2, 4.0.3, 4.0.4, 4.1.0-alpha-gcc7, <em>4.0.5</em><br>
+  Versions: 2.15.0, 3.0.0, 3.1.0, 3.2.0, 3.5.0, 3.5.3, 3.6.0, 3.6.3, 4.0.0, 4.0.2, 4.0.3, 4.0.4, 4.1.0-alpha-gcc4, 4.1.0-alpha-gcc7, 4.1.0-alpha-gcc9, <em>4.0.5</em><br>
   </dd>
 
   <dt id="CBI--r-siteconfig">r-siteconfig</dt>
@@ -776,6 +785,15 @@ Python is powerful... and fast; plays well with others; runs everywhere; is frie
   Versions: <em>3.9.1</em><br>
   </dd>
 
+  <dt id="WitteLab--regenie">regenie</dt>
+  <dd>
+    <strong>regenie: a C++ program for whole genome regression modelling of large genome-wide association studies developed and supported by a team of scientists at the Regeneron Genetics Center.</strong><br>
+performs fast gene-based and single-variants tests specifically designed for case-control imbalance<br>
+    Example: <code>regenie --help</code>.<br>
+    URL: <a href="https://github.com/rgcgithub/regenie">https://github.com/rgcgithub/regenie</a><br>
+  Versions: <em>2.0.2</em><br>
+  </dd>
+
 </dl>
 </div> 
 
@@ -784,11 +802,11 @@ Python is powerful... and fast; plays well with others; runs everywhere; is frie
 
 <ul class="nav nav-pills">
   <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(2)</a></li>
-  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(65)</a></li>
-  <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(10)</a></li>
+  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(66)</a></li>
+  <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(11)</a></li>
 </ul>
 
-_The above information was automatically generated on 2021-04-27 12:48:39 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2021-06-01 12:32:31 from querying `module avail` and `module spider`._
 
 
 <style>
