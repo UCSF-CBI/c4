@@ -264,7 +264,7 @@ Cufflinks assembles transcripts, estimates their abundances, and tests for diffe
 Cutadapt finds and removes adapter sequences, primers, poly-A tails and other types of unwanted sequence from your high-throughput sequencing reads.<br>
     Example: <code>cutadapt --version</code> and <code>cutadapt --help</code>.<br>
     URL: <a href="https://github.com/marcelm/cutadapt">https://github.com/marcelm/cutadapt</a><br>
-  Versions: <em>3.4</em><br>
+  Versions: 1.8.1, <em>3.4</em><br>
   </dd>
 
   <dt id="CBI--emacs">emacs</dt>
@@ -824,7 +824,7 @@ performs fast gene-based and single-variants tests specifically designed for cas
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(11)</a></li>
 </ul>
 
-_The above information was automatically generated on 2021-06-01 13:41:49 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2021-06-01 13:50:22 from querying `module avail` and `module spider`._
 
 
 <style>
