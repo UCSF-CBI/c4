@@ -1,6 +1,6 @@
 # Work with Open MPI
 
-Both openmpi2 and openmpi3 are available on development and compute nodes. Either version must be called via the `module` command. The most important thing about using openmpi is to be sure to invoke the same openmpi version with module that was used to compile the mpi code. In other words, if you compiled a program with mpicc using openmpi2, then you **must** load the openmpi2 version when you invoke the program with mpirun.
+Both Open MPI 2 and Open MPI 3 are available on development and compute nodes. Either version must be called via the `module` command. The most important thing about using Open MPI is to be sure to invoke the same Open MPI version with module that was used to compile the MPI code. In other words, if you compiled a program with mpicc using Open MPI 2, then you **must** load the Open MPI 2 version when you invoke the program with mpirun.
 
 
 ## How to use Open MPI 2
