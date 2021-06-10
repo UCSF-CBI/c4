@@ -10,12 +10,14 @@ module load mpi/openmpi-x86_64
 mpirun name_of_program
 ```
 
-## How to use open,pi3
+## How to use openmpi3
 
 ```sh
 module load mpi/openmpi3-x86_64
 mpirun name_of_program
 ```
+
+
 
 For more information about the module command see [here]
 
