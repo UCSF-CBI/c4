@@ -298,3 +298,7 @@ freecycle
 Freecycle
 ldap
 cancelled
+mpi
+mpicc
+mpirun
+openmpi
