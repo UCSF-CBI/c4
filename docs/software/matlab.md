@@ -5,7 +5,7 @@ MATLAB is available on {{ site.cluster.name }} via a built-in  [environmental mo
 
 ## Instructions for accessing MATLAB
 
-To load the module for MATLAV `module load matlab`. 
+To load the module for MATLAB `module load matlab`. 
 
 To start an interactive MATLAB session `matlab -nosplash -nodesktop`
 
