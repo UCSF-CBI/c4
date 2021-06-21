@@ -29,9 +29,9 @@ Below are 3 software repositories, each providing a set of software tools.
 
 
 <ul class="nav nav-pills">
-  <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(2)</a></li>
+  <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(3)</a></li>
   <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(68)</a></li>
-  <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(11)</a></li>
+  <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(13)</a></li>
 </ul>
 
 <div class="tab-content" style="margin-top: 1ex;">
@@ -43,10 +43,16 @@ Maintained by: {{ site.cluster.nickname }} Systems Administrators, <a href="{{ '
 Enable repository: <em>this software repository is always enabled</em><br>
 
 <dl>
+  <dt id="built-in--matlab">matlab</dt>
+  <dd>
+NA<br>
+  Versions: <em>2021a</em><br>
+  </dd>
+
   <dt id="built-in--mpi">mpi</dt>
   <dd>
 NA<br>
-  Versions: <em>openmpi-x86_64</em><br>
+  Versions: openmpi3-x86_64, <em>openmpi-x86_64</em><br>
   </dd>
 
   <dt id="built-in--openjdk">openjdk</dt>
@@ -225,10 +231,10 @@ Cell Ranger is a set of analysis pipelines that process Chromium Single Cell 3' 
   <dd>
     <strong>cluster-utils: Collection of Utilities / Helper Scripts to Make Life Easier on HPC Clusters</strong><br>
 Collection of utilities / helper scripts to make life easier on HPC clusters.<br>
-    Example: <code>ctop</code>.<br>
+    Example: <code>ctop</code> and <code>ctopx</code> (silence 'Invalid user id' output).<br>
     URL: <a href="https://github.com/molgenis/cluster-utils/">https://github.com/molgenis/cluster-utils/</a><br>
     Warning: Only the most recent version of this software will be kept.<br>
-  Versions: <em>20.07.2</em><br>
+  Versions: 20.07.2, <em>21.05.1</em><br>
   </dd>
 
   <dt id="CBI--cmake">cmake</dt>
@@ -770,6 +776,15 @@ gfetch client has been developed to allow Approved researchers to download eleme
   Versions: <em>1.0.0</em><br>
   </dd>
 
+  <dt id="WitteLab--gwama">gwama</dt>
+  <dd>
+    <strong>GWAMA: Genome-Wide Association Meta Analysis</strong><br>
+software has been developed to perform meta-analysis of the results of GWA studies of binary or quantitative phenotypes. The software incorporates error trapping facilities to identify strand alignment errors and allele flipping, and performs tests of heterogeneity of effects between studies.<br>
+    Example: <code>GWAMA --help</code>.<br>
+    URL: <a href="https://genomics.ut.ee/en/tools/gwama">https://genomics.ut.ee/en/tools/gwama</a><br>
+  Versions: <em>2.2.2</em><br>
+  </dd>
+
   <dt id="WitteLab--hess">hess</dt>
   <dd>
     <strong>HESS: is a Python package that provides utilities for estimating and analyzing local SNP-heritability and genetic covariance from GWAS summary association data.</strong><br>
@@ -784,6 +799,15 @@ NA<br>
 Additional information can be found at the wiki: <a href="https://github.com/bulik/ldsc/wiki">https://github.com/bulik/ldsc/wiki</a><br>
     URL: <a href="https://github.com/bulik/ldsc">https://github.com/bulik/ldsc</a><br>
   Versions: <em>1.0.1</em><br>
+  </dd>
+
+  <dt id="WitteLab--liftOver">liftOver</dt>
+  <dd>
+    <strong>liftOver: program can be used to convert coordinate ranges between genome assemblies</strong><br>
+This is a command-line tool, and supports forward/reverse conversions, batch conversions, and conversions between species. The LiftOver program requires a UCSC-generated over.chain file as input. Pre-generated files are available for selected assemblies here: <a href="http://hgdownload.cse.ucsc.edu/downloads.html">http://hgdownload.cse.ucsc.edu/downloads.html</a>.<br>
+    Example: <code>liftOver</code>.<br>
+    URL: <a href="https://genome-store.ucsc.edu/products/">https://genome-store.ucsc.edu/products/</a><br>
+  Versions: <em>1.0.0</em><br>
   </dd>
 
   <dt id="WitteLab--metaxcan">metaxcan</dt>
@@ -819,12 +843,12 @@ performs fast gene-based and single-variants tests specifically designed for cas
 </div> 
 
 <ul class="nav nav-pills">
-  <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(2)</a></li>
+  <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(3)</a></li>
   <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(68)</a></li>
-  <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(11)</a></li>
+  <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(13)</a></li>
 </ul>
 
-_The above information was automatically generated on 2021-06-01 13:50:22 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2021-06-21 10:49:59 from querying `module avail` and `module spider`._
 
 
 <style>
