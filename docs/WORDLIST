@@ -87,7 +87,6 @@ sacct
 Sali
 SATA
 Sandler
-SCHEDMD
 scalable
 scancel
 scontrol
@@ -301,3 +300,4 @@ mpi
 mpicc
 mpirun
 openmpi
+SchedMD
