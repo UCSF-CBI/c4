@@ -233,7 +233,6 @@ scontrol
 se
 signup
 sinfo
-slurm
 squashfs
 squeue
 srun

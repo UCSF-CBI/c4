@@ -27,7 +27,7 @@ Rscript -e "x <- rnorm(100e6); for (i in 1:100) gc(); summary(x)"
 [[ -n "$SLURM_JOB_ID" ]] && sstat --format="JobID,AveCPU,MaxRSS,MaxPages,MaxDiskRead,MaxDiskWrite" -j "$SLURM_JOB_ID"
 ```
 
-The `sstat` call will append something like the following to our slurm log file:
+The `sstat` call will append something like the following to our Slurm log file:
 
 ```sh
        JobID     AveCPU     MaxRSS MaxPages  MaxDiskRead MaxDiskWrite 
