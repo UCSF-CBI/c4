@@ -1,13 +1,10 @@
 ## Dictionary of white-listed words
 ## 2019-02-12
 ## Prefixes, e.g. de-identified
-Agard
-Andrej
 Ansible
 AveCPU
 BWA
 Bandyopadhyay
-Baranzini
 Bastian
 BeeGFS
 Bengtsson
@@ -55,8 +52,6 @@ HTSeq
 IAM
 ImageMagick
 JobID
-KHab
-Keiser
 Kerberos
 KiB
 Kober
@@ -64,11 +59,9 @@ Kriegstein
 Krita
 Krummel
 LDAP
-LePain
 Lmod
 Lua
 Macromolecular
-Majumdar
 MaxDiskRead
 MaxDiskWrite
 MaxPages
@@ -90,8 +83,6 @@ OpenGL
 Opteron
 PIs
 PUs
-Pegg
-PharmChem
 Programmatically
 PuTTY
 RBVI
@@ -100,7 +91,6 @@ RMarkdown
 Rmpi
 Roadmap
 SATA
-SBGrid
 SCL
 SCLs
 SFTP
@@ -110,13 +100,9 @@ SMP
 SSD
 SSDs
 SSL
-Sali
-Sandler
 SchedMD
 ShareAlike
-Sharmila
 ShellCheck
-Shoichet
 Slurm
 Sochat
 Sylabs
@@ -142,7 +128,6 @@ Xeon
 YAML
 ZFS
 Ziv
-abend
 abends
 au
 aws
@@ -207,24 +192,17 @@ mb
 md
 mem
 misconfiguration
-mockup
 mortem
 mpi
 mpicc
 mpirun
 msg
-myaccess
-myid
 narkive
 natively
 nds
 netapp
 nlme
-nonresponsive
-officio
-ondemand
 openmpi
-oversubscription
 passwd
 pre
 pu
@@ -232,7 +210,6 @@ pwd
 px
 py
 qb
-qmaster
 qstat
 qsub
 queueing
@@ -278,7 +255,6 @@ virtualenv
 virtualgl
 walltime
 www
-wynlog
 wynton
 wyntonquery
 xgboost
