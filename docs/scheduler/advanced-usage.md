@@ -31,4 +31,4 @@ This allows you to pass it in downstream calls, e.g. `sacct -j $job_id`.
 
 For more help on the Slurm scheduler, please see:
 
-* [Slurm Quick Start User Guide](https://slurm.schedmd.com/quickstart.html) by SCHEDMD
+* [Slurm Quick Start User Guide](https://slurm.schedmd.com/quickstart.html) by SchedMD
