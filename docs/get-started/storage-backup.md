@@ -17,6 +17,6 @@ Your $HOME directory is backed up to tape nighlty and we have a weekly rsync job
 
 ### Lab Storage
 
-In general, you must make arrangements to back up your permanent lab storage as needed. Many Labs have accquired NAS devices for this purpose. NAS devices do not necessarily protect against ransomeware if the NAS itself is compromised. UCSF IT offers immutable backup services (which do guard against ransomeware). More information may be found [here]({{ https://it.ucsf.edu/service/backup-services }}).
+In general, you must make arrangements to back up your permanent lab storage as needed. Many Labs have accquired NAS devices for this purpose. NAS devices do not necessarily protect against ransomware if the NAS itself is compromised. UCSF IT offers immutable backup services (which do guard against ransomeware). More information may be found [here]({{ https://it.ucsf.edu/service/backup-services }}).
 
 
