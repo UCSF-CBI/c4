@@ -6,7 +6,7 @@ With your {{ site.cluster.name }} cluster account, you get 1TB free storage on y
 
 In addition to the 1TB $HOME directory, we provide both global (`/c4/scratch`) and local (`/scratch`) scratch space free of charge. These are temporary storage areas for working data sets used by active work. Files on global scratch are deleted after they reach 14 days of age. Files on local scratch are deleted when the job completes.
 
-For permanent Lab storage many of our Labs have invested in storage servers. We are able to wire these to the cluster for convenient access. Please see you friendly neighborhood sysadmin for more details: [**{{ site.cluster.email_admin }}**](mailto:{{ site.cluster.email_admin }})
+For permanent Lab storage many of our Labs have invested in storage servers. We are able to wire these to the cluster for convenient access. Please see your friendly neighborhood sysadmin for more details: [**{{ site.cluster.email_admin }}**](mailto:{{ site.cluster.email_admin }})
 
 
 ## Backups
