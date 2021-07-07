@@ -14,6 +14,7 @@ For permanent Lab storage many of our Labs have invested in storage servers. We 
 ### $HOME
 
 Your $HOME directory is backed up to tape nightly and we have a weekly rsync job for self-service restores. Instructions for self-service restores may be found [here]({{ '/how-to/file-restores.html' | relative_url }}). 
+Please remember that it is the user's responsibility to make sure important data is backed up elsewhere. We do our best to back up your cluster $HOME but we have neither the budget nor the personnel to run a full-blown backup & recovery infrastructure. Media (tape) failures and site failures can and do happen.
 
 ### Lab Storage
 
