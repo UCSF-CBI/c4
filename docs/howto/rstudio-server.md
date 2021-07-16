@@ -21,7 +21,7 @@ For the purpose of this write-up we will be saving Singularity images to $HOME/s
 [alice@{{ site.devel.name }} ~]$ singularity pull --dir ${HOME}/singularity-images --name rstudio-server.sif docker://rocker/rstudio
 ```
 
-## Initial Setup - sbatch submission script.
+## Initial Setup - sbatch submission script
 
 The following is an example of an sbatch script to instantiate the container. The script does the following:
 
