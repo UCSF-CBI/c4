@@ -1,6 +1,6 @@
 # Work with Rstudio Server
 
-We are able to run Rstudio server on {{ site.cluster.name }} by levereging Singularity. The basic idea is to use a pre-built container from the Rocker project which we instantiate on a compute node via SBATCH. We then set up and ssh tunnel between Rstudio server and your endpoint device (laptop or workstation). You can then open rstudio in your local browser and use normally. We have found that this provides much better response time than attempting to run Rstudio directly on a comute node and then working directly on that using X forwarding.
+We are able to run Rstudio server on {{ site.cluster.name }} using Singularity containers. The basic idea is to use a pre-built container from the Rocker project which we instantiate on a compute node via SBATCH. We then set up and ssh tunnel between Rstudio server and your endpoint device (laptop or workstation). You can then open rstudio in your local browser and use normally. We have found that this provides much better response time than attempting to run Rstudio directly on a compute node and then working directly on that using X forwarding.
 
 <div class="alert alert-danger" role="alert" style="margin-top: 3ex">
 <strong>Pleae Note: </strong>. We are treating this approach as a BETA version. If you are having trouble with this approach, we will do our best to help on a best effort, avaialble time basis. Your mileage may vary.
@@ -21,7 +21,7 @@ For the purpose of this write-up we will be saving Singularity images to $HOME/s
 [alice@{{ site.devel.name }} ~]$ singularity pull --dir ${HOME}/singularity-images --name rstudio-server.sif docker://rocker/rstudio
 ```
 
-## Intial Setup - sbatch submission script.
+## Initial Setup - sbatch submission script.
 
 The following is an example of an sbatch script to instantiate the container. The script does the following:
 
@@ -30,7 +30,7 @@ The following is an example of an sbatch script to instantiate the container. Th
 - set a randomized password for rstudio server
 - print instructions for setting up the ssh tunnel. 
 
-This script was written by our friends at the Rocker project (<a> href="https://www.rocker-project.org/use/singularity/">rocker tutorial</a>) and lightly modified for {{ site.cluster.name }}.
+This script was written by our friends at the Rocker project (<a href="https://www.rocker-project.org/use/singularity/">rocker tutorial</a>) and lightly modified for {{ site.cluster.name }}.
 
 ```sh
 #!/bin/bash
@@ -141,5 +141,5 @@ When done using RStudio Server, terminate the job by:
 
 ```
 
-These instructions are fairly clear. TH ssh tunnel command has to run on your workstation, not the cluster. You can use either login host for this command. Make suer to quit the browser and then scancel the job. If you do that, then state is saved in your {{ site.cluster.name }} $HOME directory under $HOME/rstudio-server. The next time you start a new copy of the rocker container, rstudio will remember all the variables, open files, etc. very similar to the desktop version of rstudio.
+These instructions are fairly clear. TH ssh tunnel command has to run on your workstation, not the cluster. You can use either login host for this command. Make sure to quit the browser and then scancel the job. If you do that, then state is saved in your {{ site.cluster.name }} $HOME directory under $HOME/rstudio-server. The next time you start a new copy of the rocker container, rstudio will remember all the variables, open files, etc. very similar to the desktop version of rstudio.
 
