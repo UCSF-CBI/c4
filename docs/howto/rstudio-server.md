@@ -1,6 +1,6 @@
 # Work with Rstudio Server
 
-We are able to run Rstudio server on {{ site.cluster.name }} using Singularity containers. The basic idea is to use a pre-built container from the Rocker project which we instantiate on a compute node via SBATCH. We then set up and ssh tunnel between Rstudio server and your endpoint device (laptop or workstation). You can then open rstudio in your local browser and use normally. We have found that this provides much better response time than attempting to run Rstudio directly on a compute node and then working directly on that using X forwarding.
+We are able to run Rstudio server on {{ site.cluster.name }} using Singularity containers. The basic idea is to use a pre-built container from the Rocker project which we instantiate on a compute node via SBATCH. We then set up an ssh tunnel between Rstudio server and your endpoint device (laptop or workstation). You can then open rstudio in your local browser and use normally. We have found that this provides much better response time than attempting to run Rstudio directly on a compute node and then working directly on that using X forwarding.
 
 <div class="alert alert-danger" role="alert" style="margin-top: 3ex">
 <strong>Pleae Note: </strong>. We are treating this approach as a BETA version. If you are having trouble with this approach, we will do our best to help on a best effort, avaialble time basis. Your mileage may vary.
