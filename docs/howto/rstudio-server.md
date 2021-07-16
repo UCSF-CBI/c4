@@ -141,5 +141,5 @@ When done using RStudio Server, terminate the job by:
 
 ```
 
-These instructions are fairly clear. TH ssh tunnel command has to run on your workstation, not the cluster. You can use either login host for this command. Make sure to quit the browser and then scancel the job. If you do that, then state is saved in your {{ site.cluster.name }} $HOME directory under $HOME/rstudio-server. The next time you start a new copy of the rocker container, rstudio will remember all the variables, open files, etc. very similar to the desktop version of rstudio.
+These instructions are fairly clear. The ssh tunnel command has to run on your workstation, not the cluster. You can use either login host for this command. Make sure to quit the browser and then scancel the job. If you do that, then state is saved in your {{ site.cluster.name }} $HOME directory under $HOME/rstudio-server. The next time you start a new copy of the rocker container, rstudio will remember all the variables, open files, etc. very similar to the desktop version of rstudio. 
 
