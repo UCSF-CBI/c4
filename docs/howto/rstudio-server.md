@@ -123,7 +123,7 @@ Submitted batch job 203779
 [alice@{{ site.devel.name }} ~]$ cat rstudio-server.job.203779
 1. SSH tunnel from your workstation using the following command:
 
-   ssh -N -L 8787:c4-n12:39174 hputnam@c4-log2
+   ssh -N -L 8787:c4-n12:39174 alice@c4-log2
 
    and point your web browser to http://localhost:8787
 
