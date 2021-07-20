@@ -67,6 +67,8 @@ You can also use X11 forwarding over the SSH connection used to connect to {{ si
 
 Note that, to do this, you will need to be running an X server on your local machine.  You can check this by verifying that environment variable `DISPLAY` is set on your local computer, e.g.
 
+For Mac users, you will want to use the open source XQuartz package for this <a href="https://www.xquartz.org/">xquartz.org</a>
+
 ```sh
 {local}$ echo "DISPLAY='$DISPLAY'"
 DISPLAY=':0'
@@ -85,7 +87,11 @@ then you don't have a local X server set up and the below will _not_ work.
 
 ### Log into the cluster with X11 forwarding
 
-To setup the X11 forwarding when connecting to the cluster, just add option `-X` to your SSH call.  For performance reasons, we will also add option `-C` to enable SSH compression.  By using compression, the responsiveness and latency in GUIs will be much smaller - our benchmarks show a 5-7 times improvement when connected via the UCSF VPN (~60 Mbps download and ~5 Mbps upload).  To login with X11 forwarding and compression enabled, do:
+To setup the X11 forwarding when connecting to the cluster, just add option `-X` to your SSH call.  For performance reasons, we will also add option `-C` to enable SSH compression.  By using compression, the responsiveness and latency in GUIs will be much smaller - our benchmarks show a 5-7 times improvement when connected via the UCSF VPN (~60 Mbps download and ~5 Mbps upload).  
+
+Mac users - for all the below instructions you will need to use `ssh -Y` secure x-forwarding. Unlike most Linux distros, OSX does not trust remote X servers by default.
+
+To login with X11 forwarding and compression enabled, do:
 
 ```sh
 {local}$ ssh -X -C alice@{{ site.login.hostname }}
