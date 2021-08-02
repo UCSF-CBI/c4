@@ -24,7 +24,7 @@ cluster:
   version: ""
   email_admin: harry.putnam@ucsf.edu
   email_support: harry.putnam@ucsf.edu
-  status: problematic
+  status: ok
  
 login:
   name: "c4-log1"
