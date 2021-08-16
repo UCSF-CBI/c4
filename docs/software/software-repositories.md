@@ -848,7 +848,7 @@ performs fast gene-based and single-variants tests specifically designed for cas
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(13)</a></li>
 </ul>
 
-_The above information was automatically generated on 2021-08-16 07:06:09 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2021-08-16 07:11:21 from querying `module avail` and `module spider`._
 
 
 <style>
