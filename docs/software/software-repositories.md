@@ -522,7 +522,7 @@ PROJ is a generic coordinate transformation software that transforms geospatial 
 The R programming language.<br>
     Example: <code>R --version</code> and <code>Rscript --version</code>.<br>
     URL: <a href="https://www.r-project.org/">https://www.r-project.org/</a><br>
-  Versions: 2.15.0, 3.0.0, 3.1.0, 3.2.0, 3.3.0, 3.5.0, 3.5.3, 3.6.0, 3.6.3, 4.0.0, 4.0.2, 4.0.3, 4.0.4, 4.1.0-gcc8, 4.1.1-gcc8, <em>4.0.5</em><br>
+  Versions: 2.15.0, 3.0.0, 3.1.0, 3.2.0, 3.3.0, 3.5.0, 3.5.3, 3.6.0, 3.6.3, 4.0.0, 4.0.2, 4.0.3, 4.0.4, 4.0.5, 4.1.0-gcc8, <em>4.1.1-gcc8</em><br>
   </dd>
 
   <dt id="CBI--r-siteconfig">r-siteconfig</dt>
@@ -848,7 +848,7 @@ performs fast gene-based and single-variants tests specifically designed for cas
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(13)</a></li>
 </ul>
 
-_The above information was automatically generated on 2021-08-16 07:32:56 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2021-08-16 07:34:23 from querying `module avail` and `module spider`._
 
 
 <style>
