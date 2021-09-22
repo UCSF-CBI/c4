@@ -94,7 +94,7 @@ ASCIIGenome is a genome browser based on command line interface and designed for
 bamUtil is a repository that contains several programs that perform operations on SAM/BAM files. All of these programs are built into a single executable, <code>bam</code>.<br>
     Example: <code>bam help</code>.<br>
     URL: <a href="https://genome.sph.umich.edu/wiki/BamUtil">https://genome.sph.umich.edu/wiki/BamUtil</a>, <a href="https://github.com/statgen/bamUtil">https://github.com/statgen/bamUtil</a><br>
-  Versions: <em>1.0.14</em><br>
+  Versions: 1.0.14, <em>1.0.15</em><br>
   </dd>
 
   <dt id="CBI--bashdb">bashdb</dt>
@@ -113,7 +113,7 @@ A cat(1) clone with syntax highlighting and Git integration.<br>
     Example: <code>bat README.md</code>, <code>bat scripts/*.sh</code>, and <code>bat src/*.c</code>.<br>
     URL: <a href="https://github.com/sharkdp/bat">https://github.com/sharkdp/bat</a><br>
     Warning: Only the most recent version of this software will be kept.<br>
-  Versions: <em>0.17.1</em><br>
+  Versions: 0.17.1, <em>0.18.3</em><br>
   </dd>
 
   <dt id="CBI--bats-core">bats-core</dt>
@@ -130,8 +130,8 @@ Bats is a TAP-compliant testing framework for Bash. It provides a simple way to 
     <strong>BCFtools: Utilities for Variant Calling and Manipulating VCFs and BCFs</strong><br>
 BCFtools is a set of utilities that manipulate variant calls in the Variant Call Format (VCF) and its binary counterpart BCF. All commands work transparently with both VCFs and BCFs, both uncompressed and BGZF-compressed.<br>
     Example: <code>bcftools --version</code><br>
-    URL: <a href="http://www.htslib.org/">http://www.htslib.org/</a><br>
-  Versions: 1.11, <em>1.10.2</em><br>
+    URL: <a href="https://www.htslib.org/">https://www.htslib.org/</a>, <a href="https://github.com/samtools/bcftools">https://github.com/samtools/bcftools</a><br>
+  Versions: 1.10.2, 1.11, 1.12, <em>1.13</em><br>
   </dd>
 
   <dt id="CBI--bcl2fastq">bcl2fastq</dt>
@@ -167,7 +167,7 @@ Collectively, the bedtools utilities are a swiss-army knife of tools for a wide-
 BLAST finds regions of similarity between biological sequences. The program compares nucleotide or protein sequences to sequence databases and calculates the statistical significance.<br>
     Example: <code>blastx -version</code><br>
     URL: <a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">https://blast.ncbi.nlm.nih.gov/Blast.cgi</a><br>
-  Versions: 2.10.1, <em>2.11.0</em><br>
+  Versions: 2.10.1, 2.11.0, <em>2.12.0</em><br>
   </dd>
 
   <dt id="CBI--blat">blat</dt>
@@ -186,7 +186,7 @@ Bowtie is an ultrafast, memory-efficient short read aligner.<br>
     Example: <code>bowtie --version</code> and <code>ls $BOWTIE_HOME/{genomes,indexes}</code><br>
     Note: This is Bowtie v1 - <em>not v2</em>.<br>
     URL: <a href="http://bowtie-bio.sourceforge.net/index.shtml">http://bowtie-bio.sourceforge.net/index.shtml</a><br>
-  Versions: 1.2.3, <em>1.3.0</em><br>
+  Versions: 1.2.3, 1.3.0, <em>1.3.1</em><br>
   </dd>
 
   <dt id="CBI--bowtie2">bowtie2</dt>
@@ -195,7 +195,7 @@ Bowtie is an ultrafast, memory-efficient short read aligner.<br>
 Bowtie 2 is an ultrafast and memory-efficient tool for aligning sequencing reads to long reference sequences.<br>
     Example: <code>bowtie2 --version</code><br>
     URL: <a href="http://bowtie-bio.sourceforge.net/bowtie2/index.shtml">http://bowtie-bio.sourceforge.net/bowtie2/index.shtml</a><br>
-  Versions: 2.4.1, <em>2.4.2</em><br>
+  Versions: 2.4.1, 2.4.2, <em>2.4.4</em><br>
   </dd>
 
   <dt id="CBI--bwa">bwa</dt>
@@ -223,8 +223,8 @@ Byobu is an elegant enhancement of the otherwise functional, plain, practical GN
 Cell Ranger is a set of analysis pipelines that process Chromium Single Cell 3' RNA-seq output to align reads, generate gene-cell matrices and perform clustering and gene expression analysis.<br>
     Example: <code>cellranger</code>.<br>
     URL: <a href="https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/what-is-cell-ranger">https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/what-is-cell-ranger</a><br>
-    Warning: To prevent a single Cell Ranger process from hijacking all CPU and RAM by default, this module sets environment variable MROFLAGS='--localcores=1 --localmem=8 --limit-loadavg' making those the default.<br>
-  Versions: 4.0.0, <em>5.0.1</em><br>
+    Warning: To prevent a single Cell Ranger process from hijacking all CPU and RAM by default, this module sets environment variable <code>MROFLAGS='--localcores=1 --localmem=8 --limit-loadavg'</code> making those the default.<br>
+  Versions: 4.0.0, 5.0.1, <em>6.1.1</em><br>
   </dd>
 
   <dt id="CBI--cluster-utils">cluster-utils</dt>
@@ -280,7 +280,7 @@ At its core is an interpreter for Emacs Lisp, a dialect of the Lisp programming 
     Example: <code>emacs --version</code> and <code>emacs -nw</code>.<br>
     URL: <a href="https://www.gnu.org/software/emacs/">https://www.gnu.org/software/emacs/</a><br>
     Warning: Only the most recent version of this software will be kept.<br>
-  Versions: 26.3, <em>27.1</em><br>
+  Versions: 26.3, 27.1, <em>27.2</em><br>
   </dd>
 
   <dt id="CBI--fastqc">fastqc</dt>
@@ -300,7 +300,7 @@ fzf is a general-purpose command-line fuzzy finder. It's an interactive Unix fil
     Note: To install tab completions and key bindinds to your shell, call <code>$FZF_HOME/install</code>. To uninstall, use <code>$FZF_HOME/uninstall</code>.<br>
     URL: <a href="https://github.com/junegunn/fzf">https://github.com/junegunn/fzf</a>, <a href="https://github.com/junegunn/fzf/wiki">https://github.com/junegunn/fzf/wiki</a><br>
     Warning: Only the most recent version of this software will be kept.<br>
-  Versions: 0.22.0, <em>0.25.1</em><br>
+  Versions: 0.22.0, 0.25.1, <em>0.27.2</em><br>
   </dd>
 
   <dt id="CBI--gatk">gatk</dt>
@@ -309,7 +309,7 @@ fzf is a general-purpose command-line fuzzy finder. It's an interactive Unix fil
 Developed in the Data Sciences Platform at the Broad Institute, the toolkit offers a wide variety of tools with a primary focus on variant discovery and genotyping. Its powerful processing engine and high-performance computing features make it capable of taking on projects of any size.<br>
     Example: <code>gatk --help</code> and <code>gatk --list</code>.<br>
     URL: <a href="https://software.broadinstitute.org/gatk/">https://software.broadinstitute.org/gatk/</a>, <a href="https://github.com/broadinstitute/gatk/">https://github.com/broadinstitute/gatk/</a><br>
-  Versions: 4.1.7.0, 4.1.8.1, 4.1.9.0, <em>4.2.0.0</em><br>
+  Versions: 4.1.7.0, 4.1.8.1, 4.1.9.0, 4.2.0.0, <em>4.2.2.0</em><br>
   </dd>
 
   <dt id="CBI--gcta">gcta</dt>
@@ -356,7 +356,7 @@ Glow is a terminal based markdown reader designed from the ground up to bring ou
     Example: <code>glow README.md</code>, <code>glow --pager README.md</code>.<br>
     URL: <a href="https://github.com/charmbracelet/glow">https://github.com/charmbracelet/glow</a><br>
     Warning: Only the most recent version of this software will be kept.<br>
-  Versions: <em>1.3.0</em><br>
+  Versions: 1.3.0, <em>1.4.1</em><br>
   </dd>
 
   <dt id="CBI--gsl">gsl</dt>
@@ -365,16 +365,16 @@ Glow is a terminal based markdown reader designed from the ground up to bring ou
 The GNU Scientific Library (GSL) is a numerical library for C and C++ programmers. It is free software under the GNU General Public License. The library provides a wide range of mathematical routines such as random number generators, special functions and least-squares fitting. There are over 1000 functions in total with an extensive test suite.<br>
     Example: <code>gsl-config --version</code><br>
     URL: <a href="https://www.gnu.org/software/gsl/">https://www.gnu.org/software/gsl/</a><br>
-  Versions: <em>2.6</em><br>
+  Versions: 2.6, <em>2.7</em><br>
   </dd>
 
   <dt id="CBI--hdf5">hdf5</dt>
   <dd>
     <strong>hdf5: A General Purpose Library and File Format for Storing Scientific Data</strong><br>
 Hierarchical Data Format (HDF) is a set of file formats (HDF4, HDF5) designed to store and organize large amounts of data. The HDF5 format is designed to address some of the limitations of the HDF4 library, and to address current and anticipated requirements of modern systems and applications.<br>
-    Example: <code>h5cc --version</code><br>
+    Example: <code>h5stat --version</code><br>
     URL: <a href="https://www.hdfgroup.org/downloads/hdf5/">https://www.hdfgroup.org/downloads/hdf5/</a><br>
-  Versions: <em>1.12.0</em><br>
+  Versions: 1.12.0, <em>1.12.1</em><br>
   </dd>
 
   <dt id="CBI--hisat2">hisat2</dt>
@@ -393,7 +393,7 @@ HISAT2 is a fast and sensitive alignment program for mapping next-generation seq
     Example: <code>htop</code>.<br>
     URL: <a href="https://htop.dev">https://htop.dev</a>, <a href="https://github.com/htop-dev/htop">https://github.com/htop-dev/htop</a><br>
     Warning: Only the most recent version of this software will be kept.<br>
-  Versions: 3.0.4, <em>3.0.5</em><br>
+  Versions: 3.0.4, 3.0.5, <em>3.1.0</em><br>
   </dd>
 
   <dt id="CBI--htslib">htslib</dt>
@@ -401,8 +401,8 @@ HISAT2 is a fast and sensitive alignment program for mapping next-generation seq
     <strong>HTSlib: C Library for High-Throughput Sequencing Data Formats</strong><br>
 HTSlib is an implementation of a unified C library for accessing common file formats, such as SAM, CRAM and VCF, used for high-throughput sequencing data, and is the core library used by samtools and bcftools. HTSlib also provides the bgzip, htsfile, and tabix utilities.<br>
     Example: <code>bgzip --version</code>, <code>htsfile --version</code>, and <code>tabix --version</code>.<br>
-    URL: <a href="http://www.htslib.org/">http://www.htslib.org/</a><br>
-  Versions: 1.11, <em>1.10.2</em><br>
+    URL: <a href="https://www.htslib.org/">https://www.htslib.org/</a>, <a href="https://github.com/samtools/htslib">https://github.com/samtools/htslib</a><br>
+  Versions: 1.10.2, 1.11, 1.12, <em>1.13</em><br>
   </dd>
 
   <dt id="CBI--igv">igv</dt>
@@ -412,7 +412,7 @@ The Integrative Genomics Viewer (IGV) is a high-performance visualization tool f
     Example: <code>igv</code>.<br>
     Note: IGV (&gt;= 2.5.0) requires Java 11. Coincidentally, <code>igvtools</code> is integrated with IGV (&gt;= 2.5.0).<br>
     URL: <a href="https://software.broadinstitute.org/software/igv/">https://software.broadinstitute.org/software/igv/</a><br>
-  Versions: 2.8.6, 2.8.13, <em>2.9.1</em><br>
+  Versions: 2.8.6, 2.8.13, 2.9.1, <em>2.11.0</em><br>
   </dd>
 
   <dt id="CBI--igvtools">igvtools</dt>
@@ -449,7 +449,7 @@ GNU Midnight Commander is a visual file manager. It's a feature rich full-screen
     Example: <code>mc</code> and <code>mc --version</code>.<br>
     URL: <a href="http://www.midnight-commander.org/">http://www.midnight-commander.org/</a>, <a href="https://github.com/MidnightCommander/mc">https://github.com/MidnightCommander/mc</a><br>
     Warning: Only the most recent version of this software will be kept.<br>
-  Versions: <em>4.8.26</em><br>
+  Versions: 4.8.26, <em>4.8.27</em><br>
   </dd>
 
   <dt id="CBI--mutect">mutect</dt>
@@ -468,7 +468,7 @@ Pandoc is a Haskell library and software tool for converting from one markup for
     Example: <code>pandoc --version</code>.<br>
     URL: <a href="https://pandoc.org/">https://pandoc.org/</a>, <a href="https://github.com/jgm/pandoc">https://github.com/jgm/pandoc</a><br>
     Warning: Only the most recent version of this software will be kept.<br>
-  Versions: 2.10.1, 2.11.3.2, <em>2.11.4</em><br>
+  Versions: 2.10.1, 2.11.3.2, 2.11.4, <em>2.14.2</em><br>
   </dd>
 
   <dt id="CBI--picard">picard</dt>
@@ -477,7 +477,7 @@ Pandoc is a Haskell library and software tool for converting from one markup for
 Picard is a set of command line tools for manipulating high-throughput sequencing (HTS) data and formats such as SAM/BAM/CRAM and VCF.<br>
     Example: <code>picard -h</code>, which is an alias for <code>java -jar $PICARD_HOME/picard.jar -h</code><br>
     URL: <a href="http://broadinstitute.github.io/picard/">http://broadinstitute.github.io/picard/</a>, <a href="https://github.com/broadinstitute/picard">https://github.com/broadinstitute/picard</a><br>
-  Versions: 1.64, 2.23.1, 2.24.0, <em>2.25.0</em><br>
+  Versions: 1.64, 2.23.1, 2.24.0, 2.25.0, <em>2.26.2</em><br>
   </dd>
 
   <dt id="CBI--pindel">pindel</dt>
@@ -512,7 +512,7 @@ PLINK is a free, open-source whole genome association analysis toolset, designed
     <strong>PROJ: PROJ Coordinate Transformation Software Library</strong><br>
 PROJ is a generic coordinate transformation software that transforms geospatial coordinates from one coordinate reference system (CRS) to another. This includes cartographic projections as well as geodetic transformations. PROJ includes command line applications for easy conversion of coordinates from text files or directly from user input. In addition to the command line utilities PROJ also exposes an application programming interface, or API in short. The API lets developers use the functionality of PROJ in their own software without having to implement similar functionality themselves.<br>
     Example: <code>geod</code>, <code>proj</code> and <code>man proj</code>.<br>
-    URL: <a href="https://trac.osgeo.org/geos/">https://trac.osgeo.org/geos/</a><br>
+    URL: <a href="https://proj.org/">https://proj.org/</a><br>
   Versions: <em>4.9.3</em><br>
   </dd>
 
@@ -540,7 +540,7 @@ Rclone is a command line program to sync files and directories to and from a lar
     Example: <code>rclone --version</code>, <code>rclone --help</code>, <code>rclone config</code>, and <code>info rclone</code>.<br>
     URL: <a href="https://rclone.org/">https://rclone.org/</a>, <a href="https://github.com/rclone/rclone">https://github.com/rclone/rclone</a><br>
     Warning: Only the most recent version of this software will be kept.<br>
-  Versions: 1.53.3, <em>1.54.0</em><br>
+  Versions: 1.53.3, 1.54.0, <em>1.56.1</em><br>
   </dd>
 
   <dt id="CBI--ripgrep">ripgrep</dt>
@@ -550,7 +550,7 @@ ripgrep is a line-oriented search tool that recursively searches your current di
     Example: <code>rg --version</code> and <code>rg -i 'lorem ipsum'</code>.<br>
     URL: <a href="https://github.com/BurntSushi/ripgrep">https://github.com/BurntSushi/ripgrep</a><br>
     Warning: Only the most recent version of this software will be kept.<br>
-  Versions: <em>12.1.1</em><br>
+  Versions: 12.1.1, <em>13.0.0</em><br>
   </dd>
 
   <dt id="CBI--rstudio">rstudio</dt>
@@ -558,9 +558,9 @@ ripgrep is a line-oriented search tool that recursively searches your current di
     <strong>rstudio: RStudio Desktop</strong><br>
 The RStudio Desktop is an integrated development environment (IDE) for R, a programming language for statistical computing and graphics.<br>
     Example: <code>rstudio</code>. If you get blank window, retry with <code>QMLSCENE_DEVICE=softwarecontext rstudio</code>.<br>
-    URL: <a href="https://rstudio.com/products/rstudio/#rstudio-desktop">https://rstudio.com/products/rstudio/#rstudio-desktop</a><br>
+    URL: <a href="https://rstudio.com/products/rstudio/#rstudio-desktop">https://rstudio.com/products/rstudio/#rstudio-desktop</a>, <a href="https://www.rstudio.com/products/rstudio/download/">https://www.rstudio.com/products/rstudio/download/</a><br>
     Warning: This software works only on the development nodes and requires that X11 Forwarding or NX is enabled. For best performance, use SSH compression when using X11 Forwarding, i.e. <code>ssh -X -C ...</code>.<br>
-  Versions: <em>1.4.1103</em><br>
+  Versions: 1.4.1103, <em>1.4.1717</em><br>
   </dd>
 
   <dt id="CBI--salmon">salmon</dt>
@@ -569,7 +569,7 @@ The RStudio Desktop is an integrated development environment (IDE) for R, a prog
 Highly-accurate &amp; wicked fast transcript-level quantification from RNA-seq reads using selective alignment.<br>
     Example: <code>salmon --version</code>.<br>
     URL: <a href="https://combine-lab.github.io/salmon/">https://combine-lab.github.io/salmon/</a>, <a href="https://github.com/COMBINE-lab/salmon">https://github.com/COMBINE-lab/salmon</a><br>
-  Versions: 1.3.0, <em>1.4.0</em><br>
+  Versions: 1.3.0, 1.4.0, <em>1.5.2</em><br>
   </dd>
 
   <dt id="CBI--samtools">samtools</dt>
@@ -577,8 +577,8 @@ Highly-accurate &amp; wicked fast transcript-level quantification from RNA-seq r
     <strong>SAMtools: Tools (written in C using htslib) for Manipulating Next-Generation Sequencing Data</strong><br>
 SAMtools is a suite of programs for interacting with high-throughput sequencing data.<br>
     Example: <code>samtools --version</code>.<br>
-    URL: <a href="http://www.htslib.org/">http://www.htslib.org/</a><br>
-  Versions: 1.11, <em>1.10</em><br>
+    URL: <a href="https://www.htslib.org/">https://www.htslib.org/</a>, <a href="https://github.com/samtools/samtools">https://github.com/samtools/samtools</a><br>
+  Versions: 1.10, 1.11, 1.12, <em>1.13</em><br>
   </dd>
 
   <dt id="CBI--scl-devtoolset">scl-devtoolset</dt>
@@ -597,7 +597,7 @@ ShellCheck finds bugs in your shell scripts.<br>
     Example: <code>shellcheck --version</code> and <code>shellcheck -x ~/.bashrc</code>.<br>
     URL: <a href="https://www.shellcheck.net/">https://www.shellcheck.net/</a>, <a href="https://github.com/koalaman/shellcheck/">https://github.com/koalaman/shellcheck/</a><br>
     Warning: Only the most recent version of this software will be kept.<br>
-  Versions: <em>0.7.1</em><br>
+  Versions: 0.7.1, <em>0.7.2</em><br>
   </dd>
 
   <dt id="CBI--snpeff">snpeff</dt>
@@ -606,7 +606,7 @@ ShellCheck finds bugs in your shell scripts.<br>
 SnpEff is a variant annotation and effect prediction tool. It annotates and predicts the effects of variants on genes (such as amino acid changes).<br>
     Example: <code>snpEff -help</code>, <code>SnpSift -help</code>,  and <code>ClinEff -help</code>, which are aliases for <code>java -jar $SNPEFF_HOME/snpEff/snpEff.jar -help</code>, <code>java -jar $SNPEFF_HOME/snpEff/SnpSift.jar -help</code>, and <code>java -jar $SNPEFF_HOME/clinEff/ClinEff.jar -help</code>.<br>
     URL: <a href="http://snpeff.sourceforge.net/">http://snpeff.sourceforge.net/</a><br>
-  Versions: 4.3t, <em>5.0c</em><br>
+  Versions: 4.3t, 5.0c, <em>5.0e</em><br>
   </dd>
 
   <dt id="CBI--sqlite">sqlite</dt>
@@ -624,8 +624,8 @@ SQLite is a relational database management system (RDBMS) contained in a C libra
 The SRA Toolkit and SDK from NCBI is a collection of tools and libraries for using data in the INSDC Sequence Read Archives.<br>
     Example: <code>fastq-dump --help</code>.<br>
     URL: <a href="https://ncbi.github.io/sra-tools/">https://ncbi.github.io/sra-tools/</a>, <a href="https://github.com/ncbi/sra-tools">https://github.com/ncbi/sra-tools</a><br>
-    Warning: To work around a bug where <code>fasterq-dump</code> crashes the local machine, it has been tweaked such that it uses <code>$TMPDIR</code> rather than <code>$PWD</code> as the default temporary folder.<br>
-  Versions: 2.10.8, 2.10.9, <em>2.11.0</em><br>
+    Warning: To work around a bug where <code>fasterq-dump</code> crashes the local machine, it has been tweaked such that it uses <code>$TMPDIR</code> rather than <code>$PWD</code> as the default temporary folder and it will only use two threads instead of six by default.<br>
+  Versions: 2.10.8, 2.10.9, 2.11.0, <em>2.11.1</em><br>
   </dd>
 
   <dt id="CBI--star">star</dt>
@@ -634,7 +634,7 @@ The SRA Toolkit and SDK from NCBI is a collection of tools and libraries for usi
 STAR (Spliced Transcripts Alignment to a Reference) is a fast NGS read aligner for RNA-seq data.<br>
     Example: <code>STAR --help</code>.<br>
     URL: <a href="https://github.com/alexdobin/STAR">https://github.com/alexdobin/STAR</a><br>
-  Versions: 2.7.5a, 2.7.5c, <em>2.7.7a</em><br>
+  Versions: 2.7.5a, 2.7.5c, 2.7.7a, <em>2.7.9a</em><br>
   </dd>
 
   <dt id="CBI--tmux">tmux</dt>
@@ -833,7 +833,7 @@ Python is powerful... and fast; plays well with others; runs everywhere; is frie
 performs fast gene-based and single-variants tests specifically designed for case-control imbalance<br>
     Example: <code>regenie --help</code>.<br>
     URL: <a href="https://github.com/rgcgithub/regenie">https://github.com/rgcgithub/regenie</a><br>
-  Versions: <em>2.2.0</em><br>
+  Versions: <em>2.2.4</em><br>
   </dd>
 
 </dl>
@@ -848,7 +848,7 @@ performs fast gene-based and single-variants tests specifically designed for cas
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(13)</a></li>
 </ul>
 
-_The above information was automatically generated on 2021-08-16 07:34:23 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2021-09-22 16:03:34 from querying `module avail` and `module spider`._
 
 
 <style>
