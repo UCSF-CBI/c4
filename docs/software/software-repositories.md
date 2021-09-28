@@ -578,7 +578,7 @@ Highly-accurate &amp; wicked fast transcript-level quantification from RNA-seq r
 SAMtools is a suite of programs for interacting with high-throughput sequencing data.<br>
     Example: <code>samtools --version</code>.<br>
     URL: <a href="https://www.htslib.org/">https://www.htslib.org/</a>, <a href="https://github.com/samtools/samtools">https://github.com/samtools/samtools</a><br>
-  Versions: 1.10, 1.11, 1.12, <em>1.13</em><br>
+  Versions: 0.1.12a, 0.1.18, 1.10, 1.11, 1.12, <em>1.13</em><br>
   </dd>
 
   <dt id="CBI--scl-devtoolset">scl-devtoolset</dt>
@@ -848,7 +848,7 @@ performs fast gene-based and single-variants tests specifically designed for cas
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(13)</a></li>
 </ul>
 
-_The above information was automatically generated on 2021-09-22 16:03:34 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2021-09-27 22:04:23 from querying `module avail` and `module spider`._
 
 
 <style>
