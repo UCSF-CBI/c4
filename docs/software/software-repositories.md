@@ -30,7 +30,7 @@ Below are 3 software repositories, each providing a set of software tools.
 
 <ul class="nav nav-pills">
   <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(3)</a></li>
-  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(68)</a></li>
+  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(70)</a></li>
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(13)</a></li>
 </ul>
 
@@ -339,6 +339,15 @@ GEOS (Geometry Engine - Open Source) is a C++ port of the JTS Topology Suite (JT
   Versions: 3.5.2, 3.7.3, 3.8.1, <em>3.9.1</em><br>
   </dd>
 
+  <dt id="CBI--gistic2">gistic2</dt>
+  <dd>
+    <strong>GISTIC2: Genomic Identification of Significant Targets in Cancer (GISTIC), version 2</strong><br>
+GISTIC2.0 facilitates sensitive and confident localization of the targets of focal somatic copy-number alteration in human cancers.<br>
+    Example: <code>gistic2</code>.<br>
+    URL: <a href="https://software.broadinstitute.org/cancer/cga/gistic">https://software.broadinstitute.org/cancer/cga/gistic</a>, <a href="https://github.com/broadinstitute/gistic2">https://github.com/broadinstitute/gistic2</a>, <a href="https://www.genepattern.org/modules/docs/GISTIC_2.0/7">https://www.genepattern.org/modules/docs/GISTIC_2.0/7</a><br>
+  Versions: <em>2.0.23</em><br>
+  </dd>
+
   <dt id="CBI--git-flow">git-flow</dt>
   <dd>
     <strong>git-flow: Git Extension Git Flow (AVH Edition)</strong><br>
@@ -403,6 +412,15 @@ HTSlib is an implementation of a unified C library for accessing common file for
     Example: <code>bgzip --version</code>, <code>htsfile --version</code>, and <code>tabix --version</code>.<br>
     URL: <a href="https://www.htslib.org/">https://www.htslib.org/</a>, <a href="https://github.com/samtools/htslib">https://github.com/samtools/htslib</a><br>
   Versions: 1.10.2, 1.11, 1.12, <em>1.13</em><br>
+  </dd>
+
+  <dt id="CBI--htstools">htstools</dt>
+  <dd>
+    <strong>htstools: Tools to Process BAM Files for Downstream Copy-Number Analysis</strong><br>
+Contains three tools (dnafrags, ppflag-fixer, snp-pileup) written by Alex Studer to process bam files for downstream copy number analysis.<br>
+    Example: <code>snp-pileup --help</code>.<br>
+    URL: <a href="https://github.com/mskcc/htstools">https://github.com/mskcc/htstools</a><br>
+  Versions: <em>0.1.1</em><br>
   </dd>
 
   <dt id="CBI--igv">igv</dt>
@@ -560,7 +578,7 @@ The RStudio Desktop is an integrated development environment (IDE) for R, a prog
     Example: <code>rstudio</code>. If you get blank window, retry with <code>QMLSCENE_DEVICE=softwarecontext rstudio</code>.<br>
     URL: <a href="https://rstudio.com/products/rstudio/#rstudio-desktop">https://rstudio.com/products/rstudio/#rstudio-desktop</a>, <a href="https://www.rstudio.com/products/rstudio/download/">https://www.rstudio.com/products/rstudio/download/</a><br>
     Warning: This software works only on the development nodes and requires that X11 Forwarding or NX is enabled. For best performance, use SSH compression when using X11 Forwarding, i.e. <code>ssh -X -C ...</code>.<br>
-  Versions: 1.4.1103, <em>1.4.1717</em><br>
+  Versions: 1.4.1103, 1.4.1717, <em>2021.09.0+351</em><br>
   </dd>
 
   <dt id="CBI--salmon">salmon</dt>
@@ -844,11 +862,11 @@ performs fast gene-based and single-variants tests specifically designed for cas
 
 <ul class="nav nav-pills">
   <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(3)</a></li>
-  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(68)</a></li>
+  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(70)</a></li>
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(13)</a></li>
 </ul>
 
-_The above information was automatically generated on 2021-09-27 22:04:23 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2021-09-29 16:38:58 from querying `module avail` and `module spider`._
 
 
 <style>
