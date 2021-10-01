@@ -61,7 +61,7 @@ NA<br>
 OpenJDK is a free and open-source implementation of the Java Platform, Standard Edition. It is the result of an effort Sun Microsystems began in 2006.<br>
     Example: <code>java -version</code> and <code>javac -version</code>.<br>
     URL: <a href="https://openjdk.java.net/">https://openjdk.java.net/</a><br>
-  Versions: 1.6.0_41-b41, 1.8.0_292-b10-1, <em>11.0.11.0.9-1</em><br>
+  Versions: 1.6.0, 1.8.0, <em>11</em><br>
   </dd>
 
 </dl>
@@ -158,7 +158,7 @@ BEDOPS is an open-source command-line toolkit that performs highly efficient and
 Collectively, the bedtools utilities are a swiss-army knife of tools for a wide-range of genomics analysis tasks. The most widely-used tools enable genome arithmetic: that is, set theory on the genome. For example, bedtools allows one to intersect, merge, count, complement, and shuffle genomic intervals from multiple files in widely-used genomic file formats such as BAM, BED, GFF/GTF, VCF.<br>
     Example: <code>bedtools --version</code> and <code>ls $BEDTOOLS2_HOME/genomes/</code>.<br>
     URL: <a href="https://github.com/arq5x/bedtools2/">https://github.com/arq5x/bedtools2/</a><br>
-  Versions: 2.29.2, <em>2.30.0</em><br>
+  Versions: 2.26.0, 2.29.2, <em>2.30.0</em><br>
   </dd>
 
   <dt id="CBI--blast">blast</dt>
@@ -866,7 +866,7 @@ performs fast gene-based and single-variants tests specifically designed for cas
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(13)</a></li>
 </ul>
 
-_The above information was automatically generated on 2021-09-29 16:38:58 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2021-10-01 16:50:36 from querying `module avail` and `module spider`._
 
 
 <style>
