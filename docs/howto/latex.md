@@ -37,7 +37,7 @@ i zapfding: URW "Base 35" font pack for LaTeX
 
 If a LaTeX document that you try to compile uses a LaTeX package that is not installed, say, the **appendix** package, then you will see compilation errors such as:
 
-```
+```plain
 LaTeX errors:
 ! LaTeX Error: File `appendix.sty' not found.
 ```
