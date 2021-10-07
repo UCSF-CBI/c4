@@ -31,7 +31,7 @@ Below are 3 software repositories, each providing a set of software tools.
 <ul class="nav nav-pills">
   <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(3)</a></li>
   <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(70)</a></li>
-  <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(13)</a></li>
+  <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(14)</a></li>
 </ul>
 
 <div class="tab-content" style="margin-top: 1ex;">
@@ -270,7 +270,7 @@ Cufflinks assembles transcripts, estimates their abundances, and tests for diffe
 Cutadapt finds and removes adapter sequences, primers, poly-A tails and other types of unwanted sequence from your high-throughput sequencing reads.<br>
     Example: <code>cutadapt --version</code> and <code>cutadapt --help</code>.<br>
     URL: <a href="https://github.com/marcelm/cutadapt">https://github.com/marcelm/cutadapt</a><br>
-  Versions: 1.8.1, <em>3.4</em><br>
+  Versions: 1.2.1, 1.8.1, <em>3.4</em><br>
   </dd>
 
   <dt id="CBI--emacs">emacs</dt>
@@ -309,7 +309,7 @@ fzf is a general-purpose command-line fuzzy finder. It's an interactive Unix fil
 Developed in the Data Sciences Platform at the Broad Institute, the toolkit offers a wide variety of tools with a primary focus on variant discovery and genotyping. Its powerful processing engine and high-performance computing features make it capable of taking on projects of any size.<br>
     Example: <code>gatk --help</code> and <code>gatk --list</code>.<br>
     URL: <a href="https://software.broadinstitute.org/gatk/">https://software.broadinstitute.org/gatk/</a>, <a href="https://github.com/broadinstitute/gatk/">https://github.com/broadinstitute/gatk/</a><br>
-  Versions: 4.1.7.0, 4.1.8.1, 4.1.9.0, 4.2.0.0, <em>4.2.2.0</em><br>
+  Versions: 1.6-5-g557da77, 4.1.7.0, 4.1.8.1, 4.1.9.0, 4.2.0.0, <em>4.2.2.0</em><br>
   </dd>
 
   <dt id="CBI--gcta">gcta</dt>
@@ -504,7 +504,7 @@ Picard is a set of command line tools for manipulating high-throughput sequencin
 Pindel can detect breakpoints of large deletions, medium sized insertions, inversions, tandem duplications and other structural variants at single-based resolution from next-gen sequence data. It uses a pattern growth approach to identify the breakpoints of these variants from paired-end short reads.<br>
     Example: <code>pindel</code>.<br>
     URL: <a href="https://www.sanger.ac.uk/science/tools/pindel">https://www.sanger.ac.uk/science/tools/pindel</a>, <a href="https://github.com/genome/pindel">https://github.com/genome/pindel</a><br>
-  Versions: <em>0.2.5b8</em><br>
+  Versions: 0.2.4t, <em>0.2.5b8</em><br>
   </dd>
 
   <dt id="CBI--plink">plink</dt>
@@ -803,6 +803,15 @@ software has been developed to perform meta-analysis of the results of GWA studi
   Versions: <em>2.2.2</em><br>
   </dd>
 
+  <dt id="WitteLab--gwastools">gwastools</dt>
+  <dd>
+    <strong>gwastools: This repository contains tools to harmonize GWAS summary statistics to a given reference. The main application is harmonization of a public gwas' variants to those in the GTEx study, and allow imputation of summary statistics for missing variants.</strong><br>
+Here you can find many python files for GWAS harmination and summary stat imputation. See github page for more details.<br>
+    Example: source $ENV; ls $GWAS_TOOLS/; python $GWAS_TOOLS/gwas_parsing.py --help; deactivate<br>
+    URL: <a href="https://github.com/hakyimlab/summary-gwas-imputation">https://github.com/hakyimlab/summary-gwas-imputation</a><br>
+  Versions: <em>0.0.0</em><br>
+  </dd>
+
   <dt id="WitteLab--hess">hess</dt>
   <dd>
     <strong>HESS: is a Python package that provides utilities for estimating and analyzing local SNP-heritability and genetic covariance from GWAS summary association data.</strong><br>
@@ -863,10 +872,10 @@ performs fast gene-based and single-variants tests specifically designed for cas
 <ul class="nav nav-pills">
   <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(3)</a></li>
   <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(70)</a></li>
-  <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(13)</a></li>
+  <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(14)</a></li>
 </ul>
 
-_The above information was automatically generated on 2021-10-02 10:33:45 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2021-10-06 23:44:14 from querying `module avail` and `module spider`._
 
 
 <style>
