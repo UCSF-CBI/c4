@@ -30,7 +30,7 @@ Below are 3 software repositories, each providing a set of software tools.
 
 <ul class="nav nav-pills">
   <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(3)</a></li>
-  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(70)</a></li>
+  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(71)</a></li>
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(14)</a></li>
 </ul>
 
@@ -79,6 +79,15 @@ Please note that this software stacks is maintained and contributed by a researc
 </div>
 
 <dl>
+  <dt id="CBI--annovar">annovar</dt>
+  <dd>
+    <strong>ANNOVAR: Functional Annotation of Genetic Variants from Next-Generation Sequencing Data</strong><br>
+ANNOVAR is an efficient software tool to utilize update-to-date information to functionally annotate genetic variants detected from diverse genomes (including human genome hg18, hg19, hg38, as well as mouse, worm, fly, yeast and many others).<br>
+    Example: <code>annotate_variation.pl --help</code>.<br>
+    URL: <a href="https://annovar.openbioinformatics.org/en/latest/">https://annovar.openbioinformatics.org/en/latest/</a><br>
+  Versions: 2011-10-02, 2015-06-17, <em>2020-06-07</em><br>
+  </dd>
+
   <dt id="CBI--asciigenome">asciigenome</dt>
   <dd>
     <strong>ASCIIGenome: Text Only Genome Viewer</strong><br>
@@ -309,7 +318,7 @@ fzf is a general-purpose command-line fuzzy finder. It's an interactive Unix fil
 Developed in the Data Sciences Platform at the Broad Institute, the toolkit offers a wide variety of tools with a primary focus on variant discovery and genotyping. Its powerful processing engine and high-performance computing features make it capable of taking on projects of any size.<br>
     Example: <code>gatk --help</code> and <code>gatk --list</code>.<br>
     URL: <a href="https://software.broadinstitute.org/gatk/">https://software.broadinstitute.org/gatk/</a>, <a href="https://github.com/broadinstitute/gatk/">https://github.com/broadinstitute/gatk/</a><br>
-  Versions: 1.6-5-g557da77, 4.1.7.0, 4.1.8.1, 4.1.9.0, 4.2.0.0, <em>4.2.2.0</em><br>
+  Versions: 1.1-37-ge63d9d8, 1.6-5-g557da77, 4.1.7.0, 4.1.8.1, 4.1.9.0, 4.2.0.0, <em>4.2.2.0</em><br>
   </dd>
 
   <dt id="CBI--gcta">gcta</dt>
@@ -476,7 +485,7 @@ GNU Midnight Commander is a visual file manager. It's a feature rich full-screen
 MuTect is a method developed at the Broad Institute for the reliable and accurate identification of somatic point mutations in next generation sequencing data of cancer genomes.<br>
     Example: <code>mutect</code>, which is short for <code>java -Xmx2g -jar &quot;$MUTECT_JAR&quot;</code>.<br>
     URL: <a href="https://github.com/broadinstitute/mutect">https://github.com/broadinstitute/mutect</a>, <a href="https://software.broadinstitute.org/cancer/cga/mutect">https://software.broadinstitute.org/cancer/cga/mutect</a><br>
-  Versions: 1.1.1, 1.1.4, <em>1.1.5</em><br>
+  Versions: 1.0.27783, 1.1.1, 1.1.4, <em>1.1.5</em><br>
   </dd>
 
   <dt id="CBI--pandoc">pandoc</dt>
@@ -871,11 +880,11 @@ performs fast gene-based and single-variants tests specifically designed for cas
 
 <ul class="nav nav-pills">
   <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(3)</a></li>
-  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(70)</a></li>
+  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(71)</a></li>
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(14)</a></li>
 </ul>
 
-_The above information was automatically generated on 2021-10-06 23:44:14 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2021-10-07 21:39:34 from querying `module avail` and `module spider`._
 
 
 <style>
