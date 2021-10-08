@@ -30,7 +30,7 @@ Below are 3 software repositories, each providing a set of software tools.
 
 <ul class="nav nav-pills">
   <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(3)</a></li>
-  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(71)</a></li>
+  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(72)</a></li>
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(14)</a></li>
 </ul>
 
@@ -617,6 +617,15 @@ Enables the CentOS Software Collection (SCL) <code>devtoolset-9</code> in the cu
   Versions: 7, 8, <em>9</em><br>
   </dd>
 
+  <dt id="CBI--scl-rh-ruby">scl-rh-ruby</dt>
+  <dd>
+    <strong>SCL Ruby: Ruby</strong><br>
+Enables the CentOS Software Collection (SCL) <code>rh-ruby26</code> in the current environment.  This is an alternative to calling <code>source scl_source enable rh-ruby26</code>, which is an approach that is not of ficially supported by RedHat/CentOS.<br>
+    Example: <code>irb --help</code>, <code>ruby --help</code>, <code>ruby script.rb</code>.<br>
+    URL: <a href="https://www.softwarecollections.org/en/scls/rhscl/rh-ruby26/">https://www.softwarecollections.org/en/scls/rhscl/rh-ruby26/</a><br>
+  Versions: 25, <em>26</em><br>
+  </dd>
+
   <dt id="CBI--shellcheck">shellcheck</dt>
   <dd>
     <strong>ShellCheck: A Shell Script Static Analysis Tool</strong><br>
@@ -880,11 +889,11 @@ performs fast gene-based and single-variants tests specifically designed for cas
 
 <ul class="nav nav-pills">
   <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(3)</a></li>
-  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(71)</a></li>
+  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(72)</a></li>
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(14)</a></li>
 </ul>
 
-_The above information was automatically generated on 2021-10-07 21:39:34 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2021-10-08 12:45:37 from querying `module avail` and `module spider`._
 
 
 <style>
