@@ -30,7 +30,7 @@ Below are 3 software repositories, each providing a set of software tools.
 
 <ul class="nav nav-pills">
   <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(3)</a></li>
-  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(72)</a></li>
+  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(73)</a></li>
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(14)</a></li>
 </ul>
 
@@ -167,7 +167,7 @@ BEDOPS is an open-source command-line toolkit that performs highly efficient and
 Collectively, the bedtools utilities are a swiss-army knife of tools for a wide-range of genomics analysis tasks. The most widely-used tools enable genome arithmetic: that is, set theory on the genome. For example, bedtools allows one to intersect, merge, count, complement, and shuffle genomic intervals from multiple files in widely-used genomic file formats such as BAM, BED, GFF/GTF, VCF.<br>
     Example: <code>bedtools --version</code> and <code>ls $BEDTOOLS2_HOME/genomes/</code>.<br>
     URL: <a href="https://github.com/arq5x/bedtools2/">https://github.com/arq5x/bedtools2/</a><br>
-  Versions: 2.26.0, 2.29.2, <em>2.30.0</em><br>
+  Versions: 2.16.2, 2.18.1, 2.26.0, 2.29.2, <em>2.30.0</em><br>
   </dd>
 
   <dt id="CBI--blast">blast</dt>
@@ -467,6 +467,16 @@ kallisto is a program for quantifying abundances of transcripts from RNA-Seq dat
     Example: <code>kallisto version</code>.<br>
     URL: <a href="https://pachterlab.github.io/kallisto/about.html">https://pachterlab.github.io/kallisto/about.html</a>, <a href="https://github.com/pachterlab/kallisto">https://github.com/pachterlab/kallisto</a><br>
   Versions: <em>0.46.2</em><br>
+  </dd>
+
+  <dt id="CBI--lg3">lg3</dt>
+  <dd>
+    <strong>lg3: The UCSF Costello Lab's LG3 Pipeline</strong><br>
+This is the LG3 Pipeline developed by the UCSF Costello Lab.<br>
+    Example: <code>lg3 --help</code>.<br>
+    URL: <a href="https://github.com/UCSF-Costello-Lab/LG3_Pipeline">https://github.com/UCSF-Costello-Lab/LG3_Pipeline</a><br>
+    Warning: This software can currently only run on the C4 cluster and legacy TIPCC cluster as the UCSF Cancer Center.<br>
+  Versions: <em>2021-10-09</em><br>
   </dd>
 
   <dt id="CBI--mc">mc</dt>
@@ -889,11 +899,11 @@ performs fast gene-based and single-variants tests specifically designed for cas
 
 <ul class="nav nav-pills">
   <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(3)</a></li>
-  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(72)</a></li>
+  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(73)</a></li>
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(14)</a></li>
 </ul>
 
-_The above information was automatically generated on 2021-10-08 12:45:37 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2021-10-09 18:04:46 from querying `module avail` and `module spider`._
 
 
 <style>
