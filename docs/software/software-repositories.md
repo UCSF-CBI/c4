@@ -476,7 +476,7 @@ This is the LG3 Pipeline developed by the UCSF Costello Lab.<br>
     Example: <code>lg3 --help</code>.<br>
     URL: <a href="https://github.com/UCSF-Costello-Lab/LG3_Pipeline">https://github.com/UCSF-Costello-Lab/LG3_Pipeline</a><br>
     Warning: This software can currently only run on the C4 cluster and legacy TIPCC cluster as the UCSF Cancer Center.<br>
-  Versions: 2021-10-09, <em>2021-10-10</em><br>
+  Versions: 2021-10-09, 2021-10-10, <em>2021-10-11</em><br>
   </dd>
 
   <dt id="CBI--mc">mc</dt>
@@ -903,7 +903,7 @@ performs fast gene-based and single-variants tests specifically designed for cas
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(14)</a></li>
 </ul>
 
-_The above information was automatically generated on 2021-10-10 23:27:46 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2021-10-11 19:58:37 from querying `module avail` and `module spider`._
 
 
 <style>
