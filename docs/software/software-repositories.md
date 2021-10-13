@@ -671,7 +671,7 @@ The SRA Toolkit and SDK from NCBI is a collection of tools and libraries for usi
     Example: <code>fastq-dump --help</code>.<br>
     URL: <a href="https://ncbi.github.io/sra-tools/">https://ncbi.github.io/sra-tools/</a>, <a href="https://github.com/ncbi/sra-tools">https://github.com/ncbi/sra-tools</a><br>
     Warning: To work around a bug where <code>fasterq-dump</code> crashes the local machine, it has been tweaked such that it uses <code>$TMPDIR</code> rather than <code>$PWD</code> as the default temporary folder and it will only use two threads instead of six by default.<br>
-  Versions: 2.10.8, 2.10.9, 2.11.0, <em>2.11.1</em><br>
+  Versions: 2.10.8, 2.10.9, 2.11.0, 2.11.1, <em>2.11.2</em><br>
   </dd>
 
   <dt id="CBI--star">star</dt>
@@ -903,7 +903,7 @@ performs fast gene-based and single-variants tests specifically designed for cas
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(14)</a></li>
 </ul>
 
-_The above information was automatically generated on 2021-10-11 19:58:37 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2021-10-13 14:23:43 from querying `module avail` and `module spider`._
 
 
 <style>
