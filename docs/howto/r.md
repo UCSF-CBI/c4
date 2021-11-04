@@ -77,11 +77,11 @@ Before continuing, it is useful to understand where R packages looks for locally
 For instance, when we try to load an R package:
 
 ```r
-> library(nlme)
+> library(datasets)
 ```
 
-R will search the above folders in order for R package 'nlme'.
-When you start you fresh, the only R packages available to you are the ones installed in folder (3) - the system-wide library.  The 'nlme' package comes with the R installation, so with a fresh setup, it will be loaded from the third location.
+R will search the above folders in order for R package 'datasets'.
+When you start you fresh, the only R packages available to you are the ones installed in folder (3) - the system-wide library.  The 'datasets' package comes with the R installation, so with a fresh setup, it will be loaded from the third location.
 As we will see below, when you install your own packages, they will all be installed into folder (1) - your personal library.  The first time your run R, the personal library folder does not exists, so R will ask you whether or not you want to create that folder.  If asked, you should always accept (answer 'Yes').  If you had already created this folder, R will install into this folder without asking.
 
 Finally, R undergoes a _main_ update once a year (in April).  For example, R 4.0.0 was release in April 2020.  The next main release will be R 4.1.0 in April 2021.  Whenever the `y` component in R `x.y.z` version is increased, you will start out with an empty personal package folder specific for R `x.y` (regardless of `z`).  This means that you will have to re-install all R packages you had installed during the year before the new main release came out.  Yes, this can be tedious and can take quite some time but it will improve stability and yet allow the R developers to keep improving R.  Of course, you can still keep using an older version of R and all the packages you have installed for that version - they will not be removed.
@@ -262,8 +262,6 @@ installing to /home/alice/R/x86_64-pc-linux-gnu-library/4.0-CBI/00LOCK-limma/00n
 
 The downloaded source packages are in
         '/scratch/alice/Rtmpz9uHdz/downloaded_packages'
-Installation path not writeable, unable to update packages: codetools, foreign,
-  KernSmooth, Matrix, nlme
 >
 ```
 
