@@ -30,8 +30,8 @@ Below are 3 software repositories, each providing a set of software tools.
 
 <ul class="nav nav-pills">
   <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(3)</a></li>
-  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(73)</a></li>
-  <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(14)</a></li>
+  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(77)</a></li>
+  <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(15)</a></li>
 </ul>
 
 <div class="tab-content" style="margin-top: 1ex;">
@@ -236,6 +236,15 @@ Cell Ranger is a set of analysis pipelines that process Chromium Single Cell 3' 
   Versions: 4.0.0, 5.0.1, <em>6.1.1</em><br>
   </dd>
 
+  <dt id="CBI--clp">clp</dt>
+  <dd>
+    <strong>Clp: COIN-OR Linear Programming Solver</strong><br>
+Clp (Coin-or linear programming) is an open-source linear programming solver. It is primarily meant to be used as a callable library, but a basic, stand-alone executable version is also available.<br>
+    Example: <code>clp</code><br>
+    URL: <a href="https://www.coin-or.org/">https://www.coin-or.org/</a>, <a href="https://github.com/coin-or/Clp">https://github.com/coin-or/Clp</a><br>
+  Versions: 1.17.2, <em>1.17.6</em><br>
+  </dd>
+
   <dt id="CBI--cluster-utils">cluster-utils</dt>
   <dd>
     <strong>cluster-utils: Collection of Utilities / Helper Scripts to Make Life Easier on HPC Clusters</strong><br>
@@ -253,6 +262,14 @@ CMake is cross-platform free and open-source software for managing the build pro
     Example: <code>cmake --version</code>.<br>
     URL: <a href="https://cmake.org/">https://cmake.org/</a><br>
   Versions: 3.18.2, <em>3.19.2</em><br>
+  </dd>
+
+  <dt id="CBI--coinutils">coinutils</dt>
+  <dd>
+    <strong>CoinUtils: COIN-OR Utilities</strong><br>
+CoinUtils is an open-source collection of classes and helper functions that are generally useful to multiple COIN-OR projects. CoinUtils is written in C++ and is released as open source under the Eclipse Public License 2.0.<br>
+    URL: <a href="https://www.coin-or.org/">https://www.coin-or.org/</a>, <a href="https://github.com/coin-or/CoinUtils">https://github.com/coin-or/CoinUtils</a><br>
+  Versions: <em>2.11.4</em><br>
   </dd>
 
   <dt id="CBI--control-freec">control-freec</dt>
@@ -479,6 +496,14 @@ This is the LG3 Pipeline developed by the UCSF Costello Lab.<br>
   Versions: 2021-10-09, 2021-10-10, <em>2021-10-11</em><br>
   </dd>
 
+  <dt id="CBI--libsbml">libsbml</dt>
+  <dd>
+    <strong>libSBML: An Open-Source Library for Working with SBML (the Systems Biology Markup Language)</strong><br>
+LibSBML is a native library for reading, writing and manipulating files and data streams containing the Systems Biology Markup Language (SBML). It offers language bindings for C, C++, C#, Java, JavaScript, MATLAB, Perl, PHP, Python, R and Ruby.<br>
+    URL: <a href="http://sbml.org/Software/libSBML">http://sbml.org/Software/libSBML</a>, <a href="https://github.com/sbmlteam/libsbml">https://github.com/sbmlteam/libsbml</a><br>
+  Versions: 5.10.2, <em>5.19.0</em><br>
+  </dd>
+
   <dt id="CBI--mc">mc</dt>
   <dd>
     <strong>mc: Midnight Commander</strong><br>
@@ -559,7 +584,7 @@ PROJ is a generic coordinate transformation software that transforms geospatial 
 The R programming language.<br>
     Example: <code>R --version</code> and <code>Rscript --version</code>.<br>
     URL: <a href="https://www.r-project.org/">https://www.r-project.org/</a><br>
-  Versions: 2.15.0, 3.0.0, 3.1.0, 3.2.0, 3.3.0, 3.5.0, 3.5.3, 3.6.0, 3.6.3, 4.0.0, 4.0.2, 4.0.3, 4.0.4, 4.0.5, 4.1.0-gcc8, <em>4.1.1-gcc8</em>, 4.1.2-gcc8<br>
+  Versions: 2.15.0, 3.0.0, 3.1.0, 3.2.0, 3.3.0, 3.5.0, 3.5.3, 3.6.0, 3.6.3, 4.0.0, 4.0.2, 4.0.3, 4.0.4, 4.0.5, 4.1.0-gcc8, 4.1.1-gcc8, <em>4.1.2-gcc8</em><br>
   </dd>
 
   <dt id="CBI--r-siteconfig">r-siteconfig</dt>
@@ -681,6 +706,14 @@ STAR (Spliced Transcripts Alignment to a Reference) is a fast NGS read aligner f
     Example: <code>STAR --help</code>.<br>
     URL: <a href="https://github.com/alexdobin/STAR">https://github.com/alexdobin/STAR</a><br>
   Versions: 2.7.5a, 2.7.5c, 2.7.7a, <em>2.7.9a</em><br>
+  </dd>
+
+  <dt id="CBI--tiledb">tiledb</dt>
+  <dd>
+    <strong>TileDB: The Universal Storage Engine</strong><br>
+TileDB is a powerful engine for storing and accessing dense and sparse multi-dimensional arrays, which can help you model any complex data efficiently. It is an embeddable C++ library that works on Linux, macOS, and Windows.<br>
+    URL: <a href="https://tiledb.com/">https://tiledb.com/</a>, <a href="https://github.com/TileDB-Inc/TileDB">https://github.com/TileDB-Inc/TileDB</a><br>
+  Versions: <em>2.4.3</em><br>
   </dd>
 
   <dt id="CBI--tmux">tmux</dt>
@@ -807,6 +840,15 @@ FlashPCA performs fast principal component analysis (PCA) of single nucleotide p
   Versions: <em>2.0.0</em><br>
   </dd>
 
+  <dt id="WitteLab--focus">focus</dt>
+  <dd>
+    <strong>focus: a set of tools to finemap twas statistics</strong><br>
+FOCUS (Fine-mapping Of CaUsal gene Sets) is software to fine-map transcriptome-wide association study statistics at genomic risk regions. The software takes as input summary GWAS data along with eQTL weights and outputs a credible set of genes to explain observed genomic risk.<br>
+    Example: source $ENV; focus --help; deactivate<br>
+    URL: <a href="https://github.com/bogdanlab/focus">https://github.com/bogdanlab/focus</a><br>
+  Versions: <em>0.7.0</em><br>
+  </dd>
+
   <dt id="WitteLab--gcta">gcta</dt>
   <dd>
     <strong>gcta: GCTA (Genome-wide Complex Trait Analysis) was initially designed to estimate the proportion of phenotypic variance explained by all genome-wide SNPs for complex traits (i.e., the GREML method). It has been subsequently extended for many other analyses to better understand the genetic architecture of complex traits. GCTA currently supports the following analyses.</strong><br>
@@ -899,11 +941,11 @@ performs fast gene-based and single-variants tests specifically designed for cas
 
 <ul class="nav nav-pills">
   <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(3)</a></li>
-  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(73)</a></li>
-  <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(14)</a></li>
+  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(77)</a></li>
+  <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(15)</a></li>
 </ul>
 
-_The above information was automatically generated on 2021-11-01 09:25:35 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2021-11-16 22:40:05 from querying `module avail` and `module spider`._
 
 
 <style>
