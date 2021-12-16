@@ -131,7 +131,7 @@ A cat(1) clone with syntax highlighting and Git integration.<br>
 Bats is a TAP-compliant testing framework for Bash. It provides a simple way to verify that the UNIX programs you write behave as expected.<br>
     Example: <code>bats --help</code>, <code>bats --version</code>.<br>
     URL: <a href="https://github.com/bats-core/bats-core">https://github.com/bats-core/bats-core</a><br>
-  Versions: <em>1.2.1</em><br>
+  Versions: 1.2.1, <em>1.5.0</em><br>
   </dd>
 
   <dt id="CBI--bcftools">bcftools</dt>
@@ -140,7 +140,7 @@ Bats is a TAP-compliant testing framework for Bash. It provides a simple way to 
 BCFtools is a set of utilities that manipulate variant calls in the Variant Call Format (VCF) and its binary counterpart BCF. All commands work transparently with both VCFs and BCFs, both uncompressed and BGZF-compressed.<br>
     Example: <code>bcftools --version</code><br>
     URL: <a href="https://www.htslib.org/">https://www.htslib.org/</a>, <a href="https://github.com/samtools/bcftools">https://github.com/samtools/bcftools</a><br>
-  Versions: 1.10.2, 1.11, 1.12, <em>1.13</em><br>
+  Versions: 1.10.2, 1.11, 1.12, 1.13, <em>1.14</em><br>
   </dd>
 
   <dt id="CBI--bcl2fastq">bcl2fastq</dt>
@@ -158,7 +158,7 @@ bcl2fastq Conversion Software both demultiplexes data and converts BCL files gen
 BEDOPS is an open-source command-line toolkit that performs highly efficient and scalable Boolean and other set operations, statistical calculations, archiving, conversion and other management of genomic data of arbitrary scale. Tasks can be easily split by chromosome for distributing whole-genome analyses across a computational cluster.<br>
     Example: <code>bedops --version</code><br>
     URL: <a href="https://bedops.readthedocs.io/">https://bedops.readthedocs.io/</a>, <a href="https://github.com/bedops/bedops">https://github.com/bedops/bedops</a><br>
-  Versions: <em>2.4.39</em><br>
+  Versions: 2.4.39, <em>2.4.40</em><br>
   </dd>
 
   <dt id="CBI--bedtools2">bedtools2</dt>
@@ -233,7 +233,7 @@ Cell Ranger is a set of analysis pipelines that process Chromium Single Cell 3' 
     Example: <code>cellranger</code>.<br>
     URL: <a href="https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/what-is-cell-ranger">https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/what-is-cell-ranger</a><br>
     Warning: To prevent a single Cell Ranger process from hijacking all CPU and RAM by default, this module sets environment variable <code>MROFLAGS='--localcores=1 --localmem=8 --limit-loadavg'</code> making those the default.<br>
-  Versions: 4.0.0, 5.0.1, <em>6.1.1</em><br>
+  Versions: 4.0.0, 5.0.1, 6.1.1, <em>6.1.2</em><br>
   </dd>
 
   <dt id="CBI--clp">clp</dt>
@@ -304,7 +304,7 @@ Cutadapt finds and removes adapter sequences, primers, poly-A tails and other ty
     <strong>GNU Emacs: An Extensible, Customizable, Free/Libre Text Editor</strong><br>
 At its core is an interpreter for Emacs Lisp, a dialect of the Lisp programming language with extensions to support text editing.<br>
     Example: <code>emacs --version</code> and <code>emacs -nw</code>.<br>
-    URL: <a href="https://www.gnu.org/software/emacs/">https://www.gnu.org/software/emacs/</a><br>
+    URL: <a href="https://www.gnu.org/software/emacs/">https://www.gnu.org/software/emacs/</a>, <a href="https://www.gnu.org/savannah-checkouts/gnu/emacs/emacs.html#Releases">https://www.gnu.org/savannah-checkouts/gnu/emacs/emacs.html#Releases</a><br>
     Warning: Only the most recent version of this software will be kept.<br>
   Versions: 26.3, 27.1, <em>27.2</em><br>
   </dd>
@@ -326,7 +326,7 @@ fzf is a general-purpose command-line fuzzy finder. It's an interactive Unix fil
     Note: To install tab completions and key bindinds to your shell, call <code>$FZF_HOME/install</code>. To uninstall, use <code>$FZF_HOME/uninstall</code>.<br>
     URL: <a href="https://github.com/junegunn/fzf">https://github.com/junegunn/fzf</a>, <a href="https://github.com/junegunn/fzf/wiki">https://github.com/junegunn/fzf/wiki</a><br>
     Warning: Only the most recent version of this software will be kept.<br>
-  Versions: 0.22.0, 0.25.1, <em>0.27.2</em><br>
+  Versions: 0.22.0, 0.25.1, 0.27.2, <em>0.28.0</em><br>
   </dd>
 
   <dt id="CBI--gatk">gatk</dt>
@@ -334,8 +334,8 @@ fzf is a general-purpose command-line fuzzy finder. It's an interactive Unix fil
     <strong>Genome Analysis Toolkit (GATK): Variant Discovery in High-Throughput Sequencing Data</strong><br>
 Developed in the Data Sciences Platform at the Broad Institute, the toolkit offers a wide variety of tools with a primary focus on variant discovery and genotyping. Its powerful processing engine and high-performance computing features make it capable of taking on projects of any size.<br>
     Example: <code>gatk --help</code> and <code>gatk --list</code>.<br>
-    URL: <a href="https://software.broadinstitute.org/gatk/">https://software.broadinstitute.org/gatk/</a>, <a href="https://github.com/broadinstitute/gatk/">https://github.com/broadinstitute/gatk/</a><br>
-  Versions: 1.1-37-ge63d9d8, 1.6-5-g557da77, 4.1.1.0, 4.1.7.0, 4.1.8.1, 4.1.9.0, 4.2.0.0, <em>4.2.2.0</em><br>
+    URL: <a href="https://software.broadinstitute.org/gatk/">https://software.broadinstitute.org/gatk/</a>, <a href="https://github.com/broadinstitute/gatk">https://github.com/broadinstitute/gatk</a>, <a href="https://github.com/broadgsa/gatk">https://github.com/broadgsa/gatk</a>, <a href="https://console.cloud.google.com/storage/browser/gatk-software/package-archive">https://console.cloud.google.com/storage/browser/gatk-software/package-archive</a>, <a href="ftp://ftp.broadinstitute.org/pub/gsa/GenomeAnalysisTK/">ftp://ftp.broadinstitute.org/pub/gsa/GenomeAnalysisTK/</a><br>
+  Versions: 1.1-37-ge63d9d8, 1.6-5-g557da77, 4.1.1.0, 4.1.7.0, 4.1.8.1, 4.1.9.0, 4.2.0.0, 4.2.2.0, <em>4.2.3.0</em><br>
   </dd>
 
   <dt id="CBI--gcta">gcta</dt>
@@ -343,8 +343,8 @@ Developed in the Data Sciences Platform at the Broad Institute, the toolkit offe
     <strong>GCTA: Genome-wide Complex Trait Analysis</strong><br>
 A tool for Genome-wide Complex Trait Analysis (GCTA).<br>
     Example: <code>gcta64</code>.<br>
-    URL: <a href="http://cnsgenomics.com/software/gcta/">http://cnsgenomics.com/software/gcta/</a><br>
-  Versions: <em>1.93.2beta</em><br>
+    URL: <a href="https://yanglab.westlake.edu.cn/software/gcta/#Overview">https://yanglab.westlake.edu.cn/software/gcta/#Overview</a>, <a href="https://cnsgenomics.com/software/gcta/">https://cnsgenomics.com/software/gcta/</a><br>
+  Versions: 1.93.2beta, <em>1.93.3beta2</em><br>
   </dd>
 
   <dt id="CBI--gdal">gdal</dt>
@@ -361,7 +361,7 @@ GDAL is an open source X/MIT licensed translator library for raster and vector g
     <strong>GEOS: Geometry Engine, Open Source</strong><br>
 GEOS (Geometry Engine - Open Source) is a C++ port of the JTS Topology Suite (JTS). It aims to contain the complete functionality of JTS in C++. This includes all the OpenGIS Simple Features for SQL spatial predicate functions and spatial operators, as well as specific JTS enhanced functions. GEOS provides spatial functionality to many other projects and products.<br>
     Example: <code>geos-config --version</code>.<br>
-    URL: <a href="https://trac.osgeo.org/geos/">https://trac.osgeo.org/geos/</a><br>
+    URL: <a href="https://trac.osgeo.org/geos/">https://trac.osgeo.org/geos/</a>, <a href="https://github.com/libgeos/geos">https://github.com/libgeos/geos</a><br>
   Versions: 3.5.2, 3.7.3, 3.8.1, <em>3.9.1</em><br>
   </dd>
 
@@ -428,7 +428,7 @@ HISAT2 is a fast and sensitive alignment program for mapping next-generation seq
     Example: <code>htop</code>.<br>
     URL: <a href="https://htop.dev">https://htop.dev</a>, <a href="https://github.com/htop-dev/htop">https://github.com/htop-dev/htop</a><br>
     Warning: Only the most recent version of this software will be kept.<br>
-  Versions: 3.0.4, 3.0.5, <em>3.1.0</em><br>
+  Versions: 3.0.4, 3.0.5, 3.1.0, <em>3.1.1</em><br>
   </dd>
 
   <dt id="CBI--htslib">htslib</dt>
@@ -437,7 +437,7 @@ HISAT2 is a fast and sensitive alignment program for mapping next-generation seq
 HTSlib is an implementation of a unified C library for accessing common file formats, such as SAM, CRAM and VCF, used for high-throughput sequencing data, and is the core library used by samtools and bcftools. HTSlib also provides the bgzip, htsfile, and tabix utilities.<br>
     Example: <code>bgzip --version</code>, <code>htsfile --version</code>, and <code>tabix --version</code>.<br>
     URL: <a href="https://www.htslib.org/">https://www.htslib.org/</a>, <a href="https://github.com/samtools/htslib">https://github.com/samtools/htslib</a><br>
-  Versions: 1.10.2, 1.11, 1.12, <em>1.13</em><br>
+  Versions: 1.10.2, 1.11, 1.12, 1.13, <em>1.14</em><br>
   </dd>
 
   <dt id="CBI--htstools">htstools</dt>
@@ -455,8 +455,8 @@ Contains three tools (dnafrags, ppflag-fixer, snp-pileup) written by Alex Studer
 The Integrative Genomics Viewer (IGV) is a high-performance visualization tool for interactive exploration of large, integrated genomic datasets. It supports a wide variety of data types, including array-based and next-generation sequence data, and genomic annotations.<br>
     Example: <code>igv</code>.<br>
     Note: IGV (&gt;= 2.5.0) requires Java 11. Coincidentally, <code>igvtools</code> is integrated with IGV (&gt;= 2.5.0).<br>
-    URL: <a href="https://software.broadinstitute.org/software/igv/">https://software.broadinstitute.org/software/igv/</a><br>
-  Versions: 2.8.6, 2.8.13, 2.9.1, <em>2.11.0</em><br>
+    URL: <a href="https://software.broadinstitute.org/software/igv/">https://software.broadinstitute.org/software/igv/</a>, <a href="https://software.broadinstitute.org/software/igv/download">https://software.broadinstitute.org/software/igv/download</a><br>
+  Versions: 2.8.6, 2.8.13, 2.9.1, 2.11.0, <em>2.11.3</em><br>
   </dd>
 
   <dt id="CBI--igvtools">igvtools</dt>
@@ -530,7 +530,7 @@ Pandoc is a Haskell library and software tool for converting from one markup for
     Example: <code>pandoc --version</code>.<br>
     URL: <a href="https://pandoc.org/">https://pandoc.org/</a>, <a href="https://github.com/jgm/pandoc">https://github.com/jgm/pandoc</a><br>
     Warning: Only the most recent version of this software will be kept.<br>
-  Versions: 2.10.1, 2.11.3.2, 2.11.4, <em>2.14.2</em><br>
+  Versions: 2.10.1, 2.11.3.2, 2.11.4, 2.14.2, <em>2.16.2</em><br>
   </dd>
 
   <dt id="CBI--picard">picard</dt>
@@ -539,7 +539,7 @@ Pandoc is a Haskell library and software tool for converting from one markup for
 Picard is a set of command line tools for manipulating high-throughput sequencing (HTS) data and formats such as SAM/BAM/CRAM and VCF.<br>
     Example: <code>picard -h</code>, which is an alias for <code>java -jar $PICARD_HOME/picard.jar -h</code><br>
     URL: <a href="http://broadinstitute.github.io/picard/">http://broadinstitute.github.io/picard/</a>, <a href="https://github.com/broadinstitute/picard">https://github.com/broadinstitute/picard</a><br>
-  Versions: 1.64, 2.23.1, 2.24.0, 2.25.0, <em>2.26.2</em><br>
+  Versions: 1.64, 2.23.1, 2.24.0, 2.25.0, 2.26.2, <em>2.26.5</em><br>
   </dd>
 
   <dt id="CBI--pindel">pindel</dt>
@@ -557,7 +557,7 @@ Pindel can detect breakpoints of large deletions, medium sized insertions, inver
 PLINK is a free, open-source whole genome association analysis toolset, designed to perform a range of basic, large-scale analyses in a computationally efficient manner. The focus of PLINK is purely on analysis of genotype/phenotype data, so there is no support for steps prior to this (e.g. study design and planning, generating genotype or CNV calls from raw data).<br>
     Example: <code>plink --help</code>.<br>
     URL: <a href="https://www.cog-genomics.org/plink/">https://www.cog-genomics.org/plink/</a><br>
-  Versions: 1.90b6.18, <em>1.90b6.21</em><br>
+  Versions: 1.90b6.18, 1.90b6.21, <em>1.90b6.24</em><br>
   </dd>
 
   <dt id="CBI--plink2">plink2</dt>
@@ -602,7 +602,7 @@ Rclone is a command line program to sync files and directories to and from a lar
     Example: <code>rclone --version</code>, <code>rclone --help</code>, <code>rclone config</code>, and <code>info rclone</code>.<br>
     URL: <a href="https://rclone.org/">https://rclone.org/</a>, <a href="https://github.com/rclone/rclone">https://github.com/rclone/rclone</a><br>
     Warning: Only the most recent version of this software will be kept.<br>
-  Versions: 1.53.3, 1.54.0, <em>1.56.1</em><br>
+  Versions: 1.53.3, 1.54.0, 1.56.1, <em>1.57.0</em><br>
   </dd>
 
   <dt id="CBI--ripgrep">ripgrep</dt>
@@ -620,9 +620,9 @@ ripgrep is a line-oriented search tool that recursively searches your current di
     <strong>rstudio: RStudio Desktop</strong><br>
 The RStudio Desktop is an integrated development environment (IDE) for R, a programming language for statistical computing and graphics.<br>
     Example: <code>rstudio</code>. If you get blank window, retry with <code>QMLSCENE_DEVICE=softwarecontext rstudio</code>.<br>
-    URL: <a href="https://rstudio.com/products/rstudio/#rstudio-desktop">https://rstudio.com/products/rstudio/#rstudio-desktop</a>, <a href="https://www.rstudio.com/products/rstudio/download/">https://www.rstudio.com/products/rstudio/download/</a><br>
+    URL: <a href="https://rstudio.com/products/rstudio/#rstudio-desktop">https://rstudio.com/products/rstudio/#rstudio-desktop</a>, <a href="https://www.rstudio.com/products/rstudio/release-notes/">https://www.rstudio.com/products/rstudio/release-notes/</a>, <a href="https://www.rstudio.com/products/rstudio/download/">https://www.rstudio.com/products/rstudio/download/</a><br>
     Warning: This software works only on the development nodes and requires that X11 Forwarding or NX is enabled. For best performance, use SSH compression when using X11 Forwarding, i.e. <code>ssh -X -C ...</code>.<br>
-  Versions: 1.4.1103, 1.4.1717, <em>2021.09.0+351</em><br>
+  Versions: 1.4.1103, 1.4.1717, 2021.09.0+351, <em>2021.09.1-372</em><br>
   </dd>
 
   <dt id="CBI--salmon">salmon</dt>
@@ -631,7 +631,7 @@ The RStudio Desktop is an integrated development environment (IDE) for R, a prog
 Highly-accurate &amp; wicked fast transcript-level quantification from RNA-seq reads using selective alignment.<br>
     Example: <code>salmon --version</code>.<br>
     URL: <a href="https://combine-lab.github.io/salmon/">https://combine-lab.github.io/salmon/</a>, <a href="https://github.com/COMBINE-lab/salmon">https://github.com/COMBINE-lab/salmon</a><br>
-  Versions: 1.3.0, 1.4.0, <em>1.5.2</em><br>
+  Versions: 1.3.0, 1.4.0, 1.5.2, <em>1.6.0</em><br>
   </dd>
 
   <dt id="CBI--samtools">samtools</dt>
@@ -640,7 +640,7 @@ Highly-accurate &amp; wicked fast transcript-level quantification from RNA-seq r
 SAMtools is a suite of programs for interacting with high-throughput sequencing data.<br>
     Example: <code>samtools --version</code>.<br>
     URL: <a href="https://www.htslib.org/">https://www.htslib.org/</a>, <a href="https://github.com/samtools/samtools">https://github.com/samtools/samtools</a><br>
-  Versions: 0.1.12a, 0.1.18, 1.10, 1.11, 1.12, <em>1.13</em><br>
+  Versions: 0.1.12a, 0.1.18, 1.10, 1.11, 1.12, 1.13, <em>1.14</em><br>
   </dd>
 
   <dt id="CBI--scl-devtoolset">scl-devtoolset</dt>
@@ -668,7 +668,7 @@ ShellCheck finds bugs in your shell scripts.<br>
     Example: <code>shellcheck --version</code> and <code>shellcheck -x ~/.bashrc</code>.<br>
     URL: <a href="https://www.shellcheck.net/">https://www.shellcheck.net/</a>, <a href="https://github.com/koalaman/shellcheck/">https://github.com/koalaman/shellcheck/</a><br>
     Warning: Only the most recent version of this software will be kept.<br>
-  Versions: 0.7.1, <em>0.7.2</em><br>
+  Versions: 0.7.1, 0.7.2, <em>0.8.0</em><br>
   </dd>
 
   <dt id="CBI--snpeff">snpeff</dt>
@@ -696,7 +696,7 @@ The SRA Toolkit and SDK from NCBI is a collection of tools and libraries for usi
     Example: <code>fastq-dump --help</code>.<br>
     URL: <a href="https://ncbi.github.io/sra-tools/">https://ncbi.github.io/sra-tools/</a>, <a href="https://github.com/ncbi/sra-tools">https://github.com/ncbi/sra-tools</a><br>
     Warning: To work around a bug where <code>fasterq-dump</code> crashes the local machine, it has been tweaked such that it uses <code>$TMPDIR</code> rather than <code>$PWD</code> as the default temporary folder and it will only use two threads instead of six by default.<br>
-  Versions: 2.10.8, 2.10.9, 2.11.0, 2.11.1, <em>2.11.2</em><br>
+  Versions: 2.10.8, 2.10.9, 2.11.0, 2.11.1, 2.11.2, <em>2.11.3</em><br>
   </dd>
 
   <dt id="CBI--star">star</dt>
@@ -713,7 +713,7 @@ STAR (Spliced Transcripts Alignment to a Reference) is a fast NGS read aligner f
     <strong>TileDB: The Universal Storage Engine</strong><br>
 TileDB is a powerful engine for storing and accessing dense and sparse multi-dimensional arrays, which can help you model any complex data efficiently. It is an embeddable C++ library that works on Linux, macOS, and Windows.<br>
     URL: <a href="https://tiledb.com/">https://tiledb.com/</a>, <a href="https://github.com/TileDB-Inc/TileDB">https://github.com/TileDB-Inc/TileDB</a><br>
-  Versions: <em>2.4.3</em><br>
+  Versions: 2.4.3, <em>2.4.4</em><br>
   </dd>
 
   <dt id="CBI--tmux">tmux</dt>
@@ -751,7 +751,7 @@ Tree is a recursive directory listing command that produces a depth indented lis
 A wrapper around Cutadapt and FastQC to consistently apply adapter and quality trimming to FastQ files, with extra functionality for RRBS data.<br>
     Example: <code>trim_galore --version</code>, <code>trim_galore --help</code>, and <code>more &quot;$TRIMGALORE_HOME/Docs/Trim_Galore_User_Guide.md&quot;</code>.<br>
     URL: <a href="https://github.com/FelixKrueger/TrimGalore">https://github.com/FelixKrueger/TrimGalore</a><br>
-  Versions: 0.4.4, <em>0.6.6</em><br>
+  Versions: 0.4.4, 0.6.6, <em>0.6.7</em><br>
   </dd>
 
   <dt id="CBI--up">up</dt>
@@ -769,7 +769,7 @@ A tool for writing Linux pipes in a terminal-based UI interactively, with instan
     <strong>VarScan: Variant Detection in Massively Parallel Sequencing Data</strong><br>
 VarScan is a platform-independent mutation caller for targeted, exome, and whole-genome resequencing data generated on Illumina, SOLiD, Life/PGM, Roche/454, and similar instruments.<br>
     Example: <code>varscan</code>, which is an alias to <code>java -jar $VARSCAN_HOME/VarScan.jar</code>.<br>
-    URL: <a href="https://dkoboldt.github.io/varscan/">https://dkoboldt.github.io/varscan/</a><br>
+    URL: <a href="https://dkoboldt.github.io/varscan/">https://dkoboldt.github.io/varscan/</a>, <a href="https://github.com/dkoboldt/varscan">https://github.com/dkoboldt/varscan</a><br>
   Versions: <em>2.4.2</em><br>
   </dd>
 
@@ -945,7 +945,7 @@ performs fast gene-based and single-variants tests specifically designed for cas
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(15)</a></li>
 </ul>
 
-_The above information was automatically generated on 2021-11-16 22:40:05 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2021-11-23 11:02:16 from querying `module avail` and `module spider`._
 
 
 <style>
