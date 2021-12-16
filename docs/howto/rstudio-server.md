@@ -10,7 +10,7 @@ We are able to run Rstudio server on {{ site.cluster.name }} using Singularity c
 <strong>Please do not leave these containers running unattended</strong>. Please only run these containers when you are actively using them. You should save your work and cancel the job when you are done for the day. If we start to see many unused containers eating {{ site.cluster.name }} we will have to re-think this practice. Please also be kind when specifying CPU and memory resources, just ask for what you think is needed.
 </div>
 
-## Initial Setup - Container Pull
+### Initial Setup - Container Pull
 
 For the purpose of this write-up we will be saving Singularity images to $HOME/singularity-images. Feel free to use any directory structure you like.
 
@@ -21,7 +21,15 @@ For the purpose of this write-up we will be saving Singularity images to $HOME/s
 [alice@{{ site.devel.name }} ~]$ singularity pull --dir ${HOME}/singularity-images --name rstudio-server.sif docker://rocker/rstudio
 ```
 
-## Initial Setup - sbatch submission script
+### Inital Setup - .Renviron
+
+The compute nodes do not have direct acceess to the internet. For this reason we must tell R where to find our proxy server by adding these lines to your .Renviron file (usually $HOME/.Renviron):
+
+```
+http_proxy=http://c4-yum1:3128
+https_proxy=http://c4-yum1:3128
+```
+### Initial Setup - sbatch submission script
 
 The following is an example of an sbatch script to instantiate the container. The script does the following:
 
@@ -31,6 +39,11 @@ The following is an example of an sbatch script to instantiate the container. Th
 - print instructions for setting up the ssh tunnel. 
 
 This script was written by our friends at the Rocker project (<a href="https://www.rocker-project.org/use/singularity/">rocker tutorial</a>) and lightly modified for {{ site.cluster.name }}.
+
+<div class="alert alert-danger" role="alert" style="margin-top: 3ex">
+<strong>Pleae Note: </strong>. For newer version of the rocker container, we must add the --server-user=your-C4-username. Older versions of the container did not have that option.
+</div>
+
 
 ```sh
 #!/bin/bash
@@ -105,7 +118,8 @@ singularity exec  $HOME/singularity-images/rstudio-server.sif \
             --auth-pam-helper-path=pam-helper \
             --auth-stay-signed-in-days=30 \
             --auth-timeout-minutes=0 \
-            --rsession-path=/etc/rstudio/rsession.sh
+            --rsession-path=/etc/rstudio/rsession.sh \
+            --server-user=alice
 printf 'rserver exited' 1>&2
 ```
 
