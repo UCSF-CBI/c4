@@ -14,8 +14,8 @@ Number of CPUs on machine: 64
 Number of CPUs (per cgroups): 4
 [alice@c4-n3:job=366712 ~]$ echo "Number of CPUs (per Slurm): ${SLURM_CPUS_PER_TASK:-1}"
 Number of CPUs (per Slurm): 4
-[henrik@c4-n3:job=366712 tests-slurm]$ module load CBI r
-[henrik@c4-n3:job=366712 tests-slurm]$ Rscript -e 'parallelly::availableCores(which = "all")'
+[alice@c4-n3:job=366712 tests-slurm]$ module load CBI r
+[alice@c4-n3:job=366712 tests-slurm]$ Rscript -e 'parallelly::availableCores(which = "all")'
 system  nproc  Slurm 
     64      4      4
 [alice@c4-n3:job=366712 ~]$ 
