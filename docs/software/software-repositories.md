@@ -29,9 +29,9 @@ Below are 3 software repositories, each providing a set of software tools.
 
 
 <ul class="nav nav-pills">
-  <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(3)</a></li>
+  <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(4)</a></li>
   <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(77)</a></li>
-  <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(15)</a></li>
+  <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
 <div class="tab-content" style="margin-top: 1ex;">
@@ -62,6 +62,12 @@ OpenJDK is a free and open-source implementation of the Java Platform, Standard 
     Example: <code>java -version</code> and <code>javac -version</code>.<br>
     URL: <a href="https://openjdk.java.net/">https://openjdk.java.net/</a><br>
   Versions: 1.6.0, 1.8.0, <em>11</em><br>
+  </dd>
+
+  <dt id="built-in--scl-python">scl-python</dt>
+  <dd>
+NA<br>
+  Versions: <em>3.6</em><br>
   </dd>
 
 </dl>
@@ -326,7 +332,7 @@ fzf is a general-purpose command-line fuzzy finder. It's an interactive Unix fil
     Note: To install tab completions and key bindinds to your shell, call <code>$FZF_HOME/install</code>. To uninstall, use <code>$FZF_HOME/uninstall</code>.<br>
     URL: <a href="https://github.com/junegunn/fzf">https://github.com/junegunn/fzf</a>, <a href="https://github.com/junegunn/fzf/wiki">https://github.com/junegunn/fzf/wiki</a><br>
     Warning: Only the most recent version of this software will be kept.<br>
-  Versions: 0.22.0, 0.25.1, 0.27.2, <em>0.28.0</em><br>
+  Versions: 0.22.0, 0.25.1, 0.27.2, 0.28.0, <em>0.29.0</em><br>
   </dd>
 
   <dt id="CBI--gatk">gatk</dt>
@@ -335,7 +341,7 @@ fzf is a general-purpose command-line fuzzy finder. It's an interactive Unix fil
 Developed in the Data Sciences Platform at the Broad Institute, the toolkit offers a wide variety of tools with a primary focus on variant discovery and genotyping. Its powerful processing engine and high-performance computing features make it capable of taking on projects of any size.<br>
     Example: <code>gatk --help</code> and <code>gatk --list</code>.<br>
     URL: <a href="https://software.broadinstitute.org/gatk/">https://software.broadinstitute.org/gatk/</a>, <a href="https://github.com/broadinstitute/gatk">https://github.com/broadinstitute/gatk</a>, <a href="https://github.com/broadgsa/gatk">https://github.com/broadgsa/gatk</a>, <a href="https://console.cloud.google.com/storage/browser/gatk-software/package-archive">https://console.cloud.google.com/storage/browser/gatk-software/package-archive</a>, <a href="ftp://ftp.broadinstitute.org/pub/gsa/GenomeAnalysisTK/">ftp://ftp.broadinstitute.org/pub/gsa/GenomeAnalysisTK/</a><br>
-  Versions: 1.1-37-ge63d9d8, 1.6-5-g557da77, 4.1.1.0, 4.1.7.0, 4.1.8.1, 4.1.9.0, 4.2.0.0, 4.2.2.0, <em>4.2.3.0</em><br>
+  Versions: 1.1-37-ge63d9d8, 1.6-5-g557da77, 4.1.1.0, 4.1.7.0, 4.1.8.1, 4.1.9.0, 4.2.0.0, 4.2.2.0, 4.2.3.0, <em>4.2.4.1</em><br>
   </dd>
 
   <dt id="CBI--gcta">gcta</dt>
@@ -428,7 +434,7 @@ HISAT2 is a fast and sensitive alignment program for mapping next-generation seq
     Example: <code>htop</code>.<br>
     URL: <a href="https://htop.dev">https://htop.dev</a>, <a href="https://github.com/htop-dev/htop">https://github.com/htop-dev/htop</a><br>
     Warning: Only the most recent version of this software will be kept.<br>
-  Versions: 3.0.4, 3.0.5, 3.1.0, <em>3.1.1</em><br>
+  Versions: 3.0.4, 3.0.5, 3.1.0, 3.1.1, <em>3.1.2</em><br>
   </dd>
 
   <dt id="CBI--htslib">htslib</dt>
@@ -456,7 +462,7 @@ The Integrative Genomics Viewer (IGV) is a high-performance visualization tool f
     Example: <code>igv</code>.<br>
     Note: IGV (&gt;= 2.5.0) requires Java 11. Coincidentally, <code>igvtools</code> is integrated with IGV (&gt;= 2.5.0).<br>
     URL: <a href="https://software.broadinstitute.org/software/igv/">https://software.broadinstitute.org/software/igv/</a>, <a href="https://software.broadinstitute.org/software/igv/download">https://software.broadinstitute.org/software/igv/download</a><br>
-  Versions: 2.8.6, 2.8.13, 2.9.1, 2.11.0, <em>2.11.3</em><br>
+  Versions: 2.8.6, 2.8.13, 2.9.1, 2.11.0, 2.11.3, <em>2.11.9</em><br>
   </dd>
 
   <dt id="CBI--igvtools">igvtools</dt>
@@ -539,7 +545,7 @@ Pandoc is a Haskell library and software tool for converting from one markup for
 Picard is a set of command line tools for manipulating high-throughput sequencing (HTS) data and formats such as SAM/BAM/CRAM and VCF.<br>
     Example: <code>picard -h</code>, which is an alias for <code>java -jar $PICARD_HOME/picard.jar -h</code><br>
     URL: <a href="http://broadinstitute.github.io/picard/">http://broadinstitute.github.io/picard/</a>, <a href="https://github.com/broadinstitute/picard">https://github.com/broadinstitute/picard</a><br>
-  Versions: 1.64, 2.23.1, 2.24.0, 2.25.0, 2.26.2, <em>2.26.5</em><br>
+  Versions: 1.64, 2.23.1, 2.24.0, 2.25.0, 2.26.2, 2.26.5, <em>2.26.10</em><br>
   </dd>
 
   <dt id="CBI--pindel">pindel</dt>
@@ -713,7 +719,7 @@ STAR (Spliced Transcripts Alignment to a Reference) is a fast NGS read aligner f
     <strong>TileDB: The Universal Storage Engine</strong><br>
 TileDB is a powerful engine for storing and accessing dense and sparse multi-dimensional arrays, which can help you model any complex data efficiently. It is an embeddable C++ library that works on Linux, macOS, and Windows.<br>
     URL: <a href="https://tiledb.com/">https://tiledb.com/</a>, <a href="https://github.com/TileDB-Inc/TileDB">https://github.com/TileDB-Inc/TileDB</a><br>
-  Versions: 2.4.3, <em>2.4.4</em><br>
+  Versions: 2.4.3, 2.4.4, <em>2.5.2</em><br>
   </dd>
 
   <dt id="CBI--tmux">tmux</dt>
@@ -890,6 +896,14 @@ NA<br>
   Versions: <em>0.5.4</em><br>
   </dd>
 
+  <dt id="WitteLab--ldak">ldak</dt>
+  <dd>
+    <strong>LDAK: program for running heritability, genetic correlation, and genetic prediction (BayesR, MultiBLUP) analyses</strong><br>
+This is a command-line tool for analyses of individual-level and summary data (formatted accordingly: <a href="https://dougspeed.com/summary-statistics/">https://dougspeed.com/summary-statistics/</a>). Analyses of summary data require pre-computed tagging files (LD reference panels). You can generate these from individual-level data (<a href="https://dougspeed.com/calculate-taggings/">https://dougspeed.com/calculate-taggings/</a>) or use pre-computed files from external reference datasets (<a href="https://dougspeed.com/pre-computed-tagging-files/">https://dougspeed.com/pre-computed-tagging-files/</a>). Recommended tagging files for EUR/GBB and AFR populations have been downloaded.<br>
+    URL: <a href="https://dougspeed.com/ldak/">https://dougspeed.com/ldak/</a><br>
+  Versions: <em>5.1</em><br>
+  </dd>
+
   <dt id="WitteLab--ldsc">ldsc</dt>
   <dd>
     <strong>ldsc: a command line tool for estimating heritability and genetic correlation from GWAS summary statistics. ldsc also computes LD Scores.</strong><br>
@@ -916,6 +930,14 @@ Here you can find the latest implementation of PrediXcan: PrediXcan.py. This use
   Versions: <em>0.6.5</em><br>
   </dd>
 
+  <dt id="WitteLab--paintor">paintor</dt>
+  <dd>
+    <strong>liftOver: program can be used to fine map putative causal variants using GWAS summary statistics.</strong><br>
+PAINTOR is a statistical fine-mapping method that integrates functional genomic data with association strength from potentially multiple populations (or traits) to prioritize variants for follow-up analysis. The software runs on multiple fine-mapping loci and/or populations/traits simultaneously and takes as input the following data for each set of SNPs at a locus. Examples can be found at <a href="https://github.com/gkichaev/PAINTOR_V3.0">https://github.com/gkichaev/PAINTOR_V3.0</a><br>
+    URL: <a href="https://github.com/gkichaev/PAINTOR_V3.0">https://github.com/gkichaev/PAINTOR_V3.0</a><br>
+  Versions: <em>3.0</em><br>
+  </dd>
+
   <dt id="WitteLab--python3">python3</dt>
   <dd>
     <strong>python3: programming language</strong><br>
@@ -940,12 +962,12 @@ performs fast gene-based and single-variants tests specifically designed for cas
 </div> 
 
 <ul class="nav nav-pills">
-  <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(3)</a></li>
+  <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(4)</a></li>
   <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(77)</a></li>
-  <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(15)</a></li>
+  <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
-_The above information was automatically generated on 2021-11-23 11:02:16 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2022-01-04 18:28:30 from querying `module avail` and `module spider`._
 
 
 <style>
