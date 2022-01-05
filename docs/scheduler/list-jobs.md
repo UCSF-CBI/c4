@@ -1,15 +1,31 @@
 # List Jobs
 
 You can list all your submitted jobs, queued and running, using:
+
 ```sh
-squeue -u $USER
+[alice@{{ site.login.name }} ~]$ squeue --me
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON) 
+                 6    common SHEH_201    alice  R 1-01:40:59      1 c4-n10 
+                27    common snakejob    alice  R 1-01:40:25      1 c4-n10 
 ```
 
-
-To get detailed information on a specific job, your or others, use:
+To get additional information
 ```sh
-squeue -j <job_id>
+[alice@{{ site.login.name }} ~]$ squeue --me --format="%6i %1t %11P %.16j %.5D %.7c %11L %19S %20R"
+JOBID  S PARTITION               NAME NODES MIN_CPU TIME_LEFT   START_TIME          NODELIST(REASON)    
+    6  R common      SHEH_201-testing     1       4 19:01       2020-12-15T15:51:07 c4-n10
+   27  R common       snakejob_dnaseq     1      32 19:35       2020-12-15T15:51:41 c4-n10
 ```
+
+See `man squeue` for description of these format flags.
+
+To get detailed information on a specific job, yours or someone else's, use:
+```sh
+[alice@{{ site.login.name }} ~]$ squeue -j 27
+             JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON) 
+                27    common snakejob    alice  R 1-01:40:25      1 c4-n10 
+```
+
 
 
 ## List jobs of other users
@@ -27,12 +43,11 @@ squeue
 For example,
 
 ```sh
-$ squeue
+[alice@{{ site.login.name }} ~]$ squeue
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON) 
                  6    common SHEH_201    alice  R 1-01:40:59      1 c4-n10 
                 27    common snakejob    alice  R 1-01:40:25      1 c4-n10 
               1032    common gex_coun    bob    R    1:27:48      1 c4-n1 
-
 ```
 
 
