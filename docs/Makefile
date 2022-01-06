@@ -88,6 +88,7 @@ yaml-check:
 
 markdownlint:
 	@stdout=$(TMPDIR)/stdout
+	rm -f "$$stdout"
 
 	ok_count=0
 	error_count=0
@@ -122,6 +123,7 @@ markdownlint:
 
 markdown-link-check:
 	@stdout=$(TMPDIR)/stdout
+	rm -f "$$stdout"
 
 	ok_count=0
 	error_count=0
@@ -157,6 +159,7 @@ markdown-link-check:
 
 check-here-links:
 	@stdout=$(TMPDIR)/stdout
+	rm -f "$$stdout"
 
 	ok_count=0
 	error_count=0
@@ -184,6 +187,7 @@ check-here-links:
 
 check-usernames:
 	@stdout=$(TMPDIR)/stdout
+	rm -f "$$stdout"
 
 	ok_count=0
 	error_count=0
@@ -213,6 +217,7 @@ check-usernames:
 
 check-leftovers:
 	@stdout=$(TMPDIR)/stdout
+	rm -f "$$stdout"
 
 	ok_count=0
 	error_count=0
@@ -247,6 +252,8 @@ check-leftovers:
 	  exit 1
 	fi
 
-check: check-here-links check-usernames spell markdownlint markdown-link-check check-leftovers
+check-markdown: markdownlint markdown-link-check
+
+check: check-here-links check-usernames check-leftovers spell check-markdown
 
 FORCE:

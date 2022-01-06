@@ -259,7 +259,7 @@ wyntonquery
 xgboost
 xxxxxxx
 yml
-Rstudio
+RStudio
 rstudio
 XQuartz
 xquartz
@@ -270,3 +270,4 @@ devtoolset
 prebuilt
 samtools
 subfolder
+gui
