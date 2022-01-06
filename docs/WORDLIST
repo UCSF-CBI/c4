@@ -265,3 +265,8 @@ XQuartz
 xquartz
 OSX
 distros
+cxx
+devtoolset
+prebuilt
+samtools
+subfolder
