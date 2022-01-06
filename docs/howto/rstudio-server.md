@@ -47,10 +47,10 @@ The following is an example of a Slurm job script to instantiate the container. 
 3. set a randomized password for RStudio Server
 4. print instructions for setting up the SSH tunnel
 
-This script was written by our friends at the Rocker project (<a href="https://www.rocker-project.org/use/singularity/">rocker tutorial</a>) and lightly modified for {{ site.cluster.name }}.
+This script was written by our friends at the Rocker project ([rocker tutorial]) and lightly modified for {{ site.cluster.name }}.
 
 <div class="alert alert-warning" role="alert" style="margin-top: 3ex">
-Note: For newer version of the rocker container, we must add the <code>--server-user=your-C4-username</code>. Older versions of the container did not have that option.
+Note: For newer version of the Rocker container, we must add the <code>--server-user="$USER"</code>. Older versions of the container did not have that option.
 </div>
 
 
@@ -179,9 +179,10 @@ When done, make sure to terminate everything by:
 
 The SSH tunnel command has to run on your workstation, not the cluster. You can use either login host for this command.
 
-Make sure to quit the browser and then use `scancel` to cancel the job. If you do that, then state is saved in your {{ site.cluster.name }} home directory under `~/rstudio-server`. The next time you start a new copy of the rocker container, RStudio will remember all the variables, open files, etc., similarly to how it works in the RStudio Desktop version.
+Make sure to quit the browser and then use `scancel` to cancel the job. If you do that, then state is saved in your {{ site.cluster.name }} home directory under `~/rstudio-server`. The next time you start a new copy of the Linux container, RStudio Server will remember all the variables, open files, etc., similarly to how it works in the RStudio Desktop version.
 
 
 [X11 forwarding]: {{ '/howto/gui-x11fwd.html' | relative_url }}
 [RStudio Server]: https://www.rstudio.com/products/rstudio/#rstudio-server
 [Rocker Project]: https://www.rocker-project.org/
+[rocker tutorial]: https://www.rocker-project.org/use/singularity/
