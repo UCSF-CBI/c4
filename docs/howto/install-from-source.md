@@ -1,8 +1,8 @@
 # Install Software from Source Code
 
-A lot of scientific software is developed using C, C++, and Fortran. Sometimes the maintainers provide prebuilt software binaries from Linux, but more often you have to compile their software from source code.  Building from source might sound daunting, especially if it's your first time - there new terminology to understand, new tools to use, and sometimes hard-to-understand error messages.
+A lot of scientific software is developed using C, C++, and Fortran. Sometimes the maintainers provide prebuilt software binaries from Linux, but more often you have to compile their software from source code.  Building from source might sound daunting, especially if it's your first time - there is new terminology to understand, new tools to use, and sometimes hard-to-understand error messages.
 
-This document will try to explain the gist of one of to the most common way to build software from source code: "configure -> make -> make install".  Please be aware that not all software tools use this approach, so it's not universal, but it is by far the most common approach.
+This document gives the gist of one of to the most common way to build software from source code, namely the "configure -> make -> make install" approach.  Please be aware that not all software tools use this approach, so it's not universal, but it is by far the most common approach.
 
 
 ## configure -> make -> make install
