@@ -8,6 +8,9 @@
             },
             {
 		"pattern": "^https://github.com/UCSF-CBI/c4-help"
+            },
+            {
+                "pattern": "^https://it.ucsf.edu/service/backup-services"
 	    }
 	],
     
