@@ -67,8 +67,9 @@ Note: For newer version of the Rocker container, we must add the <code>--server-
 # where writable file systems are necessary. Adjust path as appropriate for your computing environment.
 workdir=$HOME/rstudio-server
 
-mkdir -p -m 700 ${workdir}/run ${workdir}/tmp ${workdir}/var/lib/rstudio-server
-cat > ${workdir}/database.conf <<END
+mkdir -p "${workdir}"/{run,tmp,var/lib/rstudio-server}
+chmod 700 "${workdir}"
+cat > "${workdir}"/database.conf <<END
 provider=sqlite
 directory=/var/lib/rstudio-server
 END
@@ -80,14 +81,14 @@ END
 # Set R_LIBS_USER to a path specific to Rocker/RStudio to avoid conflicts with
 # personal libraries from any R installation in the host environment
 
-cat > ${workdir}/rsession.sh <<END
+cat > "${workdir}"/rsession.sh <<END
 #!/bin/sh
 export OMP_NUM_THREADS=${SLURM_JOB_CPUS_PER_NODE}
 export R_LIBS_USER=${HOME}/R/rocker-rstudio/4.0
 exec rsession "\${@}"
 END
 
-chmod +x ${workdir}/rsession.sh
+chmod +x "${workdir}"/rsession.sh
 
 export SINGULARITY_BIND="${workdir}/run:/run,${workdir}/tmp:/tmp,${workdir}/database.conf:/etc/rstudio/database.conf,${workdir}/rsession.sh:/etc/rstudio/rsession.sh,${workdir}/var/lib/rstudio-server:/var/lib/rstudio-server"
 
