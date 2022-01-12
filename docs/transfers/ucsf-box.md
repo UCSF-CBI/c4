@@ -20,7 +20,7 @@ It is possible to access [UCSF Box](https://ucsf.app.box.com/) using FTP over a 
 
 In order to do access UCSF Box as describe below, you need to:
 
-* Setup a **UCSF Box-specific password** as explained in <https://ucsf.app.box.com/services/box_ftp_server>
+* Setup a **UCSF Box-specific password** as explained in <https://support.box.com/hc/en-us/articles/360043697414-Using-Box-with-FTP-or-FTPS>
 
 
 ## Accessing UCSF Box over FTPS
@@ -89,4 +89,10 @@ Note that `curl` also recognizes `~/.netrc` credentials, e.g.
 100 15.6M  100 15.6M    0     0  1561k      0  0:00:10  0:00:10 --:--:-- 3918k
 [alice@{{ site.transfer.name }} ~]$ ls -la Grant_R01.pdf
 -rw-r--r-- 1 alice cluster 16453180 Jul 10 21:13 Grant_R01.pdf
+```
+
+To upload a file, we can do:
+ 
+```sh
+[alice@{{ site.transfer.name }} ~]$ curl --netrc --upload-file notes.txt ftps://ftp.box.com/
 ```
