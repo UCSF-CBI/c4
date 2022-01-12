@@ -10,6 +10,9 @@
 		"pattern": "^https://github.com/UCSF-CBI/c4-help"
             },
             {
+		"pattern": "^https://support.box.com/hc/en-us/articles/360043697414-Using-Box-with-FTP-or-FTPS"
+            },
+            {
                 "pattern": "^https://it.ucsf.edu/service/backup-services"
 	    }
 	],
