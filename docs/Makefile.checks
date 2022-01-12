@@ -106,7 +106,7 @@ check-here-links:
 	files=$$(find . -type f -name "*.md" -not \( -path "./_site/*" -o -path "./drafts/*" \) )
 	for file in $$files; do
 	   $(TPUT) && printf "[    ] checking %s" "$$file"
-	   if ! grep -q -i -E "[[](here|link|this)[]]" "$${file}" &>> "$$stdout" ; then
+	   if ! grep -q -i -E "[[](click here|here|link|this)[]]" "$${file}" &>> "$$stdout" ; then
 	     ok_count=$$((ok_count+1))
 	     $(TPUT) && printf "\r"
 	     printf "[$(OK)] checking %s\\n" "$$file"
