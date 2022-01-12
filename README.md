@@ -3,7 +3,7 @@
 <a target="_blank" rel="noopener noreferrer" href="https://github.com/UCSF-CBI/c4/actions?query=workflow%3AShellCheck"><img src="https://github.com/UCSF-CBI/c4/workflows/ShellCheck/badge.svg" alt="ShellCheck" style="max-width:100%;"></a>
 <a target="_blank" rel="noopener noreferrer" href="https://github.com/UCSF-CBI/c4/actions?query=workflow%3AMarkdownLint"><img src="https://github.com/UCSF-CBI/c4/workflows/MarkdownLint/badge.svg" alt="MarkdownLint" style="max-width:100%;"></a>
 <a target="_blank" rel="noopener noreferrer" href="https://github.com/UCSF-CBI/c4/actions?query=workflow%3AMarkdown%20URLs"><img src="https://github.com/UCSF-CBI/c4/workflows/Markdown%20URLs/badge.svg" alt="Markdown URLs" style="max-width:100%;"></a>
-<a target="_blank" rel="noopener noreferrer" href="https://github.com/UCSF-CBI/c4/actions?query=workflow%3AUsernames"><img src="https://github.com/UCSF-CBI/c4/workflows/Usernames/badge.svg" alt="Usernames" style="max-width:100%;"></a>
+<a target="_blank" rel="noopener noreferrer" href="https://github.com/UCSF-HPC/wynton/actions/workflows/odds-and-ends.yml"><img src="https://github.com/UCSF-HPC/wynton/actions/workflows/odds-and-ends.yml/badge.svg" alt="Odds and Ends" style="max-width:100%;"></a>
 
 
 # The C4 User Website
