@@ -21,3 +21,7 @@ jobs:
       run: |
         make cron-shellcheck
 
+    - name: Markin ShellCheck
+      run: |
+        make markin-shellcheck
+        
