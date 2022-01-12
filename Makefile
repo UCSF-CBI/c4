@@ -1,4 +1,4 @@
-check: spell shellcheck yaml-check markdownlint markdown-link-check check-usernames
+check: spell shellcheck yaml-check markdownlint markdown-link-check check-usernames check-here-links
 
 shellcheck:
 	cd cron-scripts; $(MAKE) $@
@@ -16,4 +16,7 @@ markdown-link-check:
 	cd docs; $(MAKE) $@
 
 check-usernames:
+	cd docs; $(MAKE) $@
+
+check-here-links:
 	cd docs; $(MAKE) $@
