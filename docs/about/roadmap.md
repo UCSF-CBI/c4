@@ -22,7 +22,7 @@
 * Compute nodes: Five working communal compute nodes (192 physical cores each) (2020-08-31)
 
 
-### Alpha testing (2020-09-01--2020-11-31)
+### Alpha testing (2020-09-01 -- 2020-11-31)
 
 **Goal**: We will implement essential features that we missed previously.  We will address feature requests that are straightforward to implement.  More complex feature requests will be saved for later. At the end of this phase, we will have a rudimentary HPC environment that will allow advanced users to run scientific jobs.
 
@@ -45,7 +45,7 @@
 * Lab storage: All lab storage on TIPCC is now also mounted on C4 (2020-11-03)
 
 
-### Beta testing (2020-12-01--2021-01-11)
+### Beta testing (2020-12-01 -- 2021-01-11)
 
 **Goal**: At the end of this phase, we will have a solid HPC environment that will allow the majority of users to run scientific jobs on C4 that they previously ran on TIPCC.  We are confident that we can go forward with inviting all TIPCC users.
 
@@ -60,7 +60,7 @@
 * Scheduler: Prevent starvation by limiting the number of concurrent cores a single users can run concurrently (2020-01-11)
 
 
-### Going-Live Phase (2021-01-11 - 2021-10-31)
+### Going-Live Phase (2021-01-11 -- 2021-10-31)
 
 **Period**: Starting 2021-01-11
 
