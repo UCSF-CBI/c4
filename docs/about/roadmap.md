@@ -26,21 +26,6 @@
 
 
 
-## TIPCC deprecation
-
-**Period**: To be decided (sometimes during spring 2021)
-
-**Goal** Bring down any dependencies on TIPCC to a minimum to the point where we can shutdown TIPCC forever.
-
-**Expectation** TIPCC is kept on life support only! TIPCC might crash at any time!
-
-* [ ] All TIPCC users should migrate to C4
-* [ ] We will attempt to accommodate legacy-software needs as far as possible
-* [ ] Job scheduler end-of-life support no longer than 2022-01-16 (Moab license expiration date)
-
-
-
-
 ## Accomplished milestones
 
 ### Initial setup (until 2020-08-31)
@@ -93,6 +78,20 @@
 * Scheduler: Prevent starvation by limiting the number of concurrent cores a single users can run concurrently (2020-01-11)
 
 See also [News].
+
+
+## Deprecating TIPCC (2021-11-01)
+
+**Period**: During Spring to Fall 2021.
+
+**Goal** Bring down any dependencies on TIPCC to a minimum to the point where we can shutdown TIPCC forever.
+
+**Expectation** TIPCC is kept on life support only! TIPCC might crash at any time!
+
+* [x] All TIPCC users should migrate to C4
+* [x] We will attempt to accommodate legacy-software needs as far as possible
+* [x] Job scheduler end-of-life support no longer than 2022-01-16 (Moab license expiration date)
+* [x] Access to TIPCC disabled on 2021-11-01
 
 
 
