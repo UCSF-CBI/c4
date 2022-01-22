@@ -296,95 +296,6 @@ If you have an R scripts, and it involves setting up a number of parallel worker
 
 ### Packages that require extra care
 
-#### The tiledb package (needs a more modern GCC compiler)
-
-CentOS 7 comes with a rather old version of GCC, specifically gcc v4.8.5 (2015-06-23).  Because of this, the `r` CBI modules will automatically load a modern version (`scl-devtoolset/8`), which provides gcc 8.3.1 (2019-03-11). That version support the C++14 standard and most of the C++17 standard.  Because of this, almost all CRAN and Bioconductor packages will install out of the box, when using R from the CBI software repository.
-
-However, there are few CRAN packages that requires an even newer version of GCC.  The **[tiledb]** package is one of them.  If we try to install it, we will get a rather obscure error message;
-
-```r
-> install.packages("tiledb")
-Installing package into '/c4/home/alice/R/x86_64-pc-linux-gnu-library/4.1-CBI-gcc8'
-(as 'lib' is unspecified)
-trying URL 'https://cloud.r-project.org/src/contrib/tiledb_0.10.2.tar.gz'
-Content type 'application/x-gzip' length 370247 bytes (361 KB)
-==================================================
-downloaded 361 KB
-
-* installing *source* package 'tiledb' ...
-** package 'tiledb' successfully unpacked and MD5 sums checked
-** using staged installation
-checking whether the C++ compiler works... yes
-...
-** testing if installed package can be loaded from temporary location
-Error: package or namespace load failed for 'tiledb' in dyn.load(file, DLLpath = DLLpath, ...):
- unable to load shared object '/c4/home/alice/R/x86_64-pc-linux-gnu-library/4.1-CBI-gcc8/00LOCK-tiledb/00new/tiledb/libs/tiledb.so':
-  /c4/home/alice/R/x86_64-pc-linux-gnu-library/4.1-CBI-gcc8/00LOCK-tiledb/00new/tiledb/libs/tiledb.so: undefined symbol: _ZNSt10filesystem18create_directoriesERKNS_4pathE
-Error: loading failed
-Execution halted
-ERROR: loading failed
-* removing '/c4/home/alice/R/x86_64-pc-linux-gnu-library/4.1-CBI-gcc8/tiledb'
-* restoring previous '/c4/home/alice/R/x86_64-pc-linux-gnu-library/4.1-CBI-gcc8/tiledb'
-```
-
-You have to be an up-to-date, experienced C++ programmer to troubleshoot this.  For mortals like the rest of us, all we can do is to [report upstream](https://github.com/TileDB-Inc/TileDB-R/issues/333) and try with a more modern version of GCC.  Indeed, if we use something never than GCC 8.3.1 (2019-03-01), e.g.
-
-```sh
-[alice@{{ site.devel.name }} ~]$ module load CBI scl-devtoolset/9
-The following have been reloaded with a version change:
-  1) scl-devtoolset/8 => scl-devtoolset/9
-
-[alice@{{ site.devel.name }} ~]$ module list
-
-Currently Loaded Modules:
-  1) CBI   2) r/4.1.2   3) scl-devtoolset/9
-  
-[alice@{{ site.devel.name }} ~]$ gcc --version
-gcc (GCC) 9.3.1 20200408 (Red Hat 9.3.1-2)
-Copyright (C) 2019 Free Software Foundation, Inc.
-This is free software; see the source for copying conditions.  There is NO
-warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-```
-
-it will work;
-
-```sh
-[alice@{{ site.devel.name }} ~]$ R
-...
-> install.packages("tiledb")
-Installing package into '/c4/home/alice/R/x86_64-pc-linux-gnu-library/4.1-CBI-gcc8'
-(as 'lib' is unspecified)
-trying URL 'https://cloud.r-project.org/src/contrib/tiledb_0.10.2.tar.gz'
-Content type 'application/x-gzip' length 370247 bytes (361 KB)
-==================================================
-downloaded 361 KB
-
-* installing *source* package 'tiledb' ...
-...
-** R
-** inst
-** byte-compile and prepare package for lazy loading
-** help
-*** installing help indices
-** building package indices
-** installing vignettes
-** testing if installed package can be loaded from temporary location
-** checking absolute paths in shared objects and dynamic libraries
-** testing if installed package can be loaded from final location
-** testing if installed package keeps a record of temporary installation path
-* DONE (tiledb)
-
-The downloaded source packages are in
-        '/scratch/alice/RtmpdhBRbV/downloaded_packages'
-```
-
-will now work.
-
-Note, it is only when you install this R package that you need `scl-devtoolset`.  There is no need for it when loading the **tiledb** package later on.
-
-_Comment_: Starting with R 4.2.0 (April 2022), the `r` module will load a `scl-devtoolset/9`, or newer.
-
-
 #### The hdf5r package
 
 The **[hdf5r]** package requires [hdf5 1.8.13 or newer](https://github.com/hhoeflin/hdf5r/issues/115) but the version that comes with CentOS 7/EPEL is only 1.8.12. This will result in the following installation error in R:
@@ -473,6 +384,96 @@ The downloaded source packages are in
 ```
 
 That's it!
+
+
+#### R packages that require a modern GCC compiler
+
+CentOS 7 comes with a rather old version of GCC, specifically gcc v4.8.5 (2015-06-23).  Because of this, the `r` CBI modules will automatically load a modern version (`scl-devtoolset/8`), which provides gcc 8.3.1 (2019-03-11). That version support the C++14 standard and most of the C++17 standard.  Because of this, almost all CRAN and Bioconductor packages will install out of the box, when using R from the CBI software repository.
+
+However, there are few CRAN packages that requires an even newer version of GCC.  The **[tiledb]** package is one of them.  If we try to install it, we will get a rather obscure error message;
+
+```r
+> install.packages("tiledb")
+Installing package into '/c4/home/alice/R/x86_64-pc-linux-gnu-library/4.1-CBI-gcc8'
+(as 'lib' is unspecified)
+trying URL 'https://cloud.r-project.org/src/contrib/tiledb_0.10.2.tar.gz'
+Content type 'application/x-gzip' length 370247 bytes (361 KB)
+==================================================
+downloaded 361 KB
+
+* installing *source* package 'tiledb' ...
+** package 'tiledb' successfully unpacked and MD5 sums checked
+** using staged installation
+checking whether the C++ compiler works... yes
+...
+** testing if installed package can be loaded from temporary location
+Error: package or namespace load failed for 'tiledb' in dyn.load(file, DLLpath = DLLpath, ...):
+ unable to load shared object '/c4/home/alice/R/x86_64-pc-linux-gnu-library/4.1-CBI-gcc8/00LOCK-tiledb/00new/tiledb/libs/tiledb.so':
+  /c4/home/alice/R/x86_64-pc-linux-gnu-library/4.1-CBI-gcc8/00LOCK-tiledb/00new/tiledb/libs/tiledb.so: undefined symbol: _ZNSt10filesystem18create_directoriesERKNS_4pathE
+Error: loading failed
+Execution halted
+ERROR: loading failed
+* removing '/c4/home/alice/R/x86_64-pc-linux-gnu-library/4.1-CBI-gcc8/tiledb'
+* restoring previous '/c4/home/alice/R/x86_64-pc-linux-gnu-library/4.1-CBI-gcc8/tiledb'
+```
+
+You have to be an up-to-date, experienced C++ programmer to troubleshoot this.  For mortals like the rest of us, all we can do is to [report upstream](https://github.com/TileDB-Inc/TileDB-R/issues/333) and try with a more modern version of GCC.  Indeed, if we use something never than GCC 8.3.1 (2019-03-01), e.g.
+
+```sh
+[alice@{{ site.devel.name }} ~]$ module load CBI scl-devtoolset/9
+The following have been reloaded with a version change:
+  1) scl-devtoolset/8 => scl-devtoolset/9
+
+[alice@{{ site.devel.name }} ~]$ module list
+
+Currently Loaded Modules:
+  1) CBI   2) r/4.1.2   3) scl-devtoolset/9
+  
+[alice@{{ site.devel.name }} ~]$ gcc --version
+gcc (GCC) 9.3.1 20200408 (Red Hat 9.3.1-2)
+Copyright (C) 2019 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+```
+
+it will work;
+
+```sh
+[alice@{{ site.devel.name }} ~]$ R
+...
+> install.packages("tiledb")
+Installing package into '/c4/home/alice/R/x86_64-pc-linux-gnu-library/4.1-CBI-gcc8'
+(as 'lib' is unspecified)
+trying URL 'https://cloud.r-project.org/src/contrib/tiledb_0.10.2.tar.gz'
+Content type 'application/x-gzip' length 370247 bytes (361 KB)
+==================================================
+downloaded 361 KB
+
+* installing *source* package 'tiledb' ...
+...
+** R
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+** checking absolute paths in shared objects and dynamic libraries
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (tiledb)
+
+The downloaded source packages are in
+        '/scratch/alice/RtmpdhBRbV/downloaded_packages'
+```
+
+will now work.
+
+Note, it is only when you install this R package that you need `scl-devtoolset`.  There is no need for it when loading the **tiledb** package later on.
+
+_Comment_: Starting with R 4.2.0 (April 2022), the `r` module will load a `scl-devtoolset/9`, or newer.
+
 
 
 
