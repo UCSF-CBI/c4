@@ -324,6 +324,46 @@ After this, the **hdf5r** package will install out of the box, i.e. by calling:
 ```
 
 
+#### The sf package
+
+The **[sf]** package requires GDAL 2.0.1 or newer but the version that comes with CentOS 7/EPEL is only 1.11.4;
+
+```sh
+$ gdalinfo --version
+GDAL 1.11.4, released 2016/01/25
+```
+
+If we try to install **sf** with the this version, we'll get the following installation error in R:
+
+```r
+configure: GDAL: 1.11.4
+checking GDAL version >= 2.0.1... no
+configure: error: sf is not compatible with GDAL versions below 2.0.1
+ERROR: configuration failed for package 'sf'
+* removing '/c4/home/alice/R/x86_64-pc-linux-gnu-library/4.1-CBI-gcc8/sf'
+* restoring previous '/c4/home/alice/R/x86_64-pc-linux-gnu-library/4.1-CBI-gcc8/sf'
+```
+
+ To fix this, load a modern version of GDAL from the [CBI software stack] before installing the package, i.e.
+
+```sh
+[alice@{{ site.devel.name }} ~]$ module load CBI gdal
+[alice@{{ site.devel.name }} ~]$ module list
+
+Currently Loaded Modules:
+  1) CBI   2) scl-devtoolset/8   3) r/4.1.2   4) gdal/2.4.4
+```
+ 
+After this, the **sf** package will install out of the box, i.e. by calling:
+
+```r
+> install.packages("sf")
+```
+
+Note that you also need to load the `gdal` module every time you use the **gdal** package in R.
+
+
+
 ### Packages relying on MPI
 
 Several R packages that rely on the Message Passing Interface (MPI) do not install out-of-the-box like other R packages.  At a minimum, they require that the built-in `mpi` module is loaded;
@@ -542,6 +582,7 @@ _Comment_: Starting with R 4.2.0 (April 2022), the `r` module will load a `scl-d
 [pbdMPI]: https://cran.r-project.org/package=pbdMPI
 [pbdPROF]: https://cran.r-project.org/package=pbdPROF
 [Rmpi]: https://cran.r-project.org/package=Rmpi
+[sf]: https://cran.r-project.org/package=sf
 [tiledb]: https://cran.r-project.org/package=tiledb
 [zoo]: https://cran.r-project.org/package=zoo
 [limma]: http://bioconductor.org/packages/limma/
