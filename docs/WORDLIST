@@ -273,3 +273,6 @@ gui
 hc
 Jupyter
 OnDemand
+decrypt
+RSA
+DSA
