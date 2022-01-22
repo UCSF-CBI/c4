@@ -291,7 +291,7 @@ _Comment_: This will actually also update any CRAN packages.
 
 ### Parallel processing in R
 
-If you have an R scripts, and it involves setting up a number of parallel workers in R, do _not_ use `ncores <- detectCores()` of the **parallel** package because it will result in your job hijacking _all_ cores on the compute node regardless of how many cores the scheduler has given you.  Taking up all CPU resources without permission is really bad practice and a common cause for problems.  A much better solution is to use `availableCores()` that is available in the **[future]** package, e.g. as `ncores <- future::availableCores()`.  This function is backward compatible with `detectCores()` while respecting what the scheduler has allocated for your job.
+If you have an R scripts, and it involves setting up a number of parallel workers in R, do _not_ use `ncores <- detectCores()` of the **parallel** package because it will result in your job hijacking _all_ cores on the compute node regardless of how many cores the scheduler has given you.  Taking up all CPU resources without permission is really bad practice and a common cause for problems.  A much better solution is to use `availableCores()` that is available in the **[parallelly]** package, e.g. as `ncores <- parallelly::availableCores()`.  This function is backward compatible with `detectCores()` while respecting what the scheduler has allocated for your job.
 
 
 ### Packages that require extra care
@@ -480,7 +480,7 @@ _Comment_: Starting with R 4.2.0 (April 2022), the `r` module will load a `scl-d
 [CRAN]: https://cran.r-project.org/
 [Bioconductor]: http://bioconductor.org/
 [BiocManager]: https://cran.r-project.org/package=BiocManager
-[future]: https://cran.r-project.org/package=future
+[parallelly]: https://cran.r-project.org/package=parallelly
 [hdf5r]: https://cran.r-project.org/package=hdf5r
 [Rmpi]: https://cran.r-project.org/package=Rmpi
 [tiledb]: https://cran.r-project.org/package=tiledb
