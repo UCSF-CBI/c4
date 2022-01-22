@@ -30,7 +30,7 @@ Below are 3 software repositories, each providing a set of software tools.
 
 <ul class="nav nav-pills">
   <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(4)</a></li>
-  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(77)</a></li>
+  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(80)</a></li>
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
@@ -92,6 +92,15 @@ ANNOVAR is an efficient software tool to utilize update-to-date information to f
     Example: <code>annotate_variation.pl --help</code>.<br>
     URL: <a href="https://annovar.openbioinformatics.org/en/latest/">https://annovar.openbioinformatics.org/en/latest/</a><br>
   Versions: 2011-10-02, 2015-06-17, <em>2020-06-07</em><br>
+  </dd>
+
+  <dt id="CBI--apache-ant">apache-ant</dt>
+  <dd>
+    <strong>Apache Ant: A Java Library and Command-Line Tool to Build Software</strong><br>
+Apache Ant is a Java library and command-line tool that help building software.<br>
+    Example: <code>ant --version</code><br>
+    URL: <a href="https://ant.apache.org/bindownload.cgi">https://ant.apache.org/bindownload.cgi</a><br>
+  Versions: <em>1.10.12</em><br>
   </dd>
 
   <dt id="CBI--asciigenome">asciigenome</dt>
@@ -210,7 +219,7 @@ Bowtie is an ultrafast, memory-efficient short read aligner.<br>
 Bowtie 2 is an ultrafast and memory-efficient tool for aligning sequencing reads to long reference sequences.<br>
     Example: <code>bowtie2 --version</code><br>
     URL: <a href="http://bowtie-bio.sourceforge.net/bowtie2/index.shtml">http://bowtie-bio.sourceforge.net/bowtie2/index.shtml</a><br>
-  Versions: 2.4.1, 2.4.2, <em>2.4.4</em><br>
+  Versions: 2.4.1, 2.4.2, 2.4.4, <em>2.4.5</em><br>
   </dd>
 
   <dt id="CBI--bwa">bwa</dt>
@@ -303,6 +312,16 @@ Cutadapt finds and removes adapter sequences, primers, poly-A tails and other ty
     Example: <code>cutadapt --version</code> and <code>cutadapt --help</code>.<br>
     URL: <a href="https://github.com/marcelm/cutadapt">https://github.com/marcelm/cutadapt</a><br>
   Versions: 1.2.1, 1.8.1, <em>3.4</em><br>
+  </dd>
+
+  <dt id="CBI--easycatfs">easycatfs</dt>
+  <dd>
+    <strong>easycatfs: Easy Read-Only Mounting of Slow Folders onto a Local Drive</strong><br>
+This is Linux command-line tool for mounting one or more folders on a network file system on a local disk such that the local-disk folders mirrors everything (read-only) on the network folder. This will result in (i) faster repeated access to files, and (ii) decreased load on the network file system. This is particularly beneficial when working on high-performance compute (HPC) clusters used by hundreds and thousands of processes and users simultaneously..<br>
+    Example: <code>easycatfs --help</code> and <code>easycatfs mount /shared/data</code>.<br>
+    URL: <a href="https://github.com/HenrikBengtsson/easycatfs">https://github.com/HenrikBengtsson/easycatfs</a><br>
+    Warning: Only the most recent version of this software will be kept.<br>
+  Versions: 0.1.0, 0.1.2, 0.1.3, <em>0.1.4</em><br>
   </dd>
 
   <dt id="CBI--emacs">emacs</dt>
@@ -625,10 +644,20 @@ ripgrep is a line-oriented search tool that recursively searches your current di
   <dd>
     <strong>rstudio: RStudio Desktop</strong><br>
 The RStudio Desktop is an integrated development environment (IDE) for R, a programming language for statistical computing and graphics.<br>
-    Example: <code>rstudio</code>. If you get blank window, retry with <code>QMLSCENE_DEVICE=softwarecontext rstudio</code>.<br>
+    Example: <code>rstudio</code>.  If you get blank window, retry with <code>QMLSCENE_DEVICE=softwarecontext rstudio</code>.<br>
     URL: <a href="https://rstudio.com/products/rstudio/#rstudio-desktop">https://rstudio.com/products/rstudio/#rstudio-desktop</a>, <a href="https://www.rstudio.com/products/rstudio/release-notes/">https://www.rstudio.com/products/rstudio/release-notes/</a>, <a href="https://www.rstudio.com/products/rstudio/download/">https://www.rstudio.com/products/rstudio/download/</a><br>
-    Warning: This software works only on the development nodes and requires that X11 Forwarding or NX is enabled. For best performance, use SSH compression when using X11 Forwarding, i.e. <code>ssh -X -C ...</code>.<br>
-  Versions: 1.4.1103, 1.4.1717, 2021.09.0+351, <em>2021.09.1-372</em><br>
+    Warning: This software works only on the development nodes. It requires a connection with X11 Forwarding enabled. It does <em>not</em> work with X2Go (gives error &quot;GLX 1.3 or later is required&quot;). For best performance, use SSH compression when using X11 Forwarding, i.e. <code>ssh -X -C ...</code>.<br>
+  Versions: 1.4.1103, 1.4.1717, 2021.09.0+351, 2021.09.1-372, <em>2021.09.2-382</em><br>
+  </dd>
+
+  <dt id="CBI--rstudio-server">rstudio-server</dt>
+  <dd>
+    <strong>RStudio Server: The RStudio Server</strong><br>
+The RStudio Server is an integrated development environment (IDE) for R that can be used from the web browser.<br>
+    Example: <code>rserver</code>.<br>
+    URL: <a href="https://rstudio.com/products/rstudio/#rstudio-server">https://rstudio.com/products/rstudio/#rstudio-server</a>, <a href="https://www.rstudio.com/products/rstudio/release-notes/">https://www.rstudio.com/products/rstudio/release-notes/</a><br>
+    Warning: This is work under construction!<br>
+  Versions: <em>2021.09.2-382</em><br>
   </dd>
 
   <dt id="CBI--salmon">salmon</dt>
@@ -963,11 +992,11 @@ performs fast gene-based and single-variants tests specifically designed for cas
 
 <ul class="nav nav-pills">
   <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(4)</a></li>
-  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(77)</a></li>
+  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(80)</a></li>
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
-_The above information was automatically generated on 2022-01-04 18:28:30 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2022-01-22 12:17:31 from querying `module avail` and `module spider`._
 
 
 <style>
