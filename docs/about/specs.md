@@ -40,7 +40,7 @@
 
 
 All nodes on the cluster runs [CentOS] 7 which is updated on a regular basis.
-The job scheduler is Slurm 20.02 ([Simple Linux Utility for Resource Management]) which provides [partitions]({{ '/scheduler/partitions.html' | relative_url }}) for both communal and lab-priority tasks.
+The job scheduler is Slurm 21.08 ([Simple Linux Utility for Resource Management]) which provides [partitions]({{ '/scheduler/partitions.html' | relative_url }}) for both communal and lab-priority tasks.
 
 
 ## Details

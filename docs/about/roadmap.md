@@ -1,43 +1,10 @@
 # Roadmap & Accomplishments
 
-## Going Live
+## Improvements
 
-**Period**: Starting 2021-01-11
-
-**Prerequisites**: We know everything works fine - no going back
-
-**Who**: All TIPCC users are welcome to start using C4
-
-**Expectation**: The cluster can be considered fairly stable. However, there might be needs for further updates requiring reboots and early-termination of jobs.  **Avoid running jobs longer than 3-4 days**.
-
-* [x] Scheduler: Slurm option for requesting local `/scratch` space
-* [ ] Scheduler: Slurm option for requesting GPUs
-* [ ] Scheduler: Refine job and queuing rules on common and lab-specific compute nodes
-  * [x] Weighted node prioritization based on performance: Jobs are sent to faster compute nodes before the slower ones are considered
-* [ ] Compute nodes: Migrate several TIPCC lab nodes to C4
-* [ ] Accounts: Password aging
-* [ ] Software: Some more EPEL package requests (probably not much)
-* [ ] Software: Very old, legacy scientific software on TIPCC will be re-installed on C4 if requested
-* [ ] Software: MATLAB using UCSF site-wide licenses
-* [ ] Documentation: Torque-to-Slurm translation table
-* [ ] Documentation: Common TIPCC-to-C4 migration issues and conflicts documented
-* [ ] Support: c4-announce mailing list
-* [ ] Shell: Expand existing Bash configuration to Csh
-
-
-
-## TIPCC deprecation
-
-**Period**: To be decided (sometimes during spring 2021)
-
-**Goal** Bring down any dependencies on TIPCC to a minimum to the point where we can shutdown TIPCC forever.
-
-**Expectation** TIPCC is kept on life support only! TIPCC might crash at any time!
-
-* [ ] All TIPCC users should migrate to C4
-* [ ] We will attempt to accommodate legacy-software needs as far as possible
-* [ ] Job scheduler end-of-life support no longer than 2022-01-16 (Moab license expiration date)
-
+* [ ] Adding support for running RStudio, Jupyter Hub, and other GUIs interactively via a web-based OnDemand interface
+* [ ] Simplify staging of data folders on network file systems to the much faster local drives
+* [ ] ...
 
 
 
@@ -55,7 +22,7 @@
 * Compute nodes: Five working communal compute nodes (192 physical cores each) (2020-08-31)
 
 
-### Alpha testing (2020-09-01--2020-11-31)
+### Alpha testing (2020-09-01 -- 2020-11-31)
 
 **Goal**: We will implement essential features that we missed previously.  We will address feature requests that are straightforward to implement.  More complex feature requests will be saved for later. At the end of this phase, we will have a rudimentary HPC environment that will allow advanced users to run scientific jobs.
 
@@ -78,7 +45,7 @@
 * Lab storage: All lab storage on TIPCC is now also mounted on C4 (2020-11-03)
 
 
-### Beta testing (2020-12-01--2021-01-11)
+### Beta testing (2020-12-01 -- 2021-01-11)
 
 **Goal**: At the end of this phase, we will have a solid HPC environment that will allow the majority of users to run scientific jobs on C4 that they previously ran on TIPCC.  We are confident that we can go forward with inviting all TIPCC users.
 
@@ -92,9 +59,48 @@
 * Documentation: A fully validated website for the C4 environment (2020-01-08)
 * Scheduler: Prevent starvation by limiting the number of concurrent cores a single users can run concurrently (2020-01-11)
 
+
+### Going-Live Phase (2021-01-11 -- 2021-10-31)
+
+**Period**: Starting 2021-01-11
+
+**Prerequisites**: We know everything works fine - no going back
+
+**Who**: All TIPCC users are welcome to start using C4
+
+**Expectation**: The cluster can be considered fairly stable. However, there might be needs for further updates requiring reboots and early-termination of jobs.  **Avoid running jobs longer than 3-4 days**.
+
+* Scheduler: Slurm option for requesting local `/scratch` space
+* ~~Scheduler: Slurm option for requesting GPUs~~ [our GPUs from TIPCC are too old]
+* Scheduler: Refine job and queuing rules on common and lab-specific compute nodes
+  * Weighted node prioritization based on performance: Jobs are sent to faster compute nodes before the slower ones are considered
+* Compute nodes: Migrate several TIPCC lab nodes to C4
+* Accounts: Password aging
+* Software: Some more EPEL package requests (probably not much)
+* Software: Very old, legacy scientific software on TIPCC will be re-installed on C4 if requested
+* Software: MATLAB using UCSF site-wide licenses
+* Software: Validated that nearly all 23,000+ R packages on CRAN and Bioconductor can be installed on the cluster
+* ~~Documentation: Torque-to-Slurm translation table~~ [wasn't really necessary to host ourselves]
+* Documentation: Common TIPCC-to-C4 migration issues and conflicts documented
+* Support: ~~c4-announce mailing list~~ [still using the TIPCC mailing list]
+
+
+### Shutting down TIPCC (2021-11-01)
+
+**Period**: During Spring to Fall 2021.
+
+**Goal** Bring down any dependencies on TIPCC to a minimum to the point where we can shutdown TIPCC forever.
+
+**Expectation** TIPCC is kept on life support only! TIPCC might crash at any time!
+
+* All TIPCC users should migrate to C4
+* We will attempt to accommodate legacy-software needs as far as possible
+* Job scheduler end-of-life support no longer than 2022-01-16 (Moab license expiration date)
+* Access to TIPCC disabled on 2021-11-01
+
+
+
 See also [News].
-
-
 
 [TIPCC]: https://ucsf-ti.github.io/tipcc-web/
 [Wynton HPC]: https://wynton.ucsf.edu/hpc/
