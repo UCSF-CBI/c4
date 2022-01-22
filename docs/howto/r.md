@@ -329,12 +329,14 @@ After this, the **hdf5r** package will install out of the box, i.e. by calling:
 The **[Rmpi]** package does not install out-of-the-box like other R packages.  It requires special care to install.  To install **Rmpi** on the cluster, we start by loading the `mpi` module;
 
 ```sh
-[alice@{{ site.devel.name }} ~]$ module load mpi
+[alice@{{ site.devel.name }} ~]$ module load mpi/openmpi-x86_64
 [alice@{{ site.devel.name }} ~]$ module load CBI r
 [alice@{{ site.devel.name }} ~]$ module list
 Currently Loaded Modules:
   1) mpi/openmpi-x86_64   2) CBI   3) r/4.1.2
 ```
+
+Make sure to specify the exact version of the `mpi` module as well so that your code will keep working also when a newer version becomes the new default.  Note that you will have to load the same `mpi` module, and version(!), also whenever you run R code that requires these MPI-dependent R packages.
 
 Note that you will have to load the `mpi` module also whenever you run R code that requires the **Rmpi** package.
 
@@ -384,6 +386,72 @@ The downloaded source packages are in
 ```
 
 That's it!
+
+
+#### The pbdMPI, pbdPROF, and bigGP packages
+
+Similarly to the **[Rmpi]** package above, MPI-dependent R packages such as **[pbdMPI]**, **[pbdPROF]**, and **[bigGP]** do not install out-of-the-box like other R packages.  They requires special care to install.  To install these on the cluster, we start by loading the `mpi` module;
+
+```sh
+[alice@{{ site.devel.name }} ~]$ module load mpi/openmpi-x86_64
+[alice@{{ site.devel.name }} ~]$ module load CBI r
+[alice@{{ site.devel.name }} ~]$ module list
+Currently Loaded Modules:
+  1) mpi/openmpi-x86_64   2) CBI   3) r/4.1.2
+```
+
+Make sure to specify the exact version of the `mpi` module as well so that your code will keep working also when a newer version becomes the new default.  Note that you will have to load the same `mpi` module, and version(!), also whenever you run R code that requires these MPI-dependent R packages.
+
+Continuing, to install **pbdMPI**, and similarly for **pbdPROF** and **bigGP**, we launch R and call:
+
+```r
+> install.packages("pbdMPI", configure.args="--with-mpi-libpath=$MPI_LIB --with-mpi-type=OPENMPI")
+Installing package into ‘/c4/home/alice/R/x86_64-pc-linux-gnu-library/4.1-CBI-gcc8’
+(as ‘lib’ is unspecified)
+trying URL 'https://cloud.r-project.org/src/contrib/pbdMPI_0.4-4.tar.gz'
+Content type 'application/x-gzip' length 519492 bytes (507 KB)
+==================================================
+downloaded 507 KB
+
+* installing *source* package ‘pbdMPI’ ...
+** package ‘pbdMPI’ successfully unpacked and MD5 sums checked
+** using staged installation
+setting mpi include path from MPI_INCLUDE
+checking for sed... /usr/bin/sed
+checking for mpicc... mpicc
+checking for ompi_info... ompi_info
+checking for pkg-config... /usr/bin/pkg-config
+>> TMP_FOUND = Nothing found from mpicc --show & sed nor pkg-config ...
+checking for openpty in -lutil... yes
+checking for main in -lpthread... yes
+ 
+******************* Results of pbdMPI package configure *****************
+ 
+>> MPIRUN = /usr/lib64/openmpi/bin/mpirun
+>> MPIEXEC = /usr/lib64/openmpi/bin/mpiexec
+>> ORTERUN = /usr/lib64/openmpi/bin/orterun
+>> TMP_INC = 
+>> TMP_LIB = 
+>> TMP_LIBNAME = 
+>> TMP_FOUND = Nothing found from mpicc --show & sed nor pkg-config ...
+>> MPI_ROOT = 
+>> MPITYPE = OPENMPI
+>> MPI_INCLUDE_PATH = /usr/include/openmpi-x86_64
+>> MPI_LDFLAGS = 
+>> PKG_CPPFLAGS = -I/usr/include/openmpi-x86_64  -DMPI2 -DOPENMPI
+>> PKG_LIBS = -L/usr/lib64/openmpi/lib -lmpi  -lutil -lpthread
+>> PROF_LDFLAGS = 
+>> ENABLE_LD_LIBRARY_PATH = no
+ 
+*************************************************************************
+...
+** testing if installed package can be loaded from final location
+** testing if installed package keeps a record of temporary installation path
+* DONE (pbdMPI)
+
+The downloaded source packages are in
+        ‘/scratch/alice/RtmpaslkmM/downloaded_packages’
+```
 
 
 #### R packages that require a modern GCC compiler
@@ -479,9 +547,12 @@ _Comment_: Starting with R 4.2.0 (April 2022), the `r` module will load a `scl-d
 
 [CRAN]: https://cran.r-project.org/
 [Bioconductor]: http://bioconductor.org/
+[bigGP]: https://cran.r-project.org/package=bigGP
 [BiocManager]: https://cran.r-project.org/package=BiocManager
 [parallelly]: https://cran.r-project.org/package=parallelly
 [hdf5r]: https://cran.r-project.org/package=hdf5r
+[pbdMPI]: https://cran.r-project.org/package=pbdMPI
+[pbdPROF]: https://cran.r-project.org/package=pbdPROF
 [Rmpi]: https://cran.r-project.org/package=Rmpi
 [tiledb]: https://cran.r-project.org/package=tiledb
 [zoo]: https://cran.r-project.org/package=zoo
