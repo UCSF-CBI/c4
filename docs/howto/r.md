@@ -294,7 +294,7 @@ _Comment_: This will actually also update any CRAN packages.
 If you have an R scripts, and it involves setting up a number of parallel workers in R, do _not_ use `ncores <- detectCores()` of the **parallel** package because it will result in your job hijacking _all_ cores on the compute node regardless of how many cores the scheduler has given you.  Taking up all CPU resources without permission is really bad practice and a common cause for problems.  A much better solution is to use `availableCores()` that is available in the **[parallelly]** package, e.g. as `ncores <- parallelly::availableCores()`.  This function is backward compatible with `detectCores()` while respecting what the scheduler has allocated for your job.
 
 
-### Packages that require extra care
+### Packages requiring newer dependencies
 
 #### The hdf5r package
 
@@ -324,9 +324,9 @@ After this, the **hdf5r** package will install out of the box, i.e. by calling:
 ```
 
 
-#### The Rmpi package
+### Packages relying on MPI
 
-The **[Rmpi]** package does not install out-of-the-box like other R packages.  It requires special care to install.  To install **Rmpi** on the cluster, we start by loading the `mpi` module;
+Several R packages that rely on the Message Passing Interface (MPI) do not install out-of-the-box like other R packages.  At a minimum, they require that the built-in `mpi` module is loaded;
 
 ```sh
 [alice@{{ site.devel.name }} ~]$ module load mpi/openmpi-x86_64
@@ -336,11 +336,14 @@ Currently Loaded Modules:
   1) mpi/openmpi-x86_64   2) CBI   3) r/4.1.2
 ```
 
-Make sure to specify the exact version of the `mpi` module as well so that your code will keep working also when a newer version becomes the new default.  Note that you will have to load the same `mpi` module, and version(!), also whenever you run R code that requires these MPI-dependent R packages.
+_Importantly_, make sure to specify the exact version of the `mpi` module as well so that your code will keep working also when a newer version becomes the new default.  Note that you will have to load the same `mpi` module, and version(!), also whenever you run R code that requires these MPI-dependent R packages.
 
-Note that you will have to load the `mpi` module also whenever you run R code that requires the **Rmpi** package.
+In addition to making OpenMPI available by loading the `mpi` module, several MPI-based R packages requires additional special care in order to install.  Below sections, show how to install them.
 
-Continuing, to install **Rmpi**, we launch R and call the following:
+
+#### The Rmpi package
+
+The **[Rmpi]** package does not install out-of-the-box like other R packages.  To install **Rmpi** on the cluster, we have to load the `mpi` module (see above) before starting R.  Then, to install **Rmpi**, we launch R and call the following:
 
 <!-- code-block label="install-Rmpi" -->
 ```r
@@ -385,36 +388,21 @@ The downloaded source packages are in
 >
 ```
 
-That's it!
-
-
 #### The pbdMPI, pbdPROF, and bigGP packages
 
-Similarly to the **[Rmpi]** package above, MPI-dependent R packages such as **[pbdMPI]**, **[pbdPROF]**, and **[bigGP]** do not install out-of-the-box like other R packages.  They requires special care to install.  To install these on the cluster, we start by loading the `mpi` module;
-
-```sh
-[alice@{{ site.devel.name }} ~]$ module load mpi/openmpi-x86_64
-[alice@{{ site.devel.name }} ~]$ module load CBI r
-[alice@{{ site.devel.name }} ~]$ module list
-Currently Loaded Modules:
-  1) mpi/openmpi-x86_64   2) CBI   3) r/4.1.2
-```
-
-Make sure to specify the exact version of the `mpi` module as well so that your code will keep working also when a newer version becomes the new default.  Note that you will have to load the same `mpi` module, and version(!), also whenever you run R code that requires these MPI-dependent R packages.
-
-Continuing, to install **pbdMPI**, and similarly for **pbdPROF** and **bigGP**, we launch R and call:
+Similarly to the **Rmpi** package above, MPI-dependent R packages such as **[pbdMPI]**, **[pbdPROF]**, and **[bigGP]** require special install instructions.  For example, after having loaded the `mpi` module, we can install **pdbMPI** in R as:
 
 ```r
 > install.packages("pbdMPI", configure.args="--with-mpi-libpath=$MPI_LIB --with-mpi-type=OPENMPI")
-Installing package into ‘/c4/home/alice/R/x86_64-pc-linux-gnu-library/4.1-CBI-gcc8’
-(as ‘lib’ is unspecified)
+Installing package into '/c4/home/alice/R/x86_64-pc-linux-gnu-library/4.1-CBI-gcc8'
+(as 'lib' is unspecified)
 trying URL 'https://cloud.r-project.org/src/contrib/pbdMPI_0.4-4.tar.gz'
 Content type 'application/x-gzip' length 519492 bytes (507 KB)
 ==================================================
 downloaded 507 KB
 
-* installing *source* package ‘pbdMPI’ ...
-** package ‘pbdMPI’ successfully unpacked and MD5 sums checked
+* installing *source* package 'pbdMPI' ...
+** package 'pbdMPI' successfully unpacked and MD5 sums checked
 ** using staged installation
 setting mpi include path from MPI_INCLUDE
 checking for sed... /usr/bin/sed
@@ -450,11 +438,11 @@ checking for main in -lpthread... yes
 * DONE (pbdMPI)
 
 The downloaded source packages are in
-        ‘/scratch/alice/RtmpaslkmM/downloaded_packages’
+        '/scratch/alice/RtmpaslkmM/downloaded_packages'
 ```
 
 
-#### R packages that require a modern GCC compiler
+### Packages requiring more modern GCC compilers
 
 CentOS 7 comes with a rather old version of GCC, specifically gcc v4.8.5 (2015-06-23).  Because of this, the `r` CBI modules will automatically load a modern version (`scl-devtoolset/8`), which provides gcc 8.3.1 (2019-03-11). That version support the C++14 standard and most of the C++17 standard.  Because of this, almost all CRAN and Bioconductor packages will install out of the box, when using R from the CBI software repository.
 
