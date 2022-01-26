@@ -30,7 +30,7 @@ Below are 3 software repositories, each providing a set of software tools.
 
 <ul class="nav nav-pills">
   <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(4)</a></li>
-  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(80)</a></li>
+  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(81)</a></li>
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
@@ -321,7 +321,7 @@ This is Linux command-line tool for mounting one or more folders on a network fi
     Example: <code>easycatfs --help</code> and <code>easycatfs mount /shared/data</code>.<br>
     URL: <a href="https://github.com/HenrikBengtsson/easycatfs">https://github.com/HenrikBengtsson/easycatfs</a><br>
     Warning: Only the most recent version of this software will be kept.<br>
-  Versions: 0.1.0, 0.1.2, 0.1.3, <em>0.1.4</em><br>
+  Versions: 0.1.0, 0.1.2, 0.1.3, 0.1.4, <em>0.1.5</em><br>
   </dd>
 
   <dt id="CBI--emacs">emacs</dt>
@@ -660,6 +660,16 @@ The RStudio Server is an integrated development environment (IDE) for R that can
   Versions: <em>2021.09.2-382</em><br>
   </dd>
 
+  <dt id="CBI--rstudio-server-controller">rstudio-server-controller</dt>
+  <dd>
+    <strong>RSC: An RStudio Server Controller</strong><br>
+The RStudio Server Controller (RSC) is a tool for launching a personal instance of the RStudio Server on a Linux machine, which then can be access via the web browser, either directly or via SSH tunneling.<br>
+    Example: <code>rsc --help</code> and <code>rsc start</code>.<br>
+    URL: <a href="https://github.com/UCSF-CBI/rstudio-server-controller">https://github.com/UCSF-CBI/rstudio-server-controller</a><br>
+    Warning: This is work under construction!<br>
+  Versions: 0.1.1, <em>0.1.2</em><br>
+  </dd>
+
   <dt id="CBI--salmon">salmon</dt>
   <dd>
     <strong>salmon: Salmon Provides Fast and Bias-Aware Quantification of Transcript Expression</strong><br>
@@ -681,10 +691,10 @@ SAMtools is a suite of programs for interacting with high-throughput sequencing 
   <dt id="CBI--scl-devtoolset">scl-devtoolset</dt>
   <dd>
     <strong>SCL Developer Toolset: GNU Compiler Collection, GNU Debugger, etc.</strong><br>
-Enables the CentOS Software Collection (SCL) <code>devtoolset-9</code> in the current environment.  This is an alternative to calling <code>source scl_source enable devtoolset-9</code>, which is an approach that is not officially supported by RedHat/CentOS.<br>
+Enables the CentOS Software Collection (SCL) <code>devtoolset-11</code> in the current environment.  This is an alternative to calling <code>source scl_source enable devtoolset-11</code>, which is an approach that is not officially supported by RedHat/CentOS.<br>
     Example: <code>gcc --version</code>.<br>
-    URL: <a href="https://www.softwarecollections.org/en/scls/rhscl/devtoolset-9/">https://www.softwarecollections.org/en/scls/rhscl/devtoolset-9/</a><br>
-  Versions: 7, 8, <em>9</em><br>
+    URL: <a href="https://www.softwarecollections.org/en/scls/rhscl/devtoolset-11/">https://www.softwarecollections.org/en/scls/rhscl/devtoolset-11/</a><br>
+  Versions: 7, 8, 9, 10, <em>11</em><br>
   </dd>
 
   <dt id="CBI--scl-rh-ruby">scl-rh-ruby</dt>
@@ -992,11 +1002,11 @@ performs fast gene-based and single-variants tests specifically designed for cas
 
 <ul class="nav nav-pills">
   <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(4)</a></li>
-  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(80)</a></li>
+  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(81)</a></li>
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
-_The above information was automatically generated on 2022-01-22 14:16:13 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2022-01-26 13:11:36 from querying `module avail` and `module spider`._
 
 
 <style>
