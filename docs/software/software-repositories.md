@@ -664,10 +664,10 @@ The RStudio Server is an integrated development environment (IDE) for R that can
   <dd>
     <strong>RSC: An RStudio Server Controller</strong><br>
 The RStudio Server Controller (RSC) is a tool for launching a personal instance of the RStudio Server on a Linux machine, which then can be access via the web browser, either directly or via SSH tunneling.<br>
-    Example: <code>rsc --help</code> and <code>rsc start</code>.<br>
+    Example: <code>rsc --help</code> and <code>rsc start --port=random</code>.<br>
     URL: <a href="https://github.com/UCSF-CBI/rstudio-server-controller">https://github.com/UCSF-CBI/rstudio-server-controller</a><br>
     Warning: This is work under construction!<br>
-  Versions: 0.1.1, 0.1.2, <em>0.2.0</em><br>
+  Versions: 0.1.1, 0.1.2, 0.2.0, <em>0.2.1</em><br>
   </dd>
 
   <dt id="CBI--salmon">salmon</dt>
@@ -1006,7 +1006,7 @@ performs fast gene-based and single-variants tests specifically designed for cas
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
-_The above information was automatically generated on 2022-01-26 16:18:37 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2022-01-26 21:06:22 from querying `module avail` and `module spider`._
 
 
 <style>
