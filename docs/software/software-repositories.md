@@ -275,8 +275,8 @@ Collection of utilities / helper scripts to make life easier on HPC clusters.<br
     <strong>CMake: Open-source, Cross-platform Family of Tools Designed to Build, Test and Package Software</strong><br>
 CMake is cross-platform free and open-source software for managing the build process of software using a compiler-independent method. It supports directory hierarchies and applications that depend on multiple libraries.<br>
     Example: <code>cmake --version</code>.<br>
-    URL: <a href="https://cmake.org/">https://cmake.org/</a><br>
-  Versions: 3.18.2, <em>3.19.2</em><br>
+    URL: <a href="https://cmake.org/">https://cmake.org/</a>, <a href="https://github.com/Kitware/CMake/releases">https://github.com/Kitware/CMake/releases</a><br>
+  Versions: 3.18.2, 3.19.2, <em>3.22.2</em><br>
   </dd>
 
   <dt id="CBI--coinutils">coinutils</dt>
@@ -1006,7 +1006,7 @@ performs fast gene-based and single-variants tests specifically designed for cas
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
-_The above information was automatically generated on 2022-01-26 21:06:22 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2022-01-28 10:48:32 from querying `module avail` and `module spider`._
 
 
 <style>
