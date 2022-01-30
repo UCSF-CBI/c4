@@ -667,7 +667,7 @@ The RStudio Server Controller (RSC) is a tool for launching a personal instance 
     Example: <code>rsc --help</code> and <code>rsc start --port=random</code>.<br>
     URL: <a href="https://github.com/UCSF-CBI/rstudio-server-controller">https://github.com/UCSF-CBI/rstudio-server-controller</a><br>
     Warning: This is work under construction!<br>
-  Versions: 0.1.1, 0.1.2, 0.2.0, <em>0.2.1</em><br>
+  Versions: 0.1.1, 0.1.2, 0.2.0, 0.2.1, 0.2.2, 0.2.3, <em>0.2.4</em><br>
   </dd>
 
   <dt id="CBI--salmon">salmon</dt>
@@ -1006,7 +1006,7 @@ performs fast gene-based and single-variants tests specifically designed for cas
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
-_The above information was automatically generated on 2022-01-28 10:48:32 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2022-01-29 20:52:25 from querying `module avail` and `module spider`._
 
 
 <style>
