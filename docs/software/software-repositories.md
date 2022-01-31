@@ -691,9 +691,9 @@ SAMtools is a suite of programs for interacting with high-throughput sequencing 
   <dt id="CBI--scl-devtoolset">scl-devtoolset</dt>
   <dd>
     <strong>SCL Developer Toolset: GNU Compiler Collection, GNU Debugger, etc.</strong><br>
-Enables the CentOS Software Collection (SCL) <code>devtoolset-11</code> in the current environment.  This is an alternative to calling <code>source scl_source enable devtoolset-11</code>, which is an approach that is not officially supported by RedHat/CentOS.<br>
+These Developer Toolset provides modern versions of the GNU Compiler Collection, GNU Debugger, and other development, debugging, and performance monitoring tools. Loading these modules enables the corresponding CentOS Software Collection (SCL) <code>devtoolset-&lt;version&gt;</code> in the current environment.  This is an alternative to calling <code>source scl_source enable devtoolset-&lt;version&gt;</code>, which is an approach that is not officially supported by RedHat/CentOS.<br>
     Example: <code>gcc --version</code>.<br>
-    URL: <a href="https://www.softwarecollections.org/en/scls/rhscl/devtoolset-11/">https://www.softwarecollections.org/en/scls/rhscl/devtoolset-11/</a><br>
+    URL: <a href="https://access.redhat.com/documentation/en-us/red_hat_developer_toolset/11">https://access.redhat.com/documentation/en-us/red_hat_developer_toolset/11</a><br>
   Versions: 7, 8, 9, 10, <em>11</em><br>
   </dd>
 
@@ -1006,7 +1006,7 @@ performs fast gene-based and single-variants tests specifically designed for cas
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
-_The above information was automatically generated on 2022-01-31 10:53:37 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2022-01-31 11:08:43 from querying `module avail` and `module spider`._
 
 
 <style>
