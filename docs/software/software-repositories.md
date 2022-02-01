@@ -135,9 +135,9 @@ The Bash Debugger Project is a source-code debugger for bash that follows the gd
     <strong>bat: A cat(1) Clone with Syntax Highlighting and Git Integration</strong><br>
 A cat(1) clone with syntax highlighting and Git integration.<br>
     Example: <code>bat README.md</code>, <code>bat scripts/*.sh</code>, and <code>bat src/*.c</code>.<br>
-    URL: <a href="https://github.com/sharkdp/bat">https://github.com/sharkdp/bat</a><br>
+    URL: <a href="https://github.com/sharkdp/bat">https://github.com/sharkdp/bat</a>, <a href="https://github.com/sharkdp/bat/blob/master/CHANGELOG.md">https://github.com/sharkdp/bat/blob/master/CHANGELOG.md</a> (changelog)<br>
     Warning: Only the most recent version of this software will be kept.<br>
-  Versions: 0.17.1, <em>0.18.3</em><br>
+  Versions: 0.17.1, 0.18.3, <em>0.19.0</em><br>
   </dd>
 
   <dt id="CBI--bats-core">bats-core</dt>
@@ -1007,7 +1007,7 @@ performs fast gene-based and single-variants tests specifically designed for cas
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
-_The above information was automatically generated on 2022-02-01 13:23:50 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2022-02-01 14:08:03 from querying `module avail` and `module spider`._
 
 
 <style>
