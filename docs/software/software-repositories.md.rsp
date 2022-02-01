@@ -86,7 +86,7 @@ module_repositories <- list(
     name        = "CBI",
     maintainer  = "Henrik Bengtsson",
     group       = "Computational Biology and Informatics",
-    url         = "http://cbi.ucsf.edu",
+    url         = "https://cbi.ucsf.edu",
     contributed = TRUE,
     module_path = file.path(dirname(Sys.getenv("SOFTWARE_ROOT_CBI", "/software/c4/cbi/software")), "modulefiles")
   ),
@@ -95,7 +95,7 @@ module_repositories <- list(
     name        = "WitteLab",
     maintainer  = "Taylor Cavazos",
     group       = "Witte Lab Software Repository",
-    url         = "http://wittelab.ucsf.edu/",
+    url         = "https://wittelab.ucsf.edu",
     contributed = TRUE,
     module_path = file.path(dirname(Sys.getenv("SOFTWARE_ROOT_WITTELAB", "/software/c4/wittelab/software")), "modulefiles")
   )

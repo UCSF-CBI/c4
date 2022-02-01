@@ -77,7 +77,7 @@ NA<br>
 
 <h2>Module Software Repository: CBI</h2>
 
-Maintained by: Henrik Bengtsson, <a href="http://cbi.ucsf.edu">Computational Biology and Informatics</a><br>
+Maintained by: Henrik Bengtsson, <a href="https://cbi.ucsf.edu">Computational Biology and Informatics</a><br>
 Enable repository: <code>module load CBI</code><br>
 
 <div class="alert alert-warning" role="alert" style="margin-top: 3ex">
@@ -844,7 +844,7 @@ VCFtools is a program package designed for working with VCF files, such as those
 
 <h2>Module Software Repository: WitteLab</h2>
 
-Maintained by: Taylor Cavazos, <a href="http://wittelab.ucsf.edu/">Witte Lab Software Repository</a><br>
+Maintained by: Taylor Cavazos, <a href="https://wittelab.ucsf.edu">Witte Lab Software Repository</a><br>
 Enable repository: <code>module load WitteLab</code><br>
 
 <div class="alert alert-warning" role="alert" style="margin-top: 3ex">
@@ -1007,7 +1007,7 @@ performs fast gene-based and single-variants tests specifically designed for cas
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
-_The above information was automatically generated on 2022-02-01 14:08:03 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2022-02-01 14:14:27 from querying `module avail` and `module spider`._
 
 
 <style>
