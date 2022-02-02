@@ -386,8 +386,8 @@ GDAL is an open source X/MIT licensed translator library for raster and vector g
     <strong>GEOS: Geometry Engine, Open Source</strong><br>
 GEOS (Geometry Engine - Open Source) is a C++ port of the JTS Topology Suite (JTS). It aims to contain the complete functionality of JTS in C++. This includes all the OpenGIS Simple Features for SQL spatial predicate functions and spatial operators, as well as specific JTS enhanced functions. GEOS provides spatial functionality to many other projects and products.<br>
     Example: <code>geos-config --version</code>.<br>
-    URL: <a href="https://trac.osgeo.org/geos/">https://trac.osgeo.org/geos/</a>, <a href="https://github.com/libgeos/geos">https://github.com/libgeos/geos</a><br>
-  Versions: 3.5.2, 3.7.3, 3.8.1, <em>3.9.1</em><br>
+    URL: <a href="https://libgeos.org/">https://libgeos.org/</a>, <a href="https://libgeos.org/usage/download/">https://libgeos.org/usage/download/</a> (changelog), <a href="https://github.com/libgeos/geos/issues">https://github.com/libgeos/geos/issues</a> (bug reports)<br>
+  Versions: 3.5.2, 3.7.3, 3.8.1, 3.9.1, <em>3.9.2</em><br>
   </dd>
 
   <dt id="CBI--gistic2">gistic2</dt>
@@ -750,7 +750,7 @@ The SRA Toolkit and SDK from NCBI is a collection of tools and libraries for usi
     <strong>STAR: Spliced Transcripts Alignment to a Reference</strong><br>
 STAR (Spliced Transcripts Alignment to a Reference) is a fast NGS read aligner for RNA-seq data.<br>
     Example: <code>STAR --help</code>.<br>
-    URL: <a href="https://github.com/alexdobin/STAR">https://github.com/alexdobin/STAR</a><br>
+    URL: <a href="https://github.com/alexdobin/STAR">https://github.com/alexdobin/STAR</a>, <a href="https://github.com/alexdobin/STAR/blob/master/CHANGES.md">https://github.com/alexdobin/STAR/blob/master/CHANGES.md</a> (changelog)<br>
   Versions: 2.7.5a, 2.7.5c, 2.7.7a, <em>2.7.9a</em><br>
   </dd>
 
@@ -1007,7 +1007,7 @@ performs fast gene-based and single-variants tests specifically designed for cas
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
-_The above information was automatically generated on 2022-02-01 14:14:27 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2022-02-01 19:58:54 from querying `module avail` and `module spider`._
 
 
 <style>
