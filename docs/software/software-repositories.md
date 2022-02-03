@@ -30,7 +30,7 @@ Below are 3 software repositories, each providing a set of software tools.
 
 <ul class="nav nav-pills">
   <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(4)</a></li>
-  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(80)</a></li>
+  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(81)</a></li>
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
@@ -77,7 +77,7 @@ NA<br>
 
 <h2>Module Software Repository: CBI</h2>
 
-Maintained by: Henrik Bengtsson, <a href="http://cbi.ucsf.edu">Computational Biology and Informatics</a><br>
+Maintained by: Henrik Bengtsson, <a href="https://cbi.ucsf.edu">Computational Biology and Informatics</a><br>
 Enable repository: <code>module load CBI</code><br>
 
 <div class="alert alert-warning" role="alert" style="margin-top: 3ex">
@@ -135,9 +135,9 @@ The Bash Debugger Project is a source-code debugger for bash that follows the gd
     <strong>bat: A cat(1) Clone with Syntax Highlighting and Git Integration</strong><br>
 A cat(1) clone with syntax highlighting and Git integration.<br>
     Example: <code>bat README.md</code>, <code>bat scripts/*.sh</code>, and <code>bat src/*.c</code>.<br>
-    URL: <a href="https://github.com/sharkdp/bat">https://github.com/sharkdp/bat</a><br>
+    URL: <a href="https://github.com/sharkdp/bat">https://github.com/sharkdp/bat</a>, <a href="https://github.com/sharkdp/bat/blob/master/CHANGELOG.md">https://github.com/sharkdp/bat/blob/master/CHANGELOG.md</a> (changelog)<br>
     Warning: Only the most recent version of this software will be kept.<br>
-  Versions: 0.17.1, <em>0.18.3</em><br>
+  Versions: 0.17.1, 0.18.3, <em>0.19.0</em><br>
   </dd>
 
   <dt id="CBI--bats-core">bats-core</dt>
@@ -275,8 +275,8 @@ Collection of utilities / helper scripts to make life easier on HPC clusters.<br
     <strong>CMake: Open-source, Cross-platform Family of Tools Designed to Build, Test and Package Software</strong><br>
 CMake is cross-platform free and open-source software for managing the build process of software using a compiler-independent method. It supports directory hierarchies and applications that depend on multiple libraries.<br>
     Example: <code>cmake --version</code>.<br>
-    URL: <a href="https://cmake.org/">https://cmake.org/</a><br>
-  Versions: 3.18.2, <em>3.19.2</em><br>
+    URL: <a href="https://cmake.org/">https://cmake.org/</a>, <a href="https://github.com/Kitware/CMake/releases">https://github.com/Kitware/CMake/releases</a><br>
+  Versions: 3.18.2, 3.19.2, <em>3.22.2</em><br>
   </dd>
 
   <dt id="CBI--coinutils">coinutils</dt>
@@ -321,7 +321,7 @@ This is Linux command-line tool for mounting one or more folders on a network fi
     Example: <code>easycatfs --help</code> and <code>easycatfs mount /shared/data</code>.<br>
     URL: <a href="https://github.com/HenrikBengtsson/easycatfs">https://github.com/HenrikBengtsson/easycatfs</a><br>
     Warning: Only the most recent version of this software will be kept.<br>
-  Versions: 0.1.0, 0.1.2, 0.1.3, <em>0.1.4</em><br>
+  Versions: 0.1.0, 0.1.2, 0.1.3, 0.1.4, <em>0.1.5</em><br>
   </dd>
 
   <dt id="CBI--emacs">emacs</dt>
@@ -386,8 +386,8 @@ GDAL is an open source X/MIT licensed translator library for raster and vector g
     <strong>GEOS: Geometry Engine, Open Source</strong><br>
 GEOS (Geometry Engine - Open Source) is a C++ port of the JTS Topology Suite (JTS). It aims to contain the complete functionality of JTS in C++. This includes all the OpenGIS Simple Features for SQL spatial predicate functions and spatial operators, as well as specific JTS enhanced functions. GEOS provides spatial functionality to many other projects and products.<br>
     Example: <code>geos-config --version</code>.<br>
-    URL: <a href="https://trac.osgeo.org/geos/">https://trac.osgeo.org/geos/</a>, <a href="https://github.com/libgeos/geos">https://github.com/libgeos/geos</a><br>
-  Versions: 3.5.2, 3.7.3, 3.8.1, <em>3.9.1</em><br>
+    URL: <a href="https://libgeos.org/">https://libgeos.org/</a>, <a href="https://libgeos.org/usage/download/">https://libgeos.org/usage/download/</a> (changelog), <a href="https://github.com/libgeos/geos/issues">https://github.com/libgeos/geos/issues</a> (bug reports)<br>
+  Versions: 3.5.2, 3.7.3, 3.8.1, 3.9.1, <em>3.9.2</em><br>
   </dd>
 
   <dt id="CBI--gistic2">gistic2</dt>
@@ -660,6 +660,16 @@ The RStudio Server is an integrated development environment (IDE) for R that can
   Versions: <em>2021.09.2-382</em><br>
   </dd>
 
+  <dt id="CBI--rstudio-server-controller">rstudio-server-controller</dt>
+  <dd>
+    <strong>RSC: An RStudio Server Controller</strong><br>
+The RStudio Server Controller (RSC) is a tool for launching a personal instance of the RStudio Server on a Linux machine, which then can be access via the web browser, either directly or via SSH tunneling.<br>
+    Example: <code>rsc --help</code> and <code>rsc start --port=uid</code>.<br>
+    URL: <a href="https://github.com/UCSF-CBI/rstudio-server-controller">https://github.com/UCSF-CBI/rstudio-server-controller</a><br>
+    Warning: This is work under construction!<br>
+  Versions: <em>0.3.0</em><br>
+  </dd>
+
   <dt id="CBI--salmon">salmon</dt>
   <dd>
     <strong>salmon: Salmon Provides Fast and Bias-Aware Quantification of Transcript Expression</strong><br>
@@ -681,10 +691,11 @@ SAMtools is a suite of programs for interacting with high-throughput sequencing 
   <dt id="CBI--scl-devtoolset">scl-devtoolset</dt>
   <dd>
     <strong>SCL Developer Toolset: GNU Compiler Collection, GNU Debugger, etc.</strong><br>
-Enables the CentOS Software Collection (SCL) <code>devtoolset-9</code> in the current environment.  This is an alternative to calling <code>source scl_source enable devtoolset-9</code>, which is an approach that is not officially supported by RedHat/CentOS.<br>
+These Developer Toolset provides modern versions of the GNU Compiler Collection, GNU Debugger, and other development, debugging, and performance monitoring tools. Loading these modules enables the corresponding CentOS Software Collection (SCL) <code>devtoolset-&lt;version&gt;</code> in the current environment.  This is an alternative to calling <code>source scl_source enable devtoolset-&lt;version&gt;</code>, which is an approach that is not officially supported by RedHat/CentOS.<br>
     Example: <code>gcc --version</code>.<br>
-    URL: <a href="https://www.softwarecollections.org/en/scls/rhscl/devtoolset-9/">https://www.softwarecollections.org/en/scls/rhscl/devtoolset-9/</a><br>
-  Versions: 7, 8, <em>9</em><br>
+    URL: <a href="https://access.redhat.com/documentation/en-us/red_hat_developer_toolset/11">https://access.redhat.com/documentation/en-us/red_hat_developer_toolset/11</a><br>
+    Warning: Older versions may be removed in the future.<br>
+  Versions: 7, 8, 9, 10, <em>11</em><br>
   </dd>
 
   <dt id="CBI--scl-rh-ruby">scl-rh-ruby</dt>
@@ -739,7 +750,7 @@ The SRA Toolkit and SDK from NCBI is a collection of tools and libraries for usi
     <strong>STAR: Spliced Transcripts Alignment to a Reference</strong><br>
 STAR (Spliced Transcripts Alignment to a Reference) is a fast NGS read aligner for RNA-seq data.<br>
     Example: <code>STAR --help</code>.<br>
-    URL: <a href="https://github.com/alexdobin/STAR">https://github.com/alexdobin/STAR</a><br>
+    URL: <a href="https://github.com/alexdobin/STAR">https://github.com/alexdobin/STAR</a>, <a href="https://github.com/alexdobin/STAR/blob/master/CHANGES.md">https://github.com/alexdobin/STAR/blob/master/CHANGES.md</a> (changelog)<br>
   Versions: 2.7.5a, 2.7.5c, 2.7.7a, <em>2.7.9a</em><br>
   </dd>
 
@@ -833,7 +844,7 @@ VCFtools is a program package designed for working with VCF files, such as those
 
 <h2>Module Software Repository: WitteLab</h2>
 
-Maintained by: Taylor Cavazos, <a href="http://wittelab.ucsf.edu/">Witte Lab Software Repository</a><br>
+Maintained by: Taylor Cavazos, <a href="https://wittelab.ucsf.edu">Witte Lab Software Repository</a><br>
 Enable repository: <code>module load WitteLab</code><br>
 
 <div class="alert alert-warning" role="alert" style="margin-top: 3ex">
@@ -992,11 +1003,11 @@ performs fast gene-based and single-variants tests specifically designed for cas
 
 <ul class="nav nav-pills">
   <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(4)</a></li>
-  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(80)</a></li>
+  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(81)</a></li>
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
-_The above information was automatically generated on 2022-01-22 12:17:31 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2022-02-01 19:58:54 from querying `module avail` and `module spider`._
 
 
 <style>

@@ -8,7 +8,7 @@ build:
 	git diff
 
 $(PAGE).md: $(PAGE).md.rsp
-	module load CBI r/3.6.3 && \
+	module load CBI r && \
 	export R_BIOCONDUCTORX_DISABLE=true; \
 	Rscript -e R.rsp::rfile $< --postprocess=FALSE
 
