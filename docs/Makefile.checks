@@ -172,6 +172,8 @@ check-leftovers-from-Wynton:
 	     pattern=$$(echo "$$pattern" | sed 's/|SLURM_NPROCS//')
 	   elif [[ "$$file" =~ (software-repositories).md$$ ]]; then
 	     pattern=$$(echo "$$pattern" | sed 's/|SGE//')
+	   elif [[ "$$file" =~ change-pwd.md$$ ]]; then
+	     pattern=$$(echo "$$pattern" | sed 's/#\[ \]\*\[\$$\]|//')
 	   fi
 	   if ! grep -H -n -E "($$pattern)" "$$file" &>> "$$stdout" ; then
 	     ok_count=$$((ok_count+1))
