@@ -74,7 +74,7 @@ Before continuing, it is useful to understand where R packages looks for locally
 
 2. (optional) A site-wide R package library (not used on {{ site.cluster.name }})
 
-3. The system-wide R package library part of the R installed, e.g. `/software/c4/cbi/software/R-4.1.2-gcc8/lib64/R/library`
+3. The system-wide R package library part of the R installed, e.g. `{{ site.software.cbi_root }}/R-4.1.2-gcc8/lib64/R/library`
 
 
 
@@ -105,7 +105,7 @@ Now, in order to install, for instance, the **[zoo]** package available on CRAN,
 ```r
 > install.packages("zoo")
 Warning in install.packages("zoo") :
-  'lib = "/software/c4/cbi/software/R-4.1.2-gcc8/lib64/R/library"' is not writable
+  'lib = "{{ site.software.cbi_root }}/R-4.1.2-gcc8/lib64/R/library"' is not writable
 Would you like to use a personal library instead? (yes/No/cancel)
 ```
 
@@ -134,11 +134,11 @@ downloaded 775 KB
 ** package 'zoo' successfully unpacked and MD5 sums checked
 ** using staged installation
 ** libs
-gcc -I"/c4/home/alice/software/R-devel/R-4-1-branch/lib/R/include" -DNDEBUG -I../inst/include  -I/usr/local/include   -fpic  -g -O2  -c coredata.c -o coredata.o
-gcc -I"/c4/home/alice/software/R-devel/R-4-1-branch/lib/R/include" -DNDEBUG -I../inst/include  -I/usr/local/include   -fpic  -g -O2  -c init.c -o init.o
-gcc -I"/c4/home/alice/software/R-devel/R-4-1-branch/lib/R/include" -DNDEBUG -I../inst/include  -I/usr/local/include   -fpic  -g -O2  -c lag.c -o lag.o
-gcc -shared -L/c4/home/alice/software/R-devel/R-4-1-branch/lib/R/lib -L/usr/local/lib -o zoo.so coredata.o init.o lag.o -L/c4/home/alice/software/R-devel/R-4-1-branch/lib/R/lib -lR
-installing to /c4/home/alice/R/x86_64-pc-linux-gnu-library/4.1-custom/00LOCK-zoo/00new/zoo/libs
+gcc -I"{{ site.software.cbi_home }}/CBI/R-4.1.2-gcc8/lib64/R/include" -DNDEBUG -I../inst/include  -I/usr/local/include   -fpic  -g -O2  -c coredata.c -o coredata.o
+gcc -I"{{ site.software.cbi_home }}/CBI/R-4.1.2-gcc8/lib64/R/include" -DNDEBUG -I../inst/include  -I/usr/local/include   -fpic  -g -O2  -c init.c -o init.o
+gcc -I"{{ site.software.cbi_home }}/CBI/R-4.1.2-gcc8/lib64/R/include" -DNDEBUG -I../inst/include  -I/usr/local/include   -fpic  -g -O2  -c lag.c -o lag.o
+gcc -shared -L{{ site.software.cbi_home }}/CBI/R-4.1.2-gcc8/lib64/R/lib -L/usr/local/lib64 -o zoo.so coredata.o init.o lag.o -L{{ site.software.cbi_home }}/CBI/R-4.1.2-gcc8/lib64/R/lib -lR
+installing to {{ site.user.home }}/R/x86_64-pc-linux-gnu-library/4.1-custom/00LOCK-zoo/00new/zoo/libs
 ** R
 ** demo
 ** inst
@@ -197,7 +197,7 @@ If you already have **[BiocManager]** installed, you can skip this section.  Whe
 <!-- code-block label="install-BiocManager" -->
 ```r
 > install.packages("BiocManager")
-Installing package into '/c4/home/alice/R/x86_64-pc-linux-gnu-library/4.1-CBI-gcc8'
+Installing package into '{{ site.user.home }}/R/x86_64-pc-linux-gnu-library/4.1-CBI-gcc8'
 (as 'lib' is unspecified)
 trying URL 'https://cloud.r-project.org/src/contrib/BiocManager_1.30.16.tar.gz'
 Content type 'application/x-gzip' length 262502 bytes (256 KB)
@@ -244,11 +244,11 @@ downloaded 1.5 MB
 * installing *source* package 'limma' ...
 ** using staged installation
 ** libs
-gcc -I"/c4/home/alice/software/R-devel/R-4-1-branch/lib/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c init.c -o init.o
-gcc -I"/c4/home/alice/software/R-devel/R-4-1-branch/lib/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c normexp.c -o normexp.o
-gcc -I"/c4/home/alice/software/R-devel/R-4-1-branch/lib/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c weighted_lowess.c -o weighted_lowess.o
-gcc -shared -L/c4/home/alice/software/R-devel/R-4-1-branch/lib/R/lib -L/usr/local/lib -o limma.so init.o normexp.o weighted_lowess.o -L/c4/home/alice/software/R-devel/R-4-1-branch/lib/R/lib -lR
-installing to /c4/home/alice/R/x86_64-pc-linux-gnu-library/4.1-custom/00LOCK-limma/00new/limma/libs
+gcc -I"{{ site.software.cbi_root }}/CBI/R-4.1.2-gcc8/lib64/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c init.c -o init.o
+gcc -I"{{ site.software.cbi_root }}/CBI/R-4.1.2-gcc8/lib64/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c normexp.c -o normexp.o
+gcc -I"{{ site.software.cbi_root }}/CBI/R-4.1.2-gcc8/lib64/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c weighted_lowess.c -o weighted_lowess.o
+gcc -shared -L{{ site.software.cbi_root }}/CBI/R-4.1.2-gcc8/lib64/R/lib -L/usr/local/lib64 -o limma.so init.o normexp.o weighted_lowess.o -L{{ site.software.cbi_root }}/CBI/R-4.1.2-gcc8/lib64/R/lib -lR
+installing to {{ site.user.home }}/R/x86_64-pc-linux-gnu-library/4.1-custom/00LOCK-limma/00new/limma/libs
 ** R
 ** inst
 ** byte-compile and prepare package for lazy loading
@@ -340,8 +340,8 @@ configure: GDAL: 1.11.4
 checking GDAL version >= 2.0.1... no
 configure: error: sf is not compatible with GDAL versions below 2.0.1
 ERROR: configuration failed for package 'sf'
-* removing '/c4/home/alice/R/x86_64-pc-linux-gnu-library/4.1-CBI-gcc8/sf'
-* restoring previous '/c4/home/alice/R/x86_64-pc-linux-gnu-library/4.1-CBI-gcc8/sf'
+* removing '{{ site.user.home }}/R/x86_64-pc-linux-gnu-library/4.1-CBI-gcc8/sf'
+* restoring previous '{{ site.user.home }}/R/x86_64-pc-linux-gnu-library/4.1-CBI-gcc8/sf'
 ```
 
  To fix this, load a modern version of GDAL from the [CBI software stack] before installing the package, i.e.
@@ -388,7 +388,7 @@ The **[Rmpi]** package does not install out-of-the-box like other R packages.  T
 <!-- code-block label="install-Rmpi" -->
 ```r
 > install.packages("Rmpi", configure.args="--with-Rmpi-include=$MPI_INCLUDE --with-Rmpi-libpath=$MPI_LIB --with-Rmpi-type=OPENMPI")
-Installing package into '/c4/home/alice/R/x86_64-pc-linux-gnu-library/4.1-CBI-gcc8'                                
+Installing package into '{{ site.user.home }}/R/x86_64-pc-linux-gnu-library/4.1-CBI-gcc8'                                
 (as 'lib' is unspecified)
 trying URL 'https://cloud.r-project.org/src/contrib/Rmpi_0.6-9.2.tar.gz'
 Content type 'application/x-gzip' length 106030 bytes (103 KB)
@@ -401,15 +401,14 @@ downloaded 103 KB
 configure: creating ./config.status
 config.status: creating src/Makevars
 ** libs
-gcc -I"/software/c4/cbi/software/R-4.1.2-gcc8/lib64/R/include" -DNDEBUG -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPA
+gcc -I"{{ site.software.cbi_root }}/R-4.1.2-gcc8/lib64/R/include" -DNDEBUG -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPA
 CKAGE_URL=\"\" -I/usr/include/openmpi-x86_64  -DMPI2 -DOPENMPI  -I/usr/local/include   -fpic  -g -O2  -c Rmpi.c -o Rmpi.o
-gcc -I"/software/c4/cbi/software/R-4.1.2-gcc8/lib64/R/include" -DNDEBUG -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPA
+gcc -I"{{ site.software.cbi_root }}/R-4.1.2-gcc8/lib64/R/include" -DNDEBUG -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPA
 CKAGE_URL=\"\" -I/usr/include/openmpi-x86_64  -DMPI2 -DOPENMPI  -I/usr/local/include   -fpic  -g -O2  -c conversion.c -o conversion.o
-gcc -I"/software/c4/cbi/software/R-4.1.2-gcc8/lib64/R/include" -DNDEBUG -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPA
+gcc -I"{{ site.software.cbi_root }}/R-4.1.2-gcc8/lib64/R/include" -DNDEBUG -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPA
 CKAGE_URL=\"\" -I/usr/include/openmpi-x86_64  -DMPI2 -DOPENMPI  -I/usr/local/include   -fpic  -g -O2  -c internal.c -o internal.o
-gcc -shared -L/software/c4/cbi/software/R-4.1.2-gcc8/lib64/R/lib -L/usr/local/lib64 -o Rmpi.so Rmpi.o conversion.o internal.o -L/usr/lib64/openmpi/lib -lmpi -L/software/c4/cbi/software/R-4.
-1.2-gcc8/lib64/R/lib -lR
-installing to /c4/home/alice/R/x86_64-pc-linux-gnu-library/4.1-CBI-gcc8/00LOCK-Rmpi/00new/Rmpi/libs
+gcc -shared -L{{ site.software.cbi_root }}/R-4.1.2-gcc8/lib64/R/lib -L/usr/local/lib64 -o Rmpi.so Rmpi.o conversion.o internal.o -L/usr/lib64/openmpi/lib -lmpi -L{{ site.software.cbi_root }}/R-4.1.2-gcc8/lib64/R/lib -lR
+installing to {{ site.user.home }}/R/x86_64-pc-linux-gnu-library/4.1-CBI-gcc8/00LOCK-Rmpi/00new/Rmpi/libs
 ** R
 ** demo
 ** inst
@@ -434,7 +433,7 @@ Similarly to the **Rmpi** package above, MPI-dependent R packages such as **[pbd
 
 ```r
 > install.packages("pbdMPI", configure.args="--with-mpi-libpath=$MPI_LIB --with-mpi-type=OPENMPI")
-Installing package into '/c4/home/alice/R/x86_64-pc-linux-gnu-library/4.1-CBI-gcc8'
+Installing package into '{{ site.user.home }}/R/x86_64-pc-linux-gnu-library/4.1-CBI-gcc8'
 (as 'lib' is unspecified)
 trying URL 'https://cloud.r-project.org/src/contrib/pbdMPI_0.4-4.tar.gz'
 Content type 'application/x-gzip' length 519492 bytes (507 KB)
@@ -494,7 +493,7 @@ The **[tiledb]** package require a newer GCC version that 8.3.1.  If we try to i
 
 ```r
 > install.packages("tiledb")
-Installing package into '/c4/home/alice/R/x86_64-pc-linux-gnu-library/4.1-CBI-gcc8'
+Installing package into '{{ site.user.home }}/R/x86_64-pc-linux-gnu-library/4.1-CBI-gcc8'
 (as 'lib' is unspecified)
 trying URL 'https://cloud.r-project.org/src/contrib/tiledb_0.10.2.tar.gz'
 Content type 'application/x-gzip' length 370247 bytes (361 KB)
@@ -508,13 +507,13 @@ checking whether the C++ compiler works... yes
 ...
 ** testing if installed package can be loaded from temporary location
 Error: package or namespace load failed for 'tiledb' in dyn.load(file, DLLpath = DLLpath, ...):
- unable to load shared object '/c4/home/alice/R/x86_64-pc-linux-gnu-library/4.1-CBI-gcc8/00LOCK-tiledb/00new/tiledb/libs/tiledb.so':
-  /c4/home/alice/R/x86_64-pc-linux-gnu-library/4.1-CBI-gcc8/00LOCK-tiledb/00new/tiledb/libs/tiledb.so: undefined symbol: _ZNSt10filesystem18create_directoriesERKNS_4pathE
+ unable to load shared object '{{ site.user.home }}/R/x86_64-pc-linux-gnu-library/4.1-CBI-gcc8/00LOCK-tiledb/00new/tiledb/libs/tiledb.so':
+  {{ site.user.home }}/R/x86_64-pc-linux-gnu-library/4.1-CBI-gcc8/00LOCK-tiledb/00new/tiledb/libs/tiledb.so: undefined symbol: _ZNSt10filesystem18create_directoriesERKNS_4pathE
 Error: loading failed
 Execution halted
 ERROR: loading failed
-* removing '/c4/home/alice/R/x86_64-pc-linux-gnu-library/4.1-CBI-gcc8/tiledb'
-* restoring previous '/c4/home/alice/R/x86_64-pc-linux-gnu-library/4.1-CBI-gcc8/tiledb'
+* removing '{{ site.user.home }}/R/x86_64-pc-linux-gnu-library/4.1-CBI-gcc8/tiledb'
+* restoring previous '{{ site.user.home }}/R/x86_64-pc-linux-gnu-library/4.1-CBI-gcc8/tiledb'
 ```
 
 You have to be an up-to-date, experienced C++ programmer to troubleshoot this.  For mortals like the rest of us, all we can do is to [report upstream](https://github.com/TileDB-Inc/TileDB-R/issues/333) and try with a more modern version of GCC.  Indeed, if we use something never than GCC 8.3.1 (2019-03-01), e.g.
@@ -542,7 +541,7 @@ it will work;
 [alice@{{ site.devel.name }} ~]$ R
 ...
 > install.packages("tiledb")
-Installing package into '/c4/home/alice/R/x86_64-pc-linux-gnu-library/4.1-CBI-gcc8'
+Installing package into '{{ site.user.home }}/R/x86_64-pc-linux-gnu-library/4.1-CBI-gcc8'
 (as 'lib' is unspecified)
 trying URL 'https://cloud.r-project.org/src/contrib/tiledb_0.10.2.tar.gz'
 Content type 'application/x-gzip' length 370247 bytes (361 KB)
