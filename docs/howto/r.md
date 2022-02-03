@@ -617,16 +617,15 @@ cp: cannot stat 'nlopt/include/*': No such file or directory
 ...
 opt
 collect2: error: ld returned 1 exit status
-make: *** [/wynton/home/alice/shared/software/CBI/R-4.1.2-gcc8/lib64/R/share/make/shlib.mk:10: nloptr.so] Error 1
+make: *** [/wynton/home/cbi/shared/software/CBI/R-4.1.2-gcc8/lib64/R/share/make/shlib.mk:10: nloptr.so] Error 1
 ERROR: compilation failed for package ‘nloptr’
-* removing ‘/wynton/home/bengtsson/hb-test/R/x86_64-pc-linux-gnu-library/4.1-CBI-gcc8/nloptr’
 ```
 
 The solution is to load CMake v3 before launching R, as:
 
 ```sh
-[hb-test@dev2 ~]$ module load CBI cmake
-[hb-test@dev2 ~]$ cmake --version
+[alice@{{ site.devel.name }} ~]$ module load CBI cmake
+[alice@{{ site.devel.name }} ~]$ cmake --version
 cmake version 3.22.2
 
 CMake suite maintained and supported by Kitware (kitware.com/cmake).
