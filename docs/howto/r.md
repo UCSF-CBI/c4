@@ -617,7 +617,7 @@ cp: cannot stat 'nlopt/include/*': No such file or directory
 ...
 opt
 collect2: error: ld returned 1 exit status
-make: *** [/wynton/home/cbi/shared/software/CBI/R-4.1.2-gcc8/lib64/R/share/make/shlib.mk:10: nloptr.so] Error 1
+make: *** [.../software/CBI/R-4.1.2-gcc8/lib64/R/share/make/shlib.mk:10: nloptr.so] Error 1
 ERROR: compilation failed for package ‘nloptr’
 ```
 
