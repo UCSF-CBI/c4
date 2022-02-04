@@ -26,9 +26,10 @@ cluster:
   email_support: harry.putnam@ucsf.edu
   status: ok
 
-software:
-  cbi_root: /software/c4/cbi/software
- 
+path:
+  global_scratch: /c4/scratch
+  cbi_software: /software/c4/cbi/software
+  
 login:
   name: "c4-log1"
   hostname: "c4-log1.ucsf.edu"
