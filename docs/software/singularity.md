@@ -41,13 +41,13 @@ For full details, see `singularity --help`, `man singularity`, and the [Singular
 
 As an illustration on how to use Linux containers with Singularity, we will use the Docker container [rocker/r-base] available on Docker Hub.  This particular container provides the latest release of the [R] software in an Ubuntu OS environment.  Containers available from Singularity Hub, Biocontainers, and elsewhere, can be downloaded and used analogously.
 
-To use this rocker/r-base container, we first pull it down to a Singularity image file `~/lxc/rocker_r-base.img` as:
+To use this rocker/r-base container, we first pull it down to a Singularity image file `~/lxc/rocker_r-base.sif` as:
 
 <!-- code-block label="build" -->
 ```sh
 [alice@{{ site.devel.name }} ~]$ mkdir lxc
 [alice@{{ site.devel.name }} ~]$ cd lxc/
-[alice@{{ site.devel.name }} lxc]$ singularity build rocker_r-base.img docker://rocker/r-base
+[alice@{{ site.devel.name }} lxc]$ singularity build rocker_r-base.sif docker://rocker/r-base
 INFO:    Starting build...
 Getting image source signatures
 Copying blob sha256:4363cc52203477cd66948034ae4a1db71cbfd27fddb648dd9c590161de1f8634
@@ -66,9 +66,9 @@ Storing signatures
 2021/01/06 10:40:52  info unpack layer: sha256:d36c605538a66ebff6ae01e73f30069b5bd8e8292ffd7d275cd65f4804b2edae
 2021/01/06 10:40:52  info unpack layer: sha256:b6393690e1508d90cb0d3cb9a31dc8679ecc46a949d796e2447b91b4af45e159
 INFO:    Creating SIF file...
-INFO:    Build complete: rocker_r-base.img
-[alice@{{ site.devel.name }} lxc]$ ls -l rocker_r-base.img
--rwxr-xr-x 1 alice boblab 296992768 Jan  6 10:41 rocker_r-base.img
+INFO:    Build complete: rocker_r-base.sif
+[alice@{{ site.devel.name }} lxc]$ ls -l rocker_r-base.sif
+-rwxr-xr-x 1 alice boblab 296992768 Jan  6 10:41 rocker_r-base.sif
 ```
 
 The above may take a minute or two to complete.
@@ -80,7 +80,7 @@ After this, we can run R within this container using:
 
 <!-- code-block label="run" -->
 ```sh
-[alice@{{ site.devel.name }} lxc]$ singularity run rocker_r-base.img
+[alice@{{ site.devel.name }} lxc]$ singularity run rocker_r-base.sif
 
 R version 4.0.3 (2020-10-10) -- "Bunny-Wunnies Freak Out"
 Copyright (C) 2020 The R Foundation for Statistical Computing
@@ -111,7 +111,7 @@ Exactly what is "run" is defined by the so called "runscript" of the Singularity
 
 <!-- code-block label="exec" -->
 ```sh
-[alice@{{ site.devel.name }} lxc]$ singularity exec rocker_r-base.img R --quiet
+[alice@{{ site.devel.name }} lxc]$ singularity exec rocker_r-base.sif R --quiet
 > sum(1:10)
 [1] 55
 > q("no")
@@ -122,7 +122,7 @@ Note that, the Singularity image is marked as an _executable_, which means you c
 
 <!-- code-block label="command" -->
 ```sh
-[alice@{{ site.devel.name }} lxc]$ ./rocker_r-base.img
+[alice@{{ site.devel.name }} lxc]$ ./rocker_r-base.sif
 
 R version 4.0.3 (2020-10-10) -- "Bunny-Wunnies Freak Out"
 Copyright (C) 2020 The R Foundation for Statistical Computing
@@ -152,14 +152,14 @@ To launch a shell within this container, and to also convince yourselves that th
 
 <!-- code-block label="shell" -->
 ```sh
-[alice@{{ site.devel.name }} lxc]$ singularity shell rocker_r-base.img
-Singularity rocker_r-base.img:~/lxc> head -3 /etc/os-release
+[alice@{{ site.devel.name }} lxc]$ singularity shell rocker_r-base.sif
+Singularity rocker_r-base.sif:~/lxc> head -3 /etc/os-release
 PRETTY_NAME="Debian GNU/Linux buster/sid"
 NAME="Debian GNU/Linux"
 ID=debian
-Singularity r-base.img:~/lxc> Rscript --version
+Singularity r-base.sif:~/lxc> Rscript --version
 R scripting front-end version 4.0.3 (2020-10-10)
-Singularity r-base.img:~/lxc> exit
+Singularity r-base.sif:~/lxc> exit
 
 [alice@{{ site.devel.name }} lxc]$ head -3 /etc/os-release
 NAME="CentOS Linux"
@@ -174,7 +174,7 @@ When running a container, only a few of the folders available "outside" are avai
 
 <!-- code-block label="shell-nobind" -->
 ```sh
-[alice@{{ site.devel.name }} lxc]$ singularity shell rocker_r-base.img
+[alice@{{ site.devel.name }} lxc]$ singularity shell rocker_r-base.sif
 Singularity> ls /scratch
 ls: cannot access '/scratch': No such file or directory
 Singularity> ls /c4/scratch
@@ -191,7 +191,7 @@ To make also these folders available within the container, we can use `singulari
 
 <!-- code-block label="shell-bind" -->
 ```sh
-[alice@{{ site.devel.name }} lxc]$ singularity shell --bind /scratch,/c4/scratch,{{ site.user.labfolder }} rocker_r-base.img
+[alice@{{ site.devel.name }} lxc]$ singularity shell --bind /scratch,/c4/scratch,{{ site.user.labfolder }} rocker_r-base.sif
 Singularity> ls /scratch
 alice
 Singularity> ls /c4/scratch
@@ -209,7 +209,7 @@ When it comes to the scheduler, there is nothing special about Singularity per s
 
 <!-- code-block label="rscript-sum" -->
 ```sh
-[alice@{{ site.devel.name }} lxc]$ singularity exec rocker_r-base.img Rscript -e "sum(1:10)"
+[alice@{{ site.devel.name }} lxc]$ singularity exec rocker_r-base.sif Rscript -e "sum(1:10)"
 [1] 55
 [alice@{{ site.devel.name }} lxc]$ 
 ```
@@ -226,7 +226,7 @@ To run this as a batch job, we need to create a job script.
 #SBATCH --time=00:05:00
 #SBATCH --output=%x_%j.out
 
-./rocker_r-base.img Rscript -e "sum(1:10)"
+./rocker_r-base.sif Rscript -e "sum(1:10)"
 
 ## End-of-job summary, if running as a job
 [[ -n "$SLURM_JOB_ID" ]] && sstat --format="JobID,AveCPU,MaxRSS,MaxPages,MaxDiskRead,MaxDiskWrite" -j "$SLURM_JOB_ID"
@@ -256,8 +256,9 @@ Check results:
 Q. _Why not Docker?_  
 A. Docker is one of the most popular and well-known software solutions for using Linux Containers. However, contrary to Singularity, it turns out that it is hard to get Docker to play well with multi-tenant HPC environments.
 
-Q. _What's the difference between `*.img` and `*.simg`?_  
-A. The filename extension of Singularity images are optional, but using one helps clarify that an executable is a Singularity image.  [The `*.img` indicates a _writable_ (ext3) images whereas `*.simg` indicates a read-only (squashfs) image.](https://groups.google.com/a/lbl.gov/d/msg/singularity/Cq7kIbN_L68/2mOdkwx2BAAJ)
+Q. _What's the filename extension `*.sif`?_
+
+First of all, the filename extension is optional, and some prefer to drop them, e.g. `rocker_r-base` instead of `rocker_r-base.sif`.  SIF, which is short for the [Singularity Container Image Format](https://github.com/hpcng/sif), is a file format that can hold a Linux container environments in a single file.  You might also see Singularity images named `*.img` and `*.simg`, which are legacy file formats that Singularity used in the past, where `*.img` indicates a _writable_ (ext3) images whereas `*.simg` indicates a read-only (squashfs) image.](https://groups.google.com/a/lbl.gov/d/msg/singularity/Cq7kIbN_L68/2mOdkwx2BAAJ)
 
 
 [Linux containers]: https://www.wikipedia.org/wiki/Linux_containers
