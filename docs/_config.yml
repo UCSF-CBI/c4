@@ -17,7 +17,7 @@ user:
   email: "alice.aliceson@ucsf.edu"
   home: "/c4/home/alice"
   labfolder: "/boblab"
-  
+
 cluster:
   name: "C4"
   nickname: "C4"
@@ -25,7 +25,11 @@ cluster:
   email_admin: harry.putnam@ucsf.edu
   email_support: harry.putnam@ucsf.edu
   status: ok
- 
+
+path:
+  global_scratch: /c4/scratch
+  cbi_software: /software/c4/cbi/software
+  
 login:
   name: "c4-log1"
   hostname: "c4-log1.ucsf.edu"

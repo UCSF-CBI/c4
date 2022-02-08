@@ -1,11 +1,11 @@
 on: [push, pull_request]
 
-name: Usernames
+name: Odds and Ends
 
 jobs:
   ShellCheck:
     runs-on: ubuntu-18.04
-    name: Usernames
+    name: Odds and Ends
     if: "! contains(github.event.head_commit.message, '[ci skip]')"
 
     steps:
@@ -15,4 +15,8 @@ jobs:
     - name: usernames
       run: |
         make check-usernames
+
+    - name: here-links
+      run: |
+        make check-here-links
 
