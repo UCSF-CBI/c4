@@ -4,7 +4,7 @@ We have a module in the CBI software stack designed to run rstudio server as a p
 
 Addition reading: 
 - Software modules: <a href="https://www.c4.ucsf.edu/software/software-modules.html">C4 Software Modules</a>
-- rstudio-server-controller: <a href="https://github.com/UCSF-CBI/rstudio-server-controller">rstudio-server-controler</a>
+- rstudio-server-controller: <a href="https://github.com/UCSF-CBI/rstudio-server-controller">rstudio-server-controller</a>
 
 
 ### How to use with sbatch (preferred approach)
@@ -27,19 +27,19 @@ rsc start --port=random
 
 At this point the scratch specification is optional but recommended. We will soon be requiring scratch reservations for all jobs. Please request memory and cpu resource as appropriate for your job. Please do your best to "right size" the job (ask for enough resources to do the job but no more). This module was designed to run on ONLY one node. Please only ever use -N 1 or leave -N unspecified.
 
-You submit the above, on a login or develoipment node, with `sbatch rstudio.sh`
+You submit the above, on a login or development node, with `sbatch rstudio.sh`
 
 Once submitted, cat the job output file (in our case, rstudio-server.job.JOBID) for instructions about how to set up the ssh tunnel. You will see something *similar* to this:
 ```
 alice, your personal RStudio Server is available on <http://c4-n12:34981>. If you are running from a remote machine without direct access to c4-n12, you can use SSH port forwarding to access the RStudio Server at <http://127.0.0.1:8787> by running 'ssh -J alice@<login-machine> -L 8787:c4-n12:34981 c4-n12' in a second terminal. Any R session started times out after being idle for 480 minutes.
 ```
-You can now set up the tunnel to your workstatio and open a browser with url http://localhost:34981.  Please note, we are asking for a random port on the compute node so the port number will be *different* each time we run this job.
+You can now set up the tunnel to your workstation and open a browser with url http://localhost:34981.  Please note, we are asking for a random port on the compute node so the port number will be *different* each time we run this job.
 
 **Cleanly stop the job**
 
 To exit the RStudio session cleanly, press the "power" button in the top right corner of the browser session. Failure to do so will result in an warning next time you use RStudio that things did not end cleanly. 
 
-Next, cancel the ssh tunnel on your workstation terminal wity CTL-C.
+Next, cancel the ssh tunnel on your workstation terminal with Ctrl-C.
 
 Lastly, from any login or development host:
 
@@ -77,6 +77,6 @@ You can now follow these tunnel directions to set up your RStudio session on you
 
 To exit the RStudio session cleanly, press the "power" button in the top right corner of the browser session. Failure to do so will result in an warning next time you use RStudio that things did not end cleanly. 
 
-Next, cancel the ssh tunnel on your workstation terminal wity CTL-C.
+Next, cancel the ssh tunnel on your workstation terminal with Ctrl-C.
 
-Lastly, return to your interactive shell that was instantiateed with srun. CTL-C out of the rsc shell. Then `rsc stop` to cleanly stop your rsc session. Last step is to type `exit` or CTL-D to close the interactive shell. This allows SLURM to clear up the requested resources for other users.
+Lastly, return to your interactive shell that was instantiated with srun. Ctrl-C out of the rsc shell. Then `rsc stop` to cleanly stop your rsc session. Last step is to type `exit` or Ctrl-D to close the interactive shell. This allows SLURM to clear up the requested resources for other users.
