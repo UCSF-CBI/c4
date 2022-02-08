@@ -2,7 +2,7 @@
 
 We have a module in the CBI software stack designed to run rstudio server as a per user SLURM job. We can use sbatch (preferred) or srun for this. This is a two step process. Step1 is getting the job submitted and started on C4. Step2 is setting up an ssh tunnel back to your work station so you can access RStudio from your browser. This allows you to use RStudio in a familiar way while unlocking the compute resources on C4.
 
-Addition reading:
+Additional reading:
 
 - Software modules: <a href="https://www.c4.ucsf.edu/software/software-modules.html">C4 Software Modules</a>
 - rstudio-server-controller: <a href="https://github.com/UCSF-CBI/rstudio-server-controller">rstudio-server-controller</a>
@@ -36,7 +36,7 @@ alice, your personal RStudio Server is available on <http://c4-n12:34981>. If yo
 ```
 You can now set up the tunnel to your workstation and open a browser with url http://localhost:34981.  Please note, we are asking for a random port on the compute node so the port number will be *different* each time we run this job.
 
-**Cleanly stop the job**
+### Cleanly stop the job
 
 To exit the RStudio session cleanly, press the "power" button in the top right corner of the browser session. Failure to do so will result in an warning next time you use RStudio that things did not end cleanly. 
 
@@ -74,7 +74,7 @@ alice, your personal RStudio Server is available on <http://c4-n3:48216>. If you
 
 You can now follow these tunnel directions to set up your RStudio session on your workstation browser.
 
-**Cleanly stop the job**
+### Cleanly stop the job
 
 To exit the RStudio session cleanly, press the "power" button in the top right corner of the browser session. Failure to do so will result in an warning next time you use RStudio that things did not end cleanly. 
 
