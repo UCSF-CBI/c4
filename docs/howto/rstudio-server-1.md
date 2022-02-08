@@ -2,12 +2,13 @@
 
 We have a module in the CBI software stack designed to run rstudio server as a per user SLURM job. We can use sbatch (preferred) or srun for this. This is a two step process. Step1 is getting the job submitted and started on C4. Step2 is setting up an ssh tunnel back to your work station so you can access RStudio from your browser. This allows you to use RStudio in a familiar way while unlocking the compute resources on C4.
 
-Addition reading: 
+Addition reading:
+
 - Software modules: <a href="https://www.c4.ucsf.edu/software/software-modules.html">C4 Software Modules</a>
 - rstudio-server-controller: <a href="https://github.com/UCSF-CBI/rstudio-server-controller">rstudio-server-controller</a>
 
 
-### How to use with sbatch (preferred approach)
+## How to use with sbatch (preferred approach)
 
 Example sbatch script for RStudio server. Let's call it `rstudio.sh`  
 
@@ -30,7 +31,7 @@ At this point the scratch specification is optional but recommended. We will soo
 You submit the above, on a login or development node, with `sbatch rstudio.sh`
 
 Once submitted, cat the job output file (in our case, rstudio-server.job.JOBID) for instructions about how to set up the ssh tunnel. You will see something *similar* to this:
-```
+```sh
 alice, your personal RStudio Server is available on <http://c4-n12:34981>. If you are running from a remote machine without direct access to c4-n12, you can use SSH port forwarding to access the RStudio Server at <http://127.0.0.1:8787> by running 'ssh -J alice@<login-machine> -L 8787:c4-n12:34981 c4-n12' in a second terminal. Any R session started times out after being idle for 480 minutes.
 ```
 You can now set up the tunnel to your workstation and open a browser with url http://localhost:34981.  Please note, we are asking for a random port on the compute node so the port number will be *different* each time we run this job.
@@ -46,13 +47,13 @@ Lastly, from any login or development host:
 `scancel jobid` where jobid is the number of your job.
 
 
-### How to use with srun
+## How to use with srun
 
 This example shows how to start an RStudio server with srun. We will use the same values for number of cpus, memory, time, and scratch as the prior example. To start the interactive srun job on a login or development node type:
 `srun --pty --mem 16g --ntasks 4 -t 0-08:00 /usr/bin/bash`
 
 It takes a bit for the allocation to happen and the job to start. You should see something similar to:
-```
+```sh
 [alice@c4-dev3 ~]$ srun --pty --mem 16g --ntasks 4 -t 0-08:00 /usr/bin/bash
 srun: job 417808 queued and waiting for resources
 srun: job 417808 has been allocated resources
@@ -67,7 +68,7 @@ Once the module loads:
 `rsc start --port=random`
 
 Wait a bit and you should see output similar to:
-```
+```sh
 alice, your personal RStudio Server is available on <http://c4-n3:48216>. If you are running from a remote machine without direct access to c4-n3, you can use SSH port forwarding to access the RStudio Server at <http://127.0.0.1:8787> by running 'ssh -J hputnam@<login-machine> -L 8787:c4-n3:48216 c4-n3' in a second terminal. Any R session started times out after being idle for 480 minutes.
 ```
 
