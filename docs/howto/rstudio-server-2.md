@@ -1,6 +1,6 @@
 # Work with Rstudio Server
 
-We have a module in the CBI software stack designed to run rstudio server as a per user SLURM job. We can use OnDemand (preferred) or srun for this. 
+We have a module in the CBI software stack designed to run rstudio server as a per user Slurm job. We can use OnDemand (preferred) or srun for this. 
 
 For OnDemand we use a simple web form to launch the job.
 
@@ -13,11 +13,11 @@ Additional reading:
 
 ## How to use with OnDemand
 
-- From your workstation, connect to OnDemand at: <a href="https://c4-ondemand1.ucsf.edu">OnDemand</a>
-- Enter your C4 username and password. Click the Login button.
-- Navigate to Interactive Apps --> RStudio Server
-- Click the Rstudio Server link
-- You next get a form with some fields we need to fill in for SLURM. Details:
+1. From your workstation, connect to OnDemand at: <a href="https://c4-ondemand1.ucsf.edu">OnDemand</a>
+2. Enter your C4 username and password. Click the Login button.
+3. Navigate to Interactive Apps --> RStudio Server
+4. Click the Rstudio Server link
+5. You next get a form with some fields we need to fill in for Slurm. Details:
 
 
 **Partition** - If you have a Lab partition you may enter it here. Otherwise enter common. Equivalent to --partition in sbatch.
@@ -28,7 +28,7 @@ Additional reading:
 
 **Number of Cores** - Number of CPU threads to request. Equivalent to --ntasks in sbatch.
 
-**Scratch Space** - Amount of local /scratch space for the job. Equivalent to --gres=scratch:10g (for a 10 GB ask)
+**Scratch Space** - Amount of local /scratch space for the job. Equivalent to –gres=scratch:10G (10 GiB)
 
 
 - Once the form fields are filled in, click the Launch button.
@@ -78,4 +78,4 @@ To exit the RStudio session cleanly, press the "power" button in the top right c
 
 Next, cancel the ssh tunnel on your workstation terminal with Ctrl-C.
 
-Lastly, return to your interactive shell that was instantiated with srun. Ctrl-C out of the rsc shell. Then `rsc stop` to cleanly stop your rsc session. Last step is to type `exit` or Ctrl-D to close the interactive shell. This allows SLURM to clear up the requested resources for other users.
+Lastly, return to your interactive shell that was instantiated with srun. Ctrl-C out of the rsc shell. Then `rsc stop` to cleanly stop your rsc session. Last step is to type `exit` or Ctrl-D to close the interactive shell. This allows Slurm to clear up the requested resources for other users.
