@@ -17,7 +17,7 @@ Additional reading:
 - Enter your C4 username and password. Click the Login button.
 - Navigate to Interactive Apps --> RStudio Server
 - Click the Rstudio Server link
-- You next get a form with some fieds we need to fill in for SLURM. Details:
+- You next get a form with some fields we need to fill in for SLURM. Details:
 
 **Account** - Your "billing" account with SLURM. If you don't know this, you can get it from any C4 host with `sacctmgr show user | grep $USER` The account is in the second field.
 
@@ -34,7 +34,7 @@ Additional reading:
 
 - Once the form fields are filled in, click the Launch button.
 
-The job takes a minute or so to get started on the cluster. Once the job has launched, you will see a button labeled "Connect to RStudio Server". Click this button and a new browser tab will open with the familiar RStuido login screen. Use your C4 username and password for this.
+The job takes a minute or so to get started on the cluster. Once the job has launched, you will see a button labeled "Connect to RStudio Server". Click this button and a new browser tab will open with the familiar RStudio login screen. Use your C4 username and password for this.
 
 You should now be running an interactive RStudio session on a compute node. 
 
@@ -43,7 +43,7 @@ Inportant things to know.
 </div>
 
 - Using OnDemand to launch RStudio will always use the default module for r and rstudio-server-controller in our <a href="https://www.c4.ucsf.edu/software/software-modules.html">CBI Software Stack</a>
-- Any packages installed via RStudio launched this way are stored in your $HOME direcotry so they will be available *for the same version of r* from the CLI verison of r in our software stack.
+- Any packages installed via RStudio launched this way are stored in your $HOME directory so they will be available *for the same version of r* from the CLI version of r in our software stack.
 - Currently, we are limiting run time to 24 hours for one of these jobs.
 
 
