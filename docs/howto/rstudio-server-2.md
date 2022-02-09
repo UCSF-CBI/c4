@@ -48,7 +48,7 @@ Inportant things to know.
 ## How to use with srun
 
 This example shows how to start an RStudio server with srun. We will use the same values for number of cpus, memory, time, and scratch as the prior example. To start the interactive srun job on a login or development node type:
-`srun --pty --mem 16g --ntasks 4 --time 0-08:00 /usr/bin/bash`
+`srun --pty --mem 16g --ntasks 4 --time 0-08:00 --gres=scratch:20g /usr/bin/bash`
 
 It takes a bit for the allocation to happen and the job to start. You should see something similar to:
 ```sh
