@@ -23,7 +23,6 @@ module_repositories <- list(
     group       = "Witte Lab Software Repository",
     url         = "https://wittelab.ucsf.edu",
     contributed = TRUE,
-    module_path = file.path(dirname(Sys.getenv("SOFTWARE_ROOT_WITTELAB", "/software/c4/wittelab/software")), "module
-files")
+    module_path = file.path(dirname(Sys.getenv("SOFTWARE_ROOT_WITTELAB", "/software/c4/wittelab/software")), "modulefiles")
   )
 )

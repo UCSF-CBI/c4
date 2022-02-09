@@ -54,11 +54,12 @@ module load CBI r bwa bowtie2/2.4.2
 ```
 
 
-Below are 2 software repositories, each providing a set of software tools.
+Below are 3 software repositories, each providing a set of software tools.
 
 <ul class="nav nav-pills">
 <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(4)</a></li>
 <li><a data-toggle="pill" href="#queues-cbi"><span style="font-weight: bold;">cbi</span>&nbsp;(82)</a></li>
+<li><a data-toggle="pill" href="#queues-wittelab"><span style="font-weight: bold;">wittelab</span>&nbsp;(17)</a></li>
 </ul>
 
 <div class="tab-content" style="margin-top: 1ex;">
@@ -3088,15 +3089,532 @@ pushenv(&quot;PERL5LIB&quot;, pathJoin(home, &quot;share&quot;, &quot;perl5&quot
 </dl>
 </div> 
 
+<div id="queues-wittelab" class="tab-pane fade">
+
+<h2 id="module-software-repository-wittelab">Module Software Repository: WitteLab (17)</h2>
+
+Maintained by: Taylor Cavazos, <a href="https://wittelab.ucsf.edu">Witte Lab Software Repository</a><br>
+Enable repository: <code>module load WitteLab</code><br>
+
+<div class="alert alert-warning" role="alert" style="margin-top: 3ex">
+Please note that this software stacks is maintained and contributed by a research group on a voluntary basis. It is <em>not</em> maintained by the {{ site.cluster.name }} admins. Please reach out to the corresponding maintainer for bug reports, feedback, or questions.
+</div>
+
+<dl>
+  <dt class="module-name">ascp</dt>
+  <dd class="module-details">
+<strong class="module-help">ascp: Command line data transfer client</strong><br>
+<span class="module-description">The IBM Aspera Command-Line Interface (CLI) is a lightweight shell scripting tool that be used to automate Faspex and Shares tasks without having to do additional coding. The CLI is for users and organizations that want to automate their transfer workflows; it provides an alternative to using the API for the same functionality.</span><br>
+Example: <span class="module-example"><code>ascp --help</code>.</span><br>
+URL: <span class="module-url"><a href="https://developer.asperasoft.com/desktop-advance/command-line-client">https://developer.asperasoft.com/desktop-advance/command-line-client</a></span><br>
+Versions: <span class="module-version"><em>3.9.6</em></span><br>
+<details>
+<summary>Module code: <a>view</a></summary>
+<pre><code class="language-lua">help([[
+ascp: Command line data transfer client
+]])
+
+local name = myModuleName()
+local version = myModuleVersion()
+whatis(&quot;Version: &quot; .. version)
+whatis(&quot;Keywords: download&quot;)
+whatis(&quot;URL: https://developer.asperasoft.com/desktop-advance/command-line-client&quot;)
+whatis(&quot;Description: The IBM Aspera Command-Line Interface (CLI) is a lightweight shell scripting tool that be used to automate Faspex and Shares tasks without having to do additional coding. The CLI is for users and organizations that want to automate their transfer workflows; it provides an alternative to using the API for the same functionality. Example: `ascp --help`.&quot;)
+
+-- Local variables
+local home = pathJoin(&quot;/software/c4/wittelab/software/&quot;, name .. &quot;-&quot; .. version)
+
+prepend_path(&quot;PATH&quot;, home)
+</code></pre>
+
+</details>
+  </dd>
+
+  <dt class="module-name">bcftools</dt>
+  <dd class="module-details">
+<strong class="module-help">bcftools: Command line suite for working with bgzipped vcf files, includes tabix and bgzip</strong><br>
+<span class="module-description">BCFtools is a set of utilities that manipulate variant calls in the Variant Call Format (VCF) and its binary counterpart BCF. All commands work transparently with both VCFs and BCFs, both uncompressed and BGZF-compressed.</span><br>
+Example: <span class="module-example"><code>bcftools --help</code>.</span><br>
+URL: <span class="module-url"><a href="http://www.htslib.org/download/">http://www.htslib.org/download/</a></span><br>
+Versions: <span class="module-version"><em>1.11</em></span><br>
+<details>
+<summary>Module code: <a>view</a></summary>
+<pre><code class="language-lua">help([[
+bcftools: Command line suite for working with bgzipped vcf files, includes tabix and bgzip
+]])
+
+local name = myModuleName()
+local version = myModuleVersion()
+whatis(&quot;Version: &quot; .. version)
+whatis(&quot;Keywords: download&quot;)
+whatis(&quot;URL: http://www.htslib.org/download/&quot;)
+whatis(&quot;Description: BCFtools is a set of utilities that manipulate variant calls in the Variant Call Format (VCF) and its binary counterpart BCF. All commands work transparently with both VCFs and BCFs, both uncompressed and BGZF-compressed. Example: `bcftools --help`.&quot;)
+
+-- Local variables
+local home = pathJoin(&quot;/software/c4/wittelab/software/&quot;, name .. &quot;-&quot; .. version)
+
+prepend_path(&quot;PATH&quot;, home)
+</code></pre>
+
+</details>
+  </dd>
+
+  <dt class="module-name">charger</dt>
+  <dd class="module-details">
+<strong class="module-help">charger: a software tool for interpreting and predicting clinical pathogenicity of germline variants.</strong><br>
+<span class="module-description">CharGer gathers evidence from databases and annotations, provided by local tools and files or via ReST APIs, and classifies variants according to ACMG guidelines for assessing variant pathogenicity. User-designed pathogenicity criteria can be incorporated into CharGer’s flexible framework, thereby allowing users to create a customized classification protocol. If you use CharGer, please cite our publication so we can continue to support CharGer development: Adam D Scott, Kuan-Lin Huang, Amila Weerasinghe, R Jay Mashl, Qingsong Gao, Fernanda Martins Rodrigues, Matthew A Wyczalkowski, Li Ding, CharGer: clinical Characterization of Germline variants, Bioinformatics, Volume 35, Issue 5, 01 March 2019, Pages 865–867, <a href="https://doi.org/10.1093/bioinformatics/bty649">https://doi.org/10.1093/bioinformatics/bty649</a></span><br>
+URL: <span class="module-url"><a href="https://github.com/ding-lab/CharGer/tree/7d7d2911b89261fa5dceea6395a5d188a82757f2">https://github.com/ding-lab/CharGer/tree/7d7d2911b89261fa5dceea6395a5d188a82757f2</a></span><br>
+Versions: <span class="module-version"><em>0.5.4</em></span><br>
+<details>
+<summary>Module code: <a>view</a></summary>
+<pre><code class="language-lua">help([[
+charger: a software tool for interpreting and predicting clinical pathogenicity of germline variants. 
+]])
+
+local name = myModuleName()
+local version = myModuleVersion()
+whatis(&quot;Version: &quot; .. version)
+whatis(&quot;Keywords: download&quot;)
+whatis(&quot;URL: https://github.com/ding-lab/CharGer/tree/7d7d2911b89261fa5dceea6395a5d188a82757f2&quot;)
+whatis(&quot;Description: CharGer gathers evidence from databases and annotations, provided by local tools and files or via ReST APIs, and classifies variants according to ACMG guidelines for assessing variant pathogenicity. User-designed pathogenicity criteria can be incorporated into CharGer’s flexible framework, thereby allowing users to create a customized classification protocol. If you use CharGer, please cite our publication so we can continue to support CharGer development: Adam D Scott, Kuan-Lin Huang, Amila Weerasinghe, R Jay Mashl, Qingsong Gao, Fernanda Martins Rodrigues, Matthew A Wyczalkowski, Li Ding, CharGer: clinical Characterization of Germline variants, Bioinformatics, Volume 35, Issue 5, 01 March 2019, Pages 865–867, https://doi.org/10.1093/bioinformatics/bty649&quot;)
+
+-- Local variables
+local home = pathJoin(&quot;/software/c4/wittelab/software/&quot;, name .. &quot;-&quot; .. version)
+local env = pathJoin(&quot;/software/c4/wittelab/software/&quot;, name .. &quot;-&quot; .. version,&quot;venv/bin&quot;)
+
+prepend_path(&quot;PATH&quot;, home)
+prepend_path(&quot;PATH&quot;, env)
+</code></pre>
+
+</details>
+  </dd>
+
+  <dt class="module-name">flashpca</dt>
+  <dd class="module-details">
+<strong class="module-help">FlashPCA2: performs fast PCA of SNP data</strong><br>
+<span class="module-description">FlashPCA performs fast principal component analysis (PCA) of single nucleotide polymorphism (SNP) data, similar to smartpca from EIGENSOFT (<a href="http://www.hsph.harvard.edu/alkes-price/software/">http://www.hsph.harvard.edu/alkes-price/software/</a>) and shellfish (<a href="https://github.com/dandavison/shellfish">https://github.com/dandavison/shellfish</a>). FlashPCA is based on the <a href="https://github.com/yixuan/spectra/">https://github.com/yixuan/spectra/</a> library.</span><br>
+URL: <span class="module-url"><a href="https://github.com/gabraham/flashpca">https://github.com/gabraham/flashpca</a></span><br>
+Versions: <span class="module-version"><em>2.0.0</em></span><br>
+<details>
+<summary>Module code: <a>view</a></summary>
+<pre><code class="language-lua">help([[
+FlashPCA2: performs fast PCA of SNP data
+]])
+
+local name = myModuleName()
+local version = myModuleVersion()
+whatis(&quot;Version: &quot; .. version)
+whatis(&quot;Keywords: download&quot;)
+whatis(&quot;URL: https://github.com/gabraham/flashpca&quot;)
+whatis(&quot;Description: FlashPCA performs fast principal component analysis (PCA) of single nucleotide polymorphism (SNP) data, similar to smartpca from EIGENSOFT (http://www.hsph.harvard.edu/alkes-price/software/) and shellfish (https://github.com/dandavison/shellfish). FlashPCA is based on the https://github.com/yixuan/spectra/ library.&quot;)
+
+-- Local variables
+local home = pathJoin(&quot;/software/c4/wittelab/software/&quot;, name .. &quot;-&quot; .. version)
+
+prepend_path(&quot;PATH&quot;, home)
+</code></pre>
+
+</details>
+  </dd>
+
+  <dt class="module-name">focus</dt>
+  <dd class="module-details">
+<strong class="module-help">focus: a set of tools to finemap twas statistics</strong><br>
+<span class="module-description">FOCUS (Fine-mapping Of CaUsal gene Sets) is software to fine-map transcriptome-wide association study statistics at genomic risk regions. The software takes as input summary GWAS data along with eQTL weights and outputs a credible set of genes to explain observed genomic risk.</span><br>
+Example: <span class="module-example">source $ENV; focus --help; deactivate</span><br>
+URL: <span class="module-url"><a href="https://github.com/bogdanlab/focus">https://github.com/bogdanlab/focus</a></span><br>
+Versions: <span class="module-version"><em>0.7.0</em></span><br>
+<details>
+<summary>Module code: <a>view</a></summary>
+<pre><code class="language-lua">help([[
+focus: a set of tools to finemap twas statistics 
+]])
+
+local name = myModuleName()
+local version = myModuleVersion()
+whatis(&quot;Version: &quot; .. version)
+whatis(&quot;Keywords: twas&quot;)
+whatis(&quot;URL: https://github.com/bogdanlab/focus&quot;)
+whatis(&quot;Description: FOCUS (Fine-mapping Of CaUsal gene Sets) is software to fine-map transcriptome-wide association study statistics at genomic risk regions. The software takes as input summary GWAS data along with eQTL weights and outputs a credible set of genes to explain observed genomic risk. Example: source $ENV; focus --help; deactivate&quot;)
+
+-- Local variables
+setenv(&quot;ENV&quot;,&quot;/software/c4/wittelab/software/focus-0.7.0/focus_venv/bin/activate&quot;)
+setenv(&quot;PYTHONPATH&quot;,&quot;/software/c4/wittelab/software/focus-0.7.0/focus_venv/bin/python&quot;)
+local home = pathJoin(&quot;/software/c4/wittelab/software/&quot;, name .. &quot;-&quot; .. version,&quot;/bin/&quot;)
+prepend_path(&quot;PATH&quot;, home)
+
+</code></pre>
+
+</details>
+  </dd>
+
+  <dt class="module-name">gcta</dt>
+  <dd class="module-details">
+<strong class="module-help">gcta: GCTA (Genome-wide Complex Trait Analysis) was initially designed to estimate the proportion of phenotypic variance explained by all genome-wide SNPs for complex traits (i.e., the GREML method). It has been subsequently extended for many other analyses to better understand the genetic architecture of complex traits. GCTA currently supports the following analyses.</strong><br>
+<span class="module-description">Additional information can be found in the tutorial: <a href="https://cnsgenomics.com/software/gcta/#Tutorial">https://cnsgenomics.com/software/gcta/#Tutorial</a></span><br>
+Versions: <span class="module-version"><em>1.93.2</em></span><br>
+<details>
+<summary>Module code: <a>view</a></summary>
+<pre><code class="language-lua">help([[
+gcta: GCTA (Genome-wide Complex Trait Analysis) was initially designed to estimate the proportion of phenotypic variance explained by all genome-wide SNPs for complex traits (i.e., the GREML method). It has been subsequently extended for many other analyses to better understand the genetic architecture of complex traits. GCTA currently supports the following analyses.
+]])
+
+local name = myModuleName()
+local version = myModuleVersion()
+whatis(&quot;Version: &quot; .. version)
+whatis(&quot;Keywords: download&quot;)
+whatis(&quot;https://cnsgenomics.com/software/gcta/&quot;)
+whatis(&quot;Description: Additional information can be found in the tutorial: https://cnsgenomics.com/software/gcta/#Tutorial&quot;)
+whatis([[ Examples: Using test data found in software folder (/software/c4/wittelab/software/gcta-1.93.2/) 
+	# To create a GRM with the testing data
+	gcta64 --bfile test --make-grm --out test
+	# To calculate the variance explained by snps
+	gcta64 --reml --grm test --pheno test.phen --out test]])
+-- Local variables
+local home = pathJoin(&quot;/software/c4/wittelab/software/&quot;, name .. &quot;-&quot; .. version)
+prepend_path(&quot;PATH&quot;, home)
+</code></pre>
+
+</details>
+  </dd>
+
+  <dt class="module-name">gfetch</dt>
+  <dd class="module-details">
+<strong class="module-help">gfetch: Download multi-person genetic data for the UK Biobank</strong><br>
+<span class="module-description">gfetch client has been developed to allow Approved researchers to download elements of it piecemeal to their local systems from secure online repositories outside the main UK Biobank showcase system</span><br>
+URL: <span class="module-url"><a href="https://biobank.ndph.ox.ac.uk/ukb/refer.cgi?id=668">https://biobank.ndph.ox.ac.uk/ukb/refer.cgi?id=668</a></span><br>
+Versions: <span class="module-version"><em>1.0.0</em></span><br>
+<details>
+<summary>Module code: <a>view</a></summary>
+<pre><code class="language-lua">help([[
+gfetch: Download multi-person genetic data for the UK Biobank
+]])
+
+local name = myModuleName()
+local version = myModuleVersion()
+whatis(&quot;Version: &quot; .. version)
+whatis(&quot;Keywords: download&quot;)
+whatis(&quot;URL: https://biobank.ndph.ox.ac.uk/ukb/refer.cgi?id=668&quot;)
+whatis(&quot;Description: gfetch client has been developed to allow Approved researchers to download elements of it piecemeal to their local systems from secure online repositories outside the main UK Biobank showcase system&quot;)
+
+-- Local variables
+local home = pathJoin(&quot;/software/c4/wittelab/software/&quot;, name .. &quot;-&quot; .. version)
+
+prepend_path(&quot;PATH&quot;, home)
+</code></pre>
+
+</details>
+  </dd>
+
+  <dt class="module-name">gwama</dt>
+  <dd class="module-details">
+<strong class="module-help">GWAMA: Genome-Wide Association Meta Analysis</strong><br>
+<span class="module-description">software has been developed to perform meta-analysis of the results of GWA studies of binary or quantitative phenotypes. The software incorporates error trapping facilities to identify strand alignment errors and allele flipping, and performs tests of heterogeneity of effects between studies.</span><br>
+Example: <span class="module-example"><code>GWAMA --help</code>.</span><br>
+URL: <span class="module-url"><a href="https://genomics.ut.ee/en/tools/gwama">https://genomics.ut.ee/en/tools/gwama</a></span><br>
+Versions: <span class="module-version"><em>2.2.2</em></span><br>
+<details>
+<summary>Module code: <a>view</a></summary>
+<pre><code class="language-lua">help([[
+GWAMA: Genome-Wide Association Meta Analysis
+]])
+
+local name = myModuleName()
+local version = myModuleVersion()
+whatis(&quot;Version: &quot; .. version)
+whatis(&quot;Keywords: meta&quot;)
+whatis(&quot;URL: https://genomics.ut.ee/en/tools/gwama&quot;)
+whatis(&quot;Description: software has been developed to perform meta-analysis of the results of GWA studies of binary or quantitative phenotypes. The software incorporates error trapping facilities to identify strand alignment errors and allele flipping, and performs tests of heterogeneity of effects between studies. Example: `GWAMA --help`.&quot;)
+
+-- Local variables
+local home = pathJoin(&quot;/software/c4/wittelab/software/&quot;, name .. &quot;-&quot; .. version)
+
+prepend_path(&quot;PATH&quot;, home)
+</code></pre>
+
+</details>
+  </dd>
+
+  <dt class="module-name">gwastools</dt>
+  <dd class="module-details">
+<strong class="module-help">gwastools: This repository contains tools to harmonize GWAS summary statistics to a given reference. The main application is harmonization of a public gwas' variants to those in the GTEx study, and allow imputation of summary statistics for missing variants.</strong><br>
+<span class="module-description">Here you can find many python files for GWAS harmination and summary stat imputation. See github page for more details.</span><br>
+Example: <span class="module-example">source $ENV; ls $GWAS_TOOLS/; python $GWAS_TOOLS/gwas_parsing.py --help; deactivate</span><br>
+URL: <span class="module-url"><a href="https://github.com/hakyimlab/summary-gwas-imputation">https://github.com/hakyimlab/summary-gwas-imputation</a></span><br>
+Versions: <span class="module-version"><em>0.0.0</em></span><br>
+<details>
+<summary>Module code: <a>view</a></summary>
+<pre><code class="language-lua">help([[
+gwastools: This repository contains tools to harmonize GWAS summary statistics to a given reference. The main application is harmonization of a public gwas' variants to those in the GTEx study, and allow imputation of summary statistics for missing variants. 
+]])
+
+local name = myModuleName()
+local version = myModuleVersion()
+whatis(&quot;Version: &quot; .. version)
+whatis(&quot;Keywords: gwas&quot;)
+whatis(&quot;URL: https://github.com/hakyimlab/summary-gwas-imputation&quot;)
+whatis(&quot;Description: Here you can find many python files for GWAS harmination and summary stat imputation. See github page for more details. Example: source $ENV; ls $GWAS_TOOLS/; python $GWAS_TOOLS/gwas_parsing.py --help; deactivate&quot;)
+
+-- Local variables
+setenv(&quot;GWAS_TOOLS&quot;, &quot;/software/c4/wittelab/software/gwastools-0.0.0/summary-gwas-imputation/src/&quot;)
+setenv(&quot;ENV&quot;,&quot;/software/c4/wittelab/software/gwastools-0.0.0/gwastools_env/bin/activate&quot;)
+</code></pre>
+
+</details>
+  </dd>
+
+  <dt class="module-name">hess</dt>
+  <dd class="module-details">
+<strong class="module-help">HESS: is a Python package that provides utilities for estimating and analyzing local SNP-heritability and genetic covariance from GWAS summary association data.</strong><br>
+URL: <span class="module-url"><a href="https://github.com/huwenboshi/hess">https://github.com/huwenboshi/hess</a></span><br>
+Versions: <span class="module-version"><em>0.5.4</em></span><br>
+<details>
+<summary>Module code: <a>view</a></summary>
+<pre><code class="language-lua">help([[
+HESS: is a Python package that provides utilities for estimating and analyzing local SNP-heritability and genetic covariance from GWAS summary association data. 
+]])
+
+local name = myModuleName()
+local version = myModuleVersion()
+whatis(&quot;Version: &quot; .. version)
+whatis(&quot;Keywords: download&quot;)
+whatis(&quot;URL: https://github.com/huwenboshi/hess&quot;)
+whatis(&quot;Example: source $ENV; python $HESS_DIR/hess.py --help; deactivate;&quot;)
+
+-- Local variables
+setenv(&quot;HESS_DIR&quot;, &quot;/software/c4/wittelab/software/hess-0.5.4&quot;)
+setenv(&quot;ENV&quot;,&quot;/software/c4/wittelab/software/hess-0.5.4/hess_venv/bin/activate&quot;)
+</code></pre>
+
+</details>
+  </dd>
+
+  <dt class="module-name">ldak</dt>
+  <dd class="module-details">
+<strong class="module-help">LDAK: program for running heritability, genetic correlation, and genetic prediction (BayesR, MultiBLUP) analyses</strong><br>
+<span class="module-description">This is a command-line tool for analyses of individual-level and summary data (formatted accordingly: <a href="https://dougspeed.com/summary-statistics/">https://dougspeed.com/summary-statistics/</a>). Analyses of summary data require pre-computed tagging files (LD reference panels). You can generate these from individual-level data (<a href="https://dougspeed.com/calculate-taggings/">https://dougspeed.com/calculate-taggings/</a>) or use pre-computed files from external reference datasets (<a href="https://dougspeed.com/pre-computed-tagging-files/">https://dougspeed.com/pre-computed-tagging-files/</a>). Recommended tagging files for EUR/GBB and AFR populations have been downloaded.</span><br>
+URL: <span class="module-url"><a href="https://dougspeed.com/ldak/">https://dougspeed.com/ldak/</a></span><br>
+Versions: <span class="module-version"><em>5.1</em></span><br>
+<details>
+<summary>Module code: <a>view</a></summary>
+<pre><code class="language-lua">help([[
+LDAK: program for running heritability, genetic correlation, and genetic prediction (BayesR, MultiBLUP) analyses
+]])
+
+
+local name = myModuleName()
+local version = myModuleVersion()
+whatis(&quot;Version: &quot; .. version)
+whatis(&quot;Keywords: heritability&quot;)
+whatis(&quot;URL: https://dougspeed.com/ldak/&quot;)
+whatis(&quot;Description: This is a command-line tool for analyses of individual-level and summary data (formatted accordingly: https://dougspeed.com/summary-statistics/). Analyses of summary data require pre-computed tagging files (LD reference panels). You can generate these from individual-level data (https://dougspeed.com/calculate-taggings/) or use pre-computed files from external reference datasets (https://dougspeed.com/pre-computed-tagging-files/). Recommended tagging files for EUR/GBB and AFR populations have been downloaded.&quot;)
+whatis([[ Examples: 
+	# To estimate heritability run: 
+	&gt; ldak --sum-hers &lt;h2_output&gt; --summary &lt;gwas_sumstats&gt; --tagfile ${REF_DATA}/bld.ldak.hapmap.eur.tagging --check-sums NO 
+	# To get help and see other options just activate the program:
+	&gt; ldak ]])
+
+-- Local variables
+setenv(&quot;REF_DATA&quot;, &quot;/software/c4/wittelab/software/ldak-5.1/ref_panels/&quot;)
+local home = pathJoin(&quot;/software/c4/wittelab/software/&quot;, name .. &quot;-&quot; .. version)
+prepend_path(&quot;PATH&quot;, home)
+</code></pre>
+
+</details>
+  </dd>
+
+  <dt class="module-name">ldsc</dt>
+  <dd class="module-details">
+<strong class="module-help">ldsc: a command line tool for estimating heritability and genetic correlation from GWAS summary statistics. ldsc also computes LD Scores.</strong><br>
+<span class="module-description">Additional information can be found at the wiki: <a href="https://github.com/bulik/ldsc/wiki">https://github.com/bulik/ldsc/wiki</a></span><br>
+URL: <span class="module-url"><a href="https://github.com/bulik/ldsc">https://github.com/bulik/ldsc</a></span><br>
+Versions: <span class="module-version"><em>1.0.1</em></span><br>
+<details>
+<summary>Module code: <a>view</a></summary>
+<pre><code class="language-lua">help([[
+ldsc: a command line tool for estimating heritability and genetic correlation from GWAS summary statistics. ldsc also computes LD Scores.
+]])
+
+local name = myModuleName()
+local version = myModuleVersion()
+whatis(&quot;Version: &quot; .. version)
+whatis(&quot;Keywords: download&quot;)
+whatis(&quot;URL: https://github.com/bulik/ldsc&quot;)
+whatis(&quot;Description: Additional information can be found at the wiki: https://github.com/bulik/ldsc/wiki&quot;)
+whatis([[ Examples: 
+	# To work with function load virutal environment 
+	&gt; source $ENV
+	# Test scripts/ get help info
+	&gt; ldsc.py -h
+	&gt; munge_sumstats.py -h ]])
+-- Local variables
+local home = pathJoin(&quot;/software/c4/wittelab/software/&quot;, name .. &quot;-&quot; .. version)
+local env = pathJoin(&quot;/software/c4/wittelab/software/&quot;, name .. &quot;-&quot; .. version,&quot;ldsc_venv/bin/activate&quot;)
+prepend_path(&quot;PATH&quot;, home)
+prepend_path(&quot;ENV&quot;, env)
+</code></pre>
+
+</details>
+  </dd>
+
+  <dt class="module-name">liftOver</dt>
+  <dd class="module-details">
+<strong class="module-help">liftOver: program can be used to convert coordinate ranges between genome assemblies</strong><br>
+<span class="module-description">This is a command-line tool, and supports forward/reverse conversions, batch conversions, and conversions between species. The LiftOver program requires a UCSC-generated over.chain file as input. Pre-generated files are available for selected assemblies here: <a href="http://hgdownload.cse.ucsc.edu/downloads.html">http://hgdownload.cse.ucsc.edu/downloads.html</a>.</span><br>
+Example: <span class="module-example"><code>liftOver</code>.</span><br>
+URL: <span class="module-url"><a href="https://genome-store.ucsc.edu/products/">https://genome-store.ucsc.edu/products/</a></span><br>
+Versions: <span class="module-version"><em>1.0.0</em></span><br>
+<details>
+<summary>Module code: <a>view</a></summary>
+<pre><code class="language-lua">help([[
+liftOver: program can be used to convert coordinate ranges between genome assemblies
+]])
+
+
+
+local name = myModuleName()
+local version = myModuleVersion()
+whatis(&quot;Version: &quot; .. version)
+whatis(&quot;Keywords: convert&quot;)
+whatis(&quot;URL: https://genome-store.ucsc.edu/products/&quot;)
+whatis(&quot;Description: This is a command-line tool, and supports forward/reverse conversions, batch conversions, and conversions between species. The LiftOver program requires a UCSC-generated over.chain file as input. Pre-generated files are available for selected assemblies here: http://hgdownload.cse.ucsc.edu/downloads.html.  Example: `liftOver`.&quot;)
+
+-- Local variables
+local home = pathJoin(&quot;/software/c4/wittelab/software/&quot;, name .. &quot;-&quot; .. version)
+
+prepend_path(&quot;PATH&quot;, home)
+</code></pre>
+
+</details>
+  </dd>
+
+  <dt class="module-name">metaxcan</dt>
+  <dd class="module-details">
+<strong class="module-help">metaxcan: a set of tools to perform twas</strong><br>
+<span class="module-description">Here you can find the latest implementation of PrediXcan: PrediXcan.py. This uses individual-level genotype and phenotype, along a mechanism's prediction model (e.g. models predicting expression or splicing quantification), to compute associations between omic features and a complex trait.</span><br>
+Example: <span class="module-example">source $ENV; python ${METAXCAN_DIR}/SPrediXcan.py --help; deactivate</span><br>
+URL: <span class="module-url"><a href="https://github.com/hakyimlab/MetaXcan/tree/master/software">https://github.com/hakyimlab/MetaXcan/tree/master/software</a></span><br>
+Versions: <span class="module-version"><em>0.6.5</em></span><br>
+<details>
+<summary>Module code: <a>view</a></summary>
+<pre><code class="language-lua">help([[
+metaxcan: a set of tools to perform twas 
+]])
+
+local name = myModuleName()
+local version = myModuleVersion()
+whatis(&quot;Version: &quot; .. version)
+whatis(&quot;Keywords: download&quot;)
+whatis(&quot;URL: https://github.com/hakyimlab/MetaXcan/tree/master/software&quot;)
+whatis(&quot;Description: Here you can find the latest implementation of PrediXcan: PrediXcan.py. This uses individual-level genotype and phenotype, along a mechanism's prediction model (e.g. models predicting expression or splicing quantification), to compute associations between omic features and a complex trait. Example: source $ENV; python ${METAXCAN_DIR}/SPrediXcan.py --help; deactivate&quot;)
+
+-- Local variables
+setenv(&quot;METAXCAN_DIR&quot;, &quot;/software/c4/wittelab/software/metaxcan-0.6.5/software&quot;)
+setenv(&quot;ENV&quot;,&quot;/software/c4/wittelab/software/metaxcan-0.6.5/metaxcan_env/bin/activate&quot;)
+</code></pre>
+
+</details>
+  </dd>
+
+  <dt class="module-name">paintor</dt>
+  <dd class="module-details">
+<strong class="module-help">liftOver: program can be used to fine map putative causal variants using GWAS summary statistics.</strong><br>
+<span class="module-description">PAINTOR is a statistical fine-mapping method that integrates functional genomic data with association strength from potentially multiple populations (or traits) to prioritize variants for follow-up analysis. The software runs on multiple fine-mapping loci and/or populations/traits simultaneously and takes as input the following data for each set of SNPs at a locus. Examples can be found at <a href="https://github.com/gkichaev/PAINTOR_V3.0">https://github.com/gkichaev/PAINTOR_V3.0</a></span><br>
+URL: <span class="module-url"><a href="https://github.com/gkichaev/PAINTOR_V3.0">https://github.com/gkichaev/PAINTOR_V3.0</a></span><br>
+Versions: <span class="module-version"><em>3.0</em></span><br>
+<details>
+<summary>Module code: <a>view</a></summary>
+<pre><code class="language-lua">help([[
+liftOver: program can be used to fine map putative causal variants using GWAS summary statistics.
+]])
+
+
+
+local name = myModuleName()
+local version = myModuleVersion()
+whatis(&quot;Version: &quot; .. version)
+whatis(&quot;Keywords: trans-ethnic fine-mapping&quot;)
+whatis(&quot;URL: https://github.com/gkichaev/PAINTOR_V3.0&quot;)
+whatis(&quot;Description: PAINTOR is a statistical fine-mapping method that integrates functional genomic data with association strength from potentially multiple populations (or traits) to prioritize variants for follow-up analysis. The software runs on multiple fine-mapping loci and/or populations/traits simultaneously and takes as input the following data for each set of SNPs at a locus. Examples can be found at https://github.com/gkichaev/PAINTOR_V3.0&quot;)
+
+-- Local variables
+local home = pathJoin(&quot;/software/c4/wittelab/software/&quot;, name .. &quot;-&quot; .. version)
+
+prepend_path(&quot;PATH&quot;, home)
+</code></pre>
+
+</details>
+  </dd>
+
+  <dt class="module-name">python3</dt>
+  <dd class="module-details">
+<strong class="module-help">python3: programming language</strong><br>
+<span class="module-description">Python is powerful... and fast; plays well with others; runs everywhere; is friendly &amp; easy to learn; is Open.Example: python3 --help</span><br>
+URL: <span class="module-url"><a href="https://www.python.org/about/">https://www.python.org/about/</a></span><br>
+Versions: <span class="module-version"><em>3.9.1</em></span><br>
+<details>
+<summary>Module code: <a>view</a></summary>
+<pre><code class="language-lua">help([[
+python3: programming language
+]])
+
+local name = myModuleName()
+local version = myModuleVersion()
+whatis(&quot;Version: &quot; .. version)
+whatis(&quot;Keywords: language&quot;)
+whatis(&quot;URL: https://www.python.org/about/&quot;)
+whatis(&quot;Description: Python is powerful... and fast; plays well with others; runs everywhere; is friendly &amp; easy to learn; is Open.Example: python3 --help&quot;)
+
+local home = pathJoin(&quot;/software/c4/wittelab/software/&quot;, name .. &quot;-&quot; .. version,&quot;/bin&quot;)
+
+prepend_path(&quot;PATH&quot;, home)
+</code></pre>
+
+</details>
+  </dd>
+
+  <dt class="module-name">regenie</dt>
+  <dd class="module-details">
+<strong class="module-help">regenie: a C++ program for whole genome regression modelling of large genome-wide association studies developed and supported by a team of scientists at the Regeneron Genetics Center.</strong><br>
+<span class="module-description">performs fast gene-based and single-variants tests specifically designed for case-control imbalance</span><br>
+Example: <span class="module-example"><code>regenie --help</code>.</span><br>
+URL: <span class="module-url"><a href="https://github.com/rgcgithub/regenie">https://github.com/rgcgithub/regenie</a></span><br>
+Versions: <span class="module-version"><em>2.2.4</em></span><br>
+<details>
+<summary>Module code: <a>view</a></summary>
+<pre><code class="language-lua">help([[
+regenie: a C++ program for whole genome regression modelling of large genome-wide association studies developed and supported by a team of scientists at the Regeneron Genetics Center.
+]])
+
+local name = myModuleName()
+local version = myModuleVersion()
+whatis(&quot;Version: &quot; .. version)
+whatis(&quot;Keywords: download&quot;)
+whatis(&quot;URL: https://github.com/rgcgithub/regenie&quot;)
+whatis(&quot;Description: performs fast gene-based and single-variants tests specifically designed for case-control imbalance  Example: `regenie --help`.&quot;)
+
+-- Local variables
+local home = pathJoin(&quot;/software/c4/wittelab/software/&quot;, name .. &quot;-&quot; .. version)
+
+prepend_path(&quot;PATH&quot;, home)
+</code></pre>
+
+</details>
+  </dd>
+
+</dl>
+</div> 
+
 
 </div> 
 
 <ul class="nav nav-pills">
 <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(4)</a></li>
 <li><a data-toggle="pill" href="#queues-cbi"><span style="font-weight: bold;">cbi</span>&nbsp;(82)</a></li>
+<li><a data-toggle="pill" href="#queues-wittelab"><span style="font-weight: bold;">wittelab</span>&nbsp;(17)</a></li>
 </ul>
 
-_The above information was automatically generated on 2022-02-08 22:03:47 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2022-02-08 22:08:20 from querying `module avail` and `module spider`._
 
 
 <style>
