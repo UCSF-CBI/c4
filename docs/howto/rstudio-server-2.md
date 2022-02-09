@@ -52,7 +52,7 @@ This example shows how to start an RStudio server with srun. We will use the sam
 
 It takes a bit for the allocation to happen and the job to start. You should see something similar to:
 ```sh
-[alice@c4-dev3 ~]$ srun --pty --mem 16g --ntasks 4 -t 0-08:00 /usr/bin/bash
+[alice@c4-dev3 ~]$ srun --pty --mem 32g --ntasks 4 --time 0-08:00 $SHELL
 srun: job 417808 queued and waiting for resources
 srun: job 417808 has been allocated resources
 [alice@c4-n3:job=417808 ~]$ 
