@@ -30,7 +30,7 @@ Below are 3 software repositories, each providing a set of software tools.
 
 <ul class="nav nav-pills">
   <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(4)</a></li>
-  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(81)</a></li>
+  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(82)</a></li>
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
@@ -695,6 +695,16 @@ Please note that this software stacks is maintained and contributed by a researc
     Versions: <span class="module-version">7, 8, 9, 10, <em>11</em></span><br>
   </dd>
 
+  <dt id="CBI--scl-rh-python">scl-rh-python</dt>
+  <dd>
+    <strong class="module-help">SCL Python: Python with Additional Utilities via CentOS Software Collections</strong><br>
+    <span class="module-description">Enables the CentOS Software Collection (SCL) <code>rh-python&lt;version&gt;</code> in the current environment.  This is an alternative to calling <code>source scl_source enable rh-python&lt;version&gt;</code>, which is not officially supported by RedHat/CentOS.</span><br>
+    Example: <span class="module-example"><code>python --version</code>, and <code>pip --version</code>.</span><br>
+    URL: <span class="module-url"><a href="https://www.softwarecollections.org/en/scls/rhscl/rh-python38/">https://www.softwarecollections.org/en/scls/rhscl/rh-python38/</a></span><br>
+    Warning: <span class="module-warning">Older versions may be removed in the future.</span><br>
+    Versions: <span class="module-version">36, <em>38</em></span><br>
+  </dd>
+
   <dt id="CBI--scl-rh-ruby">scl-rh-ruby</dt>
   <dd>
     <strong class="module-help">SCL Ruby: Ruby</strong><br>
@@ -999,11 +1009,11 @@ Please note that this software stacks is maintained and contributed by a researc
 
 <ul class="nav nav-pills">
   <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(4)</a></li>
-  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(81)</a></li>
+  <li><a data-toggle="pill" href="#queues-CBI"><span style="font-weight: bold;">CBI</span>&nbsp;(82)</a></li>
   <li><a data-toggle="pill" href="#queues-WitteLab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
-_The above information was automatically generated on 2022-02-07 20:09:42 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2022-02-08 16:14:01 from querying `module avail` and `module spider`._
 
 
 <style>
