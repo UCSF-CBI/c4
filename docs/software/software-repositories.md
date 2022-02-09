@@ -58,8 +58,8 @@ Below are 3 software repositories, each providing a set of software tools.
 
 <ul class="nav nav-pills">
 <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(4)</a></li>
-<li><a data-toggle="pill" href="#queues-cbi"><span style="font-weight: bold;">cbi</span>&nbsp;(82)</a></li>
-<li><a data-toggle="pill" href="#queues-wittelab"><span style="font-weight: bold;">wittelab</span>&nbsp;(17)</a></li>
+<li><a data-toggle="pill" href="#queues-cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(82)</a></li>
+<li><a data-toggle="pill" href="#queues-wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
 <div class="tab-content" style="margin-top: 1ex;">
@@ -3610,11 +3610,11 @@ prepend_path(&quot;PATH&quot;, home)
 
 <ul class="nav nav-pills">
 <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(4)</a></li>
-<li><a data-toggle="pill" href="#queues-cbi"><span style="font-weight: bold;">cbi</span>&nbsp;(82)</a></li>
-<li><a data-toggle="pill" href="#queues-wittelab"><span style="font-weight: bold;">wittelab</span>&nbsp;(17)</a></li>
+<li><a data-toggle="pill" href="#queues-cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(82)</a></li>
+<li><a data-toggle="pill" href="#queues-wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
-_The above information was automatically generated on 2022-02-08 22:08:20 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2022-02-08 22:10:48 from querying `module avail` and `module spider`._
 
 
 <style>
