@@ -67,7 +67,7 @@ Once the module loads:
 
 Wait a bit and you should see output similar to:
 ```sh
-alice, your personal RStudio Server is available on <http://c4-n3:48216>. If you are running from a remote machine without direct access to c4-n3, you can use SSH port forwarding to access the RStudio Server at <http://127.0.0.1:8787> by running 'ssh -J hputnam@<login-machine> -L 8787:c4-n3:48216 c4-n3' in a second terminal. Any R session started times out after being idle for 480 minutes.
+alice, your personal RStudio Server is available on <http://c4-n3:48216>. If you are running from a remote machine without direct access to c4-n3, you can use SSH port forwarding to access the RStudio Server at <http://127.0.0.1:8787> by running 'ssh -L 8787:c4-n3:48216 alice@<login-machine>' in a second terminal. Any R session started times out after being idle for 480 minutes.
 ```
 
 You can now follow these tunnel directions to set up your RStudio session on your workstation browser.
