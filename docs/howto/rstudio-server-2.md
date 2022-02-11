@@ -14,8 +14,14 @@ Additional reading:
 ## How to use with OnDemand
 
 1. From your workstation, connect to OnDemand at: <a href="https://c4-ondemand1.ucsf.edu">OnDemand</a>
+
+<img src="pic_trulli.jpg" alt="Italian Trulli">
+
 2. Enter your C4 username and password. Click the Login button.
 3. Navigate to Interactive Apps --> RStudio Server
+
+
+
 4. Click the Rstudio Server link
 5. You next get a form with some fields we need to fill in for Slurm. Details:
 
