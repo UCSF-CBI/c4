@@ -15,16 +15,21 @@ Additional reading:
 
 1. From your workstation, connect to OnDemand at: <a href="https://c4-ondemand1.ucsf.edu">OnDemand</a>
 
-<img src="pic_trulli.jpg" alt="Italian Trulli">
+<img src="../images/OODLogin.png" alt="OnDemand Login Screen">
 
 2. Enter your C4 username and password. Click the Login button.
+
+<img src="../images/OODInitialScreen.png" alt="OnDemand Initial Screen">
+
 3. Navigate to Interactive Apps --> RStudio Server
 
-
+<img src="../images/OODInterApps.png" alt="Interactive Apps Menu">
 
 4. Click the Rstudio Server link
-5. You next get a form with some fields we need to fill in for Slurm. Details:
 
+<img src="../images/OODRstudioForm.png" alt="Rstudio Job Form">
+
+5. You will see the above form. Here are some guidelins for this:
 
 **Partition** - If you have a Lab partition you may enter it here. Otherwise enter common. Equivalent to --partition in sbatch.
 
@@ -37,11 +42,17 @@ Additional reading:
 **Scratch Space** - Amount of local /scratch space for the job. Equivalent to –gres=scratch:10G (10 GiB)
 
 
-- Once the form fields are filled in, click the Launch button.
+6. Once the form fields are filled in, click the Launch button.
 
-The job takes a minute or so to get started on the cluster. Once the job has launched, you will see a button labeled "Connect to RStudio Server". Click this button and a new browser tab will open with the familiar RStudio login screen. Use your C4 username and password for this.
+The job takes a minute or so to get started on the cluster. Once the job has launched, you will see a button labeled "Connect to RStudio Server". 
 
-You should now be running an interactive RStudio session on a compute node. 
+<img src="../images/OODRstudioLaunch.png" alt="Rstudio Launch Button">
+
+7. Click the Connect to RStudio Server button and a new browser tab will open with the familiar RStudio login screen. 
+
+<img src="../images/OODRsudioSignin.png" alt="RStudio Login">
+
+You are now running an interactive RStudio session on a compute node. 
 
 <div class="alert alert-warning" role="alert" style="margin-top: 3ex">
 Inportant things to know.
