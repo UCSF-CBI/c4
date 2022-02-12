@@ -1,7 +1,7 @@
 # Open OnDemand
 
-Open OnDemand is a web based framework with easy to use GUI interfaces for common cluster taks. It's other major use is for enabling interactive software such as RStudio and Jupyter Notebooks via the same easy to use GUI interfaces.
-Open OnDemand was developed at the Ohio Supercomputing Center. We have integrated this framework into C4. The primary use case for us was enabling easy to use RStudio and Jupyter based on user input. 
+Open OnDemand is a web based framework with easy to use GUI interfaces for common cluster tasks. It's other major use is for enabling interactive software such as RStudio and Jupyter Notebooks via the same easy to use GUI interfaces.
+Open OnDemand was developed at the Ohio Supercomputer Center. We have integrated this framework into C4. The primary use case for us was enabling easy to use RStudio and Jupyter based on user input. 
 
 Additional reading:
 
@@ -37,7 +37,7 @@ From left to right:
 
 9. We see three apps currently on offer. Click C4 Desktop.
 
-10. This is going to launch an interactive MATE GUI Desktop on a compute node. Depending on what you are doing with the desktop you will need varying resouces. For this example, we are going to launch a MATLAB session. Field explanations:
+10. This is going to launch an interactive MATE GUI Desktop on a compute node. Depending on what you are doing with the desktop you will need varying resources. For this example, we are going to launch a MATLAB session. Field explanations:
 
 - Number of hours is how long to run the job. Equivalent to --time
 
@@ -51,7 +51,7 @@ From left to right:
 
 12. Click Launch C4 Desktop
 
-13. We are greeted with a MATE desktop in a new browser tab. The easiest way to get started here is to reight click anywhere in the blue area and select Open in Terminal.
+13. We are greeted with a MATE desktop in a new browser tab. The easiest way to get started here is to right click anywhere in the blue area and select Open in Terminal.
 
 14. This is a terminal with current working directory set to $HOME/Desktop. We can load any interactive module from here. Try this `module load matlab`. Once the module loads, we can launch matlab by typing `matlab`
 
