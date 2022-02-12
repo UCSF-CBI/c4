@@ -45,7 +45,7 @@ From left to right:
 
 - Memory - number of Gigabytes you think is required.
 
-- Number of coures - number of CPU threads you think is required.
+- Number of cores - number of CPU threads you think is required.
 
 11. Click the Launch button. Be patient here, the job may queue for a moment.
 
