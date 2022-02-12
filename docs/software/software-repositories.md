@@ -58,7 +58,7 @@ Below are 3 software repositories, each providing a set of software tools.
 
 <ul class="nav nav-pills">
 <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(4)</a></li>
-<li><a data-toggle="pill" href="#queues-cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(82)</a></li>
+<li><a data-toggle="pill" href="#queues-cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(83)</a></li>
 <li><a data-toggle="pill" href="#queues-wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
@@ -171,7 +171,7 @@ prepend-path	XDG_DATA_DIRS	/opt/rh/rh-python36/root/usr/share:/usr/local/share:/
 
 <div id="queues-cbi" class="tab-pane fade">
 
-<h2 id="module-software-repository-cbi">Module Software Repository: CBI (82)</h2>
+<h2 id="module-software-repository-cbi">Module Software Repository: CBI (83)</h2>
 
 Maintained by: Henrik Bengtsson, <a href="https://cbi.ucsf.edu">Computational Biology and Informatics</a><br>
 Enable repository: <code>module load CBI</code><br>
@@ -1093,6 +1093,41 @@ local home = pathJoin(root, name .. &quot;-&quot; .. version)
 
 prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;share&quot;, &quot;man&quot;))
+</code></pre>
+
+</details>
+  </dd>
+
+  <dt class="module-name">expect</dt>
+  <dd class="module-details">
+<strong class="module-help">expect:</strong><br>
+<span class="module-description">Expect is a tool for automating interactive applications such as telnet, ftp, passwd, fsck, rlogin, tip, etc. Expect really makes this stuff trivial. Expect is also useful for testing these same applications.</span><br>
+Example: <span class="module-example"><code>expect -version</code>, and <code>man expect</code>.</span><br>
+URL: <span class="module-url"><a href="https://core.tcl-lang.org/expect/index">https://core.tcl-lang.org/expect/index</a>, <a href="https://core.tcl-lang.org/expect/file?name=ChangeLog&amp;ci=tip">https://core.tcl-lang.org/expect/file?name=ChangeLog&amp;ci=tip</a> (changelog), <a href="https://sourceforge.net/projects/expect/files/Expect/">https://sourceforge.net/projects/expect/files/Expect/</a> (download), <a href="https://core.tcl-lang.org/expect/dir?ci=tip">https://core.tcl-lang.org/expect/dir?ci=tip</a> (source code)</span><br>
+Versions: <span class="module-version"><em>5.45.4</em></span><br>
+<details>
+<summary>Module code: <a>view</a></summary>
+<pre><code class="language-lua">help([[
+expect: 
+]])
+
+local name = myModuleName()
+local version = myModuleVersion()
+whatis(&quot;Version: &quot; .. version)
+whatis(&quot;Keywords: programming, R, GUI&quot;)
+whatis(&quot;URL: https://core.tcl-lang.org/expect/index, https://core.tcl-lang.org/expect/file?name=ChangeLog&amp;ci=tip (changelog), https://sourceforge.net/projects/expect/files/Expect/ (download), https://core.tcl-lang.org/expect/dir?ci=tip (source code)&quot;)
+whatis([[
+Description: Expect is a tool for automating interactive applications such as telnet, ftp, passwd, fsck, rlogin, tip, etc. Expect really makes this stuff trivial. Expect is also useful for testing these same applications.
+Example: `expect -version`, and `man expect`.
+]])
+
+local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
+local home = pathJoin(root, name .. &quot;-&quot; .. version)
+
+prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
+prepend_path(&quot;LD_LIBRARY_PATH&quot;, pathJoin(home, &quot;libs&quot;))
+prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;share&quot;, &quot;man&quot;))
+
 </code></pre>
 
 </details>
@@ -2389,6 +2424,7 @@ Warning: This is work under construction!
 
 depends_on(&quot;r&quot;)
 depends_on(&quot;rstudio-server&quot;)
+try_load(&quot;expect&quot;)
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
@@ -3614,11 +3650,11 @@ prepend_path(&quot;PATH&quot;, home)
 
 <ul class="nav nav-pills">
 <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(4)</a></li>
-<li><a data-toggle="pill" href="#queues-cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(82)</a></li>
+<li><a data-toggle="pill" href="#queues-cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(83)</a></li>
 <li><a data-toggle="pill" href="#queues-wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
-_The above information was automatically generated on 2022-02-10 22:39:43 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2022-02-11 18:17:29 from querying `module avail` and `module spider`._
 
 
 <style>
