@@ -15,21 +15,13 @@ Additional reading:
 
 1. From your workstation, connect to OnDemand at: <a href="https://c4-ondemand1.ucsf.edu">OnDemand</a>
 
-<img src="../images/OODLogin.png" alt="OnDemand Login Screen">
-
 2. Enter your C4 username and password. Click the Login button.
-
-<img src="../images/OODInitialScreen.png" alt="OnDemand Initial Screen">
 
 3. Navigate to Interactive Apps --> RStudio Server
 
-<img src="../images/OODInterApps.png" alt="Interactive Apps Menu">
-
 4. Click the Rstudio Server link
 
-<img src="../images/OODRstudioForm.png" alt="Rstudio Job Form">
-
-5. You will see the above form. Here are some guidelins for this:
+5. You will see a form that needs to be filled in. Below is some guidance for the fields:
 
 **Partition** - If you have a Lab partition you may enter it here. Otherwise enter common. Equivalent to --partition in sbatch.
 
@@ -41,22 +33,15 @@ Additional reading:
 
 **Scratch Space** - Amount of local /scratch space for the job. Equivalent to –gres=scratch:10G (10 GiB)
 
-
-6. Once the form fields are filled in, click the Launch button.
-
-The job takes a minute or so to get started on the cluster. Once the job has launched, you will see a button labeled "Connect to RStudio Server". 
-
-<img src="../images/OODRstudioLaunch.png" alt="Rstudio Launch Button">
+6. Once the form fields are filled in, click the Launch button. The job takes a minute or so to get started on the cluster. Once the job has launched, you will see a button labeled "Connect to RStudio Server". 
 
 7. Click the Connect to RStudio Server button and a new browser tab will open with the familiar RStudio login screen. 
-
-<img src="../images/OODRsudioSignin.png" alt="RStudio Login">
 
 You are now running an interactive RStudio session on a compute node. 
 
 <div class="alert alert-warning" role="alert" style="margin-top: 3ex">
 Inportant things to know.
-</div>
+</div><img>
 
 - Using OnDemand to launch RStudio will always use the default module for r and rstudio-server-controller in our <a href="https://www.c4.ucsf.edu/software/software-modules.html">CBI Software Stack</a>
 - Any packages installed via RStudio launched this way are stored in your $HOME directory so they will be available *for the same version of r* from the CLI version of r in our software stack.
