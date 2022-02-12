@@ -1,4 +1,4 @@
-# Work with Rstudio Server
+# Work with RStudio Server
 
 We have a module in the CBI software stack designed to run rstudio server as a per user Slurm job. We can use OnDemand (preferred) or srun for this. 
 
