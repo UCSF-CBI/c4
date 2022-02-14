@@ -3653,7 +3653,7 @@ prepend_path(&quot;PATH&quot;, home)
 <li><a data-toggle="pill" href="#queues-wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
-_The above information was automatically generated on 2022-02-14 09:26:26 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2022-02-14 09:40:33 from querying `module avail` and `module spider`._
 
 
 <style>
