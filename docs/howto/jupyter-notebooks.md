@@ -13,15 +13,15 @@ Jupyter notebooks is accessible via <a href="https://c4-ondemand1.ucsf.edu">OnDe
 
 4. You will see a form that needs to be filled in. Below is some guidance for the fields:
 
-   - **Partition** - If you have a Lab partition you may enter it here. Otherwise enter common. Equivalent to --partition in sbatch.
+   - **Partition** - If you have a Lab partition you may enter it here. Otherwise enter common. Equivalent to `--partition` in `sbatch`.
 
-   - **Number of hours** - Number of hours the job may run. Equivalent to --time in sbatch.
+   - **Number of hours** - Number of hours the job may run. Equivalent to `--time` in `sbatch`.
 
-   - **Memory** - Amount of RAM to request in GB. Equivalent to --mem in sbatch.
+   - **Memory** - Amount of RAM to request in GiB. Equivalent to `--mem` in `sbatch`.
 
-   - **Number of Cores** - Number of CPU threads to request. Equivalent to --ntasks in sbatch.
+   - **Number of Cores** - Number of CPU threads to request. Equivalent to `--ntasks` in `sbatch`.
 
-   - **Scratch Space** - Amount of local /scratch space for the job. Equivalent to –gres=scratch:10G (10 GiB)
+   - **Scratch Space** - Amount of local /scratch space for the job. Equivalent to `–gres=scratch:10G` (10 GiB)
 
 5. Once the form fields are filled in, click the Launch button. The job takes a minute or so to get started on the cluster. Once the job has launched, you will see a button labeled "Connect to Jupyter". 
 

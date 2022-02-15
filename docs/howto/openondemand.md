@@ -40,7 +40,7 @@ We see three apps currently on offer.
 
 1. This is going to launch an interactive MATE GUI Desktop on a compute node. Depending on what you are doing with the desktop you will need varying resources. For this example, we are going to launch a MATLAB session. Field explanations:
 
-   - Number of hours is how long to run the job. Equivalent to --time
+   - Number of hours is how long to run the job. Equivalent to `--time`
 
    - Partition - if you have a Lab partition you can enter it here. Otherwise use common.
 
