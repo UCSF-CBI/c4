@@ -38,7 +38,6 @@ Inportant things to know.
 - This Jupyter app is using Python38 from a centralized software area.
 - Currently, we are limiting run time to 24 hours for one of these jobs.
 
-
 ### Cleanly stop the job
 
 To exit the Jupyter session cleanly: 
