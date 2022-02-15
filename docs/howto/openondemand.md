@@ -27,7 +27,7 @@ Click the **Files** menu
 
 2. The buttons are fairly self-explanatory here.
 
-Click the **Jobs** meu.
+Click the **Jobs** menu.
 
 1. The Job Composer is untested as of this writing. Click the Active Jobs link.
 
@@ -66,4 +66,4 @@ We see three apps currently on offer.
 
    - Click Confirm.
 
-  7. For RStudio instructions see here: <a href="https://www.c4.ucsf.edu/howto/rstudio-server-2.html">RStudio Server</a>
+7. For RStudio instructions see here: <a href="https://www.c4.ucsf.edu/howto/rstudio-server-2.html">RStudio Server</a>
