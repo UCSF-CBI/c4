@@ -80,8 +80,8 @@ To exit the RStudio session cleanly:
 
 1. Press the "power" button in the top right corner of the browser session. Failure to do so will result in an warning next time you use RStudio that things did not end cleanly. 
 
-2. Next, cancel the ssh tunnel on your workstation terminal with Ctrl-C.
+2. Next, cancel the ssh tunnel on your workstation terminal with <kbd>Ctrl-C</kbd>.
 
-3. Next, return to your interactive shell that was instantiated with srun. Ctrl-C out of the rsc shell. Then `rsc stop` to cleanly stop your rsc session. 
+3. Next, return to your interactive shell that was instantiated with srun. <kbd>Ctrl-C</kbd> out of the rsc shell. Then `rsc stop` to cleanly stop your rsc session. 
 
-4. Last step is to type `exit` or Ctrl-D to close the interactive shell. This allows Slurm to clear up the requested resources for other users.
+4. Last step is to type `exit` or <kbd>Ctrl-D</kbd>to close the interactive shell. This allows Slurm to clear up the requested resources for other users.
