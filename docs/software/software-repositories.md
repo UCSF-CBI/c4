@@ -58,7 +58,7 @@ Below are 3 software repositories, each providing a set of software tools.
 
 <ul class="nav nav-pills">
 <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(4)</a></li>
-<li><a data-toggle="pill" href="#queues-cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(82)</a></li>
+<li><a data-toggle="pill" href="#queues-cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(83)</a></li>
 <li><a data-toggle="pill" href="#queues-wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
@@ -171,7 +171,7 @@ prepend-path	XDG_DATA_DIRS	/opt/rh/rh-python36/root/usr/share:/usr/local/share:/
 
 <div id="queues-cbi" class="tab-pane fade">
 
-<h2 id="module-software-repository-cbi">Module Software Repository: CBI (82)</h2>
+<h2 id="module-software-repository-cbi">Module Software Repository: CBI (83)</h2>
 
 Maintained by: Henrik Bengtsson, <a href="https://cbi.ucsf.edu">Computational Biology and Informatics</a><br>
 Enable repository: <code>module load CBI</code><br>
@@ -354,7 +354,7 @@ prepend_path(&quot;LD_LIBRARY_PATH&quot;, pathJoin(home, &quot;lib&quot;))
 Example: <span class="module-example"><code>bat README.md</code>, <code>bat scripts/*.sh</code>, and <code>bat src/*.c</code>.</span><br>
 URL: <span class="module-url"><a href="https://github.com/sharkdp/bat">https://github.com/sharkdp/bat</a>, <a href="https://github.com/sharkdp/bat/blob/master/CHANGELOG.md">https://github.com/sharkdp/bat/blob/master/CHANGELOG.md</a> (changelog)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version">0.17.1, 0.18.3, <em>0.19.0</em></span><br>
+Versions: <span class="module-version"><em>0.19.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -1044,7 +1044,7 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 Example: <span class="module-example"><code>easycatfs --help</code> and <code>easycatfs mount /shared/data</code>.</span><br>
 URL: <span class="module-url"><a href="https://github.com/HenrikBengtsson/easycatfs">https://github.com/HenrikBengtsson/easycatfs</a></span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version">0.1.0, 0.1.2, 0.1.3, 0.1.4, <em>0.1.5</em></span><br>
+Versions: <span class="module-version"><em>0.1.5</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -1074,7 +1074,7 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 Example: <span class="module-example"><code>emacs --version</code> and <code>emacs -nw</code>.</span><br>
 URL: <span class="module-url"><a href="https://www.gnu.org/software/emacs/">https://www.gnu.org/software/emacs/</a>, <a href="https://www.gnu.org/savannah-checkouts/gnu/emacs/emacs.html#Releases">https://www.gnu.org/savannah-checkouts/gnu/emacs/emacs.html#Releases</a></span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version">26.3, 27.1, <em>27.2</em></span><br>
+Versions: <span class="module-version"><em>27.2</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -1093,6 +1093,41 @@ local home = pathJoin(root, name .. &quot;-&quot; .. version)
 
 prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;share&quot;, &quot;man&quot;))
+</code></pre>
+
+</details>
+  </dd>
+
+  <dt class="module-name">expect</dt>
+  <dd class="module-details">
+<strong class="module-help">expect: Programmed Dialogue with Interactive Programs</strong><br>
+<span class="module-description">Expect is a tool for automating interactive applications such as telnet, ftp, passwd, fsck, rlogin, tip, etc. Expect really makes this stuff trivial. Expect is also useful for testing these same applications.</span><br>
+Example: <span class="module-example"><code>expect -version</code>, and <code>man expect</code>.</span><br>
+URL: <span class="module-url"><a href="https://core.tcl-lang.org/expect/index">https://core.tcl-lang.org/expect/index</a>, <a href="https://core.tcl-lang.org/expect/file?name=ChangeLog&amp;ci=tip">https://core.tcl-lang.org/expect/file?name=ChangeLog&amp;ci=tip</a> (changelog), <a href="https://core.tcl-lang.org/expect/dir?ci=tip">https://core.tcl-lang.org/expect/dir?ci=tip</a> (source code), <a href="https://sourceforge.net/projects/expect/files/Expect/">https://sourceforge.net/projects/expect/files/Expect/</a> (download)</span><br>
+Versions: <span class="module-version"><em>5.45.4</em></span><br>
+<details>
+<summary>Module code: <a>view</a></summary>
+<pre><code class="language-lua">help([[
+expect: Programmed Dialogue with Interactive Programs
+]])
+
+local name = myModuleName()
+local version = myModuleVersion()
+whatis(&quot;Version: &quot; .. version)
+whatis(&quot;Keywords: scripting, programming&quot;)
+whatis(&quot;URL: https://core.tcl-lang.org/expect/index, https://core.tcl-lang.org/expect/file?name=ChangeLog&amp;ci=tip (changelog), https://core.tcl-lang.org/expect/dir?ci=tip (source code), https://sourceforge.net/projects/expect/files/Expect/ (download)&quot;)
+whatis([[
+Description: Expect is a tool for automating interactive applications such as telnet, ftp, passwd, fsck, rlogin, tip, etc. Expect really makes this stuff trivial. Expect is also useful for testing these same applications.
+Example: `expect -version`, and `man expect`.
+]])
+
+local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
+local home = pathJoin(root, name .. &quot;-&quot; .. version)
+
+prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
+prepend_path(&quot;LD_LIBRARY_PATH&quot;, pathJoin(home, &quot;libs&quot;))
+prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;share&quot;, &quot;man&quot;))
+
 </code></pre>
 
 </details>
@@ -1130,13 +1165,13 @@ prepend_path(&quot;PATH&quot;, home)
 
   <dt class="module-name">fzf</dt>
   <dd class="module-details">
-<strong class="module-help">fzf - A Command-Line Fuzzy Finder</strong><br>
+<strong class="module-help">fzf: A Command-Line Fuzzy Finder</strong><br>
 <span class="module-description">fzf is a general-purpose command-line fuzzy finder. It's an interactive Unix filter for command-line that can be used with any list; files, command history, processes, hostnames, bookmarks, git commits, etc.</span><br>
 Example: <span class="module-example"><code>fzf --version</code> and <code>emacs &quot;$(fzf)&quot;</code>.</span><br>
 Note: <span class="module-note">To install tab completions and key bindinds to your shell, call <code>$FZF_HOME/install</code>. To uninstall, use <code>$FZF_HOME/uninstall</code>.</span><br>
 URL: <span class="module-url"><a href="https://github.com/junegunn/fzf">https://github.com/junegunn/fzf</a>, <a href="https://github.com/junegunn/fzf/wiki">https://github.com/junegunn/fzf/wiki</a></span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version">0.22.0, 0.25.1, 0.27.2, 0.28.0, <em>0.29.0</em></span><br>
+Versions: <span class="module-version"><em>0.29.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -1168,8 +1203,8 @@ pushenv(&quot;FZF_HOME&quot;, home)
 <strong class="module-help">Genome Analysis Toolkit (GATK): Variant Discovery in High-Throughput Sequencing Data</strong><br>
 <span class="module-description">Developed in the Data Sciences Platform at the Broad Institute, the toolkit offers a wide variety of tools with a primary focus on variant discovery and genotyping. Its powerful processing engine and high-performance computing features make it capable of taking on projects of any size.</span><br>
 Example: <span class="module-example"><code>gatk --help</code> and <code>gatk --list</code>.</span><br>
-URL: <span class="module-url"><a href="https://software.broadinstitute.org/gatk/">https://software.broadinstitute.org/gatk/</a>, <a href="https://github.com/broadinstitute/gatk">https://github.com/broadinstitute/gatk</a>, <a href="https://github.com/broadgsa/gatk">https://github.com/broadgsa/gatk</a>, <a href="https://console.cloud.google.com/storage/browser/gatk-software/package-archive">https://console.cloud.google.com/storage/browser/gatk-software/package-archive</a>, <a href="ftp://ftp.broadinstitute.org/pub/gsa/GenomeAnalysisTK/">ftp://ftp.broadinstitute.org/pub/gsa/GenomeAnalysisTK/</a></span><br>
-Versions: <span class="module-version">1.1-37-ge63d9d8, 1.6-5-g557da77, 4.1.1.0, 4.1.7.0, 4.1.8.1, 4.1.9.0, 4.2.0.0, 4.2.2.0, 4.2.3.0, <em>4.2.4.1</em></span><br>
+URL: <span class="module-url"><a href="https://software.broadinstitute.org/gatk/">https://software.broadinstitute.org/gatk/</a>, <a href="https://github.com/broadinstitute/gatk">https://github.com/broadinstitute/gatk</a> (source code), <a href="https://github.com/broadinstitute/gatk/releases">https://github.com/broadinstitute/gatk/releases</a> (change log), <a href="https://github.com/broadgsa/gatk">https://github.com/broadgsa/gatk</a> (legacy), <a href="https://console.cloud.google.com/storage/browser/gatk-software/package-archive">https://console.cloud.google.com/storage/browser/gatk-software/package-archive</a> (legacy), <a href="ftp://ftp.broadinstitute.org/pub/gsa/GenomeAnalysisTK/">ftp://ftp.broadinstitute.org/pub/gsa/GenomeAnalysisTK/</a> (legacy)</span><br>
+Versions: <span class="module-version">1.1-37-ge63d9d8, 1.6-5-g557da77, 4.1.1.0, 4.1.7.0, 4.1.8.1, 4.1.9.0, 4.2.0.0, 4.2.2.0, 4.2.3.0, 4.2.4.1, <em>4.2.5.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -1180,8 +1215,11 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: sequencing, genome&quot;)
-whatis(&quot;URL: https://software.broadinstitute.org/gatk/, https://github.com/broadinstitute/gatk, https://github.com/broadgsa/gatk, https://console.cloud.google.com/storage/browser/gatk-software/package-archive, ftp://ftp.broadinstitute.org/pub/gsa/GenomeAnalysisTK/&quot;)
-whatis(&quot;Description: Developed in the Data Sciences Platform at the Broad Institute, the toolkit offers a wide variety of tools with a primary focus on variant discovery and genotyping. Its powerful processing engine and high-performance computing features make it capable of taking on projects of any size.  Example: `gatk --help` and `gatk --list`.&quot;)
+whatis(&quot;URL: https://software.broadinstitute.org/gatk/, https://github.com/broadinstitute/gatk (source code), https://github.com/broadinstitute/gatk/releases (change log), https://github.com/broadgsa/gatk (legacy), https://console.cloud.google.com/storage/browser/gatk-software/package-archive (legacy), ftp://ftp.broadinstitute.org/pub/gsa/GenomeAnalysisTK/ (legacy)&quot;)
+whatis([[
+Description: Developed in the Data Sciences Platform at the Broad Institute, the toolkit offers a wide variety of tools with a primary focus on variant discovery and genotyping. Its powerful processing engine and high-performance computing features make it capable of taking on projects of any size.
+Example: `gatk --help` and `gatk --list`.
+]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
@@ -1189,7 +1227,7 @@ local home = pathJoin(root, name .. &quot;-&quot; .. version)
 local version_x = string.gsub(version, &quot;[.].*&quot;, &quot;&quot;)
 if (version_x == &quot;1&quot;) then
   -- GATK v1.* requires Java (&lt;= 1.7)
-  local cluster = os.getenv(&quot;CLUSTER&quot;)
+  local cluster = os.getenv(&quot;CLUSTER&quot;) or &quot;&quot;
   if (cluster == &quot;tipcc&quot;) then
     load(&quot;jdk/1.7.0&quot;)
   else
@@ -1199,8 +1237,6 @@ if (version_x == &quot;1&quot;) then
 else
   prepend_path(&quot;PATH&quot;, home)
 end
-
-
 </code></pre>
 
 </details>
@@ -1506,7 +1542,7 @@ prepend_path(&quot;PATH&quot;, home)
 Example: <span class="module-example"><code>htop</code>.</span><br>
 URL: <span class="module-url"><a href="https://htop.dev">https://htop.dev</a>, <a href="https://github.com/htop-dev/htop">https://github.com/htop-dev/htop</a></span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version">3.0.4, 3.0.5, 3.1.0, 3.1.1, <em>3.1.2</em></span><br>
+Versions: <span class="module-version"><em>3.1.2</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -2109,14 +2145,9 @@ whatis(&quot;Keywords: Programming, Statistics&quot;)
 whatis(&quot;URL: https://www.r-project.org/&quot;)
 whatis(&quot;Description: The R programming language. Examples: `R --version` and `Rscript --version`.&quot;)
 
-require &quot;posix&quot;
-function isdir(fn)
-  return (posix.stat(fn, &quot;type&quot;) == &quot;directory&quot;)
-end
-
 has_devtoolset = function(version)
   local path = pathJoin(&quot;/opt&quot;, &quot;rh&quot;, &quot;devtoolset-&quot; .. version)
-  return(isdir(path))
+  return(isDir(path))
 end
 
 local name = &quot;R&quot;
@@ -2156,10 +2187,14 @@ end
 pushenv(&quot;R_BUILD_TAR&quot;, &quot;tar&quot;)
 
 -- In-house env var for R repositories mirrored locally
-local r_repos_root = pathJoin(os.getenv(&quot;CBI_SHARED_ROOT&quot;), &quot;mirrors&quot;, &quot;r-mirrors&quot;)
-pushenv(&quot;R_REPOS_ROOT&quot;, r_repos_root)
-pushenv(&quot;R_REPOS_CRAN&quot;, &quot;file://&quot; .. pathJoin(r_repos_root, &quot;cran&quot;))
-pushenv(&quot;R_LOCAL_CRAN&quot;, &quot;file://&quot; .. pathJoin(r_repos_root, &quot;cran&quot;))
+local r_repos_root = os.getenv(&quot;CBI_SHARED_ROOT&quot;)
+if (r_repos_root) then
+  LmodMessage(&quot;r_repos_root=&quot; .. r_repos_root)
+  r_repos_root = pathJoin(r_repos_root, &quot;mirrors&quot;, &quot;r-mirrors&quot;)
+  pushenv(&quot;R_REPOS_ROOT&quot;, r_repos_root)
+  pushenv(&quot;R_REPOS_CRAN&quot;, &quot;file://&quot; .. pathJoin(r_repos_root, &quot;cran&quot;))
+  pushenv(&quot;R_LOCAL_CRAN&quot;, &quot;file://&quot; .. pathJoin(r_repos_root, &quot;cran&quot;))
+end
 
 -- R packages built from native code and installed using R from EPEL is *not*
 -- always compatible with ditto installed using R from the CBI software stack.
@@ -2184,7 +2219,7 @@ pushenv(&quot;USE_SYSTEM_LIBGIT2&quot;, &quot;true&quot;)
 -- manually specifying 'configure.args' during install unless we set the
 -- following environment variable
 local path = &quot;/usr/include/udunits2&quot;
-if (isdir(path)) then
+if (isDir(path)) then
   pushenv(&quot;UDUNITS2_INCLUDE&quot;, path)
 end
 </code></pre>
@@ -2239,7 +2274,7 @@ pushenv(&quot;R_PROFILE&quot;, pathJoin(home, &quot;Rprofile.site&quot;))
 Example: <span class="module-example"><code>rclone --version</code>, <code>rclone --help</code>, <code>rclone config</code>, and <code>info rclone</code>.</span><br>
 URL: <span class="module-url"><a href="https://rclone.org/">https://rclone.org/</a>, <a href="https://rclone.org/changelog/">https://rclone.org/changelog/</a> (changelog) <a href="https://github.com/rclone/rclone">https://github.com/rclone/rclone</a> (source code)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version">1.53.3, 1.54.0, 1.56.1, <em>1.57.0</em></span><br>
+Versions: <span class="module-version"><em>1.57.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help(&quot;rclone: Rsync for Cloud Storage and More&quot;)
@@ -2267,12 +2302,12 @@ prepend_path(&quot;MANPATH&quot;, home)
 
   <dt class="module-name">ripgrep</dt>
   <dd class="module-details">
-<strong class="module-help">ripgrep - Recursively Searches Directories for a Regex Pattern</strong><br>
+<strong class="module-help">ripgrep: Recursively Searches Directories for a Regex Pattern</strong><br>
 <span class="module-description">ripgrep is a line-oriented search tool that recursively searches your current directory for a regex pattern. By default, ripgrep will respect your .gitignore and automatically skip hidden files/directories and binary files. ripgrep is similar to other popular search tools like The Silver Searcher, ack and grep.</span><br>
 Example: <span class="module-example"><code>rg --version</code> and <code>rg -i 'lorem ipsum'</code>.</span><br>
 URL: <span class="module-url"><a href="https://github.com/BurntSushi/ripgrep">https://github.com/BurntSushi/ripgrep</a></span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version">12.1.1, <em>13.0.0</em></span><br>
+Versions: <span class="module-version"><em>13.0.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -2366,10 +2401,10 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
   <dd class="module-details">
 <strong class="module-help">RSC: An RStudio Server Controller</strong><br>
 <span class="module-description">The RStudio Server Controller (RSC) is a tool for launching a personal instance of the RStudio Server on a Linux machine, which then can be access via the web browser, either directly or via SSH tunneling.</span><br>
-Example: <span class="module-example"><code>rsc --help</code>, and <code>rsc start --port=uid</code>.</span><br>
+Example: <span class="module-example"><code>rsc --help</code>, and <code>rsc start</code>.</span><br>
 URL: <span class="module-url"><a href="https://github.com/UCSF-CBI/rstudio-server-controller">https://github.com/UCSF-CBI/rstudio-server-controller</a>, <a href="https://github.com/UCSF-CBI/rstudio-server-controller/blob/main/NEWS.md">https://github.com/UCSF-CBI/rstudio-server-controller/blob/main/NEWS.md</a> (changelog)</span><br>
 Warning: <span class="module-warning">This is work under construction!</span><br>
-Versions: <span class="module-version">0.3.0, 0.3.3, 0.3.4, 0.4.0, <em>0.5.0</em></span><br>
+Versions: <span class="module-version"><em>0.6.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -2383,12 +2418,13 @@ whatis(&quot;Keywords: programming, R, RStudio Server, GUI&quot;)
 whatis(&quot;URL: https://github.com/UCSF-CBI/rstudio-server-controller, https://github.com/UCSF-CBI/rstudio-server-controller/blob/main/NEWS.md (changelog)&quot;)
 whatis([[
 Description: The RStudio Server Controller (RSC) is a tool for launching a personal instance of the RStudio Server on a Linux machine, which then can be access via the web browser, either directly or via SSH tunneling.
-Examples: `rsc --help`, and `rsc start --port=uid`.
+Examples: `rsc --help`, and `rsc start`.
 Warning: This is work under construction!
 ]])
 
 depends_on(&quot;r&quot;)
 depends_on(&quot;rstudio-server&quot;)
+try_load(&quot;expect&quot;)
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
@@ -2773,7 +2809,7 @@ set_shell_function(&quot;fasterq-dump&quot;, 'command fasterq-dump --threads 2 -
 <span class="module-description">STAR (Spliced Transcripts Alignment to a Reference) is a fast NGS read aligner for RNA-seq data.</span><br>
 Example: <span class="module-example"><code>STAR --help</code>.</span><br>
 URL: <span class="module-url"><a href="https://github.com/alexdobin/STAR">https://github.com/alexdobin/STAR</a>, <a href="https://github.com/alexdobin/STAR/blob/master/CHANGES.md">https://github.com/alexdobin/STAR/blob/master/CHANGES.md</a> (changelog)</span><br>
-Versions: <span class="module-version">2.7.5a, 2.7.5c, 2.7.7a, <em>2.7.9a</em></span><br>
+Versions: <span class="module-version">2.7.4a, 2.7.5a, 2.7.5c, 2.7.7a, <em>2.7.9a</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help(&quot;STAR: Spliced Transcripts Alignment to a Reference&quot;)
@@ -3614,11 +3650,11 @@ prepend_path(&quot;PATH&quot;, home)
 
 <ul class="nav nav-pills">
 <li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(4)</a></li>
-<li><a data-toggle="pill" href="#queues-cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(82)</a></li>
+<li><a data-toggle="pill" href="#queues-cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(83)</a></li>
 <li><a data-toggle="pill" href="#queues-wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
-_The above information was automatically generated on 2022-02-10 22:39:43 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2022-02-15 11:46:06 from querying `module avail` and `module spider`._
 
 
 <style>
