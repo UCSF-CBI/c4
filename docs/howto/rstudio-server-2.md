@@ -23,15 +23,15 @@ Additional reading:
 
 5. You will see a form that needs to be filled in. Below is some guidance for the fields:
 
-**Partition** - If you have a Lab partition you may enter it here. Otherwise enter common. Equivalent to --partition in sbatch.
+   - **Partition** - If you have a Lab partition you may enter it here. Otherwise enter common. Equivalent to --partition in sbatch.
 
-**Number of hours** - Number of hours the job may run. Equivalent to --time in sbatch.
+   - **Number of hours** - Number of hours the job may run. Equivalent to --time in sbatch.
 
-**Memory** - Amount of RAM to request in GB. Equivalent to --mem in sbatch.
+   - **Memory** - Amount of RAM to request in GB. Equivalent to --mem in sbatch.
 
-**Number of Cores** - Number of CPU threads to request. Equivalent to --ntasks in sbatch.
+   - **Number of Cores** - Number of CPU threads to request. Equivalent to --ntasks in sbatch.
 
-**Scratch Space** - Amount of local /scratch space for the job. Equivalent to –gres=scratch:10G (10 GiB)
+   - **Scratch Space** - Amount of local /scratch space for the job. Equivalent to –gres=scratch:10G (10 GiB)
 
 6. Once the form fields are filled in, click the Launch button. The job takes a minute or so to get started on the cluster. Once the job has launched, you will see a button labeled "Connect to RStudio Server". 
 
@@ -76,8 +76,12 @@ You can now follow these tunnel directions to set up your RStudio session on you
 
 ### Cleanly stop the job
 
-To exit the RStudio session cleanly, press the "power" button in the top right corner of the browser session. Failure to do so will result in an warning next time you use RStudio that things did not end cleanly. 
+To exit the RStudio session cleanly: 
 
-Next, cancel the ssh tunnel on your workstation terminal with Ctrl-C.
+1. Press the "power" button in the top right corner of the browser session. Failure to do so will result in an warning next time you use RStudio that things did not end cleanly. 
 
-Lastly, return to your interactive shell that was instantiated with srun. Ctrl-C out of the rsc shell. Then `rsc stop` to cleanly stop your rsc session. Last step is to type `exit` or Ctrl-D to close the interactive shell. This allows Slurm to clear up the requested resources for other users.
+2. Next, cancel the ssh tunnel on your workstation terminal with Ctrl-C.
+
+3. Next, return to your interactive shell that was instantiated with srun. Ctrl-C out of the rsc shell. Then `rsc stop` to cleanly stop your rsc session. 
+
+4. Last step is to type `exit` or Ctrl-D to close the interactive shell. This allows Slurm to clear up the requested resources for other users.
