@@ -2809,7 +2809,7 @@ set_shell_function(&quot;fasterq-dump&quot;, 'command fasterq-dump --threads 2 -
 <span class="module-description">STAR (Spliced Transcripts Alignment to a Reference) is a fast NGS read aligner for RNA-seq data.</span><br>
 Example: <span class="module-example"><code>STAR --help</code>.</span><br>
 URL: <span class="module-url"><a href="https://github.com/alexdobin/STAR">https://github.com/alexdobin/STAR</a>, <a href="https://github.com/alexdobin/STAR/blob/master/CHANGES.md">https://github.com/alexdobin/STAR/blob/master/CHANGES.md</a> (changelog)</span><br>
-Versions: <span class="module-version">2.7.5a, 2.7.5c, 2.7.7a, <em>2.7.9a</em></span><br>
+Versions: <span class="module-version">2.7.4a, 2.7.5a, 2.7.5c, 2.7.7a, <em>2.7.9a</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help(&quot;STAR: Spliced Transcripts Alignment to a Reference&quot;)
@@ -3654,7 +3654,7 @@ prepend_path(&quot;PATH&quot;, home)
 <li><a data-toggle="pill" href="#queues-wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
-_The above information was automatically generated on 2022-02-14 15:33:50 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2022-02-15 11:46:06 from querying `module avail` and `module spider`._
 
 
 <style>
