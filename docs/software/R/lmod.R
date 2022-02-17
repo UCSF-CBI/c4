@@ -79,7 +79,11 @@ module_avail <- local({
       }
       version
     })
-    ns <- lapply(versions, FUN = nrow)
+    ns <- vapply(versions, FUN.VALUE = NA_integer_, FUN = function(version) {
+      ## Hidden modules have version == list()
+      if (is.null(dim(version))) 0L else nrow(version)
+    })
+    stopifnot(is.numeric(ns), !anyNA(ns))
     x <- x[ns > 0, ]
 
     attr(x, "info") <- info
@@ -167,13 +171,19 @@ parse_module <- function(m) {
   ## Get the Lua module code
   names <- names(m[["version"]])
   idx <- which(names == "default")
+  ## The module does not have versions?
+  if (length(idx) == 0L && length(m[["default"]]) == 0L && length(names) == 0L) idx <- 1L
+  ## The module ...?
   if (length(idx) == 0L && length(names) == 1L) idx <- 1L
-  ## R.utils::cstr(list(idx = idx, names = names, default = m[["version"]][idx], versions = m$versions[[1]], default = m$versions[[1]][idx, ], path=m$versions[[1]][idx,"path"]))
   if (length(idx) == 1L && is.finite(idx)) {
     path <- m$versions[[1]][idx,"path"]
     if (!is.na(path) && utils::file_test("-f", path)) {
       m$code <- readLines(path, warn = FALSE)
     }
+  } else {
+    ## The module does not have versions
+    R.utils::cstr(list(idx = idx, names = names, default = m[["version"]][idx], versions = m$versions[[1]], default = m$versions[[1]][idx, ], path=m$versions[[1]][idx,"path"]))
+    stop("INTERNAL ERROR: Should not happen")
   }
 
   ## Trim fields

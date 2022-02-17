@@ -56,12 +56,16 @@ th, td {
 <% } # if (style) %>
 <% table_of_modules <- function(modules, style = c("module", "repos")) { %>
 <% style <- match.arg(style) %>
-<dl>
 <% for (ii in seq_len(nrow(modules))) { %>
 <%
 m <- parse_module(modules[ii,])
 %>
-  <dt class="module-name"><%= m$package %><% if (length(m$parent) > 0) cat(sprintf(" (part of %s)", m$parent)) %></dt>
+<%
+header_id <- sprintf("module_%s_%s", tolower(name), tolower(m$package))
+header_id <- gsub("[^[:alnum:]_]+", "-", header_id)
+%>
+<h3 id="<%= header_id %>" class="module-name"><%= m$package %></h3>
+<dl>
   <dd class="module-details">
 <%
   fields <- c("help", "description", Example="example", Note="note", URL="url", Maintainer="maintainer", Warning="warning", Versions="version")
@@ -93,9 +97,8 @@ as_html(code)
 </details>
   <% } %>
   </dd>
-
-<% } # for (ii in ...) %>
 </dl>
+<% } # for (ii in ...) %>
 <% } ## table_of_modules() %>
 
 
@@ -153,13 +156,13 @@ Below are <%= length(modules_sets) %> software repositories, each providing a se
   nbr_of_modules <- nrow(modules)
   info <- attr(modules, "info")
 %>
-<div id="queues-<%= tolower(name) %>" class="tab-pane fade<%= if (kk == 1) 'in active' %>">
+<div id="button_repository_<%= tolower(name) %>" class="tab-pane fade<%= if (kk == 1) 'in active' %>">
 
 <%
-link_text <- sprintf("Module Software Repository: %s", name)
-header_id <- gsub("[^[:alnum:]]+", "-", tolower(link_text))
+header_id <- sprintf("repository_%s", tolower(name))
+header_id <- gsub("[^[:alnum:]_]+", "-", header_id)
 %>
-<h2 id="<%= header_id %>"><%= link_text %> (<%= nbr_of_modules %>)</h2>
+<h2 id="<%= header_id %>">Module Software Repository: <%= name %> (<%= nbr_of_modules %>)</h2>
 
 Maintained by: <%= info$maintainer %>, <a href="<%= info$url %>"><%= info$group %></a><br>
 <% if (!info$contributed) { %>
@@ -173,7 +176,7 @@ Please note that this software stacks is maintained and contributed by a researc
 <% } %>
 
 <% table_of_modules(modules) %>
-</div> <%-- <div id="queues-<%= tolower(name) %>" class="tab-pane fade<%= if (kk == 1) 'in active' %>"> --%>
+</div> <%-- <div id="button_repository_<%= tolower(name) %>" class="tab-pane fade<%= if (kk == 1) 'in active' %>"> --%>
 
 <% } ## for (name ...) %>
 
@@ -203,10 +206,41 @@ dt:after {
 <script type="text/javascript">
 $(document).ready(function() {
   var hash = window.location.hash;
-  var pattern = "#module-software-repository-";
+  var pattern;
+  
+  /* Linked to a module repository? */
+  pattern = "#repository_";
   if (hash.startsWith(pattern)) {
-    var name = hash.substring(pattern.length);
-    $('a[href="#queues-' + name + '"]').click();
+    var repo = hash.substring(pattern.length);
+    $('a[href="#button_repository_' + repo + '"]').click();
+    return;
+  }
+
+  /* Linked to a module in a module repository? */
+  pattern = "#module_";
+  if (hash.startsWith(pattern)) {
+    var repo_module = hash.substring(pattern.length);
+    var repo = repo_module.replace(new RegExp("_.*$"), "");
+    $('a[href="#button_repository_' + repo + '"]').click().delay(300);
+    $('a[href="' + hash + '"]').focus();
+    return;
+  }
+
+  /* Backward compatibility */
+  pattern = "#module-software-repository-";
+  if (hash.startsWith(pattern)) {
+    var repo = hash.substring(pattern.length);
+    $('a[href="#button_repository_' + repo + '"]').click();
+    return;
+  }
+
+  pattern = "#module-";
+  if (hash.startsWith(pattern)) {
+    var repo_module = hash.substring(pattern.length);
+    var repo = repo_module.replace(new RegExp("[-].*$"), "");
+    $('a[href="#button_repository_' + repo + '"]').click().delay(300);
+    $('a[href="' + hash + '"]').focus();
+    return;
   }
 })
 </script>
