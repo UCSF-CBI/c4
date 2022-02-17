@@ -57,21 +57,21 @@ module load CBI r bwa bowtie2/2.4.2
 Below are 3 software repositories, each providing a set of software tools.
 
 <ul class="nav nav-pills">
-<li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(4)</a></li>
-<li><a data-toggle="pill" href="#queues-cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(83)</a></li>
-<li><a data-toggle="pill" href="#queues-wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
+<li class="active"><a data-toggle="pill" href="#button_repository_built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(4)</a></li>
+<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(83)</a></li>
+<li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
 <div class="tab-content" style="margin-top: 1ex;">
-<div id="queues-built-in" class="tab-pane fadein active">
+<div id="button_repository_built-in" class="tab-pane fadein active">
 
-<h2 id="module-software-repository-built-in">Module Software Repository: built-in (4)</h2>
+<h2 id="repository_built-in">Module Software Repository: built-in (4)</h2>
 
 Maintained by: {{ site.cluster.nickname }} Systems Administrators, <a href="{{ '/about/contact.html' | relative_url }}">{{ site.cluster.name }}</a><br>
 Enable repository: <em>this software repository is always enabled</em><br>
 
+<h3 id="module_built-in_matlab" class="module-name">matlab</h3>
 <dl>
-  <dt class="module-name">matlab</dt>
   <dd class="module-details">
 Versions: <span class="module-version"><em>2021a</em></span><br>
 <details>
@@ -86,8 +86,9 @@ setenv        MLM_LICENSE_FILE    27000@c4-license1
 
 </details>
   </dd>
-
-  <dt class="module-name">mpi</dt>
+</dl>
+<h3 id="module_built-in_mpi" class="module-name">mpi</h3>
+<dl>
   <dd class="module-details">
 Versions: <span class="module-version">openmpi3-x86_64, <em>openmpi-x86_64</em></span><br>
 <details>
@@ -115,8 +116,9 @@ setenv	 		MPI_HOME	/usr/lib64/openmpi
 
 </details>
   </dd>
-
-  <dt class="module-name">openjdk</dt>
+</dl>
+<h3 id="module_built-in_openjdk" class="module-name">openjdk</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">openjdk: Open Java Development Kit</strong><br>
 <span class="module-description">OpenJDK is a free and open-source implementation of the Java Platform, Standard Edition. It is the result of an effort Sun Microsystems began in 2006.</span><br>
@@ -147,8 +149,9 @@ prepend_path(&quot;CPATH&quot;, pathJoin(home, &quot;include&quot;))
 
 </details>
   </dd>
-
-  <dt class="module-name">scl-python</dt>
+</dl>
+<h3 id="module_built-in_scl-python" class="module-name">scl-python</h3>
+<dl>
   <dd class="module-details">
 Versions: <span class="module-version"><em>3.6</em></span><br>
 <details>
@@ -165,13 +168,12 @@ prepend-path	XDG_DATA_DIRS	/opt/rh/rh-python36/root/usr/share:/usr/local/share:/
 
 </details>
   </dd>
-
 </dl>
 </div> 
 
-<div id="queues-cbi" class="tab-pane fade">
+<div id="button_repository_cbi" class="tab-pane fade">
 
-<h2 id="module-software-repository-cbi">Module Software Repository: CBI (83)</h2>
+<h2 id="repository_cbi">Module Software Repository: CBI (83)</h2>
 
 Maintained by: Henrik Bengtsson, <a href="https://cbi.ucsf.edu">Computational Biology and Informatics</a><br>
 Enable repository: <code>module load CBI</code><br>
@@ -180,8 +182,8 @@ Enable repository: <code>module load CBI</code><br>
 Please note that this software stacks is maintained and contributed by a research group on a voluntary basis. It is <em>not</em> maintained by the {{ site.cluster.name }} admins. Please reach out to the corresponding maintainer for bug reports, feedback, or questions.
 </div>
 
+<h3 id="module_cbi_annovar" class="module-name">annovar</h3>
 <dl>
-  <dt class="module-name">annovar</dt>
   <dd class="module-details">
 <strong class="module-help">ANNOVAR: Functional Annotation of Genetic Variants from Next-Generation Sequencing Data</strong><br>
 <span class="module-description">ANNOVAR is an efficient software tool to utilize update-to-date information to functionally annotate genetic variants detected from diverse genomes (including human genome hg18, hg19, hg38, as well as mouse, worm, fly, yeast and many others).</span><br>
@@ -212,8 +214,9 @@ prepend_path(&quot;PATH&quot;, home)
 
 </details>
   </dd>
-
-  <dt class="module-name">apache-ant</dt>
+</dl>
+<h3 id="module_cbi_apache-ant" class="module-name">apache-ant</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">Apache Ant: A Java Library and Command-Line Tool to Build Software</strong><br>
 <span class="module-description">Apache Ant is a Java library and command-line tool that help building software.</span><br>
@@ -246,8 +249,9 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 
 </details>
   </dd>
-
-  <dt class="module-name">asciigenome</dt>
+</dl>
+<h3 id="module_cbi_asciigenome" class="module-name">asciigenome</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">ASCIIGenome: Text Only Genome Viewer</strong><br>
 <span class="module-description">ASCIIGenome is a genome browser based on command line interface and designed for running from console terminals. Since ASCIIGenome does not require a graphical interface it is particularly useful for quickly visualizing genomic data on remote servers while offering flexibility similar to popular GUI viewers like IGV.</span><br>
@@ -280,8 +284,9 @@ prepend_path(&quot;PATH&quot;, home)
 
 </details>
   </dd>
-
-  <dt class="module-name">bamutil</dt>
+</dl>
+<h3 id="module_cbi_bamutil" class="module-name">bamutil</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">bamUtil: Programs for Working on SAM/BAM Files</strong><br>
 <span class="module-description">bamUtil is a repository that contains several programs that perform operations on SAM/BAM files. All of these programs are built into a single executable, <code>bam</code>.</span><br>
@@ -312,8 +317,9 @@ prepend_path(&quot;PATH&quot;, home)
 
 </details>
   </dd>
-
-  <dt class="module-name">bashdb</dt>
+</dl>
+<h3 id="module_cbi_bashdb" class="module-name">bashdb</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">bashdb: Bash Debugger Script</strong><br>
 <span class="module-description">The Bash Debugger Project is a source-code debugger for bash that follows the gdb command syntax.</span><br>
@@ -346,8 +352,9 @@ prepend_path(&quot;LD_LIBRARY_PATH&quot;, pathJoin(home, &quot;lib&quot;))
 
 </details>
   </dd>
-
-  <dt class="module-name">bat</dt>
+</dl>
+<h3 id="module_cbi_bat" class="module-name">bat</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">bat: A cat(1) Clone with Syntax Highlighting and Git Integration</strong><br>
 <span class="module-description">A cat(1) clone with syntax highlighting and Git integration.</span><br>
@@ -382,8 +389,9 @@ prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;man&quot;, &quot;man1&quo
 
 </details>
   </dd>
-
-  <dt class="module-name">bats-core</dt>
+</dl>
+<h3 id="module_cbi_bats-core" class="module-name">bats-core</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">bats: Bash Automated Testing System</strong><br>
 <span class="module-description">Bats is a TAP-compliant testing framework for Bash. It provides a simple way to verify that the UNIX programs you write behave as expected.</span><br>
@@ -416,8 +424,9 @@ prepend_path(&quot;LD_LIBRARY_PATH&quot;, pathJoin(home, &quot;lib&quot;))
 
 </details>
   </dd>
-
-  <dt class="module-name">bcftools</dt>
+</dl>
+<h3 id="module_cbi_bcftools" class="module-name">bcftools</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">BCFtools: Utilities for Variant Calling and Manipulating VCFs and BCFs</strong><br>
 <span class="module-description">BCFtools is a set of utilities that manipulate variant calls in the Variant Call Format (VCF) and its binary counterpart BCF. All commands work transparently with both VCFs and BCFs, both uncompressed and BGZF-compressed.</span><br>
@@ -456,8 +465,9 @@ end
 
 </details>
   </dd>
-
-  <dt class="module-name">bcl2fastq</dt>
+</dl>
+<h3 id="module_cbi_bcl2fastq" class="module-name">bcl2fastq</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">bcl2fastq: Illumina Conversion Software</strong><br>
 <span class="module-description">bcl2fastq Conversion Software both demultiplexes data and converts BCL files generated by Illumina sequencing systems to standard FASTQ file formats for downstream analysis.</span><br>
@@ -489,8 +499,9 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 
 </details>
   </dd>
-
-  <dt class="module-name">bedops</dt>
+</dl>
+<h3 id="module_cbi_bedops" class="module-name">bedops</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">BEDOPS: The Fast, Highly Scalable and Easily-Parallelizable Genome Analysis Toolkit</strong><br>
 <span class="module-description">BEDOPS is an open-source command-line toolkit that performs highly efficient and scalable Boolean and other set operations, statistical calculations, archiving, conversion and other management of genomic data of arbitrary scale. Tasks can be easily split by chromosome for distributing whole-genome analyses across a computational cluster.</span><br>
@@ -521,8 +532,9 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 
 </details>
   </dd>
-
-  <dt class="module-name">bedtools2</dt>
+</dl>
+<h3 id="module_cbi_bedtools2" class="module-name">bedtools2</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">bedtools2: The Swiss Army Knife for Genome Arithmetic</strong><br>
 <span class="module-description">Collectively, the bedtools utilities are a swiss-army knife of tools for a wide-range of genomics analysis tasks. The most widely-used tools enable genome arithmetic: that is, set theory on the genome. For example, bedtools allows one to intersect, merge, count, complement, and shuffle genomic intervals from multiple files in widely-used genomic file formats such as BAM, BED, GFF/GTF, VCF.</span><br>
@@ -562,8 +574,9 @@ pushenv(&quot;BEDTOOLS2_HOME&quot;, home)
 
 </details>
   </dd>
-
-  <dt class="module-name">blast</dt>
+</dl>
+<h3 id="module_cbi_blast" class="module-name">blast</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">BLAST+: Basic Local Alignment Search Tool</strong><br>
 <span class="module-description">BLAST finds regions of similarity between biological sequences. The program compares nucleotide or protein sequences to sequence databases and calculates the statistical significance.</span><br>
@@ -594,8 +607,9 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 
 </details>
   </dd>
-
-  <dt class="module-name">blat</dt>
+</dl>
+<h3 id="module_cbi_blat" class="module-name">blat</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">BLAT: Fast Sequence Search Command Line Tool</strong><br>
 <span class="module-description">BLAT - client and server combined into a single program, first building the index, then using the index, and then exiting.</span><br>
@@ -625,8 +639,9 @@ prepend_path(&quot;PATH&quot;, home)
 
 </details>
   </dd>
-
-  <dt class="module-name">bowtie</dt>
+</dl>
+<h3 id="module_cbi_bowtie" class="module-name">bowtie</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">Bowtie: A Fast and Sensitive Gapped Read Aligner</strong><br>
 <span class="module-description">Bowtie is an ultrafast, memory-efficient short read aligner.</span><br>
@@ -659,8 +674,9 @@ pushenv(&quot;BOWTIE_HOME&quot;, home)
 
 </details>
   </dd>
-
-  <dt class="module-name">bowtie2</dt>
+</dl>
+<h3 id="module_cbi_bowtie2" class="module-name">bowtie2</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">Bowtie 2: A Fast and Sensitive Gapped Read Aligner</strong><br>
 <span class="module-description">Bowtie 2 is an ultrafast and memory-efficient tool for aligning sequencing reads to long reference sequences.</span><br>
@@ -692,8 +708,9 @@ prepend_path(&quot;PATH&quot;, home)
 
 </details>
   </dd>
-
-  <dt class="module-name">bwa</dt>
+</dl>
+<h3 id="module_cbi_bwa" class="module-name">bwa</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">BWA: Burrows-Wheeler Aligner</strong><br>
 <span class="module-description">Burrows-Wheeler Aligner (BWA) is a software package for mapping low-divergent sequences against a large reference genome, such as the human genome.</span><br>
@@ -726,8 +743,9 @@ prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;man&quot;))
 
 </details>
   </dd>
-
-  <dt class="module-name">byobu</dt>
+</dl>
+<h3 id="module_cbi_byobu" class="module-name">byobu</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">byobu: Elegant Enhancement of the Otherwise Functional, Plain, Practical GNU Screen</strong><br>
 <span class="module-description">Byobu is an elegant enhancement of the otherwise functional, plain, practical GNU Screen. Byobu includes an enhanced profile, configuration utilities, and system status notifications for the GNU screen window manager as well as the Tmux terminal multiplexer.</span><br>
@@ -762,8 +780,9 @@ prepend_path(&quot;MANPATH&quot;,  pathJoin(home, &quot;share&quot;, &quot;man&q
 
 </details>
   </dd>
-
-  <dt class="module-name">cellranger</dt>
+</dl>
+<h3 id="module_cbi_cellranger" class="module-name">cellranger</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">Cell Ranger: 10x Genomics Pipeline for Single-Cell Data Analysis</strong><br>
 <span class="module-description">Cell Ranger is a set of analysis pipelines that process Chromium Single Cell 3' RNA-seq output to align reads, generate gene-cell matrices and perform clustering and gene expression analysis.</span><br>
@@ -805,8 +824,9 @@ pushenv(&quot;MROFLAGS&quot;, &quot;--localcores=1 --localmem=8 --limit-loadavg&
 
 </details>
   </dd>
-
-  <dt class="module-name">clp</dt>
+</dl>
+<h3 id="module_cbi_clp" class="module-name">clp</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">Clp: COIN-OR Linear Programming Solver</strong><br>
 <span class="module-description">Clp (Coin-or linear programming) is an open-source linear programming solver. It is primarily meant to be used as a callable library, but a basic, stand-alone executable version is also available.</span><br>
@@ -848,8 +868,9 @@ prepend_path(&quot;PKG_CONFIG_PATH&quot;, pathJoin(home, &quot;lib&quot;, &quot;
 
 </details>
   </dd>
-
-  <dt class="module-name">cluster-utils</dt>
+</dl>
+<h3 id="module_cbi_cluster-utils" class="module-name">cluster-utils</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">cluster-utils: Collection of Utilities / Helper Scripts to Make Life Easier on HPC Clusters</strong><br>
 <span class="module-description">Collection of utilities / helper scripts to make life easier on HPC clusters.</span><br>
@@ -879,8 +900,9 @@ set_alias(&quot;ctopx&quot;, &quot;ctop 2&gt; &gt;(grep -vF 'Invalid user id')&q
 
 </details>
   </dd>
-
-  <dt class="module-name">cmake</dt>
+</dl>
+<h3 id="module_cbi_cmake" class="module-name">cmake</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">CMake: Open-source, Cross-platform Family of Tools Designed to Build, Test and Package Software</strong><br>
 <span class="module-description">CMake is cross-platform free and open-source software for managing the build process of software using a compiler-independent method. It supports directory hierarchies and applications that depend on multiple libraries.</span><br>
@@ -910,8 +932,9 @@ prepend_path(&quot;MANPATH&quot;,  pathJoin(home, &quot;share&quot;, &quot;man&q
 
 </details>
   </dd>
-
-  <dt class="module-name">coinutils</dt>
+</dl>
+<h3 id="module_cbi_coinutils" class="module-name">coinutils</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">CoinUtils: COIN-OR Utilities</strong><br>
 <span class="module-description">CoinUtils is an open-source collection of classes and helper functions that are generally useful to multiple COIN-OR projects. CoinUtils is written in C++ and is released as open source under the Eclipse Public License 2.0.</span><br>
@@ -945,8 +968,9 @@ prepend_path(&quot;PKG_CONFIG_PATH&quot;, pathJoin(home, &quot;lib&quot;, &quot;
 
 </details>
   </dd>
-
-  <dt class="module-name">control-freec</dt>
+</dl>
+<h3 id="module_cbi_control-freec" class="module-name">control-freec</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">Control FREEC: Control-FREE Copy Number and Genotype Caller</strong><br>
 <span class="module-description">Prediction of copy numbers and allelic content using deep-sequencing data.</span><br>
@@ -975,8 +999,9 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 
 </details>
   </dd>
-
-  <dt class="module-name">cufflinks</dt>
+</dl>
+<h3 id="module_cbi_cufflinks" class="module-name">cufflinks</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">Cufflinks: Transcriptome Assembly and Differential Expression Analysis for RNA-Seq</strong><br>
 <span class="module-description">Cufflinks assembles transcripts, estimates their abundances, and tests for differential expression and regulation in RNA-Seq samples. It accepts aligned RNA-Seq reads and assembles the alignments into a parsimonious set of transcripts. Cufflinks then estimates the relative abundances of these transcripts based on how many reads support each one, taking into account biases in library preparation protocols.</span><br>
@@ -1004,8 +1029,9 @@ prepend_path(&quot;PATH&quot;, home)
 
 </details>
   </dd>
-
-  <dt class="module-name">cutadapt</dt>
+</dl>
+<h3 id="module_cbi_cutadapt" class="module-name">cutadapt</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">Cutadapt: Remove Adapter Sequences from Sequencing Reads</strong><br>
 <span class="module-description">Cutadapt finds and removes adapter sequences, primers, poly-A tails and other types of unwanted sequence from your high-throughput sequencing reads.</span><br>
@@ -1036,8 +1062,9 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 
 </details>
   </dd>
-
-  <dt class="module-name">easycatfs</dt>
+</dl>
+<h3 id="module_cbi_easycatfs" class="module-name">easycatfs</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">easycatfs: Easy Read-Only Mounting of Slow Folders onto a Local Drive</strong><br>
 <span class="module-description">This is Linux command-line tool for mounting one or more folders on a network file system on a local disk such that the local-disk folders mirrors everything (read-only) on the network folder. This will result in (i) faster repeated access to files, and (ii) decreased load on the network file system. This is particularly beneficial when working on high-performance compute (HPC) clusters used by hundreds and thousands of processes and users simultaneously..</span><br>
@@ -1066,8 +1093,9 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 
 </details>
   </dd>
-
-  <dt class="module-name">emacs</dt>
+</dl>
+<h3 id="module_cbi_emacs" class="module-name">emacs</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">GNU Emacs: An Extensible, Customizable, Free/Libre Text Editor</strong><br>
 <span class="module-description">At its core is an interpreter for Emacs Lisp, a dialect of the Lisp programming language with extensions to support text editing.</span><br>
@@ -1097,8 +1125,9 @@ prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;share&quot;, &quot;man&qu
 
 </details>
   </dd>
-
-  <dt class="module-name">expect</dt>
+</dl>
+<h3 id="module_cbi_expect" class="module-name">expect</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">expect: Programmed Dialogue with Interactive Programs</strong><br>
 <span class="module-description">Expect is a tool for automating interactive applications such as telnet, ftp, passwd, fsck, rlogin, tip, etc. Expect really makes this stuff trivial. Expect is also useful for testing these same applications.</span><br>
@@ -1132,8 +1161,9 @@ prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;share&quot;, &quot;man&qu
 
 </details>
   </dd>
-
-  <dt class="module-name">fastqc</dt>
+</dl>
+<h3 id="module_cbi_fastqc" class="module-name">fastqc</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">FastQC: A Quality Control Analysis Tool for High Throughput Sequencing Data</strong><br>
 <span class="module-description">FastQC is a program designed to spot potential problems in high througput sequencing datasets. It runs a set of analyses on one or more raw sequence files in fastq or bam format and produces a report which summarises the results.</span><br>
@@ -1162,8 +1192,9 @@ prepend_path(&quot;PATH&quot;, home)
 
 </details>
   </dd>
-
-  <dt class="module-name">fzf</dt>
+</dl>
+<h3 id="module_cbi_fzf" class="module-name">fzf</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">fzf: A Command-Line Fuzzy Finder</strong><br>
 <span class="module-description">fzf is a general-purpose command-line fuzzy finder. It's an interactive Unix filter for command-line that can be used with any list; files, command history, processes, hostnames, bookmarks, git commits, etc.</span><br>
@@ -1197,8 +1228,9 @@ pushenv(&quot;FZF_HOME&quot;, home)
 
 </details>
   </dd>
-
-  <dt class="module-name">gatk</dt>
+</dl>
+<h3 id="module_cbi_gatk" class="module-name">gatk</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">Genome Analysis Toolkit (GATK): Variant Discovery in High-Throughput Sequencing Data</strong><br>
 <span class="module-description">Developed in the Data Sciences Platform at the Broad Institute, the toolkit offers a wide variety of tools with a primary focus on variant discovery and genotyping. Its powerful processing engine and high-performance computing features make it capable of taking on projects of any size.</span><br>
@@ -1241,8 +1273,9 @@ end
 
 </details>
   </dd>
-
-  <dt class="module-name">gcta</dt>
+</dl>
+<h3 id="module_cbi_gcta" class="module-name">gcta</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">GCTA: Genome-wide Complex Trait Analysis</strong><br>
 <span class="module-description">A tool for Genome-wide Complex Trait Analysis (GCTA).</span><br>
@@ -1270,8 +1303,9 @@ prepend_path(&quot;PATH&quot;, home)
 
 </details>
   </dd>
-
-  <dt class="module-name">gdal</dt>
+</dl>
+<h3 id="module_cbi_gdal" class="module-name">gdal</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">GDAL: Geospatial Data Abstraction Library</strong><br>
 <span class="module-description">GDAL is an open source X/MIT licensed translator library for raster and vector geospatial data formats.</span><br>
@@ -1308,8 +1342,9 @@ prepend_path(&quot;LDFLAGS&quot;, &quot;-L&quot; .. pathJoin(home, &quot;lib&quo
 
 </details>
   </dd>
-
-  <dt class="module-name">geos</dt>
+</dl>
+<h3 id="module_cbi_geos" class="module-name">geos</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">GEOS: Geometry Engine, Open Source</strong><br>
 <span class="module-description">GEOS (Geometry Engine - Open Source) is a C++ port of the JTS Topology Suite (JTS). It aims to contain the complete functionality of JTS in C++. This includes all the OpenGIS Simple Features for SQL spatial predicate functions and spatial operators, as well as specific JTS enhanced functions. GEOS provides spatial functionality to many other projects and products.</span><br>
@@ -1348,8 +1383,9 @@ prepend_path(&quot;LDFLAGS&quot;, &quot;-L&quot; .. pathJoin(home, &quot;lib&quo
 
 </details>
   </dd>
-
-  <dt class="module-name">gistic2</dt>
+</dl>
+<h3 id="module_cbi_gistic2" class="module-name">gistic2</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">GISTIC2: Genomic Identification of Significant Targets in Cancer (GISTIC), version 2</strong><br>
 <span class="module-description">GISTIC2.0 facilitates sensitive and confident localization of the targets of focal somatic copy-number alteration in human cancers.</span><br>
@@ -1377,8 +1413,9 @@ prepend_path(&quot;PATH&quot;, home)
 
 </details>
   </dd>
-
-  <dt class="module-name">git-flow</dt>
+</dl>
+<h3 id="module_cbi_git-flow" class="module-name">git-flow</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">git-flow: Git Extension Git Flow (AVH Edition)</strong><br>
 <span class="module-description">A collection of Git extensions to provide high-level repository operations for Vincent Driessen's branching model.</span><br>
@@ -1407,8 +1444,9 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 
 </details>
   </dd>
-
-  <dt class="module-name">glow</dt>
+</dl>
+<h3 id="module_cbi_glow" class="module-name">glow</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">glow: Render Markdown on the CLI, with Pizzazz!</strong><br>
 <span class="module-description">Glow is a terminal based markdown reader designed from the ground up to bring out the beauty—and power—of the CLI.  Use it to discover markdown files, read documentation directly on the command line and stash markdown files to your own private collection so you can read them anywhere. Glow will find local markdown files in subdirectories or a local Git repository.</span><br>
@@ -1438,8 +1476,9 @@ prepend_path(&quot;PATH&quot;, home)
 
 </details>
   </dd>
-
-  <dt class="module-name">gsl</dt>
+</dl>
+<h3 id="module_cbi_gsl" class="module-name">gsl</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">GSL: Gnu Scientific Library</strong><br>
 <span class="module-description">The GNU Scientific Library (GSL) is a numerical library for C and C++ programmers. It is free software under the GNU General Public License. The library provides a wide range of mathematical routines such as random number generators, special functions and least-squares fitting. There are over 1000 functions in total with an extensive test suite.</span><br>
@@ -1470,8 +1509,9 @@ prepend_path(&quot;PKG_CONFIG_PATH&quot;, pathJoin(home, &quot;lib&quot;, &quot;
 
 </details>
   </dd>
-
-  <dt class="module-name">hdf5</dt>
+</dl>
+<h3 id="module_cbi_hdf5" class="module-name">hdf5</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">hdf5: A General Purpose Library and File Format for Storing Scientific Data</strong><br>
 <span class="module-description">Hierarchical Data Format (HDF) is a set of file formats (HDF4, HDF5) designed to store and organize large amounts of data. The HDF5 format is designed to address some of the limitations of the HDF4 library, and to address current and anticipated requirements of modern systems and applications.</span><br>
@@ -1505,8 +1545,9 @@ prepend_path(&quot;CPATH&quot;,  pathJoin(home, &quot;include&quot;))
 
 </details>
   </dd>
-
-  <dt class="module-name">hisat2</dt>
+</dl>
+<h3 id="module_cbi_hisat2" class="module-name">hisat2</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">HISAT2: Graph-based Alignment of Next Generation Sequencing Reads to a Population of Genomes</strong><br>
 <span class="module-description">HISAT2 is a fast and sensitive alignment program for mapping next-generation sequencing reads (both DNA and RNA) to a population of human genomes (as well as to a single reference genome). Based on an extension of BWT for graphs [Sirén et al. 2014], we designed and implemented a graph FM index (GFM), an original approach and its first implementation to the best of our knowledge. In addition to using one global GFM index that represents a population of human genomes, HISAT2 uses a large set of small GFM indexes that collectively cover the whole genome (each index representing a genomic region of 56 Kbp, with 55,000 indexes needed to cover the human population). These small indexes (called local indexes), combined with several alignment strategies, enable rapid and accurate alignment of sequencing reads. This new indexing scheme is called a Hierarchical Graph FM index (HGFM).</span><br>
@@ -1534,8 +1575,9 @@ prepend_path(&quot;PATH&quot;, home)
 
 </details>
   </dd>
-
-  <dt class="module-name">htop</dt>
+</dl>
+<h3 id="module_cbi_htop" class="module-name">htop</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">htop: An Interactive Process Viewer for Unix</strong><br>
 <span class="module-description"><code>htop</code> is an interactive process viewer for Unix systems. It is a text-mode application (for console or X terminals) and requires ncurses.</span><br>
@@ -1565,8 +1607,9 @@ prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;share&quot;, &quot;man&qu
 
 </details>
   </dd>
-
-  <dt class="module-name">htslib</dt>
+</dl>
+<h3 id="module_cbi_htslib" class="module-name">htslib</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">HTSlib: C Library for High-Throughput Sequencing Data Formats</strong><br>
 <span class="module-description">HTSlib is an implementation of a unified C library for accessing common file formats, such as SAM, CRAM and VCF, used for high-throughput sequencing data, and is the core library used by samtools and bcftools. HTSlib also provides the bgzip, htsfile, and tabix utilities.</span><br>
@@ -1603,8 +1646,9 @@ end
 
 </details>
   </dd>
-
-  <dt class="module-name">htstools</dt>
+</dl>
+<h3 id="module_cbi_htstools" class="module-name">htstools</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">htstools: Tools to Process BAM Files for Downstream Copy-Number Analysis</strong><br>
 <span class="module-description">Contains three tools (dnafrags, ppflag-fixer, snp-pileup) written by Alex Studer to process bam files for downstream copy number analysis.</span><br>
@@ -1634,8 +1678,9 @@ prepend_path(&quot;PATH&quot;, home)
 
 </details>
   </dd>
-
-  <dt class="module-name">igv</dt>
+</dl>
+<h3 id="module_cbi_igv" class="module-name">igv</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">IGV: The Integrative Genomics Viewer</strong><br>
 <span class="module-description">The Integrative Genomics Viewer (IGV) is a high-performance visualization tool for interactive exploration of large, integrated genomic datasets. It supports a wide variety of data types, including array-based and next-generation sequence data, and genomic annotations.</span><br>
@@ -1668,8 +1713,9 @@ set_alias(&quot;igv&quot;, home .. &quot;/igv.sh&quot;)
 
 </details>
   </dd>
-
-  <dt class="module-name">igvtools</dt>
+</dl>
+<h3 id="module_cbi_igvtools" class="module-name">igvtools</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">IGVTools: Tools for Pre-processing HT-Seq Data Files</strong><br>
 <span class="module-description">The igvtools utility provides a set of tools for pre-processing data files. Note, <code>igvtools</code> moved to IGV as of IGV (&gt;= 2.5.0).</span><br>
@@ -1698,8 +1744,9 @@ prepend_path(&quot;PATH&quot;, home)
 
 </details>
   </dd>
-
-  <dt class="module-name">jags</dt>
+</dl>
+<h3 id="module_cbi_jags" class="module-name">jags</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">JAGS: Just Another Gibbs Sampler</strong><br>
 <span class="module-description">JAGS is Just Another Gibbs Sampler.  It is a program for analysis of Bayesian hierarchical models using Markov Chain Monte Carlo (MCMC) simulation not wholly unlike BUGS.</span><br>
@@ -1741,8 +1788,9 @@ pushenv(&quot;JAGS_LIB&quot;, pathJoin(home, &quot;lib&quot;))
 
 </details>
   </dd>
-
-  <dt class="module-name">kallisto</dt>
+</dl>
+<h3 id="module_cbi_kallisto" class="module-name">kallisto</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">kallisto: Near-optimal RNA-Seq Quantification</strong><br>
 <span class="module-description">kallisto is a program for quantifying abundances of transcripts from RNA-Seq data, or more generally of target sequences using high-throughput sequencing reads. It is based on the novel idea of pseudoalignment for rapidly determining the compatibility of reads with targets, without the need for alignment.</span><br>
@@ -1771,8 +1819,9 @@ prepend_path(&quot;PATH&quot;, home)
 
 </details>
   </dd>
-
-  <dt class="module-name">lg3</dt>
+</dl>
+<h3 id="module_cbi_lg3" class="module-name">lg3</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">lg3: The UCSF Costello Lab's LG3 Pipeline</strong><br>
 <span class="module-description">This is the LG3 Pipeline developed by the UCSF Costello Lab.</span><br>
@@ -1804,8 +1853,9 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 
 </details>
   </dd>
-
-  <dt class="module-name">libsbml</dt>
+</dl>
+<h3 id="module_cbi_libsbml" class="module-name">libsbml</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">libSBML: An Open-Source Library for Working with SBML (the Systems Biology Markup Language)</strong><br>
 <span class="module-description">LibSBML is a native library for reading, writing and manipulating files and data streams containing the Systems Biology Markup Language (SBML). It offers language bindings for C, C++, C#, Java, JavaScript, MATLAB, Perl, PHP, Python, R and Ruby.</span><br>
@@ -1842,8 +1892,9 @@ prepend_path(&quot;PKG_CONFIG_PATH&quot;, pathJoin(home, &quot;lib&quot;, &quot;
 
 </details>
   </dd>
-
-  <dt class="module-name">mc</dt>
+</dl>
+<h3 id="module_cbi_mc" class="module-name">mc</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">mc: Midnight Commander</strong><br>
 <span class="module-description">GNU Midnight Commander is a visual file manager. It's a feature rich full-screen text mode application that allows you to copy, move and delete files and whole directory trees, search for files and run commands in the subshell. Internal viewer and editor are included.</span><br>
@@ -1873,8 +1924,9 @@ prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;share&quot;, &quot;man&qu
 
 </details>
   </dd>
-
-  <dt class="module-name">mutect</dt>
+</dl>
+<h3 id="module_cbi_mutect" class="module-name">mutect</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">muTect: Identification of Somatic Point Mutations in Next Generation Sequencing Data of Cancer Genomes</strong><br>
 <span class="module-description">MuTect is a method developed at the Broad Institute for the reliable and accurate identification of somatic point mutations in next generation sequencing data of cancer genomes.</span><br>
@@ -1909,8 +1961,9 @@ set_alias(&quot;mutect&quot;, &quot;java -Xmx2g -jar &quot; .. jarfile)
 
 </details>
   </dd>
-
-  <dt class="module-name">pandoc</dt>
+</dl>
+<h3 id="module_cbi_pandoc" class="module-name">pandoc</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">Pandoc: A Universal Document Converter</strong><br>
 <span class="module-description">Pandoc is a Haskell library and software tool for converting from one markup format to another, and a command-line tool that uses this library.</span><br>
@@ -1940,8 +1993,9 @@ prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;share&quot;, &quot;man&qu
 
 </details>
   </dd>
-
-  <dt class="module-name">picard</dt>
+</dl>
+<h3 id="module_cbi_picard" class="module-name">picard</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">Picard: Command-line tools for Manipulating High-throughput Sequencing Data and Formats</strong><br>
 <span class="module-description">Picard is a set of command line tools for manipulating high-throughput sequencing (HTS) data and formats such as SAM/BAM/CRAM and VCF.</span><br>
@@ -1979,8 +2033,9 @@ set_alias(&quot;picard&quot;, &quot;java -jar &quot; .. pathJoin(home, &quot;pic
 
 </details>
   </dd>
-
-  <dt class="module-name">pindel</dt>
+</dl>
+<h3 id="module_cbi_pindel" class="module-name">pindel</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">pindel: Detection of Indels and Structural Variations</strong><br>
 <span class="module-description">Pindel can detect breakpoints of large deletions, medium sized insertions, inversions, tandem duplications and other structural variants at single-based resolution from next-gen sequence data. It uses a pattern growth approach to identify the breakpoints of these variants from paired-end short reads.</span><br>
@@ -2015,8 +2070,9 @@ prepend_path(&quot;PATH&quot;, home)
 
 </details>
   </dd>
-
-  <dt class="module-name">plink</dt>
+</dl>
+<h3 id="module_cbi_plink" class="module-name">plink</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">PLINK: Whole Genome Association Analysis Toolset</strong><br>
 <span class="module-description">PLINK is a free, open-source whole genome association analysis toolset, designed to perform a range of basic, large-scale analyses in a computationally efficient manner. The focus of PLINK is purely on analysis of genotype/phenotype data, so there is no support for steps prior to this (e.g. study design and planning, generating genotype or CNV calls from raw data).</span><br>
@@ -2045,8 +2101,9 @@ prepend_path(&quot;PATH&quot;, home)
 
 </details>
   </dd>
-
-  <dt class="module-name">plink2</dt>
+</dl>
+<h3 id="module_cbi_plink2" class="module-name">plink2</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">PLINK2: Whole Genome Association Analysis Toolset</strong><br>
 <span class="module-description">PLINK is a free, open-source whole genome association analysis toolset, designed to perform a range of basic, large-scale analyses in a computationally efficient manner. The focus of PLINK is purely on analysis of genotype/phenotype data, so there is no support for steps prior to this (e.g. study design and planning, generating genotype or CNV calls from raw data).</span><br>
@@ -2075,8 +2132,9 @@ prepend_path(&quot;PATH&quot;, home)
 
 </details>
   </dd>
-
-  <dt class="module-name">proj</dt>
+</dl>
+<h3 id="module_cbi_proj" class="module-name">proj</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">PROJ: PROJ Coordinate Transformation Software Library</strong><br>
 <span class="module-description">PROJ is a generic coordinate transformation software that transforms geospatial coordinates from one coordinate reference system (CRS) to another. This includes cartographic projections as well as geodetic transformations. PROJ includes command line applications for easy conversion of coordinates from text files or directly from user input. In addition to the command line utilities PROJ also exposes an application programming interface, or API in short. The API lets developers use the functionality of PROJ in their own software without having to implement similar functionality themselves.</span><br>
@@ -2124,8 +2182,9 @@ prepend_path(&quot;PKG_CONFIG_PATH&quot;, pathJoin(home, &quot;lib&quot;, &quot;
 
 </details>
   </dd>
-
-  <dt class="module-name">r</dt>
+</dl>
+<h3 id="module_cbi_r" class="module-name">r</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">R: The R Programming Language</strong><br>
 <span class="module-description">The R programming language.</span><br>
@@ -2226,8 +2285,9 @@ end
 
 </details>
   </dd>
-
-  <dt class="module-name">r-siteconfig</dt>
+</dl>
+<h3 id="module_cbi_r-siteconfig" class="module-name">r-siteconfig</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">R Site Configuration: Tweaks to R for the Current Compute Environment</strong><br>
 <span class="module-description">Sets R options and environment variables customized for the current compute environment. Notably, it configures R to install packages from local CRAN and Bioconductor mirrors without the need for internet access.</span><br>
@@ -2266,8 +2326,9 @@ pushenv(&quot;R_PROFILE&quot;, pathJoin(home, &quot;Rprofile.site&quot;))
 
 </details>
   </dd>
-
-  <dt class="module-name">rclone</dt>
+</dl>
+<h3 id="module_cbi_rclone" class="module-name">rclone</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">rclone: Rsync for Cloud Storage and More</strong><br>
 <span class="module-description">Rclone is a command line program to sync files and directories to and from a large number of end points on the local file system, or remote file systems, and in the cloud.</span><br>
@@ -2299,8 +2360,9 @@ prepend_path(&quot;MANPATH&quot;, home)
 
 </details>
   </dd>
-
-  <dt class="module-name">ripgrep</dt>
+</dl>
+<h3 id="module_cbi_ripgrep" class="module-name">ripgrep</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">ripgrep: Recursively Searches Directories for a Regex Pattern</strong><br>
 <span class="module-description">ripgrep is a line-oriented search tool that recursively searches your current directory for a regex pattern. By default, ripgrep will respect your .gitignore and automatically skip hidden files/directories and binary files. ripgrep is similar to other popular search tools like The Silver Searcher, ack and grep.</span><br>
@@ -2330,8 +2392,9 @@ prepend_path(&quot;PATH&quot;, home)
 
 </details>
   </dd>
-
-  <dt class="module-name">rstudio</dt>
+</dl>
+<h3 id="module_cbi_rstudio" class="module-name">rstudio</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">rstudio: RStudio Desktop</strong><br>
 <span class="module-description">The RStudio Desktop is an integrated development environment (IDE) for R, a programming language for statistical computing and graphics.</span><br>
@@ -2363,8 +2426,9 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 
 </details>
   </dd>
-
-  <dt class="module-name">rstudio-server</dt>
+</dl>
+<h3 id="module_cbi_rstudio-server" class="module-name">rstudio-server</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">RStudio Server: The RStudio Server</strong><br>
 <span class="module-description">The RStudio Server is an integrated development environment (IDE) for R that can be used from the web browser.</span><br>
@@ -2396,8 +2460,9 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 
 </details>
   </dd>
-
-  <dt class="module-name">rstudio-server-controller</dt>
+</dl>
+<h3 id="module_cbi_rstudio-server-controller" class="module-name">rstudio-server-controller</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">RSC: An RStudio Server Controller</strong><br>
 <span class="module-description">The RStudio Server Controller (RSC) is a tool for launching a personal instance of the RStudio Server on a Linux machine, which then can be access via the web browser, either directly or via SSH tunneling.</span><br>
@@ -2435,8 +2500,9 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 
 </details>
   </dd>
-
-  <dt class="module-name">salmon</dt>
+</dl>
+<h3 id="module_cbi_salmon" class="module-name">salmon</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">salmon: Salmon Provides Fast and Bias-Aware Quantification of Transcript Expression</strong><br>
 <span class="module-description">Highly-accurate &amp; wicked fast transcript-level quantification from RNA-seq reads using selective alignment.</span><br>
@@ -2465,8 +2531,9 @@ prepend_path(&quot;LD_LIBRARY_PATH&quot;, pathJoin(home, &quot;lib&quot;))
 
 </details>
   </dd>
-
-  <dt class="module-name">samtools</dt>
+</dl>
+<h3 id="module_cbi_samtools" class="module-name">samtools</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">SAMtools: Tools (written in C using htslib) for Manipulating Next-Generation Sequencing Data</strong><br>
 <span class="module-description">SAMtools is a suite of programs for interacting with high-throughput sequencing data.</span><br>
@@ -2507,8 +2574,9 @@ end
 
 </details>
   </dd>
-
-  <dt class="module-name">scl-devtoolset</dt>
+</dl>
+<h3 id="module_cbi_scl-devtoolset" class="module-name">scl-devtoolset</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">SCL Developer Toolset: GNU Compiler Collection, GNU Debugger, etc.</strong><br>
 <span class="module-description">These Developer Toolset provides modern versions of the GNU Compiler Collection, GNU Debugger, and other development, debugging, and performance monitoring tools. Loading these modules enables the corresponding CentOS Software Collection (SCL) <code>devtoolset-&lt;version&gt;</code> in the current environment.  This is an alternative to calling <code>source scl_source enable devtoolset-&lt;version&gt;</code>, which is an approach that is not officially supported by RedHat/CentOS.</span><br>
@@ -2556,8 +2624,9 @@ prepend_path(&quot;PKG_CONFIG_PATH&quot;,&quot;/opt/rh/devtoolset-11/root/usr/li
 
 </details>
   </dd>
-
-  <dt class="module-name">scl-rh-python</dt>
+</dl>
+<h3 id="module_cbi_scl-rh-python" class="module-name">scl-rh-python</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">SCL Python: Python with Additional Utilities via CentOS Software Collections</strong><br>
 <span class="module-description">Enables the CentOS Software Collection (SCL) <code>rh-python&lt;version&gt;</code> in the current environment.  This is an alternative to calling <code>source scl_source enable rh-python&lt;version&gt;</code>, which is not officially supported by RedHat/CentOS.</span><br>
@@ -2602,8 +2671,9 @@ prepend_path(&quot;XDG_DATA_DIRS&quot;,&quot;/opt/rh/rh-python38/root/usr/share&
 
 </details>
   </dd>
-
-  <dt class="module-name">scl-rh-ruby</dt>
+</dl>
+<h3 id="module_cbi_scl-rh-ruby" class="module-name">scl-rh-ruby</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">SCL Ruby: Ruby</strong><br>
 <span class="module-description">Enables the CentOS Software Collection (SCL) <code>rh-ruby26</code> in the current environment.  This is an alternative to calling <code>source scl_source enable rh-ruby26</code>, which is an approach that is not of ficially supported by RedHat/CentOS.</span><br>
@@ -2650,8 +2720,9 @@ setenv(&quot;XDG_DATA_DIRS&quot;,&quot;/opt/rh/rh-ruby26/root/usr/local/share:/o
 
 </details>
   </dd>
-
-  <dt class="module-name">shellcheck</dt>
+</dl>
+<h3 id="module_cbi_shellcheck" class="module-name">shellcheck</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">ShellCheck: A Shell Script Static Analysis Tool</strong><br>
 <span class="module-description">ShellCheck finds bugs in your shell scripts.</span><br>
@@ -2681,8 +2752,9 @@ prepend_path(&quot;PATH&quot;, home)
 
 </details>
   </dd>
-
-  <dt class="module-name">snpeff</dt>
+</dl>
+<h3 id="module_cbi_snpeff" class="module-name">snpeff</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">SnpEff: Genetic Variant Annotation and Effect Prediction Toolbox</strong><br>
 <span class="module-description">SnpEff is a variant annotation and effect prediction tool. It annotates and predicts the effects of variants on genes (such as amino acid changes).</span><br>
@@ -2723,8 +2795,9 @@ set_alias(&quot;ClinEff&quot;, &quot;java -jar &quot; .. jarfile)
 
 </details>
   </dd>
-
-  <dt class="module-name">sqlite</dt>
+</dl>
+<h3 id="module_cbi_sqlite" class="module-name">sqlite</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">sqlite: SQLite Database Engine &amp; Library</strong><br>
 <span class="module-description">SQLite is a relational database management system (RDBMS) contained in a C library. In contrast to many other database management systems, SQLite is not a client–server database engine. Rather, it is embedded into the end program.</span><br>
@@ -2756,8 +2829,9 @@ prepend_path(&quot;PKG_CONFIG_PATH&quot;, pathJoin(home, &quot;lib&quot;, &quot;
 
 </details>
   </dd>
-
-  <dt class="module-name">sratoolkit</dt>
+</dl>
+<h3 id="module_cbi_sratoolkit" class="module-name">sratoolkit</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">SRA Toolkit: Tools and Libraries for Using Data in the INSDC Sequence Read Archives</strong><br>
 <span class="module-description">The SRA Toolkit and SDK from NCBI is a collection of tools and libraries for using data in the INSDC Sequence Read Archives.</span><br>
@@ -2802,8 +2876,9 @@ set_shell_function(&quot;fasterq-dump&quot;, 'command fasterq-dump --threads 2 -
 
 </details>
   </dd>
-
-  <dt class="module-name">star</dt>
+</dl>
+<h3 id="module_cbi_star" class="module-name">star</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">STAR: Spliced Transcripts Alignment to a Reference</strong><br>
 <span class="module-description">STAR (Spliced Transcripts Alignment to a Reference) is a fast NGS read aligner for RNA-seq data.</span><br>
@@ -2833,8 +2908,9 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;, &quot;Linux_x86_6
 
 </details>
   </dd>
-
-  <dt class="module-name">tiledb</dt>
+</dl>
+<h3 id="module_cbi_tiledb" class="module-name">tiledb</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">TileDB: The Universal Storage Engine</strong><br>
 <span class="module-description">TileDB is a powerful engine for storing and accessing dense and sparse multi-dimensional arrays, which can help you model any complex data efficiently. It is an embeddable C++ library that works on Linux, macOS, and Windows.</span><br>
@@ -2873,8 +2949,9 @@ setenv(&quot;TILEDB_HOME&quot;, home)
 
 </details>
   </dd>
-
-  <dt class="module-name">tmux</dt>
+</dl>
+<h3 id="module_cbi_tmux" class="module-name">tmux</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">tmux: A Terminal Multiplexer</strong><br>
 <span class="module-description">tmux is a terminal multiplexer. It lets you switch easily between several programs in one terminal, detach them (they keep running in the background) and reattach them to a different terminal. And do a lot more.</span><br>
@@ -2904,8 +2981,9 @@ prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;share&quot;, &quot;man&qu
 
 </details>
   </dd>
-
-  <dt class="module-name">tophat</dt>
+</dl>
+<h3 id="module_cbi_tophat" class="module-name">tophat</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">TopHat: A Spliced Read Mapper for RNA-Seq</strong><br>
 <span class="module-description">TopHat is a fast splice junction mapper for RNA-Seq reads. It aligns RNA-Seq reads to mammalian-sized genomes using the ultra high-throughput short read aligner Bowtie, and then analyzes the mapping results to identify splice junctions between exons.</span><br>
@@ -2934,8 +3012,9 @@ prepend_path(&quot;PATH&quot;, home)
 
 </details>
   </dd>
-
-  <dt class="module-name">tree</dt>
+</dl>
+<h3 id="module_cbi_tree" class="module-name">tree</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">tree: List Content of Directories in a Tree-like Format</strong><br>
 <span class="module-description">Tree is a recursive directory listing command that produces a depth indented listing of files, which is colorized ala dircolors if the <code>LS_COLORS</code> environment variable is set and output is to tty.</span><br>
@@ -2965,8 +3044,9 @@ prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;man&quot;))
 
 </details>
   </dd>
-
-  <dt class="module-name">trimgalore</dt>
+</dl>
+<h3 id="module_cbi_trimgalore" class="module-name">trimgalore</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">TrimGalore: Taking Appropriate QC Measures for RRBS-Type or Other -Seq Applications with Trim Galore!</strong><br>
 <span class="module-description">A wrapper around Cutadapt and FastQC to consistently apply adapter and quality trimming to FastQ files, with extra functionality for RRBS data.</span><br>
@@ -2999,8 +3079,9 @@ pushenv(&quot;TRIMGALORE_HOME&quot;, home)
 
 </details>
   </dd>
-
-  <dt class="module-name">up</dt>
+</dl>
+<h3 id="module_cbi_up" class="module-name">up</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">up: The Ultimate Plumber</strong><br>
 <span class="module-description">A tool for writing Linux pipes in a terminal-based UI interactively, with instant live preview of command results. Interactively and incrementally explore textual data in Linux using text-processing utils such as grep, sort, cut, paste, awk, wc, perl, etc.  When done, press Ctrl-C to view final pipe commands, or Ctrl-X to save it to file.</span><br>
@@ -3030,8 +3111,9 @@ prepend_path(&quot;PATH&quot;, home)
 
 </details>
   </dd>
-
-  <dt class="module-name">varscan</dt>
+</dl>
+<h3 id="module_cbi_varscan" class="module-name">varscan</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">VarScan: Variant Detection in Massively Parallel Sequencing Data</strong><br>
 <span class="module-description">VarScan is a platform-independent mutation caller for targeted, exome, and whole-genome resequencing data generated on Illumina, SOLiD, Life/PGM, Roche/454, and similar instruments.</span><br>
@@ -3064,8 +3146,9 @@ set_alias(&quot;varscan&quot;, &quot;java -jar &quot; .. jarfile)
 
 </details>
   </dd>
-
-  <dt class="module-name">vcf-validator</dt>
+</dl>
+<h3 id="module_cbi_vcf-validator" class="module-name">vcf-validator</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">vcf-validator: Validation Suite for Variant Call Format (VCF) Files</strong><br>
 <span class="module-description">Validator for the Variant Call Format (VCF) implemented using C++11. It includes all the checks from the vcftools suite, and some more that involve lexical, syntactic and semantic analysis of the VCF input.</span><br>
@@ -3092,8 +3175,9 @@ prepend_path(&quot;PATH&quot;, home)
 
 </details>
   </dd>
-
-  <dt class="module-name">vcftools</dt>
+</dl>
+<h3 id="module_cbi_vcftools" class="module-name">vcftools</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">VCFtools: Tools Written in Perl and C++ for Working with VCF Files</strong><br>
 <span class="module-description">VCFtools is a program package designed for working with VCF files, such as those generated by the 1000 Genomes Project. The aim of VCFtools is to provide easily accessible methods for working with complex genetic variation data in the form of VCF files.</span><br>
@@ -3125,13 +3209,12 @@ pushenv(&quot;PERL5LIB&quot;, pathJoin(home, &quot;share&quot;, &quot;perl5&quot
 
 </details>
   </dd>
-
 </dl>
 </div> 
 
-<div id="queues-wittelab" class="tab-pane fade">
+<div id="button_repository_wittelab" class="tab-pane fade">
 
-<h2 id="module-software-repository-wittelab">Module Software Repository: WitteLab (17)</h2>
+<h2 id="repository_wittelab">Module Software Repository: WitteLab (17)</h2>
 
 Maintained by: Taylor Cavazos, <a href="https://wittelab.ucsf.edu">Witte Lab Software Repository</a><br>
 Enable repository: <code>module load WitteLab</code><br>
@@ -3140,8 +3223,8 @@ Enable repository: <code>module load WitteLab</code><br>
 Please note that this software stacks is maintained and contributed by a research group on a voluntary basis. It is <em>not</em> maintained by the {{ site.cluster.name }} admins. Please reach out to the corresponding maintainer for bug reports, feedback, or questions.
 </div>
 
+<h3 id="module_wittelab_ascp" class="module-name">ascp</h3>
 <dl>
-  <dt class="module-name">ascp</dt>
   <dd class="module-details">
 <strong class="module-help">ascp: Command line data transfer client</strong><br>
 <span class="module-description">The IBM Aspera Command-Line Interface (CLI) is a lightweight shell scripting tool that be used to automate Faspex and Shares tasks without having to do additional coding. The CLI is for users and organizations that want to automate their transfer workflows; it provides an alternative to using the API for the same functionality.</span><br>
@@ -3169,8 +3252,9 @@ prepend_path(&quot;PATH&quot;, home)
 
 </details>
   </dd>
-
-  <dt class="module-name">bcftools</dt>
+</dl>
+<h3 id="module_wittelab_bcftools" class="module-name">bcftools</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">bcftools: Command line suite for working with bgzipped vcf files, includes tabix and bgzip</strong><br>
 <span class="module-description">BCFtools is a set of utilities that manipulate variant calls in the Variant Call Format (VCF) and its binary counterpart BCF. All commands work transparently with both VCFs and BCFs, both uncompressed and BGZF-compressed.</span><br>
@@ -3198,8 +3282,9 @@ prepend_path(&quot;PATH&quot;, home)
 
 </details>
   </dd>
-
-  <dt class="module-name">charger</dt>
+</dl>
+<h3 id="module_wittelab_charger" class="module-name">charger</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">charger: a software tool for interpreting and predicting clinical pathogenicity of germline variants.</strong><br>
 <span class="module-description">CharGer gathers evidence from databases and annotations, provided by local tools and files or via ReST APIs, and classifies variants according to ACMG guidelines for assessing variant pathogenicity. User-designed pathogenicity criteria can be incorporated into CharGer’s flexible framework, thereby allowing users to create a customized classification protocol. If you use CharGer, please cite our publication so we can continue to support CharGer development: Adam D Scott, Kuan-Lin Huang, Amila Weerasinghe, R Jay Mashl, Qingsong Gao, Fernanda Martins Rodrigues, Matthew A Wyczalkowski, Li Ding, CharGer: clinical Characterization of Germline variants, Bioinformatics, Volume 35, Issue 5, 01 March 2019, Pages 865–867, <a href="https://doi.org/10.1093/bioinformatics/bty649">https://doi.org/10.1093/bioinformatics/bty649</a></span><br>
@@ -3228,8 +3313,9 @@ prepend_path(&quot;PATH&quot;, env)
 
 </details>
   </dd>
-
-  <dt class="module-name">flashpca</dt>
+</dl>
+<h3 id="module_wittelab_flashpca" class="module-name">flashpca</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">FlashPCA2: performs fast PCA of SNP data</strong><br>
 <span class="module-description">FlashPCA performs fast principal component analysis (PCA) of single nucleotide polymorphism (SNP) data, similar to smartpca from EIGENSOFT (<a href="http://www.hsph.harvard.edu/alkes-price/software/">http://www.hsph.harvard.edu/alkes-price/software/</a>) and shellfish (<a href="https://github.com/dandavison/shellfish">https://github.com/dandavison/shellfish</a>). FlashPCA is based on the <a href="https://github.com/yixuan/spectra/">https://github.com/yixuan/spectra/</a> library.</span><br>
@@ -3256,8 +3342,9 @@ prepend_path(&quot;PATH&quot;, home)
 
 </details>
   </dd>
-
-  <dt class="module-name">focus</dt>
+</dl>
+<h3 id="module_wittelab_focus" class="module-name">focus</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">focus: a set of tools to finemap twas statistics</strong><br>
 <span class="module-description">FOCUS (Fine-mapping Of CaUsal gene Sets) is software to fine-map transcriptome-wide association study statistics at genomic risk regions. The software takes as input summary GWAS data along with eQTL weights and outputs a credible set of genes to explain observed genomic risk.</span><br>
@@ -3287,8 +3374,9 @@ prepend_path(&quot;PATH&quot;, home)
 
 </details>
   </dd>
-
-  <dt class="module-name">gcta</dt>
+</dl>
+<h3 id="module_wittelab_gcta" class="module-name">gcta</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">gcta: GCTA (Genome-wide Complex Trait Analysis) was initially designed to estimate the proportion of phenotypic variance explained by all genome-wide SNPs for complex traits (i.e., the GREML method). It has been subsequently extended for many other analyses to better understand the genetic architecture of complex traits. GCTA currently supports the following analyses.</strong><br>
 <span class="module-description">Additional information can be found in the tutorial: <a href="https://cnsgenomics.com/software/gcta/#Tutorial">https://cnsgenomics.com/software/gcta/#Tutorial</a></span><br>
@@ -3317,8 +3405,9 @@ prepend_path(&quot;PATH&quot;, home)
 
 </details>
   </dd>
-
-  <dt class="module-name">gfetch</dt>
+</dl>
+<h3 id="module_wittelab_gfetch" class="module-name">gfetch</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">gfetch: Download multi-person genetic data for the UK Biobank</strong><br>
 <span class="module-description">gfetch client has been developed to allow Approved researchers to download elements of it piecemeal to their local systems from secure online repositories outside the main UK Biobank showcase system</span><br>
@@ -3345,8 +3434,9 @@ prepend_path(&quot;PATH&quot;, home)
 
 </details>
   </dd>
-
-  <dt class="module-name">gwama</dt>
+</dl>
+<h3 id="module_wittelab_gwama" class="module-name">gwama</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">GWAMA: Genome-Wide Association Meta Analysis</strong><br>
 <span class="module-description">software has been developed to perform meta-analysis of the results of GWA studies of binary or quantitative phenotypes. The software incorporates error trapping facilities to identify strand alignment errors and allele flipping, and performs tests of heterogeneity of effects between studies.</span><br>
@@ -3374,8 +3464,9 @@ prepend_path(&quot;PATH&quot;, home)
 
 </details>
   </dd>
-
-  <dt class="module-name">gwastools</dt>
+</dl>
+<h3 id="module_wittelab_gwastools" class="module-name">gwastools</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">gwastools: This repository contains tools to harmonize GWAS summary statistics to a given reference. The main application is harmonization of a public gwas' variants to those in the GTEx study, and allow imputation of summary statistics for missing variants.</strong><br>
 <span class="module-description">Here you can find many python files for GWAS harmination and summary stat imputation. See github page for more details.</span><br>
@@ -3402,8 +3493,9 @@ setenv(&quot;ENV&quot;,&quot;/software/c4/wittelab/software/gwastools-0.0.0/gwas
 
 </details>
   </dd>
-
-  <dt class="module-name">hess</dt>
+</dl>
+<h3 id="module_wittelab_hess" class="module-name">hess</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">HESS: is a Python package that provides utilities for estimating and analyzing local SNP-heritability and genetic covariance from GWAS summary association data.</strong><br>
 URL: <span class="module-url"><a href="https://github.com/huwenboshi/hess">https://github.com/huwenboshi/hess</a></span><br>
@@ -3428,8 +3520,9 @@ setenv(&quot;ENV&quot;,&quot;/software/c4/wittelab/software/hess-0.5.4/hess_venv
 
 </details>
   </dd>
-
-  <dt class="module-name">ldak</dt>
+</dl>
+<h3 id="module_wittelab_ldak" class="module-name">ldak</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">LDAK: program for running heritability, genetic correlation, and genetic prediction (BayesR, MultiBLUP) analyses</strong><br>
 <span class="module-description">This is a command-line tool for analyses of individual-level and summary data (formatted accordingly: <a href="https://dougspeed.com/summary-statistics/">https://dougspeed.com/summary-statistics/</a>). Analyses of summary data require pre-computed tagging files (LD reference panels). You can generate these from individual-level data (<a href="https://dougspeed.com/calculate-taggings/">https://dougspeed.com/calculate-taggings/</a>) or use pre-computed files from external reference datasets (<a href="https://dougspeed.com/pre-computed-tagging-files/">https://dougspeed.com/pre-computed-tagging-files/</a>). Recommended tagging files for EUR/GBB and AFR populations have been downloaded.</span><br>
@@ -3462,8 +3555,9 @@ prepend_path(&quot;PATH&quot;, home)
 
 </details>
   </dd>
-
-  <dt class="module-name">ldsc</dt>
+</dl>
+<h3 id="module_wittelab_ldsc" class="module-name">ldsc</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">ldsc: a command line tool for estimating heritability and genetic correlation from GWAS summary statistics. ldsc also computes LD Scores.</strong><br>
 <span class="module-description">Additional information can be found at the wiki: <a href="https://github.com/bulik/ldsc/wiki">https://github.com/bulik/ldsc/wiki</a></span><br>
@@ -3496,8 +3590,9 @@ prepend_path(&quot;ENV&quot;, env)
 
 </details>
   </dd>
-
-  <dt class="module-name">liftOver</dt>
+</dl>
+<h3 id="module_wittelab_liftover" class="module-name">liftOver</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">liftOver: program can be used to convert coordinate ranges between genome assemblies</strong><br>
 <span class="module-description">This is a command-line tool, and supports forward/reverse conversions, batch conversions, and conversions between species. The LiftOver program requires a UCSC-generated over.chain file as input. Pre-generated files are available for selected assemblies here: <a href="http://hgdownload.cse.ucsc.edu/downloads.html">http://hgdownload.cse.ucsc.edu/downloads.html</a>.</span><br>
@@ -3527,8 +3622,9 @@ prepend_path(&quot;PATH&quot;, home)
 
 </details>
   </dd>
-
-  <dt class="module-name">metaxcan</dt>
+</dl>
+<h3 id="module_wittelab_metaxcan" class="module-name">metaxcan</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">metaxcan: a set of tools to perform twas</strong><br>
 <span class="module-description">Here you can find the latest implementation of PrediXcan: PrediXcan.py. This uses individual-level genotype and phenotype, along a mechanism's prediction model (e.g. models predicting expression or splicing quantification), to compute associations between omic features and a complex trait.</span><br>
@@ -3555,8 +3651,9 @@ setenv(&quot;ENV&quot;,&quot;/software/c4/wittelab/software/metaxcan-0.6.5/metax
 
 </details>
   </dd>
-
-  <dt class="module-name">paintor</dt>
+</dl>
+<h3 id="module_wittelab_paintor" class="module-name">paintor</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">liftOver: program can be used to fine map putative causal variants using GWAS summary statistics.</strong><br>
 <span class="module-description">PAINTOR is a statistical fine-mapping method that integrates functional genomic data with association strength from potentially multiple populations (or traits) to prioritize variants for follow-up analysis. The software runs on multiple fine-mapping loci and/or populations/traits simultaneously and takes as input the following data for each set of SNPs at a locus. Examples can be found at <a href="https://github.com/gkichaev/PAINTOR_V3.0">https://github.com/gkichaev/PAINTOR_V3.0</a></span><br>
@@ -3585,8 +3682,9 @@ prepend_path(&quot;PATH&quot;, home)
 
 </details>
   </dd>
-
-  <dt class="module-name">python3</dt>
+</dl>
+<h3 id="module_wittelab_python3" class="module-name">python3</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">python3: programming language</strong><br>
 <span class="module-description">Python is powerful... and fast; plays well with others; runs everywhere; is friendly &amp; easy to learn; is Open.Example: python3 --help</span><br>
@@ -3612,8 +3710,9 @@ prepend_path(&quot;PATH&quot;, home)
 
 </details>
   </dd>
-
-  <dt class="module-name">regenie</dt>
+</dl>
+<h3 id="module_wittelab_regenie" class="module-name">regenie</h3>
+<dl>
   <dd class="module-details">
 <strong class="module-help">regenie: a C++ program for whole genome regression modelling of large genome-wide association studies developed and supported by a team of scientists at the Regeneron Genetics Center.</strong><br>
 <span class="module-description">performs fast gene-based and single-variants tests specifically designed for case-control imbalance</span><br>
@@ -3641,7 +3740,6 @@ prepend_path(&quot;PATH&quot;, home)
 
 </details>
   </dd>
-
 </dl>
 </div> 
 
@@ -3649,12 +3747,12 @@ prepend_path(&quot;PATH&quot;, home)
 </div> 
 
 <ul class="nav nav-pills">
-<li class="active"><a data-toggle="pill" href="#queues-built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(4)</a></li>
-<li><a data-toggle="pill" href="#queues-cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(83)</a></li>
-<li><a data-toggle="pill" href="#queues-wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
+<li class="active"><a data-toggle="pill" href="#button_repository_built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(4)</a></li>
+<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(83)</a></li>
+<li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
-_The above information was automatically generated on 2022-02-15 11:46:06 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2022-02-17 15:12:15 from querying `module avail` and `module spider`._
 
 
 <style>
@@ -3676,10 +3774,41 @@ dt:after {
 <script type="text/javascript">
 $(document).ready(function() {
   var hash = window.location.hash;
-  var pattern = "#module-software-repository-";
+  var pattern;
+  
+  /* Linked to a module repository? */
+  pattern = "#repository_";
   if (hash.startsWith(pattern)) {
-    var name = hash.substring(pattern.length);
-    $('a[href="#queues-' + name + '"]').click();
+    var repo = hash.substring(pattern.length);
+    $('a[href="#button_repository_' + repo + '"]').click();
+    return;
+  }
+
+  /* Linked to a module in a module repository? */
+  pattern = "#module_";
+  if (hash.startsWith(pattern)) {
+    var repo_module = hash.substring(pattern.length);
+    var repo = repo_module.replace(new RegExp("_.*$"), "");
+    $('a[href="#button_repository_' + repo + '"]').click().delay(300);
+    $('a[href="' + hash + '"]').focus();
+    return;
+  }
+
+  /* Backward compatibility */
+  pattern = "#module-software-repository-";
+  if (hash.startsWith(pattern)) {
+    var repo = hash.substring(pattern.length);
+    $('a[href="#button_repository_' + repo + '"]').click();
+    return;
+  }
+
+  pattern = "#module-";
+  if (hash.startsWith(pattern)) {
+    var repo_module = hash.substring(pattern.length);
+    var repo = repo_module.replace(new RegExp("[-].*$"), "");
+    $('a[href="#button_repository_' + repo + '"]').click().delay(300);
+    $('a[href="' + hash + '"]').focus();
+    return;
   }
 })
 </script>
