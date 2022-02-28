@@ -73,16 +73,16 @@ With this information, we can narrow down that the total processing time was 46 
 To list all jobs that you ran during the last seven days, use option `--starttime`:
 
 ```sh
-[alice@{{ site.login.name }} ~]$ sacct --format="JobID,JobName,State,ExitCode,Submit,Start,Elapsed,AveCPU,CpuTime,MaxRSS,MaxPages,MaxDiskRead,MaxDiskWrite" --starttime=now-7days
-JobID           JobName      State ExitCode              Submit               Start    Elapsed     AveCPU    CPUTime     MaxRSS MaxPages  MaxDiskRead MaxDiskWrite
------------- ---------- ---------- -------- ------------------- ------------------- ---------- ---------- ---------- ---------- -------- ------------ ------------
-428284             bash  COMPLETED      0:0 2022-02-18T10:15:39 2022-02-18T10:15:39   00:01:01   00:00:00   01:05:04     11992K        0       23.59M        0.16M
-428286             bash  COMPLETED      0:0 2022-02-18T10:17:44 2022-02-18T10:17:44   00:00:36   00:00:01   00:38:24     86972K        0       14.99M        0.08M
-428292             bash  COMPLETED      0:0 2022-02-18T10:30:47 2022-02-18T10:30:47   00:00:06   00:00:00   00:01:36      7064K        0        0.36M        0.01M
-428293            nproc  COMPLETED      0:0 2022-02-18T10:30:57 2022-02-18T10:30:57   00:00:01   00:00:00   00:00:16      2172K        0        0.01M        0.00M
-428299             bash CANCELLED+      0:0 2022-02-18T10:36:28 2022-02-18T10:38:54   00:00:00              00:00:00                                              
-428300             bash  COMPLETED      0:0 2022-02-18T10:38:57 2022-02-18T10:38:57   09:51:27 1-09:14:50 19-17:09:36  27034524K     6045  1075023.24M   312038.07M
-428850             bash     FAILED      0:0 2022-02-18T22:46:08 2022-02-18T22:46:08   10:05:23 1-09:12:22 20-04:18:24  35361668K     6899   777877.95M   214575.54M
+[alice@{{ site.login.name }} ~]$ sacct --format="JobID,JobName,NodeList,State,ExitCode,Submit,Start,Elapsed,AveCPU,CpuTime,MaxRSS,MaxPages,MaxDiskRead,MaxDiskWrite" --starttime=now-7days
+JobID           JobName        NodeList      State ExitCode              Submit               Start    Elapsed     AveCPU    CPUTime     MaxRSS MaxPages  MaxDiskRead MaxDiskWrite 
+------------ ---------- --------------- ---------- -------- ------------------- ------------------- ---------- ---------- ---------- ---------- -------- ------------ ------------ 
+428284             bash           c4-n4  COMPLETED      0:0 2022-02-18T10:15:39 2022-02-18T10:15:39   00:01:01   00:00:00   01:05:04     11992K        0       23.59M        0.16M 
+428286             bash           c4-n4  COMPLETED      0:0 2022-02-18T10:17:44 2022-02-18T10:17:44   00:00:36   00:00:01   00:38:24     86972K        0       14.99M        0.08M 
+428292             bash           c4-n4  COMPLETED      0:0 2022-02-18T10:30:47 2022-02-18T10:30:47   00:00:06   00:00:00   00:01:36      7064K        0        0.36M        0.01M 
+428293            nproc           c4-n4  COMPLETED      0:0 2022-02-18T10:30:57 2022-02-18T10:30:57   00:00:01   00:00:00   00:00:16      2172K        0        0.01M        0.00M 
+428299             bash   None assigned CANCELLED+      0:0 2022-02-18T10:36:28 2022-02-18T10:38:54   00:00:00              00:00:00                                               
+428300             bash           c4-n4  COMPLETED      0:0 2022-02-18T10:38:57 2022-02-18T10:38:57   09:51:27 1-09:14:50 19-17:09:36  27034524K     6045  1075023.24M   312038.07M 
+428850             bash           c4-n4     FAILED      0:0 2022-02-18T22:46:08 2022-02-18T22:46:08   10:05:23 1-09:12:22 20-04:18:24  35361668K     6899   777877.95M   214575.54M 
 ```
 
 
