@@ -70,6 +70,22 @@ For more details and additional statistics collected, see `man sacct`.
 With this information, we can narrow down that the total processing time was 46 seconds (`Elapsed=00:00:46`) and that the maximum amount of resident set size  memory used was ~3,111 MiB (`MaxRSS=3186112K`).  With the help of `Elapsed` and `MaxRSS` from previous runs, we can re-submit this job script with more relevant resource specifications in our Slurm options within the script (e.g. `--mem=3500M`). Remember it pays to keep the mem request as small as possible. Jobs with large memory requests will sit in the queue longer.
 
 
+To list all jobs that you ran during the last seven days, use option `--starttime`:
+
+```sh
+[alice@{{ site.login.name }} ~]$ sacct --format="JobID,State,ExitCode,Submit,Start,Elapsed,AveCPU,CpuTime,MaxRSS,MaxPages,MaxDiskRead,MaxDiskWrite" --starttime=now-7days
+JobID             State ExitCode              Submit               Start    Elapsed     AveCPU    CPUTime     MaxRSS MaxPages  MaxDiskRead MaxDiskWrite
+------------ ---------- -------- ------------------- ------------------- ---------- ---------- ---------- ---------- -------- ------------ ------------
+428284        COMPLETED      0:0 2022-02-18T10:15:39 2022-02-18T10:15:39   00:01:01   00:00:00   01:05:04     11992K        0       23.59M        0.16M
+428286        COMPLETED      0:0 2022-02-18T10:17:44 2022-02-18T10:17:44   00:00:36   00:00:01   00:38:24     86972K        0       14.99M        0.08M
+428292        COMPLETED      0:0 2022-02-18T10:30:47 2022-02-18T10:30:47   00:00:06   00:00:00   00:01:36      7064K        0        0.36M        0.01M
+428293        COMPLETED      0:0 2022-02-18T10:30:57 2022-02-18T10:30:57   00:00:01   00:00:00   00:00:16      2172K        0        0.01M        0.00M
+428299       CANCELLED+      0:0 2022-02-18T10:36:28 2022-02-18T10:38:54   00:00:00              00:00:00                                              
+428300        COMPLETED      0:0 2022-02-18T10:38:57 2022-02-18T10:38:57   09:51:27 1-09:14:50 19-17:09:36  27034524K     6045  1075023.24M   312038.07M
+428850           FAILED      0:0 2022-02-18T22:46:08 2022-02-18T22:46:08   10:05:23 1-09:12:22 20-04:18:24  35361668K     6899   777877.95M   214575.54M
+```
+
+
 
 ## Post-mortem job details
 
@@ -82,7 +98,7 @@ Slurm Job_id=1034 Name=bam_test Failed, Run time 00:01:13, TIMEOUT, ExitCode 0
 You can also look in the job log file:
 
 ```sh
-$ cat slurm-1034.log
+[alice@{{ site.login.name }} ~]$ cat slurm-1034.log
 ...
 slurmstepd: error: *** JOB 1034 ON c4-n1 CANCELLED AT 2020-12-18T15:51:53 DUE TO TIME LIMIT 
 ```
@@ -90,7 +106,7 @@ slurmstepd: error: *** JOB 1034 ON c4-n1 CANCELLED AT 2020-12-18T15:51:53 DUE TO
 You would see a similar error for other resources. For memory:
 
 ```sh 
-$ cat slurm-1007.log
+[alice@{{ site.login.name }} ~]$ cat slurm-1007.log
 ...
 slurmstepd: error: Detected 1 oom-kill event(s) in step 1007.batch cgroup. Some of your processes may have been killed by the cgroup out-of-memory handler.
 ```
