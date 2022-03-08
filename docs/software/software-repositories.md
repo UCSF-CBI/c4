@@ -57,7 +57,7 @@ module load CBI r bwa bowtie2/2.4.2
 Below are 3 software repositories, each providing a set of software tools.
 
 <ul class="nav nav-pills">
-<li class="active"><a data-toggle="pill" href="#button_repository_built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(3)</a></li>
+<li class="active"><a data-toggle="pill" href="#button_repository_built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(4)</a></li>
 <li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(83)</a></li>
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
@@ -65,7 +65,7 @@ Below are 3 software repositories, each providing a set of software tools.
 <div class="tab-content" style="margin-top: 1ex;">
 <div id="button_repository_built-in" class="tab-pane fadein active">
 
-<h2 id="repository_built-in">Module Software Repository: built-in (3)</h2>
+<h2 id="repository_built-in">Module Software Repository: built-in (4)</h2>
 
 Maintained by: {{ site.cluster.nickname }} Systems Administrators, <a href="{{ '/about/contact.html' | relative_url }}">{{ site.cluster.name }}</a><br>
 Enable repository: <em>this software repository is always enabled</em><br>
@@ -145,6 +145,25 @@ setenv(&quot;JAVA_HOME&quot;, home)
 prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 prepend_path(&quot;LD_LIBRARY_PATH&quot;, pathJoin(home, &quot;lib&quot;))
 prepend_path(&quot;CPATH&quot;, pathJoin(home, &quot;include&quot;))
+</code></pre>
+
+</details>
+  </dd>
+</dl>
+<h3 id="module_built-in_scl-python" class="module-name">scl-python</h3>
+<dl>
+  <dd class="module-details">
+Versions: <span class="module-version"><em>3.6</em></span><br>
+<details>
+<summary>Module code: <a>view</a></summary>
+<pre><code class="language-lua">#%Module 1.0
+module-whatis &quot;Python 3.6&quot;
+prepend-path	LD_LIBRARY_PATH	/opt/rh/rh-python36/root/usr/lib64
+prepend-path	MANPATH	/opt/rh/rh-python36/root/usr/share/man
+prepend-path	PATH	/opt/rh/rh-python36/root/usr/bin
+prepend-path	PKG_CONFIG_PATH	/opt/rh/rh-python36/root/usr/lib64/pkgconfig
+prepend-path	XDG_DATA_DIRS	/opt/rh/rh-python36/root/usr/share:/usr/local/share:/usr/share
+
 </code></pre>
 
 </details>
@@ -2379,10 +2398,10 @@ prepend_path(&quot;PATH&quot;, home)
   <dd class="module-details">
 <strong class="module-help">rstudio: RStudio Desktop</strong><br>
 <span class="module-description">The RStudio Desktop is an integrated development environment (IDE) for R, a programming language for statistical computing and graphics.</span><br>
-Example: <span class="module-example"><code>rstudio</code>.  If you get blank window, retry with <code>QMLSCENE_DEVICE=softwarecontext rstudio</code>.</span><br>
-URL: <span class="module-url"><a href="https://rstudio.com/products/rstudio/#rstudio-desktop">https://rstudio.com/products/rstudio/#rstudio-desktop</a>, <a href="https://www.rstudio.com/products/rstudio/release-notes/">https://www.rstudio.com/products/rstudio/release-notes/</a>, <a href="https://www.rstudio.com/products/rstudio/download/">https://www.rstudio.com/products/rstudio/download/</a></span><br>
-Warning: <span class="module-warning">This software works only on the development nodes. It requires a connection with X11 Forwarding enabled. It does <em>not</em> work with X2Go (gives error &quot;GLX 1.3 or later is required&quot;). For best performance, use SSH compression when using X11 Forwarding, i.e. <code>ssh -X -C ...</code>.</span><br>
-Versions: <span class="module-version">1.4.1103, 1.4.1717, 2021.09.0+351, 2021.09.1-372, <em>2021.09.2-382</em></span><br>
+Example: <span class="module-example"><code>rstudio</code>.  If you get a blank window, retry with <code>QMLSCENE_DEVICE=softwarecontext rstudio</code>.</span><br>
+URL: <span class="module-url"><a href="https://rstudio.com/products/rstudio/#rstudio-desktop">https://rstudio.com/products/rstudio/#rstudio-desktop</a>, <a href="https://www.rstudio.com/products/rstudio/release-notes/">https://www.rstudio.com/products/rstudio/release-notes/</a> (changelog), <a href="https://github.com/rstudio/rstudio/">https://github.com/rstudio/rstudio/</a> (source code)</span><br>
+Warning: <span class="module-warning">This software works only on the development nodes. It requires an SSH connection with X11 Forwarding enabled. It does <em>not</em> work with X2Go (gives error &quot;GLX 1.3 or later is required&quot;). For best performance, use SSH compression when using X11 Forwarding, i.e. <code>ssh -X -C ...</code>.</span><br>
+Versions: <span class="module-version">1.4.1103, 1.4.1717, 2021.09.0+351, 2021.09.1-372, 2021.09.2-382, <em>2022.02.0-443</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -2393,8 +2412,12 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: programming, R, GUI&quot;)
-whatis(&quot;URL: https://rstudio.com/products/rstudio/#rstudio-desktop, https://www.rstudio.com/products/rstudio/release-notes/, https://www.rstudio.com/products/rstudio/download/&quot;)
-whatis(&quot;Description: The RStudio Desktop is an integrated development environment (IDE) for R, a programming language for statistical computing and graphics.  Example: `rstudio`.  If you get blank window, retry with `QMLSCENE_DEVICE=softwarecontext rstudio`.  Warning: This software works only on the development nodes. It requires a connection with X11 Forwarding enabled. It does *not* work with X2Go (gives error \&quot;GLX 1.3 or later is required\&quot;). For best performance, use SSH compression when using X11 Forwarding, i.e. `ssh -X -C ...`.&quot;)
+whatis(&quot;URL: https://rstudio.com/products/rstudio/#rstudio-desktop, https://www.rstudio.com/products/rstudio/release-notes/ (changelog), https://github.com/rstudio/rstudio/ (source code)&quot;)
+whatis([[
+Description: The RStudio Desktop is an integrated development environment (IDE) for R, a programming language for statistical computing and graphics.
+Examples: `rstudio`.  If you get a blank window, retry with `QMLSCENE_DEVICE=softwarecontext rstudio`.
+Warning: This software works only on the development nodes. It requires an SSH connection with X11 Forwarding enabled. It does *not* work with X2Go (gives error \&quot;GLX 1.3 or later is required\&quot;). For best performance, use SSH compression when using X11 Forwarding, i.e. `ssh -X -C ...`.
+]])
 
 depends_on(&quot;r&quot;)
 
@@ -2414,9 +2437,9 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 <strong class="module-help">RStudio Server: The RStudio Server</strong><br>
 <span class="module-description">The RStudio Server is an integrated development environment (IDE) for R that can be used from the web browser.</span><br>
 Example: <span class="module-example"><code>rserver</code>.</span><br>
-URL: <span class="module-url"><a href="https://rstudio.com/products/rstudio/#rstudio-server">https://rstudio.com/products/rstudio/#rstudio-server</a>, <a href="https://www.rstudio.com/products/rstudio/release-notes/">https://www.rstudio.com/products/rstudio/release-notes/</a></span><br>
+URL: <span class="module-url"><a href="https://rstudio.com/products/rstudio/#rstudio-server">https://rstudio.com/products/rstudio/#rstudio-server</a>, <a href="https://www.rstudio.com/products/rstudio/release-notes/">https://www.rstudio.com/products/rstudio/release-notes/</a> (changelog), <a href="https://github.com/rstudio/rstudio/">https://github.com/rstudio/rstudio/</a> (source code)</span><br>
 Warning: <span class="module-warning">This is work under construction!</span><br>
-Versions: <span class="module-version"><em>2021.09.2-382</em></span><br>
+Versions: <span class="module-version">2021.09.2-382, <em>2022.02.0-443</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -2427,8 +2450,12 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: programming, R, GUI&quot;)
-whatis(&quot;URL: https://rstudio.com/products/rstudio/#rstudio-server, https://www.rstudio.com/products/rstudio/release-notes/&quot;)
-whatis(&quot;Description: The RStudio Server is an integrated development environment (IDE) for R that can be used from the web browser.  Example: `rserver`.  Warning: This is work under construction!&quot;)
+whatis(&quot;URL: https://rstudio.com/products/rstudio/#rstudio-server, https://www.rstudio.com/products/rstudio/release-notes/ (changelog), https://github.com/rstudio/rstudio/ (source code)&quot;)
+whatis([[
+Description: The RStudio Server is an integrated development environment (IDE) for R that can be used from the web browser.
+Examples: `rserver`.
+Warning: This is work under construction!
+]])
 
 depends_on(&quot;r&quot;)
 
@@ -2450,7 +2477,7 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 Example: <span class="module-example"><code>rsc --help</code>, and <code>rsc start</code>.</span><br>
 URL: <span class="module-url"><a href="https://github.com/UCSF-CBI/rstudio-server-controller">https://github.com/UCSF-CBI/rstudio-server-controller</a>, <a href="https://github.com/UCSF-CBI/rstudio-server-controller/blob/main/NEWS.md">https://github.com/UCSF-CBI/rstudio-server-controller/blob/main/NEWS.md</a> (changelog)</span><br>
 Warning: <span class="module-warning">This is work under construction!</span><br>
-Versions: <span class="module-version">0.6.0, 0.6.1, <em>0.7.0</em></span><br>
+Versions: <span class="module-version">0.6.0, 0.6.1, 0.7.0, <em>0.8.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -3728,12 +3755,12 @@ prepend_path(&quot;PATH&quot;, home)
 </div> 
 
 <ul class="nav nav-pills">
-<li class="active"><a data-toggle="pill" href="#button_repository_built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(3)</a></li>
+<li class="active"><a data-toggle="pill" href="#button_repository_built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(4)</a></li>
 <li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(83)</a></li>
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
-_The above information was automatically generated on 2022-03-02 19:21:41 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2022-03-07 16:30:33 from querying `module avail` and `module spider`._
 
 
 <style>
