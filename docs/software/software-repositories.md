@@ -1482,7 +1482,7 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 <strong class="module-help">glow: Render Markdown on the CLI, with Pizzazz!</strong><br>
 <span class="module-description">Glow is a terminal based markdown reader designed from the ground up to bring out the beauty—and power—of the CLI.  Use it to discover markdown files, read documentation directly on the command line and stash markdown files to your own private collection so you can read them anywhere. Glow will find local markdown files in subdirectories or a local Git repository.</span><br>
 Example: <span class="module-example"><code>glow README.md</code>, <code>glow --pager README.md</code>.</span><br>
-URL: <span class="module-url"><a href="https://github.com/charmbracelet/glow">https://github.com/charmbracelet/glow</a></span><br>
+URL: <span class="module-url"><a href="https://github.com/charmbracelet/glow">https://github.com/charmbracelet/glow</a>, <a href="https://github.com/charmbracelet/glow/releases">https://github.com/charmbracelet/glow/releases</a> (changelog)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
 Versions: <span class="module-version">1.3.0, <em>1.4.1</em></span><br>
 <details>
@@ -1495,8 +1495,12 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: utility, file viewer, pager, markdown&quot;)
-whatis(&quot;URL: https://github.com/charmbracelet/glow&quot;)
-whatis(&quot;Description: Glow is a terminal based markdown reader designed from the ground up to bring out the beauty—and power—of the CLI.  Use it to discover markdown files, read documentation directly on the command line and stash markdown files to your own private collection so you can read them anywhere. Glow will find local markdown files in subdirectories or a local Git repository.  Examples: `glow README.md`, `glow --pager README.md`.  Warning: Only the most recent version of this software will be kept.&quot;)
+whatis(&quot;URL: https://github.com/charmbracelet/glow, https://github.com/charmbracelet/glow/releases (changelog)&quot;)
+whatis([[
+Description: Glow is a terminal based markdown reader designed from the ground up to bring out the beauty—and power—of the CLI.  Use it to discover markdown files, read documentation directly on the command line and stash markdown files to your own private collection so you can read them anywhere. Glow will find local markdown files in subdirectories or a local Git repository.
+Examples: `glow README.md`, `glow --pager README.md`.
+Warning: Only the most recent version of this software will be kept.
+]])
 
 -- Local variables
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
@@ -1513,8 +1517,8 @@ prepend_path(&quot;PATH&quot;, home)
   <dd class="module-details">
 <strong class="module-help">GSL: Gnu Scientific Library</strong><br>
 <span class="module-description">The GNU Scientific Library (GSL) is a numerical library for C and C++ programmers. It is free software under the GNU General Public License. The library provides a wide range of mathematical routines such as random number generators, special functions and least-squares fitting. There are over 1000 functions in total with an extensive test suite.</span><br>
-Example: <span class="module-example"><code>gsl-config --version</code></span><br>
-URL: <span class="module-url"><a href="https://www.gnu.org/software/gsl/">https://www.gnu.org/software/gsl/</a></span><br>
+Example: <span class="module-example"><code>gsl-config --version</code>.</span><br>
+URL: <span class="module-url"><a href="https://www.gnu.org/software/gsl/">https://www.gnu.org/software/gsl/</a>, <a href="https://git.savannah.gnu.org/cgit/gsl.git/tree/NEWS">https://git.savannah.gnu.org/cgit/gsl.git/tree/NEWS</a> (changelog), <a href="https://git.savannah.gnu.org/cgit/gsl.git/">https://git.savannah.gnu.org/cgit/gsl.git/</a> (source code)</span><br>
 Versions: <span class="module-version">2.6, <em>2.7</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
@@ -1526,8 +1530,11 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: library&quot;)
-whatis(&quot;URL: https://www.gnu.org/software/gsl/&quot;)
-whatis(&quot;Description: The GNU Scientific Library (GSL) is a numerical library for C and C++ programmers. It is free software under the GNU General Public License. The library provides a wide range of mathematical routines such as random number generators, special functions and least-squares fitting. There are over 1000 functions in total with an extensive test suite. Example: `gsl-config --version`&quot;)
+whatis(&quot;URL: https://www.gnu.org/software/gsl/, https://git.savannah.gnu.org/cgit/gsl.git/tree/NEWS (changelog), https://git.savannah.gnu.org/cgit/gsl.git/ (source code)&quot;)
+whatis([[
+Description: The GNU Scientific Library (GSL) is a numerical library for C and C++ programmers. It is free software under the GNU General Public License. The library provides a wide range of mathematical routines such as random number generators, special functions and least-squares fitting. There are over 1000 functions in total with an extensive test suite.
+Examples: `gsl-config --version`.
+]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
@@ -1583,7 +1590,7 @@ prepend_path(&quot;CPATH&quot;,  pathJoin(home, &quot;include&quot;))
 <strong class="module-help">HISAT2: Graph-based Alignment of Next Generation Sequencing Reads to a Population of Genomes</strong><br>
 <span class="module-description">HISAT2 is a fast and sensitive alignment program for mapping next-generation sequencing reads (both DNA and RNA) to a population of human genomes (as well as to a single reference genome). Based on an extension of BWT for graphs [Sirén et al. 2014], we designed and implemented a graph FM index (GFM), an original approach and its first implementation to the best of our knowledge. In addition to using one global GFM index that represents a population of human genomes, HISAT2 uses a large set of small GFM indexes that collectively cover the whole genome (each index representing a genomic region of 56 Kbp, with 55,000 indexes needed to cover the human population). These small indexes (called local indexes), combined with several alignment strategies, enable rapid and accurate alignment of sequencing reads. This new indexing scheme is called a Hierarchical Graph FM index (HGFM).</span><br>
 Example: <span class="module-example"><code>hisat2 --version</code>.</span><br>
-URL: <span class="module-url"><a href="https://daehwankimlab.github.io/hisat2/">https://daehwankimlab.github.io/hisat2/</a>, <a href="https://github.com/DaehwanKimLab/hisat2/">https://github.com/DaehwanKimLab/hisat2/</a></span><br>
+URL: <span class="module-url"><a href="https://daehwankimlab.github.io/hisat2/">https://daehwankimlab.github.io/hisat2/</a>, <a href="https://github.com/DaehwanKimLab/hisat2/releases">https://github.com/DaehwanKimLab/hisat2/releases</a> (changelog), <a href="https://github.com/DaehwanKimLab/hisat2/">https://github.com/DaehwanKimLab/hisat2/</a> (source code)</span><br>
 Versions: <span class="module-version"><em>2.2.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
@@ -1595,8 +1602,11 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: Programming, Statistics&quot;)
-whatis(&quot;URL: https://daehwankimlab.github.io/hisat2/, https://github.com/DaehwanKimLab/hisat2/&quot;)
-whatis(&quot;Description: HISAT2 is a fast and sensitive alignment program for mapping next-generation sequencing reads (both DNA and RNA) to a population of human genomes (as well as to a single reference genome). Based on an extension of BWT for graphs [Sirén et al. 2014], we designed and implemented a graph FM index (GFM), an original approach and its first implementation to the best of our knowledge. In addition to using one global GFM index that represents a population of human genomes, HISAT2 uses a large set of small GFM indexes that collectively cover the whole genome (each index representing a genomic region of 56 Kbp, with 55,000 indexes needed to cover the human population). These small indexes (called local indexes), combined with several alignment strategies, enable rapid and accurate alignment of sequencing reads. This new indexing scheme is called a Hierarchical Graph FM index (HGFM).  Example: `hisat2 --version`.&quot;)
+whatis(&quot;URL: https://daehwankimlab.github.io/hisat2/, https://github.com/DaehwanKimLab/hisat2/releases (changelog), https://github.com/DaehwanKimLab/hisat2/ (source code)&quot;)
+whatis([[
+Description: HISAT2 is a fast and sensitive alignment program for mapping next-generation sequencing reads (both DNA and RNA) to a population of human genomes (as well as to a single reference genome). Based on an extension of BWT for graphs [Sirén et al. 2014], we designed and implemented a graph FM index (GFM), an original approach and its first implementation to the best of our knowledge. In addition to using one global GFM index that represents a population of human genomes, HISAT2 uses a large set of small GFM indexes that collectively cover the whole genome (each index representing a genomic region of 56 Kbp, with 55,000 indexes needed to cover the human population). These small indexes (called local indexes), combined with several alignment strategies, enable rapid and accurate alignment of sequencing reads. This new indexing scheme is called a Hierarchical Graph FM index (HGFM).
+Examples: `hisat2 --version`.
+]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
@@ -1613,7 +1623,7 @@ prepend_path(&quot;PATH&quot;, home)
 <strong class="module-help">htop: An Interactive Process Viewer for Unix</strong><br>
 <span class="module-description"><code>htop</code> is an interactive process viewer for Unix systems. It is a text-mode application (for console or X terminals) and requires ncurses.</span><br>
 Example: <span class="module-example"><code>htop</code>.</span><br>
-URL: <span class="module-url"><a href="https://htop.dev">https://htop.dev</a>, <a href="https://github.com/htop-dev/htop">https://github.com/htop-dev/htop</a></span><br>
+URL: <span class="module-url"><a href="https://htop.dev">https://htop.dev</a>, <a href="https://github.com/htop-dev/htop">https://github.com/htop-dev/htop</a> (source code)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
 Versions: <span class="module-version"><em>3.1.2</em></span><br>
 <details>
@@ -1626,8 +1636,12 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: system, utility&quot;)
-whatis(&quot;URL: https://htop.dev, https://github.com/htop-dev/htop&quot;)
-whatis(&quot;Description: `htop` is an interactive process viewer for Unix systems. It is a text-mode application (for console or X terminals) and requires ncurses. Example: `htop`. Warning: Only the most recent version of this software will be kept.&quot;)
+whatis(&quot;URL: https://htop.dev, https://github.com/htop-dev/htop (source code)&quot;)
+whatis([[
+Description: `htop` is an interactive process viewer for Unix systems. It is a text-mode application (for console or X terminals) and requires ncurses.
+Examples: `htop`.
+Warning: Only the most recent version of this software will be kept.
+]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
@@ -1645,8 +1659,8 @@ prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;share&quot;, &quot;man&qu
 <strong class="module-help">HTSlib: C Library for High-Throughput Sequencing Data Formats</strong><br>
 <span class="module-description">HTSlib is an implementation of a unified C library for accessing common file formats, such as SAM, CRAM and VCF, used for high-throughput sequencing data, and is the core library used by samtools and bcftools. HTSlib also provides the bgzip, htsfile, and tabix utilities.</span><br>
 Example: <span class="module-example"><code>bgzip --version</code>, <code>htsfile --version</code>, and <code>tabix --version</code>.</span><br>
-URL: <span class="module-url"><a href="https://www.htslib.org/">https://www.htslib.org/</a>, <a href="https://github.com/samtools/htslib">https://github.com/samtools/htslib</a></span><br>
-Versions: <span class="module-version">1.10.2, 1.11, 1.12, 1.13, <em>1.14</em></span><br>
+URL: <span class="module-url"><a href="https://www.htslib.org/">https://www.htslib.org/</a>, <a href="https://github.com/samtools/htslib/blob/develop/NEWS">https://github.com/samtools/htslib/blob/develop/NEWS</a> (changelog), <a href="https://github.com/samtools/htslib">https://github.com/samtools/htslib</a> (source code)</span><br>
+Versions: <span class="module-version">1.10.2, 1.11, 1.12, 1.13, 1.14, <em>1.15</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -1657,8 +1671,11 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: sequencing, programming&quot;)
-whatis(&quot;URL: https://www.htslib.org/, https://github.com/samtools/htslib&quot;)
-whatis(&quot;Description: HTSlib is an implementation of a unified C library for accessing common file formats, such as SAM, CRAM and VCF, used for high-throughput sequencing data, and is the core library used by samtools and bcftools. HTSlib also provides the bgzip, htsfile, and tabix utilities.  Example: `bgzip --version`, `htsfile --version`, and `tabix --version`.&quot;)
+whatis(&quot;URL: https://www.htslib.org/, https://github.com/samtools/htslib/blob/develop/NEWS (changelog), https://github.com/samtools/htslib (source code)&quot;)
+whatis([[
+Description: HTSlib is an implementation of a unified C library for accessing common file formats, such as SAM, CRAM and VCF, used for high-throughput sequencing data, and is the core library used by samtools and bcftools. HTSlib also provides the bgzip, htsfile, and tabix utilities.
+Examples: `bgzip --version`, `htsfile --version`, and `tabix --version`.
+]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
@@ -1717,8 +1734,8 @@ prepend_path(&quot;PATH&quot;, home)
 <span class="module-description">The Integrative Genomics Viewer (IGV) is a high-performance visualization tool for interactive exploration of large, integrated genomic datasets. It supports a wide variety of data types, including array-based and next-generation sequence data, and genomic annotations.</span><br>
 Example: <span class="module-example"><code>igv</code>.</span><br>
 Note: <span class="module-note">IGV (&gt;= 2.5.0) requires Java 11. Coincidentally, <code>igvtools</code> is integrated with IGV (&gt;= 2.5.0).</span><br>
-URL: <span class="module-url"><a href="https://software.broadinstitute.org/software/igv/">https://software.broadinstitute.org/software/igv/</a>, <a href="https://software.broadinstitute.org/software/igv/download">https://software.broadinstitute.org/software/igv/download</a></span><br>
-Versions: <span class="module-version">2.8.6, 2.8.13, 2.9.1, 2.11.0, 2.11.3, <em>2.11.9</em></span><br>
+URL: <span class="module-url"><a href="https://software.broadinstitute.org/software/igv/">https://software.broadinstitute.org/software/igv/</a>, <a href="https://github.com/igvteam/igv/tags">https://github.com/igvteam/igv/tags</a> (changelog), <a href="https://github.com/igvteam/igv/">https://github.com/igvteam/igv/</a> (source code)</span><br>
+Versions: <span class="module-version">2.8.6, 2.8.13, 2.9.1, 2.11.0, 2.11.3, 2.11.9, <em>2.12.3</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -1730,8 +1747,11 @@ local name = &quot;IGV&quot;
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: sequencing&quot;)
-whatis(&quot;URL: https://software.broadinstitute.org/software/igv/, https://software.broadinstitute.org/software/igv/download&quot;)
-whatis(&quot;Description: The Integrative Genomics Viewer (IGV) is a high-performance visualization tool for interactive exploration of large, integrated genomic datasets. It supports a wide variety of data types, including array-based and next-generation sequence data, and genomic annotations.  Example: `igv`.  Note: IGV (&gt;= 2.5.0) requires Java 11. Coincidentally, `igvtools` is integrated with IGV (&gt;= 2.5.0).&quot;)
+whatis(&quot;URL: https://software.broadinstitute.org/software/igv/, https://github.com/igvteam/igv/tags (changelog), https://github.com/igvteam/igv/ (source code)&quot;)
+whatis([[
+Description: The Integrative Genomics Viewer (IGV) is a high-performance visualization tool for interactive exploration of large, integrated genomic datasets. It supports a wide variety of data types, including array-based and next-generation sequence data, and genomic annotations.
+Examples: `igv`.  Note: IGV (&gt;= 2.5.0) requires Java 11. Coincidentally, `igvtools` is integrated with IGV (&gt;= 2.5.0).
+]])
 
 -- depends_on(&quot;jdk&quot;)
 
@@ -1740,6 +1760,9 @@ local home = pathJoin(root, name .. &quot;-&quot; .. version)
 prepend_path(&quot;PATH&quot;, home)
 
 set_alias(&quot;igv&quot;, home .. &quot;/igv.sh&quot;)
+
+-- Tweak Java for the current environment
+depends_on(&quot;java-tweaks&quot;)
 </code></pre>
 
 </details>
@@ -1782,7 +1805,7 @@ prepend_path(&quot;PATH&quot;, home)
 <strong class="module-help">JAGS: Just Another Gibbs Sampler</strong><br>
 <span class="module-description">JAGS is Just Another Gibbs Sampler.  It is a program for analysis of Bayesian hierarchical models using Markov Chain Monte Carlo (MCMC) simulation not wholly unlike BUGS.</span><br>
 Example: <span class="module-example"><code>jags</code> and <code>man jags</code>.</span><br>
-URL: <span class="module-url"><a href="http://mcmc-jags.sourceforge.net/">http://mcmc-jags.sourceforge.net/</a></span><br>
+URL: <span class="module-url"><a href="http://mcmc-jags.sourceforge.net/">http://mcmc-jags.sourceforge.net/</a>, <a href="https://sourceforge.net/p/mcmc-jags/code-0/ci/default/tree/NEWS">https://sourceforge.net/p/mcmc-jags/code-0/ci/default/tree/NEWS</a> (changelog), <a href="https://sourceforge.net/projects/mcmc-jags/">https://sourceforge.net/projects/mcmc-jags/</a> (source code)</span><br>
 Versions: <span class="module-version"><em>4.3.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
@@ -1794,8 +1817,11 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: statistics&quot;)
-whatis(&quot;URL: http://mcmc-jags.sourceforge.net/&quot;)
-whatis(&quot;Description: JAGS is Just Another Gibbs Sampler.  It is a program for analysis of Bayesian hierarchical models using Markov Chain Monte Carlo (MCMC) simulation not wholly unlike BUGS. Example: `jags` and `man jags`.&quot;)
+whatis(&quot;URL: http://mcmc-jags.sourceforge.net/, https://sourceforge.net/p/mcmc-jags/code-0/ci/default/tree/NEWS (changelog), https://sourceforge.net/projects/mcmc-jags/ (source code)&quot;)
+whatis([[
+Description: JAGS is Just Another Gibbs Sampler.  It is a program for analysis of Bayesian hierarchical models using Markov Chain Monte Carlo (MCMC) simulation not wholly unlike BUGS.
+Examples: `jags` and `man jags`.
+]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, &quot;JAGS&quot; .. &quot;-&quot; .. version)
@@ -1825,9 +1851,9 @@ pushenv(&quot;JAGS_LIB&quot;, pathJoin(home, &quot;lib&quot;))
   <dd class="module-details">
 <strong class="module-help">kallisto: Near-optimal RNA-Seq Quantification</strong><br>
 <span class="module-description">kallisto is a program for quantifying abundances of transcripts from RNA-Seq data, or more generally of target sequences using high-throughput sequencing reads. It is based on the novel idea of pseudoalignment for rapidly determining the compatibility of reads with targets, without the need for alignment.</span><br>
-Example: <span class="module-example"><code>kallisto version</code>.</span><br>
-URL: <span class="module-url"><a href="https://pachterlab.github.io/kallisto/about.html">https://pachterlab.github.io/kallisto/about.html</a>, <a href="https://github.com/pachterlab/kallisto">https://github.com/pachterlab/kallisto</a></span><br>
-Versions: <span class="module-version"><em>0.46.2</em></span><br>
+Example: <span class="module-example"><code>kallisto version</code></span><br>
+URL: <span class="module-url"><a href="https://pachterlab.github.io/kallisto/about.html">https://pachterlab.github.io/kallisto/about.html</a>, <a href="https://github.com/pachterlab/kallisto/releases">https://github.com/pachterlab/kallisto/releases</a> (changelog), <a href="https://github.com/pachterlab/kallisto">https://github.com/pachterlab/kallisto</a> (source code)</span><br>
+Versions: <span class="module-version">0.46.2, <em>0.48.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -1838,14 +1864,16 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: sequencing&quot;)
-whatis(&quot;URL: https://pachterlab.github.io/kallisto/about.html, https://github.com/pachterlab/kallisto&quot;)
-whatis(&quot;Description: kallisto is a program for quantifying abundances of transcripts from RNA-Seq data, or more generally of target sequences using high-throughput sequencing reads. It is based on the novel idea of pseudoalignment for rapidly determining the compatibility of reads with targets, without the need for alignment.  Example: `kallisto version`.&quot;)
+whatis(&quot;URL: https://pachterlab.github.io/kallisto/about.html, https://github.com/pachterlab/kallisto/releases (changelog), https://github.com/pachterlab/kallisto (source code)&quot;)
+whatis([[
+Description: kallisto is a program for quantifying abundances of transcripts from RNA-Seq data, or more generally of target sequences using high-throughput sequencing reads. It is based on the novel idea of pseudoalignment for rapidly determining the compatibility of reads with targets, without the need for alignment.
+Examples: `kallisto version`
+]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
 
 prepend_path(&quot;PATH&quot;, home)
-
 </code></pre>
 
 </details>
@@ -1890,7 +1918,7 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
   <dd class="module-details">
 <strong class="module-help">libSBML: An Open-Source Library for Working with SBML (the Systems Biology Markup Language)</strong><br>
 <span class="module-description">LibSBML is a native library for reading, writing and manipulating files and data streams containing the Systems Biology Markup Language (SBML). It offers language bindings for C, C++, C#, Java, JavaScript, MATLAB, Perl, PHP, Python, R and Ruby.</span><br>
-URL: <span class="module-url"><a href="http://sbml.org/Software/libSBML">http://sbml.org/Software/libSBML</a>, <a href="https://github.com/sbmlteam/libsbml">https://github.com/sbmlteam/libsbml</a></span><br>
+URL: <span class="module-url"><a href="http://sbml.org/Software/libSBML">http://sbml.org/Software/libSBML</a>, <a href="https://github.com/sbmlteam/libsbml/blob/development/NEWS.txt">https://github.com/sbmlteam/libsbml/blob/development/NEWS.txt</a> (changelog), <a href="https://github.com/sbmlteam/libsbml">https://github.com/sbmlteam/libsbml</a> (source code)</span><br>
 Versions: <span class="module-version">5.10.2, <em>5.19.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
@@ -1902,8 +1930,10 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: programming, library&quot;)
-whatis(&quot;URL: http://sbml.org/Software/libSBML, https://github.com/sbmlteam/libsbml&quot;)
-whatis(&quot;Description: LibSBML is a native library for reading, writing and manipulating files and data streams containing the Systems Biology Markup Language (SBML). It offers language bindings for C, C++, C#, Java, JavaScript, MATLAB, Perl, PHP, Python, R and Ruby.&quot;)
+whatis(&quot;URL: http://sbml.org/Software/libSBML, https://github.com/sbmlteam/libsbml/blob/development/NEWS.txt (changelog), https://github.com/sbmlteam/libsbml (source code)&quot;)
+whatis([[
+Description: LibSBML is a native library for reading, writing and manipulating files and data streams containing the Systems Biology Markup Language (SBML). It offers language bindings for C, C++, C#, Java, JavaScript, MATLAB, Perl, PHP, Python, R and Ruby.
+]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
@@ -1930,7 +1960,7 @@ prepend_path(&quot;PKG_CONFIG_PATH&quot;, pathJoin(home, &quot;lib&quot;, &quot;
 <strong class="module-help">mc: Midnight Commander</strong><br>
 <span class="module-description">GNU Midnight Commander is a visual file manager. It's a feature rich full-screen text mode application that allows you to copy, move and delete files and whole directory trees, search for files and run commands in the subshell. Internal viewer and editor are included.</span><br>
 Example: <span class="module-example"><code>mc</code> and <code>mc --version</code>.</span><br>
-URL: <span class="module-url"><a href="http://www.midnight-commander.org/">http://www.midnight-commander.org/</a>, <a href="https://github.com/MidnightCommander/mc">https://github.com/MidnightCommander/mc</a></span><br>
+URL: <span class="module-url"><a href="https://midnight-commander.org/">https://midnight-commander.org/</a>, <a href="https://github.com/MidnightCommander/mc/blob/master/doc/NEWS">https://github.com/MidnightCommander/mc/blob/master/doc/NEWS</a> (changelog), <a href="https://github.com/MidnightCommander/mc">https://github.com/MidnightCommander/mc</a> (source code)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
 Versions: <span class="module-version">4.8.26, <em>4.8.27</em></span><br>
 <details>
@@ -1943,8 +1973,12 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: Programming, Statistics&quot;)
-whatis(&quot;URL: http://www.midnight-commander.org/, https://github.com/MidnightCommander/mc&quot;)
-whatis(&quot;Description: GNU Midnight Commander is a visual file manager. It's a feature rich full-screen text mode application that allows you to copy, move and delete files and whole directory trees, search for files and run commands in the subshell. Internal viewer and editor are included. Examples: `mc` and `mc --version`.  Warning: Only the most recent version of this software will be kept.&quot;)
+whatis(&quot;URL: https://midnight-commander.org/, https://github.com/MidnightCommander/mc/blob/master/doc/NEWS (changelog), https://github.com/MidnightCommander/mc (source code)&quot;)
+whatis([[
+Description: GNU Midnight Commander is a visual file manager. It's a feature rich full-screen text mode application that allows you to copy, move and delete files and whole directory trees, search for files and run commands in the subshell. Internal viewer and editor are included.
+Examples: `mc` and `mc --version`.
+Warning: Only the most recent version of this software will be kept.
+]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
@@ -1961,8 +1995,8 @@ prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;share&quot;, &quot;man&qu
   <dd class="module-details">
 <strong class="module-help">muTect: Identification of Somatic Point Mutations in Next Generation Sequencing Data of Cancer Genomes</strong><br>
 <span class="module-description">MuTect is a method developed at the Broad Institute for the reliable and accurate identification of somatic point mutations in next generation sequencing data of cancer genomes.</span><br>
-Example: <span class="module-example"><code>mutect</code>, which is short for <code>java -Xmx2g -jar &quot;$MUTECT_JAR&quot;</code>.</span><br>
-URL: <span class="module-url"><a href="https://github.com/broadinstitute/mutect">https://github.com/broadinstitute/mutect</a>, <a href="https://software.broadinstitute.org/cancer/cga/mutect">https://software.broadinstitute.org/cancer/cga/mutect</a></span><br>
+Example: <span class="module-example"><code>mutect</code>, which is short for <code>java -Xmx2g -jar \&quot;$MUTECT_JAR\&quot;</code>.</span><br>
+URL: <span class="module-url"><a href="https://software.broadinstitute.org/cancer/cga/mutect">https://software.broadinstitute.org/cancer/cga/mutect</a>, <a href="https://github.com/broadinstitute/mutect">https://github.com/broadinstitute/mutect</a> (source code)</span><br>
 Versions: <span class="module-version">1.0.27783, 1.1.1, 1.1.4, <em>1.1.5</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
@@ -1974,11 +2008,24 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: sequencing, genome&quot;)
-whatis(&quot;URL: https://github.com/broadinstitute/mutect, https://software.broadinstitute.org/cancer/cga/mutect&quot;)
-whatis(&quot;Description: MuTect is a method developed at the Broad Institute for the reliable and accurate identification of somatic point mutations in next generation sequencing data of cancer genomes. Example: `mutect`, which is short for `java -Xmx2g -jar \&quot;$MUTECT_JAR\&quot;`.&quot;)
+whatis(&quot;URL: https://software.broadinstitute.org/cancer/cga/mutect, https://github.com/broadinstitute/mutect (source code)&quot;)
+whatis([[
+Description: MuTect is a method developed at the Broad Institute for the reliable and accurate identification of somatic point mutations in next generation sequencing data of cancer genomes.
+Examples: `mutect`, which is short for `java -Xmx2g -jar \&quot;$MUTECT_JAR\&quot;`.
+]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
+
+if (version == &quot;1.0.27783&quot;) then
+  -- muTect 1.0.27783 requires Java (&lt;= 1.7)
+  local cluster = os.getenv(&quot;CLUSTER&quot;)
+  if (cluster == &quot;tipcc&quot;) then
+    load(&quot;jdk/1.7.0&quot;)
+  else
+    depends_on(&quot;openjdk/1.6.0&quot;)
+  end
+end
 
 name = &quot;muTect&quot;
 pushenv(&quot;MUTECT_HOME&quot;, home)
@@ -1986,8 +2033,8 @@ local jarfile = pathJoin(home, name .. &quot;-&quot; .. version .. &quot;.jar&qu
 pushenv(&quot;MUTECT_JAR&quot;, jarfile)
 set_alias(&quot;mutect&quot;, &quot;java -Xmx2g -jar &quot; .. jarfile)
 
-
-
+-- Tweak Java for the current environment
+depends_on(&quot;java-tweaks&quot;)
 </code></pre>
 
 </details>
@@ -1999,9 +2046,9 @@ set_alias(&quot;mutect&quot;, &quot;java -Xmx2g -jar &quot; .. jarfile)
 <strong class="module-help">Pandoc: A Universal Document Converter</strong><br>
 <span class="module-description">Pandoc is a Haskell library and software tool for converting from one markup format to another, and a command-line tool that uses this library.</span><br>
 Example: <span class="module-example"><code>pandoc --version</code>.</span><br>
-URL: <span class="module-url"><a href="https://pandoc.org/">https://pandoc.org/</a>, <a href="https://github.com/jgm/pandoc">https://github.com/jgm/pandoc</a></span><br>
+URL: <span class="module-url"><a href="https://pandoc.org/">https://pandoc.org/</a>, <a href="https://github.com/jgm/pandoc/blob/master/changelog.md">https://github.com/jgm/pandoc/blob/master/changelog.md</a> (changelog), <a href="https://github.com/jgm/pandoc">https://github.com/jgm/pandoc</a> (source code)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version">2.10.1, 2.11.3.2, 2.11.4, 2.14.2, <em>2.16.2</em></span><br>
+Versions: <span class="module-version">2.10.1, 2.11.3.2, 2.11.4, 2.14.2, 2.16.2, <em>2.17.1.1</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -2012,8 +2059,12 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: cli, shell&quot;)
-whatis(&quot;URL: https://pandoc.org/, https://github.com/jgm/pandoc&quot;)
-whatis(&quot;Description: Pandoc is a Haskell library and software tool for converting from one markup format to another, and a command-line tool that uses this library.  Example: `pandoc --version`. Warning: Only the most recent version of this software will be kept.&quot;)
+whatis(&quot;URL: https://pandoc.org/, https://github.com/jgm/pandoc/blob/master/changelog.md (changelog), https://github.com/jgm/pandoc (source code)&quot;)
+whatis([[
+Description: Pandoc is a Haskell library and software tool for converting from one markup format to another, and a command-line tool that uses this library.
+Examples: `pandoc --version`.
+Warning: Only the most recent version of this software will be kept.
+]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
@@ -2030,27 +2081,32 @@ prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;share&quot;, &quot;man&qu
   <dd class="module-details">
 <strong class="module-help">Picard: Command-line tools for Manipulating High-throughput Sequencing Data and Formats</strong><br>
 <span class="module-description">Picard is a set of command line tools for manipulating high-throughput sequencing (HTS) data and formats such as SAM/BAM/CRAM and VCF.</span><br>
-Example: <span class="module-example"><code>picard -h</code>, which is an alias for <code>java -jar $PICARD_HOME/picard.jar -h</code></span><br>
-URL: <span class="module-url"><a href="http://broadinstitute.github.io/picard/">http://broadinstitute.github.io/picard/</a>, <a href="https://github.com/broadinstitute/picard">https://github.com/broadinstitute/picard</a></span><br>
-Versions: <span class="module-version">1.64, 2.23.1, 2.24.0, 2.25.0, 2.26.2, 2.26.5, <em>2.26.10</em></span><br>
+Example: <span class="module-example"><code>picard -h</code>, which is an alias for <code>java -jar $PICARD_HOME/picard.jar -h</code>&quot;</span><br>
+URL: <span class="module-url"><a href="http://broadinstitute.github.io/picard/">http://broadinstitute.github.io/picard/</a>, <a href="https://github.com/broadinstitute/picard/releases">https://github.com/broadinstitute/picard/releases</a> (changelog), <a href="https://github.com/broadinstitute/picard">https://github.com/broadinstitute/picard</a> (source code)</span><br>
+Versions: <span class="module-version">1.64, 2.23.1, 2.24.0, 2.25.0, 2.26.2, 2.26.5, 2.26.10, <em>2.26.11</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
-Picard: Command-line tools for Manipulating High-throughput Sequencing Data and Formats
+Picard: Command-Line Tools for Manipulating High-throughput Sequencing Data and Formats
 ]])
 
 local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: sequencing&quot;)
-whatis(&quot;URL: http://broadinstitute.github.io/picard/, https://github.com/broadinstitute/picard&quot;)
-whatis(&quot;Description: Picard is a set of command line tools for manipulating high-throughput sequencing (HTS) data and formats such as SAM/BAM/CRAM and VCF.  Example: `picard -h`, which is an alias for `java -jar $PICARD_HOME/picard.jar -h`&quot;)
+whatis(&quot;URL: http://broadinstitute.github.io/picard/, https://github.com/broadinstitute/picard/releases (changelog), https://github.com/broadinstitute/picard (source code)&quot;)
+whatis([[
+Description: Picard is a set of command line tools for manipulating high-throughput sequencing (HTS) data and formats such as SAM/BAM/CRAM and VCF.
+Examples: `picard -h`, which is an alias for `java -jar $PICARD_HOME/picard.jar -h`&quot;
+]])
 
 local version_x = string.gsub(version, &quot;[.].*&quot;, &quot;&quot;)
 if (version_x == &quot;1&quot;) then
   -- Pindel 1.64 requires Java (&lt;= 1.6)
-  local cluster = os.getenv(&quot;CLUSTER&quot;)
   depends_on(&quot;openjdk/1.6.0&quot;)
+else
+  -- As of version 2.0.1 (Nov. 2015) Picard requires Java 1.8 (jdk8u66)
+  depends_on(&quot;openjdk/1.8.0&quot;)
 end
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
@@ -2058,8 +2114,8 @@ local home = pathJoin(root, name .. &quot;-&quot; .. version)
 pushenv(&quot;PICARD_HOME&quot;, home)
 set_alias(&quot;picard&quot;, &quot;java -jar &quot; .. pathJoin(home, &quot;picard.jar&quot;))
 
-
-
+-- Tweak Java for the current environment
+depends_on(&quot;java-tweaks&quot;)
 </code></pre>
 
 </details>
@@ -2071,7 +2127,7 @@ set_alias(&quot;picard&quot;, &quot;java -jar &quot; .. pathJoin(home, &quot;pic
 <strong class="module-help">pindel: Detection of Indels and Structural Variations</strong><br>
 <span class="module-description">Pindel can detect breakpoints of large deletions, medium sized insertions, inversions, tandem duplications and other structural variants at single-based resolution from next-gen sequence data. It uses a pattern growth approach to identify the breakpoints of these variants from paired-end short reads.</span><br>
 Example: <span class="module-example"><code>pindel</code>.</span><br>
-URL: <span class="module-url"><a href="https://www.sanger.ac.uk/science/tools/pindel">https://www.sanger.ac.uk/science/tools/pindel</a>, <a href="https://github.com/genome/pindel">https://github.com/genome/pindel</a></span><br>
+URL: <span class="module-url"><a href="https://www.sanger.ac.uk/science/tools/pindel">https://www.sanger.ac.uk/science/tools/pindel</a>, <a href="https://github.com/genome/pindel/tags">https://github.com/genome/pindel/tags</a> (changelog), <a href="https://github.com/genome/pindel">https://github.com/genome/pindel</a> (source code)</span><br>
 Versions: <span class="module-version">0.2.4t, <em>0.2.5b8</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
@@ -2083,8 +2139,11 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: sequencing&quot;)
-whatis(&quot;URL: https://www.sanger.ac.uk/science/tools/pindel, https://github.com/genome/pindel&quot;)
-whatis(&quot;Description: Pindel can detect breakpoints of large deletions, medium sized insertions, inversions, tandem duplications and other structural variants at single-based resolution from next-gen sequence data. It uses a pattern growth approach to identify the breakpoints of these variants from paired-end short reads.  Example: `pindel`.&quot;)
+whatis(&quot;URL: https://www.sanger.ac.uk/science/tools/pindel, https://github.com/genome/pindel/tags (changelog), https://github.com/genome/pindel (source code)&quot;)
+whatis([[
+Description: Pindel can detect breakpoints of large deletions, medium sized insertions, inversions, tandem duplications and other structural variants at single-based resolution from next-gen sequence data. It uses a pattern growth approach to identify the breakpoints of these variants from paired-end short reads.
+Examples: `pindel`.
+]])
 
 if (version == &quot;0.2.4t&quot;) then
   load(&quot;samtools/0.1.18&quot;)
@@ -2139,7 +2198,7 @@ prepend_path(&quot;PATH&quot;, home)
 <strong class="module-help">PLINK2: Whole Genome Association Analysis Toolset</strong><br>
 <span class="module-description">PLINK is a free, open-source whole genome association analysis toolset, designed to perform a range of basic, large-scale analyses in a computationally efficient manner. The focus of PLINK is purely on analysis of genotype/phenotype data, so there is no support for steps prior to this (e.g. study design and planning, generating genotype or CNV calls from raw data).</span><br>
 Example: <span class="module-example"><code>plink2 --help</code>.</span><br>
-URL: <span class="module-url"><a href="https://www.cog-genomics.org/plink/2.0/">https://www.cog-genomics.org/plink/2.0/</a>, <a href="https://github.com/chrchang/plink-ng">https://github.com/chrchang/plink-ng</a></span><br>
+URL: <span class="module-url"><a href="https://www.cog-genomics.org/plink/2.0/">https://www.cog-genomics.org/plink/2.0/</a>, <a href="https://www.cog-genomics.org/plink/2.0/#recent">https://www.cog-genomics.org/plink/2.0/#recent</a> (changelog), <a href="https://github.com/chrchang/plink-ng">https://github.com/chrchang/plink-ng</a> (source code)</span><br>
 Versions: <span class="module-version"><em>2.00a3LM</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
@@ -2151,8 +2210,11 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: genomics&quot;)
-whatis(&quot;URL: https://www.cog-genomics.org/plink/2.0/, https://github.com/chrchang/plink-ng&quot;)
-whatis(&quot;Description: PLINK is a free, open-source whole genome association analysis toolset, designed to perform a range of basic, large-scale analyses in a computationally efficient manner. The focus of PLINK is purely on analysis of genotype/phenotype data, so there is no support for steps prior to this (e.g. study design and planning, generating genotype or CNV calls from raw data). Example: `plink2 --help`.&quot;)
+whatis(&quot;URL: https://www.cog-genomics.org/plink/2.0/, https://www.cog-genomics.org/plink/2.0/#recent (changelog), https://github.com/chrchang/plink-ng (source code)&quot;)
+whatis([[
+Description: PLINK is a free, open-source whole genome association analysis toolset, designed to perform a range of basic, large-scale analyses in a computationally efficient manner. The focus of PLINK is purely on analysis of genotype/phenotype data, so there is no support for steps prior to this (e.g. study design and planning, generating genotype or CNV calls from raw data).
+Examples: `plink2 --help`.
+]])
 
 -- Local variables
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
@@ -2398,7 +2460,7 @@ prepend_path(&quot;MANPATH&quot;, home)
 <strong class="module-help">ripgrep: Recursively Searches Directories for a Regex Pattern</strong><br>
 <span class="module-description">ripgrep is a line-oriented search tool that recursively searches your current directory for a regex pattern. By default, ripgrep will respect your .gitignore and automatically skip hidden files/directories and binary files. ripgrep is similar to other popular search tools like The Silver Searcher, ack and grep.</span><br>
 Example: <span class="module-example"><code>rg --version</code> and <code>rg -i 'lorem ipsum'</code>.</span><br>
-URL: <span class="module-url"><a href="https://github.com/BurntSushi/ripgrep">https://github.com/BurntSushi/ripgrep</a></span><br>
+URL: <span class="module-url"><a href="https://github.com/BurntSushi/ripgrep">https://github.com/BurntSushi/ripgrep</a>, <a href="https://github.com/BurntSushi/ripgrep/blob/master/CHANGELOG.md">https://github.com/BurntSushi/ripgrep/blob/master/CHANGELOG.md</a> (changelog)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
 Versions: <span class="module-version"><em>13.0.0</em></span><br>
 <details>
@@ -2411,8 +2473,12 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: utility, files, search&quot;)
-whatis(&quot;URL: https://github.com/BurntSushi/ripgrep&quot;)
-whatis(&quot;Description: ripgrep is a line-oriented search tool that recursively searches your current directory for a regex pattern. By default, ripgrep will respect your .gitignore and automatically skip hidden files/directories and binary files. ripgrep is similar to other popular search tools like The Silver Searcher, ack and grep.  Examples: `rg --version` and `rg -i 'lorem ipsum'`. Warning: Only the most recent version of this software will be kept.&quot;)
+whatis(&quot;URL: https://github.com/BurntSushi/ripgrep, https://github.com/BurntSushi/ripgrep/blob/master/CHANGELOG.md (changelog)&quot;)
+whatis([[
+Description: ripgrep is a line-oriented search tool that recursively searches your current directory for a regex pattern. By default, ripgrep will respect your .gitignore and automatically skip hidden files/directories and binary files. ripgrep is similar to other popular search tools like The Silver Searcher, ack and grep.
+Examples: `rg --version` and `rg -i 'lorem ipsum'`.
+Warning: Only the most recent version of this software will be kept.
+]])
 
 -- Local variables
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
@@ -2546,8 +2612,8 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 <strong class="module-help">salmon: Salmon Provides Fast and Bias-Aware Quantification of Transcript Expression</strong><br>
 <span class="module-description">Highly-accurate &amp; wicked fast transcript-level quantification from RNA-seq reads using selective alignment.</span><br>
 Example: <span class="module-example"><code>salmon --version</code>.</span><br>
-URL: <span class="module-url"><a href="https://combine-lab.github.io/salmon/">https://combine-lab.github.io/salmon/</a>, <a href="https://github.com/COMBINE-lab/salmon">https://github.com/COMBINE-lab/salmon</a></span><br>
-Versions: <span class="module-version">1.3.0, 1.4.0, 1.5.2, <em>1.6.0</em></span><br>
+URL: <span class="module-url"><a href="https://combine-lab.github.io/salmon/">https://combine-lab.github.io/salmon/</a>, <a href="https://github.com/COMBINE-lab/salmon/releases">https://github.com/COMBINE-lab/salmon/releases</a> (changelog), <a href="https://github.com/COMBINE-lab/salmon">https://github.com/COMBINE-lab/salmon</a> (source code)</span><br>
+Versions: <span class="module-version">1.3.0, 1.4.0, 1.5.2, 1.6.0, <em>1.7.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -2558,8 +2624,11 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: sequencing&quot;)
-whatis(&quot;URL: https://combine-lab.github.io/salmon/, https://github.com/COMBINE-lab/salmon&quot;)
-whatis(&quot;Description: Highly-accurate &amp; wicked fast transcript-level quantification from RNA-seq reads using selective alignment.  Example: `salmon --version`.&quot;)
+whatis(&quot;URL: https://combine-lab.github.io/salmon/, https://github.com/COMBINE-lab/salmon/releases (changelog), https://github.com/COMBINE-lab/salmon (source code)&quot;)
+whatis([[
+Description: Highly-accurate &amp; wicked fast transcript-level quantification from RNA-seq reads using selective alignment.
+Examples: `salmon --version`.
+]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
@@ -2577,8 +2646,8 @@ prepend_path(&quot;LD_LIBRARY_PATH&quot;, pathJoin(home, &quot;lib&quot;))
 <strong class="module-help">SAMtools: Tools (written in C using htslib) for Manipulating Next-Generation Sequencing Data</strong><br>
 <span class="module-description">SAMtools is a suite of programs for interacting with high-throughput sequencing data.</span><br>
 Example: <span class="module-example"><code>samtools --version</code>.</span><br>
-URL: <span class="module-url"><a href="https://www.htslib.org/">https://www.htslib.org/</a>, <a href="https://github.com/samtools/samtools">https://github.com/samtools/samtools</a></span><br>
-Versions: <span class="module-version">0.1.12a, 0.1.18, 1.10, 1.11, 1.12, 1.13, <em>1.14</em></span><br>
+URL: <span class="module-url"><a href="https://www.htslib.org/">https://www.htslib.org/</a>, <a href="https://github.com/samtools/samtools/blob/develop/NEWS">https://github.com/samtools/samtools/blob/develop/NEWS</a> (changelog), <a href="https://github.com/samtools/samtools">https://github.com/samtools/samtools</a> (source code)</span><br>
+Versions: <span class="module-version">0.1.12a, 0.1.18, 1.10, 1.11, 1.12, 1.13, 1.14, <em>1.15</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -2589,8 +2658,11 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: sequencing&quot;)
-whatis(&quot;URL: https://www.htslib.org/, https://github.com/samtools/samtools&quot;)
-whatis(&quot;Description: SAMtools is a suite of programs for interacting with high-throughput sequencing data.  Example: `samtools --version`.&quot;)
+whatis(&quot;URL: https://www.htslib.org/, https://github.com/samtools/samtools/blob/develop/NEWS (changelog), https://github.com/samtools/samtools (source code)&quot;)
+whatis([[
+Description: SAMtools is a suite of programs for interacting with high-throughput sequencing data.
+Examples: `samtools --version`.
+]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
@@ -2766,7 +2838,7 @@ setenv(&quot;XDG_DATA_DIRS&quot;,&quot;/opt/rh/rh-ruby26/root/usr/local/share:/o
 <strong class="module-help">ShellCheck: A Shell Script Static Analysis Tool</strong><br>
 <span class="module-description">ShellCheck finds bugs in your shell scripts.</span><br>
 Example: <span class="module-example"><code>shellcheck --version</code> and <code>shellcheck -x ~/.bashrc</code>.</span><br>
-URL: <span class="module-url"><a href="https://www.shellcheck.net/">https://www.shellcheck.net/</a>, <a href="https://github.com/koalaman/shellcheck/">https://github.com/koalaman/shellcheck/</a></span><br>
+URL: <span class="module-url"><a href="https://www.shellcheck.net/">https://www.shellcheck.net/</a>, <a href="https://github.com/koalaman/shellcheck/blob/master/CHANGELOG.md">https://github.com/koalaman/shellcheck/blob/master/CHANGELOG.md</a> (changelog), <a href="https://github.com/koalaman/shellcheck/">https://github.com/koalaman/shellcheck/</a> (source code)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
 Versions: <span class="module-version">0.7.1, 0.7.2, <em>0.8.0</em></span><br>
 <details>
@@ -2779,8 +2851,12 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: programming, shell, sh, bash, dash, ksh&quot;)
-whatis(&quot;URL: https://www.shellcheck.net/, https://github.com/koalaman/shellcheck/&quot;)
-whatis(&quot;Description: ShellCheck finds bugs in your shell scripts.  Example: `shellcheck --version` and `shellcheck -x ~/.bashrc`.  Warning: Only the most recent version of this software will be kept.&quot;)
+whatis(&quot;URL: https://www.shellcheck.net/, https://github.com/koalaman/shellcheck/blob/master/CHANGELOG.md (changelog), https://github.com/koalaman/shellcheck/ (source code)&quot;)
+whatis([[
+Description: ShellCheck finds bugs in your shell scripts.
+Examples: `shellcheck --version` and `shellcheck -x ~/.bashrc`.
+Warning: Only the most recent version of this software will be kept.
+]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
@@ -2798,7 +2874,7 @@ prepend_path(&quot;PATH&quot;, home)
 <strong class="module-help">SnpEff: Genetic Variant Annotation and Effect Prediction Toolbox</strong><br>
 <span class="module-description">SnpEff is a variant annotation and effect prediction tool. It annotates and predicts the effects of variants on genes (such as amino acid changes).</span><br>
 Example: <span class="module-example"><code>snpEff -help</code>, <code>SnpSift -help</code>,  and <code>ClinEff -help</code>, which are aliases for <code>java -jar $SNPEFF_HOME/snpEff/snpEff.jar -help</code>, <code>java -jar $SNPEFF_HOME/snpEff/SnpSift.jar -help</code>, and <code>java -jar $SNPEFF_HOME/clinEff/ClinEff.jar -help</code>.</span><br>
-URL: <span class="module-url"><a href="http://snpeff.sourceforge.net/">http://snpeff.sourceforge.net/</a></span><br>
+URL: <span class="module-url"><a href="https://pcingola.github.io/SnpEff/">https://pcingola.github.io/SnpEff/</a>, <a href="https://github.com/pcingola/SnpEff/tags">https://github.com/pcingola/SnpEff/tags</a> (change log), <a href="https://github.com/pcingola/SnpEff">https://github.com/pcingola/SnpEff</a> (source code)</span><br>
 Versions: <span class="module-version">4.3t, 5.0c, <em>5.0e</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
@@ -2810,8 +2886,11 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: high-throughput sequencing&quot;)
-whatis(&quot;URL: http://snpeff.sourceforge.net/&quot;)
-whatis(&quot;Description: SnpEff is a variant annotation and effect prediction tool. It annotates and predicts the effects of variants on genes (such as amino acid changes). Example: `snpEff -help`, `SnpSift -help`,  and `ClinEff -help`, which are aliases for `java -jar $SNPEFF_HOME/snpEff/snpEff.jar -help`, `java -jar $SNPEFF_HOME/snpEff/SnpSift.jar -help`, and `java -jar $SNPEFF_HOME/clinEff/ClinEff.jar -help`.&quot;)
+whatis(&quot;URL: https://pcingola.github.io/SnpEff/, https://github.com/pcingola/SnpEff/tags (change log), https://github.com/pcingola/SnpEff (source code)&quot;)
+whatis([[
+Description: SnpEff is a variant annotation and effect prediction tool. It annotates and predicts the effects of variants on genes (such as amino acid changes).
+Examples: `snpEff -help`, `SnpSift -help`,  and `ClinEff -help`, which are aliases for `java -jar $SNPEFF_HOME/snpEff/snpEff.jar -help`, `java -jar $SNPEFF_HOME/snpEff/SnpSift.jar -help`, and `java -jar $SNPEFF_HOME/clinEff/ClinEff.jar -help`.
+]])
 
 local name = &quot;snpEff&quot;
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
@@ -2830,6 +2909,9 @@ set_alias(&quot;SnpSift&quot;, &quot;java -jar &quot; .. jarfile)
 local jarfile = pathJoin(home, &quot;clinEff&quot;, &quot;ClinEff.jar&quot;)
 pushenv(&quot;CLINEFF&quot;, jarfile)
 set_alias(&quot;ClinEff&quot;, &quot;java -jar &quot; .. jarfile)
+
+-- Tweak Java for the current environment
+depends_on(&quot;java-tweaks&quot;)
 </code></pre>
 
 </details>
@@ -2875,9 +2957,9 @@ prepend_path(&quot;PKG_CONFIG_PATH&quot;, pathJoin(home, &quot;lib&quot;, &quot;
 <strong class="module-help">SRA Toolkit: Tools and Libraries for Using Data in the INSDC Sequence Read Archives</strong><br>
 <span class="module-description">The SRA Toolkit and SDK from NCBI is a collection of tools and libraries for using data in the INSDC Sequence Read Archives.</span><br>
 Example: <span class="module-example"><code>fastq-dump --help</code>.</span><br>
-URL: <span class="module-url"><a href="https://ncbi.github.io/sra-tools/">https://ncbi.github.io/sra-tools/</a>, <a href="https://github.com/ncbi/sra-tools">https://github.com/ncbi/sra-tools</a></span><br>
+URL: <span class="module-url"><a href="https://ncbi.github.io/sra-tools/">https://ncbi.github.io/sra-tools/</a>, <a href="https://github.com/ncbi/sra-tools/blob/master/CHANGES.md">https://github.com/ncbi/sra-tools/blob/master/CHANGES.md</a> (changelog), <a href="https://github.com/ncbi/sra-tools">https://github.com/ncbi/sra-tools</a> (source code)</span><br>
 Warning: <span class="module-warning">To work around a bug where <code>fasterq-dump</code> crashes the local machine, it has been tweaked such that it uses <code>$TMPDIR</code> rather than <code>$PWD</code> as the default temporary folder and it will only use two threads instead of six by default.</span><br>
-Versions: <span class="module-version">2.10.8, 2.10.9, 2.11.0, 2.11.1, 2.11.2, <em>2.11.3</em></span><br>
+Versions: <span class="module-version">2.10.8, 2.10.9, 2.11.0, 2.11.1, 2.11.2, 2.11.3, <em>3.0.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -2888,8 +2970,12 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: sequencing&quot;)
-whatis(&quot;URL: https://ncbi.github.io/sra-tools/, https://github.com/ncbi/sra-tools&quot;)
-whatis(&quot;Description: The SRA Toolkit and SDK from NCBI is a collection of tools and libraries for using data in the INSDC Sequence Read Archives. Example: `fastq-dump --help`. Warning: To work around a bug where `fasterq-dump` crashes the local machine, it has been tweaked such that it uses `$TMPDIR` rather than `$PWD` as the default temporary folder and it will only use two threads instead of six by default.&quot;)
+whatis(&quot;URL: https://ncbi.github.io/sra-tools/, https://github.com/ncbi/sra-tools/blob/master/CHANGES.md (changelog), https://github.com/ncbi/sra-tools (source code)&quot;)
+whatis([[
+Description: The SRA Toolkit and SDK from NCBI is a collection of tools and libraries for using data in the INSDC Sequence Read Archives.
+Examples: `fastq-dump --help`.
+Warning: To work around a bug where `fasterq-dump` crashes the local machine, it has been tweaked such that it uses `$TMPDIR` rather than `$PWD` as the default temporary folder and it will only use two threads instead of six by default.
+]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
@@ -2923,7 +3009,7 @@ set_shell_function(&quot;fasterq-dump&quot;, 'command fasterq-dump --threads 2 -
 <span class="module-description">STAR (Spliced Transcripts Alignment to a Reference) is a fast NGS read aligner for RNA-seq data.</span><br>
 Example: <span class="module-example"><code>STAR --help</code>.</span><br>
 URL: <span class="module-url"><a href="https://github.com/alexdobin/STAR">https://github.com/alexdobin/STAR</a>, <a href="https://github.com/alexdobin/STAR/blob/master/CHANGES.md">https://github.com/alexdobin/STAR/blob/master/CHANGES.md</a> (changelog)</span><br>
-Versions: <span class="module-version">2.7.4a, 2.7.5a, 2.7.5c, 2.7.7a, <em>2.7.9a</em></span><br>
+Versions: <span class="module-version">2.7.4a, 2.7.5a, 2.7.5c, 2.7.7a, 2.7.9a, <em>2.7.10a</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help(&quot;STAR: Spliced Transcripts Alignment to a Reference&quot;)
@@ -2935,14 +3021,14 @@ whatis(&quot;Keywords: sequencing&quot;)
 whatis(&quot;URL: https://github.com/alexdobin/STAR, https://github.com/alexdobin/STAR/blob/master/CHANGES.md (changelog)&quot;)
 whatis([[
 Description: STAR (Spliced Transcripts Alignment to a Reference) is a fast NGS read aligner for RNA-seq data.
-Example: `STAR --help`.
+Examples: `STAR --help`.
 ]])
 
 local name = &quot;STAR&quot;
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
 
-prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;, &quot;Linux_x86_64&quot;))
+prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;, &quot;Linux_x86_64_static&quot;))
 </code></pre>
 
 </details>
@@ -2995,7 +3081,7 @@ setenv(&quot;TILEDB_HOME&quot;, home)
 <strong class="module-help">tmux: A Terminal Multiplexer</strong><br>
 <span class="module-description">tmux is a terminal multiplexer. It lets you switch easily between several programs in one terminal, detach them (they keep running in the background) and reattach them to a different terminal. And do a lot more.</span><br>
 Example: <span class="module-example"><code>tmux</code> and <code>man tmux</code>.</span><br>
-URL: <span class="module-url"><a href="https://github.com/tmux/tmux/wiki">https://github.com/tmux/tmux/wiki</a></span><br>
+URL: <span class="module-url"><a href="https://github.com/tmux/tmux/wiki">https://github.com/tmux/tmux/wiki</a>, <a href="https://github.com/tmux/tmux/blob/master/CHANGES">https://github.com/tmux/tmux/blob/master/CHANGES</a> (changelog), <a href="https://github.com/tmux/tmux">https://github.com/tmux/tmux</a> (source code)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
 Versions: <span class="module-version"><em>2.8</em></span><br>
 <details>
@@ -3008,8 +3094,12 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: screen, tmux&quot;)
-whatis(&quot;URL: https://github.com/tmux/tmux/wiki&quot;)
-whatis(&quot;Description: tmux is a terminal multiplexer. It lets you switch easily between several programs in one terminal, detach them (they keep running in the background) and reattach them to a different terminal. And do a lot more.  Example: `tmux` and `man tmux`. Warning: Only the most recent version of this software will be kept.&quot;)
+whatis(&quot;URL: https://github.com/tmux/tmux/wiki, https://github.com/tmux/tmux/blob/master/CHANGES (changelog), https://github.com/tmux/tmux (source code)&quot;)
+whatis([[
+Description: tmux is a terminal multiplexer. It lets you switch easily between several programs in one terminal, detach them (they keep running in the background) and reattach them to a different terminal. And do a lot more.
+Examples: `tmux` and `man tmux`.
+Warning: Only the most recent version of this software will be kept.
+]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
@@ -3027,7 +3117,7 @@ prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;share&quot;, &quot;man&qu
 <strong class="module-help">TopHat: A Spliced Read Mapper for RNA-Seq</strong><br>
 <span class="module-description">TopHat is a fast splice junction mapper for RNA-Seq reads. It aligns RNA-Seq reads to mammalian-sized genomes using the ultra high-throughput short read aligner Bowtie, and then analyzes the mapping results to identify splice junctions between exons.</span><br>
 Example: <span class="module-example"><code>tophat --version</code>.</span><br>
-URL: <span class="module-url"><a href="https://ccb.jhu.edu/software/tophat/index.shtml">https://ccb.jhu.edu/software/tophat/index.shtml</a>, <a href="https://github.com/infphilo/tophat">https://github.com/infphilo/tophat</a></span><br>
+URL: <span class="module-url"><a href="https://ccb.jhu.edu/software/tophat/index.shtml">https://ccb.jhu.edu/software/tophat/index.shtml</a>, <a href="https://ccb.jhu.edu/software/tophat/index.shtml">https://ccb.jhu.edu/software/tophat/index.shtml</a> (changelog), <a href="https://github.com/infphilo/tophat">https://github.com/infphilo/tophat</a> (source code)</span><br>
 Versions: <span class="module-version"><em>2.1.1</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
@@ -3039,8 +3129,11 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: Programming, Statistics&quot;)
-whatis(&quot;URL: https://ccb.jhu.edu/software/tophat/index.shtml, https://github.com/infphilo/tophat&quot;)
-whatis(&quot;Description: TopHat is a fast splice junction mapper for RNA-Seq reads. It aligns RNA-Seq reads to mammalian-sized genomes using the ultra high-throughput short read aligner Bowtie, and then analyzes the mapping results to identify splice junctions between exons.  Example: `tophat --version`.&quot;)
+whatis(&quot;URL: https://ccb.jhu.edu/software/tophat/index.shtml, https://ccb.jhu.edu/software/tophat/index.shtml (changelog), https://github.com/infphilo/tophat (source code)&quot;)
+whatis([[
+Description: TopHat is a fast splice junction mapper for RNA-Seq reads. It aligns RNA-Seq reads to mammalian-sized genomes using the ultra high-throughput short read aligner Bowtie, and then analyzes the mapping results to identify splice junctions between exons.
+Examples: `tophat --version`.
+]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
@@ -3058,7 +3151,7 @@ prepend_path(&quot;PATH&quot;, home)
 <strong class="module-help">tree: List Content of Directories in a Tree-like Format</strong><br>
 <span class="module-description">Tree is a recursive directory listing command that produces a depth indented listing of files, which is colorized ala dircolors if the <code>LS_COLORS</code> environment variable is set and output is to tty.</span><br>
 Example: <span class="module-example"><code>tree --help</code>.</span><br>
-URL: <span class="module-url"><a href="http://mama.indstate.edu/users/ice/tree/">http://mama.indstate.edu/users/ice/tree/</a>,</span><br>
+URL: <span class="module-url"><a href="http://mama.indstate.edu/users/ice/tree/">http://mama.indstate.edu/users/ice/tree/</a>, <a href="http://mama.indstate.edu/users/ice/tree/changes.html">http://mama.indstate.edu/users/ice/tree/changes.html</a> (changelog)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
 Versions: <span class="module-version"><em>1.8.0</em></span><br>
 <details>
@@ -3071,8 +3164,12 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: files, utility&quot;)
-whatis(&quot;URL: http://mama.indstate.edu/users/ice/tree/, &quot;)
-whatis(&quot;Description: Tree is a recursive directory listing command that produces a depth indented listing of files, which is colorized ala dircolors if the `LS_COLORS` environment variable is set and output is to tty. Example: `tree --help`.  Warning: Only the most recent version of this software will be kept.&quot;)
+whatis(&quot;URL: http://mama.indstate.edu/users/ice/tree/, http://mama.indstate.edu/users/ice/tree/changes.html (changelog)&quot;)
+whatis([[
+Description: Tree is a recursive directory listing command that produces a depth indented listing of files, which is colorized ala dircolors if the `LS_COLORS` environment variable is set and output is to tty.
+Examples: `tree --help`.
+Warning: Only the most recent version of this software will be kept.
+]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
@@ -3089,8 +3186,8 @@ prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;man&quot;))
   <dd class="module-details">
 <strong class="module-help">TrimGalore: Taking Appropriate QC Measures for RRBS-Type or Other -Seq Applications with Trim Galore!</strong><br>
 <span class="module-description">A wrapper around Cutadapt and FastQC to consistently apply adapter and quality trimming to FastQ files, with extra functionality for RRBS data.</span><br>
-Example: <span class="module-example"><code>trim_galore --version</code>, <code>trim_galore --help</code>, and <code>more &quot;$TRIMGALORE_HOME/Docs/Trim_Galore_User_Guide.md&quot;</code>.</span><br>
-URL: <span class="module-url"><a href="https://github.com/FelixKrueger/TrimGalore">https://github.com/FelixKrueger/TrimGalore</a></span><br>
+Example: <span class="module-example"><code>trim_galore --version</code>, <code>trim_galore --help</code>, and <code>more \&quot;$TRIMGALORE_HOME/Docs/Trim_Galore_User_Guide.md\&quot;</code>.</span><br>
+URL: <span class="module-url"><a href="https://github.com/FelixKrueger/TrimGalore">https://github.com/FelixKrueger/TrimGalore</a>, <a href="https://github.com/FelixKrueger/TrimGalore/blob/master/Changelog.md">https://github.com/FelixKrueger/TrimGalore/blob/master/Changelog.md</a> (changelog)</span><br>
 Versions: <span class="module-version">0.4.4, 0.6.6, <em>0.6.7</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
@@ -3102,8 +3199,11 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: sequencing, genome&quot;)
-whatis(&quot;URL: https://github.com/FelixKrueger/TrimGalore&quot;)
-whatis(&quot;Description: A wrapper around Cutadapt and FastQC to consistently apply adapter and quality trimming to FastQ files, with extra functionality for RRBS data. Example: `trim_galore --version`, `trim_galore --help`, and `more \&quot;$TRIMGALORE_HOME/Docs/Trim_Galore_User_Guide.md\&quot;`.&quot;)
+whatis(&quot;URL: https://github.com/FelixKrueger/TrimGalore, https://github.com/FelixKrueger/TrimGalore/blob/master/Changelog.md (changelog)&quot;)
+whatis([[
+Description: A wrapper around Cutadapt and FastQC to consistently apply adapter and quality trimming to FastQ files, with extra functionality for RRBS data.
+Examples: `trim_galore --version`, `trim_galore --help`, and `more \&quot;$TRIMGALORE_HOME/Docs/Trim_Galore_User_Guide.md\&quot;`.
+]])
 
 depends_on(&quot;cutadapt&quot;)
 depends_on(&quot;fastqc&quot;)
@@ -3125,7 +3225,7 @@ pushenv(&quot;TRIMGALORE_HOME&quot;, home)
 <strong class="module-help">up: The Ultimate Plumber</strong><br>
 <span class="module-description">A tool for writing Linux pipes in a terminal-based UI interactively, with instant live preview of command results. Interactively and incrementally explore textual data in Linux using text-processing utils such as grep, sort, cut, paste, awk, wc, perl, etc.  When done, press Ctrl-C to view final pipe commands, or Ctrl-X to save it to file.</span><br>
 Example: <span class="module-example"><code>up --help</code>, <code>ls | up</code> (exit with Ctrl-C).</span><br>
-URL: <span class="module-url"><a href="https://github.com/akavel/up">https://github.com/akavel/up</a></span><br>
+URL: <span class="module-url"><a href="https://github.com/akavel/up">https://github.com/akavel/up</a>, <a href="https://github.com/akavel/up/releases">https://github.com/akavel/up/releases</a> (changelog)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
 Versions: <span class="module-version"><em>0.4</em></span><br>
 <details>
@@ -3138,8 +3238,12 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: utility, cli&quot;)
-whatis(&quot;URL: https://github.com/akavel/up&quot;)
-whatis(&quot;Description: A tool for writing Linux pipes in a terminal-based UI interactively, with instant live preview of command results. Interactively and incrementally explore textual data in Linux using text-processing utils such as grep, sort, cut, paste, awk, wc, perl, etc.  When done, press Ctrl-C to view final pipe commands, or Ctrl-X to save it to file.  Examples: `up --help`, `ls | up` (exit with Ctrl-C).  Warning: Only the most recent version of this software will be kept.&quot;)
+whatis(&quot;URL: https://github.com/akavel/up, https://github.com/akavel/up/releases (changelog)&quot;)
+whatis([[
+Description: A tool for writing Linux pipes in a terminal-based UI interactively, with instant live preview of command results. Interactively and incrementally explore textual data in Linux using text-processing utils such as grep, sort, cut, paste, awk, wc, perl, etc.  When done, press Ctrl-C to view final pipe commands, or Ctrl-X to save it to file.
+Examples: `up --help`, `ls | up` (exit with Ctrl-C).
+Warning: Only the most recent version of this software will be kept.
+]])
 
 -- Local variables
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
@@ -3157,7 +3261,7 @@ prepend_path(&quot;PATH&quot;, home)
 <strong class="module-help">VarScan: Variant Detection in Massively Parallel Sequencing Data</strong><br>
 <span class="module-description">VarScan is a platform-independent mutation caller for targeted, exome, and whole-genome resequencing data generated on Illumina, SOLiD, Life/PGM, Roche/454, and similar instruments.</span><br>
 Example: <span class="module-example"><code>varscan</code>, which is an alias to <code>java -jar $VARSCAN_HOME/VarScan.jar</code>.</span><br>
-URL: <span class="module-url"><a href="https://dkoboldt.github.io/varscan/">https://dkoboldt.github.io/varscan/</a>, <a href="https://github.com/dkoboldt/varscan">https://github.com/dkoboldt/varscan</a></span><br>
+URL: <span class="module-url"><a href="https://dkoboldt.github.io/varscan/">https://dkoboldt.github.io/varscan/</a>, <a href="https://github.com/dkoboldt/varscan/releases">https://github.com/dkoboldt/varscan/releases</a> (changelog), <a href="https://github.com/dkoboldt/varscan">https://github.com/dkoboldt/varscan</a> (source code)</span><br>
 Versions: <span class="module-version"><em>2.4.2</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
@@ -3169,8 +3273,11 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: high-throughput sequencing&quot;)
-whatis(&quot;URL: https://dkoboldt.github.io/varscan/, https://github.com/dkoboldt/varscan&quot;)
-whatis(&quot;Description: VarScan is a platform-independent mutation caller for targeted, exome, and whole-genome resequencing data generated on Illumina, SOLiD, Life/PGM, Roche/454, and similar instruments. Example: `varscan`, which is an alias to `java -jar $VARSCAN_HOME/VarScan.jar`.&quot;)
+whatis(&quot;URL: https://dkoboldt.github.io/varscan/, https://github.com/dkoboldt/varscan/releases (changelog), https://github.com/dkoboldt/varscan (source code)&quot;)
+whatis([[
+Description: VarScan is a platform-independent mutation caller for targeted, exome, and whole-genome resequencing data generated on Illumina, SOLiD, Life/PGM, Roche/454, and similar instruments.
+Examples: `varscan`, which is an alias to `java -jar $VARSCAN_HOME/VarScan.jar`.
+]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 name = &quot;VarScan&quot;
@@ -3180,7 +3287,8 @@ pushenv(&quot;VARSCAN_HOME&quot;, home)
 local jarfile = home .. &quot;/&quot; .. name .. &quot;.v&quot; .. version .. &quot;.jar&quot;
 set_alias(&quot;varscan&quot;, &quot;java -jar &quot; .. jarfile)
 
-
+-- Tweak Java for the current environment
+depends_on(&quot;java-tweaks&quot;)
 </code></pre>
 
 </details>
@@ -3192,7 +3300,7 @@ set_alias(&quot;varscan&quot;, &quot;java -jar &quot; .. jarfile)
 <strong class="module-help">vcf-validator: Validation Suite for Variant Call Format (VCF) Files</strong><br>
 <span class="module-description">Validator for the Variant Call Format (VCF) implemented using C++11. It includes all the checks from the vcftools suite, and some more that involve lexical, syntactic and semantic analysis of the VCF input.</span><br>
 Example: <span class="module-example"><code>vcf_validator --help</code>, <code>vcf-debugulator --help</code>, and <code>vcf-assembly-checker --help</code>.</span><br>
-URL: <span class="module-url"><a href="https://github.com/EBIvariation/vcf-validator">https://github.com/EBIvariation/vcf-validator</a></span><br>
+URL: <span class="module-url"><a href="https://github.com/EBIvariation/vcf-validator">https://github.com/EBIvariation/vcf-validator</a>, <a href="https://github.com/EBIvariation/vcf-validator/releases">https://github.com/EBIvariation/vcf-validator/releases</a> (changelog)</span><br>
 Versions: <span class="module-version"><em>0.9.4</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
@@ -3204,8 +3312,11 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: sequencing&quot;)
-whatis(&quot;URL: https://github.com/EBIvariation/vcf-validator&quot;)
-whatis(&quot;Description: Validator for the Variant Call Format (VCF) implemented using C++11. It includes all the checks from the vcftools suite, and some more that involve lexical, syntactic and semantic analysis of the VCF input. Example: `vcf_validator --help`, `vcf-debugulator --help`, and `vcf-assembly-checker --help`.&quot;)
+whatis(&quot;URL: https://github.com/EBIvariation/vcf-validator, https://github.com/EBIvariation/vcf-validator/releases (changelog)&quot;)
+whatis([[
+Description: Validator for the Variant Call Format (VCF) implemented using C++11. It includes all the checks from the vcftools suite, and some more that involve lexical, syntactic and semantic analysis of the VCF input.
+Examples: `vcf_validator --help`, `vcf-debugulator --help`, and `vcf-assembly-checker --help`.
+]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
@@ -3221,7 +3332,7 @@ prepend_path(&quot;PATH&quot;, home)
 <strong class="module-help">VCFtools: Tools Written in Perl and C++ for Working with VCF Files</strong><br>
 <span class="module-description">VCFtools is a program package designed for working with VCF files, such as those generated by the 1000 Genomes Project. The aim of VCFtools is to provide easily accessible methods for working with complex genetic variation data in the form of VCF files.</span><br>
 Example: <span class="module-example"><code>vcftools --version</code>.</span><br>
-URL: <span class="module-url"><a href="https://vcftools.github.io/">https://vcftools.github.io/</a>, <a href="https://github.com/vcftools/vcftools">https://github.com/vcftools/vcftools</a></span><br>
+URL: <span class="module-url"><a href="https://vcftools.github.io/">https://vcftools.github.io/</a>, <a href="https://github.com/vcftools/vcftools/releases">https://github.com/vcftools/vcftools/releases</a> (changelog), <a href="https://github.com/vcftools/vcftools">https://github.com/vcftools/vcftools</a> (source code)</span><br>
 Versions: <span class="module-version"><em>0.1.16</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
@@ -3233,8 +3344,11 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: sequencing&quot;)
-whatis(&quot;URL: https://vcftools.github.io/, https://github.com/vcftools/vcftools&quot;)
-whatis(&quot;Description: VCFtools is a program package designed for working with VCF files, such as those generated by the 1000 Genomes Project. The aim of VCFtools is to provide easily accessible methods for working with complex genetic variation data in the form of VCF files. Example: `vcftools --version`.&quot;)
+whatis(&quot;URL: https://vcftools.github.io/, https://github.com/vcftools/vcftools/releases (changelog), https://github.com/vcftools/vcftools (source code)&quot;)
+whatis([[
+Description: VCFtools is a program package designed for working with VCF files, such as those generated by the 1000 Genomes Project. The aim of VCFtools is to provide easily accessible methods for working with complex genetic variation data in the form of VCF files.
+Examples: `vcftools --version`.
+]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
@@ -3791,7 +3905,7 @@ prepend_path(&quot;PATH&quot;, home)
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
-_The above information was automatically generated on 2022-03-10 09:04:24 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2022-03-10 09:42:27 from querying `module avail` and `module spider`._
 
 
 <style>
