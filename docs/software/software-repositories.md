@@ -2613,7 +2613,7 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 <span class="module-description">Highly-accurate &amp; wicked fast transcript-level quantification from RNA-seq reads using selective alignment.</span><br>
 Example: <span class="module-example"><code>salmon --version</code>.</span><br>
 URL: <span class="module-url"><a href="https://combine-lab.github.io/salmon/">https://combine-lab.github.io/salmon/</a>, <a href="https://github.com/COMBINE-lab/salmon/releases">https://github.com/COMBINE-lab/salmon/releases</a> (changelog), <a href="https://github.com/COMBINE-lab/salmon">https://github.com/COMBINE-lab/salmon</a> (source code)</span><br>
-Versions: <span class="module-version">1.3.0, 1.4.0, 1.5.2, 1.6.0, <em>1.7.0</em></span><br>
+Versions: <span class="module-version">1.3.0, 1.4.0, 1.5.2, 1.6.0, 1.7.0, <em>1.8.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -3905,7 +3905,7 @@ prepend_path(&quot;PATH&quot;, home)
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
-_The above information was automatically generated on 2022-03-10 09:45:56 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2022-03-10 10:33:43 from querying `module avail` and `module spider`._
 
 
 <style>
