@@ -179,7 +179,7 @@ Maintained by: Henrik Bengtsson, <a href="https://cbi.ucsf.edu">Computational Bi
 Enable repository: <code>module load CBI</code><br>
 
 <div class="alert alert-warning" role="alert" style="margin-top: 3ex">
-Please note that this software stacks is maintained and contributed by a research group on a voluntary basis. It is <em>not</em> maintained by the {{ site.cluster.name }} admins. Please reach out to the corresponding maintainer for bug reports, feedback, or questions.
+Please note that this software stack is maintained and contributed by a research group on a voluntary basis. It is <em>not</em> maintained by the {{ site.cluster.name }} admins. Please reach out to the corresponding maintainer for bug reports, feedback, or questions.
 </div>
 
 <h3 id="module_cbi_annovar" class="module-name">annovar</h3>
@@ -3373,7 +3373,7 @@ Maintained by: Taylor Cavazos, <a href="https://wittelab.ucsf.edu">Witte Lab Sof
 Enable repository: <code>module load WitteLab</code><br>
 
 <div class="alert alert-warning" role="alert" style="margin-top: 3ex">
-Please note that this software stacks is maintained and contributed by a research group on a voluntary basis. It is <em>not</em> maintained by the {{ site.cluster.name }} admins. Please reach out to the corresponding maintainer for bug reports, feedback, or questions.
+Please note that this software stack is maintained and contributed by a research group on a voluntary basis. It is <em>not</em> maintained by the {{ site.cluster.name }} admins. Please reach out to the corresponding maintainer for bug reports, feedback, or questions.
 </div>
 
 <h3 id="module_wittelab_ascp" class="module-name">ascp</h3>
@@ -3905,7 +3905,7 @@ prepend_path(&quot;PATH&quot;, home)
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
-_The above information was automatically generated on 2022-03-10 09:42:27 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2022-03-10 09:45:56 from querying `module avail` and `module spider`._
 
 
 <style>
