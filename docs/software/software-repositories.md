@@ -361,7 +361,7 @@ prepend_path(&quot;LD_LIBRARY_PATH&quot;, pathJoin(home, &quot;lib&quot;))
 Example: <span class="module-example"><code>bat README.md</code>, <code>bat scripts/*.sh</code>, and <code>bat src/*.c</code>.</span><br>
 URL: <span class="module-url"><a href="https://github.com/sharkdp/bat">https://github.com/sharkdp/bat</a>, <a href="https://github.com/sharkdp/bat/blob/master/CHANGELOG.md">https://github.com/sharkdp/bat/blob/master/CHANGELOG.md</a> (changelog)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version"><em>0.19.0</em></span><br>
+Versions: <span class="module-version">0.19.0, <em>0.20.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -396,8 +396,8 @@ prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;man&quot;, &quot;man1&quo
 <strong class="module-help">bats: Bash Automated Testing System</strong><br>
 <span class="module-description">Bats is a TAP-compliant testing framework for Bash. It provides a simple way to verify that the UNIX programs you write behave as expected.</span><br>
 Example: <span class="module-example"><code>bats --version</code>, <code>bats --help</code>, <code>man bats</code>, <code>man 7 bats</code>, and <code>bats tests/</code>.</span><br>
-URL: <span class="module-url"><a href="https://github.com/bats-core/bats-core">https://github.com/bats-core/bats-core</a>, <a href="https://github.com/bats-core/bats-core#version-history">https://github.com/bats-core/bats-core#version-history</a> (changelog), <a href="https://bats-core.readthedocs.io/en/stable/">https://bats-core.readthedocs.io/en/stable/</a> (documentation)</span><br>
-Versions: <span class="module-version">1.2.1, <em>1.5.0</em></span><br>
+URL: <span class="module-url"><a href="https://github.com/bats-core/bats-core">https://github.com/bats-core/bats-core</a>, <a href="https://github.com/bats-core/bats-core/blob/master/docs/CHANGELOG.md">https://github.com/bats-core/bats-core/blob/master/docs/CHANGELOG.md</a> (changelog), <a href="https://bats-core.readthedocs.io/en/stable/">https://bats-core.readthedocs.io/en/stable/</a> (documentation)</span><br>
+Versions: <span class="module-version">1.2.1, 1.5.0, <em>1.6.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -408,10 +408,10 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: bash, shell, testing&quot;)
-whatis(&quot;URL: https://github.com/bats-core/bats-core, https://github.com/bats-core/bats-core#version-history (changelog), https://bats-core.readthedocs.io/en/stable/ (documentation)&quot;)
+whatis(&quot;URL: https://github.com/bats-core/bats-core, https://github.com/bats-core/bats-core/blob/master/docs/CHANGELOG.md (changelog), https://bats-core.readthedocs.io/en/stable/ (documentation)&quot;)
 whatis([[
 Description: Bats is a TAP-compliant testing framework for Bash. It provides a simple way to verify that the UNIX programs you write behave as expected.
-Example: `bats --version`, `bats --help`, `man bats`, `man 7 bats`, and `bats tests/`.
+Examples: `bats --version`, `bats --help`, `man bats`, `man 7 bats`, and `bats tests/`.
 ]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
@@ -432,7 +432,7 @@ prepend_path(&quot;LD_LIBRARY_PATH&quot;, pathJoin(home, &quot;lib&quot;))
 <span class="module-description">BCFtools is a set of utilities that manipulate variant calls in the Variant Call Format (VCF) and its binary counterpart BCF. All commands work transparently with both VCFs and BCFs, both uncompressed and BGZF-compressed.</span><br>
 Example: <span class="module-example"><code>bcftools --version</code></span><br>
 URL: <span class="module-url"><a href="https://www.htslib.org/">https://www.htslib.org/</a>, <a href="https://github.com/samtools/bcftools/blob/develop/NEWS">https://github.com/samtools/bcftools/blob/develop/NEWS</a> (changelog), <a href="https://github.com/samtools/bcftools">https://github.com/samtools/bcftools</a> (source code)</span><br>
-Versions: <span class="module-version">1.10.2, 1.11, 1.12, 1.13, <em>1.14</em></span><br>
+Versions: <span class="module-version">1.10.2, 1.11, 1.12, 1.13, 1.14, <em>1.15</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -446,7 +446,7 @@ whatis(&quot;Keywords: sequencing&quot;)
 whatis(&quot;URL: https://www.htslib.org/, https://github.com/samtools/bcftools/blob/develop/NEWS (changelog), https://github.com/samtools/bcftools (source code)&quot;)
 whatis([[
 Description: BCFtools is a set of utilities that manipulate variant calls in the Variant Call Format (VCF) and its binary counterpart BCF. All commands work transparently with both VCFs and BCFs, both uncompressed and BGZF-compressed.
-Example: `bcftools --version`
+Examples: `bcftools --version`
 ]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
@@ -832,7 +832,7 @@ pushenv(&quot;MROFLAGS&quot;, &quot;--localcores=1 --localmem=8 --limit-loadavg&
 <span class="module-description">Clp (Coin-or linear programming) is an open-source linear programming solver. It is primarily meant to be used as a callable library, but a basic, stand-alone executable version is also available.</span><br>
 Example: <span class="module-example"><code>clp</code></span><br>
 URL: <span class="module-url"><a href="https://www.coin-or.org/">https://www.coin-or.org/</a>, <a href="https://github.com/coin-or/Clp">https://github.com/coin-or/Clp</a> (source code)</span><br>
-Versions: <span class="module-version">1.17.2, <em>1.17.6</em></span><br>
+Versions: <span class="module-version">1.17.2, 1.17.6, <em>1.17.7</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -908,7 +908,7 @@ set_alias(&quot;ctopx&quot;, &quot;ctop 2&gt; &gt;(grep -vF 'Invalid user id')&q
 <span class="module-description">CMake is cross-platform free and open-source software for managing the build process of software using a compiler-independent method. It supports directory hierarchies and applications that depend on multiple libraries.</span><br>
 Example: <span class="module-example"><code>cmake --version</code>.</span><br>
 URL: <span class="module-url"><a href="https://cmake.org/">https://cmake.org/</a>, <a href="https://github.com/Kitware/CMake/releases">https://github.com/Kitware/CMake/releases</a></span><br>
-Versions: <span class="module-version">3.18.2, 3.19.2, <em>3.22.2</em></span><br>
+Versions: <span class="module-version">3.18.2, 3.19.2, 3.22.2, <em>3.22.3</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -920,7 +920,10 @@ local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: development, make&quot;)
 whatis(&quot;URL: https://cmake.org/, https://github.com/Kitware/CMake/releases&quot;)
-whatis(&quot;Description: CMake is cross-platform free and open-source software for managing the build process of software using a compiler-independent method. It supports directory hierarchies and applications that depend on multiple libraries. Example: `cmake --version`.&quot;)
+whatis([[
+Description: CMake is cross-platform free and open-source software for managing the build process of software using a compiler-independent method. It supports directory hierarchies and applications that depend on multiple libraries.
+Examples: `cmake --version`.
+]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
@@ -1036,8 +1039,8 @@ prepend_path(&quot;PATH&quot;, home)
 <strong class="module-help">Cutadapt: Remove Adapter Sequences from Sequencing Reads</strong><br>
 <span class="module-description">Cutadapt finds and removes adapter sequences, primers, poly-A tails and other types of unwanted sequence from your high-throughput sequencing reads.</span><br>
 Example: <span class="module-example"><code>cutadapt --version</code> and <code>cutadapt --help</code>.</span><br>
-URL: <span class="module-url"><a href="https://github.com/marcelm/cutadapt">https://github.com/marcelm/cutadapt</a></span><br>
-Versions: <span class="module-version">1.2.1, 1.8.1, <em>3.4</em></span><br>
+URL: <span class="module-url"><a href="https://github.com/marcelm/cutadapt">https://github.com/marcelm/cutadapt</a>, <a href="https://github.com/marcelm/cutadapt/blob/main/CHANGES.rst">https://github.com/marcelm/cutadapt/blob/main/CHANGES.rst</a> (changelog)</span><br>
+Versions: <span class="module-version">1.2.1, 1.8.1, 3.4, <em>3.7</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -1048,8 +1051,11 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: sequencing, genome&quot;)
-whatis(&quot;URL: https://github.com/marcelm/cutadapt&quot;)
-whatis(&quot;Description: Cutadapt finds and removes adapter sequences, primers, poly-A tails and other types of unwanted sequence from your high-throughput sequencing reads. Example: `cutadapt --version` and `cutadapt --help`.&quot;)
+whatis(&quot;URL: https://github.com/marcelm/cutadapt, https://github.com/marcelm/cutadapt/blob/main/CHANGES.rst (changelog)&quot;)
+whatis([[
+Description: Cutadapt finds and removes adapter sequences, primers, poly-A tails and other types of unwanted sequence from your high-throughput sequencing reads.
+Examples: `cutadapt --version` and `cutadapt --help`.
+]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
@@ -1100,7 +1106,7 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 <strong class="module-help">GNU Emacs: An Extensible, Customizable, Free/Libre Text Editor</strong><br>
 <span class="module-description">At its core is an interpreter for Emacs Lisp, a dialect of the Lisp programming language with extensions to support text editing.</span><br>
 Example: <span class="module-example"><code>emacs --version</code> and <code>emacs -nw</code>.</span><br>
-URL: <span class="module-url"><a href="https://www.gnu.org/software/emacs/">https://www.gnu.org/software/emacs/</a>, <a href="https://www.gnu.org/savannah-checkouts/gnu/emacs/emacs.html#Releases">https://www.gnu.org/savannah-checkouts/gnu/emacs/emacs.html#Releases</a></span><br>
+URL: <span class="module-url"><a href="https://www.gnu.org/software/emacs/">https://www.gnu.org/software/emacs/</a>, <a href="https://www.gnu.org/savannah-checkouts/gnu/emacs/emacs.html#Releases">https://www.gnu.org/savannah-checkouts/gnu/emacs/emacs.html#Releases</a> (changelog)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
 Versions: <span class="module-version"><em>27.2</em></span><br>
 <details>
@@ -1113,8 +1119,12 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: editor, text&quot;)
-whatis(&quot;URL: https://www.gnu.org/software/emacs/, https://www.gnu.org/savannah-checkouts/gnu/emacs/emacs.html#Releases&quot;)
-whatis(&quot;Description: At its core is an interpreter for Emacs Lisp, a dialect of the Lisp programming language with extensions to support text editing. Example: `emacs --version` and `emacs -nw`. Warning: Only the most recent version of this software will be kept.&quot;)
+whatis(&quot;URL: https://www.gnu.org/software/emacs/, https://www.gnu.org/savannah-checkouts/gnu/emacs/emacs.html#Releases (changelog)&quot;)
+whatis([[
+Description: At its core is an interpreter for Emacs Lisp, a dialect of the Lisp programming language with extensions to support text editing.
+Examples: `emacs --version` and `emacs -nw`.
+Warning: Only the most recent version of this software will be kept.
+]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
@@ -1166,9 +1176,9 @@ prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;share&quot;, &quot;man&qu
 <dl>
   <dd class="module-details">
 <strong class="module-help">FastQC: A Quality Control Analysis Tool for High Throughput Sequencing Data</strong><br>
-<span class="module-description">FastQC is a program designed to spot potential problems in high througput sequencing datasets. It runs a set of analyses on one or more raw sequence files in fastq or bam format and produces a report which summarises the results.</span><br>
+<span class="module-description">FastQC is a program designed to spot potential problems in high throughput sequencing datasets. It runs a set of analyses on one or more raw sequence files in fastq or bam format and produces a report which summarises the results.</span><br>
 Example: <span class="module-example"><code>fastqc --version</code>.</span><br>
-URL: <span class="module-url"><a href="https://www.bioinformatics.babraham.ac.uk/projects/download.html#fastqc">https://www.bioinformatics.babraham.ac.uk/projects/download.html#fastqc</a>, <a href="https://github.com/s-andrews/FastQC/">https://github.com/s-andrews/FastQC/</a></span><br>
+URL: <span class="module-url"><a href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/">https://www.bioinformatics.babraham.ac.uk/projects/fastqc/</a>, <a href="https://raw.githubusercontent.com/s-andrews/FastQC/master/RELEASE_NOTES.txt">https://raw.githubusercontent.com/s-andrews/FastQC/master/RELEASE_NOTES.txt</a> (changelog), <a href="https://github.com/s-andrews/FastQC/">https://github.com/s-andrews/FastQC/</a> (source code)</span><br>
 Versions: <span class="module-version"><em>0.11.9</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
@@ -1180,8 +1190,11 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: sequencing, qc&quot;)
-whatis(&quot;URL: https://www.bioinformatics.babraham.ac.uk/projects/download.html#fastqc, https://github.com/s-andrews/FastQC/&quot;)
-whatis(&quot;Description: FastQC is a program designed to spot potential problems in high througput sequencing datasets. It runs a set of analyses on one or more raw sequence files in fastq or bam format and produces a report which summarises the results.  Example: `fastqc --version`.&quot;)
+whatis(&quot;URL: https://www.bioinformatics.babraham.ac.uk/projects/fastqc/, https://raw.githubusercontent.com/s-andrews/FastQC/master/RELEASE_NOTES.txt (changelog), https://github.com/s-andrews/FastQC/ (source code)&quot;)
+whatis([[
+Description: FastQC is a program designed to spot potential problems in high throughput sequencing datasets. It runs a set of analyses on one or more raw sequence files in fastq or bam format and produces a report which summarises the results.
+Examples: `fastqc --version`.
+]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, &quot;FastQC&quot; .. &quot;-&quot; .. version)
@@ -1198,9 +1211,9 @@ prepend_path(&quot;PATH&quot;, home)
   <dd class="module-details">
 <strong class="module-help">fzf: A Command-Line Fuzzy Finder</strong><br>
 <span class="module-description">fzf is a general-purpose command-line fuzzy finder. It's an interactive Unix filter for command-line that can be used with any list; files, command history, processes, hostnames, bookmarks, git commits, etc.</span><br>
-Example: <span class="module-example"><code>fzf --version</code> and <code>emacs &quot;$(fzf)&quot;</code>.</span><br>
+Example: <span class="module-example"><code>fzf --version</code> and <code>emacs \&quot;$(fzf)\&quot;</code>.</span><br>
 Note: <span class="module-note">To install tab completions and key bindinds to your shell, call <code>$FZF_HOME/install</code>. To uninstall, use <code>$FZF_HOME/uninstall</code>.</span><br>
-URL: <span class="module-url"><a href="https://github.com/junegunn/fzf">https://github.com/junegunn/fzf</a>, <a href="https://github.com/junegunn/fzf/wiki">https://github.com/junegunn/fzf/wiki</a></span><br>
+URL: <span class="module-url"><a href="https://github.com/junegunn/fzf">https://github.com/junegunn/fzf</a>, <a href="https://github.com/junegunn/fzf/blob/master/CHANGELOG.md">https://github.com/junegunn/fzf/blob/master/CHANGELOG.md</a> (changelog) <a href="https://github.com/junegunn/fzf/wiki">https://github.com/junegunn/fzf/wiki</a> (docs)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
 Versions: <span class="module-version"><em>0.29.0</em></span><br>
 <details>
@@ -1213,8 +1226,12 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: cli, shell&quot;)
-whatis(&quot;URL: https://github.com/junegunn/fzf, https://github.com/junegunn/fzf/wiki&quot;)
-whatis(&quot;Description: fzf is a general-purpose command-line fuzzy finder. It's an interactive Unix filter for command-line that can be used with any list; files, command history, processes, hostnames, bookmarks, git commits, etc. Example: `fzf --version` and `emacs \&quot;$(fzf)\&quot;`. Note: To install tab completions and key bindinds to your shell, call `$FZF_HOME/install`. To uninstall, use `$FZF_HOME/uninstall`. Warning: Only the most recent version of this software will be kept.&quot;)
+whatis(&quot;URL: https://github.com/junegunn/fzf, https://github.com/junegunn/fzf/blob/master/CHANGELOG.md (changelog) https://github.com/junegunn/fzf/wiki (docs)&quot;)
+whatis([[
+Description: fzf is a general-purpose command-line fuzzy finder. It's an interactive Unix filter for command-line that can be used with any list; files, command history, processes, hostnames, bookmarks, git commits, etc.
+Examples: `fzf --version` and `emacs \&quot;$(fzf)\&quot;`. Note: To install tab completions and key bindinds to your shell, call `$FZF_HOME/install`. To uninstall, use `$FZF_HOME/uninstall`.
+Warning: Only the most recent version of this software will be kept.
+]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
@@ -1280,7 +1297,7 @@ end
 <strong class="module-help">GCTA: Genome-wide Complex Trait Analysis</strong><br>
 <span class="module-description">A tool for Genome-wide Complex Trait Analysis (GCTA).</span><br>
 Example: <span class="module-example"><code>gcta64</code>.</span><br>
-URL: <span class="module-url"><a href="https://yanglab.westlake.edu.cn/software/gcta/#Overview">https://yanglab.westlake.edu.cn/software/gcta/#Overview</a>, <a href="https://cnsgenomics.com/software/gcta/">https://cnsgenomics.com/software/gcta/</a></span><br>
+URL: <span class="module-url"><a href="https://yanglab.westlake.edu.cn/software/gcta/#Overview">https://yanglab.westlake.edu.cn/software/gcta/#Overview</a>, <a href="https://cnsgenomics.com/software/gcta/">https://cnsgenomics.com/software/gcta/</a>, <a href="https://github.com/jianyangqt/gcta">https://github.com/jianyangqt/gcta</a> (source code)</span><br>
 Versions: <span class="module-version">1.93.2beta, <em>1.93.3beta2</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
@@ -1292,8 +1309,11 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: genome&quot;)
-whatis(&quot;URL: https://yanglab.westlake.edu.cn/software/gcta/#Overview, https://cnsgenomics.com/software/gcta/&quot;)
-whatis(&quot;Description: A tool for Genome-wide Complex Trait Analysis (GCTA). Example: `gcta64`.&quot;)
+whatis(&quot;URL: https://yanglab.westlake.edu.cn/software/gcta/#Overview, https://cnsgenomics.com/software/gcta/, https://github.com/jianyangqt/gcta (source code)&quot;)
+whatis([[
+Description: A tool for Genome-wide Complex Trait Analysis (GCTA).
+Examples: `gcta64`.
+]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
@@ -1310,20 +1330,28 @@ prepend_path(&quot;PATH&quot;, home)
 <strong class="module-help">GDAL: Geospatial Data Abstraction Library</strong><br>
 <span class="module-description">GDAL is an open source X/MIT licensed translator library for raster and vector geospatial data formats.</span><br>
 Example: <span class="module-example"><code>gdalinfo --version</code></span><br>
-URL: <span class="module-url"><a href="https://gdal.org/">https://gdal.org/</a>, <a href="https://github.com/OSGeo/gdal">https://github.com/OSGeo/gdal</a></span><br>
+URL: <span class="module-url"><a href="https://gdal.org/">https://gdal.org/</a>, <a href="https://github.com/OSGeo/gdal/blob/master/NEWS.md">https://github.com/OSGeo/gdal/blob/master/NEWS.md</a> (changelog), <a href="https://github.com/OSGeo/gdal">https://github.com/OSGeo/gdal</a> (source code)</span><br>
 Versions: <span class="module-version"><em>2.4.4</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
-<pre><code class="language-lua">help([[
-GDAL: Geospatial Data Abstraction Library
-]])
+<pre><code class="language-lua">help(&quot;GDAL: Geospatial Data Abstraction Library&quot;)
 
 local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: spatial, library&quot;)
-whatis(&quot;URL: https://gdal.org/, https://github.com/OSGeo/gdal&quot;)
-whatis(&quot;Description: GDAL is an open source X/MIT licensed translator library for raster and vector geospatial data formats. Example: `gdalinfo --version`&quot;)
+whatis(&quot;URL: https://gdal.org/, https://github.com/OSGeo/gdal/blob/master/NEWS.md (changelog), https://github.com/OSGeo/gdal (source code)&quot;)
+whatis([[
+Description: GDAL is an open source X/MIT licensed translator library for raster and vector geospatial data formats.
+Examples: `gdalinfo --version`
+]])
+
+-- GDAL (&gt;= 3.0.0), requires PROJ (&gt;= 6.0.0)
+local v = version
+v = string.gsub(v, &quot;[.].*&quot;, &quot;&quot;)
+if v &gt;= &quot;3&quot; then
+  depends_on(&quot;proj&quot;)
+end
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
@@ -1390,7 +1418,7 @@ prepend_path(&quot;LDFLAGS&quot;, &quot;-L&quot; .. pathJoin(home, &quot;lib&quo
 <strong class="module-help">GISTIC2: Genomic Identification of Significant Targets in Cancer (GISTIC), version 2</strong><br>
 <span class="module-description">GISTIC2.0 facilitates sensitive and confident localization of the targets of focal somatic copy-number alteration in human cancers.</span><br>
 Example: <span class="module-example"><code>gistic2</code>.</span><br>
-URL: <span class="module-url"><a href="https://software.broadinstitute.org/cancer/cga/gistic">https://software.broadinstitute.org/cancer/cga/gistic</a>, <a href="https://github.com/broadinstitute/gistic2">https://github.com/broadinstitute/gistic2</a>, <a href="https://www.genepattern.org/modules/docs/GISTIC_2.0/7">https://www.genepattern.org/modules/docs/GISTIC_2.0/7</a></span><br>
+URL: <span class="module-url"><a href="https://software.broadinstitute.org/cancer/cga/gistic">https://software.broadinstitute.org/cancer/cga/gistic</a>, <a href="https://github.com/broadinstitute/gistic2/blob/master/support/README.txt">https://github.com/broadinstitute/gistic2/blob/master/support/README.txt</a> (changelog), <a href="https://github.com/broadinstitute/gistic2">https://github.com/broadinstitute/gistic2</a> (source code), <a href="https://www.genepattern.org/modules/docs/GISTIC_2.0/7">https://www.genepattern.org/modules/docs/GISTIC_2.0/7</a></span><br>
 Versions: <span class="module-version"><em>2.0.23</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
@@ -1402,8 +1430,11 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: sequencing&quot;)
-whatis(&quot;URL: https://software.broadinstitute.org/cancer/cga/gistic, https://github.com/broadinstitute/gistic2, https://www.genepattern.org/modules/docs/GISTIC_2.0/7&quot;)
-whatis(&quot;Description: GISTIC2.0 facilitates sensitive and confident localization of the targets of focal somatic copy-number alteration in human cancers.  Example: `gistic2`.&quot;)
+whatis(&quot;URL: https://software.broadinstitute.org/cancer/cga/gistic, https://github.com/broadinstitute/gistic2/blob/master/support/README.txt (changelog), https://github.com/broadinstitute/gistic2 (source code), https://www.genepattern.org/modules/docs/GISTIC_2.0/7&quot;)
+whatis([[
+Description: GISTIC2.0 facilitates sensitive and confident localization of the targets of focal somatic copy-number alteration in human cancers.
+Examples: `gistic2`.
+]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
@@ -3760,7 +3791,7 @@ prepend_path(&quot;PATH&quot;, home)
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
-_The above information was automatically generated on 2022-03-10 08:29:32 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2022-03-10 09:04:24 from querying `module avail` and `module spider`._
 
 
 <style>
