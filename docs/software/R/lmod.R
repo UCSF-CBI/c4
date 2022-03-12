@@ -37,13 +37,24 @@ find_spider <- local({
 
 
 #' @importFrom utils file_test
-spider <- function(module_path) {
+spider <- function(module_path, force = FALSE) {
   stopifnot(utils::file_test("-d", module_path))
-  spider <- find_spider()
-  args <- c("--no_recursion", "-o jsonSoftwarePage", module_path)
-  message(" - spider arguments: ", paste(args, collapse = " "))
-  json <- system2(spider, args = args, stdout = TRUE)
-  message(" - spider result: ", json)
+
+  ## Already on file?
+  pathname <- file.path("lmod_spider_data", sprintf("%s.json", module_path))
+  if (force || !utils::file_test("-f", pathname)) {
+    path <- dirname(pathname)
+    dir.create(path, recursive = TRUE)
+    stopifnot(utils::file_test("-d", path))
+    spider <- find_spider()
+    args <- c("--no_recursion", "-o jsonSoftwarePage", module_path)
+    message(" - spider arguments: ", paste(args, collapse = " "))
+    res <- system2(spider, args = args, stdout = pathname)
+    message(" - spider result: ", res)
+    stopifnot(utils::file_test("-f", pathname))
+  }
+  json <- readChar(pathname, nchars = file.size(pathname))
+  message(" - spider json result: ", json)
   json
 }
 
@@ -81,7 +92,7 @@ module_avail <- local({
       return(NULL)
     }
 
-    json <- spider(module_path)
+    json <- spider(module_path, force = TRUE)
     x <- jsonlite::fromJSON(json)
     o <- order(x$package)
     x <- x[o,]
