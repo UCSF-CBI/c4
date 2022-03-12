@@ -1,3 +1,4 @@
+SHELL=bash
 PAGE=software-repositories
 
 all: $(PAGE).md
@@ -5,6 +6,21 @@ all: $(PAGE).md
 clear:
 	rm -rf lmod_spider_data
 	mkdir lmod_spider_data
+
+lmod_spider_data/%:
+#	@echo "target: $@"
+#	@echo "stem: $*"
+	@mkdir -p "$(@D)"
+	"$${LMOD_DIR}/spider" --no_recursion -o jsonSoftwarePage "$*" > "$@"
+
+spider: clear
+	@module load CBI r && \
+	export R_BIOCONDUCTORX_DISABLE=true; \
+	paths=$$(Rscript -e 'source("R/000.config.R"); cat(vapply(module_repositories, FUN = function(x) x[["module_path"]], FUN.VALUE = NA_character_))'); \
+	echo "Module paths: $${paths}"; \
+	for path in $${paths}; do \
+	    make "lmod_spider_data/$${path}"; \
+	done
 
 build:
 	touch $(PAGE).md.rsp
