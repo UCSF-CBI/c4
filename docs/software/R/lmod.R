@@ -17,14 +17,29 @@ as_html <- function(x) {
   x
 }
 
+
+#' @importFrom utils file_test
+find_spider <- local({
+  spider <- NULL
+
+  function() {
+    if (is.null(spider)) {
+      lmod_dir <- file.path(Sys.getenv("LMOD_DIR"))
+      stopifnot(nzchar(lmod_dir))
+      bin <- file.path(lmod_dir, "spider")
+      message(" - spider binary: ", sQuote(bin))
+      stopifnot(utils::file_test("-x", bin))
+      spider <<- bin
+    }
+    spider
+  }
+})
+
+
 #' @importFrom utils file_test
 spider <- function(module_path) {
   stopifnot(utils::file_test("-d", module_path))
-  lmod_dir <- file.path(Sys.getenv("LMOD_DIR"))
-  stopifnot(nzchar(lmod_dir))
-  spider <- file.path(lmod_dir, "spider")
-  message(" - spider binary: ", sQuote(spider))
-  stopifnot(utils::file_test("-x", spider))
+  spider <- find_spider()
   args <- c("--no_recursion", "-o jsonSoftwarePage", module_path)
   message(" - spider arguments: ", paste(args, collapse = " "))
   json <- system2(spider, args = args, stdout = TRUE)
