@@ -2,6 +2,10 @@ PAGE=software-repositories
 
 all: $(PAGE).md
 
+clear:
+	rm -rf lmod_spider_data
+	mkdir lmod_spider_data
+
 build:
 	touch $(PAGE).md.rsp
 	make all

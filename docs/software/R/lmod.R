@@ -92,7 +92,7 @@ module_avail <- local({
       return(NULL)
     }
 
-    json <- spider(module_path, force = TRUE)
+    json <- spider(module_path)
     x <- jsonlite::fromJSON(json)
     o <- order(x$package)
     x <- x[o,]
