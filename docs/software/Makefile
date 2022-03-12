@@ -7,9 +7,9 @@ clear:
 	rm -rf lmod_spider_data
 	mkdir lmod_spider_data
 
-lmod_spider_data/%:
-#	@echo "target: $@"
-#	@echo "stem: $*"
+lmod_spider_data/%.json:
+	@echo "target: $@"
+	@echo "stem: $*"
 	@mkdir -p "$(@D)"
 	"$${LMOD_DIR}/spider" --no_recursion -o jsonSoftwarePage "$*" > "$@"
 
@@ -19,7 +19,7 @@ spider: clear
 	paths=$$(Rscript -e 'source("R/000.config.R"); cat(vapply(module_repositories, FUN = function(x) x[["module_path"]], FUN.VALUE = NA_character_))'); \
 	echo "Module paths: $${paths}"; \
 	for path in $${paths}; do \
-	    make "lmod_spider_data/$${path}"; \
+	    make "lmod_spider_data/$${path}.json"; \
 	done
 
 build:
