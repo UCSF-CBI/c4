@@ -4,10 +4,10 @@ PAGE=software-repositories
 all: $(PAGE).md
 
 clear:
-	rm -rf lmod_spider_data
-	mkdir lmod_spider_data
+	rm -rf lmod_data
+	mkdir lmod_data
 
-lmod_spider_data/%.json:
+lmod_data/%.json:
 	@echo "target: $@"
 	@echo "stem: $*"
 	@mkdir -p "$(@D)"
@@ -19,7 +19,7 @@ spider: clear
 	paths=$$(Rscript -e 'source("R/000.config.R"); cat(vapply(module_repositories, FUN = function(x) x[["module_path"]], FUN.VALUE = NA_character_))'); \
 	echo "Module paths: $${paths}"; \
 	for path in $${paths}; do \
-	    make "lmod_spider_data/$${path}.json"; \
+	    make "lmod_data/$${path}.json"; \
 	done
 
 build:

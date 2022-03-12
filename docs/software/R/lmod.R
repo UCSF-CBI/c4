@@ -41,7 +41,7 @@ spider <- function(module_path, force = FALSE) {
   message(sprintf("spider('%s') ...", module_path))
   
   ## Already on file?
-  pathname <- file.path("lmod_spider_data", sprintf("%s.json", module_path))
+  pathname <- file.path("lmod_data", sprintf("%s.json", module_path))
   message("- pathname: ", pathname)
   if (force || !utils::file_test("-f", pathname)) {
     stopifnot(utils::file_test("-d", module_path))
