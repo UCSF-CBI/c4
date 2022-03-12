@@ -38,11 +38,13 @@ find_spider <- local({
 
 #' @importFrom utils file_test
 spider <- function(module_path, force = FALSE) {
-  stopifnot(utils::file_test("-d", module_path))
-
+  message(sprintf("spider('%s') ...", module_path))
+  
   ## Already on file?
   pathname <- file.path("lmod_spider_data", sprintf("%s.json", module_path))
+  message("- pathname: ", pathname)
   if (force || !utils::file_test("-f", pathname)) {
+    stopifnot(utils::file_test("-d", module_path))
     path <- dirname(pathname)
     dir.create(path, recursive = TRUE)
     stopifnot(utils::file_test("-d", path))
@@ -55,6 +57,8 @@ spider <- function(module_path, force = FALSE) {
   }
   json <- readChar(pathname, nchars = file.size(pathname))
   message(" - spider json result: ", json)
+  
+  message(sprintf("spider('%s') ... done", module_path))
   json
 }
 
@@ -67,7 +71,7 @@ module_avail <- local({
   ## Memoization
   .cache <- list()
   
-  function(info, onMissingPath = getOption("onMissingPath", c("error", "warning", "ignore"))) {
+  function(info, onMissingPath = getOption("onMissingPath", c("okay", "error", "warning", "ignore"))) {
     message("module_avail() ...", appendLF = FALSE)
     onMissingPath <- match.arg(onMissingPath)
     
@@ -84,12 +88,15 @@ module_avail <- local({
     if (all(!nzchar(module_path))) {
       stop("Specified empty folder(s): ", paste(sQuote(module_path), collapse = ", "))
     }
-    unknown <- module_path[!utils::file_test("-x", module_path)]
-    if (length(unknown) > 0) {
-      msg <- sprintf("No such folder(s): %s", paste(sQuote(unknown), collapse = ", "))
-      if (onMissingPath == "error") stop(msg)
-      if (onMissingPath == "warning") warning(msg)
-      return(NULL)
+    
+    if (onMissingPath != "okay") {
+      unknown <- module_path[!utils::file_test("-x", module_path)]
+      if (length(unknown) > 0) {
+        msg <- sprintf("No such folder(s): %s", paste(sQuote(unknown), collapse = ", "))
+        if (onMissingPath == "error") stop(msg)
+        if (onMissingPath == "warning") warning(msg)
+        return(NULL)
+      }
     }
 
     json <- spider(module_path)

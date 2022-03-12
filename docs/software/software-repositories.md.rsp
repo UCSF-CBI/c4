@@ -16,7 +16,6 @@ source("R/lmod.R")
 source("R/html_widgets.R")
 
 
-options(onMissingPath = "warning")
 style <- R.utils::cmdArg(style = FALSE)
 
 modules_sets <- get_modules_sets(module_repositories)
