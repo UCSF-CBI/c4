@@ -18,6 +18,22 @@ as_html <- function(x) {
 }
 
 #' @importFrom utils file_test
+spider <- function(module_path) {
+  stopifnot(utils::file_test("-d", module_path))
+  lmod_dir <- file.path(Sys.getenv("LMOD_DIR"))
+  stopifnot(nzchar(lmod_dir))
+  spider <- file.path(lmod_dir, "spider")
+  message(" - spider binary: ", sQuote(spider))
+  stopifnot(utils::file_test("-x", spider))
+  args <- c("--no_recursion", "-o jsonSoftwarePage", module_path)
+  message(" - spider arguments: ", paste(args, collapse = " "))
+  json <- system2(spider, args = args, stdout = TRUE)
+  message(" - spider result: ", json)
+  json
+}
+
+
+#' @importFrom utils file_test
 #' @importFrom R.utils mstr
 #' @importFrom jsonlite fromJSON
 #' @importFrom utils file_test
@@ -49,14 +65,8 @@ module_avail <- local({
       if (onMissingPath == "warning") warning(msg)
       return(NULL)
     }
-    lmod_dir <- file.path(Sys.getenv("LMOD_DIR"))
-    stopifnot(nzchar(lmod_dir))
-    spider <- file.path(lmod_dir, "spider")
-    message(" - spider binary: ", sQuote(spider))
-    stopifnot(utils::file_test("-x", spider))
-    args <- c("--no_recursion", "-o jsonSoftwarePage", module_path)
-    message(" - spider arguments: ", paste(args, collapse = " "))
-    json <- system2(spider, args = args, stdout = TRUE)
+
+    json <- spider(module_path)
     x <- jsonlite::fromJSON(json)
     o <- order(x$package)
     x <- x[o,]
