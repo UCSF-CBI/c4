@@ -1998,7 +1998,7 @@ whatis(&quot;Keywords: sequencing, genome&quot;)
 whatis(&quot;URL: https://software.broadinstitute.org/cancer/cga/mutect, https://github.com/broadinstitute/mutect (source code)&quot;)
 whatis([[
 Description: MuTect is a method developed at the Broad Institute for the reliable and accurate identification of somatic point mutations in next generation sequencing data of cancer genomes.
-Examples: `mutect`, which is short for `java -Xmx2g -jar \&quot;$MUTECT_JAR\&quot;`.
+Examples: `mutect`, which is short for `java -Xmx2g -jar &quot;$MUTECT_JAR&quot;`.
 ]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
@@ -3189,7 +3189,7 @@ whatis(&quot;Keywords: sequencing, genome&quot;)
 whatis(&quot;URL: https://github.com/FelixKrueger/TrimGalore, https://github.com/FelixKrueger/TrimGalore/blob/master/Changelog.md (changelog)&quot;)
 whatis([[
 Description: A wrapper around Cutadapt and FastQC to consistently apply adapter and quality trimming to FastQ files, with extra functionality for RRBS data.
-Examples: `trim_galore --version`, `trim_galore --help`, and `more \&quot;$TRIMGALORE_HOME/Docs/Trim_Galore_User_Guide.md\&quot;`.
+Examples: `trim_galore --version`, `trim_galore --help`, and `more &quot;$TRIMGALORE_HOME/Docs/Trim_Galore_User_Guide.md&quot;`.
 ]])
 
 depends_on(&quot;cutadapt&quot;)
@@ -3892,7 +3892,7 @@ prepend_path(&quot;PATH&quot;, home)
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
-_The above information was automatically generated on 2022-03-17 08:19:11 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2022-03-17 09:05:41 from querying `module avail` and `module spider`._
 
 
 <style>
