@@ -154,19 +154,6 @@ prepend_path(&quot;CPATH&quot;, pathJoin(home, &quot;include&quot;))
 <dl>
   <dd class="module-details">
 Versions: <span class="module-version"><em>3.6</em></span><br>
-<details>
-<summary>Module code: <a>view</a></summary>
-<pre><code class="language-lua">#%Module 1.0
-module-whatis &quot;Python 3.6&quot;
-prepend-path	LD_LIBRARY_PATH	/opt/rh/rh-python36/root/usr/lib64
-prepend-path	MANPATH	/opt/rh/rh-python36/root/usr/share/man
-prepend-path	PATH	/opt/rh/rh-python36/root/usr/bin
-prepend-path	PKG_CONFIG_PATH	/opt/rh/rh-python36/root/usr/lib64/pkgconfig
-prepend-path	XDG_DATA_DIRS	/opt/rh/rh-python36/root/usr/share:/usr/local/share:/usr/share
-
-</code></pre>
-
-</details>
   </dd>
 </dl>
 </div> 
@@ -1229,7 +1216,7 @@ whatis(&quot;Keywords: cli, shell&quot;)
 whatis(&quot;URL: https://github.com/junegunn/fzf, https://github.com/junegunn/fzf/blob/master/CHANGELOG.md (changelog) https://github.com/junegunn/fzf/wiki (docs)&quot;)
 whatis([[
 Description: fzf is a general-purpose command-line fuzzy finder. It's an interactive Unix filter for command-line that can be used with any list; files, command history, processes, hostnames, bookmarks, git commits, etc.
-Examples: `fzf --version` and `emacs \&quot;$(fzf)\&quot;`. Note: To install tab completions and key bindinds to your shell, call `$FZF_HOME/install`. To uninstall, use `$FZF_HOME/uninstall`.
+Examples: `fzf --version` and `emacs &quot;$(fzf)&quot;`. Note: To install tab completions and key bindinds to your shell, call `$FZF_HOME/install`. To uninstall, use `$FZF_HOME/uninstall`.
 Warning: Only the most recent version of this software will be kept.
 ]])
 
@@ -3905,7 +3892,7 @@ prepend_path(&quot;PATH&quot;, home)
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
-_The above information was automatically generated on 2022-03-11 20:25:32 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2022-03-17 08:19:11 from querying `module avail` and `module spider`._
 
 
 <style>
