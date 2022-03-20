@@ -14,7 +14,7 @@ module_repositories <- list(
     group       = "Computational Biology and Informatics",
     url         = "https://cbi.ucsf.edu",
     contributed = TRUE,
-    module_path = file.path(dirname(Sys.getenv("SOFTWARE_ROOT_CBI", "/software/c4/cbi/software")), "modulefiles")
+    module_path = Sys.getenv("MODULE_ROOT_CBI", file.path(dirname(Sys.getenv("SOFTWARE_ROOT_CBI", "/software/c4/cbi/software")), "modulefiles"))
   ),
 
   WitteLab = list(
