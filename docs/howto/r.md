@@ -485,7 +485,7 @@ The downloaded source packages are in
 
 #### The **udunits2** package
 
-The **[udunits2]** package does not install out of the box.  It seems to be due to a problem with the package itself, and the suggested instructions that the package gives on setting environment variable `UDUNITS2_INCLUDE` does not work.  A workaround to install the package is to do:
+The **[udunits2]** package does not install out of the box.  It seems to be due to a problem with the package itself, and the suggested instructions that the package gives on setting environment variable `UDUNITS2_INCLUDE` do not work.  A workaround to install the package is to do:
 
 ```sh
 install.packages("udunits2", configure.args="--with-udunits2-include=/usr/include/udunits2")   
