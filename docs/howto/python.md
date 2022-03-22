@@ -272,7 +272,7 @@ pip 21.3.1 from ~/.local/lib/python3.6/site-packages/pip (python 3.6)
 ```
 
 
-#### Python 2: Only pip (<= 20.3.*) is supported
+#### Python 2: Only pip (< 21) is supported
 
 Python 2 reached the end of its life on 2020-01-01 in favor of Python 3. At this point, the pip maintainers decided to stop making newer versions backward compatible with Python 2. Because of this, Python 2 only supports pip (< 21). To upgrade to the latest supported pip version for Python 2, we can use:
 
