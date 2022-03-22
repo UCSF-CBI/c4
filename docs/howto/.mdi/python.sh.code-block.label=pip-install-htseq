@@ -6,4 +6,4 @@ Collecting HTSeq
     HTSeq requires Python 3.7+.
     
     ----------------------------------------
-Command "python setup.py egg_info" failed with error code 1 in ~/pip-build-4vgzki6b/HTSeq/
+Command "python setup.py egg_info" failed with error code 1 in ~/pip-build-2wr6m_yc/HTSeq/
