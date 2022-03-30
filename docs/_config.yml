@@ -27,6 +27,7 @@ cluster:
   status: ok
 
 path:
+  global_root: /c4
   global_scratch: /c4/scratch
   cbi_software: /software/c4/cbi/software
   
