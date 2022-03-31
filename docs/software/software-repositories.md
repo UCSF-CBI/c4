@@ -1252,7 +1252,7 @@ pushenv(&quot;FZF_HOME&quot;, home)
 <strong class="module-help">Genome Analysis Toolkit (GATK): Variant Discovery in High-Throughput Sequencing Data</strong><br>
 <span class="module-description">Developed in the Data Sciences Platform at the Broad Institute, the toolkit offers a wide variety of tools with a primary focus on variant discovery and genotyping. Its powerful processing engine and high-performance computing features make it capable of taking on projects of any size.</span><br>
 Example: <span class="module-example"><code>gatk --help</code> and <code>gatk --list</code>.</span><br>
-URL: <span class="module-url"><a href="https://software.broadinstitute.org/gatk/">https://software.broadinstitute.org/gatk/</a>, <a href="https://github.com/broadinstitute/gatk">https://github.com/broadinstitute/gatk</a> (source code), <a href="https://github.com/broadinstitute/gatk/releases">https://github.com/broadinstitute/gatk/releases</a> (change log), <a href="https://github.com/broadgsa/gatk">https://github.com/broadgsa/gatk</a> (legacy), <a href="https://console.cloud.google.com/storage/browser/gatk-software/package-archive">https://console.cloud.google.com/storage/browser/gatk-software/package-archive</a> (legacy), <a href="ftp://ftp.broadinstitute.org/pub/gsa/GenomeAnalysisTK/">ftp://ftp.broadinstitute.org/pub/gsa/GenomeAnalysisTK/</a> (legacy)</span><br>
+URL: <span class="module-url"><a href="https://software.broadinstitute.org/gatk/">https://software.broadinstitute.org/gatk/</a>, <a href="https://github.com/broadinstitute/gatk">https://github.com/broadinstitute/gatk</a> (source code), <a href="https://github.com/broadinstitute/gatk/releases">https://github.com/broadinstitute/gatk/releases</a> (changelog), <a href="https://github.com/broadgsa/gatk">https://github.com/broadgsa/gatk</a> (legacy), <a href="https://console.cloud.google.com/storage/browser/gatk-software/package-archive">https://console.cloud.google.com/storage/browser/gatk-software/package-archive</a> (legacy), <a href="ftp://ftp.broadinstitute.org/pub/gsa/GenomeAnalysisTK/">ftp://ftp.broadinstitute.org/pub/gsa/GenomeAnalysisTK/</a> (legacy)</span><br>
 Versions: <span class="module-version">1.1-37-ge63d9d8, 1.6-5-g557da77, 4.1.1.0, 4.1.7.0, 4.1.8.1, 4.1.9.0, 4.2.0.0, 4.2.2.0, 4.2.3.0, 4.2.4.1, <em>4.2.5.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
@@ -1264,10 +1264,10 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: sequencing, genome&quot;)
-whatis(&quot;URL: https://software.broadinstitute.org/gatk/, https://github.com/broadinstitute/gatk (source code), https://github.com/broadinstitute/gatk/releases (change log), https://github.com/broadgsa/gatk (legacy), https://console.cloud.google.com/storage/browser/gatk-software/package-archive (legacy), ftp://ftp.broadinstitute.org/pub/gsa/GenomeAnalysisTK/ (legacy)&quot;)
+whatis(&quot;URL: https://software.broadinstitute.org/gatk/, https://github.com/broadinstitute/gatk (source code), https://github.com/broadinstitute/gatk/releases (changelog), https://github.com/broadgsa/gatk (legacy), https://console.cloud.google.com/storage/browser/gatk-software/package-archive (legacy), ftp://ftp.broadinstitute.org/pub/gsa/GenomeAnalysisTK/ (legacy)&quot;)
 whatis([[
 Description: Developed in the Data Sciences Platform at the Broad Institute, the toolkit offers a wide variety of tools with a primary focus on variant discovery and genotyping. Its powerful processing engine and high-performance computing features make it capable of taking on projects of any size.
-Example: `gatk --help` and `gatk --list`.
+Examples: `gatk --help` and `gatk --list`.
 ]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
@@ -1286,6 +1286,9 @@ if (version_x == &quot;1&quot;) then
 else
   prepend_path(&quot;PATH&quot;, home)
 end
+
+-- Tweak Java for the current environment
+depends_on(&quot;java-tweaks&quot;)
 </code></pre>
 
 </details>
@@ -3908,7 +3911,7 @@ prepend_path(&quot;PATH&quot;, home)
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
-_The above information was automatically generated on 2022-03-31 10:33:53 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2022-03-31 10:38:49 from querying `module avail` and `module spider`._
 
 
 <style>
