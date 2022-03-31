@@ -582,7 +582,7 @@ pushenv(&quot;BEDTOOLS2_HOME&quot;, home)
 <span class="module-description">BLAST finds regions of similarity between biological sequences. The program compares nucleotide or protein sequences to sequence databases and calculates the statistical significance.</span><br>
 Example: <span class="module-example"><code>blastx -version</code></span><br>
 URL: <span class="module-url"><a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">https://blast.ncbi.nlm.nih.gov/Blast.cgi</a>, <a href="https://www.ncbi.nlm.nih.gov/books/NBK131777/">https://www.ncbi.nlm.nih.gov/books/NBK131777/</a> (changelog)</span><br>
-Versions: <span class="module-version">2.10.1, 2.11.0, <em>2.12.0</em></span><br>
+Versions: <span class="module-version">2.10.1, 2.11.0, 2.12.0, <em>2.13.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -596,7 +596,7 @@ whatis(&quot;Keywords: programming, scripting&quot;)
 whatis(&quot;URL: https://blast.ncbi.nlm.nih.gov/Blast.cgi, https://www.ncbi.nlm.nih.gov/books/NBK131777/ (changelog)&quot;)
 whatis([[
 Description: BLAST finds regions of similarity between biological sequences. The program compares nucleotide or protein sequences to sequence databases and calculates the statistical significance.
-Example: `blastx -version`
+Examples: `blastx -version`
 ]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
@@ -614,8 +614,8 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 <strong class="module-help">BLAT: Fast Sequence Search Command Line Tool</strong><br>
 <span class="module-description">BLAT - client and server combined into a single program, first building the index, then using the index, and then exiting.</span><br>
 Example: <span class="module-example"><code>blat</code></span><br>
-URL: <span class="module-url"><a href="https://genome.ucsc.edu/goldenPath/help/blatSpec.html">https://genome.ucsc.edu/goldenPath/help/blatSpec.html</a></span><br>
-Versions: <span class="module-version"><em>36x4</em></span><br>
+URL: <span class="module-url"><a href="https://genome.ucsc.edu/goldenPath/help/blatSpec.html">https://genome.ucsc.edu/goldenPath/help/blatSpec.html</a> (docs), <a href="https://genome.ucsc.edu/FAQ/FAQblat.html">https://genome.ucsc.edu/FAQ/FAQblat.html</a> (faq), <a href="https://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/blat/">https://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/blat/</a> (download)</span><br>
+Versions: <span class="module-version">36x4, <em>37x1</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -626,10 +626,10 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: sequencing, alignment&quot;)
-whatis(&quot;URL: https://genome.ucsc.edu/goldenPath/help/blatSpec.html&quot;)
+whatis(&quot;URL: https://genome.ucsc.edu/goldenPath/help/blatSpec.html (docs), https://genome.ucsc.edu/FAQ/FAQblat.html (faq), https://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/blat/ (download)&quot;)
 whatis([[
 Description: BLAT - client and server combined into a single program, first building the index, then using the index, and then exiting.
-Example: `blat`
+Examples: `blat`
 ]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
@@ -908,7 +908,7 @@ set_alias(&quot;ctopx&quot;, &quot;ctop 2&gt; &gt;(grep -vF 'Invalid user id')&q
 <span class="module-description">CMake is cross-platform free and open-source software for managing the build process of software using a compiler-independent method. It supports directory hierarchies and applications that depend on multiple libraries.</span><br>
 Example: <span class="module-example"><code>cmake --version</code>.</span><br>
 URL: <span class="module-url"><a href="https://cmake.org/">https://cmake.org/</a>, <a href="https://github.com/Kitware/CMake/releases">https://github.com/Kitware/CMake/releases</a></span><br>
-Versions: <span class="module-version">3.18.2, 3.19.2, 3.22.2, <em>3.22.3</em></span><br>
+Versions: <span class="module-version">3.18.2, 3.19.2, 3.22.2, 3.22.3, <em>3.23.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -1211,9 +1211,9 @@ prepend_path(&quot;PATH&quot;, home)
   <dd class="module-details">
 <strong class="module-help">fzf: A Command-Line Fuzzy Finder</strong><br>
 <span class="module-description">fzf is a general-purpose command-line fuzzy finder. It's an interactive Unix filter for command-line that can be used with any list; files, command history, processes, hostnames, bookmarks, git commits, etc.</span><br>
-Example: <span class="module-example"><code>fzf --version</code> and <code>emacs \&quot;$(fzf)\&quot;</code>.</span><br>
+Example: <span class="module-example"><code>fzf --version</code> and <code>emacs &quot;$(fzf)&quot;</code>.</span><br>
 Note: <span class="module-note">To install tab completions and key bindinds to your shell, call <code>$FZF_HOME/install</code>. To uninstall, use <code>$FZF_HOME/uninstall</code>.</span><br>
-URL: <span class="module-url"><a href="https://github.com/junegunn/fzf">https://github.com/junegunn/fzf</a>, <a href="https://github.com/junegunn/fzf/blob/master/CHANGELOG.md">https://github.com/junegunn/fzf/blob/master/CHANGELOG.md</a> (changelog) <a href="https://github.com/junegunn/fzf/wiki">https://github.com/junegunn/fzf/wiki</a> (docs)</span><br>
+URL: <span class="module-url"><a href="https://github.com/junegunn/fzf">https://github.com/junegunn/fzf</a>, <a href="https://github.com/junegunn/fzf/wiki">https://github.com/junegunn/fzf/wiki</a> (documentation), <a href="https://github.com/junegunn/fzf/blob/master/CHANGELOG.md">https://github.com/junegunn/fzf/blob/master/CHANGELOG.md</a> (changelog), <a href="https://github.com/junegunn/fzf/releases">https://github.com/junegunn/fzf/releases</a> (download)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
 Versions: <span class="module-version"><em>0.29.0</em></span><br>
 <details>
@@ -1298,7 +1298,7 @@ end
 <span class="module-description">A tool for Genome-wide Complex Trait Analysis (GCTA).</span><br>
 Example: <span class="module-example"><code>gcta64</code>.</span><br>
 URL: <span class="module-url"><a href="https://yanglab.westlake.edu.cn/software/gcta/#Overview">https://yanglab.westlake.edu.cn/software/gcta/#Overview</a>, <a href="https://cnsgenomics.com/software/gcta/">https://cnsgenomics.com/software/gcta/</a>, <a href="https://github.com/jianyangqt/gcta">https://github.com/jianyangqt/gcta</a> (source code)</span><br>
-Versions: <span class="module-version">1.93.2beta, <em>1.93.3beta2</em></span><br>
+Versions: <span class="module-version">1.93.2beta, 1.93.3beta2, <em>1.94.0beta</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -1960,9 +1960,9 @@ prepend_path(&quot;PKG_CONFIG_PATH&quot;, pathJoin(home, &quot;lib&quot;, &quot;
 <strong class="module-help">mc: Midnight Commander</strong><br>
 <span class="module-description">GNU Midnight Commander is a visual file manager. It's a feature rich full-screen text mode application that allows you to copy, move and delete files and whole directory trees, search for files and run commands in the subshell. Internal viewer and editor are included.</span><br>
 Example: <span class="module-example"><code>mc</code> and <code>mc --version</code>.</span><br>
-URL: <span class="module-url"><a href="https://midnight-commander.org/">https://midnight-commander.org/</a>, <a href="https://github.com/MidnightCommander/mc/blob/master/doc/NEWS">https://github.com/MidnightCommander/mc/blob/master/doc/NEWS</a> (changelog), <a href="https://github.com/MidnightCommander/mc">https://github.com/MidnightCommander/mc</a> (source code)</span><br>
+URL: <span class="module-url"><a href="https://midnight-commander.org/">https://midnight-commander.org/</a>, <a href="https://github.com/MidnightCommander/mc/blob/master/doc/NEWS">https://github.com/MidnightCommander/mc/blob/master/doc/NEWS</a> (changelog), <a href="https://github.com/MidnightCommander/mc">https://github.com/MidnightCommander/mc</a> (source code), <a href="https://github.com/MidnightCommander/mc/tags">https://github.com/MidnightCommander/mc/tags</a> (download)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version">4.8.26, <em>4.8.27</em></span><br>
+Versions: <span class="module-version">4.8.26, 4.8.27, <em>4.8.28</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -1973,7 +1973,7 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: Programming, Statistics&quot;)
-whatis(&quot;URL: https://midnight-commander.org/, https://github.com/MidnightCommander/mc/blob/master/doc/NEWS (changelog), https://github.com/MidnightCommander/mc (source code)&quot;)
+whatis(&quot;URL: https://midnight-commander.org/, https://github.com/MidnightCommander/mc/blob/master/doc/NEWS (changelog), https://github.com/MidnightCommander/mc (source code), https://github.com/MidnightCommander/mc/tags (download)&quot;)
 whatis([[
 Description: GNU Midnight Commander is a visual file manager. It's a feature rich full-screen text mode application that allows you to copy, move and delete files and whole directory trees, search for files and run commands in the subshell. Internal viewer and editor are included.
 Examples: `mc` and `mc --version`.
@@ -1995,7 +1995,7 @@ prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;share&quot;, &quot;man&qu
   <dd class="module-details">
 <strong class="module-help">muTect: Identification of Somatic Point Mutations in Next Generation Sequencing Data of Cancer Genomes</strong><br>
 <span class="module-description">MuTect is a method developed at the Broad Institute for the reliable and accurate identification of somatic point mutations in next generation sequencing data of cancer genomes.</span><br>
-Example: <span class="module-example"><code>mutect</code>, which is short for <code>java -Xmx2g -jar \&quot;$MUTECT_JAR\&quot;</code>.</span><br>
+Example: <span class="module-example"><code>mutect</code>, which is short for <code>java -Xmx2g -jar &quot;$MUTECT_JAR&quot;</code>.</span><br>
 URL: <span class="module-url"><a href="https://software.broadinstitute.org/cancer/cga/mutect">https://software.broadinstitute.org/cancer/cga/mutect</a>, <a href="https://github.com/broadinstitute/mutect">https://github.com/broadinstitute/mutect</a> (source code)</span><br>
 Versions: <span class="module-version">1.0.27783, 1.1.1, 1.1.4, <em>1.1.5</em></span><br>
 <details>
@@ -2168,7 +2168,7 @@ prepend_path(&quot;PATH&quot;, home)
 <span class="module-description">PLINK is a free, open-source whole genome association analysis toolset, designed to perform a range of basic, large-scale analyses in a computationally efficient manner. The focus of PLINK is purely on analysis of genotype/phenotype data, so there is no support for steps prior to this (e.g. study design and planning, generating genotype or CNV calls from raw data).</span><br>
 Example: <span class="module-example"><code>plink --help</code>.</span><br>
 URL: <span class="module-url"><a href="https://www.cog-genomics.org/plink/">https://www.cog-genomics.org/plink/</a></span><br>
-Versions: <span class="module-version">1.90b6.18, 1.90b6.21, <em>1.90b6.24</em></span><br>
+Versions: <span class="module-version">1.90b6.18, 1.90b6.21, 1.90b6.24, <em>1.90b6.25</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -2180,7 +2180,10 @@ local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: genomics&quot;)
 whatis(&quot;URL: https://www.cog-genomics.org/plink/&quot;)
-whatis(&quot;Description: PLINK is a free, open-source whole genome association analysis toolset, designed to perform a range of basic, large-scale analyses in a computationally efficient manner. The focus of PLINK is purely on analysis of genotype/phenotype data, so there is no support for steps prior to this (e.g. study design and planning, generating genotype or CNV calls from raw data). Example: `plink --help`.&quot;)
+whatis([[
+Description: PLINK is a free, open-source whole genome association analysis toolset, designed to perform a range of basic, large-scale analyses in a computationally efficient manner. The focus of PLINK is purely on analysis of genotype/phenotype data, so there is no support for steps prior to this (e.g. study design and planning, generating genotype or CNV calls from raw data).
+Examples: `plink --help`.
+]])
 
 -- Local variables
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
@@ -2425,10 +2428,10 @@ pushenv(&quot;R_PROFILE&quot;, pathJoin(home, &quot;Rprofile.site&quot;))
   <dd class="module-details">
 <strong class="module-help">rclone: Rsync for Cloud Storage and More</strong><br>
 <span class="module-description">Rclone is a command line program to sync files and directories to and from a large number of end points on the local file system, or remote file systems, and in the cloud.</span><br>
-Example: <span class="module-example"><code>rclone --version</code>, <code>rclone --help</code>, <code>rclone config</code>, and <code>info rclone</code>.</span><br>
-URL: <span class="module-url"><a href="https://rclone.org/">https://rclone.org/</a>, <a href="https://rclone.org/changelog/">https://rclone.org/changelog/</a> (changelog) <a href="https://github.com/rclone/rclone">https://github.com/rclone/rclone</a> (source code)</span><br>
+Example: <span class="module-example"><code>rclone --version</code>, <code>rclone --help</code>, <code>rclone config</code>, and <code>man rclone</code>.</span><br>
+URL: <span class="module-url"><a href="https://rclone.org/">https://rclone.org/</a>, <a href="https://rclone.org/changelog/">https://rclone.org/changelog/</a> (changelog), <a href="https://github.com/rclone/rclone">https://github.com/rclone/rclone</a> (source code)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version"><em>1.57.0</em></span><br>
+Versions: <span class="module-version">1.57.0, <em>1.58.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help(&quot;rclone: Rsync for Cloud Storage and More&quot;)
@@ -2437,10 +2440,10 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: files, transfers&quot;)
-whatis(&quot;URL: https://rclone.org/, https://rclone.org/changelog/ (changelog) https://github.com/rclone/rclone (source code)&quot;)
+whatis(&quot;URL: https://rclone.org/, https://rclone.org/changelog/ (changelog), https://github.com/rclone/rclone (source code)&quot;)
 whatis([[
 Description: Rclone is a command line program to sync files and directories to and from a large number of end points on the local file system, or remote file systems, and in the cloud.
-Example: `rclone --version`, `rclone --help`, `rclone config`, and `info rclone`.
+Examples: `rclone --version`, `rclone --help`, `rclone config`, and `man rclone`.
 Warning: Only the most recent version of this software will be kept.
 ]])
 
@@ -2448,7 +2451,7 @@ local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
 
 prepend_path(&quot;PATH&quot;, home)
-prepend_path(&quot;MANPATH&quot;, home)
+prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;share&quot;, &quot;man&quot;))
 </code></pre>
 
 </details>
@@ -2498,7 +2501,7 @@ prepend_path(&quot;PATH&quot;, home)
 Example: <span class="module-example"><code>rstudio</code>.  If you get a blank window, retry with <code>QMLSCENE_DEVICE=softwarecontext rstudio</code>.</span><br>
 URL: <span class="module-url"><a href="https://rstudio.com/products/rstudio/#rstudio-desktop">https://rstudio.com/products/rstudio/#rstudio-desktop</a>, <a href="https://www.rstudio.com/products/rstudio/release-notes/">https://www.rstudio.com/products/rstudio/release-notes/</a> (changelog), <a href="https://github.com/rstudio/rstudio/">https://github.com/rstudio/rstudio/</a> (source code)</span><br>
 Warning: <span class="module-warning">This software works only on the development nodes. It requires an SSH connection with X11 Forwarding enabled. It does <em>not</em> work with X2Go (gives error &quot;GLX 1.3 or later is required&quot;). For best performance, use SSH compression when using X11 Forwarding, i.e. <code>ssh -X -C ...</code>.</span><br>
-Versions: <span class="module-version">1.4.1103, 1.4.1717, 2021.09.0+351, 2021.09.1-372, 2021.09.2-382, <em>2022.02.0-443</em></span><br>
+Versions: <span class="module-version">1.4.1103, 1.4.1717, 2021.09.0+351, 2021.09.1-372, 2021.09.2-382, 2022.02.0-443, <em>2022.02.1-461</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -2574,7 +2577,7 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 Example: <span class="module-example"><code>rsc --help</code>, and <code>rsc start</code>.</span><br>
 URL: <span class="module-url"><a href="https://github.com/UCSF-CBI/rstudio-server-controller">https://github.com/UCSF-CBI/rstudio-server-controller</a>, <a href="https://github.com/UCSF-CBI/rstudio-server-controller/blob/main/NEWS.md">https://github.com/UCSF-CBI/rstudio-server-controller/blob/main/NEWS.md</a> (changelog)</span><br>
 Warning: <span class="module-warning">This is work under construction!</span><br>
-Versions: <span class="module-version">0.6.0, 0.6.1, 0.7.0, 0.8.0, <em>0.8.1</em></span><br>
+Versions: <span class="module-version">0.6.0, 0.6.1, 0.7.0, 0.8.0, 0.8.1, <em>0.8.2</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -2874,7 +2877,7 @@ prepend_path(&quot;PATH&quot;, home)
 <strong class="module-help">SnpEff: Genetic Variant Annotation and Effect Prediction Toolbox</strong><br>
 <span class="module-description">SnpEff is a variant annotation and effect prediction tool. It annotates and predicts the effects of variants on genes (such as amino acid changes).</span><br>
 Example: <span class="module-example"><code>snpEff -help</code>, <code>SnpSift -help</code>,  and <code>ClinEff -help</code>, which are aliases for <code>java -jar $SNPEFF_HOME/snpEff/snpEff.jar -help</code>, <code>java -jar $SNPEFF_HOME/snpEff/SnpSift.jar -help</code>, and <code>java -jar $SNPEFF_HOME/clinEff/ClinEff.jar -help</code>.</span><br>
-URL: <span class="module-url"><a href="https://pcingola.github.io/SnpEff/">https://pcingola.github.io/SnpEff/</a>, <a href="https://github.com/pcingola/SnpEff/tags">https://github.com/pcingola/SnpEff/tags</a> (change log), <a href="https://github.com/pcingola/SnpEff">https://github.com/pcingola/SnpEff</a> (source code)</span><br>
+URL: <span class="module-url"><a href="https://pcingola.github.io/SnpEff/">https://pcingola.github.io/SnpEff/</a>, <a href="https://github.com/pcingola/SnpEff/tags">https://github.com/pcingola/SnpEff/tags</a> (changelog), <a href="https://github.com/pcingola/SnpEff">https://github.com/pcingola/SnpEff</a> (source code)</span><br>
 Versions: <span class="module-version">4.3t, 5.0c, <em>5.0e</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
@@ -3153,7 +3156,7 @@ prepend_path(&quot;PATH&quot;, home)
 Example: <span class="module-example"><code>tree --help</code>.</span><br>
 URL: <span class="module-url"><a href="http://mama.indstate.edu/users/ice/tree/">http://mama.indstate.edu/users/ice/tree/</a>, <a href="http://mama.indstate.edu/users/ice/tree/changes.html">http://mama.indstate.edu/users/ice/tree/changes.html</a> (changelog)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version"><em>1.8.0</em></span><br>
+Versions: <span class="module-version">1.8.0, <em>2.0.2</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -3186,7 +3189,7 @@ prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;man&quot;))
   <dd class="module-details">
 <strong class="module-help">TrimGalore: Taking Appropriate QC Measures for RRBS-Type or Other -Seq Applications with Trim Galore!</strong><br>
 <span class="module-description">A wrapper around Cutadapt and FastQC to consistently apply adapter and quality trimming to FastQ files, with extra functionality for RRBS data.</span><br>
-Example: <span class="module-example"><code>trim_galore --version</code>, <code>trim_galore --help</code>, and <code>more \&quot;$TRIMGALORE_HOME/Docs/Trim_Galore_User_Guide.md\&quot;</code>.</span><br>
+Example: <span class="module-example"><code>trim_galore --version</code>, <code>trim_galore --help</code>, and <code>more &quot;$TRIMGALORE_HOME/Docs/Trim_Galore_User_Guide.md&quot;</code>.</span><br>
 URL: <span class="module-url"><a href="https://github.com/FelixKrueger/TrimGalore">https://github.com/FelixKrueger/TrimGalore</a>, <a href="https://github.com/FelixKrueger/TrimGalore/blob/master/Changelog.md">https://github.com/FelixKrueger/TrimGalore/blob/master/Changelog.md</a> (changelog)</span><br>
 Versions: <span class="module-version">0.4.4, 0.6.6, <em>0.6.7</em></span><br>
 <details>
@@ -3905,7 +3908,7 @@ prepend_path(&quot;PATH&quot;, home)
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
-_The above information was automatically generated on 2022-03-31 10:31:12 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2022-03-31 10:33:53 from querying `module avail` and `module spider`._
 
 
 <style>
