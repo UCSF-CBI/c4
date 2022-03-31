@@ -57,7 +57,7 @@ module load CBI r bwa bowtie2/2.4.2
 Below are 3 software repositories, each providing a set of software tools.
 
 <ul class="nav nav-pills">
-<li class="active"><a data-toggle="pill" href="#button_repository_built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(4)</a></li>
+<li class="active"><a data-toggle="pill" href="#button_repository_built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(3)</a></li>
 <li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(83)</a></li>
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
@@ -65,7 +65,7 @@ Below are 3 software repositories, each providing a set of software tools.
 <div class="tab-content" style="margin-top: 1ex;">
 <div id="button_repository_built-in" class="tab-pane fadein active">
 
-<h2 id="repository_built-in">Module Software Repository: built-in (4)</h2>
+<h2 id="repository_built-in">Module Software Repository: built-in (3)</h2>
 
 Maintained by: {{ site.cluster.nickname }} Systems Administrators, <a href="{{ '/about/contact.html' | relative_url }}">{{ site.cluster.name }}</a><br>
 Enable repository: <em>this software repository is always enabled</em><br>
@@ -145,25 +145,6 @@ setenv(&quot;JAVA_HOME&quot;, home)
 prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 prepend_path(&quot;LD_LIBRARY_PATH&quot;, pathJoin(home, &quot;lib&quot;))
 prepend_path(&quot;CPATH&quot;, pathJoin(home, &quot;include&quot;))
-</code></pre>
-
-</details>
-  </dd>
-</dl>
-<h3 id="module_built-in_scl-python" class="module-name">scl-python</h3>
-<dl>
-  <dd class="module-details">
-Versions: <span class="module-version"><em>3.6</em></span><br>
-<details>
-<summary>Module code: <a>view</a></summary>
-<pre><code class="language-lua">#%Module 1.0
-module-whatis &quot;Python 3.6&quot;
-prepend-path	LD_LIBRARY_PATH	/opt/rh/rh-python36/root/usr/lib64
-prepend-path	MANPATH	/opt/rh/rh-python36/root/usr/share/man
-prepend-path	PATH	/opt/rh/rh-python36/root/usr/bin
-prepend-path	PKG_CONFIG_PATH	/opt/rh/rh-python36/root/usr/lib64/pkgconfig
-prepend-path	XDG_DATA_DIRS	/opt/rh/rh-python36/root/usr/share:/usr/local/share:/usr/share
-
 </code></pre>
 
 </details>
@@ -908,7 +889,7 @@ set_alias(&quot;ctopx&quot;, &quot;ctop 2&gt; &gt;(grep -vF 'Invalid user id')&q
 <span class="module-description">CMake is cross-platform free and open-source software for managing the build process of software using a compiler-independent method. It supports directory hierarchies and applications that depend on multiple libraries.</span><br>
 Example: <span class="module-example"><code>cmake --version</code>.</span><br>
 URL: <span class="module-url"><a href="https://cmake.org/">https://cmake.org/</a>, <a href="https://github.com/Kitware/CMake/releases">https://github.com/Kitware/CMake/releases</a></span><br>
-Versions: <span class="module-version">3.18.2, 3.19.2, 3.22.2, 3.22.3, <em>3.23.0</em></span><br>
+Versions: <span class="module-version">3.18.2, 3.19.2, 3.22.3, <em>3.23.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -1965,7 +1946,7 @@ prepend_path(&quot;PKG_CONFIG_PATH&quot;, pathJoin(home, &quot;lib&quot;, &quot;
 Example: <span class="module-example"><code>mc</code> and <code>mc --version</code>.</span><br>
 URL: <span class="module-url"><a href="https://midnight-commander.org/">https://midnight-commander.org/</a>, <a href="https://github.com/MidnightCommander/mc/blob/master/doc/NEWS">https://github.com/MidnightCommander/mc/blob/master/doc/NEWS</a> (changelog), <a href="https://github.com/MidnightCommander/mc">https://github.com/MidnightCommander/mc</a> (source code), <a href="https://github.com/MidnightCommander/mc/tags">https://github.com/MidnightCommander/mc/tags</a> (download)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version">4.8.26, 4.8.27, <em>4.8.28</em></span><br>
+Versions: <span class="module-version">4.8.27, <em>4.8.28</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -2051,7 +2032,7 @@ depends_on(&quot;java-tweaks&quot;)
 Example: <span class="module-example"><code>pandoc --version</code>.</span><br>
 URL: <span class="module-url"><a href="https://pandoc.org/">https://pandoc.org/</a>, <a href="https://github.com/jgm/pandoc/blob/master/changelog.md">https://github.com/jgm/pandoc/blob/master/changelog.md</a> (changelog), <a href="https://github.com/jgm/pandoc">https://github.com/jgm/pandoc</a> (source code)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version">2.10.1, 2.11.3.2, 2.11.4, 2.14.2, 2.16.2, <em>2.17.1.1</em></span><br>
+Versions: <span class="module-version">2.14.2, 2.16.2, <em>2.17.1.1</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -2580,7 +2561,7 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 Example: <span class="module-example"><code>rsc --help</code>, and <code>rsc start</code>.</span><br>
 URL: <span class="module-url"><a href="https://github.com/UCSF-CBI/rstudio-server-controller">https://github.com/UCSF-CBI/rstudio-server-controller</a>, <a href="https://github.com/UCSF-CBI/rstudio-server-controller/blob/main/NEWS.md">https://github.com/UCSF-CBI/rstudio-server-controller/blob/main/NEWS.md</a> (changelog)</span><br>
 Warning: <span class="module-warning">This is work under construction!</span><br>
-Versions: <span class="module-version">0.6.0, 0.6.1, 0.7.0, 0.8.0, 0.8.1, <em>0.8.2</em></span><br>
+Versions: <span class="module-version"><em>0.8.2</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -3906,12 +3887,12 @@ prepend_path(&quot;PATH&quot;, home)
 </div> 
 
 <ul class="nav nav-pills">
-<li class="active"><a data-toggle="pill" href="#button_repository_built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(4)</a></li>
+<li class="active"><a data-toggle="pill" href="#button_repository_built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(3)</a></li>
 <li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(83)</a></li>
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
-_The above information was automatically generated on 2022-03-31 10:38:49 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2022-03-31 12:33:05 from querying `module avail` and `module spider`._
 
 
 <style>
