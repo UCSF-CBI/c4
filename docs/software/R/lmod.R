@@ -56,7 +56,7 @@ spider <- function(module_path, force = FALSE) {
     stopifnot(utils::file_test("-f", pathname))
   }
   json <- readChar(pathname, nchars = file.size(pathname))
-  message(" - spider json result: ", json)
+#  message(" - spider json result: ", json)
   
   message(sprintf("spider('%s') ... done", module_path))
   json
