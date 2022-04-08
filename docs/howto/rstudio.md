@@ -62,10 +62,7 @@ If you successfully completed the above two steps, and you made sure to use the 
 
 * <http://127.0.0.1:8787/>
 
-You will be presented with a 'Sign in to RStudio' web page where you need to enter:
-
-1. Your username {{ site.cluster.nickname }} (e.g. `alice`)
-2. Your password on {{ site.cluster.nickname }}
+You will be presented with a 'Sign in to RStudio' web page. Use your {{ site.cluster.nickname }} credentials to log in.
 
 After clicking 'Sign In', you should be redirected to the RStudio interface.
 
