@@ -1,3 +1,7 @@
+<div class="alert alert-warning" role="alert" style="margin-top: 3ex">
+DEPRECATION 2022-04-07: We no longer recommend the below instructions. Instead, use the recommended instructions at <a href="{{ '/howto/rstudio.html' | relative_url }}">Work with RStudio</a>, which are much easier and runs directly on the system instead of via a Singularity container. This page will be removed in the near future.
+</div>
+
 # Work with RStudio Server
 
 We are able to run [RStudio Server] on {{ site.cluster.name }} using Singularity containers. The basic idea is to use a pre-built container from the [Rocker Project], which we instantiate on a compute node via the job scheduler.  We then set up an SSH tunnel between RStudio Server and your endpoint device, e.g. your notebook or workstation. You can then open RStudio in your local web browser and use RStudio Server from there. We have found that this provides much better response time than attempting to run RStudio directly on a compute node and then working directly on that using [X11 forwarding].
