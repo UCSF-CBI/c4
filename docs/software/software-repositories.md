@@ -57,7 +57,7 @@ module load CBI r bwa bowtie2/2.4.2
 Below are 3 software repositories, each providing a set of software tools.
 
 <ul class="nav nav-pills">
-<li class="active"><a data-toggle="pill" href="#button_repository_built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(4)</a></li>
+<li class="active"><a data-toggle="pill" href="#button_repository_built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(3)</a></li>
 <li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(83)</a></li>
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
@@ -65,7 +65,7 @@ Below are 3 software repositories, each providing a set of software tools.
 <div class="tab-content" style="margin-top: 1ex;">
 <div id="button_repository_built-in" class="tab-pane fadein active">
 
-<h2 id="repository_built-in">Module Software Repository: built-in (4)</h2>
+<h2 id="repository_built-in">Module Software Repository: built-in (3)</h2>
 
 Maintained by: {{ site.cluster.nickname }} Systems Administrators, <a href="{{ '/about/contact.html' | relative_url }}">{{ site.cluster.name }}</a><br>
 Enable repository: <em>this software repository is always enabled</em><br>
@@ -145,25 +145,6 @@ setenv(&quot;JAVA_HOME&quot;, home)
 prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 prepend_path(&quot;LD_LIBRARY_PATH&quot;, pathJoin(home, &quot;lib&quot;))
 prepend_path(&quot;CPATH&quot;, pathJoin(home, &quot;include&quot;))
-</code></pre>
-
-</details>
-  </dd>
-</dl>
-<h3 id="module_built-in_scl-python" class="module-name">scl-python</h3>
-<dl>
-  <dd class="module-details">
-Versions: <span class="module-version"><em>3.6</em></span><br>
-<details>
-<summary>Module code: <a>view</a></summary>
-<pre><code class="language-lua">#%Module 1.0
-module-whatis &quot;Python 3.6&quot;
-prepend-path	LD_LIBRARY_PATH	/opt/rh/rh-python36/root/usr/lib64
-prepend-path	MANPATH	/opt/rh/rh-python36/root/usr/share/man
-prepend-path	PATH	/opt/rh/rh-python36/root/usr/bin
-prepend-path	PKG_CONFIG_PATH	/opt/rh/rh-python36/root/usr/lib64/pkgconfig
-prepend-path	XDG_DATA_DIRS	/opt/rh/rh-python36/root/usr/share:/usr/local/share:/usr/share
-
 </code></pre>
 
 </details>
@@ -3906,12 +3887,12 @@ prepend_path(&quot;PATH&quot;, home)
 </div> 
 
 <ul class="nav nav-pills">
-<li class="active"><a data-toggle="pill" href="#button_repository_built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(4)</a></li>
+<li class="active"><a data-toggle="pill" href="#button_repository_built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(3)</a></li>
 <li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(83)</a></li>
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
-_The above information was automatically generated on 2022-04-07 19:49:30 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2022-04-07 19:50:30 from querying `module avail` and `module spider`._
 
 
 <style>
