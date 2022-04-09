@@ -35,7 +35,7 @@ to connect and log in to the RStudio Server before everything
 times out.
 ```
 
-There is one things you should pay attention to here:
+There is one things you should pay extra attention to here:
 
 1. The instructions how to log in to the cluster with SSH port forwarding
 
@@ -67,7 +67,7 @@ You will be presented with a 'Sign in to RStudio' web page. Use your {{ site.clu
 After clicking 'Sign In', you should be redirected to the RStudio interface.
 
 
-To terminate the RStudio Server, start by exiting R by typing `quit()` at the R prompt. Then press <kbd>Ctrl-C</kbd> in the terminal where you called `rsc start`.  Alternatively, run `rsc stop` in another terminal, e.g. the second one used in Step 2.
+To terminate the RStudio Server, make sure to exit R first by typing `quit()` at the R prompt. Then press <kbd>Ctrl-C</kbd> in the terminal where you called `rsc start`.  Alternatively, run `rsc stop` in another terminal, e.g. the second one used in Step 2.
 
 
 
@@ -89,7 +89,7 @@ Logging configuration loaded from '/etc/rstudio/logging.conf'. Logging to
 ```
 
 You should see the RStudio Desktop interface appear after a few seconds.
-If you get a blank window, which some macOS users have report, retry with:
+If you get a blank window, which some macOS users have reported, retry with:
 
 ```sh
 [alice@{{ site.devel.name }} ~]$ QMLSCENE_DEVICE=softwarecontext rstudio
