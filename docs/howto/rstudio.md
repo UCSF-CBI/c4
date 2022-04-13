@@ -67,8 +67,7 @@ You will be presented with a 'Sign in to RStudio' web page. Use your {{ site.clu
 After clicking 'Sign In', you should be redirected to the RStudio interface.
 
 
-To terminate the RStudio Server, make sure to exit R first by typing `quit()` at the R prompt. Then press <kbd>Ctrl-C</kbd> in the terminal where you called `rsc start`.  Alternatively, run `rsc stop` in another terminal, e.g. the second one used in Step 2.
-
+To terminate the RStudio Server, start by exiting R by typing `quit()` at the R prompt. Then press <kbd>Ctrl-C</kbd> in the terminal where you called `rsc start`.  Alternatively, run `rsc stop` in another terminal, e.g. the second one used in Step 2.
 
 
 
