@@ -516,7 +516,7 @@ prepend_path(&quot;BATS_SUPPORT_HOME&quot;, home)
 <span class="module-description">BCFtools is a set of utilities that manipulate variant calls in the Variant Call Format (VCF) and its binary counterpart BCF. All commands work transparently with both VCFs and BCFs, both uncompressed and BGZF-compressed.</span><br>
 Example: <span class="module-example"><code>bcftools --version</code></span><br>
 URL: <span class="module-url"><a href="https://www.htslib.org/">https://www.htslib.org/</a>, <a href="https://github.com/samtools/bcftools/blob/develop/NEWS">https://github.com/samtools/bcftools/blob/develop/NEWS</a> (changelog), <a href="https://github.com/samtools/bcftools">https://github.com/samtools/bcftools</a> (source code)</span><br>
-Versions: <span class="module-version">1.10.2, 1.11, 1.12, 1.13, 1.14, <em>1.15</em></span><br>
+Versions: <span class="module-version">1.10.2, 1.11, 1.12, 1.13, 1.14, 1.15, <em>1.15.1</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -1336,8 +1336,8 @@ pushenv(&quot;FZF_HOME&quot;, home)
 <strong class="module-help">Genome Analysis Toolkit (GATK): Variant Discovery in High-Throughput Sequencing Data</strong><br>
 <span class="module-description">Developed in the Data Sciences Platform at the Broad Institute, the toolkit offers a wide variety of tools with a primary focus on variant discovery and genotyping. Its powerful processing engine and high-performance computing features make it capable of taking on projects of any size.</span><br>
 Example: <span class="module-example"><code>gatk --help</code> and <code>gatk --list</code>.</span><br>
-URL: <span class="module-url"><a href="https://software.broadinstitute.org/gatk/">https://software.broadinstitute.org/gatk/</a>, <a href="https://github.com/broadinstitute/gatk">https://github.com/broadinstitute/gatk</a> (source code), <a href="https://github.com/broadinstitute/gatk/releases">https://github.com/broadinstitute/gatk/releases</a> (changelog), <a href="https://github.com/broadgsa/gatk">https://github.com/broadgsa/gatk</a> (legacy), <a href="https://console.cloud.google.com/storage/browser/gatk-software/package-archive">https://console.cloud.google.com/storage/browser/gatk-software/package-archive</a> (legacy), <a href="ftp://ftp.broadinstitute.org/pub/gsa/GenomeAnalysisTK/">ftp://ftp.broadinstitute.org/pub/gsa/GenomeAnalysisTK/</a> (legacy)</span><br>
-Versions: <span class="module-version">1.1-37-ge63d9d8, 1.6-5-g557da77, 4.1.1.0, 4.1.7.0, 4.1.8.1, 4.1.9.0, 4.2.0.0, 4.2.2.0, 4.2.3.0, 4.2.4.1, <em>4.2.5.0</em></span><br>
+URL: <span class="module-url"><a href="https://gatk.broadinstitute.org/hc/en-us">https://gatk.broadinstitute.org/hc/en-us</a>, <a href="https://github.com/broadinstitute/gatk">https://github.com/broadinstitute/gatk</a> (source code), <a href="https://github.com/broadinstitute/gatk/releases">https://github.com/broadinstitute/gatk/releases</a> (changelog), <a href="https://github.com/broadgsa/gatk">https://github.com/broadgsa/gatk</a> (legacy), <a href="https://console.cloud.google.com/storage/browser/gatk-software/package-archive">https://console.cloud.google.com/storage/browser/gatk-software/package-archive</a> (legacy), <a href="ftp://ftp.broadinstitute.org/pub/gsa/GenomeAnalysisTK/">ftp://ftp.broadinstitute.org/pub/gsa/GenomeAnalysisTK/</a> (legacy)</span><br>
+Versions: <span class="module-version">1.1-37-ge63d9d8, 1.6-5-g557da77, 4.1.1.0, 4.1.7.0, 4.1.8.1, 4.1.9.0, 4.2.0.0, 4.2.2.0, 4.2.3.0, 4.2.4.1, 4.2.5.0, <em>4.2.6.1</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -1348,7 +1348,7 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: sequencing, genome&quot;)
-whatis(&quot;URL: https://software.broadinstitute.org/gatk/, https://github.com/broadinstitute/gatk (source code), https://github.com/broadinstitute/gatk/releases (changelog), https://github.com/broadgsa/gatk (legacy), https://console.cloud.google.com/storage/browser/gatk-software/package-archive (legacy), ftp://ftp.broadinstitute.org/pub/gsa/GenomeAnalysisTK/ (legacy)&quot;)
+whatis(&quot;URL: https://gatk.broadinstitute.org/hc/en-us, https://github.com/broadinstitute/gatk (source code), https://github.com/broadinstitute/gatk/releases (changelog), https://github.com/broadgsa/gatk (legacy), https://console.cloud.google.com/storage/browser/gatk-software/package-archive (legacy), ftp://ftp.broadinstitute.org/pub/gsa/GenomeAnalysisTK/ (legacy)&quot;)
 whatis([[
 Description: Developed in the Data Sciences Platform at the Broad Institute, the toolkit offers a wide variety of tools with a primary focus on variant discovery and genotyping. Its powerful processing engine and high-performance computing features make it capable of taking on projects of any size.
 Examples: `gatk --help` and `gatk --list`.
@@ -1747,7 +1747,7 @@ prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;share&quot;, &quot;man&qu
 <span class="module-description">HTSlib is an implementation of a unified C library for accessing common file formats, such as SAM, CRAM and VCF, used for high-throughput sequencing data, and is the core library used by samtools and bcftools. HTSlib also provides the bgzip, htsfile, and tabix utilities.</span><br>
 Example: <span class="module-example"><code>bgzip --version</code>, <code>htsfile --version</code>, and <code>tabix --version</code>.</span><br>
 URL: <span class="module-url"><a href="https://www.htslib.org/">https://www.htslib.org/</a>, <a href="https://github.com/samtools/htslib/blob/develop/NEWS">https://github.com/samtools/htslib/blob/develop/NEWS</a> (changelog), <a href="https://github.com/samtools/htslib">https://github.com/samtools/htslib</a> (source code)</span><br>
-Versions: <span class="module-version">1.10.2, 1.11, 1.12, 1.13, 1.14, <em>1.15</em></span><br>
+Versions: <span class="module-version">1.10.2, 1.11, 1.12, 1.13, 1.14, 1.15, <em>1.15.1</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -2135,7 +2135,7 @@ depends_on(&quot;java-tweaks&quot;)
 Example: <span class="module-example"><code>pandoc --version</code>.</span><br>
 URL: <span class="module-url"><a href="https://pandoc.org/">https://pandoc.org/</a>, <a href="https://github.com/jgm/pandoc/blob/master/changelog.md">https://github.com/jgm/pandoc/blob/master/changelog.md</a> (changelog), <a href="https://github.com/jgm/pandoc">https://github.com/jgm/pandoc</a> (source code)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version">2.14.2, 2.16.2, <em>2.17.1.1</em></span><br>
+Versions: <span class="module-version">2.14.2, 2.16.2, 2.17.1.1, <em>2.18</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -2170,7 +2170,7 @@ prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;share&quot;, &quot;man&qu
 <span class="module-description">Picard is a set of command line tools for manipulating high-throughput sequencing (HTS) data and formats such as SAM/BAM/CRAM and VCF.</span><br>
 Example: <span class="module-example"><code>picard -h</code>, which is an alias for <code>java -jar $PICARD_HOME/picard.jar -h</code>&quot;</span><br>
 URL: <span class="module-url"><a href="http://broadinstitute.github.io/picard/">http://broadinstitute.github.io/picard/</a>, <a href="https://github.com/broadinstitute/picard/releases">https://github.com/broadinstitute/picard/releases</a> (changelog), <a href="https://github.com/broadinstitute/picard">https://github.com/broadinstitute/picard</a> (source code)</span><br>
-Versions: <span class="module-version">1.64, 2.23.1, 2.24.0, 2.25.0, 2.26.2, 2.26.5, 2.26.10, <em>2.26.11</em></span><br>
+Versions: <span class="module-version">1.64, 2.23.1, 2.24.0, 2.25.0, 2.26.2, 2.26.5, 2.26.10, 2.26.11, <em>2.27.1</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -2255,7 +2255,7 @@ prepend_path(&quot;PATH&quot;, home)
 <span class="module-description">PLINK is a free, open-source whole genome association analysis toolset, designed to perform a range of basic, large-scale analyses in a computationally efficient manner. The focus of PLINK is purely on analysis of genotype/phenotype data, so there is no support for steps prior to this (e.g. study design and planning, generating genotype or CNV calls from raw data).</span><br>
 Example: <span class="module-example"><code>plink --help</code>.</span><br>
 URL: <span class="module-url"><a href="https://www.cog-genomics.org/plink/">https://www.cog-genomics.org/plink/</a></span><br>
-Versions: <span class="module-version">1.90b6.18, 1.90b6.21, 1.90b6.24, <em>1.90b6.25</em></span><br>
+Versions: <span class="module-version">1.90b6.18, 1.90b6.21, 1.90b6.24, 1.90b6.25, <em>1.90b6.26</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -2661,10 +2661,10 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
   <dd class="module-details">
 <strong class="module-help">RSC: An RStudio Server Controller</strong><br>
 <span class="module-description">The RStudio Server Controller (RSC) is a tool for launching a personal instance of the RStudio Server on a Linux machine, which then can be access via the web browser, either directly or via SSH tunneling.</span><br>
-Example: <span class="module-example"><code>rsc --help</code>, and <code>rsc start</code>.</span><br>
+Example: <span class="module-example"><code>rsc --help</code>, <code>rsc start</code>, and <code>rsc stop</code>.</span><br>
 URL: <span class="module-url"><a href="https://github.com/UCSF-CBI/rstudio-server-controller">https://github.com/UCSF-CBI/rstudio-server-controller</a>, <a href="https://github.com/UCSF-CBI/rstudio-server-controller/blob/main/NEWS.md">https://github.com/UCSF-CBI/rstudio-server-controller/blob/main/NEWS.md</a> (changelog)</span><br>
 Warning: <span class="module-warning">This is work under construction!</span><br>
-Versions: <span class="module-version">0.8.3, <em>0.8.2</em></span><br>
+Versions: <span class="module-version">0.8.2, <em>0.8.3</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -2678,19 +2678,26 @@ whatis(&quot;Keywords: programming, R, RStudio Server, GUI&quot;)
 whatis(&quot;URL: https://github.com/UCSF-CBI/rstudio-server-controller, https://github.com/UCSF-CBI/rstudio-server-controller/blob/main/NEWS.md (changelog)&quot;)
 whatis([[
 Description: The RStudio Server Controller (RSC) is a tool for launching a personal instance of the RStudio Server on a Linux machine, which then can be access via the web browser, either directly or via SSH tunneling.
-Examples: `rsc --help`, and `rsc start`.
+Examples: `rsc --help`, `rsc start`, and `rsc stop`.
 Warning: This is work under construction!
 ]])
 
 depends_on(&quot;r&quot;)
 depends_on(&quot;rstudio-server&quot;)
-try_load(&quot;expect&quot;)
+
+-- Authenticate via one-time random password by default?
+if isDir(&quot;/wynton&quot;) then
+  -- Update default to: rsc start --auth=auth-via-env --random-password
+  pushenv(&quot;RSC_AUTH&quot;, &quot;auth-via-env&quot;)
+  pushenv(&quot;RSC_PASSWORD&quot;, &quot;random&quot;)
+else
+  try_load(&quot;expect&quot;)
+end
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
 
 prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
-
 </code></pre>
 
 </details>
@@ -2737,7 +2744,7 @@ prepend_path(&quot;LD_LIBRARY_PATH&quot;, pathJoin(home, &quot;lib&quot;))
 <span class="module-description">SAMtools is a suite of programs for interacting with high-throughput sequencing data.</span><br>
 Example: <span class="module-example"><code>samtools --version</code>.</span><br>
 URL: <span class="module-url"><a href="https://www.htslib.org/">https://www.htslib.org/</a>, <a href="https://github.com/samtools/samtools/blob/develop/NEWS">https://github.com/samtools/samtools/blob/develop/NEWS</a> (changelog), <a href="https://github.com/samtools/samtools">https://github.com/samtools/samtools</a> (source code)</span><br>
-Versions: <span class="module-version">0.1.12a, 0.1.18, 1.10, 1.11, 1.12, 1.13, 1.14, <em>1.15</em></span><br>
+Versions: <span class="module-version">0.1.12a, 0.1.18, 1.10, 1.11, 1.12, 1.13, 1.14, 1.15, <em>1.15.1</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -2986,6 +2993,10 @@ local name = &quot;snpEff&quot;
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
 
+if (version &gt;= &quot;5.1&quot;) then
+  depends_on(&quot;openjdk/17&quot;)
+end
+
 pushenv(&quot;SNPEFF_HOME&quot;, home)
 
 local jarfile = pathJoin(home, &quot;snpEff&quot;, &quot;snpEff.jar&quot;)
@@ -3047,7 +3058,7 @@ prepend_path(&quot;PKG_CONFIG_PATH&quot;, pathJoin(home, &quot;lib&quot;, &quot;
 <strong class="module-help">SRA Toolkit: Tools and Libraries for Using Data in the INSDC Sequence Read Archives</strong><br>
 <span class="module-description">The SRA Toolkit and SDK from NCBI is a collection of tools and libraries for using data in the INSDC Sequence Read Archives.</span><br>
 Example: <span class="module-example"><code>fastq-dump --help</code>.</span><br>
-URL: <span class="module-url"><a href="https://ncbi.github.io/sra-tools/">https://ncbi.github.io/sra-tools/</a>, <a href="https://github.com/ncbi/sra-tools/blob/master/CHANGES.md">https://github.com/ncbi/sra-tools/blob/master/CHANGES.md</a> (changelog), <a href="https://github.com/ncbi/sra-tools">https://github.com/ncbi/sra-tools</a> (source code)</span><br>
+URL: <span class="module-url"><a href="https://github.com/ncbi/sra-tools/wiki">https://github.com/ncbi/sra-tools/wiki</a> (documentation), <a href="https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc">https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc</a> (documentation), <a href="https://github.com/ncbi/sra-tools/blob/master/CHANGES.md">https://github.com/ncbi/sra-tools/blob/master/CHANGES.md</a> (changelog), <a href="https://github.com/ncbi/sra-tools">https://github.com/ncbi/sra-tools</a> (source code)</span><br>
 Warning: <span class="module-warning">To work around a bug where <code>fasterq-dump</code> crashes the local machine, it has been tweaked such that it uses <code>$TMPDIR</code> rather than <code>$PWD</code> as the default temporary folder and it will only use two threads instead of six by default.</span><br>
 Versions: <span class="module-version">2.10.8, 2.10.9, 2.11.0, 2.11.1, 2.11.2, 2.11.3, <em>3.0.0</em></span><br>
 <details>
@@ -3060,7 +3071,7 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: sequencing&quot;)
-whatis(&quot;URL: https://ncbi.github.io/sra-tools/, https://github.com/ncbi/sra-tools/blob/master/CHANGES.md (changelog), https://github.com/ncbi/sra-tools (source code)&quot;)
+whatis(&quot;URL: https://github.com/ncbi/sra-tools/wiki (documentation), https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc (documentation), https://github.com/ncbi/sra-tools/blob/master/CHANGES.md (changelog), https://github.com/ncbi/sra-tools (source code)&quot;)
 whatis([[
 Description: The SRA Toolkit and SDK from NCBI is a collection of tools and libraries for using data in the INSDC Sequence Read Archives.
 Examples: `fastq-dump --help`.
@@ -3995,7 +4006,7 @@ prepend_path(&quot;PATH&quot;, home)
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
-_The above information was automatically generated on 2022-04-08 22:39:40 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2022-04-16 14:27:45 from querying `module avail` and `module spider`._
 
 
 <style>
