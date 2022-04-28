@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
-#' @usage: mdi build python.sh
+#' @usage: markin build python.sh
 
 TMPDIR="${TMPDIR:-/scratch/$USER}"
 [[ -z "${TMPDIR}" ]] && { 2>&1 echo "ERROR: TMPDIR is empty"; exit 1; }
@@ -127,7 +127,7 @@ python3 -m pip --version
 EOF
 
 ## Python 2 only supports pip (< 21)
-python2 -m pip install --user --upgrade "pip==20.3"
+python2 -m pip install --user --upgrade "pip==20.3" &> /dev/null
 mdi_code_block --label=pip2-upgrade <<EOF
 python2 -m pip install --user --upgrade "pip<21"
 EOF
