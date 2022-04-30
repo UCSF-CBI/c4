@@ -1,0 +1,8 @@
+[alice@{{ site.devel.name }} ~]$ module load CBI gdal
+[alice@{{ site.devel.name }} ~]$ module list
+
+Currently Loaded Modules:
+  1) r/4.2.0   2) CBI   3) scl-devtoolset/11   4) gdal/2.4.4
+
+ 
+
