@@ -991,8 +991,8 @@ set_alias(&quot;ctopx&quot;, &quot;ctop 2&gt; &gt;(grep -vF 'Invalid user id')&q
 <strong class="module-help">CMake: Open-source, Cross-platform Family of Tools Designed to Build, Test and Package Software</strong><br>
 <span class="module-description">CMake is cross-platform free and open-source software for managing the build process of software using a compiler-independent method. It supports directory hierarchies and applications that depend on multiple libraries.</span><br>
 Example: <span class="module-example"><code>cmake --version</code>.</span><br>
-URL: <span class="module-url"><a href="https://cmake.org/">https://cmake.org/</a>, <a href="https://github.com/Kitware/CMake/releases">https://github.com/Kitware/CMake/releases</a></span><br>
-Versions: <span class="module-version">3.18.2, 3.19.2, 3.22.3, <em>3.23.0</em></span><br>
+URL: <span class="module-url"><a href="https://cmake.org/">https://cmake.org/</a>, <a href="https://cmake.org/cmake/help/latest/release/index.html">https://cmake.org/cmake/help/latest/release/index.html</a> (changelog) <a href="https://github.com/Kitware/CMake/releases">https://github.com/Kitware/CMake/releases</a> (download)</span><br>
+Versions: <span class="module-version">3.18.2, 3.19.2, 3.22.3, 3.23.0, <em>3.23.1</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -1003,7 +1003,7 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: development, make&quot;)
-whatis(&quot;URL: https://cmake.org/, https://github.com/Kitware/CMake/releases&quot;)
+whatis(&quot;URL: https://cmake.org/, https://cmake.org/cmake/help/latest/release/index.html (changelog) https://github.com/Kitware/CMake/releases (download)&quot;)
 whatis([[
 Description: CMake is cross-platform free and open-source software for managing the build process of software using a compiler-independent method. It supports directory hierarchies and applications that depend on multiple libraries.
 Examples: `cmake --version`.
@@ -2116,9 +2116,9 @@ end
 
 name = &quot;muTect&quot;
 pushenv(&quot;MUTECT_HOME&quot;, home)
-local jarfile = pathJoin(home, name .. &quot;-&quot; .. version .. &quot;.jar&quot;)
-pushenv(&quot;MUTECT_JAR&quot;, jarfile)
-set_alias(&quot;mutect&quot;, &quot;java -Xmx2g -jar &quot; .. jarfile)
+local jarfile = name .. &quot;-&quot; .. version .. &quot;.jar&quot;
+pushenv(&quot;MUTECT_JAR&quot;, pathJoin(home, jarfile))
+set_alias(&quot;mutect&quot;, &quot;java -Xmx2g -jar \&quot;$MUTECT_HOME/&quot; .. jarfile .. &quot;\&quot;&quot;)
 
 -- Tweak Java for the current environment
 depends_on(&quot;java-tweaks&quot;)
@@ -2168,7 +2168,7 @@ prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;share&quot;, &quot;man&qu
   <dd class="module-details">
 <strong class="module-help">Picard: Command-line tools for Manipulating High-throughput Sequencing Data and Formats</strong><br>
 <span class="module-description">Picard is a set of command line tools for manipulating high-throughput sequencing (HTS) data and formats such as SAM/BAM/CRAM and VCF.</span><br>
-Example: <span class="module-example"><code>picard -h</code>, which is an alias for <code>java -jar $PICARD_HOME/picard.jar -h</code>&quot;</span><br>
+Example: <span class="module-example"><code>picard -h</code>, which is an alias for <code>java -jar $PICARD_HOME/picard.jar -h</code></span><br>
 URL: <span class="module-url"><a href="http://broadinstitute.github.io/picard/">http://broadinstitute.github.io/picard/</a>, <a href="https://github.com/broadinstitute/picard/releases">https://github.com/broadinstitute/picard/releases</a> (changelog), <a href="https://github.com/broadinstitute/picard">https://github.com/broadinstitute/picard</a> (source code)</span><br>
 Versions: <span class="module-version">1.64, 2.23.1, 2.24.0, 2.25.0, 2.26.2, 2.26.5, 2.26.10, 2.26.11, <em>2.27.1</em></span><br>
 <details>
@@ -2184,7 +2184,7 @@ whatis(&quot;Keywords: sequencing&quot;)
 whatis(&quot;URL: http://broadinstitute.github.io/picard/, https://github.com/broadinstitute/picard/releases (changelog), https://github.com/broadinstitute/picard (source code)&quot;)
 whatis([[
 Description: Picard is a set of command line tools for manipulating high-throughput sequencing (HTS) data and formats such as SAM/BAM/CRAM and VCF.
-Examples: `picard -h`, which is an alias for `java -jar $PICARD_HOME/picard.jar -h`&quot;
+Examples: `picard -h`, which is an alias for `java -jar $PICARD_HOME/picard.jar -h`
 ]])
 
 local version_x = string.gsub(version, &quot;[.].*&quot;, &quot;&quot;)
@@ -2199,7 +2199,7 @@ end
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
 pushenv(&quot;PICARD_HOME&quot;, home)
-set_alias(&quot;picard&quot;, &quot;java -jar &quot; .. pathJoin(home, &quot;picard.jar&quot;))
+set_alias(&quot;picard&quot;, &quot;java -jar \&quot;$PICARD_HOME/picard.jar\&quot;&quot;)
 
 -- Tweak Java for the current environment
 depends_on(&quot;java-tweaks&quot;)
@@ -2373,7 +2373,7 @@ prepend_path(&quot;PKG_CONFIG_PATH&quot;, pathJoin(home, &quot;lib&quot;, &quot;
 <span class="module-description">The R programming language.</span><br>
 Example: <span class="module-example"><code>R</code>, <code>R --version</code>, and <code>Rscript --version</code>.</span><br>
 URL: <span class="module-url"><a href="https://www.r-project.org/">https://www.r-project.org/</a>, <a href="https://cran.r-project.org/doc/manuals/r-release/NEWS.html">https://cran.r-project.org/doc/manuals/r-release/NEWS.html</a> (changelog)</span><br>
-Versions: <span class="module-version">2.15.0, 3.0.0, 3.1.0, 3.2.0, 3.3.0, 3.5.0, 3.5.3, 3.6.0, 3.6.3, 4.0.0, 4.0.2, 4.0.3, 4.0.4, 4.0.5, 4.1.0-gcc8, 4.1.1-gcc8, 4.1.2-gcc8, <em>4.1.3-gcc8</em></span><br>
+Versions: <span class="module-version">2.15.0, 3.0.0, 3.1.0, 3.2.0, 3.3.0, 3.5.0, 3.5.3, 3.6.0, 3.6.3, 4.0.0, 4.0.2, 4.0.3, 4.0.4, 4.0.5, 4.1.0-gcc8, 4.1.1-gcc8, 4.1.2-gcc8, <em>4.1.3-gcc8</em>, 4.2.0-gcc10</span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -2664,7 +2664,7 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 Example: <span class="module-example"><code>rsc --help</code>, <code>rsc start</code>, and <code>rsc stop</code>.</span><br>
 URL: <span class="module-url"><a href="https://github.com/UCSF-CBI/rstudio-server-controller">https://github.com/UCSF-CBI/rstudio-server-controller</a>, <a href="https://github.com/UCSF-CBI/rstudio-server-controller/blob/main/NEWS.md">https://github.com/UCSF-CBI/rstudio-server-controller/blob/main/NEWS.md</a> (changelog)</span><br>
 Warning: <span class="module-warning">This is work under construction!</span><br>
-Versions: <span class="module-version">0.8.2, <em>0.8.3</em></span><br>
+Versions: <span class="module-version">0.8.2, 0.8.3, <em>0.8.4</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -2970,7 +2970,7 @@ prepend_path(&quot;PATH&quot;, home)
   <dd class="module-details">
 <strong class="module-help">SnpEff: Genetic Variant Annotation and Effect Prediction Toolbox</strong><br>
 <span class="module-description">SnpEff is a variant annotation and effect prediction tool. It annotates and predicts the effects of variants on genes (such as amino acid changes).</span><br>
-Example: <span class="module-example"><code>snpEff -help</code>, <code>SnpSift -help</code>,  and <code>ClinEff -help</code>, which are aliases for <code>java -jar $SNPEFF_HOME/snpEff/snpEff.jar -help</code>, <code>java -jar $SNPEFF_HOME/snpEff/SnpSift.jar -help</code>, and <code>java -jar $SNPEFF_HOME/clinEff/ClinEff.jar -help</code>.</span><br>
+Example: <span class="module-example"><code>snpEff -help</code>, <code>SnpSift -help</code>,  and <code>ClinEff -help</code>, which are aliases for <code>java -jar $SNPEFF_HOME/snpEff/snpEff.jar -help</code>, <code>java -jar $SNPEFF_HOME/snpEff/SnpSift.jar -help</code>, and <code>java -jar $SNPEFF_HOME/ClinEff/ClinEff.jar -help</code>.</span><br>
 URL: <span class="module-url"><a href="https://pcingola.github.io/SnpEff/">https://pcingola.github.io/SnpEff/</a>, <a href="https://github.com/pcingola/SnpEff/tags">https://github.com/pcingola/SnpEff/tags</a> (changelog), <a href="https://github.com/pcingola/SnpEff">https://github.com/pcingola/SnpEff</a> (source code)</span><br>
 Versions: <span class="module-version">4.3t, 5.0c, <em>5.0e</em></span><br>
 <details>
@@ -2986,7 +2986,7 @@ whatis(&quot;Keywords: high-throughput sequencing&quot;)
 whatis(&quot;URL: https://pcingola.github.io/SnpEff/, https://github.com/pcingola/SnpEff/tags (changelog), https://github.com/pcingola/SnpEff (source code)&quot;)
 whatis([[
 Description: SnpEff is a variant annotation and effect prediction tool. It annotates and predicts the effects of variants on genes (such as amino acid changes).
-Examples: `snpEff -help`, `SnpSift -help`,  and `ClinEff -help`, which are aliases for `java -jar $SNPEFF_HOME/snpEff/snpEff.jar -help`, `java -jar $SNPEFF_HOME/snpEff/SnpSift.jar -help`, and `java -jar $SNPEFF_HOME/clinEff/ClinEff.jar -help`.
+Examples: `snpEff -help`, `SnpSift -help`,  and `ClinEff -help`, which are aliases for `java -jar $SNPEFF_HOME/snpEff/snpEff.jar -help`, `java -jar $SNPEFF_HOME/snpEff/SnpSift.jar -help`, and `java -jar $SNPEFF_HOME/ClinEff/ClinEff.jar -help`.
 ]])
 
 local name = &quot;snpEff&quot;
@@ -3001,15 +3001,15 @@ pushenv(&quot;SNPEFF_HOME&quot;, home)
 
 local jarfile = pathJoin(home, &quot;snpEff&quot;, &quot;snpEff.jar&quot;)
 pushenv(&quot;SNPEFF&quot;, jarfile)
-set_alias(&quot;snpEff&quot;, &quot;java -jar &quot; .. jarfile)
+set_alias(&quot;snpEff&quot;, &quot;java -jar \&quot;$SNPEFF_HOME/snpEff/snpEff.jar\&quot;&quot;)
 
 local jarfile = pathJoin(home, &quot;snpEff&quot;, &quot;SnpSift.jar&quot;)
 pushenv(&quot;SNPSIFT&quot;, jarfile)
-set_alias(&quot;SnpSift&quot;, &quot;java -jar &quot; .. jarfile)
+set_alias(&quot;SnpSift&quot;, &quot;java -jar \&quot;$SNPEFF_HOME/snpEff/SnpSift.jar\&quot;&quot;)
 
 local jarfile = pathJoin(home, &quot;clinEff&quot;, &quot;ClinEff.jar&quot;)
 pushenv(&quot;CLINEFF&quot;, jarfile)
-set_alias(&quot;ClinEff&quot;, &quot;java -jar &quot; .. jarfile)
+set_alias(&quot;ClinEff&quot;, &quot;java -jar \&quot;$SNPEFF_HOME/ClinEff/ClinEff.jar\&quot;&quot;)
 
 -- Tweak Java for the current environment
 depends_on(&quot;java-tweaks&quot;)
@@ -3385,8 +3385,7 @@ name = &quot;VarScan&quot;
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
 pushenv(&quot;VARSCAN_HOME&quot;, home)
 
-local jarfile = home .. &quot;/&quot; .. name .. &quot;.v&quot; .. version .. &quot;.jar&quot;
-set_alias(&quot;varscan&quot;, &quot;java -jar &quot; .. jarfile)
+set_alias(&quot;varscan&quot;, &quot;java -jar \&quot;$VARSCAN_HOME/VarScan.jar\&quot;&quot;)
 
 -- Tweak Java for the current environment
 depends_on(&quot;java-tweaks&quot;)
@@ -4006,7 +4005,7 @@ prepend_path(&quot;PATH&quot;, home)
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
-_The above information was automatically generated on 2022-04-16 14:27:45 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2022-05-02 13:37:51 from querying `module avail` and `module spider`._
 
 
 <style>
