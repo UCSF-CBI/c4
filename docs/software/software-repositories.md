@@ -58,7 +58,7 @@ Below are 3 software repositories, each providing a set of software tools.
 
 <ul class="nav nav-pills">
 <li class="active"><a data-toggle="pill" href="#button_repository_built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(3)</a></li>
-<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(86)</a></li>
+<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(87)</a></li>
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
@@ -154,7 +154,7 @@ prepend_path(&quot;CPATH&quot;, pathJoin(home, &quot;include&quot;))
 
 <div id="button_repository_cbi" class="tab-pane fade">
 
-<h2 id="repository_cbi">Module Software Repository: CBI (86)</h2>
+<h2 id="repository_cbi">Module Software Repository: CBI (87)</h2>
 
 Maintained by: Henrik Bengtsson, <a href="https://cbi.ucsf.edu">Computational Biology and Informatics</a><br>
 Enable repository: <code>module load CBI</code><br>
@@ -1051,6 +1051,47 @@ prepend_path(&quot;LD_LIBRARY_PATH&quot;, pathJoin(home, &quot;lib&quot;))
 prepend_path(&quot;CPATH&quot;,  pathJoin(home, &quot;include&quot;))
 prepend_path(&quot;LD_RUN_PATH&quot;, pathJoin(home, &quot;lib&quot;))
 prepend_path(&quot;PKG_CONFIG_PATH&quot;, pathJoin(home, &quot;lib&quot;, &quot;pkgconfig&quot;))
+</code></pre>
+
+</details>
+  </dd>
+</dl>
+<h3 id="module_cbi_conda-stage" class="module-name">conda-stage</h3>
+<dl>
+  <dd class="module-details">
+<strong class="module-help">conda-stage: Stage Conda Environment on Local Disk</strong><br>
+<span class="module-description">The 'conda-stage' tool stages a Conda environment to local disk. Working with a Conda environment on local disk can greatly improve the performance as local disk is often much faster than a global, network-based file system, including multi-tenant parallel file systems such as BeeGFS and Lustre often found in high-performance compute (HPC) environments.</span><br>
+Example: <span class="module-example"><code>conda-stage --auto-stage=enable</code>, and <code>conda-stage --help</code>.</span><br>
+URL: <span class="module-url"><a href="https://github.com/HenrikBengtsson/conda-stage">https://github.com/HenrikBengtsson/conda-stage</a>, <a href="https://github.com/HenrikBengtsson/conda-stage/blob/develop/NEWS.md">https://github.com/HenrikBengtsson/conda-stage/blob/develop/NEWS.md</a> (changelog), <a href="https://github.com/HenrikBengtsson/conda-stage/tags">https://github.com/HenrikBengtsson/conda-stage/tags</a> (releases)</span><br>
+Warning: <span class="module-warning">This is work under construction. Your milage may vary! /HB 2022-04-13</span><br>
+Versions: <span class="module-version"><em>0.6.2</em></span><br>
+<details>
+<summary>Module code: <a>view</a></summary>
+<pre><code class="language-lua">help([[
+conda-stage: Stage Conda Environment on Local Disk
+]])
+
+local name = myModuleName()
+local version = myModuleVersion()
+whatis(&quot;Version: &quot; .. version)
+whatis(&quot;Keywords: cli, shell&quot;)
+whatis(&quot;URL: https://github.com/HenrikBengtsson/conda-stage, https://github.com/HenrikBengtsson/conda-stage/blob/develop/NEWS.md (changelog), https://github.com/HenrikBengtsson/conda-stage/tags (releases)&quot;)
+whatis([[
+Description: The 'conda-stage' tool stages a Conda environment to local disk. Working with a Conda environment on local disk can greatly improve the performance as local disk is often much faster than a global, network-based file system, including multi-tenant parallel file systems such as BeeGFS and Lustre often found in high-performance compute (HPC) environments.
+Examples: `conda-stage --auto-stage=enable`, and `conda-stage --help`.
+Warning: This is work under construction. Your milage may vary! /HB 2022-04-13
+]])
+
+local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
+local home = pathJoin(root, name .. &quot;-&quot; .. version)
+
+prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
+
+-- Create conda-stage() function, which will overwrite itself after the
+-- first invocation
+local body = 'source &quot;' .. pathJoin(home, &quot;bin&quot;, &quot;conda-stage.sh&quot;) .. '&quot;; '
+body = body .. 'conda-stage &quot;$@&quot;'
+set_shell_function(&quot;conda-stage&quot;, body, '')
 </code></pre>
 
 </details>
@@ -4001,11 +4042,11 @@ prepend_path(&quot;PATH&quot;, home)
 
 <ul class="nav nav-pills">
 <li class="active"><a data-toggle="pill" href="#button_repository_built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(3)</a></li>
-<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(86)</a></li>
+<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(87)</a></li>
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
-_The above information was automatically generated on 2022-05-03 11:17:13 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2022-05-03 11:26:19 from querying `module avail` and `module spider`._
 
 
 <style>
