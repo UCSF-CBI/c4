@@ -4005,7 +4005,7 @@ prepend_path(&quot;PATH&quot;, home)
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
-_The above information was automatically generated on 2022-05-02 13:37:51 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2022-05-03 11:17:13 from querying `module avail` and `module spider`._
 
 
 <style>
