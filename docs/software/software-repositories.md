@@ -1087,9 +1087,14 @@ local home = pathJoin(root, name .. &quot;-&quot; .. version)
 
 prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 
+local script = pathJoin(home, &quot;bin&quot;, &quot;conda-stage.&quot; .. myShellType())
+if not isFile(script) then
+  LmodError(&quot;The &quot; .. name .. &quot; module is not supported for your shell (&quot; .. myShellType() .. &quot;). No such file: &quot; .. script)
+end
+
 -- Create conda-stage() function, which will overwrite itself after the
 -- first invocation
-local body = 'source &quot;' .. pathJoin(home, &quot;bin&quot;, &quot;conda-stage.sh&quot;) .. '&quot;; '
+local body = 'source &quot;' .. script .. '&quot;; '
 body = body .. 'conda-stage &quot;$@&quot;'
 set_shell_function(&quot;conda-stage&quot;, body, '')
 </code></pre>
@@ -4046,7 +4051,7 @@ prepend_path(&quot;PATH&quot;, home)
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
-_The above information was automatically generated on 2022-05-03 11:26:19 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2022-05-03 14:43:07 from querying `module avail` and `module spider`._
 
 
 <style>
