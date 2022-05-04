@@ -1087,9 +1087,14 @@ local home = pathJoin(root, name .. &quot;-&quot; .. version)
 
 prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 
+local script = pathJoin(home, &quot;bin&quot;, &quot;conda-stage.&quot; .. myShellType())
+if not isFile(script) then
+  LmodError(&quot;The &quot; .. name .. &quot; module is not supported for your shell (&quot; .. myShellType() .. &quot;). No such file: &quot; .. script)
+end
+
 -- Create conda-stage() function, which will overwrite itself after the
 -- first invocation
-local body = 'source &quot;' .. pathJoin(home, &quot;bin&quot;, &quot;conda-stage.sh&quot;) .. '&quot;; '
+local body = 'source &quot;' .. script .. '&quot;; '
 body = body .. 'conda-stage &quot;$@&quot;'
 set_shell_function(&quot;conda-stage&quot;, body, '')
 </code></pre>
@@ -1751,9 +1756,9 @@ prepend_path(&quot;PATH&quot;, home)
 <strong class="module-help">htop: An Interactive Process Viewer for Unix</strong><br>
 <span class="module-description"><code>htop</code> is an interactive process viewer for Unix systems. It is a text-mode application (for console or X terminals) and requires ncurses.</span><br>
 Example: <span class="module-example"><code>htop</code>.</span><br>
-URL: <span class="module-url"><a href="https://htop.dev">https://htop.dev</a>, <a href="https://github.com/htop-dev/htop">https://github.com/htop-dev/htop</a> (source code)</span><br>
+URL: <span class="module-url"><a href="https://htop.dev">https://htop.dev</a>, <a href="https://github.com/htop-dev/htop/milestones?state=closed">https://github.com/htop-dev/htop/milestones?state=closed</a> (changelog), <a href="https://github.com/htop-dev/htop">https://github.com/htop-dev/htop</a> (source code)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version"><em>3.1.2</em></span><br>
+Versions: <span class="module-version">3.1.2, <em>3.2.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -1764,7 +1769,7 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: system, utility&quot;)
-whatis(&quot;URL: https://htop.dev, https://github.com/htop-dev/htop (source code)&quot;)
+whatis(&quot;URL: https://htop.dev, https://github.com/htop-dev/htop/milestones?state=closed (changelog), https://github.com/htop-dev/htop (source code)&quot;)
 whatis([[
 Description: `htop` is an interactive process viewer for Unix systems. It is a text-mode application (for console or X terminals) and requires ncurses.
 Examples: `htop`.
@@ -2414,7 +2419,7 @@ prepend_path(&quot;PKG_CONFIG_PATH&quot;, pathJoin(home, &quot;lib&quot;, &quot;
 <span class="module-description">The R programming language.</span><br>
 Example: <span class="module-example"><code>R</code>, <code>R --version</code>, and <code>Rscript --version</code>.</span><br>
 URL: <span class="module-url"><a href="https://www.r-project.org/">https://www.r-project.org/</a>, <a href="https://cran.r-project.org/doc/manuals/r-release/NEWS.html">https://cran.r-project.org/doc/manuals/r-release/NEWS.html</a> (changelog)</span><br>
-Versions: <span class="module-version">2.15.0, 3.0.0, 3.1.0, 3.2.0, 3.3.0, 3.5.0, 3.5.3, 3.6.0, 3.6.3, 4.0.0, 4.0.2, 4.0.3, 4.0.4, 4.0.5, 4.1.0-gcc8, 4.1.1-gcc8, 4.1.2-gcc8, <em>4.1.3-gcc8</em>, 4.2.0-gcc10</span><br>
+Versions: <span class="module-version">2.15.0, 3.0.0, 3.1.0, 3.2.0, 3.3.0, 3.5.0, 3.5.3, 3.6.0, 3.6.3, 4.0.0, 4.0.2, 4.0.3, 4.0.4, 4.0.5, 4.1.0-gcc8, 4.1.1-gcc8, 4.1.2-gcc8, 4.1.3-gcc8, <em>4.2.0-gcc10</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -2422,11 +2427,14 @@ R: The R Programming Language
 ]])
 
 local name = myModuleName()
-local version = &quot;4.1.1-gcc8&quot;
+local version = &quot;4.1.2-gcc8&quot;
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: Programming, Statistics&quot;)
 whatis(&quot;URL: https://www.r-project.org/&quot;)
-whatis(&quot;Description: The R programming language. Examples: `R --version` and `Rscript --version`.&quot;)
+whatis([[
+Description: The R programming language.
+Examples: `R --version` and `Rscript --version`.
+]])
 
 has_devtoolset = function(version)
   local path = pathJoin(&quot;/opt&quot;, &quot;rh&quot;, &quot;devtoolset-&quot; .. version)
@@ -2438,6 +2446,7 @@ local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
 
 prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
+prepend_path(&quot;LD_LIBRARY_PATH&quot;, pathJoin(home, &quot;lib&quot;, &quot;R&quot;, &quot;lib&quot;))
 prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;share&quot;, &quot;man&quot;))
 
 local v = version
@@ -4046,7 +4055,7 @@ prepend_path(&quot;PATH&quot;, home)
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
-_The above information was automatically generated on 2022-05-03 11:26:19 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2022-05-04 10:49:15 from querying `module avail` and `module spider`._
 
 
 <style>

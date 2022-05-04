@@ -15,6 +15,8 @@ We have a module in the CBI software stack designed to run RStudio Server as a p
 
 5. You will see a form that needs to be filled in. Below is some guidance for the fields:
 
+   - **R Version** - You can select the version of R you want to run from within RStudio. It is important to understand that any user installed packages from CRAN or Bioconductor (e.g. Future) is tied to a specific version of R. Please see the **Important** note below.
+
    - **Partition** - If you have a lab partition you may enter it here. Otherwise enter 'common'. Equivalent to `--partition` in `sbatch`
 
    - **Number of hours** - Maximum run-time for your RStudio Server job. Equivalent to `--time` in `sbatch`
@@ -34,9 +36,9 @@ You are now running an interactive RStudio session on a compute node from your l
 
 **Important**:
 
-* Using OnDemand to launch RStudio will always use the default versions of R and RStudio Server currently available in our [CBI Software Stack]({{ '/software/software-repositories.html#module-software-repository-cbi' | relative_url }})
+We have added functionality so that users may select a specific R version to run from within RStudio. If you select "default" as the R version then whatever the default R version in our CBI Software Stack is will be loaded. [CBI Software Stack]({{ '/software/software-repositories.html#module-software-repository-cbi' | relative_url }})
 
-* Any packages installed via RStudio launched this way are stored in your `$HOME` directory so they will be available _for the same version of R_ from the CLI version of R in our software stack
+* CRAN and Bioconductor packages are dependent on specific R versions. These packages need to be installed to your user library ($HOME directory) once fore each version of R you will be using. For example, if one is making use of the Future package from CRAN and using both R version 4.1.3 and R version 4.0.2, then one needs to install Future once for R 4.0.2 and once for R 4.1.3.
 
 * Currently, we are limiting run time to 24 hours for one of these jobs
 
@@ -56,10 +58,20 @@ srun: job 417808 has been allocated resources
 
 Notice that last prompt shows that we have invoked an interactive shell on a compute node with the specified resources. Now that we have the interactive shell, do the following to launch your personal RStudio Server instance using the **[rstudio-server-controller]** tool:
 
+If you would like to select the R version, for example 4.0.2:
+
+```sh
+[alice@c4-n3:job=417808 ~]$ module load CBI r/4.0.2
+[alice@c4-n3:job=417808 ~]$ module load rstudio-server-controller
+[alice@c4-n3:job=417808 ~]$ rsc start
+```
+If you are happy to use the default version of R in the CBI Software Repository, then:
+
 ```sh
 [alice@c4-n3:job=417808 ~]$ module load CBI rstudio-server-controller
 [alice@c4-n3:job=417808 ~]$ rsc start
 ```
+
 After a few moments, you will see:
 
 ```sh
