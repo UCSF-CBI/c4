@@ -3020,7 +3020,7 @@ prepend_path(&quot;PATH&quot;, home)
   <dd class="module-details">
 <strong class="module-help">SnpEff: Genetic Variant Annotation and Effect Prediction Toolbox</strong><br>
 <span class="module-description">SnpEff is a variant annotation and effect prediction tool. It annotates and predicts the effects of variants on genes (such as amino acid changes).</span><br>
-Example: <span class="module-example"><code>snpEff -help</code>, <code>SnpSift -help</code>,  and <code>ClinEff -help</code>, which are aliases for <code>java -jar $SNPEFF_HOME/snpEff/snpEff.jar -help</code>, <code>java -jar $SNPEFF_HOME/snpEff/SnpSift.jar -help</code>, and <code>java -jar $SNPEFF_HOME/ClinEff/ClinEff.jar -help</code>.</span><br>
+Example: <span class="module-example"><code>snpEff -help</code> and <code>SnpSift -help</code>, which are aliases for <code>java -jar $SNPEFF_HOME/snpEff/snpEff.jar -help</code> and <code>java -jar $SNPEFF_HOME/snpEff/SnpSift.jar -help</code>.  In SnpEff (&lt; 5.0), there is also <code>ClinEff -help</code>, which is an alias for <code>java -jar $SNPEFF_HOME/ClinEff/ClinEff.jar -help</code>.</span><br>
 URL: <span class="module-url"><a href="https://pcingola.github.io/SnpEff/">https://pcingola.github.io/SnpEff/</a>, <a href="https://github.com/pcingola/SnpEff/tags">https://github.com/pcingola/SnpEff/tags</a> (changelog), <a href="https://github.com/pcingola/SnpEff">https://github.com/pcingola/SnpEff</a> (source code)</span><br>
 Versions: <span class="module-version">4.3t, 5.0c, <em>5.0e</em></span><br>
 <details>
@@ -3036,7 +3036,7 @@ whatis(&quot;Keywords: high-throughput sequencing&quot;)
 whatis(&quot;URL: https://pcingola.github.io/SnpEff/, https://github.com/pcingola/SnpEff/tags (changelog), https://github.com/pcingola/SnpEff (source code)&quot;)
 whatis([[
 Description: SnpEff is a variant annotation and effect prediction tool. It annotates and predicts the effects of variants on genes (such as amino acid changes).
-Examples: `snpEff -help`, `SnpSift -help`,  and `ClinEff -help`, which are aliases for `java -jar $SNPEFF_HOME/snpEff/snpEff.jar -help`, `java -jar $SNPEFF_HOME/snpEff/SnpSift.jar -help`, and `java -jar $SNPEFF_HOME/ClinEff/ClinEff.jar -help`.
+Examples: `snpEff -help` and `SnpSift -help`, which are aliases for `java -jar $SNPEFF_HOME/snpEff/snpEff.jar -help` and `java -jar $SNPEFF_HOME/snpEff/SnpSift.jar -help`.  In SnpEff (&lt; 5.0), there is also `ClinEff -help`, which is an alias for `java -jar $SNPEFF_HOME/ClinEff/ClinEff.jar -help`.
 ]])
 
 local name = &quot;snpEff&quot;
@@ -3058,8 +3058,10 @@ pushenv(&quot;SNPSIFT&quot;, jarfile)
 set_alias(&quot;SnpSift&quot;, &quot;java -jar \&quot;$SNPEFF_HOME/snpEff/SnpSift.jar\&quot;&quot;)
 
 local jarfile = pathJoin(home, &quot;clinEff&quot;, &quot;ClinEff.jar&quot;)
-pushenv(&quot;CLINEFF&quot;, jarfile)
-set_alias(&quot;ClinEff&quot;, &quot;java -jar \&quot;$SNPEFF_HOME/ClinEff/ClinEff.jar\&quot;&quot;)
+if isFile(jarfile) then
+  pushenv(&quot;CLINEFF&quot;, jarfile)
+  set_alias(&quot;ClinEff&quot;, &quot;java -jar \&quot;$SNPEFF_HOME/ClinEff/ClinEff.jar\&quot;&quot;)
+end
 
 -- Tweak Java for the current environment
 depends_on(&quot;java-tweaks&quot;)
@@ -4055,7 +4057,7 @@ prepend_path(&quot;PATH&quot;, home)
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
-_The above information was automatically generated on 2022-05-04 10:49:15 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2022-05-06 13:17:34 from querying `module avail` and `module spider`._
 
 
 <style>
