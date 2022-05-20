@@ -23,8 +23,6 @@ Passwords are subject to the following complexity rules:
   - Special characters (@ # $ & % ^ * _ - + = \| \ / ( ) { } < > " ' ` : ; , . ! ?)
 - You cannot update to a password that you already used in the past
 
-_Note: These complexity rules apply next time you change passwords._
-
 
 ## Update password
 
