@@ -33,37 +33,5 @@ Click the **Jobs** menu.
 
 2. This screen will show running or recently completed jobs owned by you. This is equivalent to squeue for just your user.
 
-Now the meat of the product. Click the **Interactive Apps** menu.
-We see three apps currently on offer. 
+Now the meat of the product. Click the **Interactive Apps** menu. We see three apps currently on offer: C4 Desktop, RStudio, and Jupyter Notebooks. OnDemand runs these apps as sbatch jobs on the cluster. As with any cluster job, we must specify the amount of time, the partition, number of threads, and amount of RAM. Some apps require an amount of `/scratch` space as well. These resources are requested by filling in the appropriate fields on each of the associated web forms. 
 
-**Click C4 Desktop.**
-
-1. This is going to launch an interactive MATE GUI Desktop on a compute node. Depending on what you are doing with the desktop you will need varying resources. For this example, we are going to launch a MATLAB session. Field explanations:
-
-   - Number of hours is how long to run the job. Equivalent to `--time`
-
-   - Partition - if you have a Lab partition you can enter it here. Otherwise use common.
-
-   - Memory - number of Gigabytes you think is required.
-
-   - Number of cores - number of CPU threads you think is required.
-
-2. Click the Launch button. Be patient here, the job may queue for a moment.
-
-3. Click Launch C4 Desktop
-
-4. We are greeted with a MATE desktop in a new browser tab. The easiest way to get started here is to right click anywhere in the blue area and select Open in Terminal.
-
-5. This is a terminal with current working directory set to $HOME/Desktop. We can load any interactive module from here. Try this `module load matlab`. Once the module loads, we can launch matlab by typing `matlab`
-
-6. To exit cleanly and cancel the job.
-
-   - Close the MATLAB screen.
-
-   - Close the browser tab.
-
-   - Click the Delete button. This is very important as it will cancel the running job and release resources for other users.
-
-   - Click Confirm.
-
-7. For RStudio instructions see here: <a href="https://www.c4.ucsf.edu/howto/rstudio-server-2.html">RStudio Server</a>
