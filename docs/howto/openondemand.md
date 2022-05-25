@@ -15,23 +15,7 @@ Additional reading:
 
 3. Enter your C4 username and password. Click the Login button.
 
-### Open OnDemand Menus
+## C4 OnDemand Overview
 
-From left to right:
-
-The Open OnDemand link takes you to the home screen.
-
-Click the **Files** menu 
-
-1. Currently this is set up to access $HOME directories only. Click the Home Directory link.
-
-2. The buttons are fairly self-explanatory here.
-
-Click the **Jobs** menu.
-
-1. The Job Composer is untested as of this writing. Click the Active Jobs link.
-
-2. This screen will show running or recently completed jobs owned by you. This is equivalent to squeue for just your user.
-
-Now the meat of the product. Click the **Interactive Apps** menu. We see three apps currently on offer: C4 Desktop, RStudio, and Jupyter Notebooks. OnDemand runs these apps as sbatch jobs on the cluster. As with any cluster job, we must specify the amount of time, the partition, number of threads, and amount of RAM. Some apps require an amount of `/scratch` space as well. These resources are requested by filling in the appropriate fields on each of the associated web forms. 
+Open OnDemand is a very good open source project out of the Ohio Supercomputer Center. The mission of Open OnDemand is to provide and intuitive easy to use approach for interactive work on an HPC cluster like C4. We are hoping it will make C4 more approachable for new HPC users and for those wanting to do interactive work on powerful compute resources. The current list of interactive applications are RStudio, Jupyter, and the C4 interactive desktop which is an easy way to run graphical applications without the need for ssh tunnels.
 
