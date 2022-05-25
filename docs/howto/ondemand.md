@@ -9,11 +9,13 @@
 
 ## How to use OnDemand
 
-1. As with the rest of C4, you must be on Campus or connected via UCSF IT VPN to use.
+1. As with the rest of C4, you must be on the campus network, or connected via the UCSF VPN
 
-2. From your workstation, connect to OnDemand at: https://c4-ondemand1.ucsf.edu or https://c4-ondemand2.ucsf.edu 
+2. From the web browser on your local workstation, connect to one of our OnDemand servers:
+  1. <https://c4-ondemand1.ucsf.edu>
+  2. <https://c4-ondemand2.ucsf.edu>
 
-3. Enter your C4 username and password. Click the Login button.
+3. Enter your C4 username and password, and click 'Login'
 
 
 [Open OnDemand]: https://openondemand.org/
