@@ -1,7 +1,10 @@
 # Open OnDemand
 
-Open OnDemand is a web based framework with easy to use GUI interfaces for common cluster tasks. It's other major use is for enabling interactive software such as RStudio and Jupyter Notebooks via the same easy to use GUI interfaces.
-Open OnDemand was developed at the Ohio Supercomputer Center. We have integrated this framework into C4. The primary use case for us was enabling easy to use RStudio and Jupyter based on user input. 
+Open OnDemand is a web based framework with easy to use GUI interfaces for common cluster tasks. It is a well supported open source project developed at the Ohio Supercomputer Center. We have integrated OnDemand with C4 to provide an easy to use interface for interactive jobs. In addition to file a file browser capable of moving files on and off the cluster and a web based C4 terminal we support three interactive applications which include:
+
+- C4 Desktop - a MATE gui desktop for Linux.
+- RStudio - the familiar RStudio interface in your local web browser with the resources of C4 behind it.
+- Jupyter Notebooks - this is currently in BETA test mode. Your milage may vary.
 
 Additional reading:
 
@@ -14,8 +17,3 @@ Additional reading:
 2. From your workstation, connect to OnDemand at: <a href="https://c4-ondemand1.ucsf.edu">OnDemand</a>
 
 3. Enter your C4 username and password. Click the Login button.
-
-## C4 OnDemand Overview
-
-Open OnDemand is a very good open source project out of the Ohio Supercomputer Center. The mission of Open OnDemand is to provide and intuitive easy to use approach for interactive work on an HPC cluster like C4. We are hoping it will make C4 more approachable for new HPC users and for those wanting to do interactive work on powerful compute resources. The current list of interactive applications are RStudio, Jupyter, and the C4 interactive desktop which is an easy way to run graphical applications without the need for ssh tunnels.
-
