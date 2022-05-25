@@ -4,7 +4,7 @@ Open OnDemand is a web based framework with easy to use GUI interfaces for commo
 
 - C4 Desktop - a MATE gui desktop for Linux.
 - RStudio - the familiar RStudio interface in your local web browser with the resources of C4 behind it.
-- Jupyter Notebooks - this is currently in BETA test mode. Your milage may vary.
+- Jupyter Notebooks - this is currently in BETA test mode. Your mileage may vary.
 
 Additional reading:
 
