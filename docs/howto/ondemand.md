@@ -1,4 +1,4 @@
-#  {{ site.cluster.name }} OnDemand
+# {{ site.cluster.name }} OnDemand
 
 [Open OnDemand] is a web-based framework with easy to use GUI interfaces for common cluster tasks. It is a well supported open-source project developed at the Ohio Supercomputer Center. We have integrated OnDemand with {{ site.cluster.name }} to provide an easy to use interface for interactive jobs. In addition to a file browser capable of moving files on and off the cluster, and a web-based {{ site.cluster.name }} terminal, we support interactive applications including:
 
