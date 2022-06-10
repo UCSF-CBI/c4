@@ -23,12 +23,12 @@ Assuming you are already logged on to a development node, launch your personal R
 [alice@{{ site.devel.name }} ~]$ module load CBI rstudio-server-controller
 [alice@{{ site.devel.name }} ~]$ rsc start
 alice, your personal RStudio Server is available on
-<http://{{ site.devel.hostname }}:47454>. If you are running from a
-remote machine without direct access to {{ site.devel.hostname }},
-you can use SSH port forwarding to access the RStudio Server at
-<http://127.0.0.1:8787> by running
-'ssh -L 8787:{{ site.devel.hostname }}:47454 alice@{{ site.login.hostname }}'
-in a second terminal.
+<http://{{ site.devel.hostname }}:47454>.
+If you are running from a remote machine without direct access
+to {{ site.devel.hostname }}, you can use SSH port forwarding to access the
+RStudio Server at <http://127.0.0.1:8787> by first running
+'ssh -L 8787:{{ site.devel.hostname }}:47454 alice@{{ site.login.hostname }}' in a second
+terminal.
 Any R session started times out after being idle for 120 minutes.
 WARNING: You now have 10 minutes, until 2022-04-04 12:11:27-07:00,
 to connect and log in to the RStudio Server before everything
