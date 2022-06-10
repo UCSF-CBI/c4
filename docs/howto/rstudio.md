@@ -1,17 +1,24 @@
 # Work with RStudio
 
-R is available on {{ site.cluster.name }} via a [contributed environment module]({{ '/software/software-repositories.html' | relative_url }}).  It can be run interactively in the terminal via `R` on a development node, as explain on the how-to '[Work with R]' page.  To run R via the RStudio IDE, there are two options:
+R is available on {{ site.cluster.name }} via a [contributed environment module]({{ '/software/software-repositories.html' | relative_url }}).  It can be run interactively in the terminal via `R` on a development node, as explain on the how-to '[Work with R]' page.  To run R via the RStudio IDE, there are three options:
 
-1. The **RStudio Server** via the web browser (recommended)
+1. The **RStudio Server** in the web browser via [OnDemand] (recommended)
 
-2. The **RStudio Desktop** over X11 Forwarding
+2. The **RStudio Server** in the web browser over SSH
 
-Running desktop applications over X11 forwarding works, but depending on your network connection, you will experience more or less lag. For instance, you might see a small delay between a key is pressed and it is echoed at the R prompt. Similarly, plotted graphics might take some time to render. This is also true for the RStudio Desktop. Because of this, we recommend running a personal RStudio Server instance, because that is designed to run remotely.
+3. The **RStudio Desktop** over X11 Forwarding
+
+Running desktop applications over X11 forwarding works, but depending on your network connection, you will experience more or less lag. For instance, you might see a small delay between a key is pressed and it is echoed at the R prompt. Similarly, plotted graphics might take some time to render. This is also true for the RStudio Desktop. Because of this, we recommend running a personal RStudio Server instance, either via OnDemand or over SSH, because that is designed to run remotely.
 
 Regardless which one you use, you will be running the same version of R as you would when running from the terminal and all your installed packages will be available in either.
 
 
-## Personal RStudio Server
+## 1. Personal RStudio Server via OnDemand
+
+Please see the [OnDemand] page on how to access OnDemand.
+
+
+## 2. Personal RStudio Server via SSH
 
 You can run a personal RStudio Server instance, which you, and only you, can access via your local web browser.  Contrary to RStudio Desktop, this approach does not require X11 forwarding. Instead, it does require running _two_ separate SSH connections to the cluster: (i) one to launch RStudio Server, and (ii) one to connect to it.
 
@@ -71,7 +78,7 @@ To terminate the RStudio Server, start by exiting R by typing `quit()` at the R 
 
 
 
-## RStudio Desktop over X11 Forwarding
+## 3. RStudio Desktop over X11 Forwarding
 
 <div class="alert alert-warning" role="alert">
 It is <em>not</em> possible to run RStudio Desktop via X2Go, because X2Go does not support the modern graphical protocols that RStudio Desktop requires.
@@ -98,5 +105,6 @@ To exit the RStudio Desktop, type `quit()` at the R prompt, or press <kbd>Ctrl-C
 
 
 [CBI software stack]: {{ '/software/software-repositories.html' | relative_url }}
+[OnDemand]: {{ '/howto/ondemand.html' | relative_url }}
 [Work with R]: {{ '/howto/r.html' | relative_url }}
 [SSH with X11 forwarding enabled]: {{ '/howto/gui-x11fwd.html#x11-forwarding-over-ssh' | relative_url }}
