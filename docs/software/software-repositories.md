@@ -500,6 +500,8 @@ Description: This is a supporting library providing common functions to test hel
 Examples: In Bats `setup()` function: `load &quot;${BATS_SUPPORT_HOME}/load.bash&quot;`
 ]])
 
+depends_on(&quot;bats-core&quot;)
+
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
 
@@ -4055,7 +4057,7 @@ prepend_path(&quot;PATH&quot;, home)
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
-_The above information was automatically generated on 2022-06-24 10:53:48 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2022-06-24 10:55:24 from querying `module avail` and `module spider`._
 
 
 <style>
