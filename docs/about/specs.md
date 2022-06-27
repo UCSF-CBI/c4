@@ -101,7 +101,7 @@ c4-n7     |      112 |   2.2 GHz |   768 GiB |          11.0 TiB | NVMe /scratch
 c4-n8     |      112 |   2.2 GHz |   768 GiB |          11.0 TiB | NVMe /scratch 10 Gbps ethernet                      | Witte Lab
 c4-n9     |      112 |   2.2 GHz |   768 GiB |          11.0 TiB | NVMe /scratch 10 Gbps ethernet                      | Witte Lab
 c4-n10    |       48 |   2.1 GHz |   512 GiB |           2.3 TiB | SATA /scratch 10 Gbps ethernet                      | communal
-c4-n11    |       12 |   2.4 GHz |    32 GiB |           1.8 TiB | SATA /scratch  1 Gbps ethernet                      | communal
+<!-- c4-n11    |       12 |   2.4 GHz |    32 GiB |           1.8 TiB | SATA /scratch  1 Gbps ethernet                      | communal -->
 c4-n12    |       64 |   2.6 GHz |   512 GiB |           3.6 TiB | SATA /scratch 10 Gbps ethernet                      | CBI Core
 c4-n13    |       64 |   2.6 GHz |   512 GiB |           3.6 TiB | SATA /scratch 10 Gbps ethernet                      | CBI Core 
 c4-n14    |       24 |   3.5 GHz |   128 GiB |           0.9 TiB | SATA /scratch 10 Gbps ethernet                      | Witte Lab
@@ -120,7 +120,7 @@ c4-n26    |       48 |   2.8 GHz |   256 GiB |           5.3 TiB | SATA /scratch
 c4-n27    |       64 |   2.1 GHz |   512 GiB |           3.1 TiB | SAS  /scratch 10 Gbps ethernet                      | Kriegstein Lab 
 c4-n28    |       48 |   2.8 GHz |   384 GiB |           5.3 TiB | SATA /scratch 10 Gbps ethernet                      | Molinaro Lab
 c4-n29    |       48 |   2.8 GHz |   384 GiB |           5.3 TiB | SATA /scratch 10 Gbps ethernet                      | Molinaro Lab
-c4-n30    |       12 |   2.3 GHz |    64 GiB |           1.7 TiB | SATA /scratch  1 Gbps ethernet                      | communal
+<!-- c4-n30    |       12 |   2.3 GHz |    64 GiB |           1.7 TiB | SATA /scratch  1 Gbps ethernet                      | communal -->
 c4-n31    |       64 |   2.1 GHz |   512 GiB |           3.0 TiB | SAS  /scratch 10 Gbps ethernet                      | Diaz Lab
 c4-n32    |       64 |   2.6 GHz |   512 GiB |           5.1 TiB | SATA /scratch 10 Gbps ethernet                      | Costello Lab, Diaz Lab, Fung Lab
 c4-n33    |       64 |   2.6 GHz |   512 GiB |           5.1 TiB | SATA /scratch 10 Gbps ethernet                      | Costello Lab, Diaz Lab, Fung Lab
