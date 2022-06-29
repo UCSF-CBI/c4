@@ -342,7 +342,7 @@ prepend_path(&quot;LD_LIBRARY_PATH&quot;, pathJoin(home, &quot;lib&quot;))
 Example: <span class="module-example"><code>bat README.md</code>, <code>bat scripts/*.sh</code>, and <code>bat src/*.c</code>.</span><br>
 URL: <span class="module-url"><a href="https://github.com/sharkdp/bat">https://github.com/sharkdp/bat</a>, <a href="https://github.com/sharkdp/bat/blob/master/CHANGELOG.md">https://github.com/sharkdp/bat/blob/master/CHANGELOG.md</a> (changelog)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version">0.19.0, <em>0.20.0</em></span><br>
+Versions: <span class="module-version">0.19.0, 0.20.0, <em>0.21.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -352,7 +352,7 @@ bat: A cat(1) Clone with Syntax Highlighting and Git Integration
 local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
-whatis(&quot;Keywords: utility, file viewer&quot;)
+whatis(&quot;Keywords: utility, file viewer, cli, tui&quot;)
 whatis(&quot;URL: https://github.com/sharkdp/bat, https://github.com/sharkdp/bat/blob/master/CHANGELOG.md (changelog)&quot;)
 whatis([[
 Description: A cat(1) clone with syntax highlighting and Git integration.
@@ -875,7 +875,7 @@ prepend_path(&quot;MANPATH&quot;,  pathJoin(home, &quot;share&quot;, &quot;man&q
 Example: <span class="module-example"><code>cellranger</code>.</span><br>
 URL: <span class="module-url"><a href="https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/what-is-cell-ranger">https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/what-is-cell-ranger</a>, <a href="https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/release-notes">https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/release-notes</a> (changelog), <a href="https://github.com/10XGenomics/cellranger">https://github.com/10XGenomics/cellranger</a> (source code)</span><br>
 Warning: <span class="module-warning">To prevent a single Cell Ranger process from hijacking all CPU and RAM by default, this module sets environment variable <code>MROFLAGS='--localcores=1 --localmem=8 --limit-loadavg'</code> making those the default.</span><br>
-Versions: <span class="module-version">4.0.0, 5.0.1, 6.1.1, <em>6.1.2</em></span><br>
+Versions: <span class="module-version">4.0.0, 5.0.1, 6.1.1, 6.1.2, <em>7.0.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -889,7 +889,7 @@ whatis(&quot;Keywords: sequencing, 10x genomics&quot;)
 whatis(&quot;URL: https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/what-is-cell-ranger, https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/release-notes (changelog), https://github.com/10XGenomics/cellranger (source code)&quot;)
 whatis([[
 Description: Cell Ranger is a set of analysis pipelines that process Chromium Single Cell 3' RNA-seq output to align reads, generate gene-cell matrices and perform clustering and gene expression analysis.
-Example: `cellranger`.
+Examples: `cellranger`.
 Warning: To prevent a single Cell Ranger process from hijacking all CPU and RAM by default, this module sets environment variable `MROFLAGS='--localcores=1 --localmem=8 --limit-loadavg'` making those the default.
 ]])
 
@@ -4057,7 +4057,7 @@ prepend_path(&quot;PATH&quot;, home)
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
-_The above information was automatically generated on 2022-06-27 01:02:47 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2022-06-29 09:22:57 from querying `module avail` and `module spider`._
 
 
 <style>
