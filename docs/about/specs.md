@@ -118,7 +118,7 @@ c4-n25    |       64 |   3.7 GHz |   512 GiB |           2.5 TiB | SSD  /scratch
 c4-n26    |       48 |   2.8 GHz |   256 GiB |           5.3 TiB | SATA /scratch 10 Gbps ethernet                      | Bandyopadhyay Lab
 c4-n27    |       64 |   2.1 GHz |   512 GiB |           3.1 TiB | SAS  /scratch 10 Gbps ethernet                      | Kriegstein Lab 
 c4-n28    |       48 |   2.8 GHz |   384 GiB |           5.3 TiB | SATA /scratch 10 Gbps ethernet                      | Molinaro Lab
-c4-n29    |       48 |   2.8 GHz |   384 GiB |           5.3 TiB | SATA /scratch 10 Gbps ethernet                      | Molinaro Labremv
+c4-n29    |       48 |   2.8 GHz |   384 GiB |           5.3 TiB | SATA /scratch 10 Gbps ethernet                      | Molinaro Lab
 c4-n31    |       64 |   2.1 GHz |   512 GiB |           3.0 TiB | SAS  /scratch 10 Gbps ethernet                      | Diaz Lab
 c4-n32    |       64 |   2.6 GHz |   512 GiB |           5.1 TiB | SATA /scratch 10 Gbps ethernet                      | Costello Lab, Diaz Lab, Fung Lab
 c4-n33    |       64 |   2.6 GHz |   512 GiB |           5.1 TiB | SATA /scratch 10 Gbps ethernet                      | Costello Lab, Diaz Lab, Fung Lab
