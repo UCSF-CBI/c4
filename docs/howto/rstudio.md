@@ -13,12 +13,12 @@ Running desktop applications over X11 forwarding works, but depending on your ne
 Regardless which one you use, you will be running the same version of R as you would when running from the terminal and all your installed packages will be available in either.
 
 
-## 1. Personal RStudio Server via OnDemand
+## Alt 1. Personal RStudio Server via OnDemand
 
 Please see the [OnDemand] page on how to access OnDemand.
 
 
-## 2. Personal RStudio Server via SSH
+## Alt 2. Personal RStudio Server via SSH
 
 You can run a personal RStudio Server instance, which you, and only you, can access via your local web browser.  Contrary to RStudio Desktop, this approach does not require X11 forwarding. Instead, it does require running _two_ separate SSH connections to the cluster: (i) one to launch RStudio Server, and (ii) one to connect to it.
 
@@ -78,7 +78,7 @@ To terminate the RStudio Server, start by exiting R by typing `quit()` at the R 
 
 
 
-## 3. RStudio Desktop over X11 Forwarding
+## Alt 3. RStudio Desktop over X11 Forwarding
 
 <div class="alert alert-warning" role="alert">
 It is <em>not</em> possible to run RStudio Desktop via X2Go, because X2Go does not support the modern graphical protocols that RStudio Desktop requires.
