@@ -1066,7 +1066,7 @@ prepend_path(&quot;PKG_CONFIG_PATH&quot;, pathJoin(home, &quot;lib&quot;, &quot;
 Example: <span class="module-example"><code>conda-stage --auto-stage=enable</code>, and <code>conda-stage --help</code>.</span><br>
 URL: <span class="module-url"><a href="https://github.com/HenrikBengtsson/conda-stage">https://github.com/HenrikBengtsson/conda-stage</a>, <a href="https://github.com/HenrikBengtsson/conda-stage/blob/develop/NEWS.md">https://github.com/HenrikBengtsson/conda-stage/blob/develop/NEWS.md</a> (changelog), <a href="https://github.com/HenrikBengtsson/conda-stage/tags">https://github.com/HenrikBengtsson/conda-stage/tags</a> (releases)</span><br>
 Warning: <span class="module-warning">This is work under construction. Your milage may vary! /HB 2022-04-13</span><br>
-Versions: <span class="module-version"><em>0.6.2</em></span><br>
+Versions: <span class="module-version">0.6.2, 0.7.0, <em>0.7.1</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -1088,6 +1088,8 @@ local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
 
 prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
+
+pushenv(&quot;CONDA_STAGE_PROLOGUE&quot;, &quot;module load CBI &quot; .. name)
 
 local script = pathJoin(home, &quot;bin&quot;, &quot;conda-stage.&quot; .. myShellType())
 if not isFile(script) then
@@ -4110,7 +4112,7 @@ prepend_path(&quot;PATH&quot;, home)
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
-_The above information was automatically generated on 2022-07-27 01:25:22 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2022-07-29 02:58:25 from querying `module avail` and `module spider`._
 
 
 <style>
