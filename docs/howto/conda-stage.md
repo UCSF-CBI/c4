@@ -16,7 +16,7 @@ Please, **stage your Conda environment to local disk!** [Your software and job s
 
 Working with a Conda environment that lives on _local disk_ greatly improves the performance.  This is because the local disk (`/scratch`) on the current machine is much faster than any network-based file system, including BeeGFS (`{{ site.path.global_root }}`) used on {{ site.cluster.nickname }}.  This is particularly beneficial when running many instances of a software tool, e.g. in job scripts.
 
-Staging a Conda environment to local disk is straightforward using the **[conda-stage]** tool.  All we have to do is configure the environment once, and from then on we can work with `conda activate ...` and `conda deactivate` as normal.  The only thing we have to remember is to call `module load CBI conda-stage`.
+Staging a Conda environment to local disk is straightforward using the **[conda-stage]** tool.  All we have to do is configure the environment once, and from then on we can work with `conda activate ...` and `conda deactivate` as normal.
 
 Below is a walk-through that illustrates the process. It assumes we have already create a Conda environment named `myjupyter` with some software installed.
 
@@ -43,10 +43,9 @@ This configuration step is quick and needs to be done only once per environment.
 
 ### Activating and deactivating Conda environment
 
-Each time you activate the environment, it is automatically staged to local disk. All you have to remember is to load the `conda-stage` module;
+Each time you activate the environment, it is automatically staged to local disk;
 
 ```sh
-[alice@{{ site.devel.name }} ~]$ module load CBI conda-stage
 [alice@{{ site.devel.name }} ~]$ conda activate myjupyter
 INFO: Staging current Conda environment ({{ site.user.home }}/miniconda3/envs/myjupyter) to local disk ...
 INFO: [ONCE] Packaging Conda environment, because it hasn't been done before ...
@@ -99,12 +98,11 @@ INFO: Total unstage time: 0 seconds
 
 ### Using Conda staging in job scripts
 
-To work with staged conda environments in your job scripts, make sure to first configure it to do automatic staging interactively from a development node.  After this, all you have to do is to update your existing script to load the `conda-stage` module before activating the Conda environment, e.g.
+To work with staged conda environments in your job scripts, make sure to first configure it to do automatic staging interactively from a development node, e.g.
 
 ```sh
 #! /usr/bin/env bash
 
-module load CBI conda-stage
 conda activate myenv
 trap 'conda deactivate' EXIT
 
