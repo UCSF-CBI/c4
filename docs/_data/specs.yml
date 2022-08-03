@@ -1,9 +1,9 @@
 nodes: 36
 physical_cores: 2320
-communal_nodes: 8
-communal_physical_cores: 392
-lab_nodes: 28
-lab_physical_cores: 1928
+communal_nodes: 6
+communal_physical_cores: 368
+lab_nodes: 30
+lab_physical_cores: 1480
 gpu_nodes: 0
 gpus: 0
 communal_gpu_nodes: 0
@@ -14,8 +14,8 @@ communal_gpus: 0
 
 ## clush -b -w 'c4-n[1-35]' "free -h 2> /dev/null | grep Mem | cut -c 1-20"
 ## RAM [GiB]:
-ram_min:  32
-ram_max: 768
+ram_min:   32
+ram_max: 1024
 
 ## clush -b -w 'c4-n[1-35]' "df --portability --human-readable /scratch | tail -1 | awk '{ print \$2 }'"
 ## Local /scratch [TiB]:
