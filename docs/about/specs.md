@@ -73,9 +73,9 @@ The cluster has development nodes for the purpose of validating scripts, prototy
 
 Node                        | Physical Cores |      RAM | Local `/scratch` |                              CPU |                GPU |
 ----------------------------|---------------:|---------:|-----------------:|:---------------------------------|:-------------------|
-{{ site.dev1.hostname }}    |             48 |  384 GiB |         3.6  TiB | Intel Xeon E5-2640 v3 2.60GHz         |                    |
-{{ site.dev2.hostname }}    |             48 |  512 GiB |         1.1  TiB | Intel Xeon E5-2640 v3 2.60GHz    |                    |
-{{ site.dev3.hostname }}    |             12 |   64 GiB |         3.6  TiB | AMD Opteron 2431 2.4GHz |                    |
+{{ site.dev1.hostname }}    |             48 |  384 GiB |         3.6  TiB | Intel Xeon E5-2640 v3 2.60GHz               |                    |
+{{ site.dev2.hostname }}    |             48 |  512 GiB |         1.1  TiB | Intel Xeon E5-2640 v3 2.60GHz               |                    |
+{{ site.dev3.hostname }}    |             38 |  128 GiB |         5.4  TiB | Intel Xeon E5-2640 v4 2.40GHz               |                    |
 
 <!--
 {{ site.gpudev1.hostname }} |             12 |   48 GiB |         0.37 TiB | Intel Xeon X5650 2.67GHz         | GeForce GTX 980 Ti |
