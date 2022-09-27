@@ -58,7 +58,7 @@ Below are 3 software repositories, each providing a set of software tools.
 
 <ul class="nav nav-pills">
 <li class="active"><a data-toggle="pill" href="#button_repository_built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(3)</a></li>
-<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(88)</a></li>
+<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(89)</a></li>
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
@@ -154,7 +154,7 @@ prepend_path(&quot;CPATH&quot;, pathJoin(home, &quot;include&quot;))
 
 <div id="button_repository_cbi" class="tab-pane fade">
 
-<h2 id="repository_cbi">Module Software Repository: CBI (88)</h2>
+<h2 id="repository_cbi">Module Software Repository: CBI (89)</h2>
 
 Maintained by: Henrik Bengtsson, <a href="https://cbi.ucsf.edu">Computational Biology and Informatics</a><br>
 Enable repository: <code>module load CBI</code><br>
@@ -342,7 +342,7 @@ prepend_path(&quot;LD_LIBRARY_PATH&quot;, pathJoin(home, &quot;lib&quot;))
 Example: <span class="module-example"><code>bat README.md</code>, <code>bat scripts/*.sh</code>, and <code>bat src/*.c</code>.</span><br>
 URL: <span class="module-url"><a href="https://github.com/sharkdp/bat">https://github.com/sharkdp/bat</a>, <a href="https://github.com/sharkdp/bat/blob/master/CHANGELOG.md">https://github.com/sharkdp/bat/blob/master/CHANGELOG.md</a> (changelog)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version">0.19.0, 0.20.0, <em>0.21.0</em></span><br>
+Versions: <span class="module-version">0.19.0, 0.20.0, 0.21.0, <em>0.22.1</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -518,7 +518,7 @@ prepend_path(&quot;BATS_SUPPORT_HOME&quot;, home)
 <span class="module-description">BCFtools is a set of utilities that manipulate variant calls in the Variant Call Format (VCF) and its binary counterpart BCF. All commands work transparently with both VCFs and BCFs, both uncompressed and BGZF-compressed.</span><br>
 Example: <span class="module-example"><code>bcftools --version</code></span><br>
 URL: <span class="module-url"><a href="https://www.htslib.org/">https://www.htslib.org/</a>, <a href="https://github.com/samtools/bcftools/blob/develop/NEWS">https://github.com/samtools/bcftools/blob/develop/NEWS</a> (changelog), <a href="https://github.com/samtools/bcftools">https://github.com/samtools/bcftools</a> (source code)</span><br>
-Versions: <span class="module-version">1.10.2, 1.11, 1.12, 1.13, 1.14, 1.15, <em>1.15.1</em></span><br>
+Versions: <span class="module-version">1.10.2, 1.11, 1.12, 1.13, 1.14, 1.15, 1.15.1, <em>1.16</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -593,7 +593,7 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 <span class="module-description">BEDOPS is an open-source command-line toolkit that performs highly efficient and scalable Boolean and other set operations, statistical calculations, archiving, conversion and other management of genomic data of arbitrary scale. Tasks can be easily split by chromosome for distributing whole-genome analyses across a computational cluster.</span><br>
 Example: <span class="module-example"><code>bedops --version</code></span><br>
 URL: <span class="module-url"><a href="https://bedops.readthedocs.io/">https://bedops.readthedocs.io/</a>, <a href="https://bedops.readthedocs.io/en/latest/content/revision-history.html">https://bedops.readthedocs.io/en/latest/content/revision-history.html</a> (changelog), <a href="https://github.com/bedops/bedops">https://github.com/bedops/bedops</a> (source code)</span><br>
-Versions: <span class="module-version">2.4.39, <em>2.4.40</em></span><br>
+Versions: <span class="module-version">2.4.39, 2.4.40, <em>2.4.41</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -607,7 +607,7 @@ whatis(&quot;Keywords: &quot;)
 whatis(&quot;URL: https://bedops.readthedocs.io/, https://bedops.readthedocs.io/en/latest/content/revision-history.html (changelog), https://github.com/bedops/bedops (source code)&quot;)
 whatis([[
 Description: BEDOPS is an open-source command-line toolkit that performs highly efficient and scalable Boolean and other set operations, statistical calculations, archiving, conversion and other management of genomic data of arbitrary scale. Tasks can be easily split by chromosome for distributing whole-genome analyses across a computational cluster.
-Example: `bedops --version`
+Examples: `bedops --version`
 ]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
@@ -875,7 +875,7 @@ prepend_path(&quot;MANPATH&quot;,  pathJoin(home, &quot;share&quot;, &quot;man&q
 Example: <span class="module-example"><code>cellranger --help</code> and <code>cellranger --version</code>.</span><br>
 URL: <span class="module-url"><a href="https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/what-is-cell-ranger">https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/what-is-cell-ranger</a>, <a href="https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/release-notes">https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/release-notes</a> (changelog), <a href="https://github.com/10XGenomics/cellranger">https://github.com/10XGenomics/cellranger</a> (source code)</span><br>
 Warning: <span class="module-warning">To prevent a single Cell Ranger process from hijacking all CPU and RAM by default, this module sets environment variable <code>MROFLAGS='--localcores=1 --localmem=8 --limit-loadavg'</code> making those the default.</span><br>
-Versions: <span class="module-version">4.0.0, 5.0.1, 6.1.1, 6.1.2, <em>7.0.0</em></span><br>
+Versions: <span class="module-version">4.0.0, 5.0.1, 6.1.1, 6.1.2, 7.0.0, <em>7.0.1</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -1245,7 +1245,7 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 Example: <span class="module-example"><code>emacs --version</code> and <code>emacs -nw</code>.</span><br>
 URL: <span class="module-url"><a href="https://www.gnu.org/software/emacs/">https://www.gnu.org/software/emacs/</a>, <a href="https://www.gnu.org/savannah-checkouts/gnu/emacs/emacs.html#Releases">https://www.gnu.org/savannah-checkouts/gnu/emacs/emacs.html#Releases</a> (changelog)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version">27.2, <em>28.1</em></span><br>
+Versions: <span class="module-version">27.2, 28.1, <em>28.2</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -1255,7 +1255,7 @@ GNU Emacs: An Extensible, Customizable, Free/Libre Text Editor
 local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
-whatis(&quot;Keywords: editor, text&quot;)
+whatis(&quot;Keywords: editor, text, cli, tui&quot;)
 whatis(&quot;URL: https://www.gnu.org/software/emacs/, https://www.gnu.org/savannah-checkouts/gnu/emacs/emacs.html#Releases (changelog)&quot;)
 whatis([[
 Description: At its core is an interpreter for Emacs Lisp, a dialect of the Lisp programming language with extensions to support text editing.
@@ -1804,7 +1804,7 @@ prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;share&quot;, &quot;man&qu
 <span class="module-description">HTSlib is an implementation of a unified C library for accessing common file formats, such as SAM, CRAM and VCF, used for high-throughput sequencing data, and is the core library used by samtools and bcftools. HTSlib also provides the bgzip, htsfile, and tabix utilities.</span><br>
 Example: <span class="module-example"><code>bgzip --version</code>, <code>htsfile --version</code>, and <code>tabix --version</code>.</span><br>
 URL: <span class="module-url"><a href="https://www.htslib.org/">https://www.htslib.org/</a>, <a href="https://github.com/samtools/htslib/blob/develop/NEWS">https://github.com/samtools/htslib/blob/develop/NEWS</a> (changelog), <a href="https://github.com/samtools/htslib">https://github.com/samtools/htslib</a> (source code)</span><br>
-Versions: <span class="module-version">1.10.2, 1.11, 1.12, 1.13, 1.14, 1.15, <em>1.15.1</em></span><br>
+Versions: <span class="module-version">1.10.2, 1.11, 1.12, 1.13, 1.14, 1.15, 1.15.1, <em>1.16</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -1879,10 +1879,10 @@ prepend_path(&quot;PATH&quot;, home)
   <dd class="module-details">
 <strong class="module-help">IGV: The Integrative Genomics Viewer</strong><br>
 <span class="module-description">The Integrative Genomics Viewer (IGV) is a high-performance visualization tool for interactive exploration of large, integrated genomic datasets. It supports a wide variety of data types, including array-based and next-generation sequence data, and genomic annotations.</span><br>
-Example: <span class="module-example"><code>igv</code>.</span><br>
-Note: <span class="module-note">IGV (&gt;= 2.5.0) requires Java 11. Coincidentally, <code>igvtools</code> is integrated with IGV (&gt;= 2.5.0).</span><br>
+Example: <span class="module-example"><code>igv --help</code>, <code>igv --version</code>, and <code>igv</code>.</span><br>
 URL: <span class="module-url"><a href="https://software.broadinstitute.org/software/igv/">https://software.broadinstitute.org/software/igv/</a>, <a href="https://github.com/igvteam/igv/tags">https://github.com/igvteam/igv/tags</a> (changelog), <a href="https://github.com/igvteam/igv/">https://github.com/igvteam/igv/</a> (source code)</span><br>
-Versions: <span class="module-version">2.8.6, 2.8.13, 2.9.1, 2.11.0, 2.11.3, 2.11.9, 2.12.3, 2.13.0, 2.13.1, <em>2.13.2</em></span><br>
+Warning: <span class="module-warning">IGV (&gt;= 2.5.0) requires Java 11.</span><br>
+Versions: <span class="module-version">2.8.6, 2.8.13, 2.9.1, 2.11.0, 2.11.3, 2.11.9, 2.12.3, 2.13.0, 2.13.1, 2.13.2, <em>2.14.1</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -1897,10 +1897,11 @@ whatis(&quot;Keywords: sequencing&quot;)
 whatis(&quot;URL: https://software.broadinstitute.org/software/igv/, https://github.com/igvteam/igv/tags (changelog), https://github.com/igvteam/igv/ (source code)&quot;)
 whatis([[
 Description: The Integrative Genomics Viewer (IGV) is a high-performance visualization tool for interactive exploration of large, integrated genomic datasets. It supports a wide variety of data types, including array-based and next-generation sequence data, and genomic annotations.
-Examples: `igv`.  Note: IGV (&gt;= 2.5.0) requires Java 11. Coincidentally, `igvtools` is integrated with IGV (&gt;= 2.5.0).
+Examples: `igv --help`, `igv --version`, and `igv`.
+Warning: IGV (&gt;= 2.5.0) requires Java 11.
 ]])
 
--- depends_on(&quot;jdk&quot;)
+--depends_on(&quot;openjdk/11&quot;)
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
@@ -2230,7 +2231,7 @@ prepend_path(&quot;PATH&quot;, home)
 Example: <span class="module-example"><code>pandoc --version</code>.</span><br>
 URL: <span class="module-url"><a href="https://pandoc.org/">https://pandoc.org/</a>, <a href="https://github.com/jgm/pandoc/blob/master/changelog.md">https://github.com/jgm/pandoc/blob/master/changelog.md</a> (changelog), <a href="https://github.com/jgm/pandoc">https://github.com/jgm/pandoc</a> (source code)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version">2.14.2, 2.16.2, 2.17.1.1, <em>2.18</em></span><br>
+Versions: <span class="module-version">2.14.2, 2.16.2, 2.17.1.1, 2.18, <em>2.19.2</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -2412,6 +2413,41 @@ local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
 
 prepend_path(&quot;PATH&quot;, home)
+</code></pre>
+
+</details>
+  </dd>
+</dl>
+<h3 id="module_cbi_port4me" class="module-name">port4me</h3>
+<dl>
+  <dd class="module-details">
+<strong class="module-help">port4me:  Get the Same, Personal, Free TCP Port over and over</strong><br>
+<span class="module-description">'port4me' attempts, with high probability, to provide the user with the same, free port each time, even when used on different days.</span><br>
+Example: <span class="module-example"><code>port4me --help</code>, <code>port4me</code>, <code>port4me --tool=jupyter</code>).</span><br>
+URL: <span class="module-url"><a href="https://github.com/HenrikBengtsson/port4me">https://github.com/HenrikBengtsson/port4me</a>, <a href="https://github.com/HenrikBengtsson/port4me/blob/develop/NEWS.md">https://github.com/HenrikBengtsson/port4me/blob/develop/NEWS.md</a> (change log)</span><br>
+Warning: <span class="module-warning">This tool is under development.</span><br>
+Versions: <span class="module-version"><em>0.4.0</em></span><br>
+<details>
+<summary>Module code: <a>view</a></summary>
+<pre><code class="language-lua">help([[
+port4me:  Get the Same, Personal, Free TCP Port over and over
+]])
+
+local name = myModuleName()
+local version = myModuleVersion()
+whatis(&quot;Version: &quot; .. version)
+whatis(&quot;Keywords: utility, cli&quot;)
+whatis(&quot;URL: https://github.com/HenrikBengtsson/port4me, https://github.com/HenrikBengtsson/port4me/blob/develop/NEWS.md (change log)&quot;)
+whatis([[
+Description: 'port4me' attempts, with high probability, to provide the user with the same, free port each time, even when used on different days.
+Examples: `port4me --help`, `port4me`, `port4me --tool=jupyter`).
+Warning: This tool is under development.
+]])
+
+local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
+local home = pathJoin(root, name .. &quot;-&quot; .. version)
+
+prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 </code></pre>
 
 </details>
@@ -2623,7 +2659,7 @@ pushenv(&quot;R_PROFILE&quot;, pathJoin(home, &quot;Rprofile.site&quot;))
 Example: <span class="module-example"><code>rclone --version</code>, <code>rclone --help</code>, <code>rclone config</code>, and <code>man rclone</code>.</span><br>
 URL: <span class="module-url"><a href="https://rclone.org/">https://rclone.org/</a>, <a href="https://rclone.org/changelog/">https://rclone.org/changelog/</a> (changelog), <a href="https://github.com/rclone/rclone">https://github.com/rclone/rclone</a> (source code)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version">1.57.0, 1.58.0, <em>1.59.0</em></span><br>
+Versions: <span class="module-version">1.57.0, 1.58.0, 1.59.0, <em>1.59.2</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help(&quot;rclone: Rsync for Cloud Storage and More&quot;)
@@ -2849,7 +2885,7 @@ prepend_path(&quot;LD_LIBRARY_PATH&quot;, pathJoin(home, &quot;lib&quot;))
 <span class="module-description">SAMtools is a suite of programs for interacting with high-throughput sequencing data.</span><br>
 Example: <span class="module-example"><code>samtools --version</code>.</span><br>
 URL: <span class="module-url"><a href="https://www.htslib.org/">https://www.htslib.org/</a>, <a href="https://github.com/samtools/samtools/blob/develop/NEWS">https://github.com/samtools/samtools/blob/develop/NEWS</a> (changelog), <a href="https://github.com/samtools/samtools">https://github.com/samtools/samtools</a> (source code)</span><br>
-Versions: <span class="module-version">0.1.12a, 0.1.18, 1.10, 1.11, 1.12, 1.13, 1.14, 1.15, <em>1.15.1</em></span><br>
+Versions: <span class="module-version">0.1.12a, 0.1.18, 1.10, 1.11, 1.12, 1.13, 1.14, 1.15, 1.15.1, <em>1.16</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -3361,7 +3397,7 @@ prepend_path(&quot;PATH&quot;, home)
 Example: <span class="module-example"><code>tree --help</code>.</span><br>
 URL: <span class="module-url"><a href="http://mama.indstate.edu/users/ice/tree/">http://mama.indstate.edu/users/ice/tree/</a>, <a href="http://mama.indstate.edu/users/ice/tree/changes.html">http://mama.indstate.edu/users/ice/tree/changes.html</a> (changelog)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version">1.8.0, <em>2.0.2</em></span><br>
+Versions: <span class="module-version">1.8.0, 2.0.2, <em>2.0.3</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -3371,7 +3407,7 @@ tree: List Content of Directories in a Tree-like Format
 local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
-whatis(&quot;Keywords: files, utility&quot;)
+whatis(&quot;Keywords: files, utility, cli&quot;)
 whatis(&quot;URL: http://mama.indstate.edu/users/ice/tree/, http://mama.indstate.edu/users/ice/tree/changes.html (changelog)&quot;)
 whatis([[
 Description: Tree is a recursive directory listing command that produces a depth indented listing of files, which is colorized ala dircolors if the `LS_COLORS` environment variable is set and output is to tty.
@@ -4108,11 +4144,11 @@ prepend_path(&quot;PATH&quot;, home)
 
 <ul class="nav nav-pills">
 <li class="active"><a data-toggle="pill" href="#button_repository_built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(3)</a></li>
-<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(88)</a></li>
+<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(89)</a></li>
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
-_The above information was automatically generated on 2022-07-29 02:58:25 from querying `module avail` and `module spider`._
+_The above information was automatically generated on 2022-09-16 20:12:20 from querying `module avail` and `module spider`._
 
 
 <style>
