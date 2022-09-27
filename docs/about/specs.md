@@ -101,7 +101,7 @@ c4-n7     |      112 |   2.2 GHz |   768 GiB |          11.0 TiB | NVMe /scratch
 c4-n8     |      112 |   2.2 GHz |   768 GiB |          11.0 TiB | NVMe /scratch 10 Gbps ethernet                      | Witte Lab
 c4-n9     |      112 |   2.2 GHz |   768 GiB |          11.0 TiB | NVMe /scratch 10 Gbps ethernet                      | Witte Lab
 c4-n10    |       48 |   2.1 GHz |   512 GiB |           2.3 TiB | SATA /scratch 10 Gbps ethernet                      | communal
-c4-n11    |      128 |   2.8 GHz |     1 TiB |           5.2 TiB | SSD  /scratch 10 Gbps ethernet                      | Costello Lab
+c4-n11    |      128 |   2.8 GHz |  1024 GiB |           5.2 TiB | SSD  /scratch 10 Gbps ethernet                      | Costello Lab
 c4-n12    |       64 |   2.6 GHz |   512 GiB |           3.6 TiB | SATA /scratch 10 Gbps ethernet                      | CBI Core
 c4-n13    |       64 |   2.6 GHz |   512 GiB |           3.6 TiB | SATA /scratch 10 Gbps ethernet                      | CBI Core 
 c4-n14    |       24 |   3.5 GHz |   128 GiB |           0.9 TiB | SATA /scratch 10 Gbps ethernet                      | Witte Lab
@@ -127,7 +127,7 @@ c4-n33    |       64 |   2.6 GHz |   512 GiB |           5.1 TiB | SATA /scratch
 c4-n34    |       64 |   2.6 GHz |   512 GiB |           5.1 TiB | SATA /scratch 10 Gbps ethernet                      | Costello Lab, Diaz Lab, Fung Lab
 c4-n35    |       64 |   2.1 GHz |   512 GiB |           2.5 TiB | SSD  /scratch 10 Gbps ethernet                      | Krummel Lab
 c4-n36    |       48 |   1.4 GHz |   384 GiB |           5.3 TiB | SATA /scratch 10 Gbps ethernet                      | Costello Lab
-c4-n37    |      104 |   3.4 GHz |     1 TiB |           3.3 TiB | SSD /scratch  10 Gbps ethernet                      | communal
+c4-n37    |      104 |   3.4 GHz |  1024 GiB |           3.3 TiB | SSD /scratch  10 Gbps ethernet                      | communal
 
 <!--
 For additional details on the compute nodes, see the <a href="#details">Details</a> section below.
