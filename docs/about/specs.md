@@ -127,6 +127,7 @@ c4-n33    |       64 |   2.6 GHz |   512 GiB |           5.1 TiB | SATA /scratch
 c4-n34    |       64 |   2.6 GHz |   512 GiB |           5.1 TiB | SATA /scratch 10 Gbps ethernet                      | Costello Lab, Diaz Lab, Fung Lab
 c4-n35    |       64 |   2.1 GHz |   512 GiB |           2.5 TiB | SSD  /scratch 10 Gbps ethernet                      | Krummel Lab
 c4-n36    |       48 |   1.4 GHz |   384 GiB |           5.3 TiB | SATA /scratch 10 Gbps ethernet                      | Costello Lab
+c4-n37    |      104 |   3.4 GHz |     1 TiB |           3.3 TiB | SSD /scratch  10 Gbps ethernet                      | communal
 
 <!--
 For additional details on the compute nodes, see the <a href="#details">Details</a> section below.
