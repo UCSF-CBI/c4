@@ -1,4 +1,3 @@
-#' @export
 repos_buttons <- function(modules_sets) {
   cat('<ul class="nav nav-pills">\n')
   for (kk in seq_along(modules_sets)) {
