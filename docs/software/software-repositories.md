@@ -1085,7 +1085,14 @@ Warning: This is work under construction. Your milage may vary! /HB 2022-04-13
 ]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
+if not isDir(root) then
+  LmodError(&quot;Environment variable 'SOFTWARE_ROOT_CBI' specifies a non-existing folder: &quot; .. os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;))
+end
+
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
+if not isDir(home) then
+  LmodError(&quot;No such folder: &quot; .. home)
+end
 
 prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 
@@ -1093,7 +1100,7 @@ pushenv(&quot;CONDA_STAGE_PROLOGUE&quot;, &quot;module load CBI &quot; .. name)
 
 local script = pathJoin(home, &quot;bin&quot;, &quot;conda-stage.&quot; .. myShellType())
 if not isFile(script) then
-  LmodError(&quot;The &quot; .. name .. &quot; module is not supported for your shell (&quot; .. myShellType() .. &quot;). No such file: &quot; .. script)
+  LmodError(&quot;The &quot; .. name .. &quot; module is not supported for your shell (&quot; .. myShellType() .. &quot;; SHELL=&quot; .. os.getenv(&quot;SHELL&quot;) .. &quot;). No such file: &quot; .. script)
 end
 
 -- Create conda-stage() function, which will overwrite itself after the
@@ -4148,7 +4155,7 @@ prepend_path(&quot;PATH&quot;, home)
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
-_The above information was automatically generated on 2022-09-16 20:12:20 from querying `module avail` and `module spider`._
+_The above information is updated automatically every three hours by querying `module avail` and `module spider`._
 
 
 <style>
