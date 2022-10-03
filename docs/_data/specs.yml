@@ -1,13 +1,13 @@
-nodes: 37
+nodes: 39
 physical_cores: 2560
-communal_nodes: 7
-communal_physical_cores: 472
+communal_nodes: 9
+communal_physical_cores: 576
 lab_nodes: 30
 lab_physical_cores: 2088
 gpu_nodes: 0
 gpus: 0
-communal_gpu_nodes: 0
-communal_gpus: 0
+communal_gpu_nodes: 2
+communal_gpus: 2
 
 ## clush -b -w 'c4-n[1-35]' "nproc --all 2> /dev/null"
 ## Number of cores per node
