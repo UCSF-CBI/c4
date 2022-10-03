@@ -128,6 +128,8 @@ c4-n34    |       64 |   2.6 GHz |   512 GiB |           5.4 TiB | SATA /scratch
 c4-n35    |       64 |   2.1 GHz |   512 GiB |           2.6 TiB | SSD  /scratch 10 Gbps ethernet                      | Krummel Lab
 c4-n36    |       48 |   1.4 GHz |   384 GiB |           5.4 TiB | SATA /scratch 10 Gbps ethernet                      | Costello Lab
 c4-n37    |      104 |   3.4 GHz |  1024 GiB |           3.4 TiB | SSD /scratch  10 Gbps ethernet                      | communal
+c4-n38    |      104 |   3.4 GHz |  1024 GiB |           3.4 TiB | SSD /scratch  10 Gbps ethernet Nvidia A100 GPU      | communal
+c4-n39    |      104 |   3.4 GHz |  1024 GiB |           3.4 TiB | SSD /scratch  10 Gbps ethernet Nvidia A100 GPU      | communal
 
 <!--
 For additional details on the compute nodes, see the <a href="#details">Details</a> section below.
