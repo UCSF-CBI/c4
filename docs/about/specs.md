@@ -4,7 +4,7 @@
 
 <dl id="hosttable-summary" class="dl-horizontal">
   <dt>Compute nodes</dt><dd id="hosttable-summary-nodes">{{ site.data.specs.nodes }} (of which {{ site.data.specs.communal_nodes }} are communal)</dd>
-  <dt>Physical cores</dt><dd id="hosttable-summary-cores">{{ site.data.specs.physical_cores }} (of which {{ site.data.specs.communal_physical_cores }} are communal)</dd>
+  <dt>Logical cores</dt><dd id="hosttable-summary-cores">{{ site.data.specs.logical_cores }} (of which {{ site.data.specs.communal_logical_cores }} are communal)</dd>
 <!--  
   <dt>GPUs</dt><dd>{{ site.data.specs.gpus }} GPUs on {{ site.data.specs.gpu_nodes }} GPU nodes ({{ site.data.specs.communal_gpus }}/{{ site.data.specs.communal_gpu_nodes }} GPUs/nodes are communal and {{ site.data.specs.gpus | minus: site.data.specs.communal_gpus }}/{{ site.data.specs.gpu_nodes | minus: site.data.specs.communal_gpu_nodes }} GPUs/nodes are prioritized for GPU contributors)</dd>
 -->
@@ -71,14 +71,14 @@ _Comment_: You can also transfer data via the login nodes, but since those only 
 
 The cluster has development nodes for the purpose of validating scripts, prototyping pipelines, compiling software, and more.  Development nodes [can be accessed from the login nodes]({{ '/get-started/development-prototyping.html' | relative_url }}).
 
-Node                        | # Cores |      RAM | Local `/scratch` |                              CPU |                GPU |
-----------------------------|--------:|---------:|-----------------:|:---------------------------------|:-------------------|
-{{ site.dev1.hostname }}    |      48 |  384 GiB |         3.6  TiB | Intel Xeon E5-2640 v3 2.60GHz               |                    |
-{{ site.dev2.hostname }}    |      48 |  512 GiB |         1.1  TiB | Intel Xeon E5-2640 v3 2.60GHz               |                    |
-{{ site.dev3.hostname }}    |      38 |  128 GiB |         5.4  TiB | Intel Xeon E5-2640 v4 2.40GHz               |                    |
+Node                        | Logical Cores |      RAM | Local `/scratch` |                              CPU |                GPU |
+----------------------------|--------------:|---------:|-----------------:|:---------------------------------|:-------------------|
+{{ site.dev1.hostname }}    |            48 |  384 GiB |         3.6  TiB | Intel Xeon E5-2640 v3 2.60GHz               |                    |
+{{ site.dev2.hostname }}    |            48 |  512 GiB |         1.1  TiB | Intel Xeon E5-2640 v3 2.60GHz               |                    |
+{{ site.dev3.hostname }}    |            38 |  128 GiB |         5.4  TiB | Intel Xeon E5-2640 v4 2.40GHz               |                    |
 
 <!--
-{{ site.gpudev1.hostname }} |             12 |   48 GiB |         0.37 TiB | Intel Xeon X5650 2.67GHz         | GeForce GTX 980 Ti |
+{{ site.gpudev1.hostname }} |            12 |   48 GiB |         0.37 TiB | Intel Xeon X5650 2.67GHz         | GeForce GTX 980 Ti |
 -->
 
 <!--_Comment:_ Please use the GPU development node only if you need to build or prototype GPU software.-->
@@ -89,47 +89,47 @@ Node                        | # Cores |      RAM | Local `/scratch` |           
 
 The majority of the compute nodes have Intel processors, while a few have AMD processes.  Each compute node has a local `/scratch` drive (see above for size), which is either a hard disk drive (HDD), a solid state drive (SSD), or even a Non-Volatile Memory Express (NVMe) drive. Each node has a tiny `/tmp` drive ({{ site.data.specs.local_tmp_size_min }}-{{ site.data.specs.local_tmp_size_max }} GiB).
 
-Node      |  # Cores |      CPU  |       RAM | Local `/scratch/` | Notes                                              | Priority
-----------|---------:|----------:|----------:|------------------:|:---------------------------------------------------|:-----------
-c4-n1     |       64 |   2.1 GHz |   512 GiB |           1.8 TiB | SSD /scratch  10 Gbps ethernet                      | communal
-c4-n2     |       64 |   2.1 GHz |   512 GiB |           1.8 TiB | SSD /scratch  10 Gbps ethernet                      | communal
-c4-n3     |       64 |   2.1 GHz |   512 GiB |           1.8 TiB | SSD /scratch  10 Gbps ethernet                      | communal
-c4-n4     |       64 |   2.1 GHz |   512 GiB |           1.8 TiB | SSD /scratch  10 Gbps ethernet                      | communal
-c4-n5     |       64 |   2.1 GHz |   512 GiB |           2.6 TiB | SSD /scratch  10 Gbps ethernet                      | communal
-c4-n6     |      112 |   2.2 GHz |   768 GiB |          11.0 TiB | NVMe /scratch 10 Gbps ethernet                      | Witte Lab
-c4-n7     |      112 |   2.2 GHz |   768 GiB |          11.0 TiB | NVMe /scratch 10 Gbps ethernet                      | Witte Lab
-c4-n8     |      112 |   2.2 GHz |   768 GiB |          11.0 TiB | NVMe /scratch 10 Gbps ethernet                      | Witte Lab
-c4-n9     |      112 |   2.2 GHz |   768 GiB |          11.0 TiB | NVMe /scratch 10 Gbps ethernet                      | Witte Lab
-c4-n10    |       48 |   2.1 GHz |   512 GiB |           2.3 TiB | SATA /scratch 10 Gbps ethernet                      | communal
-c4-n11    |      128 |   2.8 GHz |  1024 GiB |           5.2 TiB | SSD  /scratch 10 Gbps ethernet                      | Costello Lab
-c4-n12    |       64 |   2.6 GHz |   512 GiB |           3.6 TiB | SATA /scratch 10 Gbps ethernet                      | CBI Core
-c4-n13    |       64 |   2.6 GHz |   512 GiB |           3.6 TiB | SATA /scratch 10 Gbps ethernet                      | CBI Core 
-c4-n14    |       24 |   3.5 GHz |   128 GiB |           0.9 TiB | SATA /scratch 10 Gbps ethernet                      | Witte Lab
-c4-n15    |       64 |   2.6 GHz |   256 GiB |           1.8 TiB | SATA /scratch 10 Gbps ethernet                      | Witte Lab
-c4-n16    |       64 |   3.7 GHz |   512 GiB |           3.3 TiB | SATA /scratch 10 Gbps ethernet                      | Blelloch Lab
-c4-n17    |       64 |   3.7 GHz |   512 GiB |           2.6 TiB | SAS  /scratch 10 Gbps ethernet                      | Francis Lab
-c4-n18    |       64 |   2.1 GHz |   512 GiB |           3.2 TiB | SAS  /scratch 10 Gbps ethernet                      | Krummel Lab
-c4-n19    |       64 |   3.7 GHz |   768 GiB |           4.9 TiB | SAS  /scratch 10 Gbps ethernet                      | Ziv Lab
-c4-n20    |       48 |   2.4 GHz |   384 GiB |           7.0 TiB | SATA /scratch 10 Gbps ethernet                      | Krummel Lab
-c4-n21    |       64 |   2.6 GHz |   512 GiB |          11.0 TiB | SAS  /scratch 10 Gbps ethernet                      | Witte Lab
-c4-n22    |      128 |   3.7 GHz |   512 GiB |           2.6 TiB | SSD  /scratch 10 Gbps ethernet                      | Kim Lab 
-c4-n23    |       64 |   2.3 GHz |   512 GiB |           2.7 TiB | SSD  /scratch 10 Gbps ethernet                      | Shannon Lab 
-c4-n24    |       64 |   3.7 GHz |   512 GiB |           2.6 TiB | SSD  /scratch 10 Gbps ethernet                      | Shannon Lab 
-c4-n25    |       64 |   3.7 GHz |   512 GiB |           2.6 TiB | SSD  /scratch 10 Gbps ethernet                      | Bastian Lab 
-c4-n26    |       48 |   2.8 GHz |   256 GiB |           5.4 TiB | SATA /scratch 10 Gbps ethernet                      | Bandyopadhyay Lab
-c4-n27    |       64 |   2.1 GHz |   512 GiB |           3.2 TiB | SAS  /scratch 10 Gbps ethernet                      | Kriegstein Lab 
-c4-n28    |       48 |   2.8 GHz |   384 GiB |           5.4 TiB | SATA /scratch 10 Gbps ethernet                      | Molinaro Lab
-c4-n29    |       48 |   2.8 GHz |   384 GiB |           5.4 TiB | SATA /scratch 10 Gbps ethernet                      | Molinaro Lab
-c4-n30    |       32 |   1.2 GHz |   192 GiB |          0.05 TiB | SAS  /scratch 2x1 Gbps ethernet                      | Oldham Lab
-c4-n31    |       64 |   2.1 GHz |   512 GiB |           3.2 TiB | SAS  /scratch 10 Gbps ethernet                      | Diaz Lab
-c4-n32    |       64 |   2.6 GHz |   512 GiB |           5.4 TiB | SATA /scratch 10 Gbps ethernet                      | Costello Lab, Diaz Lab, Fung Lab
-c4-n33    |       64 |   2.6 GHz |   512 GiB |           5.4 TiB | SATA /scratch 10 Gbps ethernet                      | Costello Lab, Diaz Lab, Fung Lab
-c4-n34    |       64 |   2.6 GHz |   512 GiB |           5.4 TiB | SATA /scratch 10 Gbps ethernet                      | Costello Lab, Diaz Lab, Fung Lab
-c4-n35    |       64 |   2.1 GHz |   512 GiB |           2.6 TiB | SSD  /scratch 10 Gbps ethernet                      | Krummel Lab
-c4-n36    |       48 |   1.4 GHz |   384 GiB |           5.4 TiB | SATA /scratch 10 Gbps ethernet                      | Costello Lab
-c4-n37    |      104 |   3.4 GHz |  1024 GiB |           3.4 TiB | SSD /scratch  10 Gbps ethernet                      | communal
-c4-n38    |      104 |   3.4 GHz |  1024 GiB |           3.4 TiB | SSD /scratch  10 Gbps ethernet Nvidia A100 GPU      | communal
-c4-n39    |      104 |   3.4 GHz |  1024 GiB |           3.4 TiB | SSD /scratch  10 Gbps ethernet Nvidia A100 GPU      | communal
+Node      | Logical Cores |      CPU  |       RAM | Local `/scratch/` | Notes                                              | Priority
+----------|--------------:|----------:|----------:|------------------:|:---------------------------------------------------|:-----------
+c4-n1     |            64 |   2.1 GHz |   512 GiB |           1.8 TiB | SSD /scratch  10 Gbps ethernet                      | communal
+c4-n2     |            64 |   2.1 GHz |   512 GiB |           1.8 TiB | SSD /scratch  10 Gbps ethernet                      | communal
+c4-n3     |            64 |   2.1 GHz |   512 GiB |           1.8 TiB | SSD /scratch  10 Gbps ethernet                      | communal
+c4-n4     |            64 |   2.1 GHz |   512 GiB |           1.8 TiB | SSD /scratch  10 Gbps ethernet                      | communal
+c4-n5     |            64 |   2.1 GHz |   512 GiB |           2.6 TiB | SSD /scratch  10 Gbps ethernet                      | communal
+c4-n6     |           112 |   2.2 GHz |   768 GiB |          11.0 TiB | NVMe /scratch 10 Gbps ethernet                      | Witte Lab
+c4-n7     |           112 |   2.2 GHz |   768 GiB |          11.0 TiB | NVMe /scratch 10 Gbps ethernet                      | Witte Lab
+c4-n8     |           112 |   2.2 GHz |   768 GiB |          11.0 TiB | NVMe /scratch 10 Gbps ethernet                      | Witte Lab
+c4-n9     |           112 |   2.2 GHz |   768 GiB |          11.0 TiB | NVMe /scratch 10 Gbps ethernet                      | Witte Lab
+c4-n10    |            48 |   2.1 GHz |   512 GiB |           2.3 TiB | SATA /scratch 10 Gbps ethernet                      | communal
+c4-n11    |           128 |   2.8 GHz |  1024 GiB |           5.2 TiB | SSD  /scratch 10 Gbps ethernet                      | Costello Lab
+c4-n12    |            64 |   2.6 GHz |   512 GiB |           3.6 TiB | SATA /scratch 10 Gbps ethernet                      | CBI Core
+c4-n13    |            64 |   2.6 GHz |   512 GiB |           3.6 TiB | SATA /scratch 10 Gbps ethernet                      | CBI Core 
+c4-n14    |            24 |   3.5 GHz |   128 GiB |           0.9 TiB | SATA /scratch 10 Gbps ethernet                      | Witte Lab
+c4-n15    |            64 |   2.6 GHz |   256 GiB |           1.8 TiB | SATA /scratch 10 Gbps ethernet                      | Witte Lab
+c4-n16    |            64 |   3.7 GHz |   512 GiB |           3.3 TiB | SATA /scratch 10 Gbps ethernet                      | Blelloch Lab
+c4-n17    |            64 |   3.7 GHz |   512 GiB |           2.6 TiB | SAS  /scratch 10 Gbps ethernet                      | Francis Lab
+c4-n18    |            64 |   2.1 GHz |   512 GiB |           3.2 TiB | SAS  /scratch 10 Gbps ethernet                      | Krummel Lab
+c4-n19    |            64 |   3.7 GHz |   768 GiB |           4.9 TiB | SAS  /scratch 10 Gbps ethernet                      | Ziv Lab
+c4-n20    |            48 |   2.4 GHz |   384 GiB |           7.0 TiB | SATA /scratch 10 Gbps ethernet                      | Krummel Lab
+c4-n21    |            64 |   2.6 GHz |   512 GiB |          11.0 TiB | SAS  /scratch 10 Gbps ethernet                      | Witte Lab
+c4-n22    |           128 |   3.7 GHz |   512 GiB |           2.6 TiB | SSD  /scratch 10 Gbps ethernet                      | Kim Lab 
+c4-n23    |            64 |   2.3 GHz |   512 GiB |           2.7 TiB | SSD  /scratch 10 Gbps ethernet                      | Shannon Lab 
+c4-n24    |            64 |   3.7 GHz |   512 GiB |           2.6 TiB | SSD  /scratch 10 Gbps ethernet                      | Shannon Lab 
+c4-n25    |            64 |   3.7 GHz |   512 GiB |           2.6 TiB | SSD  /scratch 10 Gbps ethernet                      | Bastian Lab 
+c4-n26    |            48 |   2.8 GHz |   256 GiB |           5.4 TiB | SATA /scratch 10 Gbps ethernet                      | Bandyopadhyay Lab
+c4-n27    |            64 |   2.1 GHz |   512 GiB |           3.2 TiB | SAS  /scratch 10 Gbps ethernet                      | Kriegstein Lab 
+c4-n28    |            48 |   2.8 GHz |   384 GiB |           5.4 TiB | SATA /scratch 10 Gbps ethernet                      | Molinaro Lab
+c4-n29    |            48 |   2.8 GHz |   384 GiB |           5.4 TiB | SATA /scratch 10 Gbps ethernet                      | Molinaro Lab
+c4-n30    |            32 |   1.2 GHz |   192 GiB |          0.05 TiB | SAS  /scratch 2x1 Gbps ethernet                      | Oldham Lab
+c4-n31    |            64 |   2.1 GHz |   512 GiB |           3.2 TiB | SAS  /scratch 10 Gbps ethernet                      | Diaz Lab
+c4-n32    |            64 |   2.6 GHz |   512 GiB |           5.4 TiB | SATA /scratch 10 Gbps ethernet                      | Costello Lab, Diaz Lab, Fung Lab
+c4-n33    |            64 |   2.6 GHz |   512 GiB |           5.4 TiB | SATA /scratch 10 Gbps ethernet                      | Costello Lab, Diaz Lab, Fung Lab
+c4-n34    |            64 |   2.6 GHz |   512 GiB |           5.4 TiB | SATA /scratch 10 Gbps ethernet                      | Costello Lab, Diaz Lab, Fung Lab
+c4-n35    |            64 |   2.1 GHz |   512 GiB |           2.6 TiB | SSD  /scratch 10 Gbps ethernet                      | Krummel Lab
+c4-n36    |            48 |   1.4 GHz |   384 GiB |           5.4 TiB | SATA /scratch 10 Gbps ethernet                      | Costello Lab
+c4-n37    |           104 |   3.4 GHz |  1024 GiB |           3.4 TiB | SSD /scratch  10 Gbps ethernet                      | communal
+c4-n38    |           104 |   3.4 GHz |  1024 GiB |           3.4 TiB | SSD /scratch  10 Gbps ethernet Nvidia A100 GPU      | communal
+c4-n39    |           104 |   3.4 GHz |  1024 GiB |           3.4 TiB | SSD /scratch  10 Gbps ethernet Nvidia A100 GPU      | communal
 
 <!--
 For additional details on the compute nodes, see the <a href="#details">Details</a> section below.
