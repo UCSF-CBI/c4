@@ -961,9 +961,9 @@ prepend_path(&quot;PKG_CONFIG_PATH&quot;, pathJoin(home, &quot;lib&quot;, &quot;
 <strong class="module-help">cluster-utils: Collection of Utilities / Helper Scripts to Make Life Easier on HPC Clusters</strong><br>
 <span class="module-description">Collection of utilities / helper scripts to make life easier on HPC clusters.</span><br>
 Example: <span class="module-example"><code>ctop</code> and <code>ctopx</code> (silence 'Invalid user id' output).</span><br>
-URL: <span class="module-url"><a href="https://github.com/molgenis/cluster-utils/">https://github.com/molgenis/cluster-utils/</a></span><br>
+URL: <span class="module-url"><a href="https://github.com/molgenis/cluster-utils/">https://github.com/molgenis/cluster-utils/</a>, <a href="https://github.com/molgenis/cluster-utils/releases">https://github.com/molgenis/cluster-utils/releases</a> (changelog)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version"><em>21.05.1</em></span><br>
+Versions: <span class="module-version">21.05.1, <em>22.10.2</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -974,8 +974,12 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: slurm, scheduler, utility&quot;)
-whatis(&quot;URL: https://github.com/molgenis/cluster-utils/&quot;)
-whatis(&quot;Description: Collection of utilities / helper scripts to make life easier on HPC clusters.  Example: `ctop` and `ctopx` (silence 'Invalid user id' output). Warning: Only the most recent version of this software will be kept.&quot;)
+whatis(&quot;URL: https://github.com/molgenis/cluster-utils/, https://github.com/molgenis/cluster-utils/releases (changelog)&quot;)
+whatis([[
+Description: Collection of utilities / helper scripts to make life easier on HPC clusters.
+Examples: `ctop` and `ctopx` (silence 'Invalid user id' output).
+Warning: Only the most recent version of this software will be kept.
+]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
