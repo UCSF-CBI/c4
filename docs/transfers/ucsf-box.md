@@ -10,7 +10,7 @@ Although there is no hard quota in place on UCSF Box, the **storage is limited**
 </div>
 
 <div class="alert alert-warning" role="alert" style="margin-top: 3ex" markdown="1">
-**Below instructions work on <emph>data transfer nodes</emph> only.** Attempts to use them on <emph>development nodes</emph> will result in "Access failed: 401 Unauthorized" errors.
+**Below instructions work on _data transfer nodes_ only.** Attempts to use them on _development nodes_ will result in "Access failed: 401 Unauthorized" errors.
 </div>
 
 It is possible to access [UCSF Box](https://ucsf.app.box.com/) using FTP over a _secure_ SSL connection ([FTPS](https://en.wikipedia.org/wiki/FTPS)).  The below instructions works from the {{ site.cluster.name }} data-transfer nodes as well as your local computer.
