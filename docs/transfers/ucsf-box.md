@@ -10,7 +10,7 @@ Although there is no hard quota in place on UCSF Box, the **storage is limited**
 </div>
 
 <div class="alert alert-warning" role="alert" style="margin-top: 3ex" markdown="1">
-<strong>Below instructions work on <emph>data transfer nodes</emph> only.</strong> Attempts to use them on <emph>development nodes</emph> will result in "Access failed: 401 Unauthorized" errors.
+**Below instructions work on <emph>data transfer nodes</emph> only.** Attempts to use them on <emph>development nodes</emph> will result in "Access failed: 401 Unauthorized" errors.
 </div>
 
 It is possible to access [UCSF Box](https://ucsf.app.box.com/) using FTP over a _secure_ SSL connection ([FTPS](https://en.wikipedia.org/wiki/FTPS)).  The below instructions works from the {{ site.cluster.name }} data-transfer nodes as well as your local computer.
@@ -46,7 +46,7 @@ lftp {{ site.user.email }}@ftp.box.com:~> exit
 ```
 
 <div class="alert alert-danger" role="alert" style="margin-top: 3ex" markdown="1">
-<span>🛑</span> <strong>Never specify your password via a command-line argument!  If you do, it will be visible to all other users via commands such as <code>ps</code> and <code>htop</code>.</strong>
+<span>🛑</span> **Never specify your password via a command-line argument!  If you do, it will be visible to all other users via commands such as <code>ps</code> and <code>htop</code>.**
 </div>
 
 
@@ -61,7 +61,7 @@ machine ftp.box.com
 ```
 
 <div class="alert alert-danger" role="alert" style="margin-top: 3ex" markdown="1">
-<span>🛑</span> <strong>The <code>~/.netrc</code> file must be kept private, otherwise its content could be readable to other users.</strong>
+<span>🛑</span> **The <code>~/.netrc</code> file must be kept private, otherwise its content could be readable to other users.**
 </div>
 
 **Since the password is fully visible in plain text, make sure to keep this file private at all times**, otherwise users on the system can see all your credentials, i.e.

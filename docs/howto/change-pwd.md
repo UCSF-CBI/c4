@@ -53,7 +53,7 @@ To test your {{ site.cluster.nickname }} credentials, try to [log in to {{ site.
 To reset your _{{ site.cluster.nickname }}_ password, contact your friendly neighborhood sysadmin at [{{ site.cluster.email_admin }}](mailto:{{ site.cluster.email_admin }}).
 
 <div class="alert alert-danger" role="alert" style="margin-top: 3ex" markdown="1">
-<strong>Account are personal and login credentials must not be shared with others</strong>. If detected, access to the account will be automatically disabled.  It is still possible and easy for multiple users to share and collaborate on the same folders and scripts.  Don't hesitate to ask if you don't know how to do this - we're here to help.
+**Account are personal and login credentials must not be shared with others**. If detected, access to the account will be automatically disabled.  It is still possible and easy for multiple users to share and collaborate on the same folders and scripts.  Don't hesitate to ask if you don't know how to do this - we're here to help.
 </div>
 
 

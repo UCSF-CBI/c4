@@ -10,10 +10,10 @@ In addition to the [core software] tools that are available by default, addition
 
  <tr>
   <td>
-  <strong>built-in</strong><br>
+  **built-in**<br>
   </td>
   <td>
-  <strong>Built-in environment modules</strong><br>
+  **Built-in environment modules**<br>
   <em>This software repository is always enabled</em><br>
   List of software: See <a href="{{ '/software/software-repositories.html' | relative_url }}">Software Repositories</a>
   </td>
@@ -21,10 +21,10 @@ In addition to the [core software] tools that are available by default, addition
 
  <tr>
   <td>
-  <strong>CBI</strong><br>
+  **CBI**<br>
   </td>
   <td>
-  <strong>The Computational Biology and Informatics (CBI) Software Repository</strong><br>
+  **The Computational Biology and Informatics (CBI) Software Repository**<br>
   Repository of software shared by the Computational Biology and Informatics (<a href="https://cbi.ucsf.edu">https://cbi.ucsf.edu</a>) at the UCSF Helen Diller Family Comprehensive Cancer Center.<br>
   How to enable: <code>module load CBI</code><br>
   List of software: See <a href="{{ '/software/software-repositories.html' | relative_url }}">Software Repositories</a>
@@ -33,11 +33,11 @@ In addition to the [core software] tools that are available by default, addition
 
  <tr>
   <td>
-  <strong>WitteLab</strong><br>
+  **WitteLab**<br>
   
   </td>
   <td>
-  <strong>Witte Lab Software Repository</strong><br>
+  **Witte Lab Software Repository**<br>
   Repository of software shared by the UCSF Witte Lab (<a href="http://wittelab.ucsf.edu/">http://wittelab.ucsf.edu/</a>) at the UCSF Helen Diller Family Comprehensive Cancer Center.<br>
   How to enable: <code>module load WitteLab</code><br>
   List of software: See <a href="{{ '/software/software-repositories.html' | relative_url }}">Software Repositories</a>
@@ -71,8 +71,8 @@ $ Rscript --version
 R scripting front-end version 4.0.3 (2020-10-10)
 ```
 
-<div class="alert alert-warning" role="alert">
-<strong>For jobs, software modules need to be loaded in the submitted job script - </strong> it is <em>not</em> enough to load them in the terminal before submitting the job to the scheduler.
+<div class="alert alert-warning" role="alert" markdown="1">
+**For jobs, software modules need to be loaded in the submitted job script** - it is <em>not</em> enough to load them in the terminal before submitting the job to the scheduler.
 </div>
 
 To disable ("unload") R, that is, remove it from the search path, do:
@@ -82,7 +82,7 @@ module unload r
 ```
 
 <br>
-<div class="alert alert-warning" role="alert">
+<div class="alert alert-warning" role="alert" markdown="1">
 If you unload a <em>repository</em>, any of its software modules that are loaded will be <em>deactivated</em> - they remain listed but act as they never have been loaded.  If you then reload the repository, such software modules will be activated again.
 </div>
 
@@ -133,7 +133,7 @@ fi
 
 
 <br>
-<div class="alert alert-info" role="alert">
+<div class="alert alert-info" role="alert" markdown="1">
 The names of software repositories are always capitilized (e.g. <code>CBI</code> ) whereas the names of the software themselves are typically in all lower case (e.g. <code>r</code> and <code>bwa</code>).  This makes it easier to distiguish between repositories and software.
 </div>
 

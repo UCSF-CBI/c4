@@ -1,5 +1,5 @@
-<div class="alert alert-info" role="alert">
-<strong>NEWS</strong>:<br/>
+<div class="alert alert-info" role="alert" markdown="1">
+**NEWS**:<br/>
 
 2021-01-11: The C4 cluster is now live!<br>
 

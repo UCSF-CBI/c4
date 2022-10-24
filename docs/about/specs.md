@@ -157,12 +157,12 @@ There are no per-user quotas in these scratch spaces.  **Files not added or modi
 
 Each user may use up to 1 TiB disk space in the home directory.  It is _not_ possible to expand user's home directory.  Many labs have purchased their own storage servers which were then mounted on the cluster. If you'd like more information please contact Adam Olshen or Harry Putnam.
 
-<!--<div class="alert alert-info" role="alert" style="margin-top: 3ex; margin-bottom: 3ex;">
+<!--<div class="alert alert-info" role="alert" style="margin-top: 3ex; margin-bottom: 3ex;" markdown="1">
 While waiting to receive purchased storage, users may use the global scratch space, which is "unlimited" in size with the important limitation that files older than two weeks will be deleted automatically.
 </div>-->
 
-<div class="alert alert-warning" role="alert" style="margin-top: 3ex; margin-bottom: 3ex;">
-<span>⚠️</span> Importantly, note that, aside from /c4/home, <strong>the {{ site.cluster.name }} storage is not backed up</strong>.  Users and labs are responsible to back up their own data outside of {{ site.cluster.name }}.
+<div class="alert alert-warning" role="alert" style="margin-top: 3ex; margin-bottom: 3ex;" markdown="1">
+<span>⚠️</span> Importantly, note that, aside from /c4/home, **the {{ site.cluster.name }} storage is not backed up**.  Users and labs are responsible to back up their own data outside of {{ site.cluster.name }}.
 </div>
 
 
