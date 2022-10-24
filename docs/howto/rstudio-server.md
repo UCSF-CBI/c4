@@ -1,4 +1,4 @@
-<div class="alert alert-warning" role="alert" style="margin-top: 3ex">
+<div class="alert alert-warning" role="alert" style="margin-top: 3ex" markdown="1">
 DEPRECATION 2022-04-07: We no longer recommend the below instructions. Instead, use the recommended instructions at <a href="{{ '/howto/rstudio.html' | relative_url }}">Work with RStudio</a>, which are much easier and runs directly on the system instead of via a Singularity container. This page will be removed in the near future.
 </div>
 
@@ -6,11 +6,11 @@ DEPRECATION 2022-04-07: We no longer recommend the below instructions. Instead, 
 
 We are able to run [RStudio Server] on {{ site.cluster.name }} using Singularity containers. The basic idea is to use a pre-built container from the [Rocker Project], which we instantiate on a compute node via the job scheduler.  We then set up an SSH tunnel between RStudio Server and your endpoint device, e.g. your notebook or workstation. You can then open RStudio in your local web browser and use RStudio Server from there. We have found that this provides much better response time than attempting to run RStudio directly on a compute node and then working directly on that using [X11 forwarding].
 
-<div class="alert alert-danger" role="alert" style="margin-top: 3ex">
+<div class="alert alert-danger" role="alert" style="margin-top: 3ex" markdown="1">
 <strong>Pleae Note: </strong> We are treating this approach as a beta version. If you are having trouble with this approach, we will do our best to help on a best effort, avaialble time basis. Your mileage may vary.
 </div>
 
-<div class="alert alert-warning" role="alert" style="margin-top: 3ex">
+<div class="alert alert-warning" role="alert" style="margin-top: 3ex" markdown="1">
 <strong>Please do not leave these containers running unattended</strong>. Please only run these containers when you are actively using them. You should save your work and cancel the job when you are done for the day. If we start to see many unused containers eating {{ site.cluster.name }} we will have to re-think this practice. Please also be kind when specifying CPU and memory resources, just ask for what you think is needed.
 </div>
 
@@ -53,7 +53,7 @@ The following is an example of a Slurm job script to instantiate the container. 
 
 This script was written by our friends at the Rocker project ([rocker tutorial]) and lightly modified for {{ site.cluster.name }}.
 
-<div class="alert alert-warning" role="alert" style="margin-top: 3ex">
+<div class="alert alert-warning" role="alert" style="margin-top: 3ex" markdown="1">
 Note: For newer version of the Rocker container, we must add the <code>--server-user="$USER"</code>. Older versions of the container did not have that option.
 </div>
 

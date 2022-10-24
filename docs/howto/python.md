@@ -216,7 +216,7 @@ Required-by:
 (my_project) [alice@{{ site.devel.name }} my_project]$ 
 ```
 
-<div class="alert alert-warning" role="alert" style="margin-top: 3ex">
+<div class="alert alert-warning" role="alert" style="margin-top: 3ex" markdown="1">
 When submitting a job to the scheduler, make sure the job script loads all required modules and activates the virtual environment.
 </div>
 

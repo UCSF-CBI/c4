@@ -26,7 +26,7 @@ The email notifications will be sent to the email address that is listed in your
 It is possible to override this by Slurm option `--mail-user="first.last@ucsf.edu"`.
 
 
-<div class="alert alert-warning" role="alert" style="margin-top: 3ex">
+<div class="alert alert-warning" role="alert" style="margin-top: 3ex" markdown="1">
 <span>⚠️</span> We advice against specifying <code>#SBATCH --mail-user=...</code> in job scripts.  If you do, there is a risk that you will receive email notifications when someone copies your job script and forgets to update the script.  By specifying the recipient via <code>sbatch --mail-user=...</code> you avoid this problem.  Alternatively, a more convenient approach is to not specify it at all and instead rely on the default email address that you can configure at your choice.
 </div>
 

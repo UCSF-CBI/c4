@@ -25,7 +25,7 @@ which means their next job will be sent to the 'boblab' partitions and if that i
 
 If you would like to send a job to a specific partition, the Slurm option `--partition` can be used, e.g. `sbatch --partition=boblab script.sh` or `sbatch --partition=boblab,common script.sh`.
 
-<div class="alert alert-warning" role="alert" style="margin-top: 3ex">
+<div class="alert alert-warning" role="alert" style="margin-top: 3ex" markdown="1">
 <span>⚠️</span> Although rarely needed, if you need to submit your jobs to a specific compute node, which you do via Slurm option <code>--nodelist</code>, then you need to also specify <code>--partition</code> for that specific node, otherwise <code>sbatch</code> gives an error on 'Batch job submission failed: Unspecified error'.
 </div>
 

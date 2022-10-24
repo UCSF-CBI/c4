@@ -31,7 +31,7 @@ Jupyter notebooks is accessible via <a href="https://c4-ondemand1.ucsf.edu">OnDe
 
 You are now running an interactive Jupyter Notebook session on a compute node. 
 
-<div class="alert alert-warning" role="alert" style="margin-top: 3ex">
+<div class="alert alert-warning" role="alert" style="margin-top: 3ex" markdown="1">
 Inportant things to know.
 </div><img>
 

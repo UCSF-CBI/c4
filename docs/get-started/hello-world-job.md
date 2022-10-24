@@ -20,7 +20,7 @@ The most common way of running compute tasks on the {{ site.cluster.name }} clus
 The {{ site.cluster.name }} cluster uses [Slurm] as its scheduler.  [Slurm] provides command `sbatch` to submit your job scripts and command `squeue` to check the status of your jobs.  Slurm also provides a way to run a job interactively called `srun`.
 
 
-<div class="alert alert-info" role="alert" style="margin-top: 3ex">
+<div class="alert alert-info" role="alert" style="margin-top: 3ex" markdown="1">
 Further information with detailed examples on job submissions can be found on separate pages under the 'Scheduler' menu.
 </div>
 
