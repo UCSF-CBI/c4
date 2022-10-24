@@ -23,18 +23,18 @@
 {% elsif site.cluster.status == "full-outage" %}
 <div class="alert alert-danger" role="alert" style="margin-top: 3ex; margin-bottom: 3ex; font-size: large;" markdown="1">
 **{{ site.cluster.name }} environment non-operational**<br>
-<em>Complete outage due to scheduled maintenance for August 10-13, 2020</em>
+_Complete outage due to scheduled maintenance for August 10-13, 2020_
 </div>
 {% elsif site.cluster.status == "part-outage" %}
 <div class="alert alert-warning" role="alert" style="margin-top: 3ex; margin-bottom: 3ex; font-size: large;" markdown="1">
 **{{ site.cluster.name }} is operational but experiencing partial problems**<br>
-<em>Several GPU compute nodes are down.</em>
+_Several GPU compute nodes are down._
 </div>
 </div>
 {% elsif site.cluster.status == "notice" %}
 <div class="alert alert-warning" role="alert" style="margin-top: 3ex; margin-bottom: 3ex; font-size: large;" markdown="1">
 **{{ site.cluster.name }} environment operational**<br>
-<em>The cluster will be shut down completely during August 10-12, 2020 due to major upgrades.</em><br>
+_The cluster will be shut down completely during August 10-12, 2020 due to major upgrades._<br>
 </div>
 {% else %}
 <div class="alert alert-info" role="alert" style="margin-top: 3ex; margin-bottom: 3ex; font-size: large;" markdown="1">

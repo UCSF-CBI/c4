@@ -14,7 +14,7 @@ In addition to the [core software] tools that are available by default, addition
   </td>
   <td>
   **Built-in environment modules**<br>
-  <em>This software repository is always enabled</em><br>
+  _This software repository is always enabled_<br>
   List of software: See <a href="{{ '/software/software-repositories.html' | relative_url }}">Software Repositories</a>
   </td>
  </tr>
@@ -72,7 +72,7 @@ R scripting front-end version 4.0.3 (2020-10-10)
 ```
 
 <div class="alert alert-warning" role="alert" markdown="1">
-**For jobs, software modules need to be loaded in the submitted job script** - it is <em>not</em> enough to load them in the terminal before submitting the job to the scheduler.
+**For jobs, software modules need to be loaded in the submitted job script** - it is _not_ enough to load them in the terminal before submitting the job to the scheduler.
 </div>
 
 To disable ("unload") R, that is, remove it from the search path, do:
@@ -83,7 +83,7 @@ module unload r
 
 <br>
 <div class="alert alert-warning" role="alert" markdown="1">
-If you unload a <em>repository</em>, any of its software modules that are loaded will be <em>deactivated</em> - they remain listed but act as they never have been loaded.  If you then reload the repository, such software modules will be activated again.
+If you unload a _repository_, any of its software modules that are loaded will be _deactivated_ - they remain listed but act as they never have been loaded.  If you then reload the repository, such software modules will be activated again.
 </div>
 
 To see what software modules you have currently loaded, use:
