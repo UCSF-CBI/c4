@@ -2,9 +2,7 @@
 
 ## Improvements
 
-* [ ] Adding support for running RStudio, Jupyter Hub, and other GUIs interactively via a web-based OnDemand interface
 * [ ] Simplify staging of data folders on network file systems to the much faster local drives
-* [ ] ...
 
 
 
@@ -98,6 +96,10 @@
 * Job scheduler end-of-life support no longer than 2022-01-16 (Moab license expiration date)
 * Access to TIPCC disabled on 2021-11-01
 
+
+### Continued improvements to C4
+
+* Add OnDemand - support for running RStudio, Jupyter Hub, and other GUIs interactively via a web-based interface
 
 
 See also [News].
