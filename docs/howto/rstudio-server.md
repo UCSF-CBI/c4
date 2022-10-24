@@ -54,7 +54,7 @@ The following is an example of a Slurm job script to instantiate the container. 
 This script was written by our friends at the Rocker project ([rocker tutorial]) and lightly modified for {{ site.cluster.name }}.
 
 <div class="alert alert-warning" role="alert" style="margin-top: 3ex" markdown="1">
-Note: For newer version of the Rocker container, we must add the <code>--server-user="$USER"</code>. Older versions of the container did not have that option.
+Note: For newer version of the Rocker container, we must add the `--server-user="$USER"`. Older versions of the container did not have that option.
 </div>
 
 

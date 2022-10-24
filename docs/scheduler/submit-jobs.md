@@ -42,7 +42,7 @@ Submitted batch job 1507
 Specifying appropriate memory requirements will shorten the queuing time - significantly so for smaller jobs.
 </div>
 
-In the above job we used the `--mem=100M` option. This set maximum memory usage to 100 MiB (`M` is the default unit). We can specify in GiB using unit `G`, e.g. `--mem=16G`.  By rightsizing your jobs, the job scheduler will be able to scheduler your jobs better and launch them sooner.  If not specified, the default memory is 2 GiB (<code>--mem=2G</code>).
+In the above job we used the `--mem=100M` option. This set maximum memory usage to 100 MiB (`M` is the default unit). We can specify in GiB using unit `G`, e.g. `--mem=16G`.  By rightsizing your jobs, the job scheduler will be able to scheduler your jobs better and launch them sooner.  If not specified, the default memory is 2 GiB (`--mem=2G`).
 
 <div class="alert alert-warning" role="alert" markdown="1">
 <span>⚠️</span> Note that a job that **exceeds** the requested memory limit will be terminated by the scheduler resulting in an out-of-memory (OOM) error.
@@ -75,7 +75,7 @@ Specifying the run time will shorten the queuing time - significantly so for sho
 </div>
 
 By specifying how long each job will take, the better the scheduler can manage resources and allocate jobs to different nodes.  This will also decrease the average waiting time the job will sit in the queue before being launched on a compute node.  You can specify the maximum run time (= wall time, not CPU time) for a job using option `--time=HH:MM:SS` where `HH:MM:SS` specifies the number of hours (`HH`), the number of minutes (`MM`), and the number of seconds (`SS`) - all parts must be specified.  In our above example, we used `--time=00:02:00`.  If your submit a multi-day job, you can also specify the number of days using the format `--time=days-HH:MM:SS`, e.g. `--time=2-06:00:00` for 2 days and 6 hours.
-If not specified, the default run time is 10 minutes (<code>--time=00:10:00</code>).
+If not specified, the default run time is 10 minutes (`--time=00:10:00`).
 
 <div class="alert alert-warning" role="alert" markdown="1">
 <span>⚠️</span> Note that a job that runs longer than the requested run time will be terminated by the scheduler.  Because of this, you may add a little bit of extra time to give your job some leeway.
@@ -111,7 +111,7 @@ By using `${SLURM_NTASKS:-1}`, instead of just `${SLURM_NTASKS}`, this script wi
 
 
 <div class="alert alert-warning" role="alert" markdown="1">
-<span>⚠️</span> **Do not use more cores than requested!**  It is a common reason for jobs running slowly.  A typically mistake is to hard-code the number of cores in the script and then request a different number when submitting the job - using <code>SLURM_NTASKS</code> avoids this problem.  Another problem is software that by default use all of the machine's cores - make sure to control for this, e.g. use dedicated command-line option or environment variable for that software.
+<span>⚠️</span> **Do not use more cores than requested!**  It is a common reason for jobs running slowly.  A typically mistake is to hard-code the number of cores in the script and then request a different number when submitting the job - using `SLURM_NTASKS` avoids this problem.  Another problem is software that by default use all of the machine's cores - make sure to control for this, e.g. use dedicated command-line option or environment variable for that software.
 </div>
 
 

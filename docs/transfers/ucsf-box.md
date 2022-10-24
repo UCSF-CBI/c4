@@ -46,7 +46,7 @@ lftp {{ site.user.email }}@ftp.box.com:~> exit
 ```
 
 <div class="alert alert-danger" role="alert" style="margin-top: 3ex" markdown="1">
-<span>🛑</span> **Never specify your password via a command-line argument!  If you do, it will be visible to all other users via commands such as <code>ps</code> and <code>htop</code>.**
+<span>🛑</span> **Never specify your password via a command-line argument!  If you do, it will be visible to all other users via commands such as `ps` and `htop`.**
 </div>
 
 
@@ -61,7 +61,7 @@ machine ftp.box.com
 ```
 
 <div class="alert alert-danger" role="alert" style="margin-top: 3ex" markdown="1">
-<span>🛑</span> **The <code>~/.netrc</code> file must be kept private, otherwise its content could be readable to other users.**
+<span>🛑</span> **The `~/.netrc` file must be kept private, otherwise its content could be readable to other users.**
 </div>
 
 **Since the password is fully visible in plain text, make sure to keep this file private at all times**, otherwise users on the system can see all your credentials, i.e.

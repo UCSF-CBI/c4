@@ -21,7 +21,7 @@ Although file transfers can also be done via the login nodes, it is recommended 
 
 
 <div class="alert alert-info" role="alert" markdown="1">
-TIPS: Try to use <code>scp -c aes128-gcm@openssh.com ...</code> to speed up the transfer rates.  There can be a fair bit of CPU overhead when SCP encrypts the data before transferring it - this option makes it use a faster encryption cipher.
+TIPS: Try to use `scp -c aes128-gcm@openssh.com ...` to speed up the transfer rates.  There can be a fair bit of CPU overhead when SCP encrypts the data before transferring it - this option makes it use a faster encryption cipher.
 </div>
 
 

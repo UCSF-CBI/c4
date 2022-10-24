@@ -10,21 +10,21 @@ In addition to the [core software] tools that are available by default, addition
 
  <tr>
   <td>
-  **built-in**<br>
+  <strong>built-in</strong><br>
   </td>
   <td>
-  **Built-in environment modules**<br>
-  _This software repository is always enabled_<br>
+  <strong>Built-in environment modules</strong><br>
+  <em>This software repository is always enabled</em><br>
   List of software: See <a href="{{ '/software/software-repositories.html' | relative_url }}">Software Repositories</a>
   </td>
  </tr>
 
  <tr>
   <td>
-  **CBI**<br>
+  <strong>CBI</strong><br>
   </td>
   <td>
-  **The Computational Biology and Informatics (CBI) Software Repository**<br>
+  <strong>The Computational Biology and Informatics (CBI) Software Repository</strong><br>
   Repository of software shared by the Computational Biology and Informatics (<a href="https://cbi.ucsf.edu">https://cbi.ucsf.edu</a>) at the UCSF Helen Diller Family Comprehensive Cancer Center.<br>
   How to enable: <code>module load CBI</code><br>
   List of software: See <a href="{{ '/software/software-repositories.html' | relative_url }}">Software Repositories</a>
@@ -33,11 +33,11 @@ In addition to the [core software] tools that are available by default, addition
 
  <tr>
   <td>
-  **WitteLab**<br>
+  <strong>WitteLab</strong><br>
   
   </td>
   <td>
-  **Witte Lab Software Repository**<br>
+  <strong>Witte Lab Software Repository</strong><br>
   Repository of software shared by the UCSF Witte Lab (<a href="http://wittelab.ucsf.edu/">http://wittelab.ucsf.edu/</a>) at the UCSF Helen Diller Family Comprehensive Cancer Center.<br>
   How to enable: <code>module load WitteLab</code><br>
   List of software: See <a href="{{ '/software/software-repositories.html' | relative_url }}">Software Repositories</a>
@@ -134,7 +134,7 @@ fi
 
 <br>
 <div class="alert alert-info" role="alert" markdown="1">
-The names of software repositories are always capitilized (e.g. <code>CBI</code> ) whereas the names of the software themselves are typically in all lower case (e.g. <code>r</code> and <code>bwa</code>).  This makes it easier to distiguish between repositories and software.
+The names of software repositories are always capitilized (e.g. `CBI`) whereas the names of the software themselves are typically in all lower case (e.g. `r` and `bwa`).  This makes it easier to distiguish between repositories and software.
 </div>
 
 

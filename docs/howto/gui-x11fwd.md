@@ -87,7 +87,7 @@ DISPLAY='localhost:20.0'
 By checking that `DISPLAY` is set, we know that X11 forwarding is in place.  If `DISPLAY` is empty, then make sure you have specified `-X` (or `-Y`).
 
 <div class="alert alert-warning" role="alert" markdown="1">
-If you are on macOS, you need to use <code>ssh -Y ...</code> instead of <code>ssh -X ...</code>. This is because macOS does not trust remote X servers by default.
+If you are on macOS, you need to use `ssh -Y ...` instead of `ssh -X ...`. This is because macOS does not trust remote X servers by default.
 </div>
 
 
