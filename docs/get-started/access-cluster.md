@@ -53,7 +53,7 @@ When logging in from your local computer while on the UCSF VPN, you should see s
 ```sh
 {local}$ ssh alice@{{ site.login.hostname }}
 alice1@{{ site.login.name }}:s password: XXXXXXXXXXXXXXXXXXX
-[alice@{{ site.login.name }} ~]$
+[alice@{{ site.login.name }} ~]$ 
 ```
 
 If you get `Permission denied, please try again.` when you enter your password, make sure you use the correct {{ site.cluster.name }} username (case sensitive) and the correct password.

@@ -28,7 +28,7 @@ To exit an interactive job, use `exit` or `logout`, e.g.
 
 ```sh
 [alice@c4-n3:job=366712 ~]$ exit
-[alice@{{ site.login.name }} ~]$
+[alice@{{ site.login.name }} ~]$ 
 ```
 
 Just like for regular jobs, you can get a [detailed summary]({{ '/scheduler/job-summary.html' | relative_url }}) of the resources your interactive job consumed using `sstat -j <job_id>`.
