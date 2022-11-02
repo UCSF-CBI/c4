@@ -305,7 +305,7 @@ prepend_path(&quot;PATH&quot;, home)
 <strong class="module-help">bashdb: Bash Debugger Script</strong><br>
 <span class="module-description">The Bash Debugger Project is a source-code debugger for bash that follows the gdb command syntax.</span><br>
 Example: <span class="module-example"><code>bashdb --help</code>, <code>bash --version</code>.</span><br>
-URL: <span class="module-url"><a href="http://bashdb.sourceforge.net/">http://bashdb.sourceforge.net/</a>, <a href="https://sourceforge.net/p/bashdb/code/ci/master/tree/">https://sourceforge.net/p/bashdb/code/ci/master/tree/</a>, <a href="https://sourceforge.net/p/bashdb/bugs/">https://sourceforge.net/p/bashdb/bugs/</a>, <a href="https://sourceforge.net/projects/bashdb/files/bashdb/">https://sourceforge.net/projects/bashdb/files/bashdb/</a></span><br>
+URL: <span class="module-url"><a href="https://bashdb.sourceforge.net/">https://bashdb.sourceforge.net/</a>, <a href="https://bashdb.sourceforge.net/bashdb.html">https://bashdb.sourceforge.net/bashdb.html</a> (documentation), <a href="https://sourceforge.net/projects/bashdb/files/bashdb/">https://sourceforge.net/projects/bashdb/files/bashdb/</a> (changelog), <a href="https://sourceforge.net/p/bashdb/code/ci/master/tree/">https://sourceforge.net/p/bashdb/code/ci/master/tree/</a> (source code), <a href="https://sourceforge.net/p/bashdb/bugs/">https://sourceforge.net/p/bashdb/bugs/</a> (issue tracker)</span><br>
 Versions: <span class="module-version"><em>4.4-1.0.1</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
@@ -317,10 +317,10 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: bash, shell, debug&quot;)
-whatis(&quot;URL: http://bashdb.sourceforge.net/, https://sourceforge.net/p/bashdb/code/ci/master/tree/, https://sourceforge.net/p/bashdb/bugs/, https://sourceforge.net/projects/bashdb/files/bashdb/&quot;)
+whatis(&quot;URL: https://bashdb.sourceforge.net/, https://bashdb.sourceforge.net/bashdb.html (documentation), https://sourceforge.net/projects/bashdb/files/bashdb/ (changelog), https://sourceforge.net/p/bashdb/code/ci/master/tree/ (source code), https://sourceforge.net/p/bashdb/bugs/ (issue tracker)&quot;)
 whatis([[
 Description: The Bash Debugger Project is a source-code debugger for bash that follows the gdb command syntax.
-Example: `bashdb --help`, `bash --version`.
+Examples: `bashdb --help`, `bash --version`.
 ]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
@@ -378,7 +378,7 @@ prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;man&quot;, &quot;man1&quo
 <span class="module-description">This is a helper library providing common assertions for Bats.</span><br>
 Example: <span class="module-example">In Bats <code>setup()</code> function: <code>load &quot;${BATS_SUPPORT_HOME}/load.bash&quot;</code> and <code>load &quot;${BATS_ASSERT_HOME}/load.bash&quot;</code></span><br>
 URL: <span class="module-url"><a href="https://github.com/bats-core/bats-assert">https://github.com/bats-core/bats-assert</a>, <a href="https://github.com/bats-core/bats-assert/releases">https://github.com/bats-core/bats-assert/releases</a> (changelog), <a href="https://bats-core.readthedocs.io/en/stable/faq.html?highlight=assert#how-can-i-use-helper-libraries-like-bats-assert">https://bats-core.readthedocs.io/en/stable/faq.html?highlight=assert#how-can-i-use-helper-libraries-like-bats-assert</a> (documentation)</span><br>
-Versions: <span class="module-version"><em>2.0.0</em></span><br>
+Versions: <span class="module-version">2.0.0, <em>2.1.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -413,7 +413,7 @@ prepend_path(&quot;BATS_ASSERT_HOME&quot;, home)
 <span class="module-description">Bats is a TAP-compliant testing framework for Bash. It provides a simple way to verify that the UNIX programs you write behave as expected.</span><br>
 Example: <span class="module-example"><code>bats --version</code>, <code>bats --help</code>, <code>man bats</code>, <code>man 7 bats</code>, and <code>bats tests/</code>.</span><br>
 URL: <span class="module-url"><a href="https://github.com/bats-core/bats-core">https://github.com/bats-core/bats-core</a>, <a href="https://github.com/bats-core/bats-core/blob/master/docs/CHANGELOG.md">https://github.com/bats-core/bats-core/blob/master/docs/CHANGELOG.md</a> (changelog), <a href="https://bats-core.readthedocs.io/en/stable/">https://bats-core.readthedocs.io/en/stable/</a> (documentation)</span><br>
-Versions: <span class="module-version"><em>1.8.0</em></span><br>
+Versions: <span class="module-version">1.8.0, <em>1.8.2</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -768,7 +768,7 @@ pushenv(&quot;BOWTIE_HOME&quot;, home)
 <span class="module-description">Bowtie 2 is an ultrafast and memory-efficient tool for aligning sequencing reads to long reference sequences.</span><br>
 Example: <span class="module-example"><code>bowtie2 --version</code></span><br>
 URL: <span class="module-url"><a href="http://bowtie-bio.sourceforge.net/bowtie2/index.shtml">http://bowtie-bio.sourceforge.net/bowtie2/index.shtml</a>, <a href="http://bowtie-bio.sourceforge.net/bowtie2/index.shtml">http://bowtie-bio.sourceforge.net/bowtie2/index.shtml</a> (changelog), <a href="https://github.com/BenLangmead/bowtie2">https://github.com/BenLangmead/bowtie2</a> (source code)</span><br>
-Versions: <span class="module-version">2.4.1, 2.4.2, 2.4.4, <em>2.4.5</em></span><br>
+Versions: <span class="module-version">2.4.1, 2.4.2, 2.4.4, 2.4.5, <em>2.5.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -782,7 +782,7 @@ whatis(&quot;Keywords: sequencing&quot;)
 whatis(&quot;URL: http://bowtie-bio.sourceforge.net/bowtie2/index.shtml, http://bowtie-bio.sourceforge.net/bowtie2/index.shtml (changelog), https://github.com/BenLangmead/bowtie2 (source code)&quot;)
 whatis([[
 Description: Bowtie 2 is an ultrafast and memory-efficient tool for aligning sequencing reads to long reference sequences.
-Example: `bowtie2 --version`
+Examples: `bowtie2 --version`
 ]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
@@ -1401,7 +1401,7 @@ pushenv(&quot;FZF_HOME&quot;, home)
 <span class="module-description">Developed in the Data Sciences Platform at the Broad Institute, the toolkit offers a wide variety of tools with a primary focus on variant discovery and genotyping. Its powerful processing engine and high-performance computing features make it capable of taking on projects of any size.</span><br>
 Example: <span class="module-example"><code>gatk --help</code> and <code>gatk --list</code>.</span><br>
 URL: <span class="module-url"><a href="https://gatk.broadinstitute.org/hc/en-us">https://gatk.broadinstitute.org/hc/en-us</a>, <a href="https://github.com/broadinstitute/gatk">https://github.com/broadinstitute/gatk</a> (source code), <a href="https://github.com/broadinstitute/gatk/releases">https://github.com/broadinstitute/gatk/releases</a> (changelog), <a href="https://github.com/broadgsa/gatk">https://github.com/broadgsa/gatk</a> (legacy), <a href="https://console.cloud.google.com/storage/browser/gatk-software/package-archive">https://console.cloud.google.com/storage/browser/gatk-software/package-archive</a> (legacy), <a href="ftp://ftp.broadinstitute.org/pub/gsa/GenomeAnalysisTK/">ftp://ftp.broadinstitute.org/pub/gsa/GenomeAnalysisTK/</a> (legacy)</span><br>
-Versions: <span class="module-version">1.1-37-ge63d9d8, 1.6-5-g557da77, 4.1.1.0, 4.1.7.0, 4.1.8.1, 4.1.9.0, 4.2.0.0, 4.2.2.0, 4.2.3.0, 4.2.4.1, 4.2.5.0, <em>4.2.6.1</em></span><br>
+Versions: <span class="module-version">1.1-37-ge63d9d8, 1.6-5-g557da77, 4.1.1.0, 4.1.7.0, 4.1.8.1, 4.1.9.0, 4.2.0.0, 4.2.2.0, 4.2.3.0, 4.2.4.1, 4.2.5.0, 4.2.6.1, <em>4.3.0.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -1893,7 +1893,7 @@ prepend_path(&quot;PATH&quot;, home)
 Example: <span class="module-example"><code>igv --help</code>, <code>igv --version</code>, and <code>igv</code>.</span><br>
 URL: <span class="module-url"><a href="https://software.broadinstitute.org/software/igv/">https://software.broadinstitute.org/software/igv/</a>, <a href="https://github.com/igvteam/igv/tags">https://github.com/igvteam/igv/tags</a> (changelog), <a href="https://github.com/igvteam/igv/">https://github.com/igvteam/igv/</a> (source code)</span><br>
 Warning: <span class="module-warning">IGV (&gt;= 2.5.0) requires Java 11.</span><br>
-Versions: <span class="module-version">2.8.6, 2.8.13, 2.9.1, 2.11.0, 2.11.3, 2.11.9, 2.12.3, 2.13.0, 2.13.1, 2.13.2, <em>2.14.1</em></span><br>
+Versions: <span class="module-version">2.8.6, 2.8.13, 2.9.1, 2.11.0, 2.11.3, 2.11.9, 2.12.3, 2.13.0, 2.13.1, 2.13.2, 2.14.1, <em>2.15.1</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -2238,9 +2238,8 @@ depends_on(&quot;java-tweaks&quot;)
 <strong class="module-help">ncdu: NCurses Disk Usage</strong><br>
 <span class="module-description">Ncdu is a disk usage analyzer with an ncurses interface. It is designed to find space hogs on a remote server where you don’t have an entire graphical setup available, but it is a useful tool even on regular desktop systems. Ncdu aims to be fast, simple and easy to use, and should be able to run in any minimal POSIX-like environment with ncurses installed.</span><br>
 Example: <span class="module-example"><code>ncdu --version</code>, <code>ncdu --help</code>, and <code>ncdu</code>).</span><br>
-URL: <span class="module-url"><a href="https://dev.yorhel.nl/ncdu">https://dev.yorhel.nl/ncdu</a>, <a href="https://dev.yorhel.nl/ncdu/man2">https://dev.yorhel.nl/ncdu/man2</a> (documentation), <a href="https://dev.yorhel.nl/ncdu/changes2">https://dev.yorhel.nl/ncdu/changes2</a> (change log)</span><br>
-Warning: <span class="module-warning">This tool is under development.</span><br>
-Versions: <span class="module-version"><em>2.1.2</em></span><br>
+URL: <span class="module-url"><a href="https://dev.yorhel.nl/ncdu">https://dev.yorhel.nl/ncdu</a>, <a href="https://dev.yorhel.nl/ncdu/man2">https://dev.yorhel.nl/ncdu/man2</a> (documentation), <a href="https://dev.yorhel.nl/ncdu/changes2">https://dev.yorhel.nl/ncdu/changes2</a> (changelog)</span><br>
+Versions: <span class="module-version">2.1.2, <em>2.2.1</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -2251,11 +2250,10 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: utility, cli, files&quot;)
-whatis(&quot;URL: https://dev.yorhel.nl/ncdu, https://dev.yorhel.nl/ncdu/man2 (documentation), https://dev.yorhel.nl/ncdu/changes2 (change log)&quot;)
+whatis(&quot;URL: https://dev.yorhel.nl/ncdu, https://dev.yorhel.nl/ncdu/man2 (documentation), https://dev.yorhel.nl/ncdu/changes2 (changelog)&quot;)
 whatis([[
 Description: Ncdu is a disk usage analyzer with an ncurses interface. It is designed to find space hogs on a remote server where you don’t have an entire graphical setup available, but it is a useful tool even on regular desktop systems. Ncdu aims to be fast, simple and easy to use, and should be able to run in any minimal POSIX-like environment with ncurses installed.
 Examples: `ncdu --version`, `ncdu --help`, and `ncdu`).
-Warning: This tool is under development.
 ]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
@@ -2308,10 +2306,10 @@ prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;share&quot;, &quot;man&qu
   <dd class="module-details">
 <strong class="module-help">Picard: Command-line tools for Manipulating High-throughput Sequencing Data and Formats</strong><br>
 <span class="module-description">Picard is a set of command line tools for manipulating high-throughput sequencing (HTS) data and formats such as SAM/BAM/CRAM and VCF.</span><br>
-Example: <span class="module-example"><code>PicardCommandLine -h</code>, which is an alias for <code>java -jar $PICARD_HOME/picard.jar -h</code>.</span><br>
+Example: <span class="module-example"><code>PicardCommandLine -h</code>, which is an alias for <code>java -jar &quot;$PICARD_HOME/picard.jar&quot; -h</code>.</span><br>
 URL: <span class="module-url"><a href="https://broadinstitute.github.io/picard/">https://broadinstitute.github.io/picard/</a>, <a href="https://github.com/broadinstitute/picard/releases">https://github.com/broadinstitute/picard/releases</a> (changelog), <a href="https://github.com/broadinstitute/picard">https://github.com/broadinstitute/picard</a> (source code)</span><br>
 Warning: <span class="module-warning">The old <code>picard</code> alias is deprecated. Use <code>PicardCommandLine</code> instead.</span><br>
-Versions: <span class="module-version">1.64, 2.23.1, 2.24.0, 2.25.0, 2.26.2, 2.26.5, 2.26.10, 2.26.11, 2.27.1, 2.27.3, <em>2.27.4</em></span><br>
+Versions: <span class="module-version">1.64, 2.23.1, 2.24.0, 2.25.0, 2.26.2, 2.26.5, 2.26.10, 2.26.11, 2.27.1, 2.27.3, 2.27.4, <em>2.27.5</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -2325,7 +2323,7 @@ whatis(&quot;Keywords: sequencing&quot;)
 whatis(&quot;URL: https://broadinstitute.github.io/picard/, https://github.com/broadinstitute/picard/releases (changelog), https://github.com/broadinstitute/picard (source code)&quot;)
 whatis([[
 Description: Picard is a set of command line tools for manipulating high-throughput sequencing (HTS) data and formats such as SAM/BAM/CRAM and VCF.
-Examples: `PicardCommandLine -h`, which is an alias for `java -jar $PICARD_HOME/picard.jar -h`.
+Examples: `PicardCommandLine -h`, which is an alias for `java -jar &quot;$PICARD_HOME/picard.jar&quot; -h`.
 Warning: The old `picard` alias is deprecated. Use `PicardCommandLine` instead.
 ]])
 
@@ -2742,7 +2740,7 @@ pushenv(&quot;R_PROFILE&quot;, pathJoin(home, &quot;Rprofile.site&quot;))
 Example: <span class="module-example"><code>rclone --version</code>, <code>rclone --help</code>, <code>rclone config</code>, and <code>man rclone</code>.</span><br>
 URL: <span class="module-url"><a href="https://rclone.org/">https://rclone.org/</a>, <a href="https://rclone.org/changelog/">https://rclone.org/changelog/</a> (changelog), <a href="https://github.com/rclone/rclone">https://github.com/rclone/rclone</a> (source code)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version"><em>1.59.2</em></span><br>
+Versions: <span class="module-version">1.59.2, <em>1.60.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help(&quot;rclone: Rsync for Cloud Storage and More&quot;)
@@ -2964,7 +2962,7 @@ prepend_path(&quot;LD_LIBRARY_PATH&quot;, pathJoin(home, &quot;lib&quot;))
 <span class="module-description">SAMtools is a suite of programs for interacting with high-throughput sequencing data.</span><br>
 Example: <span class="module-example"><code>samtools --version</code>.</span><br>
 URL: <span class="module-url"><a href="https://www.htslib.org/">https://www.htslib.org/</a>, <a href="https://github.com/samtools/samtools/blob/develop/NEWS">https://github.com/samtools/samtools/blob/develop/NEWS</a> (changelog), <a href="https://github.com/samtools/samtools">https://github.com/samtools/samtools</a> (source code)</span><br>
-Versions: <span class="module-version">0.1.12a, 0.1.18, 1.10, 1.11, 1.12, 1.13, 1.14, 1.15, 1.15.1, <em>1.16</em></span><br>
+Versions: <span class="module-version">0.1.12a, 0.1.18, 1.10, 1.11, 1.12, 1.13, 1.14, 1.15, 1.15.1, 1.16, <em>1.16.1</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -3330,9 +3328,9 @@ set_shell_function(&quot;fasterq-dump&quot;, 'command fasterq-dump --threads 2 -
   <dd class="module-details">
 <strong class="module-help">STAR: Spliced Transcripts Alignment to a Reference</strong><br>
 <span class="module-description">STAR (Spliced Transcripts Alignment to a Reference) is a fast NGS read aligner for RNA-seq data.</span><br>
-Example: <span class="module-example"><code>STAR --help</code>.</span><br>
+Example: <span class="module-example"><code>STAR --help</code> and <code>STAR --version</code>.</span><br>
 URL: <span class="module-url"><a href="https://github.com/alexdobin/STAR">https://github.com/alexdobin/STAR</a>, <a href="https://github.com/alexdobin/STAR/blob/master/CHANGES.md">https://github.com/alexdobin/STAR/blob/master/CHANGES.md</a> (changelog)</span><br>
-Versions: <span class="module-version">2.7.4a, 2.7.5a, 2.7.5c, 2.7.7a, 2.7.9a, <em>2.7.10a</em></span><br>
+Versions: <span class="module-version">2.7.4a, 2.7.5a, 2.7.5c, 2.7.7a, 2.7.9a, 2.7.10a, <em>2.7.10b</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help(&quot;STAR: Spliced Transcripts Alignment to a Reference&quot;)
@@ -3344,7 +3342,7 @@ whatis(&quot;Keywords: sequencing&quot;)
 whatis(&quot;URL: https://github.com/alexdobin/STAR, https://github.com/alexdobin/STAR/blob/master/CHANGES.md (changelog)&quot;)
 whatis([[
 Description: STAR (Spliced Transcripts Alignment to a Reference) is a fast NGS read aligner for RNA-seq data.
-Examples: `STAR --help`.
+Examples: `STAR --help` and `STAR --version`.
 ]])
 
 local name = &quot;STAR&quot;
@@ -3476,7 +3474,7 @@ prepend_path(&quot;PATH&quot;, home)
 Example: <span class="module-example"><code>tree --help</code>.</span><br>
 URL: <span class="module-url"><a href="http://mama.indstate.edu/users/ice/tree/">http://mama.indstate.edu/users/ice/tree/</a>, <a href="http://mama.indstate.edu/users/ice/tree/changes.html">http://mama.indstate.edu/users/ice/tree/changes.html</a> (changelog)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version"><em>2.0.2</em></span><br>
+Versions: <span class="module-version">2.0.2, <em>2.0.4</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -3486,7 +3484,7 @@ tree: List Content of Directories in a Tree-like Format
 local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
-whatis(&quot;Keywords: files, utility&quot;)
+whatis(&quot;Keywords: files, utility, cli&quot;)
 whatis(&quot;URL: http://mama.indstate.edu/users/ice/tree/, http://mama.indstate.edu/users/ice/tree/changes.html (changelog)&quot;)
 whatis([[
 Description: Tree is a recursive directory listing command that produces a depth indented listing of files, which is colorized ala dircolors if the `LS_COLORS` environment variable is set and output is to tty.
