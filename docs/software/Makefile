@@ -16,7 +16,7 @@ lmod_data/%.json:
 spider: clear
 	@module load CBI r && \
 	export R_BIOCONDUCTORX_DISABLE=true; \
-	paths=$$(Rscript -e 'source("000.config.R"); cat(vapply(module_repositories, FUN = function(x) x[["module_path"]], FUN.VALUE = NA_character_))'); \
+	paths=$$(Rscript -e 'source("lmodweb.config.R"); cat(vapply(module_repositories, FUN = function(x) x[["module_path"]], FUN.VALUE = NA_character_))'); \
 	echo "Module paths: $${paths}"; \
 	for path in $${paths}; do \
 	    make "lmod_data/$${path}.json"; \
