@@ -20,7 +20,8 @@ PATH=${SOFTWARE_HOME}/R-4.2.1-gcc10/bin:$PATH
 
 ## Required R packages
 ## FIXME: Freeze an R package library with the required packages
-export R_LIBS_USER=$(Rscript --vanilla -e "cat(Sys.getenv('R_LIBS_USER'))")
+R_LIBS_USER=$(Rscript --vanilla -e "cat(Sys.getenv('R_LIBS_USER'))")
+export R_LIBS_USER
 
 ## Session info
 Rscript --version
