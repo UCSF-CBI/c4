@@ -29,7 +29,7 @@ Rscript -e ".libPaths()"
 
 cd "$SCRIPT_PATH/../docs/software"
 git pull -X theirs
-make clean
+make spider
 make build
 make deploy
 

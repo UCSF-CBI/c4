@@ -3,7 +3,7 @@ PAGE=software-repositories
 
 all: $(PAGE).md
 
-clear:
+clean:
 	rm -rf lmod_data
 	mkdir lmod_data
 
@@ -13,7 +13,7 @@ lmod_data/%.json:
 	@mkdir -p "$(@D)"
 	"$${LMOD_DIR}/spider" --no_recursion -o jsonSoftwarePage "$*" > "$@"
 
-spider: clear
+spider: clean
 	@module load CBI r && \
 	export R_BIOCONDUCTORX_DISABLE=true; \
 	paths=$$(Rscript -e 'source("lmodweb.config.R"); cat(vapply(module_repositories, FUN = function(x) x[["module_path"]], FUN.VALUE = NA_character_))'); \
