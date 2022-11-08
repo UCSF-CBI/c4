@@ -40,7 +40,7 @@ drwxr-xr-x 9 alice boblab    4096 Oct 22 04:48 samtools-1.14
 -rw-r--r-- 1 alice boblab 7744794 Dec  7 14:41 samtools-1.14.tar.bz2
 ```
 
-As the we see, the content of the tarball was extracted into a subfolder `samtools-1.14`.  The tarball file is no longer needed after this stage.  Let's enter that new folder and look at its content:
+As we see, the content of the tarball was extracted into a subfolder `samtools-1.14`.  The tarball file is no longer needed after this stage.  Let's enter that new folder and look at its content:
 
 ```sh
 [alice@{{ site.devel.name }} alice]$ cd samtools-1.14
@@ -83,7 +83,7 @@ Familiar, eh?
 
 Default installation instructions, like the ones above, often assume we will install the software as an administrator to a central location available to all users on the system.  That is not possible to individual users on the cluster.  Instead, we need to install it to a location where we have permission to create and write files and folders.
 
-A common pattern is to install into a subfolder in our home folder that reflects the name of the software and its version. This way we can have multiple versions of the same software installed at the same time.  Let install samtools to the following folder:
+A common pattern is to install into a subfolder in our home folder that reflects the name of the software and its version. This way we can have multiple versions of the same software installed at the same time.  Lets install samtools to the following folder:
 
 ```sh
 [alice@{{ site.devel.name }} samtools-1.14]$ mkdir -p $HOME/software/samtools-1.14
@@ -165,7 +165,7 @@ _Importantly, make sure there are no errors reported.  If there are, they need t
 
 ### Step 2 - Building
 
-If the configuration steps completes without errors, it is often straightforward to build ("compile") the software my calling `make`.  The `make` command will use formal build instruction in the `Makefile`, but we don't have to know about those details.  Just call `make` as in:
+If the configuration steps complete without errors, it is often straightforward to build ("compile") the software my calling `make`.  The `make` command will use formal build instruction in the `Makefile`, but we don't have to know about those details.  Just call `make` as in:
 
 ```sh
 [alice@{{ site.devel.name }} samtools-1.14]$ make
@@ -185,12 +185,12 @@ gcc  -L./lz4  -o test/vcf-miniview test/vcf-miniview.o htslib-1.14/libhts.a -lpt
 [alice@{{ site.devel.name }} samtools-1.14]$ 
 ```
 
-Make sure there are no compilation errors.  If you get errors at this stage, it could be because the `gcc` compiler is too old.  If that happens, try using a newer compiler version following the instructions in Section 'Too old compiler?' below.
+Make sure there are no compilation errors.  If you get errors at this stage, it could be because the `gcc` compiler is too old.  If that happens, try to use a newer compiler version following the instructions in Section 'Too old compiler?' below.
 
 
 ### Step 3 - Installation
 
-If we got this far, all we have to do is to install the software we just configured and built to its final destination, which was specified in the configure step.  All we have to do now is:
+If we got this far, all we have to do is to install the software, we just configured and built, to its final destination, which was specified in the configure step.  All we have to do now is:
 
 ```sh
 [alice@{{ site.devel.name }} samtools-1.14]$ make install
@@ -238,7 +238,7 @@ to your `~/.bashrc` file.
 
 ## Too old compiler?
 
-The GCC development tools that comes built-in on our CentOS 7 system are quite old.  For example, the default `gcc` version is from 2015;
+The GCC development tools that come built-in on our CentOS 7 system are quite old.  For example, the default `gcc` version is from 2015;
 
 ```sh
 [alice@{{ site.devel.name }} ~]$ gcc --version
