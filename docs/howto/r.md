@@ -499,6 +499,46 @@ The downloaded source packages are in
 ```
 
 
+### Packages relying on JAGS
+
+#### The rjags package
+
+If we try to install the **rjags** package, we'll get the following
+installation error in R:
+
+```r
+> install.packages("rjags")
+...
+* installing *source* package 'rjags' ...
+** package 'rjags' successfully unpacked and MD5 sums checked
+** using staged installation
+checking for pkg-config... /usr/bin/pkg-config
+configure: WARNING: pkg-config file for jags 4 unavailable
+configure: WARNING: Consider adding the directory containing `jags.pc`
+configure: WARNING: to the PKG_CONFIG_PATH environment variable
+configure: Attempting legacy configuration of rjags
+checking for jags... no
+configure: error: "automatic detection of JAGS failed. Please use pkg-config to locate the JAGS library. See the INSTALL file for details."
+ERROR: configuration failed for package 'rjags'
+* removing '/c4/home/alice/R/x86_64-pc-linux-gnu-library/4.2-CBI-gcc10/rjags'
+ERROR: dependency 'rjags' is not available for package 'infercnv'
+* removing '/c4/home/alice/R/x86_64-pc-linux-gnu-library/4.2-CBI-gcc10/infercnv'
+```
+
+The error says that the "JAGS library" is missing.  It's available via
+the CBI software stack.  Load it before starting R:
+
+```sh
+$ module load CBI jags
+```
+
+and you'll find that `install.packages("rjags")` will complete successfully.
+
+Importantly, you need to load `jags` CBI module any time you run R
+where the **rjags** R package needs to be loaded.
+
+
+
 ### Packages requiring extra care
 
 #### The **udunits2** package
