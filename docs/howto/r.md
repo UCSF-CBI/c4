@@ -503,7 +503,7 @@ The downloaded source packages are in
 
 #### The rjags package
 
-If we try to install the **rjags** package, we'll get the following
+If we try to install the **[rjags]** package, we'll get the following
 installation error in R:
 
 ```r
@@ -558,6 +558,7 @@ install.packages("udunits2", configure.args="--with-udunits2-include=/usr/includ
 [pbdMPI]: https://cran.r-project.org/package=pbdMPI
 [pbdPROF]: https://cran.r-project.org/package=pbdPROF
 [Rmpi]: https://cran.r-project.org/package=Rmpi
+[rjags]: https://cran.r-project.org/package=rjags
 [sf]: https://cran.r-project.org/package=sf
 [udunits2]: https://cran.r-project.org/package=udunits2
 [zoo]: https://cran.r-project.org/package=zoo
