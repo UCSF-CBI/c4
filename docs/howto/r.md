@@ -520,9 +520,9 @@ configure: Attempting legacy configuration of rjags
 checking for jags... no
 configure: error: "automatic detection of JAGS failed. Please use pkg-config to locate the JAGS library. See the INSTALL file for details."
 ERROR: configuration failed for package 'rjags'
-* removing '/c4/home/alice/R/x86_64-pc-linux-gnu-library/4.2-CBI-gcc10/rjags'
+* removing '{{ site.user.home }}/R/x86_64-pc-linux-gnu-library/4.2-CBI-gcc10/rjags'
 ERROR: dependency 'rjags' is not available for package 'infercnv'
-* removing '/c4/home/alice/R/x86_64-pc-linux-gnu-library/4.2-CBI-gcc10/infercnv'
+* removing '{{ site.user.home }}/R/x86_64-pc-linux-gnu-library/4.2-CBI-gcc10/infercnv'
 ```
 
 The error says that the "JAGS library" is missing.  It's available via
