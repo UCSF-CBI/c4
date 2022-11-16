@@ -30,19 +30,25 @@ mdi_adjust_output() {
 # - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # Setup
 # - - - - - - - - - - - - - - - - - - - - - - - - - - -
-# Use an empty user Python module folder
-if true; then
-    PYTHONUSERBASE=$(mktemp -d)
-    PYTHONUSERBASE="${TMPDIR}/.local"
-    export PYTHONUSERBASE
-    echo "PYTHONUSERBASE=${PYTHONUSERBASE}"
-    export PATH="${PYTHONUSERBASE}/bin:${PATH}"
-fi
+# Use an empty pip cache
+export XDG_CACHE_HOME=$(mktemp -d)
+echo "XDG_CACHE_HOME=${XDG_CACHE_HOME}"
 
-mdi_code_block --label=pip-install-htseq <<EOF
-python3 -m pip install --user HTSeq
+PATH_ORG=$PATH
+
+# Use fresh, empty Python setup
+export PYTHONUSERBASE=$(mktemp -d)
+echo "PYTHONUSERBASE=${PYTHONUSERBASE}"
+export PATH="${PYTHONUSERBASE}/bin:${PATH_ORG}"
+
+mdi_code_block --label=pip-install-ex <<EOF
+python3 -m pip install --user pandas
 EOF
 
+# Use fresh, empty Python setup
+export PYTHONUSERBASE=$(mktemp -d)
+echo "PYTHONUSERBASE=${PYTHONUSERBASE}"
+export PATH="${PYTHONUSERBASE}/bin:${PATH_ORG}"
 
 mdi_code_block --label=pip-install-virtualenv <<EOF
 python3 -m pip install --user virtualenv
@@ -82,8 +88,8 @@ EOF
 
 # shellcheck disable=1091
 . my_project/bin/activate
-mdi_code_block --label=virtualenv-pip-install-htseq <<EOF
-python3 -m pip install HTSeq
+mdi_code_block --label=virtualenv-pip-install-ex <<EOF
+python3 -m pip install pandas
 EOF
 
 # shellcheck disable=1091
@@ -99,7 +105,7 @@ deactivate
 mdi_code_block --label=virtualenv-activate-2 <<EOF
 cd my_project 
 . bin/activate   ## ACTIVATE
-pip3 show HTSeq
+pip3 show pandas
 
 EOF
 

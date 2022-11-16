@@ -14,7 +14,7 @@ The below examples uses Python 3, but it works analogously in Python 2, i.e. jus
 The standard way to install Python packages is by using the [_pip_](https://packaging.python.org/tutorials/installing-packages/) package management system.  You often find installation instructions online such as:
 
 ```sh
-$ pip install HTSeq
+$ pip install pandas
 ```
 
 It will _not_ work. If you attempt to run this as-is on the cluster, you get lots of errors complaining about lack of write permissions etc., which is because it tries to install the package in the system-wide Python package folder (to which only sysadms have write permission).  You might also see instructions saying you should use `sudo ...` - that will also not work for the same reason.
@@ -33,17 +33,10 @@ Installing globally is the easiest, because you don't have to remember to _activ
 
 First of all, if an online installation instructions says `pip install ...`, replace that with `python3 -m pip install ...`.  Second, to install globally to your home directory, remember to always specify the `--user` option.  For example,
 
-<!-- code-block label="pip-install-htseq" -->
+<!-- code-block label="pip-install-ex" -->
 ```sh
-[alice@{{ site.devel.name }} ~]$ python3 -m pip install --user HTSeq
-Collecting HTSeq
-  Using cached https://files.pythonhosted.org/packages/e4/23/aca490d5cf3265dc4b97907231ebb7a4c5b666b4df8eeb815328bef5178b/HTSeq-1.99.2.tar.gz
-    Complete output from command python setup.py egg_info:
-    Error in setup script for HTSeq:
-    HTSeq requires Python 3.7+.
-    
-    ----------------------------------------
-Command "python setup.py egg_info" failed with error code 1 in ~/pip-build-2wr6m_yc/HTSeq/
+[alice@{{ site.devel.name }} ~]$ python3 -m pip install --user pandas
+ERROR: Can not perform a '--user' install. User site-packages are not visible in this virtualenv.
 ```
 
 To see all Python packages that you have installed globally, use `python3 -m pip list --user`.  To also see packages installed site wide on the cluster, use `python3 -m pip list`.  Packages installed with `python3 -m pip list --user` are typically installed to your `~/.local/lib/python3.6/site-packages/` folder.  If CLI executables are installed with one of those packages, they are often installed to `~/.local/bin/`.
@@ -58,7 +51,7 @@ Virtual environment are not used just on computer clusters - many Python users a
 
 An alternative to install globally to your home directory, is to install to a local folder using a, so called, Python _virtual environment_.  A virtual environment is a self-contained folder that contains the Python executable and any Python packages you install.  When you _activate_ a virtual environment, environment variables like `PATH` is updated such that you will use the Python executable and the packages in the virtual environment and not the globally installed ones.
 
-Below is an example on how to set up a virtual environment and install the [HTSeq](https://htseq.readthedocs.io/en/master/install.html#installation-on-linux) package and all of its dependencies into it.
+Below is an example on how to set up a virtual environment and install the [pandas](https://pandas.pydata.org/docs/) package and all of its dependencies into it.
 
 
 
@@ -69,30 +62,11 @@ In order to use virtual environments, we need the `virtualenv` tool.  Following 
 <!-- code-block label="pip-install-virtualenv" -->
 ```sh
 [alice@{{ site.devel.name }} ~]$ python3 -m pip install --user virtualenv
-Collecting virtualenv
-  Using cached https://files.pythonhosted.org/packages/9b/f8/f0d32db111db20d82fd5ac94de1c0250f322237cfa6499031a81cf6b9379/virtualenv-20.13.4-py2.py3-none-any.whl
-Collecting importlib-metadata>=0.12; python_version < "3.8" (from virtualenv)
-  Using cached https://files.pythonhosted.org/packages/a0/a1/b153a0a4caf7a7e3f15c2cd56c7702e2cf3d89b1b359d1f1c5e59d68f4ce/importlib_metadata-4.8.3-py3-none-any.whl
-Collecting importlib-resources>=1.0; python_version < "3.7" (from virtualenv)
-  Using cached https://files.pythonhosted.org/packages/24/1b/33e489669a94da3ef4562938cd306e8fa915e13939d7b8277cb5569cb405/importlib_resources-5.4.0-py3-none-any.whl
-Collecting platformdirs<3,>=2 (from virtualenv)
-  Using cached https://files.pythonhosted.org/packages/b1/78/dcfd84d3aabd46a9c77260fb47ea5d244806e4daef83aa6fe5d83adb182c/platformdirs-2.4.0-py3-none-any.whl
-Collecting distlib<1,>=0.3.1 (from virtualenv)
-  Using cached https://files.pythonhosted.org/packages/ac/a3/8ee4f54d5f12e16eeeda6b7df3dfdbda24e6cc572c86ff959a4ce110391b/distlib-0.3.4-py2.py3-none-any.whl
-Collecting six<2,>=1.9.0 (from virtualenv)
-  Using cached https://files.pythonhosted.org/packages/d9/5a/e7c31adbe875f2abbb91bd84cf2dc52d792b5a01506781dbcf25c91daf11/six-1.16.0-py2.py3-none-any.whl
-Collecting filelock<4,>=3.2 (from virtualenv)
-  Using cached https://files.pythonhosted.org/packages/84/ce/8916d10ef537f3f3b046843255f9799504aa41862bfa87844b9bdc5361cd/filelock-3.4.1-py3-none-any.whl
-Collecting zipp>=0.5 (from importlib-metadata>=0.12; python_version < "3.8"->virtualenv)
-  Using cached https://files.pythonhosted.org/packages/bd/df/d4a4974a3e3957fd1c1fa3082366d7fff6e428ddb55f074bf64876f8e8ad/zipp-3.6.0-py3-none-any.whl
-Collecting typing-extensions>=3.6.4; python_version < "3.8" (from importlib-metadata>=0.12; python_version < "3.8"->virtualenv)
-  Using cached https://files.pythonhosted.org/packages/45/6b/44f7f8f1e110027cf88956b59f2fad776cca7e1704396d043f89effd3a0e/typing_extensions-4.1.1-py3-none-any.whl
-Installing collected packages: zipp, typing-extensions, importlib-metadata, importlib-resources, platformdirs, distlib, six, filelock, virtualenv
-Successfully installed distlib-0.3.4 filelock-3.4.1 importlib-metadata-4.8.3 importlib-resources-5.4.0 platformdirs-2.4.0 six-1.16.0 typing-extensions-4.1.1 virtualenv-20.13.4 zipp-3.6.0
+ERROR: Can not perform a '--user' install. User site-packages are not visible in this virtualenv.
 [alice@{{ site.devel.name }} ~]$ which virtualenv
-~/.local/bin/virtualenv
+/usr/bin/virtualenv
 [alice@{{ site.devel.name }} ~]$ virtualenv --version
-virtualenv 20.13.4 from ~/.local/lib/python3.6/site-packages/virtualenv/__init__.py
+virtualenv 20.0.17 from /usr/lib/python3/dist-packages/virtualenv/__init__.py
 ```
 
 
@@ -103,11 +77,10 @@ Start by creating a folder specific to the project you are currently working on.
 <!-- code-block label="virtualenv-init" -->
 ```sh
 [alice@{{ site.devel.name }} ~]$ virtualenv -p python3 my_project
-created virtual environment CPython3.6.8.final.0-64 in 2830ms
-  creator CPython3Posix(dest=~/my_project, clear=False, no_vcs_ignore=False, global=False)
-  seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=~/.local/share/virtualenv)
-    added seed packages: pip==21.3.1, setuptools==59.6.0, wheel==0.37.1
-  activators BashActivator,CShellActivator,FishActivator,NushellActivator,PowerShellActivator,PythonActivator
+created virtual environment CPython3.8.10.final.0-64 in 88ms
+  creator CPython3Posix(dest=~/my_project, clear=False, global=False)
+  seeder FromAppData(download=False, pip=latest, setuptools=latest, wheel=latest, pkg_resources=latest, via=copy, app_data_dir=~/.local/share/virtualenv/seed-app-data/v1.0.1.debian.1)
+  activators BashActivator,CShellActivator,FishActivator,PowerShellActivator,PythonActivator,XonshActivator
 ```
 
 <div class="alert alert-warning" role="alert" markdown="1">
@@ -141,7 +114,7 @@ Similarly, `python` points to:
 (my_project) [alice@{{ site.devel.name }} my_project]$ which python
 ~/my_project/bin/python
 (my_project) [alice@{{ site.devel.name }} my_project]$ python --version
-Python 3.6.8
+Python 3.8.10
 ```
 
 Note how this local `python` command points to the local `python3` command.  What is interesting, and important to notice, is that _if we set up a Python 3 virtual environment, then the local `python` command will point to the local `python3` command_.  In other words, when we use virtual environments, the `python` command will be using either Python 2 or Python3 at our choice.
@@ -151,15 +124,12 @@ To see what Python packages are installed _in the virtual environment_, use:
 <!-- code-block label="virtualenv-pip-list" -->
 ```sh
 (my_project) [alice@{{ site.devel.name }} my_project]$ python3 -m pip list
-Package    Version
----------- --------
-HTSeq      0.13.5
-mpi4py     1.3.1
-numpy      1.19.5
-pip        21.3.1
-pysam      0.16.0.1
-setuptools 59.6.0
-wheel      0.37.1
+Package       Version
+------------- -------
+pip           20.0.2 
+pkg-resources 0.0.0  
+setuptools    44.0.0 
+wheel         0.34.2 
 (my_project) [alice@{{ site.devel.name }} my_project]$ 
 ```
 
@@ -168,12 +138,21 @@ wheel      0.37.1
 
 With a virtual environment enabled, you can install Python packages to the project folder using `python3 -m pip install ...` without specifying `--user`.  For instance,
 
-<!-- code-block label="virtualenv-pip-install-htseq" -->
+<!-- code-block label="virtualenv-pip-install-ex" -->
 ```sh
-(my_project) [alice@{{ site.devel.name }} ~]$ python3 -m pip install HTSeq
-Requirement already satisfied: HTSeq in ./my_project/lib64/python3.6/site-packages (0.13.5)
-Requirement already satisfied: pysam in ./my_project/lib64/python3.6/site-packages (from HTSeq) (0.16.0.1)
-Requirement already satisfied: numpy in ./my_project/lib64/python3.6/site-packages (from HTSeq) (1.19.5)
+(my_project) [alice@{{ site.devel.name }} ~]$ python3 -m pip install pandas
+Collecting pandas
+  Downloading pandas-1.5.1-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.2 MB)
+Collecting pytz>=2020.1
+  Downloading pytz-2022.6-py2.py3-none-any.whl (498 kB)
+Collecting numpy>=1.20.3; python_version < "3.10"
+  Downloading numpy-1.23.4-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (17.1 MB)
+Collecting python-dateutil>=2.8.1
+  Downloading python_dateutil-2.8.2-py2.py3-none-any.whl (247 kB)
+Collecting six>=1.5
+  Downloading six-1.16.0-py2.py3-none-any.whl (11 kB)
+Installing collected packages: pytz, numpy, six, python-dateutil, pandas
+Successfully installed numpy-1.23.4 pandas-1.5.1 python-dateutil-2.8.2 pytz-2022.6 six-1.16.0
 ```
 
 To see which packages are now installed _in the virtual environment_ (the "project folder") and what their versions are, do:
@@ -181,15 +160,17 @@ To see which packages are now installed _in the virtual environment_ (the "proje
 <!-- code-block label="virtualenv-pip-list-2" -->
 ```sh
 (my_project) [alice@{{ site.devel.name }} my_project]$ python3 -m pip list
-Package    Version
----------- --------
-HTSeq      0.13.5
-mpi4py     1.3.1
-numpy      1.19.5
-pip        21.3.1
-pysam      0.16.0.1
-setuptools 59.6.0
-wheel      0.37.1
+Package         Version
+--------------- -------
+numpy           1.23.4 
+pandas          1.5.1  
+pip             20.0.2 
+pkg-resources   0.0.0  
+python-dateutil 2.8.2  
+pytz            2022.6 
+setuptools      44.0.0 
+six             1.16.0 
+wheel           0.34.2 
 (my_project) [alice@{{ site.devel.name }} my_project]$ 
 ```
 
@@ -202,16 +183,16 @@ Whenever you open a new terminal, make sure to _activate_ the virtual environmen
 ```sh
 [alice@{{ site.devel.name }} ~]$ cd my_project 
 [alice@{{ site.devel.name }} my_project]$ . bin/activate   ## ACTIVATE
-(my_project) [alice@{{ site.devel.name }} my_project]$ pip3 show HTSeq
-Name: HTSeq
-Version: 0.13.5
-Summary: A framework to process and analyze data from high-throughput sequencing (HTS) assays
-Home-page: https://github.com/htseq
-Author: Simon Anders, Fabio Zanini
-Author-email: fabio.zanini@unsw.edu.au
-License: GPL3
-Location: ~/my_project/lib64/python3.6/site-packages
-Requires: numpy, pysam
+(my_project) [alice@{{ site.devel.name }} my_project]$ pip3 show pandas
+Name: pandas
+Version: 1.5.1
+Summary: Powerful data structures for data analysis, time series, and statistics
+Home-page: https://pandas.pydata.org
+Author: The Pandas Development Team
+Author-email: pandas-dev@python.org
+License: BSD-3-Clause
+Location: ~/my_project/lib/python3.8/site-packages
+Requires: pytz, numpy, python-dateutil
 Required-by: 
 (my_project) [alice@{{ site.devel.name }} my_project]$ 
 ```
@@ -233,7 +214,7 @@ Note how prefix `(my_project)` was dropped from the shell prompt and `python3` n
 <!-- code-block label="virtualenv-deactivate-which-python3" -->
 ```sh
 [alice@{{ site.devel.name }} ~]$ which python3
-/usr/bin/python3
+~/my_project/bin/python3
 ```
 
 
@@ -254,13 +235,7 @@ Don't use the suggested command call in that message.  Instead, use:
 <!-- code-block label="pip-upgrade" -->
 ```sh
 [alice@{{ site.devel.name }} ~]$ python3 -m pip install --user --upgrade pip
-Cache entry deserialization failed, entry ignored
-Collecting pip
-  Using cached https://files.pythonhosted.org/packages/a4/6d/6463d49a933f547439d6b5b98b46af8742cc03ae83543e4d7688c2420f8b/pip-21.3.1-py3-none-any.whl
-Installing collected packages: pip
-Successfully installed pip-21.3.1
-You are using pip version 21.3.1, however version 22.0.4 is available.
-You should consider upgrading via the 'pip install --upgrade pip' command.
+ERROR: Can not perform a '--user' install. User site-packages are not visible in this virtualenv.
 ```
 
 _Note_, if you're using a virtual environment, drop `--user`, i.e.
@@ -274,7 +249,7 @@ To check the installed version of the 'pip' module, use:
 <!-- code-block label="pip-version-2" -->
 ```sh
 [alice@{{ site.devel.name }} ~]$ python3 -m pip --version
-pip 21.3.1 from ~/.local/lib/python3.6/site-packages/pip (python 3.6)
+pip 20.0.2 from ~/my_project/lib/python3.8/site-packages/pip (python 3.8)
 ```
 
 
@@ -285,13 +260,5 @@ Python 2 reached the end of its life on 2020-01-01 in favor of Python 3. At this
 <!-- code-block label="pip2-upgrade" -->
 ```sh
 [alice@{{ site.devel.name }} ~]$ python2 -m pip install --user --upgrade "pip<21"
-DEPRECATION: Python 2.7 reached the end of its life on January 1st, 2020. Please upgrade your Python as Python 2.7 is no longer maintained. pip 21.0 will drop support for Python 2.7 in January 2021. More details about Python 2 support in pip can be found at https://pip.pypa.io/en/latest/development/release-process/#python-2-support pip 21.0 will remove support for this functionality.
-Collecting pip<21
-  Using cached pip-20.3.4-py2.py3-none-any.whl (1.5 MB)
-Installing collected packages: pip
-  Attempting uninstall: pip
-    Found existing installation: pip 20.3
-    Uninstalling pip-20.3:
-      Successfully uninstalled pip-20.3
-Successfully installed pip-20.3.4
+/usr/bin/python2: No module named pip
 ```
