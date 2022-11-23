@@ -123,7 +123,6 @@ Kriegstein
 Krita
 Krummel
 ldap
-LDAP
 LF
 libs
 limma
@@ -136,7 +135,6 @@ Macromolecular
 mailto
 markdownlint
 matlab
-MATLAB
 MaxDiskRead
 MaxDiskWrite
 MaxPages
@@ -159,8 +157,6 @@ MyAccess
 narkive
 natively
 nds
-netapp
-NetApp
 NFS
 nlme
 nloptr
@@ -228,7 +224,6 @@ scalable
 scancel
 SchedMD
 scl
-SCL
 SCLs
 scontrol
 se
@@ -266,7 +261,6 @@ Toolset
 tsv
 UCOP
 ucsf
-UCSF
 UCSF's
 udunits
 UID
@@ -274,7 +268,6 @@ underutilizing
 unstaged
 userid
 uuid
-UUID
 uuu
 vglusers
 virtualenv
