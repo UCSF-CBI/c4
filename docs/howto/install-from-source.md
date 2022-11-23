@@ -15,7 +15,7 @@ Compiling software from source often involves three steps:
 
 3. Installation - install the compiled binaries to its final destination
 
-Lets use the HTSeq software [samtools] as a real-world example to illustrate these steps.
+Lets use the [samtools] software as a real-world example to illustrate these steps.
 
 
 ### Download and extract source code
