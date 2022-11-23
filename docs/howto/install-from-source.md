@@ -190,7 +190,7 @@ Make sure there are no compilation errors.  If you get errors at this stage, it 
 
 ### Step 3 - Installation
 
-If we got this far, all we have to do is to install the software, we just configured and built, to its final destination, which was specified in the configure step.  All we have to do now is:
+If we got this far, all we have to do is to install the software, we just configured and built, to its final destination, which was specified and recorded in the configure step.  All we have to do now is:
 
 ```sh
 [alice@{{ site.devel.name }} samtools-1.14]$ make install
