@@ -77,15 +77,12 @@ The cluster has development nodes for the purpose of validating scripts, prototy
 
 Node                        | Logical Cores |      RAM | Local `/scratch` |                              CPU |                GPU |
 ----------------------------|--------------:|---------:|-----------------:|:---------------------------------|:-------------------|
-{{ site.dev1.hostname }}    |            48 |  384 GiB |         3.6  TiB | Intel Xeon E5-2640 v3 2.60GHz               |                    |
-{{ site.dev2.hostname }}    |            48 |  512 GiB |         1.1  TiB | Intel Xeon E5-2640 v3 2.60GHz               |                    |
-{{ site.dev3.hostname }}    |            38 |  128 GiB |         5.4  TiB | Intel Xeon E5-2640 v4 2.40GHz               |                    |
+{{ site.dev1.hostname }}    |            48 |  384 GiB |         3.6  TiB | Intel Xeon E5-2640 v3 2.60GHz    |                    |
+{{ site.dev2.hostname }}    |            48 |  512 GiB |         1.1  TiB | Intel Xeon E5-2640 v3 2.60GHz    |                    |
+{{ site.dev3.hostname }}    |            38 |  128 GiB |         5.4  TiB | Intel Xeon E5-2640 v4 2.40GHz    |                    |
+{{ site.gpudev1.hostname }} |           104 | 1024 GiB |          3.4 TiB | Intel Xeon Gold 5320 2.20GHz     | Nvidia A40 GPU     |
 
-<!--
-{{ site.gpudev1.hostname }} |            12 |   48 GiB |         0.37 TiB | Intel Xeon X5650 2.67GHz         | GeForce GTX 980 Ti |
--->
-
-<!--_Comment:_ Please use the GPU development node only if you need to build or prototype GPU software.-->
+_Comment:_ Please use the GPU development node only if you need to build or prototype GPU software.
 <!-- The development nodes have Intel Xeon CPU E5430 @ 2.66 GHz processors. and local solid state drives (SSDs). -->
 
 

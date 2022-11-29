@@ -66,8 +66,8 @@ dev3:
   hostname: "c4-dev3"
   ip: "NA.NA.NA.NA"
 gpudev1:
-  name: "not-yet-available-c4-gpudev1"
-  hostname: "not-yet-available-c4-gpudev1.ucsf.edu"
+  name: "c4-gpudev1"
+  hostname: "c4-gpudev1"
   ip: "NA.NA.NA.NA"
 transfer1:
   name: "c4-dt1"
