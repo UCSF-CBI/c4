@@ -1,3 +1,7 @@
+<div class="alert alert-danger" role="alert" style="margin-top: 3ex" markdown="1">
+2022-09-05: The MATLAB license server is down preventing us from using MATLAB on {{ site.cluster.name }}.  Attempts to update the license server has failed and it is not clear if and when it will be resolved.
+</div>
+
 # Work With MATLAB
 
 MATLAB is available on {{ site.cluster.name }} via a built-in  [environmental module]({{ '/software/software-modules.html' | relative_url }}).
