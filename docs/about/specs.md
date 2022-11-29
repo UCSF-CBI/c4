@@ -39,7 +39,11 @@
 <!--(\*) GIT+SSH access on development nodes is restricted to git.bioconductor.org, bitbucket.org, gitea.com, github.com / gist.github.com, gitlab.com, and git.ucsf.edu. -->
 
 
-All nodes on the cluster runs [CentOS] 7 which is updated on a regular basis.
+<!--
+cat /etc/centos-release
+sbatch --version
+-->
+All nodes on the cluster runs [CentOS] 7.9 which is updated on a regular basis.
 The job scheduler is Slurm 21.08 ([Simple Linux Utility for Resource Management]) which provides [partitions]({{ '/scheduler/partitions.html' | relative_url }}) for both communal and lab-priority tasks.
 
 
