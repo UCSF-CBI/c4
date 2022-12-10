@@ -1482,7 +1482,7 @@ prepend_path(&quot;PATH&quot;, home)
 <span class="module-description">GDAL is an open source X/MIT licensed translator library for raster and vector geospatial data formats.</span><br>
 Example: <span class="module-example"><code>gdalinfo --version</code></span><br>
 URL: <span class="module-url"><a href="https://gdal.org/">https://gdal.org/</a>, <a href="https://github.com/OSGeo/gdal/blob/master/NEWS.md">https://github.com/OSGeo/gdal/blob/master/NEWS.md</a> (changelog), <a href="https://github.com/OSGeo/gdal">https://github.com/OSGeo/gdal</a> (source code)</span><br>
-Versions: <span class="module-version"><em>2.4.4</em></span><br>
+Versions: <span class="module-version">3.5.3, <em>2.4.4</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help(&quot;GDAL: Geospatial Data Abstraction Library&quot;)
@@ -1529,7 +1529,7 @@ prepend_path(&quot;LDFLAGS&quot;, &quot;-L&quot; .. pathJoin(home, &quot;lib&quo
 <span class="module-description">GEOS (Geometry Engine - Open Source) is a C++ port of the JTS Topology Suite (JTS). It aims to contain the complete functionality of JTS in C++. This includes all the OpenGIS Simple Features for SQL spatial predicate functions and spatial operators, as well as specific JTS enhanced functions. GEOS provides spatial functionality to many other projects and products.</span><br>
 Example: <span class="module-example"><code>geos-config --version</code>.</span><br>
 URL: <span class="module-url"><a href="https://libgeos.org/">https://libgeos.org/</a>, <a href="https://libgeos.org/usage/download/">https://libgeos.org/usage/download/</a> (changelog), <a href="https://github.com/libgeos/geos/issues">https://github.com/libgeos/geos/issues</a> (bug reports)</span><br>
-Versions: <span class="module-version">3.5.2, 3.7.3, 3.8.1, 3.9.1, 3.9.2, <em>3.9.4</em></span><br>
+Versions: <span class="module-version">3.5.2, 3.7.3, 3.8.1, 3.9.1, 3.9.2, 3.11.1, <em>3.9.4</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
