@@ -75,15 +75,18 @@ _Comment_: You can also transfer data via the login nodes, but since those only 
 
 The cluster has development nodes for the purpose of validating scripts, prototyping pipelines, compiling software, and more.  Development nodes [can be accessed from the login nodes]({{ '/get-started/development-prototyping.html' | relative_url }}).
 
-Node                        | Logical Cores |      RAM | Local `/scratch` |                              CPU |                GPU |
-----------------------------|--------------:|---------:|-----------------:|:---------------------------------|:-------------------|
-{{ site.dev1.hostname }}    |            48 |  384 GiB |         3.6  TiB | Intel Xeon E5-2640 v3 2.60GHz    |                    |
-{{ site.dev2.hostname }}    |            48 |  512 GiB |         1.1  TiB | Intel Xeon E5-2640 v3 2.60GHz    |                    |
-{{ site.dev3.hostname }}    |            38 |  128 GiB |         5.4  TiB | Intel Xeon E5-2640 v4 2.40GHz    |                    |
-{{ site.gpudev1.hostname }} |           104 | 1024 GiB |          3.4 TiB | Intel Xeon Gold 5320 2.20GHz     | Nvidia A40 GPU     |
+Node                        | Logical Cores |      RAM | Local `/scratch` | CPU x86-64 level |           CPU |                GPU |
+----------------------------|--------------:|---------:|-----------------:|:-----------------|:---------------------------------|:-------------------|
+{{ site.dev1.hostname }}    |            48 |  384 GiB |         3.6  TiB | x86-64-v1        | AMD Opteron Processor 6176
+  |                    |
+{{ site.dev2.hostname }}    |            48 |  512 GiB |         1.1  TiB | x86-64-v1        | AMD Opteron Processor 6176
+  |                    |
+{{ site.dev3.hostname }}    |            38 |  128 GiB |         5.4  TiB | x86-64-v3        | Intel Xeon E5-2640 v4 2.40GHz    |                    |
+{{ site.gpudev1.hostname }} |           104 | 1024 GiB |          3.4 TiB | x86-64-v4        | Intel Xeon Gold 5320 2.20GHz     | Nvidia A40 GPU     |
 
-_Comment:_ Please use the GPU development node only if you need to build or prototype GPU software.
-<!-- The development nodes have Intel Xeon CPU E5430 @ 2.66 GHz processors. and local solid state drives (SSDs). -->
+_Comment:_
+Please use the GPU development node only if you need to build or prototype GPU software.
+The CPU x86-64 level is the [x86-64 microarchitecture levels] supported by the nodes CPU.
 
 
 ### Compute Nodes
@@ -318,5 +321,6 @@ ttr:last-child { border-top: 2px solid #000; }
 [CentOS]: https://www.centos.org/
 [Simple Linux Utility for Resource Management]: https://slurm.schedmd.com/
 [Pacific Research Platform]: https://ucsdnews.ucsd.edu/pressrelease/nsf_gives_green_light_to_pacific_research_platform
+[x86-64 microarchitecture levels]: https://www.wikipedia.org/wiki/X86-64#Microarchitecture_levels
 [wyntonquery]: https://github.com/UCSF-HPC/wyntonquery
 [host_table.tsv]: {{ '/assets/data/host_table.tsv' | relative_url }}
