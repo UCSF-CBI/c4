@@ -1,5 +1,5 @@
 <div class="alert alert-danger" role="alert" style="margin-top: 3ex" markdown="1">
-2022-10-24: Due to limited human resources, we have to disable the OnDemand server for now.
+2022-12-14: Due to limited human resources, we have to disable the OnDemand server on 2022-12-28, but we hope to revive it during 2023.
 </div>
 
 # {{ site.cluster.name }} OnDemand
