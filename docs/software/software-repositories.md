@@ -2718,7 +2718,7 @@ prepend_path(&quot;PKG_CONFIG_PATH&quot;, pathJoin(home, &quot;lib&quot;, &quot;
 Example: <span class="module-example"><code>quarto --version</code> and <code>quarto --help</code>.</span><br>
 URL: <span class="module-url"><a href="https://quarto.org/">https://quarto.org/</a>, <a href="https://quarto.org/docs/guide/">https://quarto.org/docs/guide/</a> (documentation), <a href="https://github.com/quarto-dev/quarto-cli/releases/latest">https://github.com/quarto-dev/quarto-cli/releases/latest</a> (changelog), <a href="https://github.com/quarto-dev/quarto-cli/">https://github.com/quarto-dev/quarto-cli/</a> (source code)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version">1.1.251, <em>1.2.269</em></span><br>
+Versions: <span class="module-version">1.1.251, 1.2.269, <em>1.2.280</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -3012,7 +3012,7 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 <span class="module-description">The RStudio Server is an integrated development environment (IDE) for R that can be used from the web browser.</span><br>
 Example: <span class="module-example"><code>rserver</code>.</span><br>
 URL: <span class="module-url"><a href="https://rstudio.com/products/rstudio/#rstudio-server">https://rstudio.com/products/rstudio/#rstudio-server</a>, <a href="https://www.rstudio.com/products/rstudio/release-notes/">https://www.rstudio.com/products/rstudio/release-notes/</a> (changelog), <a href="https://github.com/rstudio/rstudio/">https://github.com/rstudio/rstudio/</a> (source code)</span><br>
-Versions: <span class="module-version">2021.09.2-382, 2022.02.0-443, 2022.02.1-461, <em>2022.02.4-500</em></span><br>
+Versions: <span class="module-version">2021.09.2-382, 2022.02.0-443, 2022.02.1-461, 2022.12.0-353, <em>2022.02.4-500</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
