@@ -30,7 +30,7 @@
 | SSH access from inside of cluster | ✓ | ✓ | ✓ | (✓) only for troubleshooting |
 | Outbound access | No restrictions | HTTP/HTTPS, FTP/FTPS, SSH, SFTP, GIT+SSH, Globus | Via proxy: HTTP/HTTPS, GIT+SSH | no |
 | Network speed | 1 Gbps | 10 Gbps | 1 Gbps | 1,10 Gbps |
-| Core software | Minimal | Minimal | Same as compute nodes + compilers and source-code packages | CentOS and EPEL  packages                   |
+| Core software | Minimal | Minimal | CentOS and EPEL  packages, compilers and source-code packages | Same as development nodes |
 | modules (software stacks) | no | no | ✓ | ✓ |
 | Global file system | ✓ | ✓ | ✓ | ✓ |
 | Job submission | ✓ | no | ✓ | ✓ |
