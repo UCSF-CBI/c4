@@ -59,6 +59,7 @@ $ sacct --format="JobID,Elapsed,MaxRSS,State" -j 1484
 ```
 
 A job that was killed for running out of memory would look like this:
+
 ```sh
 $ sacct --format="JobID,Elapsed,MaxRSS,State" -j 1012
        JobID    Elapsed     MaxRSS      State 
@@ -95,11 +96,17 @@ Please please <a href="using-local-scratch.html">cleanup local scratch afterward
 
 ## Parallel processing (on a single machine)
 
+<div class="alert alert-warning" role="alert" markdown="1">
+<span>⚠️</span> Most software can only parallelize on a single node; make sure to specify `--nodes=1`, otherwise there is a risk the scheduler assigns you slots on multiple compute nodes.
+</div>
+
 The scheduler will allocate a single core for your job.  To allow the job to use multiple slots, request the number of slots needed when you submit the job.  For instance, to request four slots (`SLURM_NTASKS=4`) on a single machine, use:
+
 ```sh
 sbatch --nodes=1 --ntasks=4 script.sh
 ```
-The scheduler will make sure your job is launched on a node with at least four slots available.
+
+The scheduler will make sure your job is launched on a single node with at least four slots available.
 
 Note, when writing your script, use [Slurm environment variable] `SLURM_NTASKS`, which is set to the number of cores that your job was allocated.  This way you don't have to update your script if you request a different number of cores.  For instance, if your script runs the BWA alignment, have it specify the number of parallel threads as:
 
