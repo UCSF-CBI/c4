@@ -91,7 +91,7 @@ The CPU x86-64 level is the [x86-64 microarchitecture levels] supported by the n
 
 ### Compute Nodes
 
-The majority of the compute nodes have Intel processors, while a few have AMD processes.  Each compute node has a local `/scratch` drive (see above for size), which is either a hard disk drive (HDD), a solid state drive (SSD), or even a Non-Volatile Memory Express (NVMe) drive. Each node has a tiny `/tmp` drive ({{ site.data.specs.local_tmp_size_min }}-{{ site.data.specs.local_tmp_size_max }} GiB).
+The majority of the compute nodes have Intel processors, while a few have AMD processes.  Each compute node has a local `/scratch` drive (see below for size), which is either a hard disk drive (HDD), a solid state drive (SSD), or a Non-Volatile Memory Express (NVMe) drive. Each node has a tiny `/tmp` drive ({{ site.data.specs.local_tmp_size_min }}-{{ site.data.specs.local_tmp_size_max }} GiB).
 
 Node      | Logical Cores |       RAM | Local `/scratch/` | CPU x86-64 level |      CPU  | Notes                                              | Priority
 ----------|--------------:|----------:|------------------:|:-----------------|----------:-----------------------------------|:-----------
