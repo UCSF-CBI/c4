@@ -2,9 +2,9 @@
 
 R is available on {{ site.cluster.name }} via a [contributed environment module]({{ '/software/software-repositories.html' | relative_url }}).  It can be run interactively in the terminal via `R` on a development node, as explain on the how-to '[Work with R]' page.  To run R via the RStudio IDE, there are three options:
 
-1. The **RStudio Server** in the web browser via [OnDemand] (recommended)
+1. ~~The **RStudio Server** in the web browser via [OnDemand]~~ (temporarily retired as of 2022-12-28)
 
-2. The **RStudio Server** in the web browser over SSH
+2. The **RStudio Server** in the web browser over SSH (recommended)
 
 3. The **RStudio Desktop** over X11 Forwarding
 
