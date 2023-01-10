@@ -22,8 +22,8 @@ cluster:
   name: "C4"
   nickname: "C4"
   version: ""
-  email_admin: harry.putnam@ucsf.edu
-  email_support: harry.putnam@ucsf.edu
+  email_admin: daryl.styrk@ucsf.edu
+  email_support: daryl.styrk@ucsf.edu
   status: ok
 
 path:
