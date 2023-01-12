@@ -25,10 +25,7 @@ The instructions below requires:
 
 * A {{ site.cluster.name }} account with valid authentication credentials
 
-Users on Linux and macOS have an SSH client built-in, which is available from the terminal as `ssh`.  Users on Microsoft Windows 10 or newer also have a built-in SSH client, which is available from the command line as `ssh`.
-
-_Microsoft Windows 8 or older:_ If you are on Windows 8 or older, you do _not_ have a built-in SSH client.  If so, we recommend to install the <a href="http://www.putty.org/">PuTTY</a> SSH client, which has slightly different command-line interface but it has full SSH support.  Please consult the PuTTY documentation and user forums for further instructions.
-Another alternative, which some might find easier, is to connect to the cluster using the <a href="{{ 'howto/gui-x11fwd.html' | relative_url }}">X2Go</a> software.
+Users on Linux, macOS, and MS Windows have an SSH client built-in, which is available from the terminal as `ssh`. We will use that one in all our examples. You can also use other SSH clients if you prefer, include [PuTTY] on MS Windows. If you choose to use another SSH client, consult that program's documentation for further instructions. Another alternative, which some might find easier, is to connect to the cluster using the [X2Go] software.
 
 
 ## Instructions
@@ -37,7 +34,7 @@ To log into the cluster, assuming your user name on {{ site.cluster.name }} is `
 
 1. Make sure you are on the UCSF network or the UCSF VPN
 
-2. Open a terminal (called 'Terminal' on macOS and most Linux distributions, and 'Command Prompt' on Windows 10)
+2. open a terminal ('Terminal' on macOS and most Linux distributions, and 'Windows Console' [old] or 'Windows Terminal' [modern] on MS Windows),
 
 3. At the terminal prompt, type `ssh alice@{{ site.login.hostname }}` and press <kbd>ENTER</kbd>
 
@@ -60,7 +57,7 @@ If you get `Permission denied, please try again.` when you enter your password, 
 
 
 <div class="alert alert-info" role="alert" markdown="1">
-It is possible to set up password-less authentication via a public-private SSH key pair.  For details, see the how-to page <a href="{{ 'howto/log-in-without-pwd.html' | relative_url }}">Log in without Password</a>.
+It is possible to set up password-less authentication via a public-private SSH key pair.  For details, see the how-to page [Log in without Password].
 </div>
 
 
@@ -86,4 +83,7 @@ Any shell session that has been idle for more than 24 hours will timeout and exi
 </div>
 
 
+[PuTTY]: https://www.putty.org/
 [development node]: {{ '/get-started/development-prototyping.html' | relative_url }}
+[X2Go]: {{ 'howto/gui-x11fwd.html' | relative_url }}
+[Log in without Password]: {{ 'howto/log-in-without-pwd.html' | relative_url }}
