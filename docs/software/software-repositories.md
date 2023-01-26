@@ -58,7 +58,7 @@ Below are 3 software repositories, each providing a set of software tools.
 
 <ul class="nav nav-pills">
 <li class="active"><a data-toggle="pill" href="#button_repository_built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(3)</a></li>
-<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(94)</a></li>
+<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(95)</a></li>
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
@@ -154,7 +154,7 @@ prepend_path(&quot;CPATH&quot;, pathJoin(home, &quot;include&quot;))
 
 <div id="button_repository_cbi" class="tab-pane fade">
 
-<h2 id="repository_cbi">Module Software Repository: CBI (94)</h2>
+<h2 id="repository_cbi">Module Software Repository: CBI (95)</h2>
 
 Maintained by: Henrik Bengtsson, <a href="https://cbi.ucsf.edu">Computational Biology and Informatics</a><br>
 Enable repository: <code>module load CBI</code><br>
@@ -2821,11 +2821,11 @@ prepend_path(&quot;PKG_CONFIG_PATH&quot;, pathJoin(home, &quot;lib&quot;, &quot;
 <dl>
   <dd class="module-details">
 <strong class="module-help">quarto-cli: Open-Source Scientific and Technical Publishing System Built on Pandoc</strong><br>
-<span class="module-description">Quarto is an open-source scientific and technical publishing system built on Pandoc. Quarto documents are authored using markdown, an easy to write plain text format.</span><br>
+<span class="module-description">Quarto is an open-source scientific and technical publishing system built on Pandoc; (i) Create dynamic content with Python, R, Julia, and Observable, (ii) Author documents as plain text markdown or Jupyter notebooks, (iii) Publish high-quality articles, reports, presentations, websites, blogs, and books in HTML, PDF, MS Word, ePub, and more, (iv) Author with scientific markdown, including equations, citations, crossrefs, figure panels, callouts, advanced layout, and more.</span><br>
 Example: <span class="module-example"><code>quarto --version</code> and <code>quarto --help</code>.</span><br>
 URL: <span class="module-url"><a href="https://quarto.org/">https://quarto.org/</a>, <a href="https://quarto.org/docs/guide/">https://quarto.org/docs/guide/</a> (documentation), <a href="https://github.com/quarto-dev/quarto-cli/releases/latest">https://github.com/quarto-dev/quarto-cli/releases/latest</a> (changelog), <a href="https://github.com/quarto-dev/quarto-cli/">https://github.com/quarto-dev/quarto-cli/</a> (source code)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version">1.1.251, 1.2.269, <em>1.2.280</em></span><br>
+Versions: <span class="module-version">1.1.251, 1.2.269, 1.2.280, <em>1.2.313</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -2838,7 +2838,7 @@ whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: markdown&quot;)
 whatis(&quot;URL: https://quarto.org/, https://quarto.org/docs/guide/ (documentation), https://github.com/quarto-dev/quarto-cli/releases/latest (changelog), https://github.com/quarto-dev/quarto-cli/ (source code)&quot;)
 whatis([[
-Description: Quarto is an open-source scientific and technical publishing system built on Pandoc. Quarto documents are authored using markdown, an easy to write plain text format.
+Description: Quarto is an open-source scientific and technical publishing system built on Pandoc; (i) Create dynamic content with Python, R, Julia, and Observable, (ii) Author documents as plain text markdown or Jupyter notebooks, (iii) Publish high-quality articles, reports, presentations, websites, blogs, and books in HTML, PDF, MS Word, ePub, and more, (iv) Author with scientific markdown, including equations, citations, crossrefs, figure panels, callouts, advanced layout, and more.
 Examples: `quarto --version` and `quarto --help`.
 Warning: Only the most recent version of this software will be kept.
 ]])
@@ -3033,6 +3033,43 @@ local home = pathJoin(root, name .. &quot;-&quot; .. version)
 
 prepend_path(&quot;PATH&quot;, home)
 prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;share&quot;, &quot;man&quot;))
+</code></pre>
+
+</details>
+  </dd>
+</dl>
+<h3 id="module_cbi_redis" class="module-name">redis</h3>
+<dl>
+  <dd class="module-details">
+<strong class="module-help">redis: Remote Dictionary Server</strong><br>
+<span class="module-description">Redis is an in-memory database that persists on disk. The data model is key-value, but many different kind of values are supported: Strings, Lists, Sets, Sorted Sets, Hashes, Streams, HyperLogLogs, Bitmaps.</span><br>
+Example: <span class="module-example"><code>redis-cli --version</code>, <code>redis-cli --help</code>, <code>redis-server --version</code>, and <code>redis-server --help</code>.</span><br>
+URL: <span class="module-url"><a href="https://redis.io/">https://redis.io/</a>, <a href="https://redis.io/docs/">https://redis.io/docs/</a> (docs), <a href="https://github.com/redis/redis/releases">https://github.com/redis/redis/releases</a> (changelog), <a href="https://github.com/redis/redis">https://github.com/redis/redis</a> (source code)</span><br>
+Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
+Versions: <span class="module-version"><em>7.0.8</em></span><br>
+<details>
+<summary>Module code: <a>view</a></summary>
+<pre><code class="language-lua">help([[
+redis: Remote Dictionary Server
+]])
+
+local name = myModuleName()
+local version = myModuleVersion()
+whatis(&quot;Version: &quot; .. version)
+whatis(&quot;Keywords: database&quot;)
+whatis(&quot;URL: https://redis.io/, https://redis.io/docs/ (docs), https://github.com/redis/redis/releases (changelog), https://github.com/redis/redis (source code)&quot;)
+whatis([[
+Description: Redis is an in-memory database that persists on disk. The data model is key-value, but many different kind of values are supported: Strings, Lists, Sets, Sorted Sets, Hashes, Streams, HyperLogLogs, Bitmaps.
+Examples: `redis-cli --version`, `redis-cli --help`, `redis-server --version`, and `redis-server --help`.
+Warning: Only the most recent version of this software will be kept.
+]])
+
+-- Local variables
+local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
+local home = pathJoin(root, name .. &quot;-&quot; .. version)
+
+prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
+
 </code></pre>
 
 </details>
@@ -4500,7 +4537,7 @@ prepend_path(&quot;PATH&quot;, home)
 
 <ul class="nav nav-pills">
 <li class="active"><a data-toggle="pill" href="#button_repository_built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(3)</a></li>
-<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(94)</a></li>
+<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(95)</a></li>
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
