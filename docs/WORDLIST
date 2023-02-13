@@ -107,6 +107,7 @@ HTSeq
 http
 https
 IAM
+igraph
 ImageMagick
 io
 jobid
