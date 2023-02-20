@@ -47,17 +47,19 @@ personal RStudio Server instance as:
 ```sh
 [alice@{{ site.devel.name }} ~]$ module load CBI rstudio-server-controller
 [alice@{{ site.devel.name }} ~]$ rsc start
-alice, your personal RStudio Server is available on
-<http://{{ site.devel.hostname }}:20612>.
-If you are running from a remote machine without direct access
-to {{ site.devel.hostname }}, you can use SSH port forwarding to access the
-RStudio Server at <http://127.0.0.1:8787> by first running
-'ssh -L 8787:{{ site.devel.hostname }}:20612 alice@{{ site.login.hostname }}' in a second
-terminal.
+alice, your personal RStudio Server is available on <http://127.0.0.1:20612>.
+
+Importantly, if you are running from a remote machine without direct access
+to {{ site.devel.name }}, you need to set up SSH port forwarding first, which you can do by
+running:
+
+  ssh -L 20612:{{ site.devel.name }}:20612 alice@{{ site.login.hostname }}
+
+in a second terminal from you local computer.
+
 Any R session started times out after being idle for 120 minutes.
-WARNING: You now have 10 minutes, until 2022-04-04 12:11:27-07:00,
-to connect and log in to the RStudio Server before everything
-times out.
+WARNING: You now have 10 minutes, until 2023-02-20 14:24:37-08:00, to
+connect and log in to the RStudio Server before everything times out.
 ```
 
 There is one things you should pay extra attention to here:
@@ -77,7 +79,7 @@ and make sure to use the port number (e.g. `20612`) that was assigned
 to you.
 
 ```sh
-{local}$ ssh -L 8787:{{ site.devel.hostname}}:20612 alice@{{ site.login.hostname }}
+{local}$ ssh -L 20612:{{ site.devel.hostname}}:20612 alice@{{ site.login.hostname }}
 alice1@{{site.login.hostname }}:s password: XXXXXXXXXXXXXXXXXXX
 [alice@{{site.login.name }} ~]$ 
 ```
@@ -88,12 +90,13 @@ If you successfully completed the above two steps, and you made sure
 to use the correct port, then you should be able to open your personal
 RStudio Server in your local web browser by going to:
 
-* <http://127.0.0.1:8787/>
+* <http://127.0.0.1:20612/> (note, your port is different)
 
-You will be presented with a 'Sign in to RStudio' web page. Use your {{ site.cluster.nickname }} credentials to log in.
+You will be presented with a 'Sign in to RStudio' web page. Use your
+{{ site.cluster.nickname }} credentials to log in.
 
-After clicking 'Sign In', you should be redirected to the RStudio interface.
-
+After clicking 'Sign In', you should be redirected to the RStudio
+interface.
 
 To terminate the RStudio Server, start by exiting R by typing `quit()`
 at the R prompt. Then press <kbd>Ctrl-C</kbd> in the terminal where
@@ -104,11 +107,14 @@ terminal, e.g. the second one used in Step 2.
 
 ## Alt 3. RStudio Desktop over X11 Forwarding
 
-<div class="alert alert-warning" role="alert" markdown="1">
-It is _not_ possible to run RStudio Desktop via X2Go, because X2Go does not support the modern graphical protocols that RStudio Desktop requires.
+<div class="alert alert-warning" role="alert" markdown="1"> It is
+_not_ possible to run RStudio Desktop via X2Go, because X2Go does not
+support the modern graphical protocols that RStudio Desktop requires.
 </div>
 
-To run the RStudio Desktop client, you must be logged via [SSH with X11 forwarding enabled]. Then load the `rstudio` (Desktop) module from the CBI stack and launch `rstudio`:
+To run the RStudio Desktop client, you must be logged via [SSH with
+X11 forwarding enabled]. Then load the `rstudio` (Desktop) module from
+the CBI stack and launch `rstudio`:
 
 ```sh
 [alice@{{ site.devel.name }} ~]$ module load CBI rstudio
@@ -118,8 +124,9 @@ Logging configuration loaded from '/etc/rstudio/logging.conf'. Logging to
 '{{ site.user.home }}/.local/share/rstudio/log/rdesktop.log'.
 ```
 
-You should see the RStudio Desktop interface appear after a few seconds.
-If you get a blank window, which some macOS users have reported, retry with:
+You should see the RStudio Desktop interface appear after a few
+seconds.  If you get a blank window, which some macOS users have
+reported, retry with:
 
 ```sh
 [alice@{{ site.devel.name }} ~]$ QMLSCENE_DEVICE=softwarecontext rstudio
