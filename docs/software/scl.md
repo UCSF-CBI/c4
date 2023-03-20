@@ -9,24 +9,19 @@ To list all Software Collections installed on the _development nodes_, use:
 
 ```sh
 [alice@{{ site.devel.name }} ~]$ scl --list
+devtoolset-10
+devtoolset-11
 devtoolset-7
 devtoolset-8
 devtoolset-9
+httpd24
 llvm-toolset-7
 rh-perl526
 rh-python36
+rh-python38
 rh-ruby25
 rh-ruby26
 ```
-
-_Importantly_, only a subset of the above SCLs are available also on the _compute nodes_. Specifically, these are:
-```sh
-rh-perl526
-rh-python36
-rh-ruby25
-rh-ruby26
-```
-
 
 To list all the packages that are part of one or more of these SCLs, use:
 
