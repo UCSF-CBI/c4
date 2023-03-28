@@ -58,7 +58,7 @@ Below are 3 software repositories, each providing a set of software tools.
 
 <ul class="nav nav-pills">
 <li class="active"><a data-toggle="pill" href="#button_repository_built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(3)</a></li>
-<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(95)</a></li>
+<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(96)</a></li>
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
@@ -154,7 +154,7 @@ prepend_path(&quot;CPATH&quot;, pathJoin(home, &quot;include&quot;))
 
 <div id="button_repository_cbi" class="tab-pane fade">
 
-<h2 id="repository_cbi">Module Software Repository: CBI (95)</h2>
+<h2 id="repository_cbi">Module Software Repository: CBI (96)</h2>
 
 Maintained by: Henrik Bengtsson, <a href="https://cbi.ucsf.edu">Computational Biology and Informatics</a><br>
 Enable repository: <code>module load CBI</code><br>
@@ -906,6 +906,12 @@ prepend_path(&quot;PATH&quot;, home)
 -- REFERENCES:
 -- * https://martian-lang.org/advanced-features/#job-management
 pushenv(&quot;MROFLAGS&quot;, &quot;--localcores=1 --localmem=8 --limit-loadavg&quot;)
+
+-- Assert that the current machine supports x86-64 v2 or greater
+setenv(&quot;X86_64_LEVEL_ASSERT&quot;, &quot;2&quot;)
+try_load(&quot;x86-64-level&quot;)
+setenv(&quot;X86_64_LEVEL_ASSERT&quot;, &quot;&quot;)
+
 </code></pre>
 
 </details>
@@ -3999,6 +4005,53 @@ pushenv(&quot;PERL5LIB&quot;, pathJoin(home, &quot;share&quot;, &quot;perl5&quot
 </details>
   </dd>
 </dl>
+<h3 id="module_cbi_x86-64-level" class="module-name">x86-64-level</h3>
+<dl>
+  <dd class="module-details">
+<strong class="module-help">x86-64-level: Get the x86-64 Microarchitecture Level on the Current Machine</strong><br>
+<span class="module-description">x86-64 is a 64-bit version of the x86 CPU instruction set supported by AMD and Intel CPUs among others. Since the first generations of CPUs, more low-level CPU features have been added over the years. The x86-64 CPU features can be grouped into four CPU microarchitecture levels: x86-64 v1, x86-64 v2, x86-64 v3, and x86-64 v4. This tool checks which CPU level the current machine supports.</span><br>
+Example: <span class="module-example"><code>x86-64-level</code> and <code>x86-64-level --help</code>.</span><br>
+URL: <span class="module-url"><a href="https://github.com/HenrikBengtsson/x86-64-level/">https://github.com/HenrikBengtsson/x86-64-level/</a>, <a href="https://github.com/HenrikBengtsson/x86-64-level/blob/develop/NEWS.md">https://github.com/HenrikBengtsson/x86-64-level/blob/develop/NEWS.md</a> (changelog)</span><br>
+Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
+Versions: <span class="module-version"><em>0.2.1</em></span><br>
+<details>
+<summary>Module code: <a>view</a></summary>
+<pre><code class="language-lua">help([[
+x86-64-level: Get the x86-64 Microarchitecture Level on the Current Machine
+]])
+
+local name = myModuleName()
+local version = myModuleVersion()
+version = string.gsub(version, &quot;^[.]&quot;, &quot;&quot;)
+
+whatis(&quot;Version: &quot; .. version)
+whatis(&quot;Keywords: tools, shell, bash&quot;)
+whatis(&quot;URL: https://github.com/HenrikBengtsson/x86-64-level/, https://github.com/HenrikBengtsson/x86-64-level/blob/develop/NEWS.md (changelog)&quot;)
+whatis([[
+Description: x86-64 is a 64-bit version of the x86 CPU instruction set supported by AMD and Intel CPUs among others. Since the first generations of CPUs, more low-level CPU features have been added over the years. The x86-64 CPU features can be grouped into four CPU microarchitecture levels: x86-64 v1, x86-64 v2, x86-64 v3, and x86-64 v4. This tool checks which CPU level the current machine supports.
+Examples: `x86-64-level` and `x86-64-level --help`.
+Warning: Only the most recent version of this software will be kept.
+]])
+
+local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
+local home = pathJoin(root, name .. &quot;-&quot; .. version)
+prepend_path(&quot;PATH&quot;, home)
+
+-- Assert x86-64-level on load?
+if (mode() == &quot;load&quot;) then
+  local level = os.getenv(&quot;X86_64_LEVEL_ASSERT&quot;)
+  if level ~= nul and level ~= &quot;&quot; then
+    local error = capture(&quot;x86-64-level --assert=&quot; .. level .. &quot; 2&gt;&amp;1&quot;)
+    if error ~= &quot;&quot; then
+      LmodError(error)
+    end
+  end
+end
+</code></pre>
+
+</details>
+  </dd>
+</dl>
 </div> 
 
 <div id="button_repository_wittelab" class="tab-pane fade">
@@ -4537,7 +4590,7 @@ prepend_path(&quot;PATH&quot;, home)
 
 <ul class="nav nav-pills">
 <li class="active"><a data-toggle="pill" href="#button_repository_built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(3)</a></li>
-<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(95)</a></li>
+<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(96)</a></li>
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
