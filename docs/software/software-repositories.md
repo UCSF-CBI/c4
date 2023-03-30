@@ -969,7 +969,7 @@ prepend_path(&quot;PKG_CONFIG_PATH&quot;, pathJoin(home, &quot;lib&quot;, &quot;
 Example: <span class="module-example"><code>ctop</code> and <code>ctopx</code> (silence 'Invalid user id' output).</span><br>
 URL: <span class="module-url"><a href="https://github.com/molgenis/cluster-utils/">https://github.com/molgenis/cluster-utils/</a>, <a href="https://github.com/molgenis/cluster-utils/releases">https://github.com/molgenis/cluster-utils/releases</a> (changelog)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version">21.05.1, 22.10.2, <em>22.12.2</em></span><br>
+Versions: <span class="module-version">21.05.1, 22.10.2, 22.12.2, <em>23.03.1</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -1004,7 +1004,7 @@ set_alias(&quot;ctopx&quot;, &quot;ctop 2&gt; &gt;(grep -vF 'Invalid user id')&q
 <span class="module-description">CMake is cross-platform free and open-source software for managing the build process of software using a compiler-independent method. It supports directory hierarchies and applications that depend on multiple libraries.</span><br>
 Example: <span class="module-example"><code>cmake --version</code>.</span><br>
 URL: <span class="module-url"><a href="https://cmake.org/">https://cmake.org/</a>, <a href="https://cmake.org/cmake/help/latest/release/index.html">https://cmake.org/cmake/help/latest/release/index.html</a> (changelog) <a href="https://github.com/Kitware/CMake/releases">https://github.com/Kitware/CMake/releases</a> (download)</span><br>
-Versions: <span class="module-version">3.18.2, 3.19.2, 3.22.3, 3.23.0, 3.23.1, 3.24.2, <em>3.25.1</em></span><br>
+Versions: <span class="module-version">3.18.2, 3.19.2, 3.22.3, 3.23.0, 3.23.1, 3.24.2, 3.25.1, <em>3.26.2</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -1333,7 +1333,7 @@ prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;share&quot;, &quot;man&qu
 <span class="module-description">FastQC is a program designed to spot potential problems in high throughput sequencing datasets. It runs a set of analyses on one or more raw sequence files in fastq or bam format and produces a report which summarises the results.</span><br>
 Example: <span class="module-example"><code>fastqc --version</code>.</span><br>
 URL: <span class="module-url"><a href="https://www.bioinformatics.babraham.ac.uk/projects/fastqc/">https://www.bioinformatics.babraham.ac.uk/projects/fastqc/</a>, <a href="https://raw.githubusercontent.com/s-andrews/FastQC/master/RELEASE_NOTES.txt">https://raw.githubusercontent.com/s-andrews/FastQC/master/RELEASE_NOTES.txt</a> (changelog), <a href="https://github.com/s-andrews/FastQC/">https://github.com/s-andrews/FastQC/</a> (source code)</span><br>
-Versions: <span class="module-version"><em>0.11.9</em></span><br>
+Versions: <span class="module-version">0.11.9, <em>0.12.1</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -1785,7 +1785,7 @@ prepend_path(&quot;PATH&quot;, home)
 Example: <span class="module-example"><code>htop</code>.</span><br>
 URL: <span class="module-url"><a href="https://htop.dev">https://htop.dev</a>, <a href="https://github.com/htop-dev/htop/blob/main/ChangeLog">https://github.com/htop-dev/htop/blob/main/ChangeLog</a> (changelog), <a href="https://github.com/htop-dev/htop">https://github.com/htop-dev/htop</a> (source code)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version">3.1.2, 3.2.0, <em>3.2.1</em></span><br>
+Versions: <span class="module-version">3.1.2, 3.2.0, 3.2.1, <em>3.2.2</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -1821,7 +1821,7 @@ prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;share&quot;, &quot;man&qu
 <span class="module-description">HTSlib is an implementation of a unified C library for accessing common file formats, such as SAM, CRAM and VCF, used for high-throughput sequencing data, and is the core library used by samtools and bcftools. HTSlib also provides the bgzip, htsfile, and tabix utilities.</span><br>
 Example: <span class="module-example"><code>bgzip --version</code>, <code>htsfile --version</code>, and <code>tabix --version</code>.</span><br>
 URL: <span class="module-url"><a href="https://www.htslib.org/">https://www.htslib.org/</a>, <a href="https://github.com/samtools/htslib/blob/develop/NEWS">https://github.com/samtools/htslib/blob/develop/NEWS</a> (changelog), <a href="https://github.com/samtools/htslib">https://github.com/samtools/htslib</a> (source code)</span><br>
-Versions: <span class="module-version">1.10.2, 1.11, 1.12, 1.13, 1.14, 1.15, 1.15.1, <em>1.16</em></span><br>
+Versions: <span class="module-version">1.10.2, 1.11, 1.12, 1.13, 1.14, 1.15, 1.15.1, 1.16, <em>1.17</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -1899,7 +1899,7 @@ prepend_path(&quot;PATH&quot;, home)
 Example: <span class="module-example"><code>igv --help</code>, <code>igv --version</code>, and <code>igv</code>.</span><br>
 URL: <span class="module-url"><a href="https://software.broadinstitute.org/software/igv/">https://software.broadinstitute.org/software/igv/</a>, <a href="https://github.com/igvteam/igv/tags">https://github.com/igvteam/igv/tags</a> (changelog), <a href="https://github.com/igvteam/igv/">https://github.com/igvteam/igv/</a> (source code)</span><br>
 Warning: <span class="module-warning">IGV (&gt;= 2.5.0) requires Java 11.</span><br>
-Versions: <span class="module-version">2.8.6, 2.8.13, 2.9.1, 2.11.0, 2.11.3, 2.11.9, 2.12.3, 2.13.0, 2.13.1, 2.13.2, 2.14.1, 2.15.1, 2.15.2, <em>2.15.4</em></span><br>
+Versions: <span class="module-version">2.8.6, 2.8.13, 2.9.1, 2.11.0, 2.11.3, 2.11.9, 2.12.3, 2.13.0, 2.13.1, 2.13.2, 2.14.1, 2.15.1, 2.15.2, 2.15.4, <em>2.16.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -2160,7 +2160,7 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;node_modules&quot;, &quot;.b
 Example: <span class="module-example"><code>mc</code> and <code>mc --version</code>.</span><br>
 URL: <span class="module-url"><a href="https://midnight-commander.org/">https://midnight-commander.org/</a>, <a href="https://github.com/MidnightCommander/mc/blob/master/doc/NEWS">https://github.com/MidnightCommander/mc/blob/master/doc/NEWS</a> (changelog), <a href="https://github.com/MidnightCommander/mc">https://github.com/MidnightCommander/mc</a> (source code), <a href="https://github.com/MidnightCommander/mc/tags">https://github.com/MidnightCommander/mc/tags</a> (download)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version"><em>4.8.28</em></span><br>
+Versions: <span class="module-version">4.8.28, <em>4.8.29</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -2170,7 +2170,7 @@ mc: Midnight Commander
 local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
-whatis(&quot;Keywords: Programming, Statistics&quot;)
+whatis(&quot;Keywords: utility, files, cli, tui&quot;)
 whatis(&quot;URL: https://midnight-commander.org/, https://github.com/MidnightCommander/mc/blob/master/doc/NEWS (changelog), https://github.com/MidnightCommander/mc (source code), https://github.com/MidnightCommander/mc/tags (download)&quot;)
 whatis([[
 Description: GNU Midnight Commander is a visual file manager. It's a feature rich full-screen text mode application that allows you to copy, move and delete files and whole directory trees, search for files and run commands in the subshell. Internal viewer and editor are included.
@@ -2744,9 +2744,9 @@ prepend_path(&quot;PATH&quot;, home)
 <strong class="module-help">port4me:  Get the Same, Personal, Free TCP Port over and over</strong><br>
 <span class="module-description">'port4me' attempts, with high probability, to provide the user with the same, free port each time, even when used on different days.</span><br>
 Example: <span class="module-example"><code>port4me --help</code>, <code>port4me</code>, <code>port4me --tool=jupyter</code>).</span><br>
-URL: <span class="module-url"><a href="https://github.com/HenrikBengtsson/port4me">https://github.com/HenrikBengtsson/port4me</a>, <a href="https://github.com/HenrikBengtsson/port4me/blob/develop/NEWS.md">https://github.com/HenrikBengtsson/port4me/blob/develop/NEWS.md</a> (change log)</span><br>
+URL: <span class="module-url"><a href="https://github.com/HenrikBengtsson/port4me">https://github.com/HenrikBengtsson/port4me</a>, <a href="https://github.com/HenrikBengtsson/port4me/blob/develop/NEWS.md">https://github.com/HenrikBengtsson/port4me/blob/develop/NEWS.md</a> (changelog)</span><br>
 Warning: <span class="module-warning">This tool is under development.</span><br>
-Versions: <span class="module-version">0.4.0, <em>0.5.0</em></span><br>
+Versions: <span class="module-version">0.4.0, 0.5.0, <em>0.5.1</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -2757,7 +2757,7 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: utility, cli&quot;)
-whatis(&quot;URL: https://github.com/HenrikBengtsson/port4me, https://github.com/HenrikBengtsson/port4me/blob/develop/NEWS.md (change log)&quot;)
+whatis(&quot;URL: https://github.com/HenrikBengtsson/port4me, https://github.com/HenrikBengtsson/port4me/blob/develop/NEWS.md (changelog)&quot;)
 whatis([[
 Description: 'port4me' attempts, with high probability, to provide the user with the same, free port each time, even when used on different days.
 Examples: `port4me --help`, `port4me`, `port4me --tool=jupyter`).
@@ -3243,7 +3243,7 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 <span class="module-description">Highly-accurate &amp; wicked fast transcript-level quantification from RNA-seq reads using selective alignment.</span><br>
 Example: <span class="module-example"><code>salmon --version</code>.</span><br>
 URL: <span class="module-url"><a href="https://combine-lab.github.io/salmon/">https://combine-lab.github.io/salmon/</a>, <a href="https://github.com/COMBINE-lab/salmon/releases">https://github.com/COMBINE-lab/salmon/releases</a> (changelog), <a href="https://github.com/COMBINE-lab/salmon">https://github.com/COMBINE-lab/salmon</a> (source code)</span><br>
-Versions: <span class="module-version">0.10.0, 1.3.0, 1.4.0, 1.5.2, 1.6.0, 1.7.0, 1.8.0, <em>1.9.0</em></span><br>
+Versions: <span class="module-version">0.10.0, 1.3.0, 1.4.0, 1.5.2, 1.6.0, 1.7.0, 1.8.0, 1.9.0, <em>1.10.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -3597,7 +3597,7 @@ prepend_path(&quot;PKG_CONFIG_PATH&quot;, pathJoin(home, &quot;lib&quot;, &quot;
 Example: <span class="module-example"><code>fastq-dump --help</code>.</span><br>
 URL: <span class="module-url"><a href="https://github.com/ncbi/sra-tools/wiki">https://github.com/ncbi/sra-tools/wiki</a> (documentation), <a href="https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc">https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc</a> (documentation), <a href="https://github.com/ncbi/sra-tools/blob/master/CHANGES.md">https://github.com/ncbi/sra-tools/blob/master/CHANGES.md</a> (changelog), <a href="https://github.com/ncbi/sra-tools">https://github.com/ncbi/sra-tools</a> (source code)</span><br>
 Warning: <span class="module-warning">To work around a bug where <code>fasterq-dump</code> crashes the local machine, it has been tweaked such that it uses <code>$TMPDIR</code> rather than <code>$PWD</code> as the default temporary folder and it will only use two threads instead of six by default.</span><br>
-Versions: <span class="module-version">2.10.8, 2.10.9, 2.11.0, 2.11.1, 2.11.2, 2.11.3, 3.0.0, <em>3.0.1</em></span><br>
+Versions: <span class="module-version">2.10.8, 2.10.9, 2.11.0, 2.11.1, 2.11.2, 2.11.3, 3.0.0, 3.0.1, <em>3.0.2</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
