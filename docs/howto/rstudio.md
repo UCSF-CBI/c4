@@ -47,7 +47,9 @@ personal RStudio Server instance as:
 ```sh
 [alice@{{ site.devel.name }} ~]$ module load CBI rstudio-server-controller
 [alice@{{ site.devel.name }} ~]$ rsc start
-alice, your personal RStudio Server is available on <http://127.0.0.1:20612>.
+alice, your personal RStudio Server 2023.03.0+386 running R 4.2.2 is available on:
+
+  <http://127.0.0.1:20612>
 
 Importantly, if you are running from a remote machine without direct access
 to {{ site.devel.name }}, you need to set up SSH port forwarding first, which you can do by
@@ -58,7 +60,7 @@ running:
 in a second terminal from you local computer.
 
 Any R session started times out after being idle for 120 minutes.
-WARNING: You now have 10 minutes, until 2023-02-20 14:24:37-08:00, to
+WARNING: You now have 10 minutes, until 2023-03-31 11:04:13-07:00, to
 connect and log in to the RStudio Server before everything times out.
 ```
 
