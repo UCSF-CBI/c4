@@ -3526,8 +3526,11 @@ local name = &quot;snpEff&quot;
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
 
-if (version &gt;= &quot;5.1&quot;) then
-  depends_on(&quot;openjdk/17&quot;)
+if (version &lt; &quot;5.1&quot;) then
+  try_load(&quot;openjdk/11&quot;)
+elseif (version &gt;= &quot;5.1&quot;) then
+  try_load(&quot;openjdk/17&quot;)
+  try_load(&quot;openjdk/18&quot;)
 end
 
 pushenv(&quot;SNPEFF_HOME&quot;, home)
