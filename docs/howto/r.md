@@ -1,6 +1,6 @@
 # Work with R
 
-{% assign r_basename = "R-4.2-gcc10" %}
+{% assign r_basename = "R-4.2.0-gcc10" %}
 
 {% assign r_libs_user = "4.2-CBI-gcc10" %}
 
