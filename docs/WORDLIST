@@ -1,5 +1,5 @@
 ## Dictionary of accepted words
-## 2022-10-02
+## 2023-05-16
 abends
 Ansible
 au
@@ -302,3 +302,11 @@ Cq
 kIbN
 lbl
 mOdkwx
+GEOS
+lwgeom
+PROJ
+rgdal
+rgeos
+sqlite
+terra
+

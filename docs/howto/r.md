@@ -1,6 +1,6 @@
 # Work with R
 
-{% assign r_basename = "R-4.2.0-gcc10" %}
+{% assign r_basename = "R-4.2-gcc10" %}
 
 {% assign r_libs_user = "4.2-CBI-gcc10" %}
 
@@ -143,7 +143,7 @@ gcc -I"{{ site.path.cbi_software }}/{{ r_basename }}/lib/R/include" -DNDEBUG -I.
 gcc -I"{{ site.path.cbi_software }}/{{ r_basename }}/lib/R/include" -DNDEBUG -I../inst/include  -I/usr/local/include   -fpic  -g -O2  -c init.c -o init.o
 gcc -I"{{ site.path.cbi_software }}/{{ r_basename }}/lib/R/include" -DNDEBUG -I../inst/include  -I/usr/local/include   -fpic  -g -O2  -c lag.c -o lag.o
 gcc -shared -L{{ site.path.cbi_software }}/{{ r_basename }}/lib/R/lib -L/usr/local/lib -o zoo.so coredata.o init.o lag.o -L{{ site.path.cbi_software }}/{{ r_basename }}/lib/R/lib -lR
-installing to {{ site.user.home }}R/x86_64-pc-linux-gnu-library/4.2-gcc10/00LOCK-zoo/00new/zoo/libs
+installing to {{ site.user.home }}R/x86_64-pc-linux-gnu-library/{{ r_basename }}/00LOCK-zoo/00new/zoo/libs
 ** R
 ** demo
 ** inst
@@ -253,7 +253,7 @@ gcc -I"{{ site.path.cbi_software }}/{{ r_basename }}/lib/R/include" -DNDEBUG   -
 gcc -I"{{ site.path.cbi_software }}/{{ r_basename }}/lib/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c normexp.c -o normexp.o
 gcc -I"{{ site.path.cbi_software }}/{{ r_basename }}/lib/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c weighted_lowess.c -o weighted_lowess.o
 gcc -shared -L{{ site.path.cbi_software }}/{{ r_basename }}/lib/R/lib -L/usr/local/lib -o limma.so init.o normexp.o weighted_lowess.o -L{{ site.path.cbi_software }}/{{ r_basename }}/lib/R/lib -lR
-installing to {{ site.user.home }}R/x86_64-pc-linux-gnu-library/4.2-gcc10/00LOCK-limma/00new/limma/libs
+installing to {{ site.user.home }}R/x86_64-pc-linux-gnu-library/{{ r_basename }}/00LOCK-limma/00new/limma/libs
 ** R
 ** inst
 ** byte-compile and prepare package for lazy loading
@@ -299,85 +299,6 @@ _Comment_: This will actually also update any CRAN packages.
 If you have an R scripts, and it involves setting up a number of parallel workers in R, do _not_ use `ncores <- detectCores()` of the **parallel** package because it will result in your job hijacking _all_ cores on the compute node regardless of how many cores the scheduler has given you.  Taking up all CPU resources without permission is really bad practice and a common cause for problems.  A much better solution is to use `availableCores()` that is available in the **[parallelly]** package, e.g. as `ncores <- parallelly::availableCores()`.  This function is backward compatible with `detectCores()` while respecting what the scheduler has allocated for your job.
 
 
-### Packages requiring newer dependencies
-
-#### The hdf5r package
-
-The **[hdf5r]** package requires [hdf5 1.8.13 or newer](https://github.com/hhoeflin/hdf5r/issues/115) but the version that comes with CentOS 7/EPEL is only 1.8.12. This will result in the following installation error in R:
-
-```r
-Found hdf5 with version: 1.8.12
-configure: error: The version of hdf5 installed on your system is not sufficient. Please ensure that at least version 1.8.13 is installed
-ERROR: configuration failed for package 'hdf5r'
-```
-
- To fix this, load a modern version of 'hdf5' from the [CBI software stack] before installing the package, i.e.
-
-<!-- code-block label="r-hdf5" -->
-```sh
-[alice@{{ site.devel.name }} ~]$ module load CBI hdf5
-[alice@{{ site.devel.name }} ~]$ module list
-
-Currently Loaded Modules:
-  1) r/4.2.0   2) CBI   3) scl-devtoolset/10   4) hdf5/1.12.1
-
- 
-
-```
- 
-Note that you also need to load the `hdf5` module every time you use the **hdf5r** package in R.
-
-After this, the **hdf5r** package will install out of the box, i.e. by calling:
-
-```r
-> install.packages("hdf5r")
-```
-
-
-#### The sf package
-
-The **[sf]** package requires GDAL 2.0.1 or newer but the version that comes with CentOS 7/EPEL is only 1.11.4;
-
-```sh
-$ gdalinfo --version
-GDAL 1.11.4, released 2016/01/25
-```
-
-If we try to install **sf** with the this version, we'll get the following installation error in R:
-
-```r
-configure: GDAL: 1.11.4
-checking GDAL version >= 2.0.1... no
-configure: error: sf is not compatible with GDAL versions below 2.0.1
-ERROR: configuration failed for package 'sf'
-* removing '{{ site.user.home }}/R/x86_64-pc-linux-gnu-library/{{ r_libs_user }}/sf'
-* restoring previous '{{ site.user.home }}/R/x86_64-pc-linux-gnu-library/{{ r_libs_user }}/sf'
-```
-
- To fix this, load a modern version of GDAL from the [CBI software stack] before installing the package, i.e.
-
-<!-- code-block label="r-gdal" -->
-```sh
-[alice@{{ site.devel.name }} ~]$ module load CBI gdal
-[alice@{{ site.devel.name }} ~]$ module list
-
-Currently Loaded Modules:
-  1) r/4.2.0   2) CBI   3) scl-devtoolset/10   4) gdal/2.4.4
-
- 
-
-```
- 
-After this, the **sf** package will install out of the box, i.e. by calling:
-
-```r
-> install.packages("sf")
-```
-
-Note that you also need to load the `gdal` module every time you use the **gdal** package in R.
-
-
-
 ### Packages relying on MPI
 
 Several R packages that rely on the Message Passing Interface (MPI) do not install out-of-the-box like other R packages.  At a minimum, they require that the built-in `mpi` module is loaded;
@@ -399,7 +320,7 @@ _Importantly_, make sure to specify the exact version of the `mpi` module as wel
 In addition to making OpenMPI available by loading the `mpi` module, several MPI-based R packages requires additional special care in order to install.  Below sections, show how to install them.
 
 
-#### The Rmpi package
+#### Package **Rmpi**
 
 The **[Rmpi]** package does not install out-of-the-box like other R packages.  To install **Rmpi** on the cluster, we have to load the `mpi` module (see above) before starting R.  Then, to install **Rmpi**, we launch R and call the following:
 
@@ -445,7 +366,7 @@ The downloaded source packages are in
 >
 ```
 
-#### The pbdMPI, pbdPROF, and bigGP packages
+#### Packages **pbdMPI** and **bigGP**
 
 Similarly to the **Rmpi** package above, MPI-dependent R packages such as **[pbdMPI]**, **[pbdPROF]**, and **[bigGP]** require special install instructions.  For example, after having loaded the `mpi` module, we can install **pdbMPI** in R as:
 
@@ -499,9 +420,148 @@ The downloaded source packages are in
 ```
 
 
+### Packages relying on HDF5
+
+#### Package **hdf5r**
+
+The **[hdf5r]** package requires [hdf5 1.8.13 or newer](https://github.com/hhoeflin/hdf5r/issues/115) but the version that comes with CentOS 7/EPEL is only 1.8.12. This will result in the following installation error in R:
+
+```r
+Found hdf5 with version: 1.8.12
+configure: error: The version of hdf5 installed on your system is not sufficient. Please ensure that at least version 1.8.13 is installed
+ERROR: configuration failed for package 'hdf5r'
+```
+
+ To fix this, load a modern version of 'hdf5' from the [CBI software stack] before installing the package, i.e.
+
+<!-- code-block label="r-hdf5" -->
+```sh
+[alice@{{ site.devel.name }} ~]$ module load CBI hdf5
+[alice@{{ site.devel.name }} ~]$ module list
+
+Currently Loaded Modules:
+  1) r/4.2.0   2) CBI   3) scl-devtoolset/10   4) hdf5/1.12.1
+
+ 
+
+```
+ 
+Note that you also need to load the `hdf5` module every time you use the **hdf5r** package in R.
+
+After this, the **hdf5r** package will install out of the box, i.e. by calling:
+
+```r
+> install.packages("hdf5r")
+```
+
+
+
+### Packages relying on GDAL, GEOS, PROJ, and sqlite3
+
+There are R packages for spatial analyses that depend on external
+libraries GDAL, GEOS, PROJ, and sqlite3. For example:
+
+* **[rgdal]**  requires GDAL (>= 3),                      PROJ (>= 6)
+* **[rgeos]**  requires                  GEOS (>= 3.2.0)
+* **[sf]**     requires GDAL (>= 2.0.1), GEOS (>= 3.4.0), PROJ (>= 4.8.0), sqlite3
+* **[lwgeom]** requires                  GEOS (>= 3.5.0), PROJ (>= 4.8.0), sqlite3
+* **[terra]**  requires GDAL (>= 2.2.3), GEOS (>= 3.4.0), PROJ (>= 4.9.3), sqlite3
+
+CentOS 7/EPEL provides GDAL 1.11.4 (2016-01-25), GEOS 3.4.2
+(2013-08-25), PROJ 4.8.0 (2012-03-06), and sqlite3 3.7.17
+(2013-05-20). These are all too old for installing above R packages.
+The solution is to load more modern versions from the CBI software
+stack before installing and using such packages in R;
+
+```sh
+$ module load CBI r
+$ module load CBI gdal geos proj sqlite
+$ module list
+Currently Loaded Modules:
+  1) CBI                 3) r/4.2.0       5) gdal/3.6.4     7) proj/8.2.1
+  2) scl-devtoolset/10   4) hdf5/1.12.2   6) geos/3.11.2    8) sqlite/3.41.2
+```
+
+After loading _all_ these dependencies, above R packages will install
+out-of-the-box in R and will be compatible with each other if used at
+the same time, which some of them require.
+
+Because these R packages interact with each other, it is important to
+use the _same_ versions of GDAL, GEOS, PROJ, and sqlite, when
+installing and loading these R packages.  Because of this, we also
+recommend to install all of the above at the same time.  You might
+even choose to always have those extra CBI modules loaded at all time
+when using R to make your life easier, e.g. when updating R packages
+using `update.packages()`.
+
+Here is how to install the above R packages all at once:
+
+```r
+$ module load CBI r
+$ module load CBI gdal geos proj sqlite
+$ R --quiet
+> install.packages(c("rgdal", "rgeos", "sf", "lwgeom", "terra"))
+```
+
+After this, we can load each of them to verify everything works;
+
+```r
+> library(rgdal)
+Loading required package: sp
+Please note that rgdal will be retired during 2023,
+plan transition to sf/stars/terra functions using GDAL and PROJ
+at your earliest convenience.
+See https://r-spatial.org/r/2022/04/12/evolution.html and https://github.com/r-spatial/evolution
+rgdal: version: 1.6-6, (SVN revision 1201)
+Geospatial Data Abstraction Library extensions to R successfully loaded
+Loaded GDAL runtime: GDAL 3.6.4, released 2023/04/17
+Path to GDAL shared files: /software/c4/cbi/software/gdal-3.6.4/share/gdal
+ GDAL does not use iconv for recoding strings.
+GDAL binary built with GEOS: TRUE 
+Loaded PROJ runtime: Rel. 8.2.1, January 1st, 2022, [PJ_VERSION: 821]
+Path to PROJ shared files: /c4/home/bob/.local/share/proj:/software/c4/cbi/software/proj-8.2.1/share/proj:/software/c4/cbi/software/proj
+-8.2.1/share/proj
+PROJ CDN enabled: FALSE
+Linking to sp version:1.6-0
+To mute warnings of possible GDAL/OSR exportToProj4() degradation,
+use options("rgdal_show_exportToProj4_warnings"="none") before loading sp or rgdal.
+```
+
+```r
+> library(rgeos)
+Loading required package: sp
+rgeos version: 0.6-2, (SVN revision 693)
+ GEOS runtime version: 3.11.2-CAPI-1.17.2 
+ Please note that rgeos will be retired during 2023,
+plan transition to sf functions using GEOS at your earliest convenience.
+ GEOS using OverlayNG
+ Linking to sp version: 1.6-0 
+ Polygon checking: TRUE 
+```
+
+```r
+> library(sf)
+Linking to GEOS 3.11.2, GDAL 3.6.4, PROJ 8.2.1; sf_use_s2() is TRUE
+```
+
+```r
+> library(lwgeom)
+Linking to liblwgeom 3.0.0beta1 r16016, GEOS 3.11.2, PROJ 8.2.1
+```
+
+```r
+> library(terra)
+terra 1.7.29
+```
+
+Note that you need to load all of those extra CBI modules whenever you
+use these R packages.
+
+
+
 ### Packages relying on JAGS
 
-#### The rjags package
+#### Package **rjags**
 
 If we try to install the **[rjags]** package, we'll get the following
 installation error in R:
@@ -520,9 +580,9 @@ configure: Attempting legacy configuration of rjags
 checking for jags... no
 configure: error: "automatic detection of JAGS failed. Please use pkg-config to locate the JAGS library. See the INSTALL file for details."
 ERROR: configuration failed for package 'rjags'
-* removing '{{ site.user.home }}/R/x86_64-pc-linux-gnu-library/4.2-CBI-gcc10/rjags'
+* removing '{{ site.user.home }}/R/x86_64-pc-linux-gnu-library/{{ r_libs_user }}/rjags'
 ERROR: dependency 'rjags' is not available for package 'infercnv'
-* removing '{{ site.user.home }}/R/x86_64-pc-linux-gnu-library/4.2-CBI-gcc10/infercnv'
+* removing '{{ site.user.home }}/R/x86_64-pc-linux-gnu-library/{{ r_libs_user }}/infercnv'
 ```
 
 The error says that the "JAGS library" is missing.  It's available via
@@ -541,7 +601,7 @@ where the **rjags** R package needs to be loaded.
 
 ### Packages requiring extra care
 
-#### The **udunits2** package
+#### Package **udunits2**
 
 The **[udunits2]** package does not install out of the box.  It seems to be due to a problem with the package itself, and the suggested instructions that the package gives on setting environment variable `UDUNITS2_INCLUDE` do not work.  A workaround to install the package is to do:
 
@@ -557,11 +617,15 @@ install.packages("udunits2", configure.args="--with-udunits2-include=/usr/includ
 [parallelly]: https://cran.r-project.org/package=parallelly
 [hdf5r]: https://cran.r-project.org/package=hdf5r
 [igraph]: https://cran.r-project.org/package=igraph
+[lwgeom]: https://cran.r-project.org/package=lwgeom
 [pbdMPI]: https://cran.r-project.org/package=pbdMPI
 [pbdPROF]: https://cran.r-project.org/package=pbdPROF
-[Rmpi]: https://cran.r-project.org/package=Rmpi
+[rgdal]: https://cran.r-project.org/package=rgdal
+[rgeos]: https://cran.r-project.org/package=rgeos
 [rjags]: https://cran.r-project.org/package=rjags
+[Rmpi]: https://cran.r-project.org/package=Rmpi
 [sf]: https://cran.r-project.org/package=sf
+[terra]: https://cran.r-project.org/package=terra
 [udunits2]: https://cran.r-project.org/package=udunits2
 [zoo]: https://cran.r-project.org/package=zoo
 [limma]: http://bioconductor.org/packages/limma/
