@@ -305,11 +305,11 @@ Several R packages that rely on the Message Passing Interface (MPI) do not insta
 
 <!-- code-block label="r-openmpi" -->
 ```sh
-[alice@{{ site.devel.name }} ~]$ module load mpi/openmpi-x86_64
+[alice@{{ site.devel.name }} ~]$ module load mpi/openmpi3-x86_64
 [alice@{{ site.devel.name }} ~]$ module list
 
 Currently Loaded Modules:
-  1) CBI   2) scl-devtoolset/10   3) r/4.2.0   4) mpi/openmpi-x86_64
+  1) CBI   2) scl-devtoolset/10   3) r/4.2.0   4) mpi/openmpi3-x86_64
 
  
 
@@ -320,34 +320,26 @@ _Importantly_, make sure to specify the exact version of the `mpi` module as wel
 In addition to making OpenMPI available by loading the `mpi` module, several MPI-based R packages requires additional special care in order to install.  Below sections, show how to install them.
 
 
-#### Package **Rmpi**
+#### The Rmpi package
 
 The **[Rmpi]** package does not install out-of-the-box like other R packages.  To install **Rmpi** on the cluster, we have to load the `mpi` module (see above) before starting R.  Then, to install **Rmpi**, we launch R and call the following:
 
 <!-- code-block label="install-Rmpi" -->
 ```r
 > install.packages("Rmpi", configure.args="--with-Rmpi-include=$MPI_INCLUDE --with-Rmpi-libpath=$MPI_LIB --with-Rmpi-type=OPENMPI")
-Installing package into '{{ site.user.home }}R/x86_64-pc-linux-gnu-library/{{ r_libs_user }}'
+Installing package into '{{ site.user.home }}/R/x86_64-pc-linux-gnu-library/{{ r_libs_user }}'
 (as 'lib' is unspecified)
-trying URL 'https://cloud.r-project.org/src/contrib/Rmpi_0.6-9.2.tar.gz'
-Content type 'application/x-gzip' length 106030 bytes (103 KB)
-==================================================
-downloaded 103 KB
-
 * installing *source* package 'Rmpi' ...
 ** package 'Rmpi' successfully unpacked and MD5 sums checked
 ** using staged installation
 configure: creating ./config.status
 config.status: creating src/Makevars
 ** libs
-gcc -I"{{ site.path.cbi_software }}/{{ r_basename }}/lib64/R/include" -DNDEBUG -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPA
-CKAGE_URL=\"\" -I/usr/include/openmpi-x86_64  -DMPI2 -DOPENMPI  -I/usr/local/include   -fpic  -g -O2  -c Rmpi.c -o Rmpi.o
-gcc -I"{{ site.path.cbi_software }}/{{ r_basename }}/lib64/R/include" -DNDEBUG -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPA
-CKAGE_URL=\"\" -I/usr/include/openmpi-x86_64  -DMPI2 -DOPENMPI  -I/usr/local/include   -fpic  -g -O2  -c conversion.c -o conversion.o
-gcc -I"{{ site.path.cbi_software }}/{{ r_basename }}/lib64/R/include" -DNDEBUG -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPA
-CKAGE_URL=\"\" -I/usr/include/openmpi-x86_64  -DMPI2 -DOPENMPI  -I/usr/local/include   -fpic  -g -O2  -c internal.c -o internal.o
-gcc -shared -L{{ site.path.cbi_software }}/{{ r_basename }}/lib64/R/lib -L/usr/local/lib64 -o Rmpi.so Rmpi.o conversion.o internal.o -L/usr/lib64/openmpi/lib -lmpi -L{{ site.path.cbi_software }}/{{ r_basename }}/lib64/R/lib -lR
-installing to {{ site.user.home }}R/x86_64-pc-linux-gnu-library/{{ r_libs_user }}/00LOCK-Rmpi/00new/Rmpi/libs
+gcc -I"{{ site.path.cbi_software }}/{{ r_basename }}/lib64/R/include" -DNDEBUG -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -I/usr/include/openmpi3-x86_64  -DMPI2 -DOPENMPI  -I/usr/local/include   -fpic  -g -O2  -c Rmpi.c -o Rmpi.o
+gcc -I"{{ site.path.cbi_software }}/{{ r_basename }}/lib64/R/include" -DNDEBUG -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -I/usr/include/openmpi3-x86_64  -DMPI2 -DOPENMPI  -I/usr/local/include   -fpic  -g -O2  -c conversion.c -o conversion.o
+gcc -I"{{ site.path.cbi_software }}/{{ r_basename }}/lib64/R/include" -DNDEBUG -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -I/usr/include/openmpi3-x86_64  -DMPI2 -DOPENMPI  -I/usr/local/include   -fpic  -g -O2  -c internal.c -o internal.o
+gcc -shared -L{{ site.path.cbi_software }}/{{ r_basename }}/lib64/R/lib -L/usr/local/lib64 -o Rmpi.so Rmpi.o conversion.o internal.o -L/usr/lib64/openmpi3/lib -lmpi -L{{ site.path.cbi_software }}/{{ r_basename }}/lib64/R/lib -lR
+installing to {{ site.user.home }}/R/x86_64-pc-linux-gnu-library/{{ r_libs_user }}/00LOCK-Rmpi/00new/Rmpi/libs
 ** R
 ** demo
 ** inst
@@ -356,29 +348,51 @@ installing to {{ site.user.home }}R/x86_64-pc-linux-gnu-library/{{ r_libs_user }
 *** installing help indices
 ** building package indices
 ** testing if installed package can be loaded from temporary location
+[1684426076.901088] [c4-dev3:23596:0]            sys.c:618  UCX  ERROR shmget(size=2097152 flags=0xfb0) for mm_recv_desc failed: Operation not permitted, please check shared memory limits by 'ipcs -l'
 ** checking absolute paths in shared objects and dynamic libraries
 ** testing if installed package can be loaded from final location
+[1684426078.689465] [c4-dev3:23647:0]            sys.c:618  UCX  ERROR shmget(size=2097152 flags=0xfb0) for mm_recv_desc failed: Operation not permitted, please check shared memory limits by 'ipcs -l'
 ** testing if installed package keeps a record of temporary installation path
 * DONE (Rmpi)
 
 The downloaded source packages are in
-        '/scratch/alice/RtmpAwBn4a/downloaded_packages'
+        '/scratch/{{ site.user.name }}/RtmpgUxkQk/downloaded_packages'
 >
 ```
 
-#### Packages **pbdMPI** and **bigGP**
 
-Similarly to the **Rmpi** package above, MPI-dependent R packages such as **[pbdMPI]**, **[pbdPROF]**, and **[bigGP]** require special install instructions.  For example, after having loaded the `mpi` module, we can install **pdbMPI** in R as:
+Note, you need to load the identical module and version each time you want to use the **Rmpi** package.  After installing **Rmpi**, verify that it works:
 
+<!-- code-block label="test-Rmpi" -->
 ```r
-> install.packages("pbdMPI", configure.args="--with-mpi-libpath=$MPI_LIB --with-mpi-type=OPENMPI")
+[alice@{{ site.devel.name }} ~]$ module load CBI r
+[alice@{{ site.devel.name }} ~]$ module load mpi/openmpi3-x86_64
+[alice@{{ site.devel.name }} ~]$ R
+...
+> library(Rmpi)
+[1684426121.677063] [c4-dev3:23125:0]            sys.c:618  UCX  ERROR shmget(size=2097152 flags=0xfb0) for mm_recv_desc failed: Operation not permitted, please check shared memory limits by 'ipcs -l'
+
+> mpi.spawn.Rslaves()              ## launch one or more MPI parallel workers
+        1 slaves are spawned successfully. 0 failed.
+[1684426140.976380] [c4-dev3:23125:0]            sys.c:618  UCX  ERROR shmget(size=2097152 flags=0xb80) for ucp_am_bufs failed: Operation not permitted, please check shared memory limits by 'ipcs -l'
+master (rank 0, comm 1) of size 2 is running on: {{ site.devel.name}} 
+slave1 (rank 1, comm 1) of size 2 is running on: {{ site.devel.name}}
+
+> mpi.remote.exec(Sys.getpid())    ## get the process ID for one of them
+     out
+1 189114
+```
+
+
+#### The pbdMPI and bigGP packages
+
+Similarly to the **Rmpi** package above, MPI-dependent R packages such as **[pbdMPI]** and **[bigGP]** require special install instructions.  For example, after having loaded the `mpi` module, we can install **pbdMPI** in R as:
+
+<!-- code-block label="install-pbdMPI" -->
+```r
+> install.packages("pbdMPI", configure.args="--with-mpi-include=$MPI_INCLUDE --with-mpi-libpath=$MPI_LIB --with-mpi-type=OPENMPI")
 Installing package into '{{ site.user.home }}/R/x86_64-pc-linux-gnu-library/{{ r_libs_user }}'
 (as 'lib' is unspecified)
-trying URL 'https://cloud.r-project.org/src/contrib/pbdMPI_0.4-4.tar.gz'
-Content type 'application/x-gzip' length 519492 bytes (507 KB)
-==================================================
-downloaded 507 KB
-
 * installing *source* package 'pbdMPI' ...
 ** package 'pbdMPI' successfully unpacked and MD5 sums checked
 ** using staged installation
@@ -393,30 +407,82 @@ checking for main in -lpthread... yes
  
 ******************* Results of pbdMPI package configure *****************
  
->> MPIRUN = /usr/lib64/openmpi/bin/mpirun
->> MPIEXEC = /usr/lib64/openmpi/bin/mpiexec
->> ORTERUN = /usr/lib64/openmpi/bin/orterun
+>> MPIRUN = /usr/lib64/openmpi3/bin/mpirun
+>> MPIEXEC = /usr/lib64/openmpi3/bin/mpiexec
+>> ORTERUN = /usr/lib64/openmpi3/bin/orterun
 >> TMP_INC = 
 >> TMP_LIB = 
 >> TMP_LIBNAME = 
 >> TMP_FOUND = Nothing found from mpicc --show & sed nor pkg-config ...
 >> MPI_ROOT = 
 >> MPITYPE = OPENMPI
->> MPI_INCLUDE_PATH = /usr/include/openmpi-x86_64
+>> MPI_INCLUDE_PATH = /usr/include/openmpi3-x86_64
+>> MPI_LIBPATH = /usr/lib64/openmpi3/lib
+>> MPI_LIBNAME = 
+>> MPI_LIBS =  -lutil -lpthread
+>> MPI_DEFS = -DMPI2
+>> MPI_INCL2 = 
 >> MPI_LDFLAGS = 
->> PKG_CPPFLAGS = -I/usr/include/openmpi-x86_64  -DMPI2 -DOPENMPI
->> PKG_LIBS = -L/usr/lib64/openmpi/lib -lmpi  -lutil -lpthread
+>> PKG_CPPFLAGS = -I/usr/include/openmpi3-x86_64  -DMPI2 -DOPENMPI
+>> PKG_LIBS = -L/usr/lib64/openmpi3/lib -lmpi  -lutil -lpthread
 >> PROF_LDFLAGS = 
 >> ENABLE_LD_LIBRARY_PATH = no
  
 *************************************************************************
+ 
+configure: creating ./config.status
+config.status: creating src/Makevars
+configure: creating ./config.status
+config.status: creating src/Makevars
+config.status: creating R/zzz.r
+** libs
+echo "MPIRUN = /usr/lib64/openmpi3/bin/mpirun" > Makeconf
+echo "MPIEXEC = /usr/lib64/openmpi3/bin/mpiexec" >> Makeconf
+echo "ORTERUN = /usr/lib64/openmpi3/bin/orterun" >> Makeconf
+echo "TMP_INC = " >> Makeconf
+echo "TMP_LIB = " >> Makeconf
+echo "TMP_LIBNAME = " >> Makeconf
+echo "TMP_FOUND = Nothing found from mpicc --show & sed nor pkg-config ..." >> Makeconf
+echo "MPI_ROOT = " >> Makeconf
+echo "MPITYPE = OPENMPI" >> Makeconf
+echo "MPI_INCLUDE_PATH = /usr/include/openmpi3-x86_64" >> Makeconf
+echo "MPI_LIBPATH = /usr/lib64/openmpi3/lib" >> Makeconf
+echo "MPI_LIBNAME = " >> Makeconf
+echo "MPI_LIBS =  -lutil -lpthread" >> Makeconf
+echo "MPI_DEFS = -DMPI2" >> Makeconf
+echo "MPI_INCL2 = " >> Makeconf
+echo "MPI_LDFLAGS = " >> Makeconf
+echo "PKG_CPPFLAGS = -I/usr/include/openmpi3-x86_64  -DMPI2 -DOPENMPI" >> Makeconf
+echo "PKG_LIBS = -L/usr/lib64/openmpi3/lib -lmpi  -lutil -lpthread" >> Makeconf
+echo "PROF_LDFLAGS = " >> Makeconf
+echo "ENABLE_LD_LIBRARY_PATH = no" >> Makeconf
+gcc -I"{{ site.path.cbi_software }}/{{ r_basename }}/lib64/R/include" -DNDEBUG -I/usr/include/openmpi3-x86_64  -DMPI2 -DOPENMPI  -I/usr/local/include   -fpic  -g -O2  -c comm_errors.c -o comm_errors.o
+gcc -I"{{ site.path.cbi_software }}/{{ r_basename }}/lib64/R/include" -DNDEBUG -I/usr/include/openmpi3-x86_64  -DMPI2 -DOPENMPI  -I/usr/local/include   -fpic  -g -O2  -c comm_sort_double.c -o comm_sort_double.o
 ...
+gcc -I"{{ site.path.cbi_software }}/{{ r_basename }}/lib64/R/include" -DNDEBUG -I/usr/include/openmpi3-x86_64  -DMPI2 -DOPENMPI  -I/usr/local/include   -fpic  -g -O2  -c zzz.c -o zzz.o
+gcc -shared -L{{ site.path.cbi_software }}/{{ r_basename }}/lib64/R/lib -L/usr/local/lib64 -o pbdMPI.so comm_errors.o comm_sort_double.o comm_sort_integer.o pkg_dl.o pkg_tools.o spmd.o spmd_allgather.o spmd_allgatherv.o spmd_allreduce.o spmd_alltoall.o spmd_alltoallv.o spmd_bcast.o spmd_communicator.o spmd_communicator_spawn.o spmd_gather.o spmd_gatherv.o spmd_info.o spmd_recv.o spmd_reduce.o spmd_scatter.o spmd_scatterv.o spmd_send.o spmd_sendrecv.o spmd_sendrecv_replace.o spmd_tool.o spmd_utility.o spmd_wait.o zzz.o -L/usr/lib64/openmpi3/lib -lmpi -lutil -lpthread -L{{ site.path.cbi_software }}/{{ r_basename }}/lib64/R/lib -lR
+installing via 'install.libs.R' to {{ site.user.home }}/R/x86_64-pc-linux-gnu-library/{{ r_libs_user }}/00LOCK-pbdMPI/00new/pbdMPI
+** R
+** demo
+** inst
+** byte-compile and prepare package for lazy loading
+** help
+*** installing help indices
+** building package indices
+** installing vignettes
+** testing if installed package can be loaded from temporary location
+[1684426347.259086] [c4-dev3:26986:0]            sys.c:618  UCX  ERROR shmget(size=2097152 flags=0xfb0) for mm_recv_desc failed: Operation not permitted, please check shared memory limits by 'ipcs -l'
+[{{ site.devel.hostname }}:227206] pml_ucx.c:208 Error: Failed to create UCP worker
+** checking absolute paths in shared objects and dynamic libraries
 ** testing if installed package can be loaded from final location
+[1684426349.593601] [c4-dev3:27017:0]            sys.c:618  UCX  ERROR shmget(size=2097152 flags=0xfb0) for mm_recv_desc failed: Operation not permitted, please check shared memory limits by 'ipcs -l'
+[{{ site.devel.hostname }}:227248] pml_ucx.c:208 Error: Failed to create UCP worker
 ** testing if installed package keeps a record of temporary installation path
 * DONE (pbdMPI)
 
 The downloaded source packages are in
-        '/scratch/alice/RtmpaslkmM/downloaded_packages'
+        '/scratch/alice/RtmpKNz5KF/downloaded_packages'
+
 ```
 
 
