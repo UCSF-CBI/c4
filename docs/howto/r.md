@@ -320,7 +320,7 @@ _Importantly_, make sure to specify the exact version of the `mpi` module as wel
 In addition to making OpenMPI available by loading the `mpi` module, several MPI-based R packages requires additional special care in order to install.  Below sections, show how to install them.
 
 
-#### The Rmpi package
+#### Package **Rmpi**
 
 The **[Rmpi]** package does not install out-of-the-box like other R packages.  To install **Rmpi** on the cluster, we have to load the `mpi` module (see above) before starting R.  Then, to install **Rmpi**, we launch R and call the following:
 
@@ -384,7 +384,7 @@ slave1 (rank 1, comm 1) of size 2 is running on: {{ site.devel.name}}
 ```
 
 
-#### The pbdMPI and bigGP packages
+#### Packages **pbdMPI** and **bigGP**
 
 Similarly to the **Rmpi** package above, MPI-dependent R packages such as **[pbdMPI]** and **[bigGP]** require special install instructions.  For example, after having loaded the `mpi` module, we can install **pbdMPI** in R as:
 
