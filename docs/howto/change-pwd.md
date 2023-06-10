@@ -38,6 +38,11 @@ passwd: all authentication tokens updated successfully.
 [alice@{{ site.login.name }} ~]$ 
 ```
 
+If you get an error saying "Password change failed. Server message:
+Old password not accepted. passwd: Authentication token manipulation
+error" when you enter your current password, then your password has
+already _expired_. If so, you need to request a password reset.
+
 
 ## Verify password
 
@@ -50,7 +55,7 @@ To test your {{ site.cluster.nickname }} credentials, try to [log in to {{ site.
 
 ## Reset password
 
-To reset your _{{ site.cluster.nickname }}_ password, contact your friendly neighborhood sysadmin at [{{ site.cluster.email_admin }}](mailto:{{ site.cluster.email_admin }}).
+To reset your _{{ site.cluster.nickname }}_ password, for instance if you forgot your password or your password expired, contact your friendly neighborhood sysadmin at [{{ site.cluster.email_admin }}](mailto:{{ site.cluster.email_admin }}).
 
 <div class="alert alert-danger" role="alert" style="margin-top: 3ex" markdown="1">
 **Account are personal and login credentials must not be shared with others**. If detected, access to the account will be automatically disabled.  It is still possible and easy for multiple users to share and collaborate on the same folders and scripts.  Don't hesitate to ask if you don't know how to do this - we're here to help.
