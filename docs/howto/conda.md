@@ -3,7 +3,7 @@
 </div>
 
 <div class="alert alert-warning" role="alert" style="margin-top: 3ex" markdown="1">
-⚠️ 2023-06-11: If you've used `module load CBI module3-py39` in the past, please update to use `module load CBI module3/4.12.0-py39` instead. It loads the same Conda version - it's just the module name structure that has been tidied up.
+⚠️ 2023-06-11: If you've used `module load CBI miniconda3-py39` in the past, please update to use `module load CBI miniconda3/4.12.0-py39` instead. It loads the same Conda version - it's just the module name structure that has been tidied up.
 </div>
 
 
@@ -42,7 +42,7 @@ To see what software packages come with this Miniconda distribution, call:
 
 ```sh
 [alice@{{ site.devel.name }} ~]$ conda list
-# packages in environment at {{ site.path.cbi_software }}/CBI/miniconda3/4.12.0-py39:
+# packages in environment at {{ site.path.cbi_software }}/CBI/miniconda3-4.12.0-py39:
 #
 # Name                    Version                   Build  Channel
 _libgcc_mutex             0.1                        main  
@@ -303,7 +303,7 @@ conda info | grep active
     active env location : {{ site.user.home }}/miniconda3
 ```
 
-This auto-activation might sound convenient, but we _strongly recommend_ against using it, because Conda software stacks have a great chance to cause conflicts (read: wreak havoc) with other software tools installed outside of Conda.  For example, people that have Conda activated and then run R via `module load CBI r`, often report on endless, hard-to-understand problems when trying to install common R packages.  Instead, we recommend to activate your Conda environments only when you need them, and leave them non-activated otherwise.  This will give you a much smoother day-to-day experience.  To clarify, if you never installed Conda yourself, and only used `module load CBI miniconda3-py39`, then you should not have this problem.
+This auto-activation might sound convenient, but we _strongly recommend_ against using it, because Conda software stacks have a great chance to cause conflicts (read: wreak havoc) with other software tools installed outside of Conda.  For example, people that have Conda activated and then run R via `module load CBI r`, often report on endless, hard-to-understand problems when trying to install common R packages.  Instead, we recommend to activate your Conda environments only when you need them, and leave them non-activated otherwise.  This will give you a much smoother day-to-day experience.  To clarify, if you never installed Conda yourself, and only used `module load CBI miniconda3-py39/4.12.0-py39`, then you should not have this problem.
 
 To reconfigure Conda to no longer activate the 'base' Conda environment by default, call:
 
