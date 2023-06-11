@@ -2451,7 +2451,7 @@ set_shell_function(&quot;conda&quot;,&quot; \
 Example: <span class="module-example"><code>conda --version</code>, <code>conda create --name=myenv</code>, <code>conda env list</code>, <code>conda activate myenv</code>, <code>conda info</code>, and <code>conda deactive</code>.</span><br>
 URL: <span class="module-url"><a href="https://docs.conda.io/en/latest/">https://docs.conda.io/en/latest/</a>, <a href="https://docs.conda.io/en/latest/miniconda.html">https://docs.conda.io/en/latest/miniconda.html</a> (documentation), <a href="https://docs.conda.io/en/latest/miniconda.html#latest-miniconda-installer-links">https://docs.conda.io/en/latest/miniconda.html#latest-miniconda-installer-links</a> (releases), <a href="https://github.com/conda/conda/blob/master/CHANGELOG.md">https://github.com/conda/conda/blob/master/CHANGELOG.md</a> (changelog), <a href="https://github.com/conda/conda">https://github.com/conda/conda</a> (source code)</span><br>
 Warning: <span class="module-warning">For now, this module works only in Bash. Also, do <em>not</em> do <code>conda init</code>. If you do this by mistake, please undo by <code>conda init --reverse</code>.</span><br>
-Versions: <span class="module-version">22.11.1-1-py310, <em>4.12.0-py39</em></span><br>
+Versions: <span class="module-version">4.12.0-py39, <em>23.3.1-0-py39</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -2497,32 +2497,13 @@ elseif mode() == &quot;unload&quot; then
   pushenv(&quot;_CE_CONDA&quot;, false)
 end
 -- Don't edit! Created using: 
--- /usr/share/lmod/lmod/libexec/sh_to_modulefile /software/c4/cbi/software/miniconda3-4.12.0-py39/etc/profile.d/conda.sh
-pushenv(&quot;CONDA_EXE&quot;,&quot;/software/c4/cbi/software/miniconda3-4.12.0-py39/bin/conda&quot;)
-pushenv(&quot;CONDA_PYTHON_EXE&quot;,&quot;/software/c4/cbi/software/miniconda3-4.12.0-py39/bin/python&quot;)
+-- /usr/share/lmod/lmod/libexec/sh_to_modulefile /software/c4/cbi/software/miniconda3-23.3.1-0-py39/etc/profile.d/conda.sh
+pushenv(&quot;CONDA_EXE&quot;,&quot;/software/c4/cbi/software/miniconda3-23.3.1-0-py39/bin/conda&quot;)
+pushenv(&quot;CONDA_PYTHON_EXE&quot;,&quot;/software/c4/cbi/software/miniconda3-23.3.1-0-py39/bin/python&quot;)
 pushenv(&quot;CONDA_SHLVL&quot;,&quot;0&quot;)
-prepend_path(&quot;PATH&quot;,&quot;/software/c4/cbi/software/miniconda3-4.12.0-py39/condabin&quot;)
+prepend_path(&quot;PATH&quot;,&quot;/software/c4/cbi/software/miniconda3-23.3.1-0-py39/condabin&quot;)
 pushenv(&quot;_CE_CONDA&quot;,&quot;&quot;)
 pushenv(&quot;_CE_M&quot;,&quot;&quot;)
-set_shell_function(&quot;__add_sys_prefix_to_path&quot;,&quot; \
-    if [ -n \&quot;${_CE_CONDA}\&quot; ] &amp;&amp; [ -n \&quot;${WINDIR+x}\&quot; ]; then\
-        SYSP=$(\\dirname \&quot;${CONDA_EXE}\&quot;);\
-    else\
-        SYSP=$(\\dirname \&quot;${CONDA_EXE}\&quot;);\
-        SYSP=$(\\dirname \&quot;${SYSP}\&quot;);\
-    fi;\
-    if [ -n \&quot;${WINDIR+x}\&quot; ]; then\
-        PATH=\&quot;${SYSP}/bin:${PATH}\&quot;;\
-        PATH=\&quot;${SYSP}/Scripts:${PATH}\&quot;;\
-        PATH=\&quot;${SYSP}/Library/bin:${PATH}\&quot;;\
-        PATH=\&quot;${SYSP}/Library/usr/bin:${PATH}\&quot;;\
-        PATH=\&quot;${SYSP}/Library/mingw-w64/bin:${PATH}\&quot;;\
-        PATH=\&quot;${SYSP}:${PATH}\&quot;;\
-    else\
-        PATH=\&quot;${SYSP}/bin:${PATH}\&quot;;\
-    fi;\
-    \\export PATH\
-&quot;,&quot;&quot;)
 set_shell_function(&quot;__conda_activate&quot;,&quot; \
     if [ -n \&quot;${CONDA_PS1_BACKUP:+x}\&quot; ]; then\
         PS1=\&quot;$CONDA_PS1_BACKUP\&quot;;\
@@ -2534,8 +2515,7 @@ set_shell_function(&quot;__conda_activate&quot;,&quot; \
     __conda_hashr\
 &quot;,&quot;&quot;)
 set_shell_function(&quot;__conda_exe&quot;,&quot; \
-    ( __add_sys_prefix_to_path;\
-    \&quot;$CONDA_EXE\&quot; $_CE_M $_CE_CONDA \&quot;$@\&quot; )\
+    ( \&quot;$CONDA_EXE\&quot; $_CE_M $_CE_CONDA \&quot;$@\&quot; )\
 &quot;,&quot;&quot;)
 set_shell_function(&quot;__conda_hashr&quot;,&quot; \
     if [ -n \&quot;${ZSH_VERSION:+x}\&quot; ]; then\
@@ -3126,8 +3106,8 @@ end
   <dd class="module-details">
 <strong class="module-help">R Site Configuration: Tweaks to R for the Current Compute Environment</strong><br>
 <span class="module-description">Sets R options and environment variables customized for the current compute environment. Notably, it configures R to install packages from local CRAN and Bioconductor mirrors without the need for internet access.</span><br>
-Example: <span class="module-example">In R, <code>install.packages(&quot;ggplot2&quot;)</code>.</span><br>
-Versions: <span class="module-version"><em>0.1</em></span><br>
+Example: <span class="module-example">In R, <code>install.packages(\&quot;ggplot2\&quot;)</code>.</span><br>
+Versions: <span class="module-version">0.1, <em>0.3</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -3138,17 +3118,10 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: R, configuration&quot;)
-whatis(&quot;Description: Sets R options and environment variables customized for the current compute environment. Notably, it configures R to install packages from local CRAN and Bioconductor mirrors without the need for internet access.  Examples: In R, `install.packages(\&quot;ggplot2\&quot;)`.&quot;)
-
-function requireModuleVersion()
-  if (myModuleUsrName() ~= myModuleFullName()) then
-    LmodError(&quot;Module '&quot; .. myModuleName() .. &quot;' must be loaded with the version specified, e.g. 'module load &quot; .. myModuleName() .. &quot;/&quot; .. myModuleVersion() .. &quot;' - not just 'module load &quot; .. myModuleName() .. &quot;'.  See 'module spider &quot; .. myModuleName() .. &quot;' for available versions&quot;)
-  end
-end
-
-if (mode() == &quot;load&quot;) then
-  requireModuleVersion()
-end
+whatis([[
+Description: Sets R options and environment variables customized for the current compute environment. Notably, it configures R to install packages from local CRAN and Bioconductor mirrors without the need for internet access.
+Examples: In R, `install.packages(\&quot;ggplot2\&quot;)`.
+]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
@@ -3156,7 +3129,6 @@ local home = pathJoin(root, name .. &quot;-&quot; .. version)
 -- Set site-wide (sic!) Renviron and Rprofile files
 pushenv(&quot;R_ENVIRON&quot;, pathJoin(home, &quot;Renviron.site&quot;))
 pushenv(&quot;R_PROFILE&quot;, pathJoin(home, &quot;Rprofile.site&quot;))
-
 </code></pre>
 
 </details>
