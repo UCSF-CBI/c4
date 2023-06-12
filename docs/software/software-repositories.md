@@ -3639,7 +3639,7 @@ prepend_path(&quot;PATH&quot;, home)
   <dd class="module-details">
 <strong class="module-help">SnpEff: Genetic Variant Annotation and Effect Prediction Toolbox</strong><br>
 <span class="module-description">SnpEff is a variant annotation and effect prediction tool. It annotates and predicts the effects of variants on genes (such as amino acid changes).</span><br>
-Example: <span class="module-example"><code>snpEff -help</code> and <code>SnpSift -help</code>, which are aliases for <code>java -jar $SNPEFF_HOME/snpEff/snpEff.jar -help</code> and <code>java -jar $SNPEFF_HOME/snpEff/SnpSift.jar -help</code>.  In SnpEff (&lt; 5.0), there is also <code>ClinEff -help</code>, which is an alias for <code>java -jar $SNPEFF_HOME/ClinEff/ClinEff.jar -help</code>.</span><br>
+Example: <span class="module-example"><code>snpEff -help</code> and <code>SnpSift -help</code>, which are short for <code>java -jar $SNPEFF_HOME/snpEff/snpEff.jar -help</code> and <code>java -jar $SNPEFF_HOME/snpEff/SnpSift.jar -help</code>.  In SnpEff (&lt; 5.0), there is also <code>ClinEff -help</code>, which is short for <code>java -jar $SNPEFF_HOME/ClinEff/ClinEff.jar -help</code>.</span><br>
 URL: <span class="module-url"><a href="https://pcingola.github.io/SnpEff/">https://pcingola.github.io/SnpEff/</a>, <a href="https://github.com/pcingola/SnpEff/tags">https://github.com/pcingola/SnpEff/tags</a> (changelog), <a href="https://github.com/pcingola/SnpEff">https://github.com/pcingola/SnpEff</a> (source code)</span><br>
 Versions: <span class="module-version">4.3t, 5.0c, <em>5.0e</em></span><br>
 <details>
@@ -3655,7 +3655,7 @@ whatis(&quot;Keywords: high-throughput sequencing&quot;)
 whatis(&quot;URL: https://pcingola.github.io/SnpEff/, https://github.com/pcingola/SnpEff/tags (changelog), https://github.com/pcingola/SnpEff (source code)&quot;)
 whatis([[
 Description: SnpEff is a variant annotation and effect prediction tool. It annotates and predicts the effects of variants on genes (such as amino acid changes).
-Examples: `snpEff -help` and `SnpSift -help`, which are aliases for `java -jar $SNPEFF_HOME/snpEff/snpEff.jar -help` and `java -jar $SNPEFF_HOME/snpEff/SnpSift.jar -help`.  In SnpEff (&lt; 5.0), there is also `ClinEff -help`, which is an alias for `java -jar $SNPEFF_HOME/ClinEff/ClinEff.jar -help`.
+Examples: `snpEff -help` and `SnpSift -help`, which are short for `java -jar $SNPEFF_HOME/snpEff/snpEff.jar -help` and `java -jar $SNPEFF_HOME/snpEff/SnpSift.jar -help`.  In SnpEff (&lt; 5.0), there is also `ClinEff -help`, which is short for `java -jar $SNPEFF_HOME/ClinEff/ClinEff.jar -help`.
 ]])
 
 local name = &quot;snpEff&quot;
@@ -4048,7 +4048,7 @@ prepend_path(&quot;PATH&quot;, home)
   <dd class="module-details">
 <strong class="module-help">VarScan: Variant Detection in Massively Parallel Sequencing Data</strong><br>
 <span class="module-description">VarScan is a platform-independent mutation caller for targeted, exome, and whole-genome resequencing data generated on Illumina, SOLiD, Life/PGM, Roche/454, and similar instruments.</span><br>
-Example: <span class="module-example"><code>varscan</code>, which is an alias to <code>java -jar $VARSCAN_HOME/VarScan.jar</code>.</span><br>
+Example: <span class="module-example"><code>varscan</code>, which is short for <code>java -jar $VARSCAN_HOME/VarScan.jar</code>.</span><br>
 URL: <span class="module-url"><a href="https://dkoboldt.github.io/varscan/">https://dkoboldt.github.io/varscan/</a>, <a href="https://github.com/dkoboldt/varscan/releases">https://github.com/dkoboldt/varscan/releases</a> (changelog), <a href="https://github.com/dkoboldt/varscan">https://github.com/dkoboldt/varscan</a> (source code)</span><br>
 Versions: <span class="module-version">2.4.2, <em>2.4.6</em></span><br>
 <details>
@@ -4064,7 +4064,7 @@ whatis(&quot;Keywords: high-throughput sequencing&quot;)
 whatis(&quot;URL: https://dkoboldt.github.io/varscan/, https://github.com/dkoboldt/varscan/releases (changelog), https://github.com/dkoboldt/varscan (source code)&quot;)
 whatis([[
 Description: VarScan is a platform-independent mutation caller for targeted, exome, and whole-genome resequencing data generated on Illumina, SOLiD, Life/PGM, Roche/454, and similar instruments.
-Examples: `varscan`, which is an alias to `java -jar $VARSCAN_HOME/VarScan.jar`.
+Examples: `varscan`, which is short for `java -jar $VARSCAN_HOME/VarScan.jar`.
 ]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
