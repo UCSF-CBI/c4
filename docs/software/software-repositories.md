@@ -58,7 +58,7 @@ Below are 3 software repositories, each providing a set of software tools.
 
 <ul class="nav nav-pills">
 <li class="active"><a data-toggle="pill" href="#button_repository_built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(3)</a></li>
-<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(97)</a></li>
+<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(99)</a></li>
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
@@ -154,7 +154,7 @@ prepend_path(&quot;CPATH&quot;, pathJoin(home, &quot;include&quot;))
 
 <div id="button_repository_cbi" class="tab-pane fade">
 
-<h2 id="repository_cbi">Module Software Repository: CBI (97)</h2>
+<h2 id="repository_cbi">Module Software Repository: CBI (99)</h2>
 
 Maintained by: Henrik Bengtsson, <a href="https://cbi.ucsf.edu">Computational Biology and Informatics</a><br>
 Enable repository: <code>module load CBI</code><br>
@@ -668,7 +668,7 @@ pushenv(&quot;BEDTOOLS2_HOME&quot;, home)
 <span class="module-description">BLAST finds regions of similarity between biological sequences. The program compares nucleotide or protein sequences to sequence databases and calculates the statistical significance.</span><br>
 Example: <span class="module-example"><code>blastx -version</code></span><br>
 URL: <span class="module-url"><a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">https://blast.ncbi.nlm.nih.gov/Blast.cgi</a>, <a href="https://www.ncbi.nlm.nih.gov/books/NBK131777/">https://www.ncbi.nlm.nih.gov/books/NBK131777/</a> (changelog)</span><br>
-Versions: <span class="module-version">2.10.1, 2.11.0, 2.12.0, <em>2.13.0</em></span><br>
+Versions: <span class="module-version">2.10.1, 2.11.0, 2.12.0, 2.13.0, <em>2.14.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -1373,7 +1373,7 @@ Example: <span class="module-example"><code>fzf --version</code> and <code>emacs
 Note: <span class="module-note">To install tab completions and key bindinds to your shell, call <code>$FZF_HOME/install</code>. To uninstall, use <code>$FZF_HOME/uninstall</code>.</span><br>
 URL: <span class="module-url"><a href="https://github.com/junegunn/fzf">https://github.com/junegunn/fzf</a>, <a href="https://github.com/junegunn/fzf/wiki">https://github.com/junegunn/fzf/wiki</a> (documentation), <a href="https://github.com/junegunn/fzf/blob/master/CHANGELOG.md">https://github.com/junegunn/fzf/blob/master/CHANGELOG.md</a> (changelog), <a href="https://github.com/junegunn/fzf/releases">https://github.com/junegunn/fzf/releases</a> (download)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version">0.33.0, 0.35.0, 0.36.0, <em>0.38.0</em></span><br>
+Versions: <span class="module-version">0.33.0, 0.35.0, 0.36.0, 0.38.0, <em>0.41.1</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -1662,7 +1662,7 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 Example: <span class="module-example"><code>glow README.md</code>, <code>glow --pager README.md</code>.</span><br>
 URL: <span class="module-url"><a href="https://github.com/charmbracelet/glow">https://github.com/charmbracelet/glow</a>, <a href="https://github.com/charmbracelet/glow/releases">https://github.com/charmbracelet/glow/releases</a> (changelog)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version">1.4.1, <em>1.5.0</em></span><br>
+Versions: <span class="module-version">1.4.1, 1.5.0, <em>1.5.1</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -1685,6 +1685,42 @@ local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
 
 prepend_path(&quot;PATH&quot;, home)
+</code></pre>
+
+</details>
+  </dd>
+</dl>
+<h3 id="module_cbi_gping" class="module-name">gping</h3>
+<dl>
+  <dd class="module-details">
+<strong class="module-help">gping: Ping, but with a Graph</strong><br>
+<span class="module-description">gping comes with the following super-powers: (i) graph the ping time for multiple hosts, (ii) graph the execution time for commands via the <code>--cmd</code> flag, and (iii) custom colours.</span><br>
+Example: <span class="module-example"><code>gping --version</code>, <code>gping --help</code>, <code>gping 8.8.8.8 9.9.9.9</code>, and <code>gping --cmd &quot;curl -o /dev/null https://www.github.com&quot; &quot;wget -O /dev/null https://github.com&quot;</code>.</span><br>
+URL: <span class="module-url"><a href="https://github.com/orf/gping">https://github.com/orf/gping</a>, <a href="https://github.com/orf/gping/releases">https://github.com/orf/gping/releases</a> (changelog), <a href="https://github.com/orf/gping">https://github.com/orf/gping</a> (source code)</span><br>
+Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
+Versions: <span class="module-version"><em>1.12.0</em></span><br>
+<details>
+<summary>Module code: <a>view</a></summary>
+<pre><code class="language-lua">help([[
+gping: Ping, but with a Graph
+]])
+
+local name = myModuleName()
+local version = myModuleVersion()
+whatis(&quot;Version: &quot; .. version)
+whatis(&quot;Keywords: terminal, cli, utility&quot;)
+whatis(&quot;URL: https://github.com/orf/gping, https://github.com/orf/gping/releases (changelog), https://github.com/orf/gping (source code)&quot;)
+whatis([[
+Description: gping comes with the following super-powers: (i) graph the ping time for multiple hosts, (ii) graph the execution time for commands via the `--cmd` flag, and (iii) custom colours.
+Examples: `gping --version`, `gping --help`, `gping 8.8.8.8 9.9.9.9`, and `gping --cmd &quot;curl -o /dev/null https://www.github.com&quot; &quot;wget -O /dev/null https://github.com&quot;`.
+Warning: Only the most recent version of this software will be kept.
+]])
+
+local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
+local home = pathJoin(root, name .. &quot;-&quot; .. version)
+
+prepend_path(&quot;PATH&quot;,  home)
+
 </code></pre>
 
 </details>
@@ -1920,7 +1956,7 @@ prepend_path(&quot;PATH&quot;, home)
 Example: <span class="module-example"><code>igv --help</code>, <code>igv --version</code>, and <code>igv</code>.</span><br>
 URL: <span class="module-url"><a href="https://software.broadinstitute.org/software/igv/">https://software.broadinstitute.org/software/igv/</a>, <a href="https://github.com/igvteam/igv/tags">https://github.com/igvteam/igv/tags</a> (changelog), <a href="https://github.com/igvteam/igv/">https://github.com/igvteam/igv/</a> (source code)</span><br>
 Warning: <span class="module-warning">IGV (&gt;= 2.5.0) requires Java 11.</span><br>
-Versions: <span class="module-version">2.8.6, 2.8.13, 2.9.1, 2.11.0, 2.11.3, 2.11.9, 2.12.3, 2.13.0, 2.13.1, 2.13.2, 2.14.1, 2.15.1, 2.15.2, 2.15.4, <em>2.16.0</em></span><br>
+Versions: <span class="module-version">2.8.6, 2.8.13, 2.9.1, 2.11.0, 2.11.3, 2.11.9, 2.12.3, 2.13.0, 2.13.1, 2.13.2, 2.14.1, 2.15.1, 2.15.2, 2.15.4, 2.16.0, <em>2.16.1</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -2654,7 +2690,7 @@ prepend_path(&quot;PATH&quot;, home)
 Example: <span class="module-example"><code>pandoc --version</code>.</span><br>
 URL: <span class="module-url"><a href="https://pandoc.org/">https://pandoc.org/</a>, <a href="https://github.com/jgm/pandoc/blob/master/changelog.md">https://github.com/jgm/pandoc/blob/master/changelog.md</a> (changelog), <a href="https://github.com/jgm/pandoc">https://github.com/jgm/pandoc</a> (source code)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version">2.19.2, 3.0, 3.0.1, <em>3.1.2</em></span><br>
+Versions: <span class="module-version">2.19.2, 3.0, 3.0.1, 3.1.2, <em>3.1.3</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -3217,6 +3253,40 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 </details>
   </dd>
 </dl>
+<h3 id="module_cbi_restic" class="module-name">restic</h3>
+<dl>
+  <dd class="module-details">
+<strong class="module-help">restic: Fast, Secure, Efficient Backup Program</strong><br>
+<span class="module-description">restic is a backup program that is fast, efficient and secure. It supports the three major operating systems (Linux, macOS, Windows) and a few smaller ones (FreeBSD, OpenBSD).</span><br>
+Example: <span class="module-example"><code>restic --help</code> and <code>restic version</code>.</span><br>
+URL: <span class="module-url"><a href="https://restic.net">https://restic.net</a>, <a href="https://restic.readthedocs.io/en/latest/">https://restic.readthedocs.io/en/latest/</a> (documentation), <a href="https://github.com/restic/restic/releases">https://github.com/restic/restic/releases</a> (change log), <a href="https://github.com/restic/restic">https://github.com/restic/restic</a> (source code)</span><br>
+Versions: <span class="module-version"><em>0.15.2</em></span><br>
+<details>
+<summary>Module code: <a>view</a></summary>
+<pre><code class="language-lua">help([[
+restic: Fast, Secure, Efficient Backup Program
+]])
+
+local name = myModuleName()
+local version = myModuleVersion()
+whatis(&quot;Version: &quot; .. version)
+whatis(&quot;Keywords: cli, backup, files&quot;)
+whatis(&quot;URL: https://restic.net, https://restic.readthedocs.io/en/latest/ (documentation), https://github.com/restic/restic/releases (change log), https://github.com/restic/restic (source code)&quot;)
+whatis([[
+Description: restic is a backup program that is fast, efficient and secure. It supports the three major operating systems (Linux, macOS, Windows) and a few smaller ones (FreeBSD, OpenBSD).
+Examples: `restic --help` and `restic version`.
+]])
+
+local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
+local home = pathJoin(root, name .. &quot;-&quot; .. version)
+
+prepend_path(&quot;PATH&quot;, home)
+prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;man&quot;))
+</code></pre>
+
+</details>
+  </dd>
+</dl>
 <h3 id="module_cbi_ripgrep" class="module-name">ripgrep</h3>
 <dl>
   <dd class="module-details">
@@ -3705,7 +3775,7 @@ depends_on(&quot;java-tweaks&quot;)
 <span class="module-description">SQLite is a relational database management system (RDBMS) contained in a C library. In contrast to many other database management systems, SQLite is not a client–server database engine. Rather, it is embedded into the end program.</span><br>
 Example: <span class="module-example"><code>sqlite3 --version</code>.</span><br>
 URL: <span class="module-url"><a href="https://sqlite.org/">https://sqlite.org/</a>, <a href="https://sqlite.org/docs.html">https://sqlite.org/docs.html</a> (docs), <a href="https://github.com/sqlite/sqlite/tags">https://github.com/sqlite/sqlite/tags</a> (changelog), <a href="https://github.com/sqlite/sqlite">https://github.com/sqlite/sqlite</a> (source code)</span><br>
-Versions: <span class="module-version">3.32.3, 3.40.0, <em>3.41.2</em></span><br>
+Versions: <span class="module-version">3.32.3, 3.40.0, 3.41.2, <em>3.42.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -3742,7 +3812,7 @@ prepend_path(&quot;PKG_CONFIG_PATH&quot;, pathJoin(home, &quot;lib&quot;, &quot;
 Example: <span class="module-example"><code>fastq-dump --help</code>.</span><br>
 URL: <span class="module-url"><a href="https://github.com/ncbi/sra-tools/wiki">https://github.com/ncbi/sra-tools/wiki</a> (documentation), <a href="https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc">https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc</a> (documentation), <a href="https://github.com/ncbi/sra-tools/blob/master/CHANGES.md">https://github.com/ncbi/sra-tools/blob/master/CHANGES.md</a> (changelog), <a href="https://github.com/ncbi/sra-tools">https://github.com/ncbi/sra-tools</a> (source code)</span><br>
 Warning: <span class="module-warning">To work around a bug where <code>fasterq-dump</code> crashes the local machine, it has been tweaked such that it uses <code>$TMPDIR</code> rather than <code>$PWD</code> as the default temporary folder and it will only use two threads instead of six by default.</span><br>
-Versions: <span class="module-version">2.10.8, 2.10.9, 2.11.0, 2.11.1, 2.11.2, 2.11.3, 3.0.0, 3.0.1, <em>3.0.2</em></span><br>
+Versions: <span class="module-version">2.10.8, 2.10.9, 2.11.0, 2.11.1, 2.11.2, 2.11.3, 3.0.0, 3.0.1, 3.0.2, <em>3.0.5</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -4737,7 +4807,7 @@ prepend_path(&quot;PATH&quot;, home)
 
 <ul class="nav nav-pills">
 <li class="active"><a data-toggle="pill" href="#button_repository_built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(3)</a></li>
-<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(97)</a></li>
+<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(99)</a></li>
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
