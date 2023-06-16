@@ -3049,7 +3049,7 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 <span class="module-description">The R programming language.</span><br>
 Example: <span class="module-example"><code>R</code>, <code>R --version</code>, and <code>Rscript --version</code>.</span><br>
 URL: <span class="module-url"><a href="https://www.r-project.org/">https://www.r-project.org/</a>, <a href="https://cran.r-project.org/doc/manuals/r-release/NEWS.html">https://cran.r-project.org/doc/manuals/r-release/NEWS.html</a> (changelog)</span><br>
-Versions: <span class="module-version">2.15.0, 3.0.0, 3.1.0, 3.2.0, 3.3.0, 3.4.0, 3.5.0, 3.6.0, 4.0.0, 4.1.0-gcc8, 4.1.1-gcc8, 4.1.2-gcc8, 4.1.3-gcc8, 4.2.0-gcc10, 4.2.1-gcc10, 4.2.2-gcc10, 4.2.3-gcc10, 4.3.0-gcc10, <em>4.3.1-gcc10</em></span><br>
+Versions: <span class="module-version">2.15.0, 3.0.0, 3.1.0, 3.2.0, 3.3.0, 3.4.0, 3.5.0, 3.6.0, 4.0.0, 4.1.0-gcc8, 4.1.3-gcc8, 4.2.0-gcc10, 4.2.1-gcc10, 4.2.2-gcc10, 4.2.3-gcc10, 4.3.0-gcc10, <em>4.3.1-gcc10</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -3057,7 +3057,7 @@ R: The R Programming Language
 ]])
 
 local name = myModuleName()
-local version = &quot;4.2.0-gcc10&quot;
+local version = &quot;4.2.1-gcc10&quot;
 version = string.gsub(version, &quot;^[.]&quot;, &quot;&quot;) -- for hidden modules
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: Programming, Statistics&quot;)
