@@ -1,8 +1,8 @@
 > install.packages("Rmpi", configure.args="--with-Rmpi-include=$MPI_INCLUDE --with-Rmpi-libpath=$MPI_LIB --with-Rmpi-type=OPENMPI")
 Installing package into '{{ site.user.home }}R/x86_64-pc-linux-gnu-library/{{ r_libs_user }}'
 (as 'lib' is unspecified)
-trying URL 'https://cloud.r-project.org/src/contrib/Rmpi_0.6-9.2.tar.gz'
-Content type 'application/x-gzip' length 106030 bytes (103 KB)
+trying URL 'https://cloud.r-project.org/src/contrib/Rmpi_0.7-1.tar.gz'
+Content type 'application/x-gzip' length 106286 bytes (103 KB)
 ==================================================
 downloaded 103 KB
 
@@ -12,6 +12,7 @@ downloaded 103 KB
 configure: creating ./config.status
 config.status: creating src/Makevars
 ** libs
+using C compiler: ‘gcc (GCC) 10.2.1 20210130 (Red Hat 10.2.1-11)’
 gcc -I"{{ site.path.cbi_software }}/{{ r_basename }}/lib64/R/include" -DNDEBUG -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPA
 CKAGE_URL=\"\" -I/usr/include/openmpi-x86_64  -DMPI2 -DOPENMPI  -I/usr/local/include   -fpic  -g -O2  -c Rmpi.c -o Rmpi.o
 gcc -I"{{ site.path.cbi_software }}/{{ r_basename }}/lib64/R/include" -DNDEBUG -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPA

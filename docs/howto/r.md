@@ -1,8 +1,8 @@
 # Work with R
 
-{% assign r_basename = "R-4.2.0-gcc10" %}
+{% assign r_basename = "R-4.3.1-gcc10" %}
 
-{% assign r_libs_user = "4.2-CBI-gcc10" %}
+{% assign r_libs_user = "4.3-CBI-gcc10" %}
 
 R is available on {{ site.cluster.name }} via a [contributed environment module]({{ '/software/software-repositories.html' | relative_url }}).
 
@@ -22,8 +22,8 @@ which provides access to a modern version of R:
 ```r
 [alice@{{ site.devel.name }} ~]$ R 
 
-R version 4.2.0 (2022-04-22) -- "Vigorous Calisthenics"
-Copyright (C) 2022 The R Foundation for Statistical Computing
+R version 4.3.1 (2023-06-16) -- "Beagle Scouts"
+Copyright (C) 2023 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -93,7 +93,7 @@ R will search the above folders in order for R package 'datasets'.
 When you start you fresh, the only R packages available to you are the ones installed in folder (3) - the system-wide library.  The 'datasets' package comes with the R installation, so with a fresh setup, it will be loaded from the third location.
 As we will see below, when you install your own packages, they will all be installed into folder (1) - your personal library.  The first time your run R, the personal library folder does not exists, so R will ask you whether or not you want to create that folder.  If asked, you should always accept (answer 'Yes').  If you had already created this folder, R will install into this folder without asking.
 
-Finally, R undergoes a _main_ update once a year (in April).  For example, R 4.2.0 was release in April 2022.  The next main release will be R 4.3.0 in April 2023.  Whenever the `y` component in R `x.y.z` version is increased, you will start out with an empty personal package folder specific for R `x.y` (regardless of `z`).  This means that you will have to re-install all R packages you had installed during the year before the new main release came out.  Yes, this can be tedious and can take quite some time but it will improve stability and yet allow the R developers to keep improving R.  Of course, you can still keep using an older version of R and all the packages you have installed for that version - they will not be removed.
+Finally, R undergoes a _main_ update once a year (in April).  For example, R 4.3.0 was release in April 2023.  The next main release will be R 4.4.0 in April 2024.  Whenever the `y` component in R `x.y.z` version is increased, you will start out with an empty personal package folder specific for R `x.y` (regardless of `z`).  This means that you will have to re-install all R packages you had installed during the year before the new main release came out.  Yes, this can be tedious and can take quite some time but it will improve stability and yet allow the R developers to keep improving R.  Of course, you can still keep using an older version of R and all the packages you have installed for that version - they will not be removed.
 
 
 ### Installing an R package from CRAN
@@ -130,15 +130,16 @@ R wants to make sure you are aware what is done, so it will, conservatively, als
 Would you like to create a personal library
 '~/R/x86_64-pc-linux-gnu-library/{{ r_libs_user }}'
 to install packages into? (yes/No/cancel) yes
-trying URL 'https://cloud.r-project.org/src/contrib/zoo_1.8-10.tar.gz'
-Content type 'application/x-gzip' length 808943 bytes (789 KB)
+trying URL 'https://cloud.r-project.org/src/contrib/zoo_1.8-12.tar.gz'
+Content type 'application/x-gzip' length 782344 bytes (764 KB)
 ==================================================
-downloaded 789 KB
+downloaded 764 KB
 
-* installing *source* package 'zoo' ...
-** package 'zoo' successfully unpacked and MD5 sums checked
+* installing *source* package ‘zoo’ ...
+** package ‘zoo’ successfully unpacked and MD5 sums checked
 ** using staged installation
 ** libs
+using C compiler: ‘gcc (GCC) 10.2.1 20210130 (Red Hat 10.2.1-11)’
 gcc -I"{{ site.path.cbi_software }}/{{ r_basename }}/lib/R/include" -DNDEBUG -I../inst/include  -I/usr/local/include   -fpic  -g -O2  -c coredata.c -o coredata.o
 gcc -I"{{ site.path.cbi_software }}/{{ r_basename }}/lib/R/include" -DNDEBUG -I../inst/include  -I/usr/local/include   -fpic  -g -O2  -c init.c -o init.o
 gcc -I"{{ site.path.cbi_software }}/{{ r_basename }}/lib/R/include" -DNDEBUG -I../inst/include  -I/usr/local/include   -fpic  -g -O2  -c lag.c -o lag.o
@@ -204,10 +205,10 @@ If you already have **[BiocManager]** installed, you can skip this section.  Whe
 > install.packages("BiocManager")
 Installing package into '{{ site.user.home }}R/x86_64-pc-linux-gnu-library/{{ r_libs_user }}'
 (as 'lib' is unspecified)
-trying URL 'https://cloud.r-project.org/src/contrib/BiocManager_1.30.17.tar.gz'
-Content type 'application/x-gzip' length 287948 bytes (281 KB)
+trying URL 'https://cloud.r-project.org/src/contrib/BiocManager_1.30.21.tar.gz'
+Content type 'application/x-gzip' length 582625 bytes (568 KB)
 ==================================================
-downloaded 281 KB
+downloaded 568 KB
 
 * installing *source* package 'BiocManager' ...
 ** package 'BiocManager' successfully unpacked and MD5 sums checked
@@ -239,16 +240,17 @@ With **BiocManager** installed, we can now install any Bioconductor package.  Fo
 <!-- code-block label="install-limma" -->
 ```r
 > BiocManager::install("limma")
-Bioconductor version 3.15 (BiocManager 1.30.17), R 4.2.0 (2022-04-22)
+Bioconductor version 3.17 (BiocManager 1.30.21), R 4.3.1 (2023-06-16)
 Installing package(s) 'limma'
-trying URL 'https://bioconductor.org/packages/3.15/bioc/src/contrib/limma_3.52.0.tar.gz'
-Content type 'application/x-gzip' length 1513449 bytes (1.4 MB)
+trying URL 'https://bioconductor.org/packages/3.17/bioc/src/contrib/limma_3.56.2.tar.gz'
+Content type 'application/x-gzip' length 1515291 bytes (1.4 MB)
 ==================================================
 downloaded 1.4 MB
 
-* installing *source* package 'limma' ...
+* installing *source* package ‘limma’ ...
 ** using staged installation
 ** libs
+using C compiler: ‘gcc (GCC) 10.2.1 20210130 (Red Hat 10.2.1-11)’
 gcc -I"{{ site.path.cbi_software }}/{{ r_basename }}/lib/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c init.c -o init.o
 gcc -I"{{ site.path.cbi_software }}/{{ r_basename }}/lib/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c normexp.c -o normexp.o
 gcc -I"{{ site.path.cbi_software }}/{{ r_basename }}/lib/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c weighted_lowess.c -o weighted_lowess.o
@@ -309,7 +311,7 @@ Several R packages that rely on the Message Passing Interface (MPI) do not insta
 [alice@{{ site.devel.name }} ~]$ module list
 
 Currently Loaded Modules:
-  1) CBI   2) scl-devtoolset/10   3) r/4.2.0   4) mpi/openmpi3-x86_64
+  1) CBI   2) scl-devtoolset/10   3) r/4.3.1   4) mpi/openmpi3-x86_64
 
  
 
@@ -327,19 +329,28 @@ The **[Rmpi]** package does not install out-of-the-box like other R packages.  T
 <!-- code-block label="install-Rmpi" -->
 ```r
 > install.packages("Rmpi", configure.args="--with-Rmpi-include=$MPI_INCLUDE --with-Rmpi-libpath=$MPI_LIB --with-Rmpi-type=OPENMPI")
-Installing package into '{{ site.user.home }}/R/x86_64-pc-linux-gnu-library/{{ r_libs_user }}'
+Installing package into '{{ site.user.home }}R/x86_64-pc-linux-gnu-library/{{ r_libs_user }}'
 (as 'lib' is unspecified)
+trying URL 'https://cloud.r-project.org/src/contrib/Rmpi_0.7-1.tar.gz'
+Content type 'application/x-gzip' length 106286 bytes (103 KB)
+==================================================
+downloaded 103 KB
+
 * installing *source* package 'Rmpi' ...
 ** package 'Rmpi' successfully unpacked and MD5 sums checked
 ** using staged installation
 configure: creating ./config.status
 config.status: creating src/Makevars
 ** libs
-gcc -I"{{ site.path.cbi_software }}/{{ r_basename }}/lib64/R/include" -DNDEBUG -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -I/usr/include/openmpi3-x86_64  -DMPI2 -DOPENMPI  -I/usr/local/include   -fpic  -g -O2  -c Rmpi.c -o Rmpi.o
-gcc -I"{{ site.path.cbi_software }}/{{ r_basename }}/lib64/R/include" -DNDEBUG -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -I/usr/include/openmpi3-x86_64  -DMPI2 -DOPENMPI  -I/usr/local/include   -fpic  -g -O2  -c conversion.c -o conversion.o
-gcc -I"{{ site.path.cbi_software }}/{{ r_basename }}/lib64/R/include" -DNDEBUG -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -I/usr/include/openmpi3-x86_64  -DMPI2 -DOPENMPI  -I/usr/local/include   -fpic  -g -O2  -c internal.c -o internal.o
-gcc -shared -L{{ site.path.cbi_software }}/{{ r_basename }}/lib64/R/lib -L/usr/local/lib64 -o Rmpi.so Rmpi.o conversion.o internal.o -L/usr/lib64/openmpi3/lib -lmpi -L{{ site.path.cbi_software }}/{{ r_basename }}/lib64/R/lib -lR
-installing to {{ site.user.home }}/R/x86_64-pc-linux-gnu-library/{{ r_libs_user }}/00LOCK-Rmpi/00new/Rmpi/libs
+using C compiler: ‘gcc (GCC) 10.2.1 20210130 (Red Hat 10.2.1-11)’
+gcc -I"{{ site.path.cbi_software }}/{{ r_basename }}/lib64/R/include" -DNDEBUG -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPA
+CKAGE_URL=\"\" -I/usr/include/openmpi-x86_64  -DMPI2 -DOPENMPI  -I/usr/local/include   -fpic  -g -O2  -c Rmpi.c -o Rmpi.o
+gcc -I"{{ site.path.cbi_software }}/{{ r_basename }}/lib64/R/include" -DNDEBUG -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPA
+CKAGE_URL=\"\" -I/usr/include/openmpi-x86_64  -DMPI2 -DOPENMPI  -I/usr/local/include   -fpic  -g -O2  -c conversion.c -o conversion.o
+gcc -I"{{ site.path.cbi_software }}/{{ r_basename }}/lib64/R/include" -DNDEBUG -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPA
+CKAGE_URL=\"\" -I/usr/include/openmpi-x86_64  -DMPI2 -DOPENMPI  -I/usr/local/include   -fpic  -g -O2  -c internal.c -o internal.o
+gcc -shared -L{{ site.path.cbi_software }}/{{ r_basename }}/lib64/R/lib -L/usr/local/lib64 -o Rmpi.so Rmpi.o conversion.o internal.o -L/usr/lib64/openmpi/lib -lmpi -L{{ site.path.cbi_software }}/{{ r_basename }}/lib64/R/lib -lR
+installing to {{ site.user.home }}R/x86_64-pc-linux-gnu-library/{{ r_libs_user }}/00LOCK-Rmpi/00new/Rmpi/libs
 ** R
 ** demo
 ** inst
@@ -348,22 +359,19 @@ installing to {{ site.user.home }}/R/x86_64-pc-linux-gnu-library/{{ r_libs_user 
 *** installing help indices
 ** building package indices
 ** testing if installed package can be loaded from temporary location
-[1684426076.901088] [c4-dev3:23596:0]            sys.c:618  UCX  ERROR shmget(size=2097152 flags=0xfb0) for mm_recv_desc failed: Operation not permitted, please check shared memory limits by 'ipcs -l'
 ** checking absolute paths in shared objects and dynamic libraries
 ** testing if installed package can be loaded from final location
-[1684426078.689465] [c4-dev3:23647:0]            sys.c:618  UCX  ERROR shmget(size=2097152 flags=0xfb0) for mm_recv_desc failed: Operation not permitted, please check shared memory limits by 'ipcs -l'
 ** testing if installed package keeps a record of temporary installation path
 * DONE (Rmpi)
 
 The downloaded source packages are in
-        '/scratch/{{ site.user.name }}/RtmpgUxkQk/downloaded_packages'
+        '/scratch/alice/RtmpAwBn4a/downloaded_packages'
 >
 ```
 
 
 Note, you need to load the identical module and version each time you want to use the **Rmpi** package.  After installing **Rmpi**, verify that it works:
 
-<!-- code-block label="test-Rmpi" -->
 ```r
 [alice@{{ site.devel.name }} ~]$ module load CBI r
 [alice@{{ site.devel.name }} ~]$ module load mpi/openmpi3-x86_64
@@ -388,7 +396,6 @@ slave1 (rank 1, comm 1) of size 2 is running on: {{ site.devel.name}}
 
 Similarly to the **Rmpi** package above, MPI-dependent R packages such as **[pbdMPI]** and **[bigGP]** require special install instructions.  For example, after having loaded the `mpi` module, we can install **pbdMPI** in R as:
 
-<!-- code-block label="install-pbdMPI" -->
 ```r
 > install.packages("pbdMPI", configure.args="--with-mpi-include=$MPI_INCLUDE --with-mpi-libpath=$MPI_LIB --with-mpi-type=OPENMPI")
 Installing package into '{{ site.user.home }}/R/x86_64-pc-linux-gnu-library/{{ r_libs_user }}'
@@ -481,7 +488,7 @@ installing via 'install.libs.R' to {{ site.user.home }}/R/x86_64-pc-linux-gnu-li
 * DONE (pbdMPI)
 
 The downloaded source packages are in
-        '/scratch/alice/RtmpKNz5KF/downloaded_packages'
+        '/scratch/{{ site.user.name }}/RtmpKNz5KF/downloaded_packages'
 
 ```
 
@@ -506,7 +513,7 @@ ERROR: configuration failed for package 'hdf5r'
 [alice@{{ site.devel.name }} ~]$ module list
 
 Currently Loaded Modules:
-  1) r/4.2.0   2) CBI   3) scl-devtoolset/10   4) hdf5/1.12.1
+  1) CBI   2) scl-devtoolset/10   3) r/4.3.1   4) hdf5/1.12.2
 
  
 
