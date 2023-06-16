@@ -581,12 +581,11 @@ See https://r-spatial.org/r/2022/04/12/evolution.html and https://github.com/r-s
 rgdal: version: 1.6-6, (SVN revision 1201)
 Geospatial Data Abstraction Library extensions to R successfully loaded
 Loaded GDAL runtime: GDAL 3.6.4, released 2023/04/17
-Path to GDAL shared files: /software/c4/cbi/software/gdal-3.6.4/share/gdal
+Path to GDAL shared files: {{ site.path.cbi_software }}/gdal-3.6.4/share/gdal
  GDAL does not use iconv for recoding strings.
 GDAL binary built with GEOS: TRUE 
 Loaded PROJ runtime: Rel. 8.2.1, January 1st, 2022, [PJ_VERSION: 821]
-Path to PROJ shared files: /c4/home/bob/.local/share/proj:/software/c4/cbi/software/proj-8.2.1/share/proj:/software/c4/cbi/software/proj
--8.2.1/share/proj
+Path to PROJ shared files: {{ site.user.home }}/.local/share/proj:{{ site.path.cbi_software }}/proj-8.2.1/share/proj:{{ site.path.cbi_software }}/proj-8.2.1/share/proj
 PROJ CDN enabled: FALSE
 Linking to sp version:1.6-0
 To mute warnings of possible GDAL/OSR exportToProj4() degradation,
@@ -658,10 +657,47 @@ the CBI software stack.  Load it before starting R:
 $ module load CBI jags
 ```
 
-and you'll find that `install.packages("rjags")` will complete successfully.
+and you'll find that `install.packages("rjags")` will complete
+successfully.
 
-Importantly, you need to load `jags` CBI module any time you run R
+Importantly, you need to load the `jags` CBI module any time you run R
 where the **rjags** R package needs to be loaded.
+
+
+### Packages relying on GSL
+
+The GNU Scientific Library (GSL) is a numerical library for C and C++ that provides a wide range of mathematical routines such as random number generators, special functions and least-squares fitting. Several R packages rely on it.
+
+#### Package **gsl**
+
+If we try to install the **[gsl]** package, we'll get the following
+compilation:
+
+```r
+> install.packages("gsl")
+...
+In file included from ellint.c:1:
+/usr/include/gsl/gsl_sf_ellint.h:84:5: note: declared here
+   84 | int gsl_sf_ellint_D_e(double phi, double k, double n, gsl_mode_t mode, gsl_sf_result * result);
+      |     ^~~~~~~~~~~~~~~~~
+make: *** [{{ site.path.cbi_software }}/{{ r_basename }}/lib64/R/etc/Makeconf:191: ellint.o] Error 1
+ERROR: compilation failed for package ‘gsl’
+...
+```
+
+This is because the GSL version that comes with the operating system
+is too old.  A more modern version is available via the CBI software
+stack.  Load it before starting R:
+
+```sh
+$ module load CBI gsl
+```
+
+and you'll find that `install.packages("gsl")` will complete
+successfully.
+
+Importantly, you need to load the `gsl` CBI module any time you run R
+where the **gsl** R package needs to be loaded.
 
 
 
@@ -681,6 +717,7 @@ install.packages("udunits2", configure.args="--with-udunits2-include=/usr/includ
 [bigGP]: https://cran.r-project.org/package=bigGP
 [BiocManager]: https://cran.r-project.org/package=BiocManager
 [parallelly]: https://cran.r-project.org/package=parallelly
+[gsl]: https://cran.r-project.org/package=gsl
 [hdf5r]: https://cran.r-project.org/package=hdf5r
 [igraph]: https://cran.r-project.org/package=igraph
 [lwgeom]: https://cran.r-project.org/package=lwgeom
