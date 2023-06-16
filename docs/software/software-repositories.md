@@ -58,7 +58,7 @@ Below are 3 software repositories, each providing a set of software tools.
 
 <ul class="nav nav-pills">
 <li class="active"><a data-toggle="pill" href="#button_repository_built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(3)</a></li>
-<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(97)</a></li>
+<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(99)</a></li>
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
@@ -154,7 +154,7 @@ prepend_path(&quot;CPATH&quot;, pathJoin(home, &quot;include&quot;))
 
 <div id="button_repository_cbi" class="tab-pane fade">
 
-<h2 id="repository_cbi">Module Software Repository: CBI (97)</h2>
+<h2 id="repository_cbi">Module Software Repository: CBI (99)</h2>
 
 Maintained by: Henrik Bengtsson, <a href="https://cbi.ucsf.edu">Computational Biology and Informatics</a><br>
 Enable repository: <code>module load CBI</code><br>
@@ -668,7 +668,7 @@ pushenv(&quot;BEDTOOLS2_HOME&quot;, home)
 <span class="module-description">BLAST finds regions of similarity between biological sequences. The program compares nucleotide or protein sequences to sequence databases and calculates the statistical significance.</span><br>
 Example: <span class="module-example"><code>blastx -version</code></span><br>
 URL: <span class="module-url"><a href="https://blast.ncbi.nlm.nih.gov/Blast.cgi">https://blast.ncbi.nlm.nih.gov/Blast.cgi</a>, <a href="https://www.ncbi.nlm.nih.gov/books/NBK131777/">https://www.ncbi.nlm.nih.gov/books/NBK131777/</a> (changelog)</span><br>
-Versions: <span class="module-version">2.10.1, 2.11.0, 2.12.0, <em>2.13.0</em></span><br>
+Versions: <span class="module-version">2.10.1, 2.11.0, 2.12.0, 2.13.0, <em>2.14.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -991,7 +991,11 @@ local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
 
 prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
-set_alias(&quot;ctopx&quot;, &quot;ctop 2&gt; &gt;(grep -vF 'Invalid user id')&quot;)
+
+local bash = 'ctop 2&gt; &gt;(grep -vF &quot;Invalid user id&quot;)'
+-- FIXME: Redirect to stderr might not work this way in csh /HB 2023-06-11
+local csh  = 'ctop 2&gt; &gt;(grep -vF &quot;Invalid user id&quot;)'
+set_shell_function(&quot;ctopx&quot;, bash, csh)
 </code></pre>
 
 </details>
@@ -1004,7 +1008,7 @@ set_alias(&quot;ctopx&quot;, &quot;ctop 2&gt; &gt;(grep -vF 'Invalid user id')&q
 <span class="module-description">CMake is cross-platform free and open-source software for managing the build process of software using a compiler-independent method. It supports directory hierarchies and applications that depend on multiple libraries.</span><br>
 Example: <span class="module-example"><code>cmake --version</code>.</span><br>
 URL: <span class="module-url"><a href="https://cmake.org/">https://cmake.org/</a>, <a href="https://cmake.org/cmake/help/latest/release/index.html">https://cmake.org/cmake/help/latest/release/index.html</a> (changelog) <a href="https://github.com/Kitware/CMake/releases">https://github.com/Kitware/CMake/releases</a> (download)</span><br>
-Versions: <span class="module-version">3.18.2, 3.19.2, 3.22.3, 3.23.0, 3.23.1, 3.24.2, 3.25.1, <em>3.26.2</em></span><br>
+Versions: <span class="module-version">3.18.2, 3.19.2, 3.22.3, 3.23.0, 3.23.1, 3.24.2, 3.25.1, 3.26.2, <em>3.26.4</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -1369,7 +1373,7 @@ Example: <span class="module-example"><code>fzf --version</code> and <code>emacs
 Note: <span class="module-note">To install tab completions and key bindinds to your shell, call <code>$FZF_HOME/install</code>. To uninstall, use <code>$FZF_HOME/uninstall</code>.</span><br>
 URL: <span class="module-url"><a href="https://github.com/junegunn/fzf">https://github.com/junegunn/fzf</a>, <a href="https://github.com/junegunn/fzf/wiki">https://github.com/junegunn/fzf/wiki</a> (documentation), <a href="https://github.com/junegunn/fzf/blob/master/CHANGELOG.md">https://github.com/junegunn/fzf/blob/master/CHANGELOG.md</a> (changelog), <a href="https://github.com/junegunn/fzf/releases">https://github.com/junegunn/fzf/releases</a> (download)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version">0.33.0, 0.35.0, 0.36.0, <em>0.38.0</em></span><br>
+Versions: <span class="module-version">0.33.0, 0.35.0, 0.36.0, 0.38.0, <em>0.41.1</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -1658,7 +1662,7 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 Example: <span class="module-example"><code>glow README.md</code>, <code>glow --pager README.md</code>.</span><br>
 URL: <span class="module-url"><a href="https://github.com/charmbracelet/glow">https://github.com/charmbracelet/glow</a>, <a href="https://github.com/charmbracelet/glow/releases">https://github.com/charmbracelet/glow/releases</a> (changelog)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version">1.4.1, <em>1.5.0</em></span><br>
+Versions: <span class="module-version">1.4.1, 1.5.0, <em>1.5.1</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -1681,6 +1685,42 @@ local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
 
 prepend_path(&quot;PATH&quot;, home)
+</code></pre>
+
+</details>
+  </dd>
+</dl>
+<h3 id="module_cbi_gping" class="module-name">gping</h3>
+<dl>
+  <dd class="module-details">
+<strong class="module-help">gping: Ping, but with a Graph</strong><br>
+<span class="module-description">gping comes with the following super-powers: (i) graph the ping time for multiple hosts, (ii) graph the execution time for commands via the <code>--cmd</code> flag, and (iii) custom colours.</span><br>
+Example: <span class="module-example"><code>gping --version</code>, <code>gping --help</code>, <code>gping 8.8.8.8 9.9.9.9</code>, and <code>gping --cmd &quot;curl -o /dev/null https://www.github.com&quot; &quot;wget -O /dev/null https://github.com&quot;</code>.</span><br>
+URL: <span class="module-url"><a href="https://github.com/orf/gping">https://github.com/orf/gping</a>, <a href="https://github.com/orf/gping/releases">https://github.com/orf/gping/releases</a> (changelog), <a href="https://github.com/orf/gping">https://github.com/orf/gping</a> (source code)</span><br>
+Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
+Versions: <span class="module-version"><em>1.12.0</em></span><br>
+<details>
+<summary>Module code: <a>view</a></summary>
+<pre><code class="language-lua">help([[
+gping: Ping, but with a Graph
+]])
+
+local name = myModuleName()
+local version = myModuleVersion()
+whatis(&quot;Version: &quot; .. version)
+whatis(&quot;Keywords: terminal, cli, utility&quot;)
+whatis(&quot;URL: https://github.com/orf/gping, https://github.com/orf/gping/releases (changelog), https://github.com/orf/gping (source code)&quot;)
+whatis([[
+Description: gping comes with the following super-powers: (i) graph the ping time for multiple hosts, (ii) graph the execution time for commands via the `--cmd` flag, and (iii) custom colours.
+Examples: `gping --version`, `gping --help`, `gping 8.8.8.8 9.9.9.9`, and `gping --cmd &quot;curl -o /dev/null https://www.github.com&quot; &quot;wget -O /dev/null https://github.com&quot;`.
+Warning: Only the most recent version of this software will be kept.
+]])
+
+local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
+local home = pathJoin(root, name .. &quot;-&quot; .. version)
+
+prepend_path(&quot;PATH&quot;,  home)
+
 </code></pre>
 
 </details>
@@ -1766,7 +1806,7 @@ prepend_path(&quot;CPATH&quot;,  pathJoin(home, &quot;include&quot;))
   <dd class="module-details">
 <strong class="module-help">HISAT2: Graph-based Alignment of Next Generation Sequencing Reads to a Population of Genomes</strong><br>
 <span class="module-description">HISAT2 is a fast and sensitive alignment program for mapping next-generation sequencing reads (both DNA and RNA) to a population of human genomes (as well as to a single reference genome). Based on an extension of BWT for graphs [Sirén et al. 2014], we designed and implemented a graph FM index (GFM), an original approach and its first implementation to the best of our knowledge. In addition to using one global GFM index that represents a population of human genomes, HISAT2 uses a large set of small GFM indexes that collectively cover the whole genome (each index representing a genomic region of 56 Kbp, with 55,000 indexes needed to cover the human population). These small indexes (called local indexes), combined with several alignment strategies, enable rapid and accurate alignment of sequencing reads. This new indexing scheme is called a Hierarchical Graph FM index (HGFM).</span><br>
-Example: <span class="module-example"><code>hisat2 --version</code>.</span><br>
+Example: <span class="module-example"><code>hisat2 --version</code> and <code>hisat2 --help</code>.</span><br>
 URL: <span class="module-url"><a href="https://daehwankimlab.github.io/hisat2/">https://daehwankimlab.github.io/hisat2/</a>, <a href="https://github.com/DaehwanKimLab/hisat2/releases">https://github.com/DaehwanKimLab/hisat2/releases</a> (changelog), <a href="https://github.com/DaehwanKimLab/hisat2/">https://github.com/DaehwanKimLab/hisat2/</a> (source code)</span><br>
 Versions: <span class="module-version"><em>2.2.0</em></span><br>
 <details>
@@ -1782,7 +1822,7 @@ whatis(&quot;Keywords: Programming, Statistics&quot;)
 whatis(&quot;URL: https://daehwankimlab.github.io/hisat2/, https://github.com/DaehwanKimLab/hisat2/releases (changelog), https://github.com/DaehwanKimLab/hisat2/ (source code)&quot;)
 whatis([[
 Description: HISAT2 is a fast and sensitive alignment program for mapping next-generation sequencing reads (both DNA and RNA) to a population of human genomes (as well as to a single reference genome). Based on an extension of BWT for graphs [Sirén et al. 2014], we designed and implemented a graph FM index (GFM), an original approach and its first implementation to the best of our knowledge. In addition to using one global GFM index that represents a population of human genomes, HISAT2 uses a large set of small GFM indexes that collectively cover the whole genome (each index representing a genomic region of 56 Kbp, with 55,000 indexes needed to cover the human population). These small indexes (called local indexes), combined with several alignment strategies, enable rapid and accurate alignment of sequencing reads. This new indexing scheme is called a Hierarchical Graph FM index (HGFM).
-Examples: `hisat2 --version`.
+Examples: `hisat2 --version` and `hisat2 --help`.
 ]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
@@ -1916,7 +1956,7 @@ prepend_path(&quot;PATH&quot;, home)
 Example: <span class="module-example"><code>igv --help</code>, <code>igv --version</code>, and <code>igv</code>.</span><br>
 URL: <span class="module-url"><a href="https://software.broadinstitute.org/software/igv/">https://software.broadinstitute.org/software/igv/</a>, <a href="https://github.com/igvteam/igv/tags">https://github.com/igvteam/igv/tags</a> (changelog), <a href="https://github.com/igvteam/igv/">https://github.com/igvteam/igv/</a> (source code)</span><br>
 Warning: <span class="module-warning">IGV (&gt;= 2.5.0) requires Java 11.</span><br>
-Versions: <span class="module-version">2.8.6, 2.8.13, 2.9.1, 2.11.0, 2.11.3, 2.11.9, 2.12.3, 2.13.0, 2.13.1, 2.13.2, 2.14.1, 2.15.1, 2.15.2, 2.15.4, <em>2.16.0</em></span><br>
+Versions: <span class="module-version">2.8.6, 2.8.13, 2.9.1, 2.11.0, 2.11.3, 2.11.9, 2.12.3, 2.13.0, 2.13.1, 2.13.2, 2.14.1, 2.15.1, 2.15.2, 2.15.4, 2.16.0, <em>2.16.1</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -1941,7 +1981,9 @@ local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
 prepend_path(&quot;PATH&quot;, home)
 
-set_alias(&quot;igv&quot;, home .. &quot;/igv.sh&quot;)
+local bash = home .. '/igv.sh &quot;$@&quot;'
+local csh  = home .. '/igv.sh $*'
+set_shell_function(&quot;igv&quot;, bash, csh)
 
 -- Tweak Java for the current environment
 depends_on(&quot;java-tweaks&quot;)
@@ -2451,7 +2493,7 @@ set_shell_function(&quot;conda&quot;,&quot; \
 Example: <span class="module-example"><code>conda --version</code>, <code>conda create --name=myenv</code>, <code>conda env list</code>, <code>conda activate myenv</code>, <code>conda info</code>, and <code>conda deactive</code>.</span><br>
 URL: <span class="module-url"><a href="https://docs.conda.io/en/latest/">https://docs.conda.io/en/latest/</a>, <a href="https://docs.conda.io/en/latest/miniconda.html">https://docs.conda.io/en/latest/miniconda.html</a> (documentation), <a href="https://docs.conda.io/en/latest/miniconda.html#latest-miniconda-installer-links">https://docs.conda.io/en/latest/miniconda.html#latest-miniconda-installer-links</a> (releases), <a href="https://github.com/conda/conda/blob/master/CHANGELOG.md">https://github.com/conda/conda/blob/master/CHANGELOG.md</a> (changelog), <a href="https://github.com/conda/conda">https://github.com/conda/conda</a> (source code)</span><br>
 Warning: <span class="module-warning">For now, this module works only in Bash. Also, do <em>not</em> do <code>conda init</code>. If you do this by mistake, please undo by <code>conda init --reverse</code>.</span><br>
-Versions: <span class="module-version">22.11.1-1-py310, <em>4.12.0-py39</em></span><br>
+Versions: <span class="module-version">4.12.0-py39, <em>23.3.1-0-py39</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -2497,32 +2539,13 @@ elseif mode() == &quot;unload&quot; then
   pushenv(&quot;_CE_CONDA&quot;, false)
 end
 -- Don't edit! Created using: 
--- /usr/share/lmod/lmod/libexec/sh_to_modulefile /software/c4/cbi/software/miniconda3-4.12.0-py39/etc/profile.d/conda.sh
-pushenv(&quot;CONDA_EXE&quot;,&quot;/software/c4/cbi/software/miniconda3-4.12.0-py39/bin/conda&quot;)
-pushenv(&quot;CONDA_PYTHON_EXE&quot;,&quot;/software/c4/cbi/software/miniconda3-4.12.0-py39/bin/python&quot;)
+-- /usr/share/lmod/lmod/libexec/sh_to_modulefile /software/c4/cbi/software/miniconda3-23.3.1-0-py39/etc/profile.d/conda.sh
+pushenv(&quot;CONDA_EXE&quot;,&quot;/software/c4/cbi/software/miniconda3-23.3.1-0-py39/bin/conda&quot;)
+pushenv(&quot;CONDA_PYTHON_EXE&quot;,&quot;/software/c4/cbi/software/miniconda3-23.3.1-0-py39/bin/python&quot;)
 pushenv(&quot;CONDA_SHLVL&quot;,&quot;0&quot;)
-prepend_path(&quot;PATH&quot;,&quot;/software/c4/cbi/software/miniconda3-4.12.0-py39/condabin&quot;)
+prepend_path(&quot;PATH&quot;,&quot;/software/c4/cbi/software/miniconda3-23.3.1-0-py39/condabin&quot;)
 pushenv(&quot;_CE_CONDA&quot;,&quot;&quot;)
 pushenv(&quot;_CE_M&quot;,&quot;&quot;)
-set_shell_function(&quot;__add_sys_prefix_to_path&quot;,&quot; \
-    if [ -n \&quot;${_CE_CONDA}\&quot; ] &amp;&amp; [ -n \&quot;${WINDIR+x}\&quot; ]; then\
-        SYSP=$(\\dirname \&quot;${CONDA_EXE}\&quot;);\
-    else\
-        SYSP=$(\\dirname \&quot;${CONDA_EXE}\&quot;);\
-        SYSP=$(\\dirname \&quot;${SYSP}\&quot;);\
-    fi;\
-    if [ -n \&quot;${WINDIR+x}\&quot; ]; then\
-        PATH=\&quot;${SYSP}/bin:${PATH}\&quot;;\
-        PATH=\&quot;${SYSP}/Scripts:${PATH}\&quot;;\
-        PATH=\&quot;${SYSP}/Library/bin:${PATH}\&quot;;\
-        PATH=\&quot;${SYSP}/Library/usr/bin:${PATH}\&quot;;\
-        PATH=\&quot;${SYSP}/Library/mingw-w64/bin:${PATH}\&quot;;\
-        PATH=\&quot;${SYSP}:${PATH}\&quot;;\
-    else\
-        PATH=\&quot;${SYSP}/bin:${PATH}\&quot;;\
-    fi;\
-    \\export PATH\
-&quot;,&quot;&quot;)
 set_shell_function(&quot;__conda_activate&quot;,&quot; \
     if [ -n \&quot;${CONDA_PS1_BACKUP:+x}\&quot; ]; then\
         PS1=\&quot;$CONDA_PS1_BACKUP\&quot;;\
@@ -2534,8 +2557,7 @@ set_shell_function(&quot;__conda_activate&quot;,&quot; \
     __conda_hashr\
 &quot;,&quot;&quot;)
 set_shell_function(&quot;__conda_exe&quot;,&quot; \
-    ( __add_sys_prefix_to_path;\
-    \&quot;$CONDA_EXE\&quot; $_CE_M $_CE_CONDA \&quot;$@\&quot; )\
+    ( \&quot;$CONDA_EXE\&quot; $_CE_M $_CE_CONDA \&quot;$@\&quot; )\
 &quot;,&quot;&quot;)
 set_shell_function(&quot;__conda_hashr&quot;,&quot; \
     if [ -n \&quot;${ZSH_VERSION:+x}\&quot; ]; then\
@@ -2607,7 +2629,7 @@ if (version == &quot;1.0.27783&quot;) then
   if (cluster == &quot;tipcc&quot;) then
     load(&quot;jdk/1.7.0&quot;)
   else
-    depends_on(&quot;openjdk/1.6.0&quot;)
+--    depends_on(&quot;openjdk/1.6.0&quot;)
   end
 end
 
@@ -2615,7 +2637,10 @@ name = &quot;muTect&quot;
 pushenv(&quot;MUTECT_HOME&quot;, home)
 local jarfile = name .. &quot;-&quot; .. version .. &quot;.jar&quot;
 pushenv(&quot;MUTECT_JAR&quot;, pathJoin(home, jarfile))
-set_alias(&quot;mutect&quot;, &quot;java -Xmx2g -jar \&quot;$MUTECT_HOME/&quot; .. jarfile .. &quot;\&quot;&quot;)
+
+local bash = 'java -Xmx2g -jar &quot;$MUTECT_HOME/' .. jarfile .. '&quot; &quot;$@&quot;'
+local csh  = 'java -Xmx2g -jar &quot;$MUTECT_HOME/' .. jarfile .. '&quot; $*'
+set_shell_function(&quot;mutect&quot;, bash, csh)
 
 -- Tweak Java for the current environment
 depends_on(&quot;java-tweaks&quot;)
@@ -2665,7 +2690,7 @@ prepend_path(&quot;PATH&quot;, home)
 Example: <span class="module-example"><code>pandoc --version</code>.</span><br>
 URL: <span class="module-url"><a href="https://pandoc.org/">https://pandoc.org/</a>, <a href="https://github.com/jgm/pandoc/blob/master/changelog.md">https://github.com/jgm/pandoc/blob/master/changelog.md</a> (changelog), <a href="https://github.com/jgm/pandoc">https://github.com/jgm/pandoc</a> (source code)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version">2.19.2, 3.0, 3.0.1, <em>3.1.2</em></span><br>
+Versions: <span class="module-version">2.19.2, 3.0, 3.0.1, 3.1.2, <em>3.1.3</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -2732,9 +2757,9 @@ prepend_path(&quot;PATH&quot;, home)
   <dd class="module-details">
 <strong class="module-help">Picard: Command-line tools for Manipulating High-throughput Sequencing Data and Formats</strong><br>
 <span class="module-description">Picard is a set of command line tools for manipulating high-throughput sequencing (HTS) data and formats such as SAM/BAM/CRAM and VCF.</span><br>
-Example: <span class="module-example"><code>PicardCommandLine -h</code>, which is an alias for <code>java -jar &quot;$PICARD_HOME/picard.jar&quot; -h</code>.</span><br>
+Example: <span class="module-example"><code>PicardCommandLine -h</code>, which is short for <code>java -jar &quot;$PICARD_HOME/picard.jar&quot; -h</code>.</span><br>
 URL: <span class="module-url"><a href="https://broadinstitute.github.io/picard/">https://broadinstitute.github.io/picard/</a>, <a href="https://github.com/broadinstitute/picard/releases">https://github.com/broadinstitute/picard/releases</a> (changelog), <a href="https://github.com/broadinstitute/picard">https://github.com/broadinstitute/picard</a> (source code)</span><br>
-Warning: <span class="module-warning">The old <code>picard</code> alias is deprecated. Use <code>PicardCommandLine</code> instead.</span><br>
+Warning: <span class="module-warning">The old <code>picard</code> alias is deprecated. Use function <code>PicardCommandLine</code> instead.</span><br>
 Versions: <span class="module-version">1.64, 2.23.1, 2.24.0, 2.25.0, 2.26.2, 2.26.5, 2.26.10, 2.26.11, 2.27.1, 2.27.3, 2.27.4, <em>2.27.5</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
@@ -2749,8 +2774,8 @@ whatis(&quot;Keywords: sequencing&quot;)
 whatis(&quot;URL: https://broadinstitute.github.io/picard/, https://github.com/broadinstitute/picard/releases (changelog), https://github.com/broadinstitute/picard (source code)&quot;)
 whatis([[
 Description: Picard is a set of command line tools for manipulating high-throughput sequencing (HTS) data and formats such as SAM/BAM/CRAM and VCF.
-Examples: `PicardCommandLine -h`, which is an alias for `java -jar &quot;$PICARD_HOME/picard.jar&quot; -h`.
-Warning: The old `picard` alias is deprecated. Use `PicardCommandLine` instead.
+Examples: `PicardCommandLine -h`, which is short for `java -jar &quot;$PICARD_HOME/picard.jar&quot; -h`.
+Warning: The old `picard` alias is deprecated. Use function `PicardCommandLine` instead.
 ]])
 
 local version_x = string.gsub(version, &quot;[.].*&quot;, &quot;&quot;)
@@ -2766,9 +2791,12 @@ local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
 pushenv(&quot;PICARD_HOME&quot;, home)
 
--- Aliases
-set_alias(&quot;PicardCommandLine&quot;, &quot;java -jar \&quot;$PICARD_HOME/picard.jar\&quot;&quot;)
--- Deprecated
+-- Functions
+local bash = 'java -jar &quot;$PICARD_HOME/picard.jar&quot; &quot;$@&quot;'
+local csh  = 'java -jar &quot;$PICARD_HOME/picard.jar&quot; $*'
+set_shell_function(&quot;PicardCommandLine&quot;, bash, csh)
+
+-- Aliases (deprecated)
 set_alias(&quot;picard&quot;, &quot;java -jar \&quot;$PICARD_HOME/picard.jar\&quot;&quot;)
 
 -- Tweak Java for the current environment
@@ -3126,8 +3154,8 @@ end
   <dd class="module-details">
 <strong class="module-help">R Site Configuration: Tweaks to R for the Current Compute Environment</strong><br>
 <span class="module-description">Sets R options and environment variables customized for the current compute environment. Notably, it configures R to install packages from local CRAN and Bioconductor mirrors without the need for internet access.</span><br>
-Example: <span class="module-example">In R, <code>install.packages(&quot;ggplot2&quot;)</code>.</span><br>
-Versions: <span class="module-version"><em>0.1</em></span><br>
+Example: <span class="module-example">In R, <code>install.packages(\&quot;ggplot2\&quot;)</code>.</span><br>
+Versions: <span class="module-version">0.1, <em>0.3</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -3138,17 +3166,10 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: R, configuration&quot;)
-whatis(&quot;Description: Sets R options and environment variables customized for the current compute environment. Notably, it configures R to install packages from local CRAN and Bioconductor mirrors without the need for internet access.  Examples: In R, `install.packages(\&quot;ggplot2\&quot;)`.&quot;)
-
-function requireModuleVersion()
-  if (myModuleUsrName() ~= myModuleFullName()) then
-    LmodError(&quot;Module '&quot; .. myModuleName() .. &quot;' must be loaded with the version specified, e.g. 'module load &quot; .. myModuleName() .. &quot;/&quot; .. myModuleVersion() .. &quot;' - not just 'module load &quot; .. myModuleName() .. &quot;'.  See 'module spider &quot; .. myModuleName() .. &quot;' for available versions&quot;)
-  end
-end
-
-if (mode() == &quot;load&quot;) then
-  requireModuleVersion()
-end
+whatis([[
+Description: Sets R options and environment variables customized for the current compute environment. Notably, it configures R to install packages from local CRAN and Bioconductor mirrors without the need for internet access.
+Examples: In R, `install.packages(\&quot;ggplot2\&quot;)`.
+]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
@@ -3156,7 +3177,6 @@ local home = pathJoin(root, name .. &quot;-&quot; .. version)
 -- Set site-wide (sic!) Renviron and Rprofile files
 pushenv(&quot;R_ENVIRON&quot;, pathJoin(home, &quot;Renviron.site&quot;))
 pushenv(&quot;R_PROFILE&quot;, pathJoin(home, &quot;Rprofile.site&quot;))
-
 </code></pre>
 
 </details>
@@ -3228,6 +3248,40 @@ local home = pathJoin(root, name .. &quot;-&quot; .. version)
 
 prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 
+</code></pre>
+
+</details>
+  </dd>
+</dl>
+<h3 id="module_cbi_restic" class="module-name">restic</h3>
+<dl>
+  <dd class="module-details">
+<strong class="module-help">restic: Fast, Secure, Efficient Backup Program</strong><br>
+<span class="module-description">restic is a backup program that is fast, efficient and secure. It supports the three major operating systems (Linux, macOS, Windows) and a few smaller ones (FreeBSD, OpenBSD).</span><br>
+Example: <span class="module-example"><code>restic --help</code> and <code>restic version</code>.</span><br>
+URL: <span class="module-url"><a href="https://restic.net">https://restic.net</a>, <a href="https://restic.readthedocs.io/en/latest/">https://restic.readthedocs.io/en/latest/</a> (documentation), <a href="https://github.com/restic/restic/releases">https://github.com/restic/restic/releases</a> (change log), <a href="https://github.com/restic/restic">https://github.com/restic/restic</a> (source code)</span><br>
+Versions: <span class="module-version"><em>0.15.2</em></span><br>
+<details>
+<summary>Module code: <a>view</a></summary>
+<pre><code class="language-lua">help([[
+restic: Fast, Secure, Efficient Backup Program
+]])
+
+local name = myModuleName()
+local version = myModuleVersion()
+whatis(&quot;Version: &quot; .. version)
+whatis(&quot;Keywords: cli, backup, files&quot;)
+whatis(&quot;URL: https://restic.net, https://restic.readthedocs.io/en/latest/ (documentation), https://github.com/restic/restic/releases (change log), https://github.com/restic/restic (source code)&quot;)
+whatis([[
+Description: restic is a backup program that is fast, efficient and secure. It supports the three major operating systems (Linux, macOS, Windows) and a few smaller ones (FreeBSD, OpenBSD).
+Examples: `restic --help` and `restic version`.
+]])
+
+local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
+local home = pathJoin(root, name .. &quot;-&quot; .. version)
+
+prepend_path(&quot;PATH&quot;, home)
+prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;man&quot;))
 </code></pre>
 
 </details>
@@ -3655,7 +3709,7 @@ prepend_path(&quot;PATH&quot;, home)
   <dd class="module-details">
 <strong class="module-help">SnpEff: Genetic Variant Annotation and Effect Prediction Toolbox</strong><br>
 <span class="module-description">SnpEff is a variant annotation and effect prediction tool. It annotates and predicts the effects of variants on genes (such as amino acid changes).</span><br>
-Example: <span class="module-example"><code>snpEff -help</code> and <code>SnpSift -help</code>, which are aliases for <code>java -jar $SNPEFF_HOME/snpEff/snpEff.jar -help</code> and <code>java -jar $SNPEFF_HOME/snpEff/SnpSift.jar -help</code>.  In SnpEff (&lt; 5.0), there is also <code>ClinEff -help</code>, which is an alias for <code>java -jar $SNPEFF_HOME/ClinEff/ClinEff.jar -help</code>.</span><br>
+Example: <span class="module-example"><code>snpEff -help</code> and <code>SnpSift -help</code>, which are short for <code>java -jar $SNPEFF_HOME/snpEff/snpEff.jar -help</code> and <code>java -jar $SNPEFF_HOME/snpEff/SnpSift.jar -help</code>.  In SnpEff (&lt; 5.0), there is also <code>ClinEff -help</code>, which is short for <code>java -jar $SNPEFF_HOME/ClinEff/ClinEff.jar -help</code>.</span><br>
 URL: <span class="module-url"><a href="https://pcingola.github.io/SnpEff/">https://pcingola.github.io/SnpEff/</a>, <a href="https://github.com/pcingola/SnpEff/tags">https://github.com/pcingola/SnpEff/tags</a> (changelog), <a href="https://github.com/pcingola/SnpEff">https://github.com/pcingola/SnpEff</a> (source code)</span><br>
 Versions: <span class="module-version">4.3t, 5.0c, <em>5.0e</em></span><br>
 <details>
@@ -3671,7 +3725,7 @@ whatis(&quot;Keywords: high-throughput sequencing&quot;)
 whatis(&quot;URL: https://pcingola.github.io/SnpEff/, https://github.com/pcingola/SnpEff/tags (changelog), https://github.com/pcingola/SnpEff (source code)&quot;)
 whatis([[
 Description: SnpEff is a variant annotation and effect prediction tool. It annotates and predicts the effects of variants on genes (such as amino acid changes).
-Examples: `snpEff -help` and `SnpSift -help`, which are aliases for `java -jar $SNPEFF_HOME/snpEff/snpEff.jar -help` and `java -jar $SNPEFF_HOME/snpEff/SnpSift.jar -help`.  In SnpEff (&lt; 5.0), there is also `ClinEff -help`, which is an alias for `java -jar $SNPEFF_HOME/ClinEff/ClinEff.jar -help`.
+Examples: `snpEff -help` and `SnpSift -help`, which are short for `java -jar $SNPEFF_HOME/snpEff/snpEff.jar -help` and `java -jar $SNPEFF_HOME/snpEff/SnpSift.jar -help`.  In SnpEff (&lt; 5.0), there is also `ClinEff -help`, which is short for `java -jar $SNPEFF_HOME/ClinEff/ClinEff.jar -help`.
 ]])
 
 local name = &quot;snpEff&quot;
@@ -3689,16 +3743,22 @@ pushenv(&quot;SNPEFF_HOME&quot;, home)
 
 local jarfile = pathJoin(home, &quot;snpEff&quot;, &quot;snpEff.jar&quot;)
 pushenv(&quot;SNPEFF&quot;, jarfile)
-set_alias(&quot;snpEff&quot;, &quot;java -jar \&quot;$SNPEFF_HOME/snpEff/snpEff.jar\&quot;&quot;)
+local bash = 'java -jar &quot;$SNPEFF_HOME/snpEff/snpEff.jar&quot; &quot;$@&quot;'
+local csh  = 'java -jar &quot;$SNPEFF_HOME/snpEff/snpEff.jar&quot; $*'
+set_shell_function(&quot;snpEff&quot;, bash, csh)
 
 local jarfile = pathJoin(home, &quot;snpEff&quot;, &quot;SnpSift.jar&quot;)
 pushenv(&quot;SNPSIFT&quot;, jarfile)
-set_alias(&quot;SnpSift&quot;, &quot;java -jar \&quot;$SNPEFF_HOME/snpEff/SnpSift.jar\&quot;&quot;)
+local bash = 'java -jar &quot;$SNPEFF_HOME/snpEff/SnpSift.jar&quot; &quot;$@&quot;'
+local csh  = 'java -jar &quot;$SNPEFF_HOME/snpEff/SnpSift.jar&quot; $*'
+set_shell_function(&quot;SnpSift&quot;, bash, csh)
 
 local jarfile = pathJoin(home, &quot;clinEff&quot;, &quot;ClinEff.jar&quot;)
 if isFile(jarfile) then
   pushenv(&quot;CLINEFF&quot;, jarfile)
-  set_alias(&quot;ClinEff&quot;, &quot;java -jar \&quot;$SNPEFF_HOME/ClinEff/ClinEff.jar\&quot;&quot;)
+  local bash = 'java -jar &quot;$SNPEFF_HOME/ClinEff/ClinEff.jar&quot; &quot;$@&quot;'
+  local csh  = 'java -jar &quot;$SNPEFF_HOME/ClinEff/ClinEff.jar&quot; $*'
+  set_shell_function(&quot;ClinEff&quot;, bash, csh)
 end
 
 -- Tweak Java for the current environment
@@ -3715,7 +3775,7 @@ depends_on(&quot;java-tweaks&quot;)
 <span class="module-description">SQLite is a relational database management system (RDBMS) contained in a C library. In contrast to many other database management systems, SQLite is not a client–server database engine. Rather, it is embedded into the end program.</span><br>
 Example: <span class="module-example"><code>sqlite3 --version</code>.</span><br>
 URL: <span class="module-url"><a href="https://sqlite.org/">https://sqlite.org/</a>, <a href="https://sqlite.org/docs.html">https://sqlite.org/docs.html</a> (docs), <a href="https://github.com/sqlite/sqlite/tags">https://github.com/sqlite/sqlite/tags</a> (changelog), <a href="https://github.com/sqlite/sqlite">https://github.com/sqlite/sqlite</a> (source code)</span><br>
-Versions: <span class="module-version">3.32.3, 3.40.0, <em>3.41.2</em></span><br>
+Versions: <span class="module-version">3.32.3, 3.40.0, 3.41.2, <em>3.42.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -3752,7 +3812,7 @@ prepend_path(&quot;PKG_CONFIG_PATH&quot;, pathJoin(home, &quot;lib&quot;, &quot;
 Example: <span class="module-example"><code>fastq-dump --help</code>.</span><br>
 URL: <span class="module-url"><a href="https://github.com/ncbi/sra-tools/wiki">https://github.com/ncbi/sra-tools/wiki</a> (documentation), <a href="https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc">https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=toolkit_doc</a> (documentation), <a href="https://github.com/ncbi/sra-tools/blob/master/CHANGES.md">https://github.com/ncbi/sra-tools/blob/master/CHANGES.md</a> (changelog), <a href="https://github.com/ncbi/sra-tools">https://github.com/ncbi/sra-tools</a> (source code)</span><br>
 Warning: <span class="module-warning">To work around a bug where <code>fasterq-dump</code> crashes the local machine, it has been tweaked such that it uses <code>$TMPDIR</code> rather than <code>$PWD</code> as the default temporary folder and it will only use two threads instead of six by default.</span><br>
-Versions: <span class="module-version">2.10.8, 2.10.9, 2.11.0, 2.11.1, 2.11.2, 2.11.3, 3.0.0, 3.0.1, <em>3.0.2</em></span><br>
+Versions: <span class="module-version">2.10.8, 2.10.9, 2.11.0, 2.11.1, 2.11.2, 2.11.3, 3.0.0, 3.0.1, 3.0.2, <em>3.0.5</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -4058,7 +4118,7 @@ prepend_path(&quot;PATH&quot;, home)
   <dd class="module-details">
 <strong class="module-help">VarScan: Variant Detection in Massively Parallel Sequencing Data</strong><br>
 <span class="module-description">VarScan is a platform-independent mutation caller for targeted, exome, and whole-genome resequencing data generated on Illumina, SOLiD, Life/PGM, Roche/454, and similar instruments.</span><br>
-Example: <span class="module-example"><code>varscan</code>, which is an alias to <code>java -jar $VARSCAN_HOME/VarScan.jar</code>.</span><br>
+Example: <span class="module-example"><code>varscan</code>, which is short for <code>java -jar $VARSCAN_HOME/VarScan.jar</code>.</span><br>
 URL: <span class="module-url"><a href="https://dkoboldt.github.io/varscan/">https://dkoboldt.github.io/varscan/</a>, <a href="https://github.com/dkoboldt/varscan/releases">https://github.com/dkoboldt/varscan/releases</a> (changelog), <a href="https://github.com/dkoboldt/varscan">https://github.com/dkoboldt/varscan</a> (source code)</span><br>
 Versions: <span class="module-version">2.4.2, <em>2.4.6</em></span><br>
 <details>
@@ -4074,7 +4134,7 @@ whatis(&quot;Keywords: high-throughput sequencing&quot;)
 whatis(&quot;URL: https://dkoboldt.github.io/varscan/, https://github.com/dkoboldt/varscan/releases (changelog), https://github.com/dkoboldt/varscan (source code)&quot;)
 whatis([[
 Description: VarScan is a platform-independent mutation caller for targeted, exome, and whole-genome resequencing data generated on Illumina, SOLiD, Life/PGM, Roche/454, and similar instruments.
-Examples: `varscan`, which is an alias to `java -jar $VARSCAN_HOME/VarScan.jar`.
+Examples: `varscan`, which is short for `java -jar $VARSCAN_HOME/VarScan.jar`.
 ]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
@@ -4082,7 +4142,9 @@ name = &quot;VarScan&quot;
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
 pushenv(&quot;VARSCAN_HOME&quot;, home)
 
-set_alias(&quot;varscan&quot;, &quot;java -jar \&quot;$VARSCAN_HOME/VarScan.jar\&quot;&quot;)
+local bash = 'java -jar &quot;$VARSCAN_HOME/VarScan.jar&quot; &quot;$@&quot;'
+local csh  = 'java -jar &quot;$VARSCAN_HOME/VarScan.jar&quot; $*'
+set_shell_function(&quot;varscan&quot;, bash, csh)
 
 -- Tweak Java for the current environment
 depends_on(&quot;java-tweaks&quot;)
@@ -4745,7 +4807,7 @@ prepend_path(&quot;PATH&quot;, home)
 
 <ul class="nav nav-pills">
 <li class="active"><a data-toggle="pill" href="#button_repository_built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(3)</a></li>
-<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(97)</a></li>
+<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(99)</a></li>
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
