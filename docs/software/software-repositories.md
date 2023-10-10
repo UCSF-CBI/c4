@@ -58,7 +58,7 @@ Below are 3 software repositories, each providing a set of software tools.
 
 <ul class="nav nav-pills">
 <li class="active"><a data-toggle="pill" href="#button_repository_built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(3)</a></li>
-<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(98)</a></li>
+<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(100)</a></li>
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
@@ -154,7 +154,7 @@ prepend_path(&quot;CPATH&quot;, pathJoin(home, &quot;include&quot;))
 
 <div id="button_repository_cbi" class="tab-pane fade">
 
-<h2 id="repository_cbi">Module Software Repository: CBI (98)</h2>
+<h2 id="repository_cbi">Module Software Repository: CBI (100)</h2>
 
 Maintained by: Henrik Bengtsson, <a href="https://cbi.ucsf.edu">Computational Biology and Informatics</a><br>
 Enable repository: <code>module load CBI</code><br>
@@ -163,6 +163,168 @@ Enable repository: <code>module load CBI</code><br>
 Please note that this software stack is maintained and contributed by a research group on a voluntary basis. It is <em>not</em> maintained by the {{ site.cluster.name }} admins. Please reach out to the corresponding maintainer for bug reports, feedback, or questions.
 </div>
 
+<h3 id="module_cbi__centos7-r" class="module-name">_centos7/r</h3>
+<dl>
+  <dd class="module-details">
+<strong class="module-help">R: The R Programming Language</strong><br>
+<span class="module-description">The R programming language.</span><br>
+Example: <span class="module-example"><code>R</code>, <code>R --version</code>, and <code>Rscript --version</code>.</span><br>
+URL: <span class="module-url"><a href="https://www.r-project.org/">https://www.r-project.org/</a>, <a href="https://cran.r-project.org/doc/manuals/r-release/NEWS.html">https://cran.r-project.org/doc/manuals/r-release/NEWS.html</a> (changelog)</span><br>
+Versions: <span class="module-version"><em>4.3.1-gcc10</em></span><br>
+<details>
+<summary>Module code: <a>view</a></summary>
+<pre><code class="language-lua">help([[
+R: The R Programming Language
+]])
+
+local name = myModuleName()
+local version = &quot;4.3.1-gcc10&quot;
+version = string.gsub(version, &quot;^[.]&quot;, &quot;&quot;) -- for hidden modules
+whatis(&quot;Version: &quot; .. version)
+whatis(&quot;Keywords: Programming, Statistics&quot;)
+whatis(&quot;URL: https://www.r-project.org/, https://cran.r-project.org/doc/manuals/r-release/NEWS.html (changelog)&quot;)
+whatis([[
+Description: The R programming language.
+Examples: `R`, `R --version`, and `Rscript --version`.
+]])
+
+has_devtoolset = function(version)
+  local path = pathJoin(&quot;/opt&quot;, &quot;rh&quot;, &quot;devtoolset-&quot; .. version)
+  return(isDir(path))
+end
+
+has_gcc_toolset = function(version)
+  local path = pathJoin(&quot;/opt&quot;, &quot;rh&quot;, &quot;gcc-toolset-&quot; .. version)
+  return(isDir(path))
+end
+
+local name = &quot;R&quot;
+local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
+
+-- Specific to the Linux distribution?
+if string.match(myFileName(), &quot;/_&quot; .. os.getenv(&quot;CBI_LINUX&quot;) .. &quot;/&quot;) then
+  root = pathJoin(root, &quot;_&quot; .. os.getenv(&quot;CBI_LINUX&quot;))
+end
+
+local home = pathJoin(root, name .. &quot;-&quot; .. version)
+
+prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
+
+local path = pathJoin(home, &quot;lib&quot;)
+if not isDir(path) then
+  path = pathJoin(home, &quot;lib64&quot;)
+end
+prepend_path(&quot;LD_LIBRARY_PATH&quot;, pathJoin(path, &quot;R&quot;, &quot;lib&quot;))
+prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;share&quot;, &quot;man&quot;))
+
+local v = version
+v = string.gsub(v, &quot;-.*&quot;, &quot;&quot;)
+
+-- WORKAROUND: R 3.6.0 is not compatible with BeeGFS
+if v == &quot;3.6.0&quot; then
+  pushenv(&quot;R_INSTALL_STAGED&quot;, &quot;false&quot;)
+else
+  pushenv(&quot;R_INSTALL_STAGED&quot;, &quot;true&quot;)
+end
+
+local r_libs_user
+if os.getenv(&quot;CBI_LINUX&quot;) == &quot;centos7&quot; then
+  r_libs_user=&quot;~/R/%p-library/%v-CBI&quot;
+else
+  r_libs_user=&quot;~/R/&quot; .. os.getenv(&quot;CBI_LINUX&quot;) .. &quot;-&quot; .. &quot;%p-library/%v-CBI&quot;
+end
+
+if (v &gt;= &quot;4.1.0&quot;) then
+  local gv = string.gsub(version, v, &quot;&quot;)
+  gv = string.gsub(gv, &quot;-alpha&quot;, &quot;&quot;)
+  gv = string.gsub(gv, &quot;-beta&quot;, &quot;&quot;)
+  gv = string.gsub(gv, &quot;-rc&quot;, &quot;&quot;)
+  gv = string.gsub(gv, &quot;-gcc&quot;, &quot;&quot;)
+  gv = tonumber(gv)
+  if (gv &gt; 4) then
+    r_libs_user = r_libs_user .. &quot;-gcc&quot; .. gv
+    if has_devtoolset(gv) then
+      depends_on(&quot;scl-devtoolset/&quot; .. gv)
+    elseif has_gcc_toolset(gv) then
+      depends_on(&quot;scl-gcc-toolset/&quot; .. gv)
+    end
+  end
+end
+
+-- Avoid R CMD build warning on &quot;invalid uid value replaced by that for user 'nobody'&quot;
+-- https://stackoverflow.com/questions/30599326
+pushenv(&quot;R_BUILD_TAR&quot;, &quot;tar&quot;)
+
+-- In-house env var for R repositories mirrored locally
+local r_repos_root = os.getenv(&quot;CBI_SHARED_ROOT&quot;)
+if (r_repos_root) then
+  LmodMessage(&quot;r_repos_root=&quot; .. r_repos_root)
+  r_repos_root = pathJoin(r_repos_root, &quot;mirrors&quot;, &quot;r-mirrors&quot;)
+  pushenv(&quot;R_REPOS_ROOT&quot;, r_repos_root)
+  pushenv(&quot;R_REPOS_CRAN&quot;, &quot;file://&quot; .. pathJoin(r_repos_root, &quot;cran&quot;))
+  pushenv(&quot;R_LOCAL_CRAN&quot;, &quot;file://&quot; .. pathJoin(r_repos_root, &quot;cran&quot;))
+end
+
+-- R packages built from native code and installed using R from EPEL is *not*
+-- always compatible with ditto installed using R from the CBI software stack.
+-- Because of this, we will use R_LIBS_USER specific to the CBI stack.
+-- However, since some users has already installed to the built-in R_LIBS_USER
+-- we will not change this for such users.  The heuristic is to check if the
+-- built-in R_LIBS_USER folder already exists. If not, then it's safe to use
+-- one specific to the CBI stack.
+pushenv(&quot;R_LIBS_USER&quot;, r_libs_user)
+
+-- WORKAROUND: utils::download.file(), which is for instance used by install.packages()
+-- have a built-in timeout at 60 seconds.  This might be too short for some larger
+-- Bioconductor annotation packages, e.g.
+--  * 'SNPlocs.Hsapiens.dbSNP150.GRCh38' (2.10 GB)
+--  * 'MafDb.gnomAD.r2.1.GRCh38' (6.04 GB) =&gt; 6 GB/10 min = 600 MB/min = 10 MB/s = 80 Mb/s
+-- Use 20 minutes timeout instead of 1 minute, i.e. enought with 40 Mb/s for a 6 GB file
+pushenv(&quot;R_DEFAULT_INTERNET_TIMEOUT&quot;, &quot;1200&quot;)
+
+-- WORKAROUND: gert 1.1.0 (2021-01-25) installs toward a static libgit2 that
+-- gives 'Illegal instruction' on some hosts (with older CPUs?)
+-- See https://github.com/r-lib/gert/issues/117
+pushenv(&quot;USE_SYSTEM_LIBGIT2&quot;, &quot;true&quot;)
+
+-- WORKAROUND: Package udunits2 does not install out of the box and requires
+-- manually specifying 'configure.args' during install unless we set the
+-- following environment variable
+local path = &quot;/usr/include/udunits2&quot;
+if (isDir(path)) then
+  pushenv(&quot;UDUNITS2_INCLUDE&quot;, path)
+end
+
+-- WORKAROUND: nloptr 2.0.0 requires CMake (&gt;= 3.15)
+-- See https://github.com/astamm/nloptr/issues/104#issuecomment-1111498876
+pushenv(&quot;CMAKE_BIN&quot;, &quot;cmake3&quot;)
+
+
+
+-- Assert that there is no active Conda environment
+assert_no_conda_environment = function()  
+  local conda_env = os.getenv(&quot;CONDA_DEFAULT_ENV&quot;)
+  if conda_env ~= nil then
+    local action = os.getenv(&quot;CBI_ON_CONDA&quot;) or &quot;warning&quot;
+    local msg = &quot;Using the &quot; .. &quot;'&quot; .. myModuleName() .. &quot;'&quot; .. &quot; module when a Conda environment is active risks resulting in hard-to-troubleshoot errors due to library conflicts. Make sure to deactivate the currently active Conda &quot; .. &quot;'&quot; .. conda_env .. &quot;'&quot; .. &quot; environment before loading this module, e.g. 'conda deactivate'.&quot;
+    if action == &quot;error&quot; then
+      LmodError(msg)
+    elseif action == &quot;warning&quot; then
+      LmodWarning(msg)
+    end
+  end
+end
+
+
+-- Protect against a conflicting Conda stack
+if (mode() == &quot;load&quot;) then
+  assert_no_conda_environment()
+end
+</code></pre>
+
+</details>
+  </dd>
+</dl>
 <h3 id="module_cbi_annovar" class="module-name">annovar</h3>
 <dl>
   <dd class="module-details">
@@ -973,7 +1135,7 @@ set_shell_function(&quot;ctopx&quot;, bash, csh)
 <span class="module-description">CMake is cross-platform free and open-source software for managing the build process of software using a compiler-independent method. It supports directory hierarchies and applications that depend on multiple libraries.</span><br>
 Example: <span class="module-example"><code>cmake --version</code>.</span><br>
 URL: <span class="module-url"><a href="https://cmake.org/">https://cmake.org/</a>, <a href="https://cmake.org/cmake/help/latest/release/index.html">https://cmake.org/cmake/help/latest/release/index.html</a> (changelog) <a href="https://github.com/Kitware/CMake/releases">https://github.com/Kitware/CMake/releases</a> (download)</span><br>
-Versions: <span class="module-version">3.18.2, 3.19.2, 3.22.3, 3.23.0, 3.23.1, 3.24.2, 3.25.1, 3.26.2, 3.26.4, <em>3.27.1</em></span><br>
+Versions: <span class="module-version">3.18.2, 3.19.2, 3.22.3, 3.23.0, 3.23.1, 3.24.2, 3.25.1, 3.26.2, 3.26.4, 3.27.1, <em>3.27.7</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -994,7 +1156,7 @@ local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
 
 prepend_path(&quot;PATH&quot;,  pathJoin(home, &quot;bin&quot;))
-prepend_path(&quot;MANPATH&quot;,  pathJoin(home, &quot;share&quot;, &quot;man&quot;))
+prepend_path(&quot;MANPATH&quot;,  pathJoin(home, &quot;man&quot;))
 
 </code></pre>
 
@@ -1373,10 +1535,11 @@ pushenv(&quot;FZF_HOME&quot;, home)
 <dl>
   <dd class="module-details">
 <strong class="module-help">Genome Analysis Toolkit (GATK): Variant Discovery in High-Throughput Sequencing Data</strong><br>
-<span class="module-description">Developed in the Data Sciences Platform at the Broad Institute, the toolkit offers a wide variety of tools with a primary focus on variant discovery and genotyping. Its powerful processing engine and high-performance computing features make it capable of taking on projects of any size.</span><br>
+<span class="module-description">Developed in the Data Sciences Platform at the Broad Institute, the toolkit offers a wide variety of tools with a primary focus on variant discovery and genotyping. Its powerful processing engine and high-performance computing features make it capable of taking on projects of any size.
+Requirements: Modern GATK versions require Java (&gt;= 17).</span><br>
 Example: <span class="module-example"><code>gatk --help</code> and <code>gatk --list</code>.</span><br>
 URL: <span class="module-url"><a href="https://gatk.broadinstitute.org/hc/en-us">https://gatk.broadinstitute.org/hc/en-us</a>, <a href="https://github.com/broadinstitute/gatk">https://github.com/broadinstitute/gatk</a> (source code), <a href="https://github.com/broadinstitute/gatk/releases">https://github.com/broadinstitute/gatk/releases</a> (changelog), <a href="https://github.com/broadgsa/gatk">https://github.com/broadgsa/gatk</a> (legacy), <a href="https://console.cloud.google.com/storage/browser/gatk-software/package-archive">https://console.cloud.google.com/storage/browser/gatk-software/package-archive</a> (legacy), <a href="ftp://ftp.broadinstitute.org/pub/gsa/GenomeAnalysisTK/">ftp://ftp.broadinstitute.org/pub/gsa/GenomeAnalysisTK/</a> (legacy)</span><br>
-Versions: <span class="module-version">1.1-37-ge63d9d8, 1.6-5-g557da77, 4.1.1.0, 4.1.7.0, 4.1.8.1, 4.1.9.0, 4.2.0.0, 4.2.2.0, 4.2.3.0, 4.2.4.1, 4.2.5.0, 4.2.6.1, <em>4.3.0.0</em></span><br>
+Versions: <span class="module-version">1.1-37-ge63d9d8, 1.6-5-g557da77, 4.1.1.0, 4.1.7.0, 4.1.8.1, 4.1.9.0, 4.2.0.0, 4.2.2.0, 4.2.3.0, 4.2.4.1, 4.2.5.0, 4.2.6.1, 4.3.0.0, <em>4.4.0.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -1390,6 +1553,7 @@ whatis(&quot;Keywords: sequencing, genome&quot;)
 whatis(&quot;URL: https://gatk.broadinstitute.org/hc/en-us, https://github.com/broadinstitute/gatk (source code), https://github.com/broadinstitute/gatk/releases (changelog), https://github.com/broadgsa/gatk (legacy), https://console.cloud.google.com/storage/browser/gatk-software/package-archive (legacy), ftp://ftp.broadinstitute.org/pub/gsa/GenomeAnalysisTK/ (legacy)&quot;)
 whatis([[
 Description: Developed in the Data Sciences Platform at the Broad Institute, the toolkit offers a wide variety of tools with a primary focus on variant discovery and genotyping. Its powerful processing engine and high-performance computing features make it capable of taking on projects of any size.
+Requirements: Modern GATK versions require Java (&gt;= 17).
 Examples: `gatk --help` and `gatk --list`.
 ]])
 
@@ -1397,7 +1561,7 @@ local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
 
 local version_x = string.gsub(version, &quot;[.].*&quot;, &quot;&quot;)
-if (version_x == &quot;1&quot;) then
+if version_x == &quot;1&quot; then
   -- GATK v1.* requires Java (&lt;= 1.7)
   local cluster = os.getenv(&quot;CLUSTER&quot;) or &quot;&quot;
   if (cluster == &quot;tipcc&quot;) then
@@ -1406,6 +1570,37 @@ if (version_x == &quot;1&quot;) then
     depends_on(&quot;openjdk/1.6.0&quot;)
   end
   pushenv(&quot;GATK_HOME&quot;, home)
+elseif version_x == &quot;4&quot; then
+  if mode() == &quot;load&quot; then
+    local success=false
+
+    -- try all possible openjdk/(&gt;= 17) versions
+    for version = 17,30 do
+      module=&quot;openjdk/&quot; .. version
+      if isAvail(module) then
+        load(module)
+        success=true
+        break
+      end
+    end
+    
+    -- try oraclejdk/(&gt;= 17) versions
+    if not success then
+      for version = 17,30 do
+        module=&quot;oraclejdk/&quot; .. version
+        if isAvail(module) then
+          load(module)
+          success=true
+          break
+        end
+      end
+    end
+    
+    if not success then
+      LmodError(name .. &quot; requires openjdk/17 or newer, but that is not available on &quot; .. os.getenv(&quot;CBI_LINUX&quot;) .. &quot; machine &quot; .. os.getenv(&quot;HOSTNAME&quot;))
+    end
+  end
+  prepend_path(&quot;PATH&quot;, home)
 else
   prepend_path(&quot;PATH&quot;, home)
 end
@@ -2647,6 +2842,52 @@ prepend_path(&quot;PATH&quot;, home)
 </details>
   </dd>
 </dl>
+<h3 id="module_cbi_oraclejdk" class="module-name">oraclejdk</h3>
+<dl>
+  <dd class="module-details">
+<strong class="module-help">oraclejdk: Oracle Java Development Kit</strong><br>
+<span class="module-description">Oracle's implementation of Java and the Java Development Kit.  This is an alternative to the OpenJDK Java version.</span><br>
+Example: <span class="module-example"><code>java -version</code> and <code>javac -version</code>.</span><br>
+URL: <span class="module-url"><a href="https://www.oracle.com/java/">https://www.oracle.com/java/</a>, <a href="https://www.oracle.com/java/technologies/downloads/">https://www.oracle.com/java/technologies/downloads/</a> (downloads)</span><br>
+Versions: <span class="module-version"><em>17.0.8</em></span><br>
+<details>
+<summary>Module code: <a>view</a></summary>
+<pre><code class="language-lua">help([[
+oraclejdk: Oracle Java Development Kit
+]])
+
+local name = myModuleName()
+local version = myModuleVersion()
+whatis(&quot;Version: &quot; .. version)
+whatis(&quot;Keywords: programming&quot;)
+whatis(&quot;URL: https://www.oracle.com/java/, https://www.oracle.com/java/technologies/downloads/ (downloads)&quot;)
+whatis([[
+Description: Oracle's implementation of Java and the Java Development Kit.  This is an alternative to the OpenJDK Java version.
+Examples: `java -version` and `javac -version`.
+]])
+
+-- Local variables
+local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
+
+-- Specific to the Linux distribution?
+if string.match(myFileName(), &quot;/_&quot; .. os.getenv(&quot;CBI_LINUX&quot;) .. &quot;/&quot;) then
+  root = pathJoin(root, &quot;_&quot; .. os.getenv(&quot;CBI_LINUX&quot;))
+end
+
+local home = pathJoin(root, name .. &quot;-&quot; .. version)
+
+setenv(&quot;JAVA_HOME&quot;, home)
+prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
+prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;man&quot;))
+prepend_path(&quot;LD_LIBRARY_PATH&quot;, pathJoin(home, &quot;lib&quot;))
+prepend_path(&quot;CPATH&quot;, pathJoin(home, &quot;include&quot;))
+
+conflict(&quot;openjdk&quot;)
+</code></pre>
+
+</details>
+  </dd>
+</dl>
 <h3 id="module_cbi_pandoc" class="module-name">pandoc</h3>
 <dl>
   <dd class="module-details">
@@ -3022,7 +3263,7 @@ R: The R Programming Language
 ]])
 
 local name = myModuleName()
-local version = &quot;4.2.1-gcc10&quot;
+local version = &quot;4.3.1-gcc10&quot;
 version = string.gsub(version, &quot;^[.]&quot;, &quot;&quot;) -- for hidden modules
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: Programming, Statistics&quot;)
@@ -3037,12 +3278,28 @@ has_devtoolset = function(version)
   return(isDir(path))
 end
 
+has_gcc_toolset = function(version)
+  local path = pathJoin(&quot;/opt&quot;, &quot;rh&quot;, &quot;gcc-toolset-&quot; .. version)
+  return(isDir(path))
+end
+
 local name = &quot;R&quot;
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
+
+-- Specific to the Linux distribution?
+if string.match(myFileName(), &quot;/_&quot; .. os.getenv(&quot;CBI_LINUX&quot;) .. &quot;/&quot;) then
+  root = pathJoin(root, &quot;_&quot; .. os.getenv(&quot;CBI_LINUX&quot;))
+end
+
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
 
 prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
-prepend_path(&quot;LD_LIBRARY_PATH&quot;, pathJoin(home, &quot;lib&quot;, &quot;R&quot;, &quot;lib&quot;))
+
+local path = pathJoin(home, &quot;lib&quot;)
+if not isDir(path) then
+  path = pathJoin(home, &quot;lib64&quot;)
+end
+prepend_path(&quot;LD_LIBRARY_PATH&quot;, pathJoin(path, &quot;R&quot;, &quot;lib&quot;))
 prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;share&quot;, &quot;man&quot;))
 
 local v = version
@@ -3055,7 +3312,12 @@ else
   pushenv(&quot;R_INSTALL_STAGED&quot;, &quot;true&quot;)
 end
 
-local r_libs_user=&quot;~/R/%p-library/%v-CBI&quot;
+local r_libs_user
+if os.getenv(&quot;CBI_LINUX&quot;) == &quot;centos7&quot; then
+  r_libs_user=&quot;~/R/%p-library/%v-CBI&quot;
+else
+  r_libs_user=&quot;~/R/&quot; .. os.getenv(&quot;CBI_LINUX&quot;) .. &quot;-&quot; .. &quot;%p-library/%v-CBI&quot;
+end
 
 if (v &gt;= &quot;4.1.0&quot;) then
   local gv = string.gsub(version, v, &quot;&quot;)
@@ -3068,6 +3330,8 @@ if (v &gt;= &quot;4.1.0&quot;) then
     r_libs_user = r_libs_user .. &quot;-gcc&quot; .. gv
     if has_devtoolset(gv) then
       depends_on(&quot;scl-devtoolset/&quot; .. gv)
+    elseif has_gcc_toolset(gv) then
+      depends_on(&quot;scl-gcc-toolset/&quot; .. gv)
     end
   end
 end
@@ -3119,6 +3383,28 @@ end
 -- WORKAROUND: nloptr 2.0.0 requires CMake (&gt;= 3.15)
 -- See https://github.com/astamm/nloptr/issues/104#issuecomment-1111498876
 pushenv(&quot;CMAKE_BIN&quot;, &quot;cmake3&quot;)
+
+
+
+-- Assert that there is no active Conda environment
+assert_no_conda_environment = function()  
+  local conda_env = os.getenv(&quot;CONDA_DEFAULT_ENV&quot;)
+  if conda_env ~= nil then
+    local action = os.getenv(&quot;CBI_ON_CONDA&quot;) or &quot;warning&quot;
+    local msg = &quot;Using the &quot; .. &quot;'&quot; .. myModuleName() .. &quot;'&quot; .. &quot; module when a Conda environment is active risks resulting in hard-to-troubleshoot errors due to library conflicts. Make sure to deactivate the currently active Conda &quot; .. &quot;'&quot; .. conda_env .. &quot;'&quot; .. &quot; environment before loading this module, e.g. 'conda deactivate'.&quot;
+    if action == &quot;error&quot; then
+      LmodError(msg)
+    elseif action == &quot;warning&quot; then
+      LmodWarning(msg)
+    end
+  end
+end
+
+
+-- Protect against a conflicting Conda stack
+if (mode() == &quot;load&quot;) then
+  assert_no_conda_environment()
+end
 </code></pre>
 
 </details>
@@ -4782,7 +5068,7 @@ prepend_path(&quot;PATH&quot;, home)
 
 <ul class="nav nav-pills">
 <li class="active"><a data-toggle="pill" href="#button_repository_built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(3)</a></li>
-<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(98)</a></li>
+<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(100)</a></li>
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
