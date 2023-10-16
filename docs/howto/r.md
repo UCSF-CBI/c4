@@ -534,8 +534,6 @@ After this, the **hdf5r** package will install out of the box, i.e. by calling:
 There are R packages for spatial analyses that depend on external
 libraries GDAL, GEOS, PROJ, and sqlite3. For example:
 
-* **[rgdal]**  requires GDAL (>= 3),                      PROJ (>= 6)
-* **[rgeos]**  requires                  GEOS (>= 3.2.0)
 * **[sf]**     requires GDAL (>= 2.0.1), GEOS (>= 3.4.0), PROJ (>= 4.8.0), sqlite3
 * **[lwgeom]** requires                  GEOS (>= 3.5.0), PROJ (>= 4.8.0), sqlite3
 * **[terra]**  requires GDAL (>= 2.2.3), GEOS (>= 3.4.0), PROJ (>= 4.9.3), sqlite3
@@ -573,43 +571,10 @@ Here is how to install the above R packages all at once:
 $ module load CBI r
 $ module load CBI gdal geos proj sqlite
 $ R --quiet
-> install.packages(c("rgdal", "rgeos", "sf", "lwgeom", "terra"))
+> install.packages(c("sf", "lwgeom", "terra"))
 ```
 
 After this, we can load each of them to verify everything works;
-
-```r
-> library(rgdal)
-Loading required package: sp
-Please note that rgdal will be retired during 2023,
-plan transition to sf/stars/terra functions using GDAL and PROJ
-at your earliest convenience.
-See https://r-spatial.org/r/2022/04/12/evolution.html and https://github.com/r-spatial/evolution
-rgdal: version: 1.6-6, (SVN revision 1201)
-Geospatial Data Abstraction Library extensions to R successfully loaded
-Loaded GDAL runtime: GDAL 3.6.4, released 2023/04/17
-Path to GDAL shared files: {{ site.path.cbi_software }}/gdal-3.6.4/share/gdal
- GDAL does not use iconv for recoding strings.
-GDAL binary built with GEOS: TRUE 
-Loaded PROJ runtime: Rel. 8.2.1, January 1st, 2022, [PJ_VERSION: 821]
-Path to PROJ shared files: {{ site.user.home }}/.local/share/proj:{{ site.path.cbi_software }}/proj-8.2.1/share/proj:{{ site.path.cbi_software }}/proj-8.2.1/share/proj
-PROJ CDN enabled: FALSE
-Linking to sp version:1.6-0
-To mute warnings of possible GDAL/OSR exportToProj4() degradation,
-use options("rgdal_show_exportToProj4_warnings"="none") before loading sp or rgdal.
-```
-
-```r
-> library(rgeos)
-Loading required package: sp
-rgeos version: 0.6-2, (SVN revision 693)
- GEOS runtime version: 3.11.2-CAPI-1.17.2 
- Please note that rgeos will be retired during 2023,
-plan transition to sf functions using GEOS at your earliest convenience.
- GEOS using OverlayNG
- Linking to sp version: 1.6-0 
- Polygon checking: TRUE 
-```
 
 ```r
 > library(sf)
@@ -730,8 +695,6 @@ install.packages("udunits2", configure.args="--with-udunits2-include=/usr/includ
 [lwgeom]: https://cran.r-project.org/package=lwgeom
 [pbdMPI]: https://cran.r-project.org/package=pbdMPI
 [pbdPROF]: https://cran.r-project.org/package=pbdPROF
-[rgdal]: https://cran.r-project.org/package=rgdal
-[rgeos]: https://cran.r-project.org/package=rgeos
 [rjags]: https://cran.r-project.org/package=rjags
 [Rmpi]: https://cran.r-project.org/package=Rmpi
 [sf]: https://cran.r-project.org/package=sf
