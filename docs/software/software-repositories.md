@@ -58,7 +58,7 @@ Below are 3 software repositories, each providing a set of software tools.
 
 <ul class="nav nav-pills">
 <li class="active"><a data-toggle="pill" href="#button_repository_built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(3)</a></li>
-<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(100)</a></li>
+<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(99)</a></li>
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
@@ -154,7 +154,7 @@ prepend_path(&quot;CPATH&quot;, pathJoin(home, &quot;include&quot;))
 
 <div id="button_repository_cbi" class="tab-pane fade">
 
-<h2 id="repository_cbi">Module Software Repository: CBI (100)</h2>
+<h2 id="repository_cbi">Module Software Repository: CBI (99)</h2>
 
 Maintained by: Henrik Bengtsson, <a href="https://cbi.ucsf.edu">Computational Biology and Informatics</a><br>
 Enable repository: <code>module load CBI</code><br>
@@ -163,168 +163,6 @@ Enable repository: <code>module load CBI</code><br>
 Please note that this software stack is maintained and contributed by a research group on a voluntary basis. It is <em>not</em> maintained by the {{ site.cluster.name }} admins. Please reach out to the corresponding maintainer for bug reports, feedback, or questions.
 </div>
 
-<h3 id="module_cbi__centos7-r" class="module-name">_centos7/r</h3>
-<dl>
-  <dd class="module-details">
-<strong class="module-help">R: The R Programming Language</strong><br>
-<span class="module-description">The R programming language.</span><br>
-Example: <span class="module-example"><code>R</code>, <code>R --version</code>, and <code>Rscript --version</code>.</span><br>
-URL: <span class="module-url"><a href="https://www.r-project.org/">https://www.r-project.org/</a>, <a href="https://cran.r-project.org/doc/manuals/r-release/NEWS.html">https://cran.r-project.org/doc/manuals/r-release/NEWS.html</a> (changelog)</span><br>
-Versions: <span class="module-version"><em>4.3.1-gcc10</em></span><br>
-<details>
-<summary>Module code: <a>view</a></summary>
-<pre><code class="language-lua">help([[
-R: The R Programming Language
-]])
-
-local name = myModuleName()
-local version = &quot;4.3.1-gcc10&quot;
-version = string.gsub(version, &quot;^[.]&quot;, &quot;&quot;) -- for hidden modules
-whatis(&quot;Version: &quot; .. version)
-whatis(&quot;Keywords: Programming, Statistics&quot;)
-whatis(&quot;URL: https://www.r-project.org/, https://cran.r-project.org/doc/manuals/r-release/NEWS.html (changelog)&quot;)
-whatis([[
-Description: The R programming language.
-Examples: `R`, `R --version`, and `Rscript --version`.
-]])
-
-has_devtoolset = function(version)
-  local path = pathJoin(&quot;/opt&quot;, &quot;rh&quot;, &quot;devtoolset-&quot; .. version)
-  return(isDir(path))
-end
-
-has_gcc_toolset = function(version)
-  local path = pathJoin(&quot;/opt&quot;, &quot;rh&quot;, &quot;gcc-toolset-&quot; .. version)
-  return(isDir(path))
-end
-
-local name = &quot;R&quot;
-local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
-
--- Specific to the Linux distribution?
-if string.match(myFileName(), &quot;/_&quot; .. os.getenv(&quot;CBI_LINUX&quot;) .. &quot;/&quot;) then
-  root = pathJoin(root, &quot;_&quot; .. os.getenv(&quot;CBI_LINUX&quot;))
-end
-
-local home = pathJoin(root, name .. &quot;-&quot; .. version)
-
-prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
-
-local path = pathJoin(home, &quot;lib&quot;)
-if not isDir(path) then
-  path = pathJoin(home, &quot;lib64&quot;)
-end
-prepend_path(&quot;LD_LIBRARY_PATH&quot;, pathJoin(path, &quot;R&quot;, &quot;lib&quot;))
-prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;share&quot;, &quot;man&quot;))
-
-local v = version
-v = string.gsub(v, &quot;-.*&quot;, &quot;&quot;)
-
--- WORKAROUND: R 3.6.0 is not compatible with BeeGFS
-if v == &quot;3.6.0&quot; then
-  pushenv(&quot;R_INSTALL_STAGED&quot;, &quot;false&quot;)
-else
-  pushenv(&quot;R_INSTALL_STAGED&quot;, &quot;true&quot;)
-end
-
-local r_libs_user
-if os.getenv(&quot;CBI_LINUX&quot;) == &quot;centos7&quot; then
-  r_libs_user=&quot;~/R/%p-library/%v-CBI&quot;
-else
-  r_libs_user=&quot;~/R/&quot; .. os.getenv(&quot;CBI_LINUX&quot;) .. &quot;-&quot; .. &quot;%p-library/%v-CBI&quot;
-end
-
-if (v &gt;= &quot;4.1.0&quot;) then
-  local gv = string.gsub(version, v, &quot;&quot;)
-  gv = string.gsub(gv, &quot;-alpha&quot;, &quot;&quot;)
-  gv = string.gsub(gv, &quot;-beta&quot;, &quot;&quot;)
-  gv = string.gsub(gv, &quot;-rc&quot;, &quot;&quot;)
-  gv = string.gsub(gv, &quot;-gcc&quot;, &quot;&quot;)
-  gv = tonumber(gv)
-  if (gv &gt; 4) then
-    r_libs_user = r_libs_user .. &quot;-gcc&quot; .. gv
-    if has_devtoolset(gv) then
-      depends_on(&quot;scl-devtoolset/&quot; .. gv)
-    elseif has_gcc_toolset(gv) then
-      depends_on(&quot;scl-gcc-toolset/&quot; .. gv)
-    end
-  end
-end
-
--- Avoid R CMD build warning on &quot;invalid uid value replaced by that for user 'nobody'&quot;
--- https://stackoverflow.com/questions/30599326
-pushenv(&quot;R_BUILD_TAR&quot;, &quot;tar&quot;)
-
--- In-house env var for R repositories mirrored locally
-local r_repos_root = os.getenv(&quot;CBI_SHARED_ROOT&quot;)
-if (r_repos_root) then
-  LmodMessage(&quot;r_repos_root=&quot; .. r_repos_root)
-  r_repos_root = pathJoin(r_repos_root, &quot;mirrors&quot;, &quot;r-mirrors&quot;)
-  pushenv(&quot;R_REPOS_ROOT&quot;, r_repos_root)
-  pushenv(&quot;R_REPOS_CRAN&quot;, &quot;file://&quot; .. pathJoin(r_repos_root, &quot;cran&quot;))
-  pushenv(&quot;R_LOCAL_CRAN&quot;, &quot;file://&quot; .. pathJoin(r_repos_root, &quot;cran&quot;))
-end
-
--- R packages built from native code and installed using R from EPEL is *not*
--- always compatible with ditto installed using R from the CBI software stack.
--- Because of this, we will use R_LIBS_USER specific to the CBI stack.
--- However, since some users has already installed to the built-in R_LIBS_USER
--- we will not change this for such users.  The heuristic is to check if the
--- built-in R_LIBS_USER folder already exists. If not, then it's safe to use
--- one specific to the CBI stack.
-pushenv(&quot;R_LIBS_USER&quot;, r_libs_user)
-
--- WORKAROUND: utils::download.file(), which is for instance used by install.packages()
--- have a built-in timeout at 60 seconds.  This might be too short for some larger
--- Bioconductor annotation packages, e.g.
---  * 'SNPlocs.Hsapiens.dbSNP150.GRCh38' (2.10 GB)
---  * 'MafDb.gnomAD.r2.1.GRCh38' (6.04 GB) =&gt; 6 GB/10 min = 600 MB/min = 10 MB/s = 80 Mb/s
--- Use 20 minutes timeout instead of 1 minute, i.e. enought with 40 Mb/s for a 6 GB file
-pushenv(&quot;R_DEFAULT_INTERNET_TIMEOUT&quot;, &quot;1200&quot;)
-
--- WORKAROUND: gert 1.1.0 (2021-01-25) installs toward a static libgit2 that
--- gives 'Illegal instruction' on some hosts (with older CPUs?)
--- See https://github.com/r-lib/gert/issues/117
-pushenv(&quot;USE_SYSTEM_LIBGIT2&quot;, &quot;true&quot;)
-
--- WORKAROUND: Package udunits2 does not install out of the box and requires
--- manually specifying 'configure.args' during install unless we set the
--- following environment variable
-local path = &quot;/usr/include/udunits2&quot;
-if (isDir(path)) then
-  pushenv(&quot;UDUNITS2_INCLUDE&quot;, path)
-end
-
--- WORKAROUND: nloptr 2.0.0 requires CMake (&gt;= 3.15)
--- See https://github.com/astamm/nloptr/issues/104#issuecomment-1111498876
-pushenv(&quot;CMAKE_BIN&quot;, &quot;cmake3&quot;)
-
-
-
--- Assert that there is no active Conda environment
-assert_no_conda_environment = function()  
-  local conda_env = os.getenv(&quot;CONDA_DEFAULT_ENV&quot;)
-  if conda_env ~= nil then
-    local action = os.getenv(&quot;CBI_ON_CONDA&quot;) or &quot;warning&quot;
-    local msg = &quot;Using the &quot; .. &quot;'&quot; .. myModuleName() .. &quot;'&quot; .. &quot; module when a Conda environment is active risks resulting in hard-to-troubleshoot errors due to library conflicts. Make sure to deactivate the currently active Conda &quot; .. &quot;'&quot; .. conda_env .. &quot;'&quot; .. &quot; environment before loading this module, e.g. 'conda deactivate'.&quot;
-    if action == &quot;error&quot; then
-      LmodError(msg)
-    elseif action == &quot;warning&quot; then
-      LmodWarning(msg)
-    end
-  end
-end
-
-
--- Protect against a conflicting Conda stack
-if (mode() == &quot;load&quot;) then
-  assert_no_conda_environment()
-end
-</code></pre>
-
-</details>
-  </dd>
-</dl>
 <h3 id="module_cbi_annovar" class="module-name">annovar</h3>
 <dl>
   <dd class="module-details">
@@ -1393,7 +1231,7 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 Example: <span class="module-example"><code>emacs --version</code> and <code>emacs -nw</code>.</span><br>
 URL: <span class="module-url"><a href="https://www.gnu.org/software/emacs/">https://www.gnu.org/software/emacs/</a>, <a href="https://www.gnu.org/savannah-checkouts/gnu/emacs/emacs.html#Releases">https://www.gnu.org/savannah-checkouts/gnu/emacs/emacs.html#Releases</a> (changelog)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version">28.1, <em>28.2</em></span><br>
+Versions: <span class="module-version">28.1, 28.2, <em>29.1</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -1412,6 +1250,12 @@ Warning: Only the most recent version of this software will be kept.
 ]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
+
+-- Specific to the Linux distribution?
+if string.match(myFileName(), &quot;/_&quot; .. os.getenv(&quot;CBI_LINUX&quot;) .. &quot;/&quot;) then
+  root = pathJoin(root, &quot;_&quot; .. os.getenv(&quot;CBI_LINUX&quot;))
+end
+
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
 
 prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
@@ -1500,7 +1344,7 @@ Example: <span class="module-example"><code>fzf --version</code> and <code>emacs
 Note: <span class="module-note">To install tab completions and key bindinds to your shell, call <code>$FZF_HOME/install</code>. To uninstall, use <code>$FZF_HOME/uninstall</code>.</span><br>
 URL: <span class="module-url"><a href="https://github.com/junegunn/fzf">https://github.com/junegunn/fzf</a>, <a href="https://github.com/junegunn/fzf/wiki">https://github.com/junegunn/fzf/wiki</a> (documentation), <a href="https://github.com/junegunn/fzf/blob/master/CHANGELOG.md">https://github.com/junegunn/fzf/blob/master/CHANGELOG.md</a> (changelog), <a href="https://github.com/junegunn/fzf/releases">https://github.com/junegunn/fzf/releases</a> (download)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version">0.33.0, 0.35.0, 0.36.0, 0.38.0, <em>0.41.1</em></span><br>
+Versions: <span class="module-version">0.33.0, 0.35.0, 0.36.0, 0.38.0, 0.41.1, <em>0.43.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -2343,8 +2187,8 @@ prepend_path(&quot;PKG_CONFIG_PATH&quot;, pathJoin(home, &quot;lib&quot;, &quot;
   <dd class="module-details">
 <strong class="module-help">markdownlint-cli: MarkdownLint Command Line Interface</strong><br>
 <span class="module-description">Examples: <code>markdownlint --version</code>, <code>markdownlint --help</code>, <code>markdownlint -- *.md</code>.</span><br>
-URL: <span class="module-url"><a href="https://github.com/igorshubovych/markdownlint-cli">https://github.com/igorshubovych/markdownlint-cli</a> (docs), <a href="https://github.com/igorshubovych/markdownlint-cli/releases/">https://github.com/igorshubovych/markdownlint-cli/releases/</a> (releases), <a href="https://github.com/igorshubovych/markdownlint-cli">https://github.com/igorshubovych/markdownlint-cli</a> (source code)</span><br>
-Versions: <span class="module-version"><em>0.32.2</em></span><br>
+URL: <span class="module-url"><a href="https://github.com/igorshubovych/markdownlint-cli">https://github.com/igorshubovych/markdownlint-cli</a> (documentation), <a href="https://github.com/igorshubovych/markdownlint-cli/releases/">https://github.com/igorshubovych/markdownlint-cli/releases/</a> (releases), <a href="https://github.com/igorshubovych/markdownlint-cli">https://github.com/igorshubovych/markdownlint-cli</a> (source code)</span><br>
+Versions: <span class="module-version">0.32.2, <em>0.35.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -2355,7 +2199,7 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: cli, utility&quot;)
-whatis(&quot;URL: https://github.com/igorshubovych/markdownlint-cli (docs), https://github.com/igorshubovych/markdownlint-cli/releases/ (releases), https://github.com/igorshubovych/markdownlint-cli (source code)&quot;)
+whatis(&quot;URL: https://github.com/igorshubovych/markdownlint-cli (documentation), https://github.com/igorshubovych/markdownlint-cli/releases/ (releases), https://github.com/igorshubovych/markdownlint-cli (source code)&quot;)
 whatis([[
 Description: 
 Examples: `markdownlint --version`, `markdownlint --help`, `markdownlint -- *.md`.
@@ -2896,7 +2740,7 @@ conflict(&quot;openjdk&quot;)
 Example: <span class="module-example"><code>pandoc --version</code>.</span><br>
 URL: <span class="module-url"><a href="https://pandoc.org/">https://pandoc.org/</a>, <a href="https://github.com/jgm/pandoc/blob/master/changelog.md">https://github.com/jgm/pandoc/blob/master/changelog.md</a> (changelog), <a href="https://github.com/jgm/pandoc">https://github.com/jgm/pandoc</a> (source code)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version">2.19.2, 3.0, 3.0.1, 3.1.2, 3.1.3, <em>3.1.6</em></span><br>
+Versions: <span class="module-version">2.19.2, 3.0, 3.0.1, 3.1.2, 3.1.3, 3.1.6, <em>3.1.8</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -3451,7 +3295,7 @@ pushenv(&quot;R_PROFILE&quot;, pathJoin(home, &quot;Rprofile.site&quot;))
 Example: <span class="module-example"><code>rclone --version</code>, <code>rclone --help</code>, <code>rclone config</code>, and <code>man rclone</code>.</span><br>
 URL: <span class="module-url"><a href="https://rclone.org/">https://rclone.org/</a>, <a href="https://rclone.org/changelog/">https://rclone.org/changelog/</a> (changelog), <a href="https://github.com/rclone/rclone">https://github.com/rclone/rclone</a> (source code)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version">1.59.2, 1.60.0, 1.60.1, 1.61.1, 1.62.2, <em>1.63.1</em></span><br>
+Versions: <span class="module-version">1.59.2, 1.60.0, 1.60.1, 1.61.1, 1.62.2, 1.63.1, <em>1.64.2</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help(&quot;rclone: Rsync for Cloud Storage and More&quot;)
@@ -3521,7 +3365,7 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 <span class="module-description">restic is a backup program that is fast, efficient and secure. It supports the three major operating systems (Linux, macOS, Windows) and a few smaller ones (FreeBSD, OpenBSD).</span><br>
 Example: <span class="module-example"><code>restic --help</code> and <code>restic version</code>.</span><br>
 URL: <span class="module-url"><a href="https://restic.net">https://restic.net</a>, <a href="https://restic.readthedocs.io/en/latest/">https://restic.readthedocs.io/en/latest/</a> (documentation), <a href="https://github.com/restic/restic/releases">https://github.com/restic/restic/releases</a> (change log), <a href="https://github.com/restic/restic">https://github.com/restic/restic</a> (source code)</span><br>
-Versions: <span class="module-version">0.15.2, <em>0.16.0</em></span><br>
+Versions: <span class="module-version">0.15.2, 0.16.0, <em>0.16.1</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -3665,7 +3509,7 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 <span class="module-description">The RStudio Server Controller (RSC) is a tool for launching a personal instance of the RStudio Server on a Linux machine, which then can be access via the web browser, either directly or via SSH tunneling.</span><br>
 Example: <span class="module-example"><code>rsc --help</code>, <code>rsc start</code>, and <code>rsc stop</code>.</span><br>
 URL: <span class="module-url"><a href="https://github.com/UCSF-CBI/rstudio-server-controller">https://github.com/UCSF-CBI/rstudio-server-controller</a>, <a href="https://github.com/UCSF-CBI/rstudio-server-controller/blob/main/NEWS.md">https://github.com/UCSF-CBI/rstudio-server-controller/blob/main/NEWS.md</a> (changelog)</span><br>
-Versions: <span class="module-version">0.10.0, 0.11.1, 0.12.0, 0.13.0, 0.13.1, 0.13.2, 0.13.6, 0.13.8, 0.13.9, <em>0.13.10</em></span><br>
+Versions: <span class="module-version"><em>0.14.2</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -4272,7 +4116,7 @@ prepend_path(&quot;PATH&quot;, home)
 Example: <span class="module-example"><code>tree --help</code>.</span><br>
 URL: <span class="module-url"><a href="http://mama.indstate.edu/users/ice/tree/">http://mama.indstate.edu/users/ice/tree/</a>, <a href="http://mama.indstate.edu/users/ice/tree/changes.html">http://mama.indstate.edu/users/ice/tree/changes.html</a> (changelog)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version">2.0.2, 2.0.4, <em>2.1.0</em></span><br>
+Versions: <span class="module-version"><em>2.1.1</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -4491,7 +4335,7 @@ pushenv(&quot;PERL5LIB&quot;, pathJoin(home, &quot;share&quot;, &quot;perl5&quot
 Example: <span class="module-example"><code>x86-64-level</code> and <code>x86-64-level --help</code>.</span><br>
 URL: <span class="module-url"><a href="https://github.com/HenrikBengtsson/x86-64-level/">https://github.com/HenrikBengtsson/x86-64-level/</a>, <a href="https://github.com/HenrikBengtsson/x86-64-level/blob/develop/NEWS.md">https://github.com/HenrikBengtsson/x86-64-level/blob/develop/NEWS.md</a> (changelog)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version">0.2.1, <em>0.2.2</em></span><br>
+Versions: <span class="module-version"><em>0.2.2</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -5068,7 +4912,7 @@ prepend_path(&quot;PATH&quot;, home)
 
 <ul class="nav nav-pills">
 <li class="active"><a data-toggle="pill" href="#button_repository_built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(3)</a></li>
-<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(100)</a></li>
+<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(99)</a></li>
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
