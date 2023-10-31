@@ -238,7 +238,7 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 <span class="module-description">ASCIIGenome is a genome browser based on command line interface and designed for running from console terminals. Since ASCIIGenome does not require a graphical interface it is particularly useful for quickly visualizing genomic data on remote servers while offering flexibility similar to popular GUI viewers like IGV.</span><br>
 Example: <span class="module-example"><code>ASCIIGenome --help</code>.</span><br>
 URL: <span class="module-url"><a href="https://github.com/dariober/ASCIIGenome">https://github.com/dariober/ASCIIGenome</a>, <a href="https://github.com/dariober/ASCIIGenome/blob/master/CHANGELOG.md">https://github.com/dariober/ASCIIGenome/blob/master/CHANGELOG.md</a> (changelog), <a href="https://asciigenome.readthedocs.io/en/latest/">https://asciigenome.readthedocs.io/en/latest/</a> (documentation)</span><br>
-Versions: <span class="module-version">1.15.0, 1.16.0, <em>1.17.0</em></span><br>
+Versions: <span class="module-version">1.15.0, 1.16.0, 1.17.0, <em>1.18.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -307,7 +307,7 @@ prepend_path(&quot;PATH&quot;, home)
 Example: <span class="module-example"><code>bat README.md</code>, <code>bat scripts/*.sh</code>, and <code>bat src/*.c</code>.</span><br>
 URL: <span class="module-url"><a href="https://github.com/sharkdp/bat">https://github.com/sharkdp/bat</a>, <a href="https://github.com/sharkdp/bat/blob/master/CHANGELOG.md">https://github.com/sharkdp/bat/blob/master/CHANGELOG.md</a> (changelog)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version">0.22.1, 0.23.0, <em>0.24.0</em></span><br>
+Versions: <span class="module-version"><em>0.24.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -343,7 +343,7 @@ prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;share&quot;, &quot;man&qu
 <span class="module-description">This is a helper library providing common assertions for Bats.</span><br>
 Example: <span class="module-example">In Bats <code>setup()</code> function: <code>load &quot;${BATS_SUPPORT_HOME}/load.bash&quot;</code> and <code>load &quot;${BATS_ASSERT_HOME}/load.bash&quot;</code></span><br>
 URL: <span class="module-url"><a href="https://github.com/bats-core/bats-assert">https://github.com/bats-core/bats-assert</a>, <a href="https://github.com/bats-core/bats-assert/releases">https://github.com/bats-core/bats-assert/releases</a> (changelog), <a href="https://bats-core.readthedocs.io/en/stable/faq.html?highlight=assert#how-can-i-use-helper-libraries-like-bats-assert">https://bats-core.readthedocs.io/en/stable/faq.html?highlight=assert#how-can-i-use-helper-libraries-like-bats-assert</a> (documentation)</span><br>
-Versions: <span class="module-version">2.0.0, <em>2.1.0</em></span><br>
+Versions: <span class="module-version"><em>2.1.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -378,7 +378,7 @@ prepend_path(&quot;BATS_ASSERT_HOME&quot;, home)
 <span class="module-description">Bats is a TAP-compliant testing framework for Bash. It provides a simple way to verify that the UNIX programs you write behave as expected.</span><br>
 Example: <span class="module-example"><code>bats --version</code>, <code>bats --help</code>, <code>man bats</code>, <code>man 7 bats</code>, and <code>bats tests/</code>.</span><br>
 URL: <span class="module-url"><a href="https://github.com/bats-core/bats-core">https://github.com/bats-core/bats-core</a>, <a href="https://github.com/bats-core/bats-core/blob/master/docs/CHANGELOG.md">https://github.com/bats-core/bats-core/blob/master/docs/CHANGELOG.md</a> (changelog), <a href="https://bats-core.readthedocs.io/en/stable/">https://bats-core.readthedocs.io/en/stable/</a> (documentation)</span><br>
-Versions: <span class="module-version">1.8.0, 1.8.2, 1.9.0, <em>1.10.0</em></span><br>
+Versions: <span class="module-version">1.9.0, <em>1.10.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -412,8 +412,8 @@ prepend_path(&quot;LD_LIBRARY_PATH&quot;, pathJoin(home, &quot;lib&quot;))
 <strong class="module-help">bats-file: File-System Assertion Library for Bats (Bash Automated Testing System)</strong><br>
 <span class="module-description">This is a helper library providing common filesystem related assertions and helpers foor Bats.</span><br>
 Example: <span class="module-example">In Bats <code>setup()</code> function: <code>load &quot;${BATS_SUPPORT_HOME}/load.bash&quot;</code> and <code>load &quot;${BATS_FILE_HOME}/load.bash&quot;</code></span><br>
-URL: <span class="module-url"><a href="https://github.com/bats-core/bats-assert">https://github.com/bats-core/bats-assert</a>, <a href="https://github.com/bats-core/bats-assert/releases">https://github.com/bats-core/bats-assert/releases</a> (changelog), <a href="https://bats-core.readthedocs.io/en/stable/faq.html?highlight=assert#how-can-i-use-helper-libraries-like-bats-assert">https://bats-core.readthedocs.io/en/stable/faq.html?highlight=assert#how-can-i-use-helper-libraries-like-bats-assert</a> (documentation)</span><br>
-Versions: <span class="module-version"><em>0.3.0</em></span><br>
+URL: <span class="module-url"><a href="https://github.com/bats-core/bats-file">https://github.com/bats-core/bats-file</a>, <a href="https://github.com/bats-core/bats-file/releases">https://github.com/bats-core/bats-file/releases</a> (changelog), <a href="https://bats-core.readthedocs.io/en/stable/faq.html?highlight=assert#how-can-i-use-helper-libraries-like-bats-file">https://bats-core.readthedocs.io/en/stable/faq.html?highlight=assert#how-can-i-use-helper-libraries-like-bats-file</a> (documentation)</span><br>
+Versions: <span class="module-version">0.3.0, <em>0.4.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -424,7 +424,7 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: bash, shell, testing&quot;)
-whatis(&quot;URL: https://github.com/bats-core/bats-assert, https://github.com/bats-core/bats-assert/releases (changelog), https://bats-core.readthedocs.io/en/stable/faq.html?highlight=assert#how-can-i-use-helper-libraries-like-bats-assert (documentation)&quot;)
+whatis(&quot;URL: https://github.com/bats-core/bats-file, https://github.com/bats-core/bats-file/releases (changelog), https://bats-core.readthedocs.io/en/stable/faq.html?highlight=assert#how-can-i-use-helper-libraries-like-bats-file (documentation)&quot;)
 whatis([[
 Description: This is a helper library providing common filesystem related assertions and helpers foor Bats.
 Examples: In Bats `setup()` function: `load &quot;${BATS_SUPPORT_HOME}/load.bash&quot;` and `load &quot;${BATS_FILE_HOME}/load.bash&quot;`
@@ -1702,7 +1702,7 @@ prepend_path(&quot;PATH&quot;, home)
 Example: <span class="module-example"><code>gping --version</code>, <code>gping --help</code>, <code>gping 8.8.8.8 9.9.9.9</code>, and <code>gping --cmd &quot;curl -o /dev/null https://www.github.com&quot; &quot;wget -O /dev/null https://github.com&quot;</code>.</span><br>
 URL: <span class="module-url"><a href="https://github.com/orf/gping">https://github.com/orf/gping</a>, <a href="https://github.com/orf/gping/releases">https://github.com/orf/gping/releases</a> (changelog), <a href="https://github.com/orf/gping">https://github.com/orf/gping</a> (source code)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version">1.12.0, <em>1.14.0</em></span><br>
+Versions: <span class="module-version"><em>1.14.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -3295,7 +3295,7 @@ pushenv(&quot;R_PROFILE&quot;, pathJoin(home, &quot;Rprofile.site&quot;))
 Example: <span class="module-example"><code>rclone --version</code>, <code>rclone --help</code>, <code>rclone config</code>, and <code>man rclone</code>.</span><br>
 URL: <span class="module-url"><a href="https://rclone.org/">https://rclone.org/</a>, <a href="https://rclone.org/changelog/">https://rclone.org/changelog/</a> (changelog), <a href="https://github.com/rclone/rclone">https://github.com/rclone/rclone</a> (source code)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version">1.59.2, 1.60.0, 1.60.1, 1.61.1, 1.62.2, 1.63.1, <em>1.64.2</em></span><br>
+Versions: <span class="module-version">1.63.1, <em>1.64.2</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help(&quot;rclone: Rsync for Cloud Storage and More&quot;)
@@ -3365,7 +3365,7 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 <span class="module-description">restic is a backup program that is fast, efficient and secure. It supports the three major operating systems (Linux, macOS, Windows) and a few smaller ones (FreeBSD, OpenBSD).</span><br>
 Example: <span class="module-example"><code>restic --help</code> and <code>restic version</code>.</span><br>
 URL: <span class="module-url"><a href="https://restic.net">https://restic.net</a>, <a href="https://restic.readthedocs.io/en/latest/">https://restic.readthedocs.io/en/latest/</a> (documentation), <a href="https://github.com/restic/restic/releases">https://github.com/restic/restic/releases</a> (change log), <a href="https://github.com/restic/restic">https://github.com/restic/restic</a> (source code)</span><br>
-Versions: <span class="module-version">0.15.2, 0.16.0, <em>0.16.1</em></span><br>
+Versions: <span class="module-version"><em>0.16.2</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
