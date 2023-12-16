@@ -3544,6 +3544,10 @@ local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
 
 prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
+
+
+-- Temporary workaround for https://github.com/UCSF-CBI/rstudio-server-controller/issues/91 /2023-12-15
+setenv(&quot;PORT4ME_PORT_COMMAND&quot;, &quot;netstat&quot;)
 </code></pre>
 
 </details>
