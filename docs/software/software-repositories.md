@@ -2708,7 +2708,7 @@ depends_on(&quot;java-tweaks&quot;)
 <strong class="module-help">ncdu: NCurses Disk Usage</strong><br>
 <span class="module-description">Ncdu is a disk usage analyzer with an ncurses interface. It is designed to find space hogs on a remote server where you don’t have an entire graphical setup available, but it is a useful tool even on regular desktop systems. Ncdu aims to be fast, simple and easy to use, and should be able to run in any minimal POSIX-like environment with ncurses installed.</span><br>
 Example: <span class="module-example"><code>ncdu --version</code>, <code>ncdu --help</code>, and <code>ncdu</code>).</span><br>
-URL: <span class="module-url"><a href="https://dev.yorhel.nl/ncdu">https://dev.yorhel.nl/ncdu</a>, <a href="https://dev.yorhel.nl/ncdu/man2">https://dev.yorhel.nl/ncdu/man2</a> (documentation), <a href="https://dev.yorhel.nl/ncdu/changes2">https://dev.yorhel.nl/ncdu/changes2</a> (changelog)</span><br>
+URL: <span class="module-url"><a href="https://dev.yorhel.nl/ncdu">https://dev.yorhel.nl/ncdu</a>, <a href="https://dev.yorhel.nl/ncdu/man2">https://dev.yorhel.nl/ncdu/man2</a> (documentation), <a href="https://dev.yorhel.nl/ncdu/changes2">https://dev.yorhel.nl/ncdu/changes2</a> (changelog), <a href="https://code.blicky.net/yorhel/ncdu/">https://code.blicky.net/yorhel/ncdu/</a> (source code)</span><br>
 Versions: <span class="module-version"><em>2.2.1</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
@@ -2720,7 +2720,7 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: utility, cli, files&quot;)
-whatis(&quot;URL: https://dev.yorhel.nl/ncdu, https://dev.yorhel.nl/ncdu/man2 (documentation), https://dev.yorhel.nl/ncdu/changes2 (changelog)&quot;)
+whatis(&quot;URL: https://dev.yorhel.nl/ncdu, https://dev.yorhel.nl/ncdu/man2 (documentation), https://dev.yorhel.nl/ncdu/changes2 (changelog), https://code.blicky.net/yorhel/ncdu/ (source code)&quot;)
 whatis([[
 Description: Ncdu is a disk usage analyzer with an ncurses interface. It is designed to find space hogs on a remote server where you don’t have an entire graphical setup available, but it is a useful tool even on regular desktop systems. Ncdu aims to be fast, simple and easy to use, and should be able to run in any minimal POSIX-like environment with ncurses installed.
 Examples: `ncdu --version`, `ncdu --help`, and `ncdu`).
