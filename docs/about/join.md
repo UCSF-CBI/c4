@@ -7,6 +7,17 @@ Any UCSF Cancer Center members and members of their labs can join the {{ site.cl
 3. Name of your HDFCCC lab or supervisor
 4. GitHub username (used for our issue tracker - to join, go to <https://github.com/join>)
 
+While it isn't required, a password manager is HIGHLY recommended. There are several options.
+
+1. **1Password**: https://1password.com
+2. **Dashlane**: https://dashlane.com
+3. **RoboForm**: https://roboform.com
+4. **NordPass**: https://nordpass.com
+5. **Sticky Password**: https://stickypassword.com
+6. **LastPass**: https://lastpass.com
+7. **RememBear**: https://remembear.com
+8. **ManageEngine Password Manager Pro**: https://manageengine.com
+
 To existing TIPCC users: We will only provision C4 accounts upon request. We do this in order to identify and clean out TIPCC accounts on longer in use.
 
 
