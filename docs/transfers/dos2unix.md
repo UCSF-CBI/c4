@@ -61,8 +61,7 @@ The '3' is the number of CR symbols found in file `script.sh`.  When running on 
 We can also "visualize" odd symbols, including the CR and LF symbols, by using `cat` with option `-A`;
 
 ```sh
-[alice@{{ site.devel.name }} ~]$ source script.sh
-$ cat -A script.sh
+[alice@{{ site.devel.name }} ~]$ cat -A script.sh
 #! /usr/bin/env bash^M$
 ^M$
 hostname^M$
