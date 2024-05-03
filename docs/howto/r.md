@@ -650,6 +650,49 @@ Importantly, you need to load the `jags` CBI module any time you run R
 where the **rjags** R package needs to be loaded.
 
 
+### Packages relying on JQ
+
+#### Package **jqr**
+
+If we try to install the **[jqr]** package, it fails to compile;
+
+```r
+> install.packages("jqr")
+...
+* installing *source* package ‘jqr’ ...
+** package ‘jqr’ successfully unpacked and MD5 sums checked
+** using staged installation
+Using PKG_CFLAGS=
+Using PKG_LIBS=-ljq
+--------------------------- [ANTICONF] --------------------------------
+Configuration failed because libjq was not found. Try installing:
+ * deb: libjq-dev (Debian, Ubuntu).
+ * rpm: jq-devel (Fedora, EPEL)
+ * csw: libjq_dev (Solaris)
+ * brew: jq (OSX)
+If  is already installed set INCLUDE_DIR and LIB_DIR manually via:
+R CMD INSTALL --configure-vars='INCLUDE_DIR=... LIB_DIR=...'
+-------------------------- [ERROR MESSAGE] ---------------------------
+<stdin>:1:10: fatal error: jq.h: No such file or directory
+compilation terminated.
+--------------------------------------------------------------------
+ERROR: configuration failed for package ‘jqr’
+```
+
+To fix this, load the `jq` module from the CBI stack before launching R, i.e.
+
+```r
+$ module load CBI r
+$ module load CBI jq
+$ R
+```
+
+after this, the **jqr** package will install out of the box.
+
+Importantly, you need to load the `jq` CBI module any time you run R
+where the **jqr** R package needs to be loaded.
+
+
 ### Packages relying on GSL
 
 The GNU Scientific Library (GSL) is a numerical library for C and C++ that provides a wide range of mathematical routines such as random number generators, special functions and least-squares fitting. Several R packages rely on it.
@@ -706,6 +749,7 @@ install.packages("udunits2", configure.args="--with-udunits2-include=/usr/includ
 [gsl]: https://cran.r-project.org/package=gsl
 [hdf5r]: https://cran.r-project.org/package=hdf5r
 [igraph]: https://cran.r-project.org/package=igraph
+[jqr]: https://cran.r-project.org/package=jqr
 [lwgeom]: https://cran.r-project.org/package=lwgeom
 [MASS]: https://cran.r-project.org/package=MASS
 [Matrix]: https://cran.r-project.org/package=Matrix
