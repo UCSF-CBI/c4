@@ -310,3 +310,5 @@ rgeos
 sqlite
 terra
 gsl
+RcppGSL
+valse
