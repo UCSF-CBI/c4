@@ -732,6 +732,35 @@ where the **gsl** R package needs to be loaded.
 
 ### Packages requiring extra care
 
+#### Package **ncdf4**
+
+The **[ncdf4]** package requires netCDF (>= 4.6.0) as of **ncdf4**
+1.22 (2023-11-28).  CentOS 7 only provides netCDF 4.3.3.1 (`nc-config
+--version`).  If we still attempt to install **ncdf4** as-is, we get:
+
+```r
+> install.packages("ncdf4")
+...
+> gcc -I"{{ site.path.cbi_software }}/{{ r_basename }}/lib64/R/include" -DNDEBUG -I/usr/include -I/usr/include/hdf  -I/usr/local/include    -fpic  -g -O2  -c ncdf.c -o ncdf.o
+> ncdf.c: In function ‘R_nc4_inq_format’:
+> ncdf.c:1910:8: error: ‘NC_FORMAT_CDF5’ undeclared (first use in this function); did you mean ‘NC_FORMAT_NC_HDF5’?
+>  1910 |   case NC_FORMAT_CDF5:
+>       |        ^~~~~~~~~~~~~~
+>       |        NC_FORMAT_NC_HDF5
+> ncdf.c:1910:8: note: each undeclared identifier is reported only once for each function it appears in
+> make: *** [{{ site.path.cbi_software }}/{{ r_basename }}/lib64/R/etc/Makeconf:191: ncdf.o] Error 1
+> ERROR: compilation failed for package ‘ncdf4’
+```
+
+The workaround is to install [**ncdf4**
+1.21](https://cran.r-project.org/src/contrib/Archive/ncdf4/) (2023-01-07) using:
+
+```r
+> install.packages("https://cran.r-project.org/src/contrib/Archive/ncdf4/ncdf4_1.21.tar.gz")
+```
+
+
+
 #### Package **udunits2**
 
 The **[udunits2]** package does not install out of the box.  It seems to be due to a problem with the package itself, and the suggested instructions that the package gives on setting environment variable `UDUNITS2_INCLUDE` do not work.  A workaround to install the package is to do:
@@ -794,6 +823,7 @@ install **verse**;
 [lwgeom]: https://cran.r-project.org/package=lwgeom
 [MASS]: https://cran.r-project.org/package=MASS
 [Matrix]: https://cran.r-project.org/package=Matrix
+[ncdf4]: https://cran.r-project.org/package=ncdf4
 [pbdMPI]: https://cran.r-project.org/package=pbdMPI
 [pbdPROF]: https://cran.r-project.org/package=pbdPROF
 [rjags]: https://cran.r-project.org/package=rjags
