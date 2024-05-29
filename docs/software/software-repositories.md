@@ -3201,7 +3201,7 @@ R: The R Programming Language
 ]])
 
 local name = myModuleName()
-local version = &quot;4.3.2-gcc10&quot;
+local version = &quot;4.2.2-gcc10&quot;
 version = string.gsub(version, &quot;^[.]&quot;, &quot;&quot;) -- for hidden modules
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: Programming, Statistics&quot;)
@@ -3216,28 +3216,12 @@ has_devtoolset = function(version)
   return(isDir(path))
 end
 
-has_gcc_toolset = function(version)
-  local path = pathJoin(&quot;/opt&quot;, &quot;rh&quot;, &quot;gcc-toolset-&quot; .. version)
-  return(isDir(path))
-end
-
 local name = &quot;R&quot;
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
-
--- Specific to the Linux distribution?
-if string.match(myFileName(), &quot;/_&quot; .. os.getenv(&quot;CBI_LINUX&quot;) .. &quot;/&quot;) then
-  root = pathJoin(root, &quot;_&quot; .. os.getenv(&quot;CBI_LINUX&quot;))
-end
-
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
 
 prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
-
-local path = pathJoin(home, &quot;lib&quot;)
-if not isDir(path) then
-  path = pathJoin(home, &quot;lib64&quot;)
-end
-prepend_path(&quot;LD_LIBRARY_PATH&quot;, pathJoin(path, &quot;R&quot;, &quot;lib&quot;))
+prepend_path(&quot;LD_LIBRARY_PATH&quot;, pathJoin(home, &quot;lib&quot;, &quot;R&quot;, &quot;lib&quot;))
 prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;share&quot;, &quot;man&quot;))
 
 local v = version
@@ -3250,12 +3234,7 @@ else
   pushenv(&quot;R_INSTALL_STAGED&quot;, &quot;true&quot;)
 end
 
-local r_libs_user
-if os.getenv(&quot;CBI_LINUX&quot;) == &quot;centos7&quot; then
-  r_libs_user=&quot;~/R/%p-library/%v-CBI&quot;
-else
-  r_libs_user=&quot;~/R/&quot; .. os.getenv(&quot;CBI_LINUX&quot;) .. &quot;-&quot; .. &quot;%p-library/%v-CBI&quot;
-end
+local r_libs_user=&quot;~/R/%p-library/%v-CBI&quot;
 
 if (v &gt;= &quot;4.1.0&quot;) then
   local gv = string.gsub(version, v, &quot;&quot;)
@@ -3268,8 +3247,6 @@ if (v &gt;= &quot;4.1.0&quot;) then
     r_libs_user = r_libs_user .. &quot;-gcc&quot; .. gv
     if has_devtoolset(gv) then
       depends_on(&quot;scl-devtoolset/&quot; .. gv)
-    elseif has_gcc_toolset(gv) then
-      depends_on(&quot;scl-gcc-toolset/&quot; .. gv)
     end
   end
 end
