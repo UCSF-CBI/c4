@@ -18,7 +18,9 @@ While it isn't required, a password manager is **HIGHLY** recommended. There are
 7. **RememBear**: <https://remembear.com>
 8. **ManageEngine Password Manager Pro**: <https://manageengine.com>
 
-To existing TIPCC users: We will only provision C4 accounts upon request. We do this in order to identify and clean out TIPCC accounts on longer in use.
+You can skip passwords by enabling SSH keys. <https://www.c4.ucsf.edu/howto/log-in-without-pwd.html> 
+
+To existing TIPCC users: We will only provision C4 accounts upon request. We do this to identify and clean out TIPCC accounts that are no longer in use.
 
 
 [sysadmin]: {{ '/about/contact.html' | relative_url }}
