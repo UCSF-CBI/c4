@@ -8,4 +8,4 @@ and systems administration. As a result, the cluster contributes directly to the
 basic mission of the HDFCCC, including research, education, and outreach.
 
 **Governance.**
-The cluster is governed by the CBI Shared Resource, more specifically, by its director, Adam Olshen.  Henrik Bengtsson, Daryl Styrk, and Adam Olshen, all from the CBI, together make decisions related to its operations.  Daryl Styrk is the system administrator for the system.  Henrik Bengtsson leads on software decisions related to the cluster.  The CBI welcomes input on how to make {{ site.cluster.name }} better.    
+The cluster is governed by the CBI Shared Resource, more specifically, by its director, Adam Olshen.  Henrik Bengtsson, Harry Putnam and Adam Olshen, all from the CBI, together make decisions related to its operations.  Harry Putnam is the system administrator for the system.  Henrik Bengtsson leads on software decisions related to the cluster.  The CBI welcomes input on how to make {{ site.cluster.name }} better.    
