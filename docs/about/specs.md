@@ -134,9 +134,7 @@ c4-n36    |            48 |   384 GiB |           5.4 TiB | x86-64-v3        |  
 c4-n37    |           104 |  1024 GiB |           3.4 TiB | x86-64-v4        |   3.4 GHz | SSD /scratch,  10 Gbps ethernet                      | communal
 c4-n38    |           104 |  1024 GiB |           3.4 TiB | x86-64-v4        |   3.4 GHz | SSD /scratch,  10 Gbps ethernet Nvidia A100 GPU      | communal
 c4-n39    |           104 |  1024 GiB |           3.4 TiB | x86-64-v4        |   3.4 GHz | SSD /scratch,  10 Gbps ethernet Nvidia A100 GPU      | communal
-c4-n40    |           160 |  1024 GiB |           3.5 TiB | x86-64-v4        |   2.3 GHz | SATA /scratch, 10 Gbps ethernet                      | Krummel Lab
-c4-n41    |           128 |  1024 GiB |           5.2 TiB | x86-64-v4        |   2.0 GHz | SATA /scratch, 10 Gbps ethernet                      | Krummel Lab
-c4-n42    |           160 |   768 GiB |           5.4 TiB | x86-64-v4        |   2.3 GHz | SATA /scratch, 10 Gbps ethernet                      | Vantveer Lab
+
 <!--
 For additional details on the compute nodes, see the <a href="#details">Details</a> section below.
 -->
