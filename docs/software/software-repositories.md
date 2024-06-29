@@ -58,7 +58,7 @@ Below are 3 software repositories, each providing a set of software tools.
 
 <ul class="nav nav-pills">
 <li class="active"><a data-toggle="pill" href="#button_repository_built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(2)</a></li>
-<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(98)</a></li>
+<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(96)</a></li>
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
@@ -138,7 +138,7 @@ prepend_path(&quot;CPATH&quot;, pathJoin(home, &quot;include&quot;))
 
 <div id="button_repository_cbi" class="tab-pane fade">
 
-<h2 id="repository_cbi">Module Software Repository: CBI (98)</h2>
+<h2 id="repository_cbi">Module Software Repository: CBI (96)</h2>
 
 Maintained by: Henrik Bengtsson, <a href="https://cbi.ucsf.edu">Computational Biology and Informatics</a><br>
 Enable repository: <code>module load CBI</code><br>
@@ -463,7 +463,7 @@ prepend_path(&quot;BATS_SUPPORT_HOME&quot;, home)
 <span class="module-description">BCFtools is a set of utilities that manipulate variant calls in the Variant Call Format (VCF) and its binary counterpart BCF. All commands work transparently with both VCFs and BCFs, both uncompressed and BGZF-compressed.</span><br>
 Example: <span class="module-example"><code>bcftools --version</code></span><br>
 URL: <span class="module-url"><a href="https://www.htslib.org/">https://www.htslib.org/</a>, <a href="https://github.com/samtools/bcftools/blob/develop/NEWS">https://github.com/samtools/bcftools/blob/develop/NEWS</a> (changelog), <a href="https://github.com/samtools/bcftools">https://github.com/samtools/bcftools</a> (source code)</span><br>
-Versions: <span class="module-version">1.10.2, 1.11, 1.12, 1.13, 1.14, 1.15, 1.15.1, 1.16, 1.17, 1.18, <em>1.19</em></span><br>
+Versions: <span class="module-version">1.10.2, 1.11, 1.12, 1.13, 1.14, 1.15, 1.15.1, 1.16, 1.17, 1.18, 1.19, <em>1.20</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -740,7 +740,7 @@ prepend_path(&quot;PATH&quot;, home)
 <span class="module-description">Burrows-Wheeler Aligner (BWA) is a software package for mapping low-divergent sequences against a large reference genome, such as the human genome.</span><br>
 Example: <span class="module-example"><code>bwa</code>.</span><br>
 URL: <span class="module-url"><a href="http://bio-bwa.sourceforge.net/">http://bio-bwa.sourceforge.net/</a>, <a href="https://github.com/lh3/bwa/blob/master/NEWS.md">https://github.com/lh3/bwa/blob/master/NEWS.md</a> (changelog), <a href="https://github.com/lh3/bwa">https://github.com/lh3/bwa</a> (source code)</span><br>
-Versions: <span class="module-version">0.5.10, <em>0.7.17</em></span><br>
+Versions: <span class="module-version">0.5.10, 0.7.17, <em>0.7.18</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -751,8 +751,11 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: sequencing&quot;)
-whatis(&quot;URL: http://bio-bwa.sourceforge.net/&quot;)
-whatis(&quot;Description: Burrows-Wheeler Aligner (BWA) is a software package for mapping low-divergent sequences against a large reference genome, such as the human genome. Example: `bwa`.&quot;)
+whatis(&quot;URL: http://bio-bwa.sourceforge.net/, https://github.com/lh3/bwa/blob/master/NEWS.md (changelog), https://github.com/lh3/bwa (source code)&quot;)
+whatis([[
+Description: Burrows-Wheeler Aligner (BWA) is a software package for mapping low-divergent sequences against a large reference genome, such as the human genome.
+Example: `bwa`.
+]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
@@ -898,7 +901,7 @@ prepend_path(&quot;PKG_CONFIG_PATH&quot;, pathJoin(home, &quot;lib&quot;, &quot;
 Example: <span class="module-example"><code>ctop</code> and <code>ctopx</code> (silence 'Invalid user id' output).</span><br>
 URL: <span class="module-url"><a href="https://github.com/molgenis/cluster-utils/">https://github.com/molgenis/cluster-utils/</a>, <a href="https://github.com/molgenis/cluster-utils/releases">https://github.com/molgenis/cluster-utils/releases</a> (changelog)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version">21.05.1, 22.10.2, 22.12.2, <em>23.03.1</em></span><br>
+Versions: <span class="module-version">21.05.1, 22.10.2, 22.12.2, 23.03.1, <em>24.04.1</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -1810,7 +1813,7 @@ prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;share&quot;, &quot;man&qu
 <span class="module-description">HTSlib is an implementation of a unified C library for accessing common file formats, such as SAM, CRAM and VCF, used for high-throughput sequencing data, and is the core library used by samtools and bcftools. HTSlib also provides the bgzip, htsfile, and tabix utilities.</span><br>
 Example: <span class="module-example"><code>bgzip --version</code>, <code>htsfile --version</code>, and <code>tabix --version</code>.</span><br>
 URL: <span class="module-url"><a href="https://www.htslib.org/">https://www.htslib.org/</a>, <a href="https://github.com/samtools/htslib/blob/develop/NEWS">https://github.com/samtools/htslib/blob/develop/NEWS</a> (changelog), <a href="https://github.com/samtools/htslib">https://github.com/samtools/htslib</a> (source code)</span><br>
-Versions: <span class="module-version">1.10.2, 1.11, 1.12, 1.13, 1.14, 1.15, 1.15.1, 1.16, 1.17, 1.18, 1.19, <em>1.19.1</em></span><br>
+Versions: <span class="module-version">1.10.2, 1.11, 1.12, 1.13, 1.14, 1.15, 1.15.1, 1.16, 1.17, 1.18, 1.19, 1.19.1, <em>1.20</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -2974,15 +2977,6 @@ end
 </details>
   </dd>
 </dl>
-<h3 id="module_cbi_r-siteconfig" class="module-name">r-siteconfig</h3>
-<dl>
-  <dd class="module-details">
-<strong class="module-help">R Site Configuration: Tweaks to R for the Current Compute Environment</strong><br>
-<span class="module-description">Sets R options and environment variables customized for the current compute environment. Notably, it configures R to install packages from local CRAN and Bioconductor mirrors without the need for internet access.</span><br>
-Example: <span class="module-example">In R, <code>install.packages(\&quot;ggplot2\&quot;)</code>.</span><br>
-Versions: <span class="module-version"><em>0.3</em></span><br>
-  </dd>
-</dl>
 <h3 id="module_cbi_rclone" class="module-name">rclone</h3>
 <dl>
   <dd class="module-details">
@@ -3289,8 +3283,8 @@ prepend_path(&quot;LD_LIBRARY_PATH&quot;, pathJoin(home, &quot;lib&quot;))
 <strong class="module-help">SAMtools: Tools (written in C using htslib) for Manipulating Next-Generation Sequencing Data</strong><br>
 <span class="module-description">SAMtools is a suite of programs for interacting with high-throughput sequencing data.</span><br>
 Example: <span class="module-example"><code>samtools --version</code>.</span><br>
-URL: <span class="module-url"><a href="https://www.htslib.org/">https://www.htslib.org/</a>, <a href="https://github.com/samtools/samtools/blob/develop/NEWS">https://github.com/samtools/samtools/blob/develop/NEWS</a> (changelog), <a href="https://github.com/samtools/samtools">https://github.com/samtools/samtools</a> (source code)</span><br>
-Versions: <span class="module-version">0.1.12a, 0.1.18, 1.10, 1.11, 1.12, 1.13, 1.14, 1.15, 1.15.1, 1.16, 1.16.1, 1.17, 1.18, 1.19, <em>1.19.2</em></span><br>
+URL: <span class="module-url"><a href="https://www.htslib.org/">https://www.htslib.org/</a>, <a href="https://github.com/samtools/samtools/blob/develop/NEWS.md">https://github.com/samtools/samtools/blob/develop/NEWS.md</a> (changelog), <a href="https://github.com/samtools/samtools">https://github.com/samtools/samtools</a> (source code)</span><br>
+Versions: <span class="module-version">0.1.12a, 0.1.18, 1.10, 1.11, 1.12, 1.13, 1.14, 1.15, 1.15.1, 1.16, 1.16.1, 1.17, 1.18, 1.19, 1.19.2, <em>1.20</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -3473,7 +3467,7 @@ set_alias(&quot;ClinEff&quot;, &quot;java -jar &quot; .. jarfile)
 <span class="module-description">SQLite is a relational database management system (RDBMS) contained in a C library. In contrast to many other database management systems, SQLite is not a client–server database engine. Rather, it is embedded into the end program.</span><br>
 Example: <span class="module-example"><code>sqlite3 --version</code>.</span><br>
 URL: <span class="module-url"><a href="https://sqlite.org/">https://sqlite.org/</a>, <a href="https://sqlite.org/docs.html">https://sqlite.org/docs.html</a> (docs), <a href="https://github.com/sqlite/sqlite/tags">https://github.com/sqlite/sqlite/tags</a> (changelog), <a href="https://github.com/sqlite/sqlite">https://github.com/sqlite/sqlite</a> (source code)</span><br>
-Versions: <span class="module-version">3.32.3, 3.40.0, 3.41.2, <em>3.42.0</em></span><br>
+Versions: <span class="module-version">3.32.3, 3.40.0, 3.41.2, 3.42.0, <em>3.46.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -3761,17 +3755,6 @@ pushenv(&quot;TRIMGALORE_HOME&quot;, home)
 </details>
   </dd>
 </dl>
-<h3 id="module_cbi_up" class="module-name">up</h3>
-<dl>
-  <dd class="module-details">
-<strong class="module-help">up: The Ultimate Plumber</strong><br>
-<span class="module-description">A tool for writing Linux pipes in a terminal-based UI interactively, with instant live preview of command results. Interactively and incrementally explore textual data in Linux using text-processing utils such as grep, sort, cut, paste, awk, wc, perl, etc.  When done, press Ctrl-C to view final pipe commands, or Ctrl-X to save it to file.</span><br>
-Example: <span class="module-example"><code>up --help</code>, <code>ls | up</code> (exit with Ctrl-C).</span><br>
-URL: <span class="module-url"><a href="https://github.com/akavel/up">https://github.com/akavel/up</a>, <a href="https://github.com/akavel/up/releases">https://github.com/akavel/up/releases</a> (changelog)</span><br>
-Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version"><em>0.4</em></span><br>
-  </dd>
-</dl>
 <h3 id="module_cbi_varscan" class="module-name">varscan</h3>
 <dl>
   <dd class="module-details">
@@ -3817,7 +3800,7 @@ depends_on(&quot;java-tweaks&quot;)
 <span class="module-description">Validator for the Variant Call Format (VCF) implemented using C++11. It includes all the checks from the vcftools suite, and some more that involve lexical, syntactic and semantic analysis of the VCF input.</span><br>
 Example: <span class="module-example"><code>vcf_validator --help</code>, <code>vcf-debugulator --help</code>, and <code>vcf-assembly-checker --help</code>.</span><br>
 URL: <span class="module-url"><a href="https://github.com/EBIvariation/vcf-validator">https://github.com/EBIvariation/vcf-validator</a>, <a href="https://github.com/EBIvariation/vcf-validator/releases">https://github.com/EBIvariation/vcf-validator/releases</a> (changelog)</span><br>
-Versions: <span class="module-version">0.9.4, <em>0.9.5</em></span><br>
+Versions: <span class="module-version">0.9.4, 0.9.5, <em>0.9.6</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -4464,7 +4447,7 @@ prepend_path(&quot;PATH&quot;, home)
 
 <ul class="nav nav-pills">
 <li class="active"><a data-toggle="pill" href="#button_repository_built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(2)</a></li>
-<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(98)</a></li>
+<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(96)</a></li>
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
