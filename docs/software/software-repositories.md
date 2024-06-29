@@ -2981,30 +2981,6 @@ end
 <span class="module-description">Sets R options and environment variables customized for the current compute environment. Notably, it configures R to install packages from local CRAN and Bioconductor mirrors without the need for internet access.</span><br>
 Example: <span class="module-example">In R, <code>install.packages(\&quot;ggplot2\&quot;)</code>.</span><br>
 Versions: <span class="module-version"><em>0.3</em></span><br>
-<details>
-<summary>Module code: <a>view</a></summary>
-<pre><code class="language-lua">help([[
-R Site Configuration: Tweaks to R for the Current Compute Environment
-]])
-
-local name = myModuleName()
-local version = myModuleVersion()
-whatis(&quot;Version: &quot; .. version)
-whatis(&quot;Keywords: R, configuration&quot;)
-whatis([[
-Description: Sets R options and environment variables customized for the current compute environment. Notably, it configures R to install packages from local CRAN and Bioconductor mirrors without the need for internet access.
-Examples: In R, `install.packages(\&quot;ggplot2\&quot;)`.
-]])
-
-local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
-local home = pathJoin(root, name .. &quot;-&quot; .. version)
-
--- Set site-wide (sic!) Renviron and Rprofile files
-pushenv(&quot;R_ENVIRON&quot;, pathJoin(home, &quot;Renviron.site&quot;))
-pushenv(&quot;R_PROFILE&quot;, pathJoin(home, &quot;Rprofile.site&quot;))
-</code></pre>
-
-</details>
   </dd>
 </dl>
 <h3 id="module_cbi_rclone" class="module-name">rclone</h3>
@@ -3794,31 +3770,6 @@ Example: <span class="module-example"><code>up --help</code>, <code>ls | up</cod
 URL: <span class="module-url"><a href="https://github.com/akavel/up">https://github.com/akavel/up</a>, <a href="https://github.com/akavel/up/releases">https://github.com/akavel/up/releases</a> (changelog)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
 Versions: <span class="module-version"><em>0.4</em></span><br>
-<details>
-<summary>Module code: <a>view</a></summary>
-<pre><code class="language-lua">help([[
-up: The Ultimate Plumber
-]])
-
-local name = myModuleName()
-local version = myModuleVersion()
-whatis(&quot;Version: &quot; .. version)
-whatis(&quot;Keywords: utility, cli&quot;)
-whatis(&quot;URL: https://github.com/akavel/up, https://github.com/akavel/up/releases (changelog)&quot;)
-whatis([[
-Description: A tool for writing Linux pipes in a terminal-based UI interactively, with instant live preview of command results. Interactively and incrementally explore textual data in Linux using text-processing utils such as grep, sort, cut, paste, awk, wc, perl, etc.  When done, press Ctrl-C to view final pipe commands, or Ctrl-X to save it to file.
-Examples: `up --help`, `ls | up` (exit with Ctrl-C).
-Warning: Only the most recent version of this software will be kept.
-]])
-
--- Local variables
-local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
-local home = pathJoin(root, name .. &quot;-&quot; .. version)
-
-prepend_path(&quot;PATH&quot;, home)
-</code></pre>
-
-</details>
   </dd>
 </dl>
 <h3 id="module_cbi_varscan" class="module-name">varscan</h3>
