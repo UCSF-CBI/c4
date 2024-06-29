@@ -13,6 +13,11 @@ lmod_data/%.json:
 	@mkdir -p "$(@D)"
 	"$${LMOD_DIR}/spider" --no_recursion -o jsonSoftwarePage "$*" > "$@"
 
+install_deps:
+	Rscript -e 'if (!requireNamespace("R.rsp")) install.packages("R.rsp")'
+	Rscript -e 'if (!requireNamespace("remotes")) install.packages("remotes")'
+	Rscript -e 'if (!requireNamespace("lmodweb")) remotes::install_github("ucsf-wynton/lmodweb")'
+
 spider: clean
 	@module load CBI r && \
 	export R_BIOCONDUCTORX_DISABLE=true; \
