@@ -57,15 +57,15 @@ module load CBI r bwa bowtie2/2.4.2
 Below are 3 software repositories, each providing a set of software tools.
 
 <ul class="nav nav-pills">
-<li class="active"><a data-toggle="pill" href="#button_repository_built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(3)</a></li>
-<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(101)</a></li>
+<li class="active"><a data-toggle="pill" href="#button_repository_built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(2)</a></li>
+<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(98)</a></li>
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
 <div class="tab-content" style="margin-top: 1ex;">
 <div id="button_repository_built-in" class="tab-pane fadein active">
 
-<h2 id="repository_built-in">Module Software Repository: built-in (3)</h2>
+<h2 id="repository_built-in">Module Software Repository: built-in (2)</h2>
 
 Maintained by: {{ site.cluster.nickname }} Systems Administrators, <a href="{{ '/about/contact.html' | relative_url }}">{{ site.cluster.name }}</a><br>
 Enable repository: <em>this software repository is always enabled</em><br>
@@ -87,59 +87,43 @@ setenv        MLM_LICENSE_FILE    27000@c4-license1
 </details>
   </dd>
 </dl>
-<h3 id="module_built-in_mpi" class="module-name">mpi</h3>
-<dl>
-  <dd class="module-details">
-Versions: <span class="module-version">openmpi3-x86_64, <em>openmpi-x86_64</em></span><br>
-<details>
-<summary>Module code: <a>view</a></summary>
-<pre><code class="language-lua">#%Module 1.0
-#
-#  OpenMPI module for use with 'environment-modules' package:
-#
-conflict		mpi
-prepend-path 		PATH 		/usr/lib64/openmpi/bin
-prepend-path 		LD_LIBRARY_PATH /usr/lib64/openmpi/lib
-prepend-path		PYTHONPATH	/usr/lib64/python2.7/site-packages/openmpi
-prepend-path		MANPATH		/usr/share/man/openmpi-x86_64
-setenv 			MPI_BIN		/usr/lib64/openmpi/bin
-setenv			MPI_SYSCONFIG	/etc/openmpi-x86_64
-setenv			MPI_FORTRAN_MOD_DIR	/usr/lib64/gfortran/modules/openmpi-x86_64
-setenv			MPI_INCLUDE	/usr/include/openmpi-x86_64
-setenv	 		MPI_LIB		/usr/lib64/openmpi/lib
-setenv			MPI_MAN		/usr/share/man/openmpi-x86_64
-setenv			MPI_PYTHON_SITEARCH	/usr/lib64/python2.7/site-packages/openmpi
-setenv			MPI_COMPILER	openmpi-x86_64
-setenv			MPI_SUFFIX	_openmpi
-setenv	 		MPI_HOME	/usr/lib64/openmpi
-</code></pre>
-
-</details>
-  </dd>
-</dl>
 <h3 id="module_built-in_openjdk" class="module-name">openjdk</h3>
 <dl>
   <dd class="module-details">
 <strong class="module-help">openjdk: Open Java Development Kit</strong><br>
 <span class="module-description">OpenJDK is a free and open-source implementation of the Java Platform, Standard Edition. It is the result of an effort Sun Microsystems began in 2006.</span><br>
-Example: <span class="module-example"><code>java -version</code> and <code>javac -version</code>.</span><br>
-URL: <span class="module-url"><a href="https://openjdk.java.net/">https://openjdk.java.net/</a></span><br>
-Versions: <span class="module-version">1.6.0, 1.8.0, <em>11</em></span><br>
+Example: <span class="module-example"><code>java -version</code> and <code>javac -version</code> (SDK only).</span><br>
+Note: <span class="module-note">This module loads the Software Development Kit (SDK) version, if available, otherwise the Run-Time Environment (JRE).</span><br>
+URL: <span class="module-url"><a href="https://openjdk.java.net/">https://openjdk.java.net/</a>, <a href="https://openjdk.java.net/projects/jdk/">https://openjdk.java.net/projects/jdk/</a> (changelog), <a href="https://github.com/openjdk/jdk">https://github.com/openjdk/jdk</a> (source code)</span><br>
+Versions: <span class="module-version">1.8.0, 11, 17, <em>21</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
-<pre><code class="language-lua">help([[
-openjdk: Open Java Development Kit
-]])
+<pre><code class="language-lua">help(&quot;openjdk: Open Java Development Kit&quot;)
 
 local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: programming, java&quot;)
-whatis(&quot;URL: https://openjdk.java.net/&quot;)
-whatis(&quot;Description: OpenJDK is a free and open-source implementation of the Java Platform, Standard Edition. It is the result of an effort Sun Microsystems began in 2006. Examples: `java -version` and `javac -version`.&quot;)
+whatis(&quot;URL: https://openjdk.java.net/, https://openjdk.java.net/projects/jdk/ (changelog), https://github.com/openjdk/jdk (source code)&quot;)
+whatis([[
+Description: OpenJDK is a free and open-source implementation of the Java Platform, Standard Edition. It is the result of an effort Sun Microsystems began in 2006.
+Examples: `java -version` and `javac -version` (SDK only).
+Note: This module loads the Software Development Kit (SDK) version, if available, otherwise the Run-Time Environment (JRE).
+]])
 
 local root = &quot;/usr/lib/jvm&quot;
+
+-- Use SDK, if available, otherwise JRE
 local home = pathJoin(root, &quot;java&quot; .. &quot;-&quot; .. version)
+if not isDir(home) then -- isDir() supports symlinked folders
+    home = pathJoin(root, &quot;jre&quot; .. &quot;-&quot; .. version)
+end
+
+-- Assert that OpenJDK version still exists, because
+-- it happens at times that older versions are removed
+if not isDir(home) then
+  LmodError(&quot;INTERNAL ERROR: Module &quot; .. name .. &quot;/&quot; .. version .. &quot; is broken, because folder &quot; .. home .. &quot; does not exist on host &quot; .. os.getenv(&quot;HOSTNAME&quot;) .. &quot;. Please report this to the sysadms.&quot;)
+end
 
 setenv(&quot;JAVA_HOME&quot;, home)
 prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
@@ -154,7 +138,7 @@ prepend_path(&quot;CPATH&quot;, pathJoin(home, &quot;include&quot;))
 
 <div id="button_repository_cbi" class="tab-pane fade">
 
-<h2 id="repository_cbi">Module Software Repository: CBI (101)</h2>
+<h2 id="repository_cbi">Module Software Repository: CBI (98)</h2>
 
 Maintained by: Henrik Bengtsson, <a href="https://cbi.ucsf.edu">Computational Biology and Informatics</a><br>
 Enable repository: <code>module load CBI</code><br>
@@ -667,8 +651,8 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 <strong class="module-help">BLAT: Fast Sequence Search Command Line Tool</strong><br>
 <span class="module-description">BLAT - client and server combined into a single program, first building the index, then using the index, and then exiting.</span><br>
 Example: <span class="module-example"><code>blat</code></span><br>
-URL: <span class="module-url"><a href="https://genome.ucsc.edu/goldenPath/help/blatSpec.html">https://genome.ucsc.edu/goldenPath/help/blatSpec.html</a> (docs), <a href="https://genome.ucsc.edu/FAQ/FAQblat.html">https://genome.ucsc.edu/FAQ/FAQblat.html</a> (faq), <a href="https://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/blat/">https://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/blat/</a> (download)</span><br>
-Versions: <span class="module-version">36x4, <em>37x1</em></span><br>
+URL: <span class="module-url"><a href="https://genome.ucsc.edu/goldenPath/help/blatSpec.html">https://genome.ucsc.edu/goldenPath/help/blatSpec.html</a> (documentation), <a href="https://genome.ucsc.edu/FAQ/FAQblat.html">https://genome.ucsc.edu/FAQ/FAQblat.html</a> (faq), <a href="https://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/blat/">https://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/blat/</a> (download), <a href="https://github.com/ucscGenomeBrowser/kent/tree/master/src/blat">https://github.com/ucscGenomeBrowser/kent/tree/master/src/blat</a> (source code)</span><br>
+Versions: <span class="module-version">36x4, 37x1, <em>39x1</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -679,7 +663,7 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: sequencing, alignment&quot;)
-whatis(&quot;URL: https://genome.ucsc.edu/goldenPath/help/blatSpec.html (docs), https://genome.ucsc.edu/FAQ/FAQblat.html (faq), https://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/blat/ (download)&quot;)
+whatis(&quot;URL: https://genome.ucsc.edu/goldenPath/help/blatSpec.html (documentation), https://genome.ucsc.edu/FAQ/FAQblat.html (faq), https://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/blat/ (download), https://github.com/ucscGenomeBrowser/kent/tree/master/src/blat (source code)&quot;)
 whatis([[
 Description: BLAT - client and server combined into a single program, first building the index, then using the index, and then exiting.
 Examples: `blat`
@@ -735,7 +719,7 @@ pushenv(&quot;BOWTIE_HOME&quot;, home)
 <span class="module-description">Bowtie 2 is an ultrafast and memory-efficient tool for aligning sequencing reads to long reference sequences.</span><br>
 Example: <span class="module-example"><code>bowtie2 --version</code></span><br>
 URL: <span class="module-url"><a href="https://bowtie-bio.sourceforge.net/bowtie2/index.shtml">https://bowtie-bio.sourceforge.net/bowtie2/index.shtml</a>, <a href="https://bowtie-bio.sourceforge.net/bowtie2/index.shtml">https://bowtie-bio.sourceforge.net/bowtie2/index.shtml</a> (changelog), <a href="https://github.com/BenLangmead/bowtie2">https://github.com/BenLangmead/bowtie2</a> (source code)</span><br>
-Versions: <span class="module-version">2.4.1, 2.4.2, 2.4.4, 2.4.5, 2.5.0, 2.5.1, 2.5.2, <em>2.5.3</em></span><br>
+Versions: <span class="module-version">2.4.1, 2.4.2, 2.4.4, 2.4.5, 2.5.0, 2.5.1, 2.5.2, 2.5.3, <em>2.5.4</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -840,9 +824,9 @@ prepend_path(&quot;MANPATH&quot;,  pathJoin(home, &quot;share&quot;, &quot;man&q
 <strong class="module-help">Cell Ranger: 10x Genomics Pipeline for Single-Cell Data Analysis</strong><br>
 <span class="module-description">Cell Ranger is a set of analysis pipelines that process Chromium Single Cell 3' RNA-seq output to align reads, generate gene-cell matrices and perform clustering and gene expression analysis.</span><br>
 Example: <span class="module-example"><code>cellranger --help</code> and <code>cellranger --version</code>.</span><br>
-URL: <span class="module-url"><a href="https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/what-is-cell-ranger">https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/what-is-cell-ranger</a>, <a href="https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/release-notes">https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/release-notes</a> (changelog), <a href="https://github.com/10XGenomics/cellranger">https://github.com/10XGenomics/cellranger</a> (source code)</span><br>
+URL: <span class="module-url"><a href="https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/what-is-cell-ranger">https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/what-is-cell-ranger</a>, <a href="https://www.10xgenomics.com/support/software/cell-ranger/latest/release-notes/cr-release-notes">https://www.10xgenomics.com/support/software/cell-ranger/latest/release-notes/cr-release-notes</a> (changelog), <a href="https://github.com/10XGenomics/cellranger">https://github.com/10XGenomics/cellranger</a> (source code)</span><br>
 Warning: <span class="module-warning">To prevent a single Cell Ranger process from hijacking all CPU and RAM by default, this module sets environment variable <code>MROFLAGS='--localcores=1 --localmem=8 --limit-loadavg'</code> making those the default.</span><br>
-Versions: <span class="module-version">4.0.0, 5.0.1, 6.1.1, 6.1.2, 7.0.0, 7.0.1, 7.1.0, <em>7.2.0</em></span><br>
+Versions: <span class="module-version">4.0.0, 5.0.1, 6.1.1, 6.1.2, 7.0.0, 7.0.1, 7.1.0, 7.2.0, <em>8.0.1</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -853,7 +837,7 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: sequencing, 10x genomics&quot;)
-whatis(&quot;URL: https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/what-is-cell-ranger, https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/release-notes (changelog), https://github.com/10XGenomics/cellranger (source code)&quot;)
+whatis(&quot;URL: https://support.10xgenomics.com/single-cell-gene-expression/software/pipelines/latest/what-is-cell-ranger, https://www.10xgenomics.com/support/software/cell-ranger/latest/release-notes/cr-release-notes (changelog), https://github.com/10XGenomics/cellranger (source code)&quot;)
 whatis([[
 Description: Cell Ranger is a set of analysis pipelines that process Chromium Single Cell 3' RNA-seq output to align reads, generate gene-cell matrices and perform clustering and gene expression analysis.
 Examples: `cellranger --help` and `cellranger --version`.
@@ -1233,7 +1217,7 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 Example: <span class="module-example"><code>emacs --version</code> and <code>emacs -nw</code>.</span><br>
 URL: <span class="module-url"><a href="https://www.gnu.org/software/emacs/">https://www.gnu.org/software/emacs/</a>, <a href="https://www.gnu.org/savannah-checkouts/gnu/emacs/emacs.html#Releases">https://www.gnu.org/savannah-checkouts/gnu/emacs/emacs.html#Releases</a> (changelog)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version">28.2, <em>29.1</em></span><br>
+Versions: <span class="module-version">29.3, <em>29.4</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -1346,7 +1330,7 @@ Example: <span class="module-example"><code>fzf --version</code> and <code>emacs
 Note: <span class="module-note">To install tab completions and key bindinds to your shell, call <code>$FZF_HOME/install</code>. To uninstall, use <code>$FZF_HOME/uninstall</code>.</span><br>
 URL: <span class="module-url"><a href="https://github.com/junegunn/fzf">https://github.com/junegunn/fzf</a>, <a href="https://github.com/junegunn/fzf/wiki">https://github.com/junegunn/fzf/wiki</a> (documentation), <a href="https://github.com/junegunn/fzf/blob/master/CHANGELOG.md">https://github.com/junegunn/fzf/blob/master/CHANGELOG.md</a> (changelog), <a href="https://github.com/junegunn/fzf/releases">https://github.com/junegunn/fzf/releases</a> (download)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version">0.44.1, 0.45.0, 0.46.0, <em>0.49.0</em></span><br>
+Versions: <span class="module-version">0.44.1, 0.45.0, 0.46.0, 0.49.0, <em>0.53.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -1381,8 +1365,7 @@ pushenv(&quot;FZF_HOME&quot;, home)
 <dl>
   <dd class="module-details">
 <strong class="module-help">Genome Analysis Toolkit (GATK): Variant Discovery in High-Throughput Sequencing Data</strong><br>
-<span class="module-description">Developed in the Data Sciences Platform at the Broad Institute, the toolkit offers a wide variety of tools with a primary focus on variant discovery and genotyping. Its powerful processing engine and high-performance computing features make it capable of taking on projects of any size.
-Requirements: Modern GATK versions require Java (&gt;= 17).</span><br>
+<span class="module-description">Developed in the Data Sciences Platform at the Broad Institute, the toolkit offers a wide variety of tools with a primary focus on variant discovery and genotyping. Its powerful processing engine and high-performance computing features make it capable of taking on projects of any size.</span><br>
 Example: <span class="module-example"><code>gatk --help</code> and <code>gatk --list</code>.</span><br>
 URL: <span class="module-url"><a href="https://gatk.broadinstitute.org/hc/en-us">https://gatk.broadinstitute.org/hc/en-us</a>, <a href="https://github.com/broadinstitute/gatk">https://github.com/broadinstitute/gatk</a> (source code), <a href="https://github.com/broadinstitute/gatk/releases">https://github.com/broadinstitute/gatk/releases</a> (changelog), <a href="https://github.com/broadgsa/gatk">https://github.com/broadgsa/gatk</a> (legacy), <a href="https://console.cloud.google.com/storage/browser/gatk-software/package-archive">https://console.cloud.google.com/storage/browser/gatk-software/package-archive</a> (legacy), <a href="ftp://ftp.broadinstitute.org/pub/gsa/GenomeAnalysisTK/">ftp://ftp.broadinstitute.org/pub/gsa/GenomeAnalysisTK/</a> (legacy)</span><br>
 Versions: <span class="module-version">1.1-37-ge63d9d8, 1.6-5-g557da77, 4.1.1.0, 4.1.7.0, 4.1.8.1, 4.1.9.0, 4.2.0.0, 4.2.2.0, 4.2.3.0, 4.2.4.1, 4.2.5.0, 4.2.6.1, 4.3.0.0, 4.4.0.0, <em>4.5.0.0</em></span><br>
@@ -1668,7 +1651,7 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 Example: <span class="module-example"><code>gh --version</code>, <code>gh --help</code>, and <code>gh auth login</code>.</span><br>
 URL: <span class="module-url"><a href="https://cli.github.com/">https://cli.github.com/</a>, <a href="https://cli.github.com/manual/">https://cli.github.com/manual/</a> (documentation), <a href="https://github.com/cli/cli/releases">https://github.com/cli/cli/releases</a> (changelog), <a href="https://github.com/cli/cli/">https://github.com/cli/cli/</a> (source code)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version"><em>2.42.1</em></span><br>
+Versions: <span class="module-version">2.42.1, <em>2.52.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -1885,7 +1868,7 @@ prepend_path(&quot;PATH&quot;, home)
 Example: <span class="module-example"><code>htop</code>.</span><br>
 URL: <span class="module-url"><a href="https://htop.dev">https://htop.dev</a>, <a href="https://github.com/htop-dev/htop/blob/main/ChangeLog">https://github.com/htop-dev/htop/blob/main/ChangeLog</a> (changelog), <a href="https://github.com/htop-dev/htop">https://github.com/htop-dev/htop</a> (source code)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version">3.2.2, <em>3.3.0</em></span><br>
+Versions: <span class="module-version"><em>3.3.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -2127,7 +2110,7 @@ pushenv(&quot;JAGS_LIB&quot;, pathJoin(home, &quot;lib&quot;))
 Example: <span class="module-example"><code>jq --help</code>, <code>jq --version</code>, <code>cat in.json | jq .</code>, and <code>man jq</code></span><br>
 URL: <span class="module-url"><a href="https://github.com/jqlang/jq">https://github.com/jqlang/jq</a>, <a href="https://github.com/jqlang/jq/blob/master/NEWS.md">https://github.com/jqlang/jq/blob/master/NEWS.md</a> (changelog), <a href="https://jqlang.github.io/jq">https://jqlang.github.io/jq</a> (documentation)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version">1.7, <em>1.7.1</em></span><br>
+Versions: <span class="module-version"><em>1.7.1</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -2313,7 +2296,7 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;node_modules&quot;, &quot;.b
 Example: <span class="module-example"><code>mc</code> and <code>mc --version</code>.</span><br>
 URL: <span class="module-url"><a href="https://midnight-commander.org/">https://midnight-commander.org/</a>, <a href="https://github.com/MidnightCommander/mc/blob/master/doc/NEWS">https://github.com/MidnightCommander/mc/blob/master/doc/NEWS</a> (changelog), <a href="https://github.com/MidnightCommander/mc">https://github.com/MidnightCommander/mc</a> (source code), <a href="https://github.com/MidnightCommander/mc/tags">https://github.com/MidnightCommander/mc/tags</a> (download)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version"><em>4.8.29</em></span><br>
+Versions: <span class="module-version">4.8.29, <em>4.8.31</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -2780,52 +2763,6 @@ prepend_path(&quot;PATH&quot;, home)
 </details>
   </dd>
 </dl>
-<h3 id="module_cbi_oraclejdk" class="module-name">oraclejdk</h3>
-<dl>
-  <dd class="module-details">
-<strong class="module-help">oraclejdk: Oracle Java Development Kit</strong><br>
-<span class="module-description">Oracle's implementation of Java and the Java Development Kit.  This is an alternative to the OpenJDK Java version.</span><br>
-Example: <span class="module-example"><code>java -version</code> and <code>javac -version</code>.</span><br>
-URL: <span class="module-url"><a href="https://www.oracle.com/java/">https://www.oracle.com/java/</a>, <a href="https://www.oracle.com/java/technologies/downloads/">https://www.oracle.com/java/technologies/downloads/</a> (downloads)</span><br>
-Versions: <span class="module-version"><em>17.0.8</em></span><br>
-<details>
-<summary>Module code: <a>view</a></summary>
-<pre><code class="language-lua">help([[
-oraclejdk: Oracle Java Development Kit
-]])
-
-local name = myModuleName()
-local version = myModuleVersion()
-whatis(&quot;Version: &quot; .. version)
-whatis(&quot;Keywords: programming&quot;)
-whatis(&quot;URL: https://www.oracle.com/java/, https://www.oracle.com/java/technologies/downloads/ (downloads)&quot;)
-whatis([[
-Description: Oracle's implementation of Java and the Java Development Kit.  This is an alternative to the OpenJDK Java version.
-Examples: `java -version` and `javac -version`.
-]])
-
--- Local variables
-local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
-
--- Specific to the Linux distribution?
-if string.match(myFileName(), &quot;/_&quot; .. os.getenv(&quot;CBI_LINUX&quot;) .. &quot;/&quot;) then
-  root = pathJoin(root, &quot;_&quot; .. os.getenv(&quot;CBI_LINUX&quot;))
-end
-
-local home = pathJoin(root, name .. &quot;-&quot; .. version)
-
-setenv(&quot;JAVA_HOME&quot;, home)
-prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
-prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;man&quot;))
-prepend_path(&quot;LD_LIBRARY_PATH&quot;, pathJoin(home, &quot;lib&quot;))
-prepend_path(&quot;CPATH&quot;, pathJoin(home, &quot;include&quot;))
-
-conflict(&quot;openjdk&quot;)
-</code></pre>
-
-</details>
-  </dd>
-</dl>
 <h3 id="module_cbi_pandoc" class="module-name">pandoc</h3>
 <dl>
   <dd class="module-details">
@@ -2834,7 +2771,7 @@ conflict(&quot;openjdk&quot;)
 Example: <span class="module-example"><code>pandoc --version</code>.</span><br>
 URL: <span class="module-url"><a href="https://pandoc.org/">https://pandoc.org/</a>, <a href="https://github.com/jgm/pandoc/blob/master/changelog.md">https://github.com/jgm/pandoc/blob/master/changelog.md</a> (changelog), <a href="https://github.com/jgm/pandoc">https://github.com/jgm/pandoc</a> (source code)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version">3.1.9, <em>3.1.11.1</em></span><br>
+Versions: <span class="module-version">3.1.9, 3.1.11.1, <em>3.2.1</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -3153,9 +3090,9 @@ prepend_path(&quot;PKG_CONFIG_PATH&quot;, pathJoin(home, &quot;lib&quot;, &quot;
 <strong class="module-help">quarto-cli: Open-Source Scientific and Technical Publishing System Built on Pandoc</strong><br>
 <span class="module-description">Quarto is an open-source scientific and technical publishing system built on Pandoc; (i) Create dynamic content with Python, R, Julia, and Observable, (ii) Author documents as plain text markdown or Jupyter notebooks, (iii) Publish high-quality articles, reports, presentations, websites, blogs, and books in HTML, PDF, MS Word, ePub, and more, (iv) Author with scientific markdown, including equations, citations, crossrefs, figure panels, callouts, advanced layout, and more.</span><br>
 Example: <span class="module-example"><code>quarto --version</code> and <code>quarto --help</code>.</span><br>
-URL: <span class="module-url"><a href="https://quarto.org/">https://quarto.org/</a>, <a href="https://quarto.org/docs/guide/">https://quarto.org/docs/guide/</a> (documentation), <a href="https://github.com/quarto-dev/quarto-cli/releases/latest">https://github.com/quarto-dev/quarto-cli/releases/latest</a> (changelog), <a href="https://github.com/quarto-dev/quarto-cli/">https://github.com/quarto-dev/quarto-cli/</a> (source code)</span><br>
+URL: <span class="module-url"><a href="https://quarto.org/">https://quarto.org/</a>, <a href="https://quarto.org/docs/guide/">https://quarto.org/docs/guide/</a> (documentation), <a href="https://github.com/quarto-dev/quarto-cli/releases">https://github.com/quarto-dev/quarto-cli/releases</a> (changelog), <a href="https://github.com/quarto-dev/quarto-cli/">https://github.com/quarto-dev/quarto-cli/</a> (source code)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version">1.3.361, 1.3.450, <em>1.4.549</em></span><br>
+Versions: <span class="module-version">1.3.361, 1.3.450, 1.4.549, <em>1.4.557</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -3166,7 +3103,7 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: markdown&quot;)
-whatis(&quot;URL: https://quarto.org/, https://quarto.org/docs/guide/ (documentation), https://github.com/quarto-dev/quarto-cli/releases/latest (changelog), https://github.com/quarto-dev/quarto-cli/ (source code)&quot;)
+whatis(&quot;URL: https://quarto.org/, https://quarto.org/docs/guide/ (documentation), https://github.com/quarto-dev/quarto-cli/releases (changelog), https://github.com/quarto-dev/quarto-cli/ (source code)&quot;)
 whatis([[
 Description: Quarto is an open-source scientific and technical publishing system built on Pandoc; (i) Create dynamic content with Python, R, Julia, and Observable, (ii) Author documents as plain text markdown or Jupyter notebooks, (iii) Publish high-quality articles, reports, presentations, websites, blogs, and books in HTML, PDF, MS Word, ePub, and more, (iv) Author with scientific markdown, including equations, citations, crossrefs, figure panels, callouts, advanced layout, and more.
 Examples: `quarto --version` and `quarto --help`.
@@ -3193,7 +3130,7 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 <span class="module-description">The R programming language.</span><br>
 Example: <span class="module-example"><code>R</code>, <code>R --version</code>, and <code>Rscript --version</code>.</span><br>
 URL: <span class="module-url"><a href="https://www.r-project.org/">https://www.r-project.org/</a>, <a href="https://cran.r-project.org/doc/manuals/r-release/NEWS.html">https://cran.r-project.org/doc/manuals/r-release/NEWS.html</a> (changelog)</span><br>
-Versions: <span class="module-version">2.15.0, 3.0.0, 3.1.0, 3.2.0, 3.3.0, 3.4.0, 3.5.0, 3.6.0, 4.0.0, 4.1.0-gcc8, 4.1.3-gcc8, 4.2.0-gcc10, 4.2.1-gcc10, 4.2.2-gcc10, 4.2.3-gcc10, 4.3.0-gcc10, 4.3.1-gcc10, 4.3.2-gcc10, <em>4.3.3-gcc10</em></span><br>
+Versions: <span class="module-version">4.0.5, 4.1.0, 4.1.3, 4.2.0-gcc13, 4.2.3-gcc13, 4.3.0-gcc13, 4.3.3-gcc13, 4.4.0-gcc13, <em>4.4.1-gcc13</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -3201,7 +3138,7 @@ R: The R Programming Language
 ]])
 
 local name = myModuleName()
-local version = &quot;4.2.2-gcc10&quot;
+local version = &quot;4.4.1-gcc13&quot;
 version = string.gsub(version, &quot;^[.]&quot;, &quot;&quot;) -- for hidden modules
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: Programming, Statistics&quot;)
@@ -3216,12 +3153,28 @@ has_devtoolset = function(version)
   return(isDir(path))
 end
 
+has_gcc_toolset = function(version)
+  local path = pathJoin(&quot;/opt&quot;, &quot;rh&quot;, &quot;gcc-toolset-&quot; .. version)
+  return(isDir(path))
+end
+
 local name = &quot;R&quot;
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
+
+-- Specific to the Linux distribution?
+if string.match(myFileName(), &quot;/_&quot; .. os.getenv(&quot;CBI_LINUX&quot;) .. &quot;/&quot;) then
+  root = pathJoin(root, &quot;_&quot; .. os.getenv(&quot;CBI_LINUX&quot;))
+end
+
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
 
 prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
-prepend_path(&quot;LD_LIBRARY_PATH&quot;, pathJoin(home, &quot;lib&quot;, &quot;R&quot;, &quot;lib&quot;))
+
+local path = pathJoin(home, &quot;lib&quot;)
+if not isDir(path) then
+  path = pathJoin(home, &quot;lib64&quot;)
+end
+prepend_path(&quot;LD_LIBRARY_PATH&quot;, pathJoin(path, &quot;R&quot;, &quot;lib&quot;))
 prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;share&quot;, &quot;man&quot;))
 
 local v = version
@@ -3234,7 +3187,12 @@ else
   pushenv(&quot;R_INSTALL_STAGED&quot;, &quot;true&quot;)
 end
 
-local r_libs_user=&quot;~/R/%p-library/%v-CBI&quot;
+local r_libs_user
+if os.getenv(&quot;CBI_LINUX&quot;) == &quot;centos7&quot; then
+  r_libs_user=&quot;~/R/%p-library/%v-CBI&quot;
+else
+  r_libs_user=&quot;~/R/&quot; .. os.getenv(&quot;CBI_LINUX&quot;) .. &quot;-&quot; .. &quot;%p-library/%v-CBI&quot;
+end
 
 if (v &gt;= &quot;4.1.0&quot;) then
   local gv = string.gsub(version, v, &quot;&quot;)
@@ -3242,11 +3200,15 @@ if (v &gt;= &quot;4.1.0&quot;) then
   gv = string.gsub(gv, &quot;-beta&quot;, &quot;&quot;)
   gv = string.gsub(gv, &quot;-rc&quot;, &quot;&quot;)
   gv = string.gsub(gv, &quot;-gcc&quot;, &quot;&quot;)
-  gv = tonumber(gv)
-  if (gv &gt; 4) then
-    r_libs_user = r_libs_user .. &quot;-gcc&quot; .. gv
-    if has_devtoolset(gv) then
-      depends_on(&quot;scl-devtoolset/&quot; .. gv)
+  if (gv ~= &quot;&quot;) then                                                                                           
+    gv = tonumber(gv)
+    if (gv &gt; 4) then
+      r_libs_user = r_libs_user .. &quot;-gcc&quot; .. gv
+      if has_devtoolset(gv) then
+        depends_on(&quot;scl-devtoolset/&quot; .. gv)
+      elseif has_gcc_toolset(gv) then
+        depends_on(&quot;scl-gcc-toolset/&quot; .. gv)
+      end
     end
   end
 end
@@ -3273,6 +3235,14 @@ end
 -- built-in R_LIBS_USER folder already exists. If not, then it's safe to use
 -- one specific to the CBI stack.
 pushenv(&quot;R_LIBS_USER&quot;, r_libs_user)
+
+-- The R package 'renv' (https://cran.r-project.org/package=renv) is used to create
+-- folder-specific R package library folder that help with reproducibility and long-term
+-- stability.  By setting RENV_PATHS_PREFIX_AUTO=TRUE, these folders are also specific
+-- for the current Linux distribution, which avoids problems occurring when updating
+-- from, say, CentOS 7 to Rocky 8.  This is likely to become the default behavior in
+-- 'renv' (https://github.com/rstudio/renv/issues/1211)
+pushenv(&quot;RENV_PATHS_PREFIX_AUTO&quot;, &quot;TRUE&quot;)
 
 -- WORKAROUND: utils::download.file(), which is for instance used by install.packages()
 -- have a built-in timeout at 60 seconds.  This might be too short for some larger
@@ -3366,7 +3336,7 @@ pushenv(&quot;R_PROFILE&quot;, pathJoin(home, &quot;Rprofile.site&quot;))
 Example: <span class="module-example"><code>rclone --version</code>, <code>rclone --help</code>, <code>rclone config</code>, and <code>man rclone</code>.</span><br>
 URL: <span class="module-url"><a href="https://rclone.org/">https://rclone.org/</a>, <a href="https://rclone.org/changelog/">https://rclone.org/changelog/</a> (changelog), <a href="https://github.com/rclone/rclone">https://github.com/rclone/rclone</a> (source code)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version">1.64.2, 1.65.1, <em>1.65.2</em></span><br>
+Versions: <span class="module-version">1.64.2, 1.65.1, 1.65.2, <em>1.67.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help(&quot;rclone: Rsync for Cloud Storage and More&quot;)
@@ -3436,7 +3406,7 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 <span class="module-description">restic is a backup program that is fast, efficient and secure. It supports the three major operating systems (Linux, macOS, Windows) and a few smaller ones (FreeBSD, OpenBSD).</span><br>
 Example: <span class="module-example"><code>restic --help</code> and <code>restic version</code>.</span><br>
 URL: <span class="module-url"><a href="https://restic.net">https://restic.net</a>, <a href="https://restic.readthedocs.io/en/latest/">https://restic.readthedocs.io/en/latest/</a> (documentation), <a href="https://github.com/restic/restic/releases">https://github.com/restic/restic/releases</a> (change log), <a href="https://github.com/restic/restic">https://github.com/restic/restic</a> (source code)</span><br>
-Versions: <span class="module-version">0.16.2, <em>0.16.3</em></span><br>
+Versions: <span class="module-version">0.16.2, 0.16.3, <em>0.16.4</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -3712,147 +3682,55 @@ end
 </details>
   </dd>
 </dl>
-<h3 id="module_cbi_scl-devtoolset" class="module-name">scl-devtoolset</h3>
+<h3 id="module_cbi_scl-gcc-toolset" class="module-name">scl-gcc-toolset</h3>
 <dl>
   <dd class="module-details">
-<strong class="module-help">SCL Developer Toolset: GNU Compiler Collection, GNU Debugger, etc.</strong><br>
-<span class="module-description">These Developer Toolset provides modern versions of the GNU Compiler Collection, GNU Debugger, and other development, debugging, and performance monitoring tools. Loading these modules enables the corresponding CentOS Software Collection (SCL) <code>devtoolset-&lt;version&gt;</code> in the current environment.  This is an alternative to calling <code>source scl_source enable devtoolset-&lt;version&gt;</code>, which is an approach that is not officially supported by RedHat/CentOS.</span><br>
+<strong class="module-help">SCL GCC Toolset: GNU Compiler Collection, GNU Debugger, etc.</strong><br>
+<span class="module-description">These Developer Toolset provides modern versions of the GNU Compiler Collection, GNU Debugger, and other development, debugging, and performance monitoring tools. Loading these modules enables the corresponding RedHat Software Collection (SCL) <code>gcc-toolset-&lt;version&gt;</code> in the current environment.  This is an alternative to calling <code>source scl_source enable gcc-toolset-&lt;version&gt;</code>, which is an approach that is not officially supported by RedHat.</span><br>
 Example: <span class="module-example"><code>gcc --version</code>.</span><br>
-URL: <span class="module-url"><a href="https://access.redhat.com/documentation/en-us/red_hat_developer_toolset/11">https://access.redhat.com/documentation/en-us/red_hat_developer_toolset/11</a></span><br>
+URL: <span class="module-url"><a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/developing_c_and_cpp_applications_in_rhel_8/additional-toolsets-for-development_developing-applications#gcc-toolset_assembly_additional-toolsets-for-development">https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/developing_c_and_cpp_applications_in_rhel_8/additional-toolsets-for-development_developing-applications#gcc-toolset_assembly_additional-toolsets-for-development</a>, <a href="https://gcc.gnu.org/develop.html#timeline">https://gcc.gnu.org/develop.html#timeline</a> (GCC release schedule)</span><br>
 Warning: <span class="module-warning">Older versions may be removed in the future.</span><br>
-Versions: <span class="module-version">7, 8, 9, 10, <em>11</em></span><br>
+Versions: <span class="module-version">9, 10, 11, 12, <em>13</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
-SCL Developer Toolset: GNU Compiler Collection, GNU Debugger, etc.
+SCL GCC Toolset: GNU Compiler Collection, GNU Debugger, etc.
 ]])
 
 local name = myModuleName()
 local version = myModuleVersion()
-local scl_name = &quot;devtoolset&quot; .. &quot;-&quot; .. version
+local scl_name = &quot;gcc-toolset&quot; .. &quot;-&quot; .. version
 
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: programming, gcc&quot;)
-whatis(&quot;URL: https://access.redhat.com/documentation/en-us/red_hat_developer_toolset/&quot; .. version)
-whatis(&quot;Description: These Developer Toolset provides modern versions of the GNU Compiler Collection, GNU Debugger, and other development, debugging, and performance monitoring tools. Loading these modules enables the corresponding CentOS Software Collection (SCL) `devtoolset-&lt;version&gt;` in the current environment.  This is an alternative to calling `source scl_source enable devtoolset-&lt;version&gt;`, which is an approach that is not officially supported by RedHat/CentOS.  Example: `gcc --version`.  Warning: Older versions may be removed in the future.&quot;)
+whatis(&quot;URL: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/developing_c_and_cpp_applications_in_rhel_8/additional-toolsets-for-development_developing-applications#gcc-toolset_assembly_additional-toolsets-for-development, https://gcc.gnu.org/develop.html#timeline (GCC release schedule)&quot;)
+whatis([[
+Description: These Developer Toolset provides modern versions of the GNU Compiler Collection, GNU Debugger, and other development, debugging, and performance monitoring tools. Loading these modules enables the corresponding RedHat Software Collection (SCL) `gcc-toolset-&lt;version&gt;` in the current environment.  This is an alternative to calling `source scl_source enable gcc-toolset-&lt;version&gt;`, which is an approach that is not officially supported by RedHat.
+Examples: `gcc --version`.  Warning: Older versions may be removed in the future.
+Requirement: Rocky 8.
+]])
 
-
-require &quot;posix&quot;
-function isdir(fn)
-  return (posix.stat(fn, &quot;type&quot;) == &quot;directory&quot;)
+-- This module is only available on Rocky 8
+if os.getenv(&quot;CBI_LINUX&quot;) ~= &quot;rocky8&quot; then
+  LmodError(&quot;Module '&quot; .. myModuleFullName() .. &quot;' is only available on Rocky 8 machines, but not on host '&quot; .. os.getenv(&quot;HOSTNAME&quot;) .. &quot;', which runs '&quot; .. os.getenv(&quot;CBI_LINUX&quot;) .. &quot;'&quot;)
 end
+
 
 local home = pathJoin(&quot;/opt&quot;, &quot;rh&quot;, scl_name)
 
-if not isdir(home) then
-  LmodError(&quot;Module '&quot; .. myModuleFullName() .. &quot;' is not supported because this host '&quot; .. os.getenv(&quot;HOSTNAME&quot;) .. &quot;' does not have path '&quot; .. home .. &quot;'&quot;)
-end
-
-
--- Don't edit! Created using: 
--- /usr/share/lmod/lmod/libexec/sh_to_modulefile /opt/rh/devtoolset-11/enable
-prepend_path(&quot;INFOPATH&quot;,&quot;/opt/rh/devtoolset-11/root/usr/share/info&quot;)
-prepend_path(&quot;LD_LIBRARY_PATH&quot;,&quot;/opt/rh/devtoolset-11/root/usr/lib64:/opt/rh/devtoolset-11/root/usr/lib:/opt/rh/devtoolset-11/root/usr/lib64/dyninst:/opt/rh/devtoolset-11/root/usr/lib/dyninst&quot;)
-prepend_path(&quot;MANPATH&quot;,&quot;/opt/rh/devtoolset-11/root/usr/share/man&quot;)
-prepend_path(&quot;PATH&quot;,&quot;/opt/rh/devtoolset-11/root/usr/bin&quot;)
-setenv(&quot;PCP_DIR&quot;,&quot;/opt/rh/devtoolset-11/root&quot;)
-prepend_path(&quot;PKG_CONFIG_PATH&quot;,&quot;/opt/rh/devtoolset-11/root/usr/lib64/pkgconfig&quot;)
-</code></pre>
-
-</details>
-  </dd>
-</dl>
-<h3 id="module_cbi_scl-rh-python" class="module-name">scl-rh-python</h3>
-<dl>
-  <dd class="module-details">
-<strong class="module-help">SCL Python: Python with Additional Utilities via CentOS Software Collections</strong><br>
-<span class="module-description">Enables the CentOS Software Collection (SCL) <code>rh-python&lt;version&gt;</code> in the current environment.  This is an alternative to calling <code>source scl_source enable rh-python&lt;version&gt;</code>, which is not officially supported by RedHat/CentOS.</span><br>
-Example: <span class="module-example"><code>python --version</code>, and <code>pip --version</code>.</span><br>
-URL: <span class="module-url"><a href="https://www.softwarecollections.org/en/scls/rhscl/rh-python38/">https://www.softwarecollections.org/en/scls/rhscl/rh-python38/</a></span><br>
-Warning: <span class="module-warning">Older versions may be removed in the future.</span><br>
-Versions: <span class="module-version">36, <em>38</em></span><br>
-<details>
-<summary>Module code: <a>view</a></summary>
-<pre><code class="language-lua">help([[
-SCL Python: Python with Additional Utilities via CentOS Software Collections
-]])
-
-local name = myModuleName()
-local version = myModuleVersion()
-local scl_name = &quot;rh-python&quot; .. version
-
-whatis(&quot;Version: &quot; .. version)
-whatis(&quot;Keywords: programming, Python&quot;)
-whatis(&quot;URL: https://www.softwarecollections.org/en/scls/rhscl/&quot; .. scl_name .. &quot;/&quot;)
-whatis([[
-Description: Enables the CentOS Software Collection (SCL) `rh-python&lt;version&gt;` in the current environment.  This is an alternative to calling `source scl_source enable rh-python&lt;version&gt;`, which is not officially supported by RedHat/CentOS.
-Example: `python --version`, and `pip --version`.
-Warning: Older versions may be removed in the future.
-]])
-
-local home = &quot;/opt/rh/rh-python&quot; .. version
 if not isDir(home) then
-  LmodError(&quot;Module '&quot; .. myModuleFullName() .. &quot;' is not supported because this host '&quot; .. os.getenv(&quot;HOSTNAME&quot;) ..
- &quot;' does not have path '&quot; .. home .. &quot;'&quot;)
-end
-
--- Don't edit! Created using: 
--- /usr/share/lmod/lmod/libexec/sh_to_modulefile /opt/rh/rh-python38/enable
-prepend_path(&quot;LD_LIBRARY_PATH&quot;,&quot;/opt/rh/rh-python38/root/usr/lib64&quot;)
-prepend_path(&quot;MANPATH&quot;,&quot;/opt/rh/rh-python38/root/usr/share/man&quot;)
-prepend_path(&quot;PATH&quot;,&quot;/opt/rh/rh-python38/root/usr/bin&quot;)
-prepend_path(&quot;PATH&quot;,&quot;/opt/rh/rh-python38/root/usr/local/bin&quot;)
-prepend_path(&quot;PKG_CONFIG_PATH&quot;,&quot;/opt/rh/rh-python38/root/usr/lib64/pkgconfig&quot;)
-prepend_path(&quot;XDG_DATA_DIRS&quot;,&quot;/opt/rh/rh-python38/root/usr/share&quot;)
-</code></pre>
-
-</details>
-  </dd>
-</dl>
-<h3 id="module_cbi_scl-rh-ruby" class="module-name">scl-rh-ruby</h3>
-<dl>
-  <dd class="module-details">
-<strong class="module-help">SCL Ruby: Ruby</strong><br>
-<span class="module-description">Enables the CentOS Software Collection (SCL) <code>rh-ruby26</code> in the current environment.  This is an alternative to calling <code>source scl_source enable rh-ruby26</code>, which is an approach that is not of ficially supported by RedHat/CentOS.</span><br>
-Example: <span class="module-example"><code>irb --help</code>, <code>ruby --help</code>, <code>ruby script.rb</code>.</span><br>
-URL: <span class="module-url"><a href="https://www.softwarecollections.org/en/scls/rhscl/rh-ruby26/">https://www.softwarecollections.org/en/scls/rhscl/rh-ruby26/</a></span><br>
-Versions: <span class="module-version">25, <em>26</em></span><br>
-<details>
-<summary>Module code: <a>view</a></summary>
-<pre><code class="language-lua">help([[
-SCL Ruby: Ruby
-]])
-
-local name = myModuleName()
-local version = myModuleVersion()
-local scl_name = &quot;rh-ruby&quot; .. version
-
-whatis(&quot;Version: &quot; .. version)
-whatis(&quot;Keywords: programming, Ruby&quot;)
-whatis(&quot;URL: https://www.softwarecollections.org/en/scls/rhscl/&quot; .. scl_name .. &quot;/&quot;)
-whatis(&quot;Description: Enables the CentOS Software Collection (SCL) `&quot; .. scl_name .. &quot;` in the current environment.  This is an alternative to calling `source scl_source enable &quot; .. scl_name .. &quot;`, which is an approach that is not of ficially supported by RedHat/CentOS.  Example: `irb --help`, `ruby --help`, `ruby script.rb`.&quot;)
-
-
-require &quot;posix&quot;
-function isdir(fn)
-  return (posix.stat(fn, &quot;type&quot;) == &quot;directory&quot;)
-end
-
-local home = &quot;/opt/rh/&quot; .. scl_name
-
-if not isdir(home) then
   LmodError(&quot;Module '&quot; .. myModuleFullName() .. &quot;' is not supported because this host '&quot; .. os.getenv(&quot;HOSTNAME&quot;) .. &quot;' does not have path '&quot; .. home .. &quot;'&quot;)
 end
+
+
 -- Don't edit! Created using: 
--- /usr/share/lmod/lmod/libexec/sh_to_modulefile /opt/rh/rh-ruby26/enable
-setenv(&quot;LD_LIBRARY_PATH&quot;,&quot;/opt/rh/rh-ruby26/root/usr/local/lib64:/opt/rh/rh-ruby26/root/usr/lib64&quot;)
-prepend_path(&quot;MANPATH&quot;,&quot;/opt/rh/rh-ruby26/root/usr/share/man&quot;)
-prepend_path(&quot;MANPATH&quot;,&quot;/opt/rh/rh-ruby26/root/usr/local/share/man&quot;)
-prepend_path(&quot;PATH&quot;,&quot;/opt/rh/rh-ruby26/root/usr/bin&quot;)
-prepend_path(&quot;PATH&quot;,&quot;/opt/rh/rh-ruby26/root/usr/local/bin&quot;)
-prepend_path(&quot;PKG_CONFIG_PATH&quot;,&quot;/opt/rh/rh-ruby26/root/usr/lib64/pkgconfig&quot;)
-prepend_path(&quot;PKG_CONFIG_PATH&quot;,&quot;/opt/rh/rh-ruby26/root/usr/local/lib64/pkgconfig&quot;)
-setenv(&quot;XDG_DATA_DIRS&quot;,&quot;/opt/rh/rh-ruby26/root/usr/local/share:/opt/rh/rh-ruby26/root/usr/share:/usr/local/share:/usr/share&quot;)
+-- /usr/share/lmod/lmod/libexec/sh_to_modulefile /opt/rh/gcc-toolset-13/enable
+setenv(&quot;INFOPATH&quot;,&quot;/opt/rh/gcc-toolset-13/root/usr/share/info&quot;)
+prepend_path(&quot;LD_LIBRARY_PATH&quot;,&quot;/opt/rh/gcc-toolset-13/root/usr/lib64&quot;)
+prepend_path(&quot;MANPATH&quot;,&quot;/opt/rh/gcc-toolset-13/root/usr/share/man&quot;)
+prepend_path(&quot;PATH&quot;,&quot;/opt/rh/gcc-toolset-13/root/usr/bin&quot;)
+setenv(&quot;PCP_DIR&quot;,&quot;/opt/rh/gcc-toolset-13/root&quot;)
+prepend_path(&quot;PKG_CONFIG_PATH&quot;,&quot;/opt/rh/gcc-toolset-13/root/usr/lib64/pkgconfig&quot;)
 </code></pre>
 
 </details>
@@ -3866,7 +3744,7 @@ setenv(&quot;XDG_DATA_DIRS&quot;,&quot;/opt/rh/rh-ruby26/root/usr/local/share:/o
 Example: <span class="module-example"><code>shellcheck --version</code> and <code>shellcheck -x ~/.bashrc</code>.</span><br>
 URL: <span class="module-url"><a href="https://www.shellcheck.net/">https://www.shellcheck.net/</a>, <a href="https://github.com/koalaman/shellcheck/blob/master/CHANGELOG.md">https://github.com/koalaman/shellcheck/blob/master/CHANGELOG.md</a> (changelog), <a href="https://github.com/koalaman/shellcheck/">https://github.com/koalaman/shellcheck/</a> (source code)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
-Versions: <span class="module-version"><em>0.9.0</em></span><br>
+Versions: <span class="module-version">0.9.0, <em>0.10.0</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -4996,8 +4874,8 @@ prepend_path(&quot;PATH&quot;, home)
 </div> 
 
 <ul class="nav nav-pills">
-<li class="active"><a data-toggle="pill" href="#button_repository_built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(3)</a></li>
-<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(101)</a></li>
+<li class="active"><a data-toggle="pill" href="#button_repository_built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(2)</a></li>
+<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(98)</a></li>
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
