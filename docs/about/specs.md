@@ -30,7 +30,7 @@
 | SSH access from inside of cluster | ✓ | ✓ | ✓ | (✓) only for troubleshooting |
 | Outbound access | No restrictions | HTTP/HTTPS, FTP/FTPS, SSH, SFTP, GIT+SSH, Globus | Via proxy: HTTP/HTTPS, GIT+SSH | no |
 | Network speed | 1 Gbps | 10 Gbps | 1 Gbps | 1,10 Gbps |
-| Core software | Minimal | Minimal | CentOS and EPEL  packages, compilers and source-code packages | Same as development nodes |
+| Core software | Minimal | Minimal | Rocky packages, compilers and source-code packages | Same as development nodes |
 | modules (software stacks) | no | no | ✓ | ✓ |
 | Global file system | ✓ | ✓ | ✓ | ✓ |
 | Job submission | ✓ | no | ✓ | ✓ |
@@ -40,10 +40,10 @@
 
 
 <!--
-cat /etc/centos-release
+cat /etc/os-release
 sbatch --version
 -->
-All nodes on the cluster runs [CentOS] 7.9 which is updated on a regular basis.
+All nodes on the cluster runs [Rocky] 8 which is updated on a regular basis.
 The job scheduler is Slurm 21.08 ([Simple Linux Utility for Resource Management]) which provides [partitions]({{ '/scheduler/partitions.html' | relative_url }}) for both communal and lab-priority tasks.
 
 
@@ -318,7 +318,7 @@ tfoot {
 ttr:last-child { border-top: 2px solid #000; }
 </style>
 
-[CentOS]: https://www.centos.org/
+[Rocky]: https://rockylinux.org/
 [Simple Linux Utility for Resource Management]: https://slurm.schedmd.com/
 [Pacific Research Platform]: https://ucsdnews.ucsd.edu/pressrelease/nsf_gives_green_light_to_pacific_research_platform
 [x86-64 microarchitecture levels]: https://www.wikipedia.org/wiki/X86-64#Microarchitecture_levels
