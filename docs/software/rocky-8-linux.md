@@ -40,8 +40,7 @@ Here are some of the hurdles you may run into:
 * [Python] : There is no longer a `python` command; Python 3 has to be
   called as `python3` and legacy Python 2 is available as
   `python2`. On CentOS 7, `python` corresponded to `python2`.  Python
-  3.6 is available via `python3.6`, Python 3.8 via `python3.8`, and
-  Python 3.11 via `python3.11`.
+  3.6 is available via `python3.6` and Python 3.11 via `python3.11`.
   - If you get errors like `/opt/rh/rh-python38/root/usr/bin/python3:
     bad interpreter: No such file or directory` when you run a Python
     based software, then you need to reinstall that software tool.
