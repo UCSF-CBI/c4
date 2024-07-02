@@ -1,10 +1,23 @@
 # Work with R
 
-{% assign r_basename = "R-4.3.1-gcc10" %}
+{% assign linux_distro = "rocky8" %}
 
-{% assign r_libs_user = "4.3-CBI-gcc10" %}
+{% assign r_basename = "R-4.4.1-gcc13" %}
 
-R is available on {{ site.cluster.name }} via a [contributed environment module]({{ '/software/software-repositories.html' | relative_url }}).
+{% assign r_libs_user = "4.4-CBI-gcc13" %}
+
+{% assign r_path = site.path.cbi_software | append: "/_" | append: linux_distro | append: "/" | append: r_basename %}
+
+{% assign r_libs_user_path = site.user.home | append: "R/" | append: linux_distro | append: "-x86_64-pc-linux-gnu-library" | append: "/" | append: r_libs_user %}
+
+<!--
+```
+r_path='{{ r_path }}'
+r_libs_user_path='{{ r_libs_user_path }}'
+```
+-->
+
+R is available on {{ site.cluster.name }} via a [contributed environment module].
 
 
 ## Accessing R
@@ -22,9 +35,9 @@ which provides access to a modern version of R:
 ```r
 [alice@{{ site.devel.name }} ~]$ R 
 
-R version 4.3.1 (2023-06-16) -- "Beagle Scouts"
-Copyright (C) 2023 The R Foundation for Statistical Computing
-Platform: x86_64-pc-linux-gnu (64-bit)
+R version 4.4.1 (2024-06-14) -- "Race for Your Life"
+Copyright (C) 2024 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
 You are welcome to redistribute it under certain conditions.
@@ -47,7 +60,8 @@ Save workspace image? [y/n/c]: n
 [alice@{{ site.devel.name }} ~]$ 
 ```
 
-To use an older version of R, specify the version when you load R, e.g.
+To use an older version of R, specify the version when you load R,
+e.g.
 
 ```sh
 [alice@{{ site.devel.name }} ~]$ module load CBI
@@ -58,10 +72,15 @@ To use an older version of R, specify the version when you load R, e.g.
 
 ## Using R in job scripts
 
-In order to run R in jobs, the above R environment module needs to be loaded just as when you run it interactively on a development node.  For example, to run the `my_script.R` script, the job script should at a minimum contain:
+In order to run R in jobs, the above R environment module needs to be
+loaded just as when you run it interactively on a development node.
+For example, to run the `my_script.R` script, the job script should at
+a minimum contain:
 
 ```sh
 #! /usr/bin/env bash
+#$ -S /bin/bash
+#$ -cwd
 
 module load CBI
 module load r
@@ -71,17 +90,54 @@ Rscript my_script.R
 
 ## Installing R packages
 
-The majority of R packages are available from [CRAN] (Comprehensive R Archive Network).  Another dominant repository of R packages is [Bioconductor], which provides R packages with a focus on bioinformatics.  Packages available from Bioconductor are not available on CRAN, and vice versa.  At times, you will find online instructions for installing R packages hosted on, for instance, GitHub and GitLab.  Before installing an R package from such sources, we highly recommend to install the package from CRAN or Bioconductor, if it is available there, because packages hosted on the latter are stable releases and often better tested.
+<div class="alert alert-info" role="alert" markdown="1">
 
-Before continuing, it is useful to understand where R packages looks for locally installed R packages.  There are three locations that R considers:
+R 4.4.0 was release on 2024-04-24 and Bioconductor 3.19 on 2024-05-01.
+As of 2024-05-03, there were 20,684 packages on CRAN and 3,578
+packages on Bioconductor 3.19.
 
-1. Your personal R package library. This is located under `~/R/`, e.g. `~/R/x86_64-pc-linux-gnu-library/{{ r_libs_user }}/`
+<!--
+On 2024-05-03, we confirmed that 20,614 CRAN packages and 3,560
+Bioconductor 3.19 packages install out of the box when following the
+below instructions. The packages that failed to install do so either
+because they depend on a system library that is not available on the
+cluster, or because they have bugs preventing them from being
+installed out of the box. If you need to install any of those, please
+reach out on one of the support channels.
+-->
 
-2. (optional) A site-wide R package library (not used on {{ site.cluster.name }})
+<!--
+Out of 3,568 Bioconductor 3.18 packages, 3,562 installed out of the
+box in R 4.4.0 (sic!) when following the below instructions.
+-->
 
-3. The system-wide R package library part of the R installed, e.g. `{{ site.path.cbi_software }}/{{ r_basename }}/lib64/R/library`
+</div>
 
 
+The majority of R packages are available from [CRAN] (Comprehensive R
+Archive Network).  Another dominant repository of R packages is
+[Bioconductor], which provides R packages with a focus on
+bioinformatics.  Packages available from Bioconductor are not
+available on CRAN, and vice versa.  At times, you will find online
+instructions for installing R packages hosted on, for instance, GitHub
+and GitLab.  Before installing an R package from such sources, we
+highly recommend to install the package from CRAN or Bioconductor, if
+it is available there, because packages hosted on the latter are
+stable releases and often better tested.
+
+Before continuing, it is useful to understand where R packages looks
+for locally installed R packages.  There are three locations that R
+considers:
+
+1. Your personal R package library. This is located under `~/R/`,
+   e.g. `~/R/{{ linux_distro }}-x86_64-pc-linux-gnu-library/{{
+   r_libs_user }}/`
+
+2. (optional) A site-wide R package library (not used on {{
+   site.cluster.name }})
+
+3. The system-wide R package library part of the R installed, e.g. `{{
+   r_path }}/lib64/R/library`
 
 For instance, when we try to load an R package:
 
@@ -90,45 +146,77 @@ For instance, when we try to load an R package:
 ```
 
 R will search the above folders in order for R package 'datasets'.
-When you start you fresh, the only R packages available to you are the ones installed in folder (3) - the system-wide library.  The 'datasets' package comes with the R installation, so with a fresh setup, it will be loaded from the third location.
-As we will see below, when you install your own packages, they will all be installed into folder (1) - your personal library.  The first time your run R, the personal library folder does not exists, so R will ask you whether or not you want to create that folder.  If asked, you should always accept (answer 'Yes').  If you had already created this folder, R will install into this folder without asking.
+When you start you fresh, the only R packages available to you are the
+ones installed in folder (3) - the system-wide library.  The
+'datasets' package comes with the R installation, so with a fresh
+setup, it will be loaded from the third location.  As we will see
+below, when you install your own packages, they will all be installed
+into folder (1) - your personal library.  The first time your run R,
+the personal library folder does not exists, so R will ask you whether
+or not you want to create that folder.  If asked, you should always
+accept (answer 'Yes').  If you had already created this folder, R will
+install into this folder without asking.
 
-Finally, R undergoes a _main_ update once a year (in April).  For example, R 4.3.0 was release in April 2023.  The next main release will be R 4.4.0 in April 2024.  Whenever the `y` component in R `x.y.z` version is increased, you will start out with an empty personal package folder specific for R `x.y` (regardless of `z`).  This means that you will have to re-install all R packages you had installed during the year before the new main release came out.  Yes, this can be tedious and can take quite some time but it will improve stability and yet allow the R developers to keep improving R.  Of course, you can still keep using an older version of R and all the packages you have installed for that version - they will not be removed.
+Finally, R undergoes a _main_ update once a year (in April).  For
+example, R 4.4.0 was release in April 2024.  The next main release
+will be R 4.5.0 a year later.  Whenever the `y` component in R `x.y.z`
+version is increased, you will start out with an empty personal
+package folder specific for R `x.y` (regardless of `z`).  This means
+that you will have to re-install all R packages you had installed
+during the year before the new main release came out.  Yes, this can
+be tedious and can take quite some time but it will improve stability
+and yet allow the R developers to keep improving R.  Of course, you
+can still keep using an older version of R and all the packages you
+have installed for that version - they will not be removed.
 
 
 ### Installing an R package from CRAN
 
-Packages available on CRAN can be installed using the `install.packages()` function in R.  The default behavior of R is to always ask you which one of the many CRAN mirrors you want to install from (their content is all identical).  To avoid this question, tell R to always use the first one:
+Packages available on CRAN can be installed using the
+`install.packages()` function in R.  The default behavior of R is to
+always ask you which one of the many CRAN mirrors you want to install
+from (their content is all identical).  To avoid this question, tell R
+to always use the first one:
 
 ```r
 > chooseCRANmirror(ind = 1)
 >
 ```
 
-Now, in order to install, for instance, the **[zoo]** package available on CRAN, call:
+Now, in order to install, for instance, the **[zoo]** package
+available on CRAN, call:
 
 ```r
 > install.packages("zoo")
 Warning in install.packages("zoo") :
-  'lib = "{{ site.path.cbi_software }}/{{ r_basename }}/lib64/R/library"' is not writable
+  'lib = "{{ r_path }}/lib64/R/library"' is not writable
 Would you like to use a personal library instead? (yes/No/cancel)
 ```
 
-We notice two things.  First there is a warning mentioning that a "lib" folder was "not writable".  This is because your personal library folder did not yet exists and R tried to install to location (3) but failed (because you do not have write permission there).  This is where R decided to ask you whether or not you want to install to a personal library.  Answer 'yes':
+We notice two things.  First there is a warning mentioning that a
+"lib" folder was "not writable".  This is because your personal
+library folder did not yet exists and R tried to install to location
+(3) but failed (because you do not have write permission there).  This
+is where R decided to ask you whether or not you want to install to a
+personal library.  Answer 'yes':
 
 ```r
 Would you like to use a personal library instead? (yes/No/cancel) yes
 Would you like to create a personal library
-'~/R/x86_64-pc-linux-gnu-library/{{ r_libs_user }}'
+'~/R/{{ linux_distro }}-x86_64-pc-linux-gnu-library/{{ r_libs_user }}'
 to install packages into? (yes/No/cancel)
 ```
 
-R wants to make sure you are aware what is done, so it will, conservatively, also ask if you accept the default location.  Answer 'yes' for this folder to be created.  After this, the current and all future package installation in R will be installed into this folder without further questions asked.  In this example, we will get:
+R wants to make sure you are aware what is done, so it will,
+conservatively, also ask if you accept the default location.  Answer
+'yes' for this folder to be created.  After this, the current and all
+future package installation in R will be installed into this folder
+without further questions asked.  In this example, we will get:
 
 <!-- code-block label="install-zoo" -->
 ```r
 Would you like to create a personal library
-'~/R/x86_64-pc-linux-gnu-library/{{ r_libs_user }}'
+'~/R/{{ linux_distro }}-x86_64-pc-linux-gnu-library/{{ r_libs_user }}'
 to install packages into? (yes/No/cancel) yes
 trying URL 'https://cloud.r-project.org/src/contrib/zoo_1.8-12.tar.gz'
 Content type 'application/x-gzip' length 782344 bytes (764 KB)
@@ -139,12 +227,12 @@ downloaded 764 KB
 ** package ‘zoo’ successfully unpacked and MD5 sums checked
 ** using staged installation
 ** libs
-using C compiler: ‘gcc (GCC) 10.2.1 20210130 (Red Hat 10.2.1-11)’
-gcc -I"{{ site.path.cbi_software }}/{{ r_basename }}/lib/R/include" -DNDEBUG -I../inst/include  -I/usr/local/include   -fpic  -g -O2  -c coredata.c -o coredata.o
-gcc -I"{{ site.path.cbi_software }}/{{ r_basename }}/lib/R/include" -DNDEBUG -I../inst/include  -I/usr/local/include   -fpic  -g -O2  -c init.c -o init.o
-gcc -I"{{ site.path.cbi_software }}/{{ r_basename }}/lib/R/include" -DNDEBUG -I../inst/include  -I/usr/local/include   -fpic  -g -O2  -c lag.c -o lag.o
-gcc -shared -L{{ site.path.cbi_software }}/{{ r_basename }}/lib/R/lib -L/usr/local/lib -o zoo.so coredata.o init.o lag.o -L{{ site.path.cbi_software }}/{{ r_basename }}/lib/R/lib -lR
-installing to {{ site.user.home }}R/x86_64-pc-linux-gnu-library/{{ r_libs_user }}/00LOCK-zoo/00new/zoo/libs
+using C compiler: ‘gcc (GCC) 13.1.1 20230614 (Red Hat 13.1.1-4)’
+gcc -I"{{ r_path }}/lib/R/include" -DNDEBUG -I../inst/include  -I/usr/local/include   -fpic  -g -O2  -c coredata.c -o coredata.o
+gcc -I"{{ r_path }}/lib/R/include" -DNDEBUG -I../inst/include  -I/usr/local/include   -fpic  -g -O2  -c init.c -o init.o
+gcc -I"{{ r_path }}/lib/R/include" -DNDEBUG -I../inst/include  -I/usr/local/include   -fpic  -g -O2  -c lag.c -o lag.o
+gcc -shared -L{{ r_path }}/lib/R/lib -L/usr/local/lib -o zoo.so coredata.o init.o lag.o -L{{ r_path }}/lib/R/lib -lR
+installing to {{ r_libs_user_path }}/00LOCK-zoo/00new/zoo/libs
 ** R
 ** demo
 ** inst
@@ -160,11 +248,15 @@ installing to {{ site.user.home }}R/x86_64-pc-linux-gnu-library/{{ r_libs_user }
 * DONE (zoo)
 
 The downloaded source packages are in
-        '/tmp/RtmpVm3e6t/downloaded_packages'
+        '/scratch/alice/RtmpVm3e6t/downloaded_packages'
 >
 ```
 
-If there is no mentioning of an "error" (a "warning" is ok in R but never an "error"), then the package was successfully installed.  If you see `* DONE (zoo)` at the end, it means that the package was successfully installed.  As with any other package in R, you can also verify that it is indeed installed by loading it, i.e.
+If there is no mentioning of an "error" (a "warning" is ok in R but
+never an "error"), then the package was successfully installed.  If
+you see `* DONE (zoo)` at the end, it means that the package was
+successfully installed.  As with any other package in R, you can also
+verify that it is indeed installed by loading it, i.e.
 
 ```r
 > library(zoo)
@@ -181,7 +273,8 @@ The following objects are masked from 'package:base':
 
 #### Updating CRAN packages
 
-If a new version of one or more CRAN packages is released, they can be installed by calling:
+If a new version of one or more CRAN packages is released, they can be
+installed by calling:
 
 ```r
 > chooseCRANmirror(ind = 1)
@@ -193,25 +286,30 @@ If a new version of one or more CRAN packages is released, they can be installed
 
 ### Installing an R package from Bioconductor
 
-Per Bioconductor's best practices, R packages from Bioconductor should be installed using `BiocManager::install()`.  This is to guarantee maximum compatibility between all Bioconductor packages.
+Per Bioconductor's best practices, R packages from Bioconductor should
+be installed using `BiocManager::install()`.  This is to guarantee
+maximum compatibility between all Bioconductor packages.
 
 
 #### Installing BiocManager (once)
 
-If you already have **[BiocManager]** installed, you can skip this section.  When you start out fresh, the package **BiocManager** is not installed meaning that calling `BiocManager::install()` will fail.  We need to start by installing it from CRAN (sic!);
+If you already have **[BiocManager]** installed, you can skip this
+section.  When you start out fresh, the package **BiocManager** is not
+installed meaning that calling `BiocManager::install()` will fail.  We
+need to start by installing it from CRAN (sic!);
 
 <!-- code-block label="install-BiocManager" -->
 ```r
 > install.packages("BiocManager")
-Installing package into '{{ site.user.home }}R/x86_64-pc-linux-gnu-library/{{ r_libs_user }}'
+Installing package into '{{ r_libs_user_path }}'
 (as 'lib' is unspecified)
-trying URL 'https://cloud.r-project.org/src/contrib/BiocManager_1.30.21.tar.gz'
-Content type 'application/x-gzip' length 582625 bytes (568 KB)
+trying URL 'https://cloud.r-project.org/src/contrib/BiocManager_1.30.22.tar.gz'
+Content type 'application/x-gzip' length 582690 bytes (569 KB)
 ==================================================
-downloaded 568 KB
+downloaded 569 KB
 
-* installing *source* package 'BiocManager' ...
-** package 'BiocManager' successfully unpacked and MD5 sums checked
+* installing *source* package ‘BiocManager’ ...
+** package ‘BiocManager’ successfully unpacked and MD5 sums checked
 ** using staged installation
 ** R
 ** inst
@@ -226,11 +324,13 @@ downloaded 568 KB
 * DONE (BiocManager)
 
 The downloaded source packages are in
-        '/tmp/RtmpohfP1g/downloaded_packages'
+        '/scratch/alice/RtmpSRgaB4/downloaded_packages'
 > 
 ```
 
-_Comment_: If this is the very first R package you installed, see above CRAN instructions for setting a default CRAN mirror and creating a personal library folder.
+_Comment_: If this is the very first R package you installed, see
+above CRAN instructions for setting a default CRAN mirror and creating
+a personal library folder.
 
 
 #### Installing a Bioconductor package
@@ -240,22 +340,22 @@ With **BiocManager** installed, we can now install any Bioconductor package.  Fo
 <!-- code-block label="install-limma" -->
 ```r
 > BiocManager::install("limma")
-Bioconductor version 3.17 (BiocManager 1.30.21), R 4.3.1 (2023-06-16)
-Installing package(s) 'limma'
-trying URL 'https://bioconductor.org/packages/3.17/bioc/src/contrib/limma_3.56.2.tar.gz'
-Content type 'application/x-gzip' length 1515291 bytes (1.4 MB)
+Bioconductor version 3.19 (BiocManager 1.30.22), R 4.4.1 (2024-06-14)
+Installing package(s) 'BiocVersion'
+trying URL 'https://bioconductor.org/packages/3.19/bioc/src/contrib/BiocVersion_3.19.1.tar.gz'                                                               
+Content type 'application/x-gzip' length 987 bytes
 ==================================================
-downloaded 1.4 MB
+downloaded 987 bytes
 
 * installing *source* package ‘limma’ ...
 ** using staged installation
 ** libs
-using C compiler: ‘gcc (GCC) 10.2.1 20210130 (Red Hat 10.2.1-11)’
-gcc -I"{{ site.path.cbi_software }}/{{ r_basename }}/lib/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c init.c -o init.o
-gcc -I"{{ site.path.cbi_software }}/{{ r_basename }}/lib/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c normexp.c -o normexp.o
-gcc -I"{{ site.path.cbi_software }}/{{ r_basename }}/lib/R/include" -DNDEBUG   -I/usr/local/include   -fpic  -g -O2  -c weighted_lowess.c -o weighted_lowess.o
-gcc -shared -L{{ site.path.cbi_software }}/{{ r_basename }}/lib/R/lib -L/usr/local/lib -o limma.so init.o normexp.o weighted_lowess.o -L{{ site.path.cbi_software }}/{{ r_basename }}/lib/R/lib -lR
-installing to {{ site.user.home }}R/x86_64-pc-linux-gnu-library/{{ r_libs_user }}/00LOCK-limma/00new/limma/libs
+using C compiler: ‘gcc (GCC) 10.3.1 20210422 (Red Hat 10.3.1-1)’
+gcc -I"{{ r_path }}/lib64/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c init.c -o init.o
+gcc -I"{{ r_path }}/lib64/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c normexp.c -o normexp.o
+gcc -I"{{ r_path }}/lib64/R/include" -DNDEBUG   -I/usr/local/include    -fpic  -g -O2  -c weighted_lowess.c -o weighted_lowess.o
+gcc -shared -L{{ r_path }}/lib64/R/lib -L/usr/local/lib64 -o limma.so init.o normexp.o weighted_lowess.o -L{{ r_path }}/lib64/R/lib -lR          
+installing to {{ r_libs_user_path }}/00LOCK-limma/00new/limma/libs
 ** R
 ** inst
 ** byte-compile and prepare package for lazy loading
@@ -270,11 +370,12 @@ installing to {{ site.user.home }}R/x86_64-pc-linux-gnu-library/{{ r_libs_user }
 * DONE (limma)
 
 The downloaded source packages are in
-        '/scratch/alice/Rtmpz9uHdz/downloaded_packages'
+        ‘/scratch/alice/Rtmp4dISqw/downloaded_packages’
 >
 ```
 
-There were no "error" messages, so the installation was successful.  To verify that it worked, we can load the package in R as:
+There were no "error" messages, so the installation was successful.
+To verify that it worked, we can load the package in R as:
 
 ```r
 > library(limma)
@@ -298,16 +399,26 @@ _Comment_: This will actually also update any CRAN packages.
 
 ### Parallel processing in R
 
-If you have an R scripts, and it involves setting up a number of parallel workers in R, do _not_ use `ncores <- detectCores()` of the **parallel** package because it will result in your job hijacking _all_ cores on the compute node regardless of how many cores the scheduler has given you.  Taking up all CPU resources without permission is really bad practice and a common cause for problems.  A much better solution is to use `availableCores()` that is available in the **[parallelly]** package, e.g. as `ncores <- parallelly::availableCores()`.  This function is backward compatible with `detectCores()` while respecting what the scheduler has allocated for your job.
+If you have an R scripts, and it involves setting up a number of
+parallel workers in R, do _not_ use `ncores <- detectCores()` of the
+**parallel** package because it will result in your job hijacking
+_all_ cores on the compute node regardless of how many cores the
+scheduler has given you.  Taking up all CPU resources without
+permission is really bad practice and a common cause for problems.  A
+much better solution is to use `availableCores()` that is available in
+the **[parallelly]** package, e.g. as `ncores <-
+parallelly::availableCores()`.  This function is backward compatible
+with `detectCores()` while respecting what the scheduler has allocated
+for your job.
 
 
 ### Packages MASS and Matrix
- 
+
 As of 2024-04-26, the "recommended" **[MASS]** and **[Matrix]**
 packages require R (>= 4.4.0). If you run an older version of R, you
 can install older versions of them that are compatible with R (<
 4.4.0) using:
- 
+
 ```r
 > install.packages("https://cran.r-project.org/src/contrib/Archive/MASS/MASS_7.3-60.0.1.tar.gz", type = "source")
 
@@ -317,33 +428,44 @@ can install older versions of them that are compatible with R (<
 
 ### Packages relying on MPI
 
-Several R packages that rely on the Message Passing Interface (MPI) do not install out-of-the-box like other R packages.  At a minimum, they require that the built-in `mpi` module is loaded;
+Several R packages that rely on the Message Passing Interface (MPI) do
+not install out-of-the-box like other R packages.  At a minimum, they
+require that the built-in `mpi` module is loaded;
 
 <!-- code-block label="r-openmpi" -->
 ```sh
-[alice@{{ site.devel.name }} ~]$ module load mpi/openmpi3-x86_64
+[alice@{{ site.devel.name }} ~]$ module load mpi/openmpi-x86_64
 [alice@{{ site.devel.name }} ~]$ module list
 
 Currently Loaded Modules:
-  1) CBI   2) scl-devtoolset/10   3) r/4.3.1   4) mpi/openmpi3-x86_64
+  1) CBI   2) scl-gcc-toolset/13   3) r/4.4.1   4) mpi/openmpi-x86_64
 
  
 
 ```
 
-_Importantly_, make sure to specify the exact version of the `mpi` module as well so that your code will keep working also when a newer version becomes the new default.  Note that you will have to load the same `mpi` module, and version(!), also whenever you run R code that requires these MPI-dependent R packages.
+_Importantly_, make sure to specify the exact version of the `mpi`
+module as well so that your code will keep working also when a newer
+version becomes the new default.  Note that you will have to load the
+same `mpi` module, and version(!), also whenever you run R code that
+requires these MPI-dependent R packages.
 
-In addition to making OpenMPI available by loading the `mpi` module, several MPI-based R packages requires additional special care in order to install.  Below sections, show how to install them.
+In addition to making OpenMPI available by loading the `mpi` module,
+several MPI-based R packages requires additional special care in order
+to install.  Below sections, show how to install them.
 
 
 #### Package **Rmpi**
 
-The **[Rmpi]** package does not install out-of-the-box like other R packages.  To install **Rmpi** on the cluster, we have to load the `mpi` module (see above) before starting R.  Then, to install **Rmpi**, we launch R and call the following:
+The **[Rmpi]** package does not install out-of-the-box like other R
+packages.  To install **Rmpi** on the cluster, we have to load the
+`mpi` module (see above) before starting R.  Then, to install
+**Rmpi**, we launch R and call the following:
 
 <!-- code-block label="install-Rmpi" -->
 ```r
 > install.packages("Rmpi", configure.args="--with-Rmpi-include=$MPI_INCLUDE --with-Rmpi-libpath=$MPI_LIB --with-Rmpi-type=OPENMPI")
-Installing package into '{{ site.user.home }}R/x86_64-pc-linux-gnu-library/{{ r_libs_user }}'
+Installing package into '{{ r_libs_user_path }}'
 (as 'lib' is unspecified)
 trying URL 'https://cloud.r-project.org/src/contrib/Rmpi_0.7-1.tar.gz'
 Content type 'application/x-gzip' length 106286 bytes (103 KB)
@@ -356,15 +478,15 @@ downloaded 103 KB
 configure: creating ./config.status
 config.status: creating src/Makevars
 ** libs
-using C compiler: ‘gcc (GCC) 10.2.1 20210130 (Red Hat 10.2.1-11)’
-gcc -I"{{ site.path.cbi_software }}/{{ r_basename }}/lib64/R/include" -DNDEBUG -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPA
+using C compiler: ‘gcc (GCC) 10.3.1 20210422 (Red Hat 10.3.1-1)’
+gcc -I"{{ r_path }}/lib64/R/include" -DNDEBUG -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPA
 CKAGE_URL=\"\" -I/usr/include/openmpi-x86_64  -DMPI2 -DOPENMPI  -I/usr/local/include   -fpic  -g -O2  -c Rmpi.c -o Rmpi.o
-gcc -I"{{ site.path.cbi_software }}/{{ r_basename }}/lib64/R/include" -DNDEBUG -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPA
+gcc -I"{{ r_path }}/lib64/R/include" -DNDEBUG -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPA
 CKAGE_URL=\"\" -I/usr/include/openmpi-x86_64  -DMPI2 -DOPENMPI  -I/usr/local/include   -fpic  -g -O2  -c conversion.c -o conversion.o
-gcc -I"{{ site.path.cbi_software }}/{{ r_basename }}/lib64/R/include" -DNDEBUG -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPA
+gcc -I"{{ r_path }}/lib64/R/include" -DNDEBUG -DPACKAGE_NAME=\"\" -DPACKAGE_TARNAME=\"\" -DPACKAGE_VERSION=\"\" -DPACKAGE_STRING=\"\" -DPACKAGE_BUGREPORT=\"\" -DPA
 CKAGE_URL=\"\" -I/usr/include/openmpi-x86_64  -DMPI2 -DOPENMPI  -I/usr/local/include   -fpic  -g -O2  -c internal.c -o internal.o
-gcc -shared -L{{ site.path.cbi_software }}/{{ r_basename }}/lib64/R/lib -L/usr/local/lib64 -o Rmpi.so Rmpi.o conversion.o internal.o -L/usr/lib64/openmpi/lib -lmpi -L{{ site.path.cbi_software }}/{{ r_basename }}/lib64/R/lib -lR
-installing to {{ site.user.home }}R/x86_64-pc-linux-gnu-library/{{ r_libs_user }}/00LOCK-Rmpi/00new/Rmpi/libs
+gcc -shared -L{{ r_path }}/lib64/R/lib -L/usr/local/lib64 -o Rmpi.so Rmpi.o conversion.o internal.o -L/usr/lib64/openmpi/lib -lmpi -L{{ site.path.cbi_software }}/{{ r_basename }}/lib64/R/lib -lR
+installing to {{ r_libs_user_path }}/00LOCK-Rmpi/00new/Rmpi/libs
 ** R
 ** demo
 ** inst
@@ -383,12 +505,13 @@ The downloaded source packages are in
 >
 ```
 
-
-Note, you need to load the identical module and version each time you want to use the **Rmpi** package.  After installing **Rmpi**, verify that it works:
+Note, you need to load the identical module and version each time you
+want to use the **Rmpi** package.  After installing **Rmpi**, verify
+that it works:
 
 ```r
 [alice@{{ site.devel.name }} ~]$ module load CBI r
-[alice@{{ site.devel.name }} ~]$ module load mpi/openmpi3-x86_64
+[alice@{{ site.devel.name }} ~]$ module load mpi/openmpi-x86_64
 [alice@{{ site.devel.name }} ~]$ R
 ...
 > library(Rmpi)
@@ -408,11 +531,18 @@ slave1 (rank 1, comm 1) of size 2 is running on: {{ site.devel.name}}
 
 #### Packages **pbdMPI** and **bigGP**
 
-Similarly to the **Rmpi** package above, MPI-dependent R packages such as **[pbdMPI]** and **[bigGP]** require special install instructions.  For example, after having loaded the `mpi` module, we can install **pbdMPI** in R as:
+<!--
+Rocky 8: pbdMPI, bigGP still need to be installed this way /HB 2023-09-16
+-->
+
+Similarly to the **Rmpi** package above, MPI-dependent R packages such
+as **[pbdMPI]** and **[bigGP]** require special install instructions.
+For example, after having loaded the `mpi` module, we can install
+**pbdMPI** in R as:
 
 ```r
 > install.packages("pbdMPI", configure.args="--with-mpi-include=$MPI_INCLUDE --with-mpi-libpath=$MPI_LIB --with-mpi-type=OPENMPI")
-Installing package into '{{ site.user.home }}/R/x86_64-pc-linux-gnu-library/{{ r_libs_user }}'
+Installing package into '{{ r_libs_user_path }}'
 (as 'lib' is unspecified)
 * installing *source* package 'pbdMPI' ...
 ** package 'pbdMPI' successfully unpacked and MD5 sums checked
@@ -428,24 +558,24 @@ checking for main in -lpthread... yes
  
 ******************* Results of pbdMPI package configure *****************
  
->> MPIRUN = /usr/lib64/openmpi3/bin/mpirun
->> MPIEXEC = /usr/lib64/openmpi3/bin/mpiexec
->> ORTERUN = /usr/lib64/openmpi3/bin/orterun
+>> MPIRUN = /usr/lib64/openmpi/bin/mpirun
+>> MPIEXEC = /usr/lib64/openmpi/bin/mpiexec
+>> ORTERUN = /usr/lib64/openmpi/bin/orterun
 >> TMP_INC = 
 >> TMP_LIB = 
 >> TMP_LIBNAME = 
 >> TMP_FOUND = Nothing found from mpicc --show & sed nor pkg-config ...
 >> MPI_ROOT = 
 >> MPITYPE = OPENMPI
->> MPI_INCLUDE_PATH = /usr/include/openmpi3-x86_64
->> MPI_LIBPATH = /usr/lib64/openmpi3/lib
+>> MPI_INCLUDE_PATH = /usr/include/openmpi-x86_64
+>> MPI_LIBPATH = /usr/lib64/openmpi/lib
 >> MPI_LIBNAME = 
 >> MPI_LIBS =  -lutil -lpthread
 >> MPI_DEFS = -DMPI2
 >> MPI_INCL2 = 
 >> MPI_LDFLAGS = 
->> PKG_CPPFLAGS = -I/usr/include/openmpi3-x86_64  -DMPI2 -DOPENMPI
->> PKG_LIBS = -L/usr/lib64/openmpi3/lib -lmpi  -lutil -lpthread
+>> PKG_CPPFLAGS = -I/usr/include/openmpi-x86_64  -DMPI2 -DOPENMPI
+>> PKG_LIBS = -L/usr/lib64/openmpi/lib -lmpi  -lutil -lpthread
 >> PROF_LDFLAGS = 
 >> ENABLE_LD_LIBRARY_PATH = no
  
@@ -457,32 +587,32 @@ configure: creating ./config.status
 config.status: creating src/Makevars
 config.status: creating R/zzz.r
 ** libs
-echo "MPIRUN = /usr/lib64/openmpi3/bin/mpirun" > Makeconf
-echo "MPIEXEC = /usr/lib64/openmpi3/bin/mpiexec" >> Makeconf
-echo "ORTERUN = /usr/lib64/openmpi3/bin/orterun" >> Makeconf
+echo "MPIRUN = /usr/lib64/openmpi/bin/mpirun" > Makeconf
+echo "MPIEXEC = /usr/lib64/openmpi/bin/mpiexec" >> Makeconf
+echo "ORTERUN = /usr/lib64/openmpi/bin/orterun" >> Makeconf
 echo "TMP_INC = " >> Makeconf
 echo "TMP_LIB = " >> Makeconf
 echo "TMP_LIBNAME = " >> Makeconf
 echo "TMP_FOUND = Nothing found from mpicc --show & sed nor pkg-config ..." >> Makeconf
 echo "MPI_ROOT = " >> Makeconf
 echo "MPITYPE = OPENMPI" >> Makeconf
-echo "MPI_INCLUDE_PATH = /usr/include/openmpi3-x86_64" >> Makeconf
-echo "MPI_LIBPATH = /usr/lib64/openmpi3/lib" >> Makeconf
+echo "MPI_INCLUDE_PATH = /usr/include/openmpi-x86_64" >> Makeconf
+echo "MPI_LIBPATH = /usr/lib64/openmpi/lib" >> Makeconf
 echo "MPI_LIBNAME = " >> Makeconf
 echo "MPI_LIBS =  -lutil -lpthread" >> Makeconf
 echo "MPI_DEFS = -DMPI2" >> Makeconf
 echo "MPI_INCL2 = " >> Makeconf
 echo "MPI_LDFLAGS = " >> Makeconf
-echo "PKG_CPPFLAGS = -I/usr/include/openmpi3-x86_64  -DMPI2 -DOPENMPI" >> Makeconf
-echo "PKG_LIBS = -L/usr/lib64/openmpi3/lib -lmpi  -lutil -lpthread" >> Makeconf
+echo "PKG_CPPFLAGS = -I/usr/include/openmpi-x86_64  -DMPI2 -DOPENMPI" >> Makeconf
+echo "PKG_LIBS = -L/usr/lib64/openmpi/lib -lmpi  -lutil -lpthread" >> Makeconf
 echo "PROF_LDFLAGS = " >> Makeconf
 echo "ENABLE_LD_LIBRARY_PATH = no" >> Makeconf
-gcc -I"{{ site.path.cbi_software }}/{{ r_basename }}/lib64/R/include" -DNDEBUG -I/usr/include/openmpi3-x86_64  -DMPI2 -DOPENMPI  -I/usr/local/include   -fpic  -g -O2  -c comm_errors.c -o comm_errors.o
-gcc -I"{{ site.path.cbi_software }}/{{ r_basename }}/lib64/R/include" -DNDEBUG -I/usr/include/openmpi3-x86_64  -DMPI2 -DOPENMPI  -I/usr/local/include   -fpic  -g -O2  -c comm_sort_double.c -o comm_sort_double.o
+gcc -I"{{ r_path }}/lib64/R/include" -DNDEBUG -I/usr/include/openmpi-x86_64  -DMPI2 -DOPENMPI  -I/usr/local/include   -fpic  -g -O2  -c comm_errors.c -o comm_errors.o
+gcc -I"{{ r_path }}/lib64/R/include" -DNDEBUG -I/usr/include/openmpi-x86_64  -DMPI2 -DOPENMPI  -I/usr/local/include   -fpic  -g -O2  -c comm_sort_double.c -o comm_sort_double.o
 ...
-gcc -I"{{ site.path.cbi_software }}/{{ r_basename }}/lib64/R/include" -DNDEBUG -I/usr/include/openmpi3-x86_64  -DMPI2 -DOPENMPI  -I/usr/local/include   -fpic  -g -O2  -c zzz.c -o zzz.o
-gcc -shared -L{{ site.path.cbi_software }}/{{ r_basename }}/lib64/R/lib -L/usr/local/lib64 -o pbdMPI.so comm_errors.o comm_sort_double.o comm_sort_integer.o pkg_dl.o pkg_tools.o spmd.o spmd_allgather.o spmd_allgatherv.o spmd_allreduce.o spmd_alltoall.o spmd_alltoallv.o spmd_bcast.o spmd_communicator.o spmd_communicator_spawn.o spmd_gather.o spmd_gatherv.o spmd_info.o spmd_recv.o spmd_reduce.o spmd_scatter.o spmd_scatterv.o spmd_send.o spmd_sendrecv.o spmd_sendrecv_replace.o spmd_tool.o spmd_utility.o spmd_wait.o zzz.o -L/usr/lib64/openmpi3/lib -lmpi -lutil -lpthread -L{{ site.path.cbi_software }}/{{ r_basename }}/lib64/R/lib -lR
-installing via 'install.libs.R' to {{ site.user.home }}/R/x86_64-pc-linux-gnu-library/{{ r_libs_user }}/00LOCK-pbdMPI/00new/pbdMPI
+gcc -I"{{ r_path }}/lib64/R/include" -DNDEBUG -I/usr/include/openmpi-x86_64  -DMPI2 -DOPENMPI  -I/usr/local/include   -fpic  -g -O2  -c zzz.c -o zzz.o
+gcc -shared -L{{ r_path }}/lib64/R/lib -L/usr/local/lib64 -o pbdMPI.so comm_errors.o comm_sort_double.o comm_sort_integer.o pkg_dl.o pkg_tools.o spmd.o spmd_allgather.o spmd_allgatherv.o spmd_allreduce.o spmd_alltoall.o spmd_alltoallv.o spmd_bcast.o spmd_communicator.o spmd_communicator_spawn.o spmd_gather.o spmd_gatherv.o spmd_info.o spmd_recv.o spmd_reduce.o spmd_scatter.o spmd_scatterv.o spmd_send.o spmd_sendrecv.o spmd_sendrecv_replace.o spmd_tool.o spmd_utility.o spmd_wait.o zzz.o -L/usr/lib64/openmpi/lib -lmpi -lutil -lpthread -L{{ r_path }}/lib64/R/lib -lR
+installing via 'install.libs.R' to {{ r_libs_user_path }}/00LOCK-pbdMPI/00new/pbdMPI
 ** R
 ** demo
 ** inst
@@ -503,116 +633,17 @@ installing via 'install.libs.R' to {{ site.user.home }}/R/x86_64-pc-linux-gnu-li
 
 The downloaded source packages are in
         '/scratch/{{ site.user.name }}/RtmpKNz5KF/downloaded_packages'
-
 ```
-
-
-### Packages relying on HDF5
-
-#### Package **hdf5r**
-
-The **[hdf5r]** package requires [hdf5 1.8.13 or newer](https://github.com/hhoeflin/hdf5r/issues/115) but the version that comes with CentOS 7/EPEL is only 1.8.12. This will result in the following installation error in R:
-
-```r
-Found hdf5 with version: 1.8.12
-configure: error: The version of hdf5 installed on your system is not sufficient. Please ensure that at least version 1.8.13 is installed
-ERROR: configuration failed for package 'hdf5r'
-```
-
- To fix this, load a modern version of 'hdf5' from the [CBI software stack] before installing the package, i.e.
-
-<!-- code-block label="r-hdf5" -->
-```sh
-[alice@{{ site.devel.name }} ~]$ module load CBI hdf5
-[alice@{{ site.devel.name }} ~]$ module list
-
-Currently Loaded Modules:
-  1) CBI   2) scl-devtoolset/10   3) r/4.3.1   4) hdf5/1.12.2
-
- 
-
-```
- 
-Note that you also need to load the `hdf5` module every time you use the **hdf5r** package in R.
-
-After this, the **hdf5r** package will install out of the box, i.e. by calling:
-
-```r
-> install.packages("hdf5r")
-```
-
-
-
-### Packages relying on GDAL, GEOS, PROJ, and sqlite3
-
-There are R packages for spatial analyses that depend on external
-libraries GDAL, GEOS, PROJ, and sqlite3. For example:
-
-* **[sf]**     requires GDAL (>= 2.0.1), GEOS (>= 3.4.0), PROJ (>= 4.8.0), sqlite3
-* **[lwgeom]** requires                  GEOS (>= 3.5.0), PROJ (>= 4.8.0), sqlite3
-* **[terra]**  requires GDAL (>= 2.2.3), GEOS (>= 3.4.0), PROJ (>= 4.9.3), sqlite3
-
-CentOS 7/EPEL provides GDAL 1.11.4 (2016-01-25), GEOS 3.4.2
-(2013-08-25), PROJ 4.8.0 (2012-03-06), and sqlite3 3.7.17
-(2013-05-20). These are all too old for installing above R packages.
-The solution is to load more modern versions from the CBI software
-stack before installing and using such packages in R;
-
-```sh
-$ module load CBI r
-$ module load CBI gdal geos proj sqlite
-$ module list
-Currently Loaded Modules:
-  1) CBI                 3) r/4.2.0       5) gdal/3.6.4     7) proj/8.2.1
-  2) scl-devtoolset/10   4) hdf5/1.12.2   6) geos/3.11.2    8) sqlite/3.41.2
-```
-
-After loading _all_ these dependencies, above R packages will install
-out-of-the-box in R and will be compatible with each other if used at
-the same time, which some of them require.
-
-Because these R packages interact with each other, it is important to
-use the _same_ versions of GDAL, GEOS, PROJ, and sqlite, when
-installing and loading these R packages.  Because of this, we also
-recommend to install all of the above at the same time.  You might
-even choose to always have those extra CBI modules loaded at all time
-when using R to make your life easier, e.g. when updating R packages
-using `update.packages()`.
-
-Here is how to install the above R packages all at once:
-
-```r
-$ module load CBI r
-$ module load CBI gdal geos proj sqlite
-$ R --quiet
-> install.packages(c("sf", "lwgeom", "terra"))
-```
-
-After this, we can load each of them to verify everything works;
-
-```r
-> library(sf)
-Linking to GEOS 3.11.2, GDAL 3.6.4, PROJ 8.2.1; sf_use_s2() is TRUE
-```
-
-```r
-> library(lwgeom)
-Linking to liblwgeom 3.0.0beta1 r16016, GEOS 3.11.2, PROJ 8.2.1
-```
-
-```r
-> library(terra)
-terra 1.7.29
-```
-
-Note that you need to load all of those extra CBI modules whenever you
-use these R packages.
-
 
 
 ### Packages relying on JAGS
 
 #### Package **rjags**
+
+<!--
+Rocky 8: rjags still requires JAGS; keep. ALSO: Troubleshoot why rjags
+fails to load on Rocky 8 although the compile goes well /HB 2023-09-16
+-->
 
 If we try to install the **[rjags]** package, we'll get the following
 installation error in R:
@@ -631,9 +662,9 @@ configure: Attempting legacy configuration of rjags
 checking for jags... no
 configure: error: "automatic detection of JAGS failed. Please use pkg-config to locate the JAGS library. See the INSTALL file for details."
 ERROR: configuration failed for package 'rjags'
-* removing '{{ site.user.home }}/R/x86_64-pc-linux-gnu-library/{{ r_libs_user }}/rjags'
+* removing '{{ r_libs_user_path }}/rjags'
 ERROR: dependency 'rjags' is not available for package 'infercnv'
-* removing '{{ site.user.home }}/R/x86_64-pc-linux-gnu-library/{{ r_libs_user }}/infercnv'
+* removing '{{ r_libs_user_path }}/infercnv'
 ```
 
 The error says that the "JAGS library" is missing.  It's available via
@@ -693,88 +724,32 @@ Importantly, you need to load the `jq` CBI module any time you run R
 where the **jqr** R package needs to be loaded.
 
 
-### Packages relying on GSL
-
-The GNU Scientific Library (GSL) is a numerical library for C and C++ that provides a wide range of mathematical routines such as random number generators, special functions and least-squares fitting. Several R packages rely on it.
-
-#### Package **gsl**
-
-If we try to install the **[gsl]** package, we'll get the following
-compilation:
-
-```r
-> install.packages("gsl")
-...
-In file included from ellint.c:1:
-/usr/include/gsl/gsl_sf_ellint.h:84:5: note: declared here
-   84 | int gsl_sf_ellint_D_e(double phi, double k, double n, gsl_mode_t mode, gsl_sf_result * result);
-      |     ^~~~~~~~~~~~~~~~~
-make: *** [{{ site.path.cbi_software }}/{{ r_basename }}/lib64/R/etc/Makeconf:191: ellint.o] Error 1
-ERROR: compilation failed for package ‘gsl’
-...
-```
-
-This is because the GSL version that comes with the operating system
-is too old.  A more modern version is available via the CBI software
-stack.  Load it before starting R:
-
-```sh
-$ module load CBI gsl
-```
-
-and you'll find that `install.packages("gsl")` will complete
-successfully.
-
-Importantly, you need to load the `gsl` CBI module any time you run R
-where the **gsl** R package needs to be loaded.
-
-
 
 ### Packages requiring extra care
 
-#### Package **ncdf4**
-
-The **[ncdf4]** package requires netCDF (>= 4.6.0) as of **ncdf4**
-1.22 (2023-11-28).  CentOS 7 only provides netCDF 4.3.3.1 (`nc-config
---version`).  If we still attempt to install **ncdf4** as-is, we get:
-
-```r
-> install.packages("ncdf4")
-...
-> gcc -I"{{ site.path.cbi_software }}/{{ r_basename }}/lib64/R/include" -DNDEBUG -I/usr/include -I/usr/include/hdf  -I/usr/local/include    -fpic  -g -O2  -c ncdf.c -o ncdf.o
-> ncdf.c: In function ‘R_nc4_inq_format’:
-> ncdf.c:1910:8: error: ‘NC_FORMAT_CDF5’ undeclared (first use in this function); did you mean ‘NC_FORMAT_NC_HDF5’?
->  1910 |   case NC_FORMAT_CDF5:
->       |        ^~~~~~~~~~~~~~
->       |        NC_FORMAT_NC_HDF5
-> ncdf.c:1910:8: note: each undeclared identifier is reported only once for each function it appears in
-> make: *** [{{ site.path.cbi_software }}/{{ r_basename }}/lib64/R/etc/Makeconf:191: ncdf.o] Error 1
-> ERROR: compilation failed for package ‘ncdf4’
-```
-
-The workaround is to install [**ncdf4**
-1.21](https://cran.r-project.org/src/contrib/Archive/ncdf4/) (2023-01-07) using:
-
-```r
-> install.packages("https://cran.r-project.org/src/contrib/Archive/ncdf4/ncdf4_1.21.tar.gz")
-```
-
-
-
 #### Package **udunits2**
 
-The **[udunits2]** package does not install out of the box.  It seems to be due to a problem with the package itself, and the suggested instructions that the package gives on setting environment variable `UDUNITS2_INCLUDE` do not work.  A workaround to install the package is to do:
+<!--
+Rocky 8: udunits2 still requires special care; keep as-is /HB 2023-09-16
+-->
 
-```sh
-install.packages("udunits2", configure.args="--with-udunits2-include=/usr/include/udunits2")   
+The **[udunits2]** package does not install out of the box.  It seems
+to be due to a problem with the package itself, and the suggested
+instructions that the package gives on setting environment variable
+`UDUNITS2_INCLUDE` do not work.  A workaround to install the package
+is to do:
+
+```r
+install.packages("udunits2", configure.args="--with-udunits2-include=/usr/include/udunits2")
 ```
+
 
 #### Package **valse**
 
 To install the **[valse]** package, we have to make sure the
 **[RcppGSL]** package is already installed.  This is not specified
-anywhere, but if we try to install **valse** without **RcppGSL already
-installed, we get:
+anywhere, but if we try to install **valse** without **RcppGSL**
+already installed, we get:
 
 ```r
 > install.packages("valse")
@@ -812,27 +787,22 @@ install **verse**;
 
 
 [CRAN]: https://cran.r-project.org/
-[Bioconductor]: http://bioconductor.org/
+[Bioconductor]: https://bioconductor.org/
 [bigGP]: https://cran.r-project.org/package=bigGP
 [BiocManager]: https://cran.r-project.org/package=BiocManager
 [parallelly]: https://cran.r-project.org/package=parallelly
-[gsl]: https://cran.r-project.org/package=gsl
-[hdf5r]: https://cran.r-project.org/package=hdf5r
-[igraph]: https://cran.r-project.org/package=igraph
 [jqr]: https://cran.r-project.org/package=jqr
-[lwgeom]: https://cran.r-project.org/package=lwgeom
 [MASS]: https://cran.r-project.org/package=MASS
 [Matrix]: https://cran.r-project.org/package=Matrix
-[ncdf4]: https://cran.r-project.org/package=ncdf4
 [pbdMPI]: https://cran.r-project.org/package=pbdMPI
 [pbdPROF]: https://cran.r-project.org/package=pbdPROF
 [rjags]: https://cran.r-project.org/package=rjags
 [RcppGSL]: https://cran.r-project.org/package=RcppGSL
 [Rmpi]: https://cran.r-project.org/package=Rmpi
-[sf]: https://cran.r-project.org/package=sf
-[terra]: https://cran.r-project.org/package=terra
+[tfevents]: https://cran.r-project.org/package=tfevents
 [udunits2]: https://cran.r-project.org/package=udunits2
 [valse]: https://cran.r-project.org/package=valse
 [zoo]: https://cran.r-project.org/package=zoo
-[limma]: http://bioconductor.org/packages/limma/
-[CBI software stack]: {{ '/software/software-repositories.html' | relative_url }}
+[limma]: https://bioconductor.org/packages/limma/
+[contributed environment module]: {{ '/hpc/software/software-repositories.html' | relative_url }}
+[CBI software stack]: {{ '/hpc/software/software-repositories.html' | relative_url }}
