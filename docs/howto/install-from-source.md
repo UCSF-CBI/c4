@@ -1,3 +1,5 @@
+{% include todo-rocky8.md %}
+
 # Install Software from Source Code
 
 A lot of scientific software is developed using C, C++, and Fortran. Sometimes the maintainers provide prebuilt software binaries from Linux, but more often you have to compile their software from source code.  Building from source might sound daunting, especially if it's your first time - there is new terminology to understand, new tools to use, and sometimes hard-to-understand error messages.

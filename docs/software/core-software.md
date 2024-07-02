@@ -1,3 +1,5 @@
+{% include todo-rocky8.md %}
+
 # CentOS Core Software
 
 A large number of common Linux software tools are available on the cluster (compute nodes and development nodes) as part of the core setup.  Below follows a small excerpt of what tools are available.

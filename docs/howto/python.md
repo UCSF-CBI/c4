@@ -1,3 +1,5 @@
+{% include todo-rocky8.md %}
+
 # Work with Python
 
 <div class="alert alert-warning" role="alert" markdown="1">
