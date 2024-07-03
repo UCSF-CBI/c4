@@ -20,11 +20,10 @@ jobs:
         with:
           use-public-rspm: true
 
-      - uses: r-lib/actions/setup-r-dependencies@v2
-        with:
-          extra-packages: |
-            any::spelling
-          needs: check
+      - name: Install required R packages
+        run: |
+          install.packages("spelling")
+        shell: Rscript {0}
 
       - name: Spell check README and Markdown files
         run: |
