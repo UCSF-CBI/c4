@@ -59,7 +59,30 @@ $ sed -i '18d' ~/.ssh/known_hosts
 Then retry.
 
 
+
 ## Miscellaneous
+
+### Reset my shell startup file
+
+**Q**. _I might have corrupted my Bash startup files. How do I reset
+them?_
+
+**A**. To get a fresh `~/.bashrc` file, make a backup of your old one
+and copy the default one by:
+
+```sh
+$ cp ~/.bashrc ~/.bashrc.20240701
+$ cp /etc/skel/.bashrc ~/
+```
+
+**A**. To get a fresh `~/.bash_profile` file, make a backup of your
+old one and copy the default one by:
+
+```sh
+$ cp ~/.bash_profile ~/.bash_profile.20240701
+$ cp /etc/skel/.bash_profile ~/
+```
+
 
 ### Avoid screenshots when asking for help
 
