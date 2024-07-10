@@ -1,118 +1,169 @@
-{% include todo-rocky8.md %}
+# Software Collections (SCL)
 
-# CentOS Software Collections (SCL)
-
-> [Software Collections (SCL)](https://en.wikipedia.org/wiki/CentOS#Add-ons_releases) is a CentOS repository that provides a set of dynamic programming languages, database servers, and various related packages. Provided software versions are [...] more recent than their equivalent versions included in the base CentOS distribution [...]  Packages available from the SCL [...] can be optionally enabled per application by using supplied `scl` utility.
+[Software Collections (SCL)] provides software versions that are [...]
+more recent > than their equivalent versions included in the base
+Rocky 8 distribution.
 
 
 ## Available SCLs and their Packages
 
 To list all Software Collections installed on the _development nodes_, use:
 
+<!-- code-block label="list" -->
 ```sh
-[alice@{{ site.devel.name }} ~]$ scl --list
-devtoolset-10
-devtoolset-11
-devtoolset-7
-devtoolset-8
-devtoolset-9
-httpd24
-llvm-toolset-7
-rh-perl526
-rh-python36
-rh-python38
-rh-ruby25
-rh-ruby26
+[alice@{{ site.devel.name }} ~]$ scl list-collections
+gcc-toolset-10
+gcc-toolset-11
+gcc-toolset-12
+gcc-toolset-13
+gcc-toolset-9
 ```
 
-To list all the packages that are part of one or more of these SCLs, use:
+_Importantly_, the above SCLs are available only on the _development
+nodes_.
 
+
+To list all the packages that are part of one or more of these SCLs,
+use:
+
+<!-- code-block label="list-one" -->
 ```sh
-[alice@{{ site.devel.name }} ~]$ scl --list rh-ruby26
-$ scl --list rh-ruby26
-rh-ruby26-rubygem-bson-doc-4.3.0-1.el7.noarch
-rh-ruby26-ruby-devel-2.6.2-118.el7.x86_64
-...
-rh-ruby26-rubygem-test-unit-3.2.9-118.el7.noarch
+[alice@{{ site.devel.name }} ~]$ scl list-packages gcc-toolset-11
+gcc-toolset-11-binutils-devel-2.36.1-4.el8_9.x86_64
+gcc-toolset-11-systemtap-runtime-4.5-6.el8.x86_64
+gcc-toolset-11-gcc-gdb-plugin-11.2.1-9.2.el8_9.x86_64
+gcc-toolset-11-libtsan-devel-11.2.1-9.2.el8_9.x86_64
+gcc-toolset-11-perftools-11.1-1.el8.x86_64
+gcc-toolset-11-libitm-devel-11.2.1-9.2.el8_9.x86_64
+gcc-toolset-11-build-11.1-1.el8.x86_64
+gcc-toolset-11-systemtap-devel-4.5-6.el8.x86_64
+gcc-toolset-11-libquadmath-devel-11.2.1-9.2.el8_9.x86_64
+gcc-toolset-11-libstdc++-devel-11.2.1-9.2.el8_9.x86_64
+gcc-toolset-11-elfutils-libelf-0.185-5.el8.x86_64
+gcc-toolset-11-valgrind-1:3.17.0-6.el8.x86_64
+gcc-toolset-11-libgccjit-docs-11.2.1-9.2.el8_9.x86_64
+gcc-toolset-11-make-1:4.3-2.el8.x86_64
+gcc-toolset-11-liblsan-devel-11.2.1-9.2.el8_9.x86_64
+gcc-toolset-11-gcc-gfortran-11.2.1-9.2.el8_9.x86_64
+gcc-toolset-11-11.1-1.el8.x86_64
+gcc-toolset-11-gcc-plugin-devel-11.2.1-9.2.el8_9.x86_64
+gcc-toolset-11-systemtap-sdt-devel-4.5-6.el8.x86_64
+gcc-toolset-11-elfutils-devel-0.185-5.el8.x86_64
+gcc-toolset-11-annobin-docs-10.23-1.el8.noarch
+gcc-toolset-11-elfutils-libelf-devel-0.185-5.el8.x86_64
+gcc-toolset-11-systemtap-server-4.5-6.el8.x86_64
+gcc-toolset-11-annobin-annocheck-10.23-1.el8.x86_64
+gcc-toolset-11-libubsan-devel-11.2.1-9.2.el8_9.x86_64
+gcc-toolset-11-libstdc++-docs-11.2.1-9.2.el8_9.x86_64
+gcc-toolset-11-gdb-10.2-5.el8.x86_64
+gcc-toolset-11-elfutils-debuginfod-client-0.185-5.el8.x86_64
+gcc-toolset-11-binutils-2.36.1-4.el8_9.x86_64
+gcc-toolset-11-elfutils-0.185-5.el8.x86_64
+gcc-toolset-11-annobin-plugin-gcc-10.23-1.el8.x86_64
+gcc-toolset-11-make-devel-1:4.3-2.el8.x86_64
+gcc-toolset-11-libgccjit-11.2.1-9.2.el8_9.x86_64
+gcc-toolset-11-ltrace-0.7.91-1.el8.x86_64
+gcc-toolset-11-elfutils-libs-0.185-5.el8.x86_64
+gcc-toolset-11-systemtap-client-4.5-6.el8.x86_64
+gcc-toolset-11-libasan-devel-11.2.1-9.2.el8_9.x86_64
+gcc-toolset-11-gdb-gdbserver-10.2-5.el8.x86_64
+gcc-toolset-11-gcc-c++-11.2.1-9.2.el8_9.x86_64
+gcc-toolset-11-valgrind-devel-1:3.17.0-6.el8.x86_64
+gcc-toolset-11-libatomic-devel-11.2.1-9.2.el8_9.x86_64
+gcc-toolset-11-elfutils-debuginfod-client-devel-0.185-5.el8.x86_64
+gcc-toolset-11-strace-5.13-7.el8.x86_64
+gcc-toolset-11-toolchain-11.1-1.el8.x86_64
+gcc-toolset-11-libgccjit-devel-11.2.1-9.2.el8_9.x86_64
+gcc-toolset-11-systemtap-initscript-4.5-6.el8.x86_64
+gcc-toolset-11-dwz-0.14-2.el8.x86_64
+gcc-toolset-11-gcc-11.2.1-9.2.el8_9.x86_64
+gcc-toolset-11-systemtap-4.5-6.el8.x86_64
+gcc-toolset-11-runtime-11.1-1.el8.x86_64
+libasan6-11.2.1-9.2.el8_9.x86_64
 ```
 
 
 ## Using SCLs
 
-### Interactive use
+Rocky 8 comes with GCC 8.5.0 (2021-05-14).  Never versions are
+available via the `gcc-toolset-NN` SCLs.  Here is an example how to
+check the version of one of the newer version:
 
-Neither the Ruby interpreter `ruby` nor the Ruby interactive `irb` tool is part of the [core-software] installation.  For example, if we would try to run `ruby`, we would get an error:
-
+<!-- code-block label="gcc-toolset-version" -->
 ```sh
-[alice@{{ site.devel.name }} ~]$ ruby --version
--bash: ruby: command not found
+[alice@{{ site.devel.name }} ~]$ scl enable gcc-toolset-12 "gcc --version"
+gcc (GCC) 12.2.1 20221121 (Red Hat 12.2.1-7)
+Copyright (C) 2022 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
 ```
 
-However, as we saw above, Ruby is available through an SCL.  For interactive work, the most natural way to use an SCL is maybe to launch a new shell (typically Bash) with the SCL enabled:
+_Importantly_, this approach of prefixing the original command call
+works also in job scripts.
 
+
+### Using SCLs in interactive mode
+
+#### Using `scl enable` (traditional)
+
+If you work interactively on one of the development nodes, you can
+also launch a new shell (typically Bash) with one or more SCLs
+enabled:
+
+<!-- code-block label="gcc-toolset-version-2" -->
 ```sh
-[alice@{{ site.devel.name }} ~]$ scl enable rh-ruby26 $SHELL
-
-[alice@{{ site.devel.name }} ~]$ ruby --version
-ruby 2.6.2p47 (2019-03-13 revision 67232) [x86_64-linux]
-
-[alice@{{ site.devel.name }} ~]$ irb
-irb(main):001:0> 1+2
-=> 3
-irb(main):002:0> exit
-
-[alice@{{ site.devel.name }} ~]$ 
+[alice@{{ site.devel.name }} ~]$ scl enable gcc-toolset-12 "$SHELL"
+[alice@{{ site.devel.name }} ~]$ gcc --version
+gcc (GCC) 12.2.1 20221121 (Red Hat 12.2.1-7)
+Copyright (C) 2022 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 ```
 
-With this approach, `ruby` and `irb` behave as if they were part of the core software installation.
-
-How to disable the SCL?  Above, we are actually launching another shell on top of the one we where already running.  The only difference is that the second shell is running with the SCL enabled.  Just like we can exit any shell by calling `exit` or `logout`, we can "unload" the enabled SCL and return to the previous shell by calling `exit`, i.e.
+To "unload" an SCLs, just return to the previous shell by exiting new
+SCL-enabled shell, i.e.
 
 ```sh
 [alice@{{ site.devel.name }} ~]$ exit
 
-[alice@{{ site.devel.name }} ~]$ ruby --version
--bash: ruby: command not found
-```
-
-
-An alternative approach to running the SCL-based Ruby, is to launch it directly instead of via the intermediate SCL-enabled shell.  For example, we can run a Ruby script as:
-
-```sh
-[alice@{{ site.devel.name }} ~]$ scl enable rh-ruby26 ruby hello.rb
-Hello world!
-```
-
-or launch the interactive Ruby tool as:
-
-```sh
-[alice@{{ site.devel.name }} ~]$ scl enable rh-ruby26 irb
-irb(main):006:0> puts "Hello world!";
-Hello world!
-=> nil
-irb(main):007:0> exit
 [alice@{{ site.devel.name }} ~]$ 
 ```
 
 
-### Using SCLs in scripts
+#### Using `module load CBI scl-gcc-toolset` (recommended)
 
-To use SCL-based software in script, including job scripts, we need to use the "direct" SCL approach as mentioned above.  Here is an example script that outputs the current timestamp and then runs two Ruby scripts after each other:
+An alternative approach to using `scl enable` for activating an SCL,
+is to `module load` to achieve the same, e.g.
 
+<!-- code-block label="module-load-scl-gcc-toolset" -->
 ```sh
-#!/usr/bin/env bash
+[alice@{{ site.devel.name }} ~]$ module load CBI scl-gcc-toolset/12
+[alice@{{ site.devel.name }} ~]$ gcc --version
+gcc (GCC) 12.2.1 20221121 (Red Hat 12.2.1-7)
+Copyright (C) 2022 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
-echo "Started on: $(date --rfc-3339=seconds)"
-scl enable rh-ruby26 ruby hello.rb
-scl enable rh-ruby26 ruby main.rb
 ```
 
+To go back to the built-in version of GCC, unload the module, i.e.
+
+<!-- code-block label="module-unload-scl-gcc-toolset" -->
+```sh
+[alice@{{ site.devel.name }} ~]$ module unload CBI scl-gcc-toolset/12
+[alice@{{ site.devel.name }} ~]$ gcc --version
+gcc (GCC) 8.5.0 20210514 (Red Hat 8.5.0-22)
+Copyright (C) 2018 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+```
 
 
 ## See Also
 
-* [Product Documentation for Red Hat Software Collections](https://access.redhat.com/documentation/en-us/red_hat_software_collections/)
 * [Product Documentation for Red Hat Developer Toolset](https://access.redhat.com/documentation/en-us/red_hat_developer_toolset/)
 
 
-[core-software]: {{ '/software/core-software.html' | relative_url }}
+[core-software]: /hpc/software/core-software.html

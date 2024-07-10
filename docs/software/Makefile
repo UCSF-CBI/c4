@@ -17,6 +17,8 @@ install_deps:
 	Rscript -e 'if (!requireNamespace("R.rsp")) install.packages("R.rsp")'
 	Rscript -e 'if (!requireNamespace("remotes")) install.packages("remotes")'
 	Rscript -e 'if (!requireNamespace("lmodweb")) remotes::install_github("ucsf-wynton/lmodweb")'
+	Rscript -e 'if (!requireNamespace("markin")) remotes::install_github("HenrikBengtsson/markin")'
+
 
 spider: clean
 	@module load CBI r && \
