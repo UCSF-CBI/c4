@@ -3,6 +3,14 @@ context:
   - login
 ---
 
+<div class="alert alert-warning" role="alert" markdown="1">
+
+🚧 This feature has not yet been re-enabled after we have migrated to
+Rocky&nbsp;8 /2024-07-10 🚧
+
+</div>
+
+
 # HOME Directory Backups
 
 We take two types of backups of the /c4/home directory. Nightly backups to tape and weekly rsync backups to the `/c4/backup/home` folder.
