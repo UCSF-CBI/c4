@@ -1,6 +1,11 @@
 <!-- markdownlint-disable-file MD034 -->
 
-{% include todo-rocky8.md %}
+<div class="alert alert-warning" role="alert" markdown="1">
+
+**The below instructions only work on _data transfer nodes_.**
+
+</div>
+
 
 # Amazon Web Services S3
 
