@@ -1126,7 +1126,7 @@ prepend_path(&quot;PATH&quot;, home)
 <span class="module-description">Cutadapt finds and removes adapter sequences, primers, poly-A tails and other types of unwanted sequence from your high-throughput sequencing reads.</span><br>
 Example: <span class="module-example"><code>cutadapt --version</code> and <code>cutadapt --help</code>.</span><br>
 URL: <span class="module-url"><a href="https://cutadapt.readthedocs.io/en/stable/">https://cutadapt.readthedocs.io/en/stable/</a>, <a href="https://github.com/marcelm/cutadapt/blob/main/CHANGES.rst">https://github.com/marcelm/cutadapt/blob/main/CHANGES.rst</a> (changelog), <a href="https://github.com/marcelm/cutadapt">https://github.com/marcelm/cutadapt</a> (source code)</span><br>
-Versions: <span class="module-version">1.2.1, 1.8.1, 3.4, <em>3.7</em></span><br>
+Versions: <span class="module-version">3.7, <em>4.9</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
@@ -1137,10 +1137,23 @@ local name = myModuleName()
 local version = myModuleVersion()
 whatis(&quot;Version: &quot; .. version)
 whatis(&quot;Keywords: sequencing, genome&quot;)
-whatis(&quot;URL: https://github.com/marcelm/cutadapt&quot;)
-whatis(&quot;Description: Cutadapt finds and removes adapter sequences, primers, poly-A tails and other types of unwanted sequence from your high-throughput sequencing reads. Example: `cutadapt --version` and `cutadapt --help`.&quot;)
+whatis(&quot;URL: https://cutadapt.readthedocs.io/en/stable/, https://github.com/marcelm/cutadapt/blob/main/CHANGES.rst (changelog), https://github.com/marcelm/cutadapt (source code)&quot;)
+whatis([[
+Description: Cutadapt finds and removes adapter sequences, primers, poly-A tails and other types of unwanted sequence from your high-throughput sequencing reads.
+Requirements: CentOS 7.
+Examples: `cutadapt --version` and `cutadapt --help`.
+]])
 
 local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
+-- Specific to the Linux distribution?
+if string.match(myFileName(), &quot;/_&quot; .. os.getenv(&quot;CBI_LINUX&quot;) .. &quot;/&quot;) then
+  root = pathJoin(root, &quot;_&quot; .. os.getenv(&quot;CBI_LINUX&quot;))
+end
+
+-- if os.getenv(&quot;CBI_LINUX&quot;) ~= &quot;centos7&quot; then
+--   LmodError(&quot;The '&quot; .. name .. &quot;' module is not yet supported on &quot; .. os.getenv(&quot;CBI_LINUX&quot;) .. &quot;. See https://github.com/HenrikBengtsson/CBI-software/issues/102 for updates on this problem.&quot;)
+-- end
+
 local home = pathJoin(root, name .. &quot;-&quot; .. version)
 prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 
