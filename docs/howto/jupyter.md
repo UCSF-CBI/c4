@@ -1,5 +1,3 @@
-{% include todo-rocky8.md %}
-
 # Jupyter Notebook
 
 ## Installing Jupyter Notebook
@@ -15,11 +13,10 @@ system, resulting in a slower startup performance.
 </div>
 
 Although you can install Jupyter via [Conda], we highly recommend to
-install using regular [Python] techniques. The following uses Python
-3.8 and is known to work:
+install using regular [Python] techniques. The following is known to
+work:
 
 ```sh
-[alice@{{ site.devel.name }} ~]$ module load CBI scl-rh-python/38
 [alice@{{ site.devel.name }} ~]$ python3 -m pip install --user notebook
 ```
 
@@ -75,37 +72,31 @@ Next, we launch Jupyter Notebook on the same development node:
 
 ```sh
 [alice@{{ site.devel.name }}]$ jupyter notebook --no-browser --port 47467
-[I 2024-03-25 17:53:39.431 ServerApp] Extension package jupyter_lsp took 0.4287s to import
-[I 2024-03-25 17:53:39.736 ServerApp] Extension package jupyter_server_terminals took 0.3046s to import
-[I 2024-03-25 17:53:43.576 ServerApp] jupyter_lsp | extension was successfully linked.
-[I 2024-03-25 17:53:43.589 ServerApp] jupyter_server_terminals | extension was successfully linked.
-[I 2024-03-25 17:53:43.602 ServerApp] jupyterlab | extension was successfully linked.
-[I 2024-03-25 17:53:43.615 ServerApp] notebook | extension was successfully linked.
-[I 2024-03-25 17:53:51.996 ServerApp] notebook_shim | extension was successfully linked.
-[I 2024-03-25 17:53:52.419 ServerApp] notebook_shim | extension was successfully loaded.
-[I 2024-03-25 17:53:52.424 ServerApp] jupyter_lsp | extension was successfully loaded.
-[I 2024-03-25 17:53:52.427 ServerApp] jupyter_server_terminals | extension was successfully loaded.
-[I 2024-03-25 17:53:52.436 LabApp] JupyterLab extension loaded from /c4/home/alice/.local/lib/python3.8/site-packages/jupyterlab
-[I 2024-03-25 17:53:52.436 LabApp] JupyterLab application directory is /c4/home/alice/.local/share/jupyter/lab
-[I 2024-03-25 17:53:52.439 LabApp] Extension Manager is 'pypi'.
-[I 2024-03-25 17:53:52.558 ServerApp] jupyterlab | extension was successfully loaded.
-[I 2024-03-25 17:53:52.566 ServerApp] notebook | extension was successfully loaded.
-[I 2024-03-25 17:53:52.567 ServerApp] Serving notebooks from local directory: /c4/home/alice
-[I 2024-03-25 17:53:52.567 ServerApp] Jupyter Server 2.13.0 is running at:
-[I 2024-03-25 17:53:52.567 ServerApp] http://localhost:47467/tree?token=8346ff9bc4adeaa2084870c63308962ef45e621cbfbfdb9e
-[I 2024-03-25 17:53:52.568 ServerApp]     http://127.0.0.1:47467/tree?token=8346ff9bc4adeaa2084870c63308962ef45e621cbfbfdb9e
-[I 2024-03-25 17:53:52.568 ServerApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
-[C 2024-03-25 17:53:52.745 ServerApp] 
-    
+[I 2024-03-20 14:48:45.693 ServerApp] jupyter_lsp | extension was successfully linked.
+[I 2024-03-20 14:48:45.698 ServerApp] jupyter_server_terminals | extension was successfully linked.
+[I 2024-03-20 14:48:45.703 ServerApp] jupyterlab | extension was successfully linked.
+[I 2024-03-20 14:48:45.708 ServerApp] notebook | extension was successfully linked.
+[I 2024-03-20 14:48:46.577 ServerApp] notebook_shim | extension was successfully linked.
+[I 2024-03-20 14:48:46.666 ServerApp] notebook_shim | extension was successfully loaded.
+[I 2024-03-20 14:48:46.668 ServerApp] jupyter_lsp | extension was successfully loaded.
+[I 2024-03-20 14:48:46.669 ServerApp] jupyter_server_terminals | extension was successfully loaded.
+[I 2024-03-20 14:48:46.675 LabApp] JupyterLab extension loaded from {{ site.user.home }}/.local/lib/python3.11/site-packages/jupyterlab
+[I 2024-03-20 14:48:46.675 LabApp] JupyterLab application directory is {{ site.user.home }}/.local/share/jupyter/lab
+[I 2024-03-20 14:48:46.677 LabApp] Extension Manager is 'pypi'.
+[I 2024-03-20 14:48:46.707 ServerApp] jupyterlab | extension was successfully loaded.
+[I 2024-03-20 14:48:46.711 ServerApp] notebook | extension was successfully loaded.
+[I 2024-03-20 14:48:46.712 ServerApp] Serving notebooks from local directory: {{ site.user.home }}
+[I 2024-03-20 14:48:46.712 ServerApp] Jupyter Server 2.13.0 is running at:
+[I 2024-03-20 14:48:46.712 ServerApp] http://localhost:44214/tree?token=8e37f8d62fca6a1c9b2da429f27df5ebcec706a808c3a8f2
+[I 2024-03-20 14:48:46.712 ServerApp]     http://127.0.0.1:44214/tree?token=8e37f8d62fca6a1c9b2da429f27df5ebcec706a808c3a8f2
+[I 2024-03-20 14:48:46.712 ServerApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[C 2024-03-20 14:48:46.725 ServerApp]
+
     To access the server, open this file in a browser:
-        file:///c4/home/alice/.local/share/jupyter/runtime/jpserver-32897-open.html
+        file://{{ site.user.home }}/.local/share/jupyter/runtime/jpserver-2853162-open.html
     Or copy and paste one of these URLs:
-        http://localhost:47467/tree?token=8346ff9bc4adeaa2084870c63308962ef45e621cbfbfdb9e
-        http://127.0.0.1:47467/tree?token=8346ff9bc4adeaa2084870c63308962ef45e621cbfbfdb9e
-[I 2024-03-25 17:53:58.855 ServerApp] Skipped non-installed server(s): bash-language-server, dockerfile-language-server-nodejs,
-javascript-typescript-langserver, jedi-language-server, julia-language-server, pyright, python-language-server, python-lsp-server,
-r-languageserver, sql-language-server, texlab, typescript-language-server, unified-language-server, vscode-css-languageserver-bin,
-vscode-html-languageserver-bin, vscode-json-languageserver-bin, yaml-language-server
+        http://localhost:44214/tree?token=8e37f8d62fca6a1c9b2da429f27df5ebcec706a808c3a8f2
+        http://127.0.0.1:44214/tree?token=8e37f8d62fca6a1c9b2da429f27df5ebcec706a808c3a8f2
 ```
 
 However, these instructions do _not_ work out of the box, because they
