@@ -1,0 +1,5 @@
+Is it "safe" to update `/etc/apptainer/apptainer.conf` when it comes to RPM updates?
+
+We're running Rocky 8 and install the official `apptainer` RPM. We're thinking about adding global bind to local scratch disk (where `TMPDIR` lives), i.e. `apptainer config global --set "bind path" /scratch`.  The only thing holding us back implementing this is concerns about future `apptainer` updates possibly (i) overwriting `/etc/apptainer/apptainer.conf`, or (ii) failing because of a conflicting "merge".  Are our concerned valid, or can we expect a smooth ride?
+
+
