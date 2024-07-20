@@ -1,0 +1,9 @@
+[alice@{{ site.devel.name }} ~]$ python3 -m pip install --user virtualenv
+Requirement already satisfied: virtualenv in /usr/local/lib/python3.11/site-packages (20.26.3)
+Requirement already satisfied: distlib<1,>=0.3.7 in /usr/local/lib/python3.11/site-packages (from virtualenv) (0.3.8)
+Requirement already satisfied: filelock<4,>=3.12.2 in /usr/local/lib/python3.11/site-packages (from virtualenv) (3.15.4)
+Requirement already satisfied: platformdirs<5,>=3.9.1 in /usr/local/lib/python3.11/site-packages (from virtualenv) (4.2.2)
+[alice@{{ site.devel.name }} ~]$ which virtualenv
+/usr/local/bin/virtualenv
+[alice@{{ site.devel.name }} ~]$ virtualenv --version
+virtualenv 20.26.3 from /usr/local/lib/python3.11/site-packages/virtualenv/__init__.py

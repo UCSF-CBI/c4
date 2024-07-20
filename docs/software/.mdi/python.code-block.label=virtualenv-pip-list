@@ -1,0 +1,7 @@
+(my_project) [alice@{{ site.devel.name }} my_project]$ python3 -m pip list
+Package    Version
+---------- -------
+pip        24.1
+setuptools 70.1.0
+wheel      0.43.0
+(my_project) [alice@{{ site.devel.name }} my_project]$ 
