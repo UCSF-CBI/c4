@@ -202,7 +202,7 @@ Apptainer> ls -dF "$TMPDIR"
 Apptainer> mktemp
 /scratch/alice/tmp.UfD7e9LlxV
 Apptainer> ls -dF {{ site.path.global_scratch }}/alice
-/wynton/scratch/alice/
+/c4/scratch/alice/
 Apptainer> ls {{ site.user.labfolder }}
 data1  data2
 ```
