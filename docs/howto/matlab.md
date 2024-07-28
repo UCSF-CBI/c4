@@ -1,7 +1,3 @@
-<div class="alert alert-danger" role="alert" style="margin-top: 3ex" markdown="1">
-2022-09-05: The MATLAB license server is down preventing us from using MATLAB on {{ site.cluster.name }}.  Attempts to update the license server have failed and it is not clear if and when it will be resolved.
-</div>
-
 # Work With MATLAB
 
 MATLAB is available on {{ site.cluster.name }} via a built-in  [environmental module]({{ '/software/software-modules.html' | relative_url }}).
@@ -22,10 +18,9 @@ MATLAB is selecting SOFTWARE OPENGL rendering.
 
 
                           < M A T L A B (R) >
-                Copyright 1984-2020 The MathWorks, Inc.
-                Copyright 1984-2020 The MathWorks, Inc.
-                R2020b (9.9.0.1467703) 64-bit (glnxa64)
-                            August 26, 2020
+                Copyright 1984-2024 The MathWorks, Inc.
+           R2024a Update 5 (24.1.0.2653294) 64-bit (glnxa64)
+                             June 24, 2024
 
  
 To get started, type doc.
