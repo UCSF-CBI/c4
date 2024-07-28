@@ -68,7 +68,7 @@ After this, the `R` and the `Rscript` commands are available on the search path 
 
 ```sh
 $ Rscript --version
-R scripting front-end version 4.0.3 (2020-10-10)
+Rscript (R) version 4.4.1 (2024-06-14)
 ```
 
 <div class="alert alert-warning" role="alert" markdown="1">
