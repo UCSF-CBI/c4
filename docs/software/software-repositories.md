@@ -74,17 +74,6 @@ Enable repository: <em>this software repository is always enabled</em><br>
 <dl>
   <dd class="module-details">
 Versions: <span class="module-version"><em>2021a</em></span><br>
-<details>
-<summary>Module code: <a>view</a></summary>
-<pre><code class="language-lua">#%Module 1.0
-
-module-whatis &quot;Language for technical computing&quot;
-prepend-path  PATH                /software/c4/matlab/2021a/bin
-setenv        MLM_LICENSE_FILE    27000@c4-license1
-
-</code></pre>
-
-</details>
   </dd>
 </dl>
 <h3 id="module_built-in_openjdk" class="module-name">openjdk</h3>
@@ -1979,43 +1968,6 @@ prepend_path(&quot;PATH&quot;, home)
 Example: <span class="module-example"><code>jags</code> and <code>man jags</code>.</span><br>
 URL: <span class="module-url"><a href="http://mcmc-jags.sourceforge.net/">http://mcmc-jags.sourceforge.net/</a>, <a href="https://sourceforge.net/p/mcmc-jags/code-0/ci/default/tree/NEWS">https://sourceforge.net/p/mcmc-jags/code-0/ci/default/tree/NEWS</a> (changelog), <a href="https://sourceforge.net/projects/mcmc-jags/">https://sourceforge.net/projects/mcmc-jags/</a> (source code)</span><br>
 Versions: <span class="module-version"><em>4.3.0</em></span><br>
-<details>
-<summary>Module code: <a>view</a></summary>
-<pre><code class="language-lua">help([[
-JAGS: Just Another Gibbs Sampler
-]])
-
-local name = myModuleName()
-local version = myModuleVersion()
-whatis(&quot;Version: &quot; .. version)
-whatis(&quot;Keywords: statistics&quot;)
-whatis(&quot;URL: http://mcmc-jags.sourceforge.net/, https://sourceforge.net/p/mcmc-jags/code-0/ci/default/tree/NEWS (changelog), https://sourceforge.net/projects/mcmc-jags/ (source code)&quot;)
-whatis([[
-Description: JAGS is Just Another Gibbs Sampler.  It is a program for analysis of Bayesian hierarchical models using Markov Chain Monte Carlo (MCMC) simulation not wholly unlike BUGS.
-Examples: `jags` and `man jags`.
-]])
-
-local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
-local home = pathJoin(root, &quot;JAGS&quot; .. &quot;-&quot; .. version)
-
-prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
-prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;share&quot;, &quot;man&quot;))
-prepend_path(&quot;LD_LIBRARY_PATH&quot;, pathJoin(home, &quot;lib&quot;))
-prepend_path(&quot;PKG_CONFIG_PATH&quot;, pathJoin(home, &quot;lib&quot;, &quot;pkgconfig&quot;))
-
--- AD HOC:
--- R package 'rjags' uses 'JAGS_LIBDIR' and 'JAGS_INCLUDEDIR' (INSTALL)
--- Comment: Appears not to be needed /HB 2020-03-09
--- pushenv(&quot;JAGS_INCLUDEDIR&quot;, pathJoin(home, &quot;include&quot;))
--- pushenv(&quot;JAGS_LIBDIR&quot;, pathJoin(home, &quot;lib&quot;))
-
--- R package 'runjags' uses 'JAGS_LIB' and 'JAGS_INCLUDE' (README)
--- Comment: Email maintainer about diff to 'rjags' /HB 2020-03-09
--- pushenv(&quot;JAGS_INCLUDE&quot;, pathJoin(home, &quot;include&quot;)) -- Not needed /HB 2020-03-09
-pushenv(&quot;JAGS_LIB&quot;, pathJoin(home, &quot;lib&quot;))
-</code></pre>
-
-</details>
   </dd>
 </dl>
 <h3 id="module_cbi_jq" class="module-name">jq</h3>
