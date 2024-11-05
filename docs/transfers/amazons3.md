@@ -61,18 +61,14 @@ To transfer files between AWS S3 and {{ site.cluster.nickname }}:
 
 This is very similar to Linux cp. You can use this to copy files from your C4 account to S3 or from S3 to your C4 storage. Be very careful with wildcards here, remember everything has a cost. When using `aws s3 cp` we reference the S3 bucket as s3://name-of-bucket 
 
-Example:
-
-**Copy eratosthenes.r from {{ site.cluster.nickname }} to S3**
+Example: **Copy eratosthenes.r from {{ site.cluster.nickname }} to S3**
 
 ```sh
 [carol@{{ site.transfer.name }} ~]$ aws s3 cp $HOME/eratosthenes.r s3://test-bucket
 upload: ./eratosthenes.r to s3://test-bucket/eratosthenes.r
 ```
 
-Example:
-
-**Copy eratosthenes.r from S3 to {{ site.cluster.nickname }} current working directory**
+Example: **Copy eratosthenes.r from S3 to {{ site.cluster.nickname }} current working directory**
 
 ```sh
 [carol@{{ site.transfer.name }} ~]$ aws s3 cp s3://test-bucket/eratosthenes.r ./
@@ -83,16 +79,9 @@ download: s3://test-bucket/eratosthenes.r to ./eratosthenes.r
 
 This can be quite useful for when you want to download the entire contents of an S3 bucket to your {{ site.cluster.nickname }} storage. Remember to assess the size and calculate costs before proceeding
 
-Example:
-
-**Synchronize the contents of s3://test-bucket with a directory called $HOME/test-bucket-local**
+Example: **Synchronize the contents of s3://test-bucket with a directory called $HOME/test-bucket-local**
 
 ```sh
 [carol@{{ site.transfer.name }} ~]$ aws s3 sync s3://test-bucket $HOME/test-bucket-local/
 download: s3://test-bucket/eratosthenes.r to test-bucket-local/eratosthenes.r
 ```
-
-
-[AWS Documentation]: https://docs.aws.amazon.com/index.html
-[AWS Configuration]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html
-[High Level S3 Commands]: https://docs.aws.amazon.com/cli/latest/userguide/cli-services-s3-commands.html
