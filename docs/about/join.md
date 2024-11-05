@@ -14,7 +14,7 @@ While it isn't required, a password manager is **HIGHLY** recommended. There are
 3. **RoboForm**: <https://roboform.com>
 4. **NordPass**: <https://nordpass.com>
 5. **Sticky Password**: <https://stickypassword.com>
-6. **LastPass**: <https://lastpass.com>
+6. **LastPass**: <https://www.lastpass.com>
 7. **RememBear**: <https://remembear.com>
 8. **ManageEngine Password Manager Pro**: <https://manageengine.com>
 
