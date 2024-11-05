@@ -16,7 +16,7 @@ These are communal forums - feel free to ask questions, answer questions, and pa
 
 If you have requests that you rather prefer to address directly to the system administrators, please don't hesitate dropping us an email.
 
-4. **{{ site.cluster.name }} System Administrators and Managers email list**
+4. **{{ site.cluster.name }} System Administrator**:
 
     - [**{{ site.cluster.email_admin }}**](mailto:{{ site.cluster.email_admin }})
 
