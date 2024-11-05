@@ -77,10 +77,8 @@ The cluster has development nodes for the purpose of validating scripts, prototy
 
 Node                        | Logical Cores |      RAM | Local `/scratch` | CPU x86-64 level |           CPU |                GPU |
 ----------------------------|--------------:|---------:|-----------------:|:-----------------|:---------------------------------|:-------------------|
-{{ site.dev1.hostname }}    |            48 |  384 GiB |         3.6  TiB | x86-64-v1        | AMD Opteron Processor 6176
-  |                    |
-{{ site.dev2.hostname }}    |            48 |  512 GiB |         1.1  TiB | x86-64-v1        | AMD Opteron Processor 6176
-  |                    |
+{{ site.dev1.hostname }}    |            48 |  384 GiB |         3.6  TiB | x86-64-v1        | AMD Opteron Processor 6176       |                    |
+{{ site.dev2.hostname }}    |            48 |  512 GiB |         1.1  TiB | x86-64-v1        | AMD Opteron Processor 6176       |                    |
 {{ site.dev3.hostname }}    |            38 |  128 GiB |         5.4  TiB | x86-64-v3        | Intel Xeon E5-2640 v4 2.40GHz    |                    |
 {{ site.gpudev1.hostname }} |           104 | 1024 GiB |          3.4 TiB | x86-64-v4        | Intel Xeon Gold 5320 2.20GHz     | Nvidia A40 GPU     |
 
