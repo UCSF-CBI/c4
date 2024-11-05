@@ -7,7 +7,7 @@ Any UCSF Cancer Center members and members of their labs can join the {{ site.cl
 3. Name of your HDFCCC lab or supervisor
 4. GitHub username (used for our issue tracker - to join, go to <https://github.com/join>)
 
-While it isn't required, a password manager is **HIGHLY** recommended. There are several options.
+While it isn't required, a password manager is **highly** recommended. There are several options:
 
 1. **1Password**: <https://1password.com>
 2. **Dashlane**: <https://dashlane.com>
@@ -18,7 +18,7 @@ While it isn't required, a password manager is **HIGHLY** recommended. There are
 7. **RememBear**: <https://remembear.com>
 8. **ManageEngine Password Manager Pro**: <https://manageengine.com>
 
-You can skip passwords by enabling SSH keys. <https://www.c4.ucsf.edu/howto/log-in-without-pwd.html> 
+You can skip passwords by enabling SSH keys; <https://www.c4.ucsf.edu/howto/log-in-without-pwd.html> 
 
 [sysadmin]: {{ '/about/contact.html' | relative_url }}
 [Roadmap]: {{ '/about/roadmap.html' | relative_url }}
