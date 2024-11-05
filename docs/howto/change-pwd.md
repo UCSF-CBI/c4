@@ -60,7 +60,3 @@ To reset your _{{ site.cluster.nickname }}_ password, for instance if you forgot
 <div class="alert alert-danger" role="alert" style="margin-top: 3ex" markdown="1">
 **Account are personal and login credentials must not be shared with others**. If detected, access to the account will be automatically disabled.  It is still possible and easy for multiple users to share and collaborate on the same folders and scripts.  Don't hesitate to ask if you don't know how to do this - we're here to help.
 </div>
-
-
-[RBVI Kerberos web interface]: https://www.cgl.ucsf.edu/admin/chpass.py
-[UCSF Enterprise Password Standard]: https://wiki.library.ucsf.edu/pages/viewpage.action?spaceKey=ITSI&title=Unified+UCSF+Enterprise+Password+Standard

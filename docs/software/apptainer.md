@@ -410,7 +410,6 @@ A. First of all, the filename extension is optional, and some prefer to drop the
 [Singularity]: https://sylabs.io/docs/
 [Singularity Container Image Format]: https://github.com/apptainer/sif
 [Docker]: https://www.docker.com/
-[Docker Hub]: https://hub.docker.com/
 [rocker/r-base]: https://hub.docker.com/r/rocker/r-base/
 [R]: https://www.r-project.org/
 [`%runscript`]: https://apptainer.org/docs/user/latest/definition_files.html

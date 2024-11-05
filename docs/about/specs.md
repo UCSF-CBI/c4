@@ -323,7 +323,5 @@ ttr:last-child { border-top: 2px solid #000; }
 
 [Rocky]: https://rockylinux.org/
 [Simple Linux Utility for Resource Management]: https://slurm.schedmd.com/
-[Pacific Research Platform]: https://ucsdnews.ucsd.edu/pressrelease/nsf_gives_green_light_to_pacific_research_platform
 [x86-64 microarchitecture levels]: https://www.wikipedia.org/wiki/X86-64#Microarchitecture_levels
-[wyntonquery]: https://github.com/UCSF-HPC/wyntonquery
 [host_table.tsv]: {{ '/assets/data/host_table.tsv' | relative_url }}

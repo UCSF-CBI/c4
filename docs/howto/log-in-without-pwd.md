@@ -174,5 +174,3 @@ With all of the above, you should now be able to log in to the cluster using:
 {local}$ ssh {{ site.login.hostname }}
 [alice@{{ site.login.name }} ~]$ 
 ```
-
-[UCSF VPN]: https://it.ucsf.edu/services/vpn

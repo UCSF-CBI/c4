@@ -338,6 +338,3 @@ Installing collected packages: pip
       Successfully uninstalled pip-20.3
 Successfully installed pip-20.3.4
 ```
-
-
-[SCL]: ../software/scl.html

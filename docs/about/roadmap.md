@@ -104,8 +104,5 @@
 
 See also [News].
 
-[TIPCC]: https://ucsf-ti.github.io/tipcc-web/
 [Wynton HPC]: https://wynton.ucsf.edu/hpc/
-[BeeGFS]: https://www.beegfs.io/
-[Globus]: https://www.globus.org/
 [News]: {{ '/about/news.html' | relative_url }}

@@ -708,10 +708,8 @@ install.packages("udunits2", configure.args="--with-udunits2-include=/usr/includ
 [MASS]: https://cran.r-project.org/package=MASS
 [Matrix]: https://cran.r-project.org/package=Matrix
 [pbdMPI]: https://cran.r-project.org/package=pbdMPI
-[pbdPROF]: https://cran.r-project.org/package=pbdPROF
 [rjags]: https://cran.r-project.org/package=rjags
 [Rmpi]: https://cran.r-project.org/package=Rmpi
-[tfevents]: https://cran.r-project.org/package=tfevents
 [udunits2]: https://cran.r-project.org/package=udunits2
 [zoo]: https://cran.r-project.org/package=zoo
 [limma]: https://bioconductor.org/packages/limma/

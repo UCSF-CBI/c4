@@ -85,4 +85,3 @@ dt {
 }
 </style>  
 
-[Software Repositories]: /hpc/software/software-repositories.html
