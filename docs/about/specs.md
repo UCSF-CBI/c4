@@ -24,16 +24,16 @@
 
 ## Summary of Compute Environment
 
-| Feature     | Login Nodes | Transfer Nodes          | Development Nodes | Compute Nodes |
-| ---- | ---------- | ----------------------- | ------------ | ---- |
-| SSH access from outside of cluster | Within UCSF only, incl. UCSF VPN | Within UCSF only, incl. UCSF VPN | no | no |
-| SSH access from inside of cluster | ✓ | ✓ | ✓ | (✓) only for troubleshooting |
-| Outbound access | No restrictions | HTTP/HTTPS, FTP/FTPS, SSH, SFTP, GIT+SSH, Globus | Via proxy: HTTP/HTTPS, GIT+SSH | no |
-| Network speed | 1 Gbps | 10 Gbps | 1 Gbps | 1,10 Gbps |
-| Core software | Minimal | Minimal | Rocky packages, compilers and source-code packages | Same as development nodes |
-| modules (software stacks) | no | no | ✓ | ✓ |
-| Global file system | ✓ | ✓ | ✓ | ✓ |
-| Job submission | ✓ | no | ✓ | ✓ |
+| Feature     | Login Nodes | Transfer Nodes          | Development Nodes                                                                                                                          | Compute Nodes |
+| ---- | ---------- | ----------------------- |--------------------------------------------------------------------------------------------------------------------------------------------| ---- |
+| SSH access from outside of cluster | Within UCSF only, incl. UCSF VPN | Within UCSF only, incl. UCSF VPN | no                                                                                                                                         | no |
+| SSH access from inside of cluster | ✓ | ✓ | ✓                                                                                                                                          | (✓) only for troubleshooting |
+| Outbound access | No restrictions | HTTP/HTTPS, FTP/FTPS, SSH, SFTP, GIT+SSH, Globus | No restrictions                                                                                                                            | no |
+| Network speed | 1 Gbps | 10 Gbps | 1 Gbps                                                                                                                                     | 1,10 Gbps |
+| Core software | Minimal | Minimal | Rocky packages, compilers and source-code packages                                                                                         | Same as development nodes |
+| modules (software stacks) | no | no | ✓                                                                                                                                          | ✓ |
+| Global file system | ✓ | ✓ | ✓                                                                                                                                          | ✓ |
+| Job submission | ✓ | no | ✓                                                                                                                                          | ✓ |
 | Purpose | Submit and query jobs. SSH to development nodes. File management. | Fast in- & outbound file transfers. File management. | Compile and install software. Prototype and test job scripts. Submit and query jobs. Version control (clone, pull, push). File management. | Running short and long-running job scripts. |                                                     
 
 <!--(\*) GIT+SSH access on development nodes is restricted to git.bioconductor.org, bitbucket.org, gitea.com, github.com / gist.github.com, gitlab.com, and git.ucsf.edu. -->
