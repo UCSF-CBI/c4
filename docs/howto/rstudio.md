@@ -123,13 +123,14 @@ one workaround we have found is to wipe the user's RStudio set up.
 For this, we recommend the to use:
 
 ```sh
-$ tar -cvf ~/rstudio-config.tar ~/.local/share/rstudio && rm -rf ~/.local/share/rstudio
+$ rsc reset --which=sessions
 ```
 
 This will create a local copy of your problematic RStudio set up in
-file `~/rstudio-config.tar`, and, only then, remove the actually
-settings.  The next time you call `rsc start`, you should start out
-with a fresh RStudio set up, and the login issue should be gone.
+file `rstudio-config_<timestamp>.tar`, and, only then, remove the
+actually settings.  The next time you call `rsc start`, you should
+start out with a fresh RStudio set up, and the login issue should be
+gone.
 
 
 
