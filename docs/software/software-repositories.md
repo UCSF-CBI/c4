@@ -1322,34 +1322,6 @@ Note: <span class="module-note">To install tab completions and key bindinds to y
 URL: <span class="module-url"><a href="https://github.com/junegunn/fzf">https://github.com/junegunn/fzf</a>, <a href="https://github.com/junegunn/fzf/wiki">https://github.com/junegunn/fzf/wiki</a> (documentation), <a href="https://github.com/junegunn/fzf/blob/master/CHANGELOG.md">https://github.com/junegunn/fzf/blob/master/CHANGELOG.md</a> (changelog), <a href="https://github.com/junegunn/fzf/releases">https://github.com/junegunn/fzf/releases</a> (download)</span><br>
 Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
 Versions: <span class="module-version">0.53.0, 0.55.0, <em>0.56.3</em></span><br>
-<details>
-<summary>Module code: <a>view</a></summary>
-<pre><code class="language-lua">help([[
-fzf: A Command-Line Fuzzy Finder
-]])
-
-local name = myModuleName()
-local version = myModuleVersion()
-whatis(&quot;Version: &quot; .. version)
-whatis(&quot;Keywords: , cli, tui, shell&quot;)
-whatis(&quot;URL: https://github.com/junegunn/fzf, https://github.com/junegunn/fzf/wiki (documentation), https://github.com/junegunn/fzf/blob/master/CHANGELOG.md (changelog), https://github.com/junegunn/fzf/releases (download)&quot;)
-whatis([[
-Description: fzf is a general-purpose command-line fuzzy finder. It's an interactive Unix filter for command-line that can be used with any list; files, command history, processes, hostnames, bookmarks, git commits, etc.
-Examples: `fzf --version` and `emacs &quot;$(fzf)&quot;`. Note: To install tab completions and key bindinds to your shell, call `$FZF_HOME/install`. To uninstall, use `$FZF_HOME/uninstall`.
-Warning: Only the most recent version of this software will be kept.
-]])
-
-local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
-local home = pathJoin(root, name .. &quot;-&quot; .. version)
-
-prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
-prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;man&quot;))
-
--- Custom
-pushenv(&quot;FZF_HOME&quot;, home)
-</code></pre>
-
-</details>
   </dd>
 </dl>
 <h3 id="module_cbi_gatk" class="module-name">gatk</h3>
