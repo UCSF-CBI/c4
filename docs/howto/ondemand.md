@@ -1,7 +1,3 @@
-<div class="alert alert-danger" role="alert" style="margin-top: 3ex" markdown="1">
-2022-12-14: Due to limited human resources, we have to disable the OnDemand server on 2022-12-28, but we hope to revive it during ~~2023~~ 2024.
-</div>
-
 # {{ site.cluster.name }} OnDemand
 
 [Open OnDemand] is a web-based framework with easy to use GUI interfaces for common cluster tasks. It is a well supported open-source project developed at the Ohio Supercomputer Center. We have integrated OnDemand with {{ site.cluster.name }} to provide an easy to use interface for interactive jobs. In addition to a file browser capable of moving files on and off the cluster, and a web-based {{ site.cluster.name }} terminal, we support interactive applications including:
