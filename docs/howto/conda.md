@@ -1,144 +1,179 @@
-<div class="alert alert-warning" role="alert" style="margin-top: 3ex" markdown="1">
-⚠️ 2022-10-28: **Beta version!** The instructions on this page are fresh and might be updated soon. That said, they have been validated and approved by a group of experienced Conda users. If you run into issues, please let us know.
-</div>
+<div class="alert alert-warning" role="alert" markdown="1">
 
-<div class="alert alert-warning" role="alert" style="margin-top: 3ex" markdown="1">
-⚠️ 2023-06-11: If you've used `module load CBI miniconda3-py39/4.12.0` in the past, please update to use `module load CBI miniconda3/4.12.0-py39` instead. It loads the same Conda version - it's just the module name structure that has been tidied up.
+2024-12-17: We no longer recommend using Anaconda or Miniconda that is
+distributed by Anaconda Inc., because of license issues. Anaconda
+Inc. argues that using their default package channels requires UCSF to
+acquire an enterprise license. If you used `module load CBI
+miniconda3` in the past, we therefore recommend that you use `module
+load CBI miniforge3` instead.
+
 </div>
 
 
 # Work with Conda
 
-[Conda] is a package manager and an environment management system.  It's popular, because it simplifies installation of many scientific software tools.  There are two main distributions of Conda:
+[Conda] is a package manager and an environment management system.
+It's popular, because it simplifies installation of many scientific
+software tools.  We recommend to use:
 
-1. Anaconda - comes with more than 1,500 scientific packages (~3 GiB of disk space) [_not_ preinstalled on {{ site.cluster.nickname }}]
-2. [Miniconda] - a small subset of the much larger Anaconda distribution (~0.5 GiB of disk space) [**recommended**; preinstalled on {{ site.cluster.nickname }}]
+1. [Miniforge] - a Conda alternative to the [Miniconda] (~0.5 GiB of
+   disk space), which defaults to the community-driven, libre-licensed
+   **[conda-forge]** channels [**recommended**; preinstalled on {{
+   site.cluster.nickname }}]
 
-Both come with Python and `conda` commands.  We _recommend_ working with the smaller Miniconda distribution, especially since it is preinstalled on {{ site.cluster.nickname }}.  Using Miniconda, you can install additional scientific packages as needed using the `conda install ...` command.
+It provides the `conda` and `python` commands, among other tools and
+libraries.
 
 **Note**: The aim of this document is to give the essential best-practices for working with Conda on {{ site.cluster.nickname }}. It is not meant to be a complete introduction on how to work with Conda in general. A good complement to this document, is the official Conda documentation on [Managing environments].
 
 
-## Loading Miniconda
+## Loading Miniforge
 
-On {{ site.cluster.name }}, up-to-date versions of the Miniconda distribution are available via the CBI software stack.  There is no need for you to install this yourself.  To load Miniconda v3 with Python 3.9, call:
+On {{ site.cluster.name }}, up-to-date versions of the Miniforge distribution are available via the CBI software stack.  There is no need for you to install this yourself.  To load Miniforge, call:
 
+<!-- code-block label="module-load-miniforge3" -->
 ```sh
-[alice@{{ site.devel.name }} ~]$ module load CBI miniconda3/23.3.1-0-py39
+[alice@{{ site.devel.name }} ~]$ module load CBI miniforge3/24.11.0-0
 ```
 
 This gives access to:
 
+<!-- code-block label="conda-version" -->
 ```sh
 [alice@{{ site.devel.name }} ~]$ conda --version
-
-conda 23.3.1
-
+conda 24.11.0
 [alice@{{ site.devel.name }} ~]$ python --version
-Python 3.9.16
+Python 3.12.8
 ```
 
-To see what software packages come with this Miniconda distribution, call:
+To see what software packages come with this distribution, call:
 
+<!-- code-block label="conda-list" -->
 ```sh
 [alice@{{ site.devel.name }} ~]$ conda list
-# packages in environment at {{ site.path.cbi_software }}/CBI/miniconda3-23.3.1-0-py39:
+# packages in environment at /software/c4/cbi/software/miniforge3-24.11.0-0:
 #
 # Name                    Version                   Build  Channel
-_libgcc_mutex             0.1                        main  
-_openmp_mutex             5.1                       1_gnu  
-boltons                   23.0.0           py39h06a4308_0  
-brotlipy                  0.7.0           py39h27cfd23_1003  
-ca-certificates           2023.01.10           h06a4308_0  
-certifi                   2022.12.7        py39h06a4308_0  
-cffi                      1.15.1           py39h5eee18b_3  
-charset-normalizer        2.0.4              pyhd3eb1b0_0  
-conda                     23.3.1           py39h06a4308_0  
-conda-content-trust       0.1.3            py39h06a4308_0  
-conda-package-handling    2.0.2            py39h06a4308_0  
-conda-package-streaming   0.7.0            py39h06a4308_0  
-cryptography              39.0.1           py39h9ce1e76_0  
-idna                      3.4              py39h06a4308_0  
-jsonpatch                 1.32               pyhd3eb1b0_0  
-jsonpointer               2.1                pyhd3eb1b0_0  
-ld_impl_linux-64          2.38                 h1181459_1  
-libffi                    3.4.2                h6a678d5_6  
-libgcc-ng                 11.2.0               h1234567_1  
-libgomp                   11.2.0               h1234567_1  
-libstdcxx-ng              11.2.0               h1234567_1  
-ncurses                   6.4                  h6a678d5_0  
-openssl                   1.1.1t               h7f8727e_0  
-packaging                 23.0             py39h06a4308_0  
-pip                       23.0.1           py39h06a4308_0  
-pluggy                    1.0.0            py39h06a4308_1  
-pycosat                   0.6.4            py39h5eee18b_0  
-pycparser                 2.21               pyhd3eb1b0_0  
-pyopenssl                 23.0.0           py39h06a4308_0  
-pysocks                   1.7.1            py39h06a4308_0  
-python                    3.9.16               h7a1cb2a_2  
-readline                  8.2                  h5eee18b_0  
-requests                  2.28.1           py39h06a4308_1  
-ruamel.yaml               0.17.21          py39h5eee18b_0  
-ruamel.yaml.clib          0.2.6            py39h5eee18b_1  
-setuptools                65.6.3           py39h06a4308_0  
-six                       1.16.0             pyhd3eb1b0_1  
-sqlite                    3.41.1               h5eee18b_0  
-tk                        8.6.12               h1ccaba5_0  
-toolz                     0.12.0           py39h06a4308_0  
-tqdm                      4.65.0           py39hb070fc8_0  
-tzdata                    2023c                h04d1e81_0  
-urllib3                   1.26.15          py39h06a4308_0  
-wheel                     0.38.4           py39h06a4308_0  
-xz                        5.2.10               h5eee18b_1  
-zlib                      1.2.13               h5eee18b_0  
-zstandard                 0.19.0           py39h5eee18b_0  
+_libgcc_mutex             0.1                 conda_forge    conda-forge
+_openmp_mutex             4.5                       2_gnu    conda-forge
+archspec                  0.2.3              pyhd8ed1ab_0    conda-forge
+boltons                   24.0.0             pyhd8ed1ab_1    conda-forge
+brotli-python             1.1.0           py312h2ec8cdc_2    conda-forge
+bzip2                     1.0.8                h4bc722e_7    conda-forge
+c-ares                    1.34.3               hb9d3cd8_1    conda-forge
+ca-certificates           2024.8.30            hbcca054_0    conda-forge
+certifi                   2024.8.30          pyhd8ed1ab_0    conda-forge
+cffi                      1.17.1          py312h06ac9bb_0    conda-forge
+charset-normalizer        3.4.0              pyhd8ed1ab_1    conda-forge
+colorama                  0.4.6              pyhd8ed1ab_1    conda-forge
+conda                     24.11.0         py312h7900ff3_0    conda-forge
+conda-libmamba-solver     24.9.0             pyhd8ed1ab_0    conda-forge
+conda-package-handling    2.4.0              pyha770c72_1    conda-forge
+conda-package-streaming   0.11.0             pyhd8ed1ab_0    conda-forge
+distro                    1.9.0              pyhd8ed1ab_0    conda-forge
+fmt                       11.0.2               h434a139_0    conda-forge
+frozendict                2.4.6           py312h66e93f0_0    conda-forge
+h2                        4.1.0              pyhd8ed1ab_1    conda-forge
+hpack                     4.0.0              pyhd8ed1ab_1    conda-forge
+hyperframe                6.0.1              pyhd8ed1ab_1    conda-forge
+idna                      3.10               pyhd8ed1ab_1    conda-forge
+jsonpatch                 1.33               pyhd8ed1ab_1    conda-forge
+jsonpointer               3.0.0           py312h7900ff3_1    conda-forge
+keyutils                  1.6.1                h166bdaf_0    conda-forge
+krb5                      1.21.3               h659f571_0    conda-forge
+ld_impl_linux-64          2.43                 h712a8e2_2    conda-forge
+libarchive                3.7.7                h4585015_2    conda-forge
+libcurl                   8.10.1               hbbe4b11_0    conda-forge
+libedit                   3.1.20191231         he28a2e2_2    conda-forge
+libev                     4.33                 hd590300_2    conda-forge
+libexpat                  2.6.4                h5888daf_0    conda-forge
+libffi                    3.4.2                h7f98852_5    conda-forge
+libgcc                    14.2.0               h77fa898_1    conda-forge
+libgcc-ng                 14.2.0               h69a702a_1    conda-forge
+libgomp                   14.2.0               h77fa898_1    conda-forge
+libiconv                  1.17                 hd590300_2    conda-forge
+liblzma                   5.6.3                hb9d3cd8_1    conda-forge
+libmamba                  1.5.11               hf72d635_0    conda-forge
+libmambapy                1.5.11          py312hf3f0a4e_0    conda-forge
+libnghttp2                1.64.0               h161d5f1_0    conda-forge
+libnsl                    2.0.1                hd590300_0    conda-forge
+libsolv                   0.7.30               h3509ff9_0    conda-forge
+libsqlite                 3.47.2               hee588c1_0    conda-forge
+libssh2                   1.11.1               hf672d98_0    conda-forge
+libstdcxx                 14.2.0               hc0a3c3a_1    conda-forge
+libstdcxx-ng              14.2.0               h4852527_1    conda-forge
+libuuid                   2.38.1               h0b41bf4_0    conda-forge
+libxcrypt                 4.4.36               hd590300_1    conda-forge
+libxml2                   2.13.5               h0d44e9d_1    conda-forge
+libzlib                   1.3.1                hb9d3cd8_2    conda-forge
+lz4-c                     1.10.0               h5888daf_1    conda-forge
+lzo                       2.10              hd590300_1001    conda-forge
+mamba                     1.5.11          py312h9460a1c_0    conda-forge
+menuinst                  2.2.0           py312h7900ff3_0    conda-forge
+ncurses                   6.5                  he02047a_1    conda-forge
+openssl                   3.4.0                hb9d3cd8_0    conda-forge
+packaging                 24.2               pyhd8ed1ab_2    conda-forge
+pip                       24.3.1             pyh8b19718_0    conda-forge
+platformdirs              4.3.6              pyhd8ed1ab_1    conda-forge
+pluggy                    1.5.0              pyhd8ed1ab_1    conda-forge
+pybind11-abi              4                    hd8ed1ab_3    conda-forge
+pycosat                   0.6.6           py312h66e93f0_2    conda-forge
+pycparser                 2.22               pyh29332c3_1    conda-forge
+pysocks                   1.7.1              pyha55dd90_7    conda-forge
+python                    3.12.8          h9e4cc4f_1_cpython    conda-forge
+python_abi                3.12                    5_cp312    conda-forge
+readline                  8.2                  h8228510_1    conda-forge
+reproc                    14.2.5.post0         hb9d3cd8_0    conda-forge
+reproc-cpp                14.2.5.post0         h5888daf_0    conda-forge
+requests                  2.32.3             pyhd8ed1ab_1    conda-forge
+ruamel.yaml               0.18.6          py312h66e93f0_1    conda-forge
+ruamel.yaml.clib          0.2.8           py312h66e93f0_1    conda-forge
+setuptools                75.6.0             pyhff2d567_1    conda-forge
+tk                        8.6.13          noxft_h4845f30_101    conda-forge
+tqdm                      4.67.1             pyhd8ed1ab_0    conda-forge
+truststore                0.10.0             pyhd8ed1ab_0    conda-forge
+tzdata                    2024b                hc8b5060_0    conda-forge
+urllib3                   2.2.3              pyhd8ed1ab_1    conda-forge
+wheel                     0.45.1             pyhd8ed1ab_1    conda-forge
+yaml-cpp                  0.8.0                h59595ed_0    conda-forge
+zstandard                 0.23.0          py312hef9b889_1    conda-forge
+zstd                      1.5.6                ha6fb4c9_0    conda-forge
 ```
 
 
 ## Creating a Conda environment (required)
 
-A Conda _environment_ is a mechanism for installing extra software tools and versions beyond the base Miniconda distribution in a controlled manner.  When using the **miniconda3** module, a Conda environment must be used to install extra software. The following command creates a new `myjupyter` environment:
+A Conda _environment_ is a mechanism for installing extra software tools and versions beyond the base Miniforge distribution in a controlled manner.  When using the **miniforge3** module, a Conda environment must be used to install extra software. The following command creates a new `myjupyter` environment:
 
 ```sh
 [alice@{{ site.devel.name }} ~]$ conda create -n myjupyter notebook
+Channels:
+ - conda-forge
+Platform: linux-64
 Collecting package metadata (current_repodata.json): done
 Solving environment: done
 
 ## Package Plan ##
 
   environment location: {{ site.user.home }}/.conda/envs/myjupyter
-
+  
   added / updated specs:
     - notebook
-
-
-The following packages will be downloaded:
-
-    package                    |            build
-    ---------------------------|-----------------
-    anyio-3.5.0                |  py311h06a4308_0         214 KB
-    argon2-cffi-bindings-21.2.0|  py311h5eee18b_0          33 KB
-    ...
-    xz-5.4.2                   |       h5eee18b_0         642 KB
-    yaml-0.2.5                 |       h7b6447c_0          75 KB
-    ------------------------------------------------------------
-                                           Total:        67.6 MB
-
+    
 The following NEW packages will be INSTALLED:
 
-  _libgcc_mutex      pkgs/main/linux-64::_libgcc_mutex-0.1-main 
-  _openmp_mutex      pkgs/main/linux-64::_openmp_mutex-5.1-1_gnu 
+  _libgcc_mutex      conda-forge/linux-64::_libgcc_mutex-0.1-conda_forge
+  _openmp_mutex      conda-forge/linux-64::_openmp_mutex-4.5-2_gnu
   ...
-  zeromq             pkgs/main/linux-64::zeromq-4.3.4-h2531618_0 
-  zlib               pkgs/main/linux-64::zlib-1.2.13-h5eee18b_0 
+  zstandard          conda-forge/linux-64::zstandard-0.23.0-py312h3483029_0 
+  zstd               conda-forge/linux-64::zstd-1.5.6-ha6fb4c9_0 
 
 Proceed ([y]/n)? y
 
 
 Downloading and Extracting Packages
+
 ...
-jupyterlab_pygments- | 8 KB      | #################################### | 100% 
-jupyter_client-7.3.5 | 194 KB    | #################################### | 100% 
 Preparing transaction: done
 Verifying transaction: done
 Executing transaction: done
@@ -154,7 +189,7 @@ Executing transaction: done
 [alice@{{ site.devel.name }} ~]$ 
 ```
 
-By default, the environment is created in your home directory under `~/.conda/`.  To create the environment at a specific location, see [Managing environments] part of the official Conda documentation.  That section covers many useful topics such as removing a Conda environment, and creating an environment with a specific Python version.
+By default, the environment is created in your home directory under `~/.conda/envs/`.  To create the environment at a specific location, see [Managing environments] part of the official Conda documentation.  That section covers many useful topics such as removing a Conda environment, and creating an environment with a specific Python version.
 
 
 ## Activating a Conda environment (required)
@@ -162,10 +197,10 @@ By default, the environment is created in your home directory under `~/.conda/`.
 After an environment is created, the next time you log in to a development node, you can set `myjupyter` (or any other Conda environment you've created) as your active environment by calling:
 
 ```sh
-[alice@{{ site.devel.name }} ~]$ module load CBI miniconda3
+[alice@{{ site.devel.name }} ~]$ module load CBI miniforge3
 [alice@{{ site.devel.name }} ~]$ conda activate myjupyter
 (myjupyter) [alice@{{ site.devel.name }} ~]$ jupyter notebook --version
-6.5.4
+7.2.1
 
 (myjupyter) [alice@{{ site.devel.name }} ~]$ 
 ```
@@ -186,7 +221,7 @@ jupyter: command not found
 We highly recommend configuring Conda environment to be automatically staged only on the local disk whenever activated.  This results in your software running _significantly faster_.  Auto-staging is straightforward to configure using the `conda-stage` tool, e.g.
 
 ```sh
-[alice@{{ site.devel.name }} ~]$ module load CBI miniconda3
+[alice@{{ site.devel.name }} ~]$ module load CBI miniforge3
 [alice@{{ site.devel.name }} ~]$ module load CBI conda-stage
 [alice@{{ site.devel.name }} ~]$ conda activate myjupyter
 (myjupyter) [alice@{{ site.devel.name }} ~]$ conda-stage --auto-stage=enable
@@ -205,7 +240,7 @@ Once you have your Conda environment built, we recommend that you back up its co
 ```sh
 [alice@{{ site.devel.name }} ~]$ conda env export --name myjupyter | grep -v "^prefix: " > myjupyter.yml
 [alice@{{ site.devel.name }} ~]$ ls -l myjupyter.yml
--rw-rw-r-- 1 alice boblab 3597 Jun 11 03:48 myjupyter.yml
+-rw-rw-r-- 1 alice boblab 4982 Aug 21 17:56 myjupyter.yml
 ```
 
 This configuration file is useful:
@@ -239,8 +274,8 @@ name: myjupyter
 {local}$ conda env list
 # conda environments:
 #
-sandbox  {{ site.user.home }}/.conda/envs/sandbox
-base     /path/to/anaconda3
+myjupyter {{ site.user.home }}/.conda/envs/myjupyter
+base      /path/to/miniforge3
 ```
 
 When have confirmed that there is no name clash, we can restore the backed up environment on our local machine using:
@@ -304,10 +339,10 @@ If you see a `(base)` prefix in your prompt, then you have this set up and the C
 [alice@{{ site.devel.name }} ~]$ conda info | grep active
 conda info | grep active
      active environment : base
-    active env location : {{ site.user.home }}/miniconda3
+    active env location : {{ site.user.home }}/.conda
 ```
 
-This auto-activation might sound convenient, but we _strongly recommend_ against using it, because Conda software stacks have a great chance to cause conflicts (read: wreak havoc) with other software tools installed outside of Conda.  For example, people that have Conda activated and then run R via `module load CBI r`, often report on endless, hard-to-understand problems when trying to install common R packages.  Instead, we recommend to activate your Conda environments only when you need them, and leave them non-activated otherwise.  This will give you a much smoother day-to-day experience.  To clarify, if you never installed Conda yourself, and only used `module load CBI miniconda3-py39/23.3.1-0-py39`, then you should not have this problem.
+This auto-activation might sound convenient, but we _strongly recommend_ against using it, because Conda software stacks have a great chance to cause conflicts (read: wreak havoc) with other software tools installed outside of Conda.  For example, people that have Conda activated and then run R via `module load CBI r`, often report on endless, hard-to-understand problems when trying to install common R packages.  Instead, we recommend to activate your Conda environments only when you need them, and leave them non-activated otherwise.  This will give you a much smoother day-to-day experience.  To clarify, if you never installed Conda yourself, and only used `module load CBI miniforge3`, then you should not have this problem.
 
 To reconfigure Conda to no longer activate the 'base' Conda environment by default, call:
 
@@ -318,21 +353,21 @@ To reconfigure Conda to no longer activate the 'base' Conda environment by defau
 
 Next time you log in, the 'base' environment should no longer be activated by default.
 
-If you want to completely retire you personal Conda installation, and move on to only using `module load CBI miniconda3`, you can uninstall the Conda setup code that were injected to your `~/.bashrc` file by calling:
+If you want to completely retire you personal Conda installation, and move on to only using `module load CBI miniforge3`, you can uninstall the Conda setup code that were injected to your `~/.bashrc` file by calling:
 
 ```sh
 [alice@{{ site.devel.name }} ~]$ conda init --reverse
-no change     {{ site.user.home }}/miniconda3/condabin/conda
-no change     {{ site.user.home }}/miniconda3/bin/conda
-no change     {{ site.user.home }}/miniconda3/bin/conda-env
-no change     {{ site.user.home }}/miniconda3/bin/activate
-no change     {{ site.user.home }}/miniconda3/bin/deactivate
-no change     {{ site.user.home }}/miniconda3/etc/profile.d/conda.sh
-no change     {{ site.user.home }}/miniconda3/etc/fish/conf.d/conda.fish
-no change     {{ site.user.home }}/miniconda3/shell/condabin/Conda.psm1
-no change     {{ site.user.home }}/miniconda3/shell/condabin/conda-hook.ps1
-no change     {{ site.user.home }}/miniconda3/lib/python3.9/site-packages/xontrib/conda.xsh
-no change     {{ site.user.home }}/miniconda3/etc/profile.d/conda.csh
+no change     {{ site.user.home }}/.conda/condabin/conda
+no change     {{ site.user.home }}/.conda/bin/conda
+no change     {{ site.user.home }}/.conda/bin/conda-env
+no change     {{ site.user.home }}/.conda/bin/activate
+no change     {{ site.user.home }}/.conda/bin/deactivate
+no change     {{ site.user.home }}/.conda/etc/profile.d/conda.sh
+no change     {{ site.user.home }}/.conda/etc/fish/conf.d/conda.fish
+no change     {{ site.user.home }}/.conda/shell/condabin/Conda.psm1
+no change     {{ site.user.home }}/.conda/shell/condabin/conda-hook.ps1
+no change     {{ site.user.home }}/.conda/lib/python3.9/site-packages/xontrib/conda.xsh
+no change     {{ site.user.home }}/.conda/etc/profile.d/conda.csh
 modified      {{ site.user.home }}/.bashrc
 
 ==> For changes to take effect, close and re-open your current shell. <==
@@ -343,5 +378,7 @@ modified      {{ site.user.home }}/.bashrc
 
 [Conda]: https://conda.io
 [Miniconda]: https://docs.conda.io/en/latest/miniconda.html
+[Miniforge]: https://conda-forge.org/miniforge/
+[conda-forge]: https://conda-forge.org/
 [conda-stage]: conda-stage.html
 [Managing environments]: https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html
