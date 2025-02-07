@@ -8,7 +8,7 @@ The more accurately you can specify the required resources (memory, running time
 If you don’t know how much resources your job consumes, you can add a `sstat` statement to the end of your job script.  This will output a detailed summary of your job to the job output log. Here is an example of a job that runs R, draws 100 million random numbers and calculates their summary statistics. We also call the garbage collector 100 times to emulate some CPU processing to give the scheduler enough time to snapshot the job. At the end, we output the job summary.
 
 ```sh
-#!/bin/bash
+#! /bin/bash
 #SBATCH --export=NONE
 #SBATCH --mem=4G
 #SBATCH --time=00:05:00

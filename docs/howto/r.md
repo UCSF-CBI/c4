@@ -78,7 +78,7 @@ For example, to run the `my_script.R` script, the job script should at
 a minimum contain:
 
 ```sh
-#!/bin/bash
+#! /bin/bash
 #$ -S /bin/bash
 #$ -cwd
 

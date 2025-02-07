@@ -59,7 +59,7 @@ Note: For newer version of the Rocker container, we must add the `--server-user=
 
 
 ```sh
-#!/bin/bash
+#! /bin/bash
 #SBATCH --time=08:00:00
 #SBATCH --ntasks=2
 #SBATCH --mem=8192
@@ -86,7 +86,7 @@ END
 # personal libraries from any R installation in the host environment
 
 cat > "${workdir}"/rsession.sh <<END
-#!/bin/sh
+#! /bin/sh
 export OMP_NUM_THREADS=${SLURM_JOB_CPUS_PER_NODE}
 export R_LIBS_USER=~/R/%p-library/%v-rocker-rstudio
 exec rsession "\${@}"
