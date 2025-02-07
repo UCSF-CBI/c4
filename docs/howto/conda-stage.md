@@ -7,10 +7,10 @@ Currently, the **conda-stage** tool has only been tested with the Bash shell, an
 ## Stage Conda environment on local disk (highly recommended)
 
 <div class="alert alert-info" role="alert" markdown="1">
-Please, **stage your Conda environment to local disk!** [Your software and job scripts will run _much_ faster]({{ '/howto/conda-stage.html#benchmark-staged-conda-environment' | relative_url }}), and it will _significantly decrease the load on our global filesystem_ (BeeGFS). **It is a win-win for everyone!**
+Please, **stage your Conda environment to local disk!** [Your software and job scripts will run _much_ faster]({{ '/howto/conda-stage.html#benchmark-staged-conda-environment' | relative_url }}), and it will _significantly decrease the load on our global file system_. **It is a win-win for everyone!**
 </div>
 
-Working with a Conda environment that lives on _local disk_ greatly improves the performance.  This is because the local disk (`/scratch`) on the current machine is much faster than any network-based file system, including BeeGFS (`{{ site.path.global_root }}`) used on {{ site.cluster.nickname }}.  This is particularly beneficial when running many instances of a software tool, e.g. in job scripts.
+Working with a Conda environment that lives on _local disk_ greatly improves the performance.  This is because the local disk (`/scratch`) on the current machine is much faster than any network-based file system, including `{{ site.path.global_root }}` used on {{ site.cluster.nickname }}.  This is particularly beneficial when running many instances of a software tool, e.g. in job scripts.
 
 Staging a Conda environment to local disk is straightforward using the **[conda-stage]** tool.  All we have to do is configure the environment once, and from then on we can work with `conda activate ...` and `conda deactivate` as normal.
 
@@ -73,7 +73,7 @@ To convince ourselves that, at this point, everything runs off the local disk, t
 /scratch/alice/conda-stage-grWA/myjupyter/bin/jupyter
 ```
 
-**Success!** This means that these **software tools run much faster**, because they no longer rely on the much slower BeeGFS filesystem. Another advantage is that your Conda software stack **adds much less load to BeeGFS**, which otherwise can be quite significant when using Conda. This is a **win-win for everyone**. See '[Benchmark staged Conda environment]' below for some benchmark results.
+**Success!** This means that these **software tools run much faster**, because they no longer rely on the much slower global file system. Another advantage is that your Conda software stack **adds much less load to the global file system**, which otherwise can be quite significant when using Conda. This is a **win-win for everyone**. See '[Benchmark staged Conda environment]' below for some benchmark results.
 
 
 When deactivated, the staged environment is automatically unstaged and all of the temporary, staged files are automatically removed. No surprises here either;
@@ -156,7 +156,7 @@ user 1.42
 sys 0.76
 ```
 
-This test was conducted during a time when the cluster did indeed experience heavy load on the BeeGFS file system at the time.  The fact that `real` is much greater than `user + sys` suggests our process spends a lot of time just waiting.  **When staging to local disk, we can avoid being affected by this load.**  When running from the local disk, the same call takes less than a second;
+This test was conducted during a time when the cluster did indeed experience heavy load on the global file system at the time.  The fact that `real` is much greater than `user + sys` suggests our process spends a lot of time just waiting.  **When staging to local disk, we can avoid being affected by this load.**  When running from the local disk, the same call takes less than a second;
 
 ```sh
 [alice@{{ site.devel.name }} ~]$ conda activate myjupyter
@@ -219,14 +219,14 @@ $ grep -c 'stat("/scratch' jupyter.strace
 4021
 ```
 
-and only _one_ toward the BeeGFS file system (`{{ site.path.global_root }}`):
+and only _one_ toward the global file system (`{{ site.path.global_root }}`):
 
 ```sh
 $ grep -v 'stat("{{ site.path.global_root }}' jupyter.strace 
 stat("{{ site.user.home }}/.local/lib/python3.9/site-packages", 0x7ffc9a9ea820) = -1 ENOENT (No such file or directory)
 ```
 
-In other words, by staging the Conda environment to local disk, we saved ourselves, and the system, 4,021 queries to the BeeGFS file system. And, this only for the very simple `jupyter --version` call.
+In other words, by staging the Conda environment to local disk, we saved ourselves, and the system, 4,021 queries to the global file system. And, this only for the very simple `jupyter --version` call.
 
 
 [conda-stage]: https://github.com/HenrikBengtsson/conda-stage/
