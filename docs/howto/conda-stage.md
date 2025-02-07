@@ -97,7 +97,7 @@ INFO: Total unstage time: 0 seconds
 To work with staged conda environments in your job scripts, make sure to first configure it to do automatic staging interactively from a development node, e.g.
 
 ```sh
-#! /usr/bin/env bash
+#!/bin/bash
 
 conda activate myenv
 trap 'conda deactivate' EXIT
