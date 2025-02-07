@@ -21,4 +21,3 @@ While it isn't required, a password manager is **highly** recommended. There are
 You can skip passwords by enabling SSH keys; <https://www.c4.ucsf.edu/howto/log-in-without-pwd.html> 
 
 [sysadmin]: {{ '/about/contact.html' | relative_url }}
-[Roadmap]: {{ '/about/roadmap.html' | relative_url }}

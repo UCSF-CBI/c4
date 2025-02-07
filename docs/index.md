@@ -23,9 +23,7 @@ system and for which special priority is given.
 **The {{ site.cluster.name }} environment is available for _free_ to
 all HDFCCC researchers**.  To join, please follow the [instructions
 for requesting an account]({{ '/about/join.html' | relative_url }}).
-For technical details, please see the [Specifications] page and the
-[Roadmap]({{ '/about/roadmap.html' | relative_url }}) for where we are
-heading.
+For technical details, please see the [Specifications] page.
 
 **Please note**: The current {{ site.cluster.name }} environment is
 *not* certified for use with Protected Health Information (PHI).  Data
@@ -37,4 +35,3 @@ the [UCSF Privacy Office].
 
 [UCSF Privacy Office]: https://hipaa.ucsf.edu/
 [Specifications]: {{ '/about/specs.html' | relative_url }}
-[Roadmap]: {{ '/about/roadmap.html' | relative_url }}
