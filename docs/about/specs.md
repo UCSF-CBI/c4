@@ -27,7 +27,7 @@
 | Feature     | Login Nodes | Transfer Nodes          | Development Nodes                                                                                                                          | Compute Nodes |
 | ---- | ---------- | ----------------------- |--------------------------------------------------------------------------------------------------------------------------------------------| ---- |
 | SSH access from outside of cluster | Within UCSF only, incl. UCSF VPN | Within UCSF only, incl. UCSF VPN | no                                                                                                                                         | no |
-| SSH access from inside of cluster | ✓ | ✓ | ✓                                                                                                                                          | (✓) only for troubleshooting |
+| SSH access from inside of cluster | ✓ | ✓ | ✓                                                                                                                                          | no |
 | Outbound access | No restrictions | HTTP/HTTPS, FTP/FTPS, SSH, SFTP, GIT+SSH, Globus | No restrictions                                                                                                                            | no |
 | Network speed | 1 Gbps | 10 Gbps | 1 Gbps                                                                                                                                     | 1,10 Gbps |
 | Core software | Minimal | Minimal | Rocky packages, compilers and source-code packages                                                                                         | Same as development nodes |
