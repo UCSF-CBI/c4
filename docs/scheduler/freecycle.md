@@ -9,3 +9,14 @@ Use the `--partition=freecycle` flag with sbatch.
 ```sh
 [alice@{{ site.devel.name }} ~]$ sbatch --partition=freecycle my-slurm-script.sh
 ```
+
+
+If you run a freecycle job, and it gets terminated due the node owner launching jobs, you will see something like the below in your job scripts:
+
+```plain
+srun: Force Terminated job 557341
+slurmstepd: error: *** STEP 557341.0 ON c4-n12 CANCELLED AT 2025-03-11T13:26:25 DUE TO PREEMPTION ***
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+srun: error: Timed out waiting for job step to complete
+```
+
