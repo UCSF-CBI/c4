@@ -117,7 +117,6 @@ c4-n22    |           128 |   512 GiB |           2.6 TiB | x86-64-v4        |  
 c4-n23    |            64 |   512 GiB |           2.7 TiB | x86-64-v3        |   2.3 GHz | SSD  /scratch, 10 Gbps ethernet                      | Shannon Lab 
 c4-n24    |            64 |   512 GiB |           2.6 TiB | x86-64-v4        |   3.7 GHz | SSD  /scratch, 10 Gbps ethernet                      | Shannon Lab 
 c4-n25    |            64 |   512 GiB |           2.6 TiB | x86-64-v4        |   3.7 GHz | SSD  /scratch, 10 Gbps ethernet                      | Bastian Lab 
-c4-n26    |            48 |   256 GiB |           5.4 TiB | x86-64-v3        |   2.8 GHz | SATA /scratch, 10 Gbps ethernet                      | Bandyopadhyay Lab
 c4-n27    |            64 |   512 GiB |           3.2 TiB | x86-64-v4        |   2.1 GHz | SAS  /scratch, 10 Gbps ethernet                      | Kriegstein Lab 
 c4-n28    |            48 |   384 GiB |           5.4 TiB | x86-64-v3        |   2.8 GHz | SATA /scratch, 10 Gbps ethernet                      | Molinaro Lab
 c4-n29    |            48 |   384 GiB |           5.4 TiB | x86-64-v3        |   2.8 GHz | SATA /scratch, 10 Gbps ethernet                      | Molinaro Lab
