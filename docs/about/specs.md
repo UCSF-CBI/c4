@@ -135,6 +135,7 @@ c4-n39    |           104 |  1024 GiB |           3.4 TiB | x86-64-v4        |  
 c4-n40    |           160 |  1024 GiB |           3.5 TiB | x86-64-v4        |   2.3 GHz | SATA /scratch, 10 Gbps ethernet                      | Krummel Lab
 c4-n41    |           128 |  1024 GiB |           5.2 TiB | x86-64-v4        |   2.0 GHz | SATA /scratch, 10 Gbps ethernet                      | Krummel Lab
 c4-n42    |           160 |   768 GiB |           5.4 TiB | x86-64-v4        |   2.3 GHz | SATA /scratch, 10 Gbps ethernet                      | Vantveer Lab
+c4-n43    |           256 |  1024 GiB |           30  TiB | AMD EPYC 9554    |   3.1 GHz | SSD /scratch,  10 Gbps ethernet                      | Sweet-Cordero Lab
 
 <!--
 For additional details on the compute nodes, see the <a href="#details">Details</a> section below.
