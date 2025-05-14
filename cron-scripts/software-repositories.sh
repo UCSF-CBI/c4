@@ -16,7 +16,7 @@ type module
 
 ## Required software
 SOFTWARE_HOME=/software/c4/cbi/software
-PATH=${SOFTWARE_HOME}/R-4.4.1-gcc13/bin:$PATH
+PATH=${SOFTWARE_HOME}/_rocky8/R-4.4.3-gcc13/bin:$PATH
 
 ## Required R packages
 ## FIXME: Freeze an R package library with the required packages
