@@ -146,7 +146,7 @@ Using modules in scripts is straightforward, i.e. we need to load them in the sc
 However, in order to submit it to the job scheduler, we need to tell Slurm that the job should initiate the job like your shell.  This is done via Slurm option `--export=NONE`.  Here is an example job script `sum-using-r.sh` that illustrates this:
 
 ```sh
-#!/usr/bin/env bash
+#! /bin/bash
 #SBATCH --export=NONE      # required when using 'module'
 #SBATCH --mem=100M         # request 100 MiB of memory
 #SBATCH --time=00:01:00    # run for at most 1 minute

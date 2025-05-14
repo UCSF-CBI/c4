@@ -240,7 +240,7 @@ To run this as a batch job, we need to create a job script.
 
 ```sh
 [alice@{{ site.devel.name }} lxc]$ cat demo-apptainer.sh
-#!/usr/bin/bash
+#! /bin/bash
 #$ -S /bin/bash
 #$ -cwd
 #$ -j y

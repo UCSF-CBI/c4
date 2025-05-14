@@ -26,7 +26,7 @@ Here is how to use `/scratch`:
 Here is a script called `ex-scratch.sh` that requests 300 GiB of local `/scratch` space and 4 cores.  The script also shows how to copy input files over from the home (= `~/`) folder to the local scratch folder (TMPDIR) of whatever node the job ends up running on.  After processing of the input files is complete, the output files are moved from the local scratch (TMPDIR) to HOME.
 
 ```sh
-#!/bin/env bash
+#! /bin/env bash
 #SBATCH --nodes=1
 #SBATCH --ntasks=4
 #SBATCH --gres=scratch:300G

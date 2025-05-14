@@ -27,7 +27,7 @@
 | Feature     | Login Nodes | Transfer Nodes          | Development Nodes                                                                                                                          | Compute Nodes |
 | ---- | ---------- | ----------------------- |--------------------------------------------------------------------------------------------------------------------------------------------| ---- |
 | SSH access from outside of cluster | Within UCSF only, incl. UCSF VPN | Within UCSF only, incl. UCSF VPN | no                                                                                                                                         | no |
-| SSH access from inside of cluster | ✓ | ✓ | ✓                                                                                                                                          | (✓) only for troubleshooting |
+| SSH access from inside of cluster | ✓ | ✓ | ✓                                                                                                                                          | no |
 | Outbound access | No restrictions | HTTP/HTTPS, FTP/FTPS, SSH, SFTP, GIT+SSH, Globus | No restrictions                                                                                                                            | no |
 | Network speed | 1 Gbps | 10 Gbps | 1 Gbps                                                                                                                                     | 1,10 Gbps |
 | Core software | Minimal | Minimal | Rocky packages, compilers and source-code packages                                                                                         | Same as development nodes |
@@ -77,7 +77,6 @@ The cluster has development nodes for the purpose of validating scripts, prototy
 
 Node                        | Logical Cores |      RAM | Local `/scratch` | CPU x86-64 level |           CPU |                GPU |
 ----------------------------|--------------:|---------:|-----------------:|:-----------------|:---------------------------------|:-------------------|
-{{ site.dev1.hostname }}    |            48 |  384 GiB |         3.6  TiB | x86-64-v1        | AMD Opteron Processor 6176       |                    |
 {{ site.dev2.hostname }}    |            48 |  512 GiB |         1.1  TiB | x86-64-v1        | AMD Opteron Processor 6176       |                    |
 {{ site.dev3.hostname }}    |            38 |  128 GiB |         5.4  TiB | x86-64-v3        | Intel Xeon E5-2640 v4 2.40GHz    |                    |
 {{ site.gpudev1.hostname }} |           104 | 1024 GiB |          3.4 TiB | x86-64-v4        | Intel Xeon Gold 5320 2.20GHz     | Nvidia A40 GPU     |
@@ -118,7 +117,6 @@ c4-n22    |           128 |   512 GiB |           2.6 TiB | x86-64-v4        |  
 c4-n23    |            64 |   512 GiB |           2.7 TiB | x86-64-v3        |   2.3 GHz | SSD  /scratch, 10 Gbps ethernet                      | Shannon Lab 
 c4-n24    |            64 |   512 GiB |           2.6 TiB | x86-64-v4        |   3.7 GHz | SSD  /scratch, 10 Gbps ethernet                      | Shannon Lab 
 c4-n25    |            64 |   512 GiB |           2.6 TiB | x86-64-v4        |   3.7 GHz | SSD  /scratch, 10 Gbps ethernet                      | Bastian Lab 
-c4-n26    |            48 |   256 GiB |           5.4 TiB | x86-64-v3        |   2.8 GHz | SATA /scratch, 10 Gbps ethernet                      | Bandyopadhyay Lab
 c4-n27    |            64 |   512 GiB |           3.2 TiB | x86-64-v4        |   2.1 GHz | SAS  /scratch, 10 Gbps ethernet                      | Kriegstein Lab 
 c4-n28    |            48 |   384 GiB |           5.4 TiB | x86-64-v3        |   2.8 GHz | SATA /scratch, 10 Gbps ethernet                      | Molinaro Lab
 c4-n29    |            48 |   384 GiB |           5.4 TiB | x86-64-v3        |   2.8 GHz | SATA /scratch, 10 Gbps ethernet                      | Molinaro Lab
@@ -135,6 +133,7 @@ c4-n39    |           104 |  1024 GiB |           3.4 TiB | x86-64-v4        |  
 c4-n40    |           160 |  1024 GiB |           3.5 TiB | x86-64-v4        |   2.3 GHz | SATA /scratch, 10 Gbps ethernet                      | Krummel Lab
 c4-n41    |           128 |  1024 GiB |           5.2 TiB | x86-64-v4        |   2.0 GHz | SATA /scratch, 10 Gbps ethernet                      | Krummel Lab
 c4-n42    |           160 |   768 GiB |           5.4 TiB | x86-64-v4        |   2.3 GHz | SATA /scratch, 10 Gbps ethernet                      | Vantveer Lab
+c4-n43    |           256 |  1024 GiB |           30  TiB | AMD EPYC 9554    |   3.1 GHz | SSD /scratch,  10 Gbps ethernet                      | Sweet-Cordero Lab
 
 <!--
 For additional details on the compute nodes, see the <a href="#details">Details</a> section below.
@@ -151,7 +150,7 @@ The compute nodes can only be utilized by [submitting jobs via the scheduler]({{
 The {{ site.cluster.name }} cluster provides two types of scratch storage:
 
  * Local `/scratch/` - <span id="hosttable-summary-local-scratch2">{{ site.data.specs.local_scratch_size_min }}-{{ site.data.specs.local_scratch_size_max }} TiB/node</span> storage unique to each compute node (can only be accessed from the specific compute node).
- * Global `/c4/scratch/` - {{ site.data.specs.global_scratch_size_total }} TiB storage ([BeeGFS](https://www.beegfs.io/content/)) accessible from everywhere.
+ * Global `/c4/scratch/` - {{ site.data.specs.global_scratch_size_total }} TiB storage accessible from everywhere.
 
 There are no per-user quotas in these scratch spaces.  **Files not added or modified during the last two weeks will be automatically deleted** on a nightly basis.  Note, files with old timestamps that were "added" to the scratch place during this period will _not_ be deleted, which covers the use case where files with old timestamps are extracted from tar.gz file.  (Details: `tmpwatch --ctime --dirmtime --all --force` is used for the cleanup.)
 

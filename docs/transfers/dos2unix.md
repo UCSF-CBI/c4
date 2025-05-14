@@ -23,7 +23,7 @@ When you hit <kbd>ENTER</kbd> in text editor, the editor will add so called _inv
 Now, most software tools on Linux and macOS assumes LF line endings and will not handle CR+LF line endings.  So, say we create the following shell script file `script.sh` on an MS Windows machine:
 
 ```plain
-#! /usr/bin/env bash
+#! /bin/bash
 
 hostname
 ```
@@ -62,7 +62,7 @@ We can also "visualize" odd symbols, including the CR and LF symbols, by using `
 
 ```sh
 [alice@{{ site.devel.name }} ~]$ cat -A script.sh
-#! /usr/bin/env bash^M$
+#! /bin/bash^M$
 ^M$
 hostname^M$
 ```
@@ -97,7 +97,7 @@ Finally, we can use `cat -A` to visually confirm this:
 
 ```sh
 [alice@{{ site.devel.name }} ~]$ cat -A script.sh
-#! /usr/bin/env bash$
+#! /bin/bash$
 $
 hostname$
 ```

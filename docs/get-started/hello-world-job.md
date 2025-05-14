@@ -30,7 +30,7 @@ Further information with detailed examples on job submissions can be found on se
 In this example we will run compute jobs that outputs the name of the compute node that runs the job, waits ten seconds to emulate some processing, and the time it runs.  The name of the machine where the script runs is available in environment variable `HOSTNAME` (standard in Unix) and the current time can be queried by calling command `date`.  Here is a shell script `~/tests/hello_world` that writes a message, waits for ten seconds, and displays the date:
 
 ```sh
-#!/bin/env bash
+#! /bin/env bash
 
 echo "Hello world, I am running on node $HOSTNAME"
 sleep 10

@@ -11,7 +11,7 @@ It is probably easier to supply those options within the script itself using Slu
 Here is a `hi-there.sh` script that illustrates this:
 
 ```sh
-#!/bin/bash
+#! /bin/bash
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
 #SBATCH --mem=100M
@@ -127,7 +127,7 @@ By using `${SLURM_NTASKS:-1}`, instead of just `${SLURM_NTASKS}`, this script wi
 You can pass arguments to a job script similarly to how one passes argument to a script executed on the command line.  For example, the follow Bash script `script.sh`:
 
 ```sh
-#!/usr/bin/env bash
+#! /bin/bash
 #SBATCH --export=NONE
 #SBATCH --mem=50M 
 

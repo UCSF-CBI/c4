@@ -1,5 +1,3 @@
-## Dictionary of accepted words
-## 2024-07-02
 Ansible
 Apptainer
 AveCPU
@@ -10,6 +8,7 @@ Bastian
 BeeGFS
 Bengtsson
 BiocManager
+Bioconda
 Bioconductor
 Bioconductor's
 Biocontainers
@@ -93,6 +92,7 @@ OnDemand
 OpenGL
 OpenMPI
 Opteron
+PID
 PIs
 PROJ
 PUs
@@ -135,6 +135,7 @@ UCOP
 UCSF's
 UID
 VPN
+Vantveer
 VirtualGL
 WORDLIST
 Witte
@@ -218,6 +219,7 @@ kerbtest
 keypair
 lbl
 ldap
+libre
 libs
 limma
 linux
@@ -234,6 +236,7 @@ md
 mem
 microarchitecture
 miniconda
+miniforge
 misconfiguration
 mortem
 mpi
@@ -300,6 +303,7 @@ sstat
 stdout
 subfolder
 subtask
+sudo
 sysadms
 terra
 tiledb
@@ -315,7 +319,6 @@ userid
 uuid
 uuu
 valse
-Vantveer
 vglusers
 virtualenv
 virtualgl
@@ -328,5 +331,3 @@ xquartz
 xxxxxxx
 yaml
 yml
-Bioconda
-sudo
