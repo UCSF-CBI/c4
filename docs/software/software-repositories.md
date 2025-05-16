@@ -7,6 +7,7 @@ WARNING: Do _not_ update this file; it is automatically generated from software-
 <!-- markdownlint-disable-file MD012 -->
 <!-- markdownlint-disable-file MD022 -->
 <!-- markdownlint-disable-file MD023 -->
+<!-- markdownlint-disable-file MD046 -->
 
 
 
@@ -3573,7 +3574,7 @@ prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;bin&quot;))
 <span class="module-description">The RStudio Server is an integrated development environment (IDE) for R that can be used from the web browser.</span><br>
 Example: <span class="module-example"><code>rserver</code>.</span><br>
 URL: <span class="module-url"><a href="https://posit.co/products/open-source/rstudio/#rstudio-server">https://posit.co/products/open-source/rstudio/#rstudio-server</a>, <a href="https://www.rstudio.com/products/rstudio/release-notes/">https://www.rstudio.com/products/rstudio/release-notes/</a> (changelog), <a href="https://github.com/rstudio/rstudio/">https://github.com/rstudio/rstudio/</a> (source code)</span><br>
-Versions: <span class="module-version">2021.09.2-382, 2022.02.0-443, 2022.02.1-461, 2022.02.4-500, 2022.12.0-353, 2023.03.0-386, 2023.06.1-524, 2023.09.1-494, 2023.12.0-369, <em>2024.09.1-394</em></span><br>
+Versions: <span class="module-version">2021.09.2-382, 2022.02.0-443, 2022.02.1-461, 2022.02.4-500, 2022.12.0-353, 2023.03.0-386, 2023.06.1-524, 2023.09.1-494, 2023.12.0-369, 2024.09.1-394, <em>2024.12.1-563</em></span><br>
 <details>
 <summary>Module code: <a>view</a></summary>
 <pre><code class="language-lua">help([[
