@@ -30,16 +30,9 @@ in a second terminal from your local computer.
 Any R session started times out after being idle for 120 minutes.
 WARNING: You now have 10 minutes, until 2025-05-16 16:06:50-08:00, to
 connect and log in to the RStudio Server before everything times out.
-Your one-time random password for RStudio Server is: y+IWo7rfl7Z7MRCPI3Z4
 ```
 
-There are two things you should pay extra attention to here:
-
-1. The one-time random password that was generated
-
-2. The instructions how to log in to the cluster with SSH port forwarding
-
-You will need both below.
+Pay extra attention to instructions how to log in to the cluster with SSH port forwarding. You will need it below.
 
 
 
@@ -65,7 +58,7 @@ If you successfully completed the above two steps, and you made sure to use the 
 You will be presented with a 'Sign in to RStudio' web page where you need to enter:
 
 1. Your cluster username (e.g. `alice`)
-2. The one-time random password displayed in Step 1 (e.g. `y+IWo7rfl7Z7MRCPI3Z4`)
+2. Your cluster password (i.e. the same as when you SSH to the cluster)
 
 After clicking 'Sign In', you should be redirected to the RStudio interface.
 
