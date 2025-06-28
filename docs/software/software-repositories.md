@@ -59,7 +59,7 @@ Below are 3 software repositories, each providing a set of software tools.
 
 <ul class="nav nav-pills">
 <li class="active"><a data-toggle="pill" href="#button_repository_built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(2)</a></li>
-<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(102)</a></li>
+<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(103)</a></li>
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
@@ -139,7 +139,7 @@ prepend_path(&quot;CPATH&quot;, pathJoin(home, &quot;include&quot;))
 
 <div id="button_repository_cbi" class="tab-pane fade">
 
-<h2 id="repository_cbi">Module Software Repository: CBI (102)</h2>
+<h2 id="repository_cbi">Module Software Repository: CBI (103)</h2>
 
 Maintained by: Henrik Bengtsson, <a href="https://cbi.ucsf.edu">Computational Biology and Informatics</a><br>
 Enable repository: <code>module load CBI</code><br>
@@ -3668,6 +3668,51 @@ setenv(&quot;PORT4ME_PORT_COMMAND&quot;, &quot;netstat&quot;)
 </details>
   </dd>
 </dl>
+<h3 id="module_cbi_rust" class="module-name">rust</h3>
+<dl>
+  <dd class="module-details">
+<strong class="module-help">rust: The Rust Programming Language</strong><br>
+<span class="module-description">Rust is a general-purpose programming language emphasizing performance, type safety, and concurrency. It enforces memory safety, meaning that all references point to valid memory. It does so without a conventional garbage collector; instead, memory safety errors and data races are prevented by the &quot;borrow checker&quot;, which tracks the object lifetime of references at compile time.</span><br>
+Example: <span class="module-example"><code>rustc --help</code> and <code>cargo --help</code>.</span><br>
+URL: <span class="module-url"><a href="https://www.rust-lang.org/">https://www.rust-lang.org/</a>, <a href="https://www.rust-lang.org/learn">https://www.rust-lang.org/learn</a> (documentation), <a href="https://github.com/rust-lang/rust">https://github.com/rust-lang/rust</a> (source code), <a href="https://github.com/rust-lang/rust/releases/tag/1.86.0">https://github.com/rust-lang/rust/releases/tag/1.86.0</a> (releases)</span><br>
+Versions: <span class="module-version"><em>1.88.0</em></span><br>
+<details>
+<summary>Module code: <a>view</a></summary>
+<pre><code class="language-lua">help([[
+rust: The Rust Programming Language
+]])
+
+local name = myModuleName()
+local version = myModuleVersion()
+version = string.gsub(version, &quot;^[.]&quot;, &quot;&quot;) -- for hidden modules
+whatis(&quot;Version: &quot; .. version)
+whatis(&quot;Keywords: programming&quot;)
+whatis(&quot;URL: https://www.rust-lang.org/, https://www.rust-lang.org/learn (documentation), https://github.com/rust-lang/rust (source code), https://github.com/rust-lang/rust/releases/tag/1.86.0 (releases)&quot;)
+whatis([[
+Description: Rust is a general-purpose programming language emphasizing performance, type safety, and concurrency. It enforces memory safety, meaning that all references point to valid memory. It does so without a conventional garbage collector; instead, memory safety errors and data races are prevented by the &quot;borrow checker&quot;, which tracks the object lifetime of references at compile time.
+Examples: `rustc --help` and `cargo --help`.
+]])
+
+-- Local variables
+local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
+local home = pathJoin(root, name .. &quot;-&quot; .. version)
+
+-- Cargo
+prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;cargo/bin&quot;))
+prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;cargo/share/man&quot;))
+
+-- Rustc
+prepend_path(&quot;PATH&quot;, pathJoin(home, &quot;rustc/bin&quot;))
+prepend_path(&quot;MANPATH&quot;, pathJoin(home, &quot;rustc/share/man&quot;))
+prepend_path(&quot;LD_LIBRARY_PATH&quot;, pathJoin(home, &quot;rustc/lib&quot;))
+
+pushenv(&quot;RUSTFLAGS&quot;, &quot;--sysroot=&quot; .. pathJoin(home, &quot;rust-std-x86_64-unknown-linux-gnu&quot;))
+
+</code></pre>
+
+</details>
+  </dd>
+</dl>
 <h3 id="module_cbi_salmon" class="module-name">salmon</h3>
 <dl>
   <dd class="module-details">
@@ -4985,7 +5030,7 @@ prepend_path(&quot;PATH&quot;, home)
 
 <ul class="nav nav-pills">
 <li class="active"><a data-toggle="pill" href="#button_repository_built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(2)</a></li>
-<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(102)</a></li>
+<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(103)</a></li>
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
