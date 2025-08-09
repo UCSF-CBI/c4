@@ -59,7 +59,7 @@ Below are 3 software repositories, each providing a set of software tools.
 
 <ul class="nav nav-pills">
 <li class="active"><a data-toggle="pill" href="#button_repository_built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(2)</a></li>
-<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(103)</a></li>
+<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(104)</a></li>
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
@@ -139,7 +139,7 @@ prepend_path(&quot;CPATH&quot;, pathJoin(home, &quot;include&quot;))
 
 <div id="button_repository_cbi" class="tab-pane fade">
 
-<h2 id="repository_cbi">Module Software Repository: CBI (103)</h2>
+<h2 id="repository_cbi">Module Software Repository: CBI (104)</h2>
 
 Maintained by: Henrik Bengtsson, <a href="https://cbi.ucsf.edu">Computational Biology and Informatics</a><br>
 Enable repository: <code>module load CBI</code><br>
@@ -4408,6 +4408,42 @@ pushenv(&quot;PERL5LIB&quot;, pathJoin(home, &quot;share&quot;, &quot;perl5&quot
 </details>
   </dd>
 </dl>
+<h3 id="module_cbi_wush" class="module-name">wush</h3>
+<dl>
+  <dd class="module-details">
+<strong class="module-help">wush: Transfer Files Between Computers via Wireguard</strong><br>
+<span class="module-description"><code>wush</code> is a command line tool that lets you easily transfer files and open shells over a peer-to-peer WireGuard connection. Main features are: (a) No requirement to set up or trust a relay server for authentication; (b) Powered by WireGuard for secure, fast, and reliable connections; (c) Automatic peer-to-peer connections over UDP; (d) Endless possibilities; <code>rsync</code>, <code>ssh</code>, etc.</span><br>
+Example: <span class="module-example"><code>wush --help</code>, <code>wush serve</code>, and <code>wush cp local-file.txt</code>.</span><br>
+URL: <span class="module-url"><a href="https://github.com/coder/wush">https://github.com/coder/wush</a>, <a href="https://github.com/coder/wush/releases">https://github.com/coder/wush/releases</a> (releases)</span><br>
+Warning: <span class="module-warning">Only the most recent version of this software will be kept.</span><br>
+Versions: <span class="module-version"><em>0.4.1</em></span><br>
+<details>
+<summary>Module code: <a>view</a></summary>
+<pre><code class="language-lua">help([[
+wush: Transfer Files Between Computers via Wireguard
+]])
+
+local name = myModuleName()
+local version = myModuleVersion()
+whatis(&quot;Version: &quot; .. version)
+whatis(&quot;Keywords: utility, cli&quot;)
+whatis(&quot;URL: https://github.com/coder/wush, https://github.com/coder/wush/releases (releases)&quot;)
+whatis([[
+Description: `wush` is a command line tool that lets you easily transfer files and open shells over a peer-to-peer WireGuard connection. Main features are: (a) No requirement to set up or trust a relay server for authentication; (b) Powered by WireGuard for secure, fast, and reliable connections; (c) Automatic peer-to-peer connections over UDP; (d) Endless possibilities; `rsync`, `ssh`, etc.
+Examples: `wush --help`, `wush serve`, and `wush cp local-file.txt`.
+Warning: Only the most recent version of this software will be kept.
+]])
+
+-- Local variables
+local root = os.getenv(&quot;SOFTWARE_ROOT_CBI&quot;)
+local home = pathJoin(root, name .. &quot;-&quot; .. version)
+
+prepend_path(&quot;PATH&quot;, home)
+</code></pre>
+
+</details>
+  </dd>
+</dl>
 <h3 id="module_cbi_x86-64-level" class="module-name">x86-64-level</h3>
 <dl>
   <dd class="module-details">
@@ -5030,7 +5066,7 @@ prepend_path(&quot;PATH&quot;, home)
 
 <ul class="nav nav-pills">
 <li class="active"><a data-toggle="pill" href="#button_repository_built-in"><span style="font-weight: bold;">built-in</span>&nbsp;(2)</a></li>
-<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(103)</a></li>
+<li><a data-toggle="pill" href="#button_repository_cbi"><span style="font-weight: bold;">CBI</span>&nbsp;(104)</a></li>
 <li><a data-toggle="pill" href="#button_repository_wittelab"><span style="font-weight: bold;">WitteLab</span>&nbsp;(17)</a></li>
 </ul>
 
