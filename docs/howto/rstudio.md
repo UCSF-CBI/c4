@@ -96,19 +96,19 @@ start out with a fresh RStudio setup, and the login issue should be
 gone.
 
 
-### ERROR: Failed to check process PID 12345 on {{ site.dev1.hostname }} over SSH
+### ERROR: Failed to check process PID 12345 on {{ site.dev2.hostname }} over SSH
 
 If you get the following error when launching `rsc start`:
 
 ```sh
 [alice@{{ site.dev2.name }} ~]$ rsc start
-WARNING: Needs to SSH to {{ site.dev1.hostname }} to check whether process 2132343
+WARNING: Needs to SSH to {{ site.dev2.hostname }} to check whether process 2132343
 is still alive [{{ site.user.home }}/.config/rsc/rserver.hostname:
 21 bytes; 2024-09-28 15:56:13)]. If you don't have SSH key authentication set up,
 you will be asked to enter your account password below. The current machine is
 {{ site.dev2.hostname }}
-ERROR: Failed to check process PID 2132343 on {{ site.dev1.hostname }} over SSH. 
-Reason was: ssh: connect to host {{ site.dev1.hostname }} port 22: No route to host
+ERROR: Failed to check process PID 2132343 on {{ site.dev2.hostname }} over SSH. 
+Reason was: ssh: connect to host {{ site.dev2.hostname }} port 22: No route to host
 ```
 
 the reason is that `rsc start` tries to protect against launching more
@@ -118,7 +118,7 @@ another machine, it needs to access that machine via SSH, but if that
 fails you get the above error.
 
 To troubleshoot this, start by making sure you can SSH to {{
-site.dev1.hostname }}. (1) If you can login manually, do that and call
+site.dev2.hostname }}. (1) If you can login manually, do that and call
 `rsc stop` there. This should resolve the above problem.  (2) If you
 cannot access the machine, it could be that you have exhausted your
 CPU quota on that machine and it is very slow to respond. If you

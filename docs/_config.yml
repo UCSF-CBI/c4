@@ -36,8 +36,8 @@ login:
   hostname: "c4-log1.ucsf.edu"
   ip: "169.230.134.135"
 devel:
-  name: "c4-dev1"
-  hostname: "c4-dev1"
+  name: "c4-dev2"
+  hostname: "c4-dev2"
   ip: "NA.NA.NA.NA"
 transfer:
   name: "c4-dt1"
@@ -53,10 +53,6 @@ login2:
   name: "c4-log2"
   hostname: "c4-log2.ucsf.edu"
   ip: "169.230.134.136"
-dev1:
-  name: "c4-dev1"
-  hostname: "c4-dev1"
-  ip: "NA.NA.NA.NA"
 dev2:
   name: "c4-dev2"
   hostname: "c4-dev2"

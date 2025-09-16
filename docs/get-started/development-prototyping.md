@@ -12,7 +12,6 @@ Any shell session that has been idle for more than 24 hours will timeout and exi
 
 ## List of Development Nodes
 
- * {{ site.dev1.name }}
  * {{ site.dev2.name }}
  * {{ site.dev3.name }}
  * {{ site.gpudev1.name }}
