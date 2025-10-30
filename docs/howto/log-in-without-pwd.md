@@ -174,3 +174,6 @@ With all of the above, you should now be able to log in to the cluster using:
 {local}$ ssh {{ site.login.hostname }}
 [alice@{{ site.login.name }} ~]$ 
 ```
+
+
+[PuTTY]: https://www.chiark.greenend.org.uk/~sgtatham/putty/

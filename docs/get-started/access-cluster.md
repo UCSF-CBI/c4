@@ -83,7 +83,7 @@ Any shell session that has been idle for more than 24 hours will timeout and exi
 </div>
 
 
-[PuTTY]: https://www.putty.org/
+[PuTTY]: https://www.chiark.greenend.org.uk/~sgtatham/putty/
 [development node]: {{ '/get-started/development-prototyping.html' | relative_url }}
 [X2Go]: {{ 'howto/gui-x11fwd.html' | relative_url }}
 [Log in without Password]: {{ 'howto/log-in-without-pwd.html' | relative_url }}
