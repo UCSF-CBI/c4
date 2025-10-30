@@ -142,6 +142,119 @@ For additional details on the compute nodes, see the <a href="#details">Details<
 The compute nodes can only be utilized by [submitting jobs via the scheduler]({{ '/scheduler/submit-jobs.html' | relative_url }}).
 <!-- it is _not_ possible to explicitly log in to compute nodes. -->
 
+### GPU Nodes
+
+# GPU Usage Guide — A100 MIG Configuration on `c4-n38` and `c4-n39`
+
+## Overview
+
+The servers **`c4-n38`** and **`c4-n39`** each contain a single **NVIDIA A100 80GB PCIe GPU**.  
+Each GPU is currently configured into **seven MIG (Multi-Instance GPU) devices**, each providing roughly **10 GB of GPU memory**.  
+
+This configuration allows multiple GPU jobs to run **concurrently** on the same GPU, improving utilization and keeping workloads isolated from one another.
+
+---
+
+## What Is MIG (Multi-Instance GPU)?
+
+**MIG**, or *Multi-Instance GPU*, is a feature of NVIDIA’s A100 architecture.  
+It allows a single GPU to be divided into multiple isolated GPU “instances.”  
+Each instance behaves like an independent GPU with its own:
+
+- Dedicated HBM2 memory
+- Compute cores (SMs)
+- L2 cache and memory bandwidth
+- Scheduler and power/thermal controls
+
+As a result, multiple users or jobs can safely share one GPU without interfering with each other.
+
+---
+
+## Why We Use 7 MIG Instances
+
+Each A100 80 GB GPU is split into **7 × 1g.10gb** instances:
+- Each instance provides about **10 GB** of GPU RAM.
+- Together they use the full 80 GB of VRAM.
+
+### Benefits
+
+1. **Better Utilization**  
+   Without MIG, only a single process can occupy the GPU—even if it uses a small portion of its capacity.  
+   With MIG, **up to seven smaller jobs** can run at once, keeping the GPU busy.
+
+2. **Isolation**  
+   Each MIG device is hardware-isolated.  
+   A crash or memory overflow in one instance does *not* affect others.
+
+3. **Good Fit for Current Workloads**  
+   Most research and inference tasks use less than 10 GB of GPU memory, so this layout allows multiple experiments to run simultaneously.
+
+4. **Flexibility**  
+   The configuration can be changed if a project requires a larger GPU slice.  
+   You can request the full 80 GB GPU from the system administrator if needed.
+
+---
+
+## Checking GPU and MIG Usage
+
+Run:
+```bash
+$ nvidia-smi 
+Thu Oct 16 07:14:58 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 560.35.03              Driver Version: 560.35.03      CUDA Version: 12.6     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100 80GB PCIe          On  |   00000000:CA:00.0 Off |                   On |
+| N/A   67C    P0            183W /  300W |   45269MiB /  81920MiB |     N/A      Default |
+|                                         |                        |              Enabled |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| MIG devices:                                                                            |
++------------------+----------------------------------+-----------+-----------------------+
+| GPU  GI  CI  MIG |                     Memory-Usage |        Vol|        Shared         |
+|      ID  ID  Dev |                       BAR1-Usage | SM     Unc| CE ENC  DEC  OFA  JPG |
+|                  |                                  |        ECC|                       |
+|==================+==================================+===========+=======================|
+|  0    7   0   0  |              13MiB /  9728MiB    | 14      0 |  1   0    0    0    0 |
+|                  |                 0MiB / 16383MiB  |           |                       |
++------------------+----------------------------------+-----------+-----------------------+
+|  0    8   0   1  |            7548MiB /  9728MiB    | 14      0 |  1   0    0    0    0 |
+|                  |                 2MiB / 16383MiB  |           |                       |
++------------------+----------------------------------+-----------+-----------------------+
+|  0    9   0   2  |            7548MiB /  9728MiB    | 14      0 |  1   0    0    0    0 |
+|                  |                 2MiB / 16383MiB  |           |                       |
++------------------+----------------------------------+-----------+-----------------------+
+|  0   11   0   3  |            7540MiB /  9728MiB    | 14      0 |  1   0    0    0    0 |
+|                  |                 2MiB / 16383MiB  |           |                       |
++------------------+----------------------------------+-----------+-----------------------+
+|  0   12   0   4  |            7540MiB /  9728MiB    | 14      0 |  1   0    0    0    0 |
+|                  |                 2MiB / 16383MiB  |           |                       |
++------------------+----------------------------------+-----------+-----------------------+
+|  0   13   0   5  |            7540MiB /  9728MiB    | 14      0 |  1   0    0    0    0 |
+|                  |                 2MiB / 16383MiB  |           |                       |
++------------------+----------------------------------+-----------+-----------------------+
+|  0   14   0   6  |            7540MiB /  9728MiB    | 14      0 |  1   0    0    0    0 |
+|                  |                 2MiB / 16383MiB  |           |                       |
++------------------+----------------------------------+-----------+-----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0    8    0    3479490      C   python                                       7528MiB |
+|    0    9    0    3479493      C   python                                       7528MiB |
+|    0   11    0    3479524      C   python                                       7520MiB |
+|    0   12    0    3479535      C   python                                       7520MiB |
+|    0   13    0    3479546      C   python                                       7520MiB |
+|    0   14    0    3479557      C   python                                       7520MiB |
++-----------------------------------------------------------------------------------------+
+```
 
 ## File System
 
