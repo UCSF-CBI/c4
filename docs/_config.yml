@@ -61,6 +61,10 @@ dev3:
   name: "c4-dev3"
   hostname: "c4-dev3"
   ip: "NA.NA.NA.NA"
+dev4:
+  name: "c4-dev4"
+  hostname: "c4-dev4"
+  ip: "NA.NA.NA.NA"
 gpudev1:
   name: "c4-gpudev1"
   hostname: "c4-gpudev1"
