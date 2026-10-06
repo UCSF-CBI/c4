@@ -225,4 +225,4 @@ markin-shellcheck:
 
 check-markdown: markdownlint markdown-link-check
 
-check: check-here-links check-usernames spell check-markdown check-leftovers-from-Wynton
+check: check-here-links check-usernames spelling check-markdown check-leftovers-from-Wynton

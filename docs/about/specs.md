@@ -142,20 +142,18 @@ For additional details on the compute nodes, see the <a href="#details">Details<
 The compute nodes can only be utilized by [submitting jobs via the scheduler]({{ '/scheduler/submit-jobs.html' | relative_url }}).
 <!-- it is _not_ possible to explicitly log in to compute nodes. -->
 
-### GPU Nodes
+## GPU Nodes
 
-# GPU Usage Guide — A100 MIG Configuration on `c4-n38` and `c4-n39`
+### GPU Usage Guide — A100 MIG Configuration on `c4-n38` and `c4-n39`
 
-## Overview
+#### Overview
 
 The servers **`c4-n38`** and **`c4-n39`** each contain a single **NVIDIA A100 80GB PCIe GPU**.  
 Each GPU is currently configured into **seven MIG (Multi-Instance GPU) devices**, each providing roughly **10 GB of GPU memory**.  
 
 This configuration allows multiple GPU jobs to run **concurrently** on the same GPU, improving utilization and keeping workloads isolated from one another.
 
----
-
-## What Is MIG (Multi-Instance GPU)?
+#### What Is MIG (Multi-Instance GPU)?
 
 **MIG**, or *Multi-Instance GPU*, is a feature of NVIDIA’s A100 architecture.  
 It allows a single GPU to be divided into multiple isolated GPU “instances.”  
@@ -168,15 +166,14 @@ Each instance behaves like an independent GPU with its own:
 
 As a result, multiple users or jobs can safely share one GPU without interfering with each other.
 
----
-
-## Why We Use 7 MIG Instances
+#### Why We Use 7 MIG Instances
 
 Each A100 80 GB GPU is split into **7 × 1g.10gb** instances:
+
 - Each instance provides about **10 GB** of GPU RAM.
 - Together they use the full 80 GB of VRAM.
 
-### Benefits
+##### Benefits
 
 1. **Better Utilization**  
    Without MIG, only a single process can occupy the GPU—even if it uses a small portion of its capacity.  
@@ -193,11 +190,10 @@ Each A100 80 GB GPU is split into **7 × 1g.10gb** instances:
    The configuration can be changed if a project requires a larger GPU slice.  
    You can request the full 80 GB GPU from the system administrator if needed.
 
----
-
-## Checking GPU and MIG Usage
+#### Checking GPU and MIG Usage
 
 Run:
+
 ```bash
 $ nvidia-smi 
 Thu Oct 16 07:14:58 2025       
