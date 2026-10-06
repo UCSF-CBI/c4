@@ -1,3 +1,4 @@
+ARS
 Ansible
 Apptainer
 AveCPU
@@ -27,6 +28,7 @@ Cavazos
 CentOS
 Conda's
 Cordero
+CoreHPC
 Cq
 Csh
 Ctrl
@@ -40,6 +42,7 @@ EOF
 EOL
 EPEL
 EPYC
+FAC
 FASTQ
 Ferrin
 Fortran
@@ -77,6 +80,7 @@ LaTeX
 LastPass
 Lmod
 Lua
+MIG
 Macromolecular
 ManageEngine
 MaxDiskRead
@@ -85,7 +89,6 @@ MaxPages
 MaxRSS
 Mbps
 MiB
-MIG
 Moab
 Molinaro
 MyAccess
