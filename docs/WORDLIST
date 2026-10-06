@@ -19,6 +19,9 @@ CGL
 CLI
 CMD
 CMake
+CPUs
+CRAN
+CRLF
 CUDA
 Cavazos
 CentOS
@@ -39,18 +42,21 @@ EPEL
 EPYC
 FASTQ
 Ferrin
+Fortran
 Fung
 GCP
 GEOS
 GID
 GPUs
 GTX
+GUIs
 Gbps
 GeForce
 GiB
 GitLab
 Globus
 HB
+HBM
 HDFCCC
 HIPAA
 HOWTOs
@@ -67,6 +73,7 @@ Kriegstein
 Krita
 Krummel
 LF
+LaTeX
 LastPass
 Lmod
 Lua
@@ -81,6 +88,7 @@ MiB
 Moab
 Molinaro
 MyAccess
+NAS
 NFS
 NSF's
 NVMe
@@ -94,6 +102,7 @@ OnDemand
 OpenGL
 OpenMPI
 Opteron
+PCIe
 PID
 PIs
 PROJ
@@ -111,6 +120,7 @@ RememBear
 Rmpi
 Roadmap
 RoboForm
+SAS
 SATA
 SCLs
 SFTP
@@ -118,6 +128,7 @@ SGE
 SIF
 SIGKILL
 SMP
+SMs
 SSD
 SSDs
 SSL
@@ -129,14 +140,17 @@ Sochat
 Styrk
 Sylabs
 TBD
+TCP
 TIPCC
 TMPDIR
+Tcl
 TiB
 Toolset
 UCOP
 UCSF's
 UID
 VPN
+VRAM
 Vantveer
 VirtualGL
 WORDLIST
@@ -155,6 +169,7 @@ au
 aws
 bam
 barcode
+basename
 bashrc
 benchmarking
 bigGP
@@ -169,9 +184,11 @@ cp
 cpu
 cronjob
 cxx
+datasets
 de
 decrypt
 dev
+devel
 devtoolset
 distro
 distros
@@ -184,6 +201,7 @@ endcomment
 envvars
 eratosthenes
 ethernet
+executables
 failover
 favicon
 filesystem
@@ -208,6 +226,7 @@ hdf
 hostname
 howto
 hpc
+html
 http
 https
 igraph
@@ -226,6 +245,7 @@ libs
 limma
 linux
 listsrv
+localhost
 lwgeom
 lz
 mOdkwx
@@ -251,6 +271,7 @@ nds
 nlme
 nloptr
 ntasks
+ok
 ondemand
 openmpi
 parallelly
@@ -261,6 +282,8 @@ pc
 pdbMPI
 pre
 prebuilt
+prepend
+prepended
 pu
 pwd
 px
@@ -284,6 +307,7 @@ rsc
 rstudio
 rsync
 runscript
+runtime
 sacct
 salloc
 samtools
@@ -317,6 +341,7 @@ ucsf
 udunits
 underutilizing
 unstaged
+url
 userid
 uuid
 uuu
@@ -325,6 +350,7 @@ vglusers
 virtualenv
 virtualgl
 walltime
+webpage
 www
 wynton
 wyntonquery
