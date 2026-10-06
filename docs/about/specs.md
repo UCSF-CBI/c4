@@ -142,22 +142,17 @@ For additional details on the compute nodes, see the <a href="#details">Details<
 The compute nodes can only be utilized by [submitting jobs via the scheduler]({{ '/scheduler/submit-jobs.html' | relative_url }}).
 <!-- it is _not_ possible to explicitly log in to compute nodes. -->
 
-## GPU Nodes
+### GPU Nodes
 
-### GPU Usage Guide — A100 MIG Configuration on `c4-n38` and `c4-n39`
-
-#### Overview
-
-The servers **`c4-n38`** and **`c4-n39`** each contain a single **NVIDIA A100 80GB PCIe GPU**.  
-Each GPU is currently configured into **seven MIG (Multi-Instance GPU) devices**, each providing roughly **10 GB of GPU memory**.  
-
-This configuration allows multiple GPU jobs to run **concurrently** on the same GPU, improving utilization and keeping workloads isolated from one another.
-
-#### What Is MIG (Multi-Instance GPU)?
-
-**MIG**, or *Multi-Instance GPU*, is a feature of NVIDIA’s A100 architecture.  
-It allows a single GPU to be divided into multiple isolated GPU “instances.”  
-Each instance behaves like an independent GPU with its own:
+The servers **`c4-n38`** and **`c4-n39`** each contain a single NVIDIA
+A100 80GB PCIe GPU.  Each GPU is currently configured into **seven (7)
+Multi-Instance GPU (MIG) devices**, each providing roughly **10 GB of
+GPU memory**.  This configuration allows multiple GPU jobs to run
+**concurrently** on the same GPU, improving utilization and keeping
+workloads isolated from one another. A MIG is a feature of NVIDIA's
+A100 architecture, which allows a single GPU to be divided into
+multiple isolated GPU instances. Each instance behaves like an
+independent GPU with its own:
 
 - Dedicated HBM2 memory
 - Compute cores (SMs)
@@ -166,33 +161,23 @@ Each instance behaves like an independent GPU with its own:
 
 As a result, multiple users or jobs can safely share one GPU without interfering with each other.
 
-#### Why We Use 7 MIG Instances
+The reason why we use exactly seven MIGs is because each A100 80 GB GPU
+is split into **7 × 1g.10gb** instances:
 
-Each A100 80 GB GPU is split into **7 × 1g.10gb** instances:
+- Each instance provides about **10 GB** of GPU RAM
+- Together they use the full 80 GB of VRAM
 
-- Each instance provides about **10 GB** of GPU RAM.
-- Together they use the full 80 GB of VRAM.
+The benefits are:
 
-##### Benefits
+1. **Better Utilization**: Without MIG, only a single process can occupy the GPU - even if it uses a small portion of its capacity. With MIG, up to seven smaller jobs can run at once, keeping the GPU busy.
 
-1. **Better Utilization**  
-   Without MIG, only a single process can occupy the GPU—even if it uses a small portion of its capacity.  
-   With MIG, **up to seven smaller jobs** can run at once, keeping the GPU busy.
+2. **Isolation**: Each MIG device is hardware-isolated. A crash or memory overflow in one instance does *not* affect others.
 
-2. **Isolation**  
-   Each MIG device is hardware-isolated.  
-   A crash or memory overflow in one instance does *not* affect others.
+3. **Good Fit for Current Workloads**: Most research and inference tasks use less than 10 GB of GPU memory, so this layout allows multiple experiments to run simultaneously.
 
-3. **Good Fit for Current Workloads**  
-   Most research and inference tasks use less than 10 GB of GPU memory, so this layout allows multiple experiments to run simultaneously.
+4. **Flexibility**: he configuration can be changed if a project requires a larger GPU slice. You can request the full 80 GB GPU from the system administrator if needed.
 
-4. **Flexibility**  
-   The configuration can be changed if a project requires a larger GPU slice.  
-   You can request the full 80 GB GPU from the system administrator if needed.
-
-#### Checking GPU and MIG Usage
-
-Run:
+To check the GPU and MIG usage on a GPU node, run `nvidia-smi`, e.g.
 
 ```bash
 $ nvidia-smi 
