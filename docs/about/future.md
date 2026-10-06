@@ -7,9 +7,9 @@ Services](https://ars.ucsf.edu/) (ARS).  As part of that collaboration
 ARS would help support the system administration of the C4 HPC system
 and the room maintenance of the Diller data center.
 
-As part of the arrangement, no new servers would be purchased to add
+As part of the arrangement, no new servers will be purchased to add
 to C4.  Further, all equipment that is over ten years from being
-purchased would eventually be removed from the system.  There is,
+purchased will eventually be removed from the system.  There is,
 however, no end date for C4, unlike with for the [Wynton HPC
 environment](https://wynton.ucsf.edu/).  There is also no plan to shut
 down the Diller data center.
