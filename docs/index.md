@@ -1,6 +1,9 @@
 <div class="alert alert-info" role="alert" markdown="1">
 **NEWS**:<br/>
 
+2026-10-06: There is no plan to shut down the C4 cluster anytime
+soon - see [The Future of C4](/about/future.html) for details.
+
 2024-07-01: The C4 cluster has [migrated to Rocky 8
 Linux](/software/rocky-8-linux.html).<br>
 
